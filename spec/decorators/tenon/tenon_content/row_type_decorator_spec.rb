@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe TenonContent::RowDecorator do
-  let(:decorator) { TenonContent::RowDecorator.new(row_type) }
+describe Tenon::TenonContent::RowDecorator do
+  let(:decorator) { Tenon::TenonContent::RowDecorator.new(row_type) }
   let(:row_type) { double(:row_type_class => row_type_class) }
   let(:row_type_class) do
     double(
