@@ -2,7 +2,7 @@ module Tenon
   class TenonCallout < ActiveRecord::Base
     # Scopes, attachments, etc.
     include Tenon::Reorderable
-    default_scope -> { order(:list_order) }
+    default_scope { order(:list_order) }
 
     # Validations
     validates_presence_of :title, :icon, :uri, :button_text
