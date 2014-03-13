@@ -51,7 +51,8 @@ module Tenon
     end
 
     def style_prefix_for(item_asset)
-      "#{item_asset.item_type.underscore}_#{item_asset.asset_name}"
+      class_prefix = item_asset.item_type.underscore.gsub('/', '_')
+      "#{class_prefix}_#{item_asset.asset_name}"
     end
   end
 end

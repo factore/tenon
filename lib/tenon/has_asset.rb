@@ -19,7 +19,7 @@ module Tenon
           :has_one,
           "#{asset_name}_join".to_sym,
           -> { where(:asset_name => asset_name) },
-          :class_name => 'ItemAsset',
+          :class_name => 'Tenon::ItemAsset',
           :as => :item,
           :dependent => :destroy
         )
@@ -35,7 +35,7 @@ module Tenon
           if instance_variable_get("@#{asset_name}")
             instance_variable_get("@#{asset_name}")
           else
-            relation = ItemAsset.where(:item_type => self.class.to_s, :item_id => id, :asset_name => asset_name)
+            relation = Tenon::ItemAsset.where(:item_type => self.class.to_s, :item_id => id, :asset_name => asset_name)
             asset = relation.first.try(:asset).try(:attachment)
             if asset
               attach = ProxyAttachment.new(asset, self.class, asset_name)
@@ -52,7 +52,7 @@ module Tenon
           if instance_variable_get("@#{asset_name}_id")
             instance_variable_get("@#{asset_name}_id")
           else
-            relation = ItemAsset.where(:item_type => self.class.to_s, :item_id => id, :asset_name => asset_name)
+            relation = Tenon::ItemAsset.where(:item_type => self.class.to_s, :item_id => id, :asset_name => asset_name)
             relation.first.try(:asset_id)
           end
         end
@@ -77,7 +77,7 @@ module Tenon
       def build_asset_id_setter(asset_name)
         define_method("#{asset_name}_id=") do |val|
           unless val.blank?
-            asset = Asset.find(val)
+            asset = Tenon::Asset.find(val)
             send("create_#{asset_name}_join", { :asset_id => val })
             attachment = ProxyAttachment.new(asset.attachment, self.class, asset_name)
             instance_variable_set("@#{asset_name}_id", val)

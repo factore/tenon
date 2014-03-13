@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe CommentDecorator do
-  let (:cd) { CommentDecorator.new(comment) }
+describe Tenon::CommentDecorator do
+  let (:cd) { Tenon::CommentDecorator.new(comment) }
 
   describe '#email' do
     let(:comment) { double(author_email: 'test@test.com') }

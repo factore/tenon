@@ -30,7 +30,7 @@ describe Tenon::HasAsset do
 
     context 'when an avatar has been set on an unsaved dog' do
       before do
-        dog.avatar = fixture_file_upload('/files/test.png')
+        dog.avatar = fixture_file_upload('files/test.png')
       end
 
       it 'should be a Tenon::ProxyAttachment' do

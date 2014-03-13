@@ -36,7 +36,7 @@ describe Tenon::ProxyAttachment do
     let(:ad) { double(display_name: 'display') }
     let(:attachment) { double.as_null_object }
     before do
-      AssetDecorator.stub(:new) { ad }
+      Tenon::AssetDecorator.stub(:new) { ad }
     end
 
     it "should get the display name from the original asset" do

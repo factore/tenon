@@ -13,6 +13,7 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 RSpec.configure do |config|
   config.mock_with :rspec
   config.use_transactional_fixtures = true
+  config.fixture_path = "#{File.dirname(__FILE__)}/fixtures"
   config.infer_base_class_for_anonymous_controllers = false
   config.order = "random"
   config.backtrace_exclusion_patterns = [

@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe ApplicationDecorator do
-  let(:ad) { ApplicationDecorator.new(obj) }
-  let(:obj) { Post.new }
+describe Tenon::ApplicationDecorator do
+  let(:ad) { Tenon::ApplicationDecorator.new(obj) }
+  let(:obj) { Tenon::Post.new }
 
   describe '#edit_path' do
     it "should call url_for" do
-      expect(ad.h).to receive(:url_for).with [:edit, :tenon, obj]
+      expect(ad.h).to receive(:url_for).with [:edit, obj]
       ad.edit_path
     end
   end

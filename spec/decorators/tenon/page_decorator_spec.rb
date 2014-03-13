@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe PageDecorator do
-  let(:pd) { PageDecorator.new(page) }
+describe Tenon::PageDecorator do
+  let(:pd) { Tenon::PageDecorator.new(page) }
   describe "#option_title" do
     context "when a page has a depth of 0" do
       let(:page) { double(depth: 0, title: 'title') }

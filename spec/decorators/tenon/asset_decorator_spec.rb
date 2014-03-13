@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe AssetDecorator do
-  let(:ad) { AssetDecorator.new(asset) }
+describe Tenon::AssetDecorator do
+  let(:ad) { Tenon::AssetDecorator.new(asset) }
   let(:asset) { double.as_null_object }
 
   describe '#icon' do
@@ -48,7 +48,7 @@ describe AssetDecorator do
     it "should create an action_link" do
       args = [
         'Crop',
-        [:crop, :tenon, asset],
+        [:crop, asset],
         'crop',
         {
           :class => 'asset-crop',

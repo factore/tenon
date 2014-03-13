@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe EventDecorator do
-  let(:ed) { EventDecorator.new(event) }
-  let!(:time) { Time.now }
+describe Tenon::EventDecorator do
+  let(:ed) { Tenon::EventDecorator.new(event) }
+  let!(:time) { Time.now.at_beginning_of_day }
 
   describe '#display_date' do
     context 'a single day event' do

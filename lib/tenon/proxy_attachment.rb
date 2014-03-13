@@ -12,7 +12,7 @@ module Tenon
     end
 
     def display_name
-      AssetDecorator.new(@attachment.instance).display_name
+      Tenon::AssetDecorator.new(@attachment.instance).display_name
     end
 
     def url(style = :_original, *args)
