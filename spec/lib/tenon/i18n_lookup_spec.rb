@@ -41,16 +41,32 @@ describe Tenon::I18nLookup do
       Tenon::I18nLookup.class_variable_set :@@fields, nil
     end
 
-    it "should load the YAML" do
-      expect(YAML).to receive(:load) { {} }
-      Tenon::I18nLookup.fields
+    context "when the file exists" do
+      before do
+        File.stub(:exist?) { true }
+      end
+
+      it "should load the YAML" do
+        expect(YAML).to receive(:load) { {} }
+        Tenon::I18nLookup.fields
+      end
+
+      it "should symbolize the keys" do
+        yaml = double
+        YAML.stub(:load) { yaml }
+        expect(yaml).to receive(:recursive_symbolize_keys!)
+        Tenon::I18nLookup.fields
+      end
     end
 
-    it "should symbolize the keys" do
-      yaml = double
-      YAML.stub(:load) { yaml }
-      expect(yaml).to receive(:recursive_symbolize_keys!)
-      Tenon::I18nLookup.fields
+    context "when the file doens't exist" do
+      before do
+        File.stub(:exist?) { false }
+      end
+
+      it "should return an empty set of data" do
+        expect(Tenon::I18nLookup.fields).to eq({tables: {}})
+      end
     end
   end
 end

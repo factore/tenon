@@ -9,13 +9,21 @@ module Tenon
     end
 
     def self.fields
-      @@fields ||= YAML.load(config_file).recursive_symbolize_keys!
+      @@fields ||= self.set_fields
     end
 
     private
 
+    def self.set_fields
+      if File.exist?(config_file)
+        YAML.load(File.open(config_file)).recursive_symbolize_keys!
+      else
+        {tables: {}}
+      end
+    end
+
     def self.config_file
-      File.open(File.join(Rails.root, 'config/i18n_fields.yml'))
+      File.join(Rails.root, 'config/i18n_fields.yml')
     end
   end
 end
