@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313004616) do
+ActiveRecord::Schema.define(version: 20140313173920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -247,19 +247,19 @@ ActiveRecord::Schema.define(version: 20140313004616) do
   add_index "tenon_posts", ["updater_id"], name: "index_posts_on_updater_id", using: :btree
   add_index "tenon_posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
+  create_table "tenon_role_assignments", force: true do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+  end
+
+  add_index "tenon_role_assignments", ["role_id"], name: "index_tenon_role_assignments_on_role_id", using: :btree
+  add_index "tenon_role_assignments", ["user_id"], name: "index_tenon_role_assignments_on_user_id", using: :btree
+
   create_table "tenon_roles", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "tenon_roles_users", id: false, force: true do |t|
-    t.integer "user_id"
-    t.integer "role_id"
-  end
-
-  add_index "tenon_roles_users", ["role_id"], name: "index_roles_users_on_role_id", using: :btree
-  add_index "tenon_roles_users", ["user_id"], name: "index_roles_users_on_user_id", using: :btree
 
   create_table "tenon_subscriber_group_members", force: true do |t|
     t.integer  "subscriber_id"
