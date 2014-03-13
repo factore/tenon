@@ -18,7 +18,8 @@
 @import "tenon/mixins";
 
 // universal variables
-@import "tenon/colors";
+@import "tenon/colors-named";
+@import "tenon/colors-custom";
 @import "tenon/typography";
 @import "tenon/helpers";
 @import "tenon/styleguide";
