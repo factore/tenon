@@ -40,6 +40,12 @@
     margin: 0px auto;
     width: 90%;
 
+    .tenon-content {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
     .tn-tc-sizes {
       display: block;
       margin-bottom: 10px;
