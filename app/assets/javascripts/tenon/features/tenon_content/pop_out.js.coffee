@@ -8,7 +8,7 @@ class Tenon.features.tenonContent.PopOut
     e.preventDefault();
     $link = $(e.currentTarget)
     $template = $(JST['tenon/templates/tenon_content/popped_out']())
-    $wrap = $(e.currentTarget).next('.tn-tc-wrap')
+    $wrap = $link.closest('.tn-tc-main-actions').next('.tn-tc-wrap')
     $wrap.find('.tn-tc-pop-out-close').data('place', $link)
     $wrap.appendTo($template.find('.tn-tc-sizer'))
     $template.appendTo('body')
@@ -31,7 +31,7 @@ class Tenon.features.tenonContent.PopOut
     $link.closest('.tn-tc-wrap')
       .css('width', '')
       .removeClass('mobile-breakpoint')
-      .insertAfter($link.data('place'))
+      .insertAfter($link.data('place').closest('.tn-tc-main-actions'))
       .trigger('tenon.content.popped')
     $('.tn-tc-popped-out').remove();
 
