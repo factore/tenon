@@ -4,7 +4,7 @@ describe Tenon::WarningGenerator do
   let(:settings) { double.as_null_object }
   let(:wg) { Tenon::WarningGenerator.new }
   before do
-    stub_const("MySettings", settings)
+    stub_const("Tenon::MySettings", settings)
   end
 
   context "when there is no site title" do

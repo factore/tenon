@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe ItemAsset do
+describe Tenon::ItemAsset do
   describe '#reprocess_asset' do
-    let(:ia) { ItemAsset.new }
+    let(:ia) { Tenon::ItemAsset.new }
     let(:asset) { double }
     before do
-      ItemAsset.any_instance.stub(:asset) { asset }
+      Tenon::ItemAsset.any_instance.stub(:asset) { asset }
     end
 
     it 'should reload the asset and reprocess the attachment' do

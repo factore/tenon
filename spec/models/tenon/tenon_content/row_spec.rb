@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe TenonContent::Row do
-  let(:row) { TenonContent::Row.new }
+describe Tenon::TenonContent::Row do
+  let(:row) { Tenon::TenonContent::Row.new }
 
   describe '#set_row_type' do
     it 'should set the row type' do
@@ -21,7 +21,7 @@ describe TenonContent::Row do
 
   describe '#row_type_class' do
     before do
-      stub_const('TenonContent::RowTypes::TestType', test_type)
+      stub_const('Tenon::TenonContent::RowTypes::TestType', test_type)
     end
     let(:test_type) { double }
 

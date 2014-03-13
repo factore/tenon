@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Page do
-  let(:page) { Page.new }
+describe Tenon::Page do
+  let(:page) { Tenon::Page.new }
 
   describe "#subpages_for_menu" do
     context "a page with no subpages" do

@@ -1,27 +1,27 @@
 require 'spec_helper'
 
-describe Asset do
+describe Tenon::Asset do
   describe '.with_type' do
     %w{images videos}.each do |type|
       context "when type is #{type}" do
         it "should receive the proper args" do
           args = ['attachment_content_type LIKE ?', "%#{type.singularize}%"]
-          expect(Asset).to receive(:where).with(*args)
-          Asset.with_type(type)
+          expect(Tenon::Asset).to receive(:where).with(*args)
+          Tenon::Asset.with_type(type)
         end
       end
     end
 
     context "when the type is anything else" do
       it "should fall back on to .documents" do
-        expect(Asset).to receive(:documents)
-        Asset.with_type('foo')
+        expect(Tenon::Asset).to receive(:documents)
+        Tenon::Asset.with_type('foo')
       end
     end
   end
 
   describe '#is_image?' do
-    let(:asset) { Asset.new(attachment_content_type: content_type) }
+    let(:asset) { Tenon::Asset.new(attachment_content_type: content_type) }
     context 'when it is an image' do
       let(:content_type) { 'image/jpeg' }
       it 'should be true' do
@@ -38,7 +38,7 @@ describe Asset do
   end
 
   describe '#dimensions' do
-    let(:asset) { Asset.new }
+    let(:asset) { Tenon::Asset.new }
     let(:attachment) { double(styles: {thumbnail: 'foo'}) }
     before do
       asset.stub(:attachment) { attachment }
@@ -80,7 +80,7 @@ describe Asset do
   end
 
   describe '#cropping?' do
-    let(:asset) { Asset.new }
+    let(:asset) { Tenon::Asset.new }
 
     context 'when #crop_x is present' do
       it 'should be true' do

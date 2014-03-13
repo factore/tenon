@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Event do
+describe Tenon::Event do
   describe '.on' do
     let(:year) { 2014 }
     let(:month) { 3 }
@@ -13,8 +13,8 @@ describe Event do
           Time.mktime(year, month, day),
           Time.mktime(year, month, day) + 1.day
         ]
-        expect(Event).to receive(:where).with(*args) { Event }
-        Event.on(year, month, day)
+        expect(Tenon::Event).to receive(:where).with(*args) { Tenon::Event }
+        Tenon::Event.on(year, month, day)
       end
     end
 
@@ -25,8 +25,8 @@ describe Event do
           Time.mktime(year, month, nil),
           Time.mktime(year, month, nil) + 1.month
         ]
-        expect(Event).to receive(:where).with(*args) { Event }
-        Event.on(year, month, nil)
+        expect(Tenon::Event).to receive(:where).with(*args) { Tenon::Event }
+        Tenon::Event.on(year, month, nil)
       end
     end
 
@@ -37,21 +37,21 @@ describe Event do
           Time.mktime(year, nil, nil),
           Time.mktime(year, nil, nil) + 1.year
         ]
-        expect(Event).to receive(:where).with(*args) { Event }
-        Event.on(year, nil, nil)
+        expect(Tenon::Event).to receive(:where).with(*args) { Tenon::Event }
+        Tenon::Event.on(year, nil, nil)
       end
     end
 
     context 'when year and day are passed' do
       it "should raise an ArgumentError" do
-        expect { Event.on(year, nil, day) }.to raise_error(ArgumentError)
+        expect { Tenon::Event.on(year, nil, day) }.to raise_error(ArgumentError)
       end
     end
   end
 
   describe '#to_param' do
     it "should include the ID and the title" do
-      e = Event.new(title: 'Test Title')
+      e = Tenon::Event.new(title: 'Test Title')
       e.stub(:id) { 1 }
       expect(e.to_param).to eq('1-test-title')
     end
@@ -61,9 +61,9 @@ describe Event do
     it "should look for the first event whose start time is greater" do
       t = Time.now
       args = ['starts_at > ?', t]
-      expect(Event).to receive(:published) { Event }
-      expect(Event).to receive(:where).with(*args) { [] }
-      Event.new(starts_at: t).next
+      expect(Tenon::Event).to receive(:published) { Tenon::Event }
+      expect(Tenon::Event).to receive(:where).with(*args) { [] }
+      Tenon::Event.new(starts_at: t).next
     end
   end
 
@@ -71,9 +71,9 @@ describe Event do
     it "should look for the first event whose start time is greater" do
       t = Time.now
       args = ['starts_at < ?', t]
-      expect(Event).to receive(:published) { Event }
-      expect(Event).to receive(:where).with(*args) { [] }
-      Event.new(starts_at: t).previous
+      expect(Tenon::Event).to receive(:published) { Tenon::Event }
+      expect(Tenon::Event).to receive(:where).with(*args) { [] }
+      Tenon::Event.new(starts_at: t).previous
     end
   end
 end

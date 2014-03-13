@@ -1,0 +1,7 @@
+%p 
+  A new comment has been added to 
+  = link_to @post.title, post_url(@post)
+  
+%p{:style => "text-align:center"} --
+
+%p= simple_format(@comment.content)

@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Post do
+describe Tenon::Post do
   describe '#to_param' do
     it "should include the ID and the title" do
-      p = Post.new(title: 'Test Title')
+      p = Tenon::Post.new(title: 'Test Title')
       p.stub(:id) { 1 }
       expect(p.to_param).to eq('1-test-title')
     end
@@ -13,9 +13,9 @@ describe Post do
     it "should look for the first post whose created_at is greater" do
       t = Time.now
       args = ['created_at > ?', t]
-      expect(Post).to receive(:posted) { Post }
-      expect(Post).to receive(:where).with(*args) { [] }
-      Post.new(created_at: t).next
+      expect(Tenon::Post).to receive(:posted) { Tenon::Post }
+      expect(Tenon::Post).to receive(:where).with(*args) { [] }
+      Tenon::Post.new(created_at: t).next
     end
   end
 
@@ -23,14 +23,14 @@ describe Post do
     it "should look for the first event whose start time is greater" do
       t = Time.now
       args = ['created_at < ?', t]
-      expect(Post).to receive(:posted) { Post }
-      expect(Post).to receive(:where).with(*args) { [] }
-      Post.new(created_at: t).previous
+      expect(Tenon::Post).to receive(:posted) { Tenon::Post }
+      expect(Tenon::Post).to receive(:where).with(*args) { [] }
+      Tenon::Post.new(created_at: t).previous
     end
   end
 
   describe "posted?" do
-    let(:post) { Post.new(published: published, created_at: created_at) }
+    let(:post) { Tenon::Post.new(published: published, created_at: created_at) }
     context "when published and created_at in the past" do
       let(:published) { true }
       let(:created_at) { Date.today - 1.day }

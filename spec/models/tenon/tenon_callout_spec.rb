@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe TenonCallout do
+describe Tenon::TenonCallout do
   describe ".published" do
     it "should find callouts that are published" do
-      expect(TenonCallout).to receive(:where).with(published: true)
-      TenonCallout.published
+      expect(Tenon::TenonCallout).to receive(:where).with(published: true)
+      Tenon::TenonCallout.published
     end
   end
 end
