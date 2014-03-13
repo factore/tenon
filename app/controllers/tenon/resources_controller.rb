@@ -71,7 +71,8 @@ class Tenon::ResourcesController < Tenon::BaseController
   helper_method :resource
 
   def klass
-    "Tenon::#{singular_name.classify}".constantize
+    name = singular_name.classify
+    name.safe_constantize || "Tenon::#{name}".constantize
   end
 
   def resource=(val)
