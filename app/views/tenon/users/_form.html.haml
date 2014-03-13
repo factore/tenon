@@ -43,4 +43,4 @@
       - if @user.persisted?
         %hr
         .content
-          = link_to "Delete", [:tenon, @user], :data => {:method => :delete, :confirm => "Are you sure you want to delete this?"}, :class => 'delete-link'
+          = link_to "Delete", @user, :data => {:method => :delete, :confirm => "Are you sure you want to delete this?"}, :class => 'delete-link'
