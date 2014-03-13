@@ -6,8 +6,7 @@ Tenon.configure do |config|
   # present accurate sizing
   config.front_end = {
     :breakpoints => {
-      :full => 1400,
-      :desktop => 1024,
+      :desktop => 1400,
       :laptop => 960,
       :tablet => 768
     },
