@@ -5,7 +5,8 @@ module Tenon
     devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
     # Assets
-    has_and_belongs_to_many :roles
+    has_many :role_assignments
+    has_many :roles, through: :role_assignments
 
     # After a user is created, always give them the role of Member
     after_create :apply_member_role
