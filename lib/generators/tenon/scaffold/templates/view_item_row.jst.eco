@@ -1,0 +1,14 @@
+<li data-record-id="<%%= @<%= singular_name %>.id %>">
+  <div class="record-details">
+    <div class="record-title">
+      <strong>
+        <a href="<%%= @<%= singular_name %>.edit_path %>"><%%= @<%= singular_name %>.title %></a>
+      </strong>
+    </div>
+
+    <div class="record-actions">
+      <%%- @<%= singular_name %>.edit_link %>
+      <%%- @<%= singular_name %>.delete_link %>
+    </div>
+  </div>
+</li>

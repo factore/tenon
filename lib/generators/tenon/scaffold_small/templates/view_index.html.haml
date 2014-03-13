@@ -1,0 +1,21 @@
+- content_for :sidebar do
+  #new-<%= singular_name %>{:style => "display: none;"}
+    = render "form"
+
+  .sidebar
+    .content
+      %h2 <%= plural_name.titleize %>
+      = link_to "New <%= singular_name.titleize %>", '#', class: 'btn btn-block btn-info', data: {'modal-target' => '#new-<%= singular_name %>', 'modal-title' => 'New <%= singular_name.titleize %>'}
+
+%header
+  %h1 <%= plural_name.titleize %>
+
+  .tools
+    = render "tenon/shared/section_header/quick_search", record_list: '#<%= plural_name %>'
+
+  .spacer
+
+.main-content
+  .container
+    = error_messages_for :<%= singular_name %>
+    %ul#<%= plural_name %>.record-list{data: {records: {url: <%= plural_name %>_path(format: 'json'), template: 'tenon/templates/<%= plural_name %>/<%= singular_name %>_row', name: '<%= singular_name %>'}}}

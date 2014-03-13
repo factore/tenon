@@ -1,0 +1,26 @@
+<% collections = attributes.select {|a| a.name.match(/_id$/)}.map {|a| a.name.gsub(/_id$/, '')}.uniq -%>
+= form_for @<%= singular_name %>, builder: Tenon::FormBuilder, data: {modal: true, remote: true, type: 'json', record: '<%= singular_name %>'} do |f|
+  .modal-body
+    .fields.full
+<% collections.each do |c| %>
+      .form-group
+        = f.super_label :<%= c %>, '<%= c.titleize %>'
+        = f.collection_select :<%=c%>_id, @<%= c.pluralize %>, :id, :title, prompt: '--'
+<% end -%>
+
+<% attributes.reject {|a| a.field_type.to_s == "text_area" || ["timestamp", "datetime"].include?(a.type.to_s) }.reject {|a| a.name.match(/_id$/)}.each do |attribute| -%>
+<% if !attribute.name.match(/_content_type|_file_size|_file_name/) && !['list_order', 'published'].include?(attribute.name) -%>
+      .form-group
+        = f.text_field :<%= attribute.name %>
+<% end -%>
+<% end -%>
+
+<% attributes.select { |a| ["datetime", "timestamp"].include?(a.type.to_s) }.each do |f| -%>
+      .form-group
+        = f.text_field :<%= f.name %>, data: {behaviour: 'datetimepicker'}
+<% end -%>
+
+      .spacer
+
+  .modal-footer
+    = f.submit "Save", class: 'btn btn-primary'
