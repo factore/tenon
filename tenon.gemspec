@@ -14,9 +14,13 @@ Gem::Specification.new do |s|
   s.description = "A highly flexible mountable Rails CMS built for rapid application development."
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.test_files = Dir["spec/**/*"]
 
   s.add_development_dependency "pg", '0.17.0'
+  s.add_development_dependency 'spring'
+  s.add_development_dependency 'spring-commands-rspec'
+  s.add_development_dependency 'capybara', '~> 2.0.0'
+  s.add_development_dependency 'rspec-rails', '>= 2.0.1'
 
   s.add_dependency "rails", "~> 4.0"
   s.add_dependency "font-awesome-rails", '4.0.3.1'

@@ -1,0 +1,8 @@
+with_seo:
+  title: A Page with SEO
+  content: This page has some SEO fields.  <p>And HTML.</p>
+  seo_title: SEO Page Title
+  seo_keywords: "page,pages,super page"
+  seo_description: A page with some content and stuff
+  published: true
+  path: /a-page-with-seo
