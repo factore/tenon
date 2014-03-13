@@ -29,7 +29,7 @@ module Tenon
         links << link_to(name.to_s.titleize, '#', :class => 'btn btn-default', :data => { :size => size_for_breakpoint(size) })
       end
       last = Tenon.config.front_end[:breakpoints].values.last
-      links << link_to('Mobile', '#', :class => 'btn btn-default', :data => { :size => size_for_breakpoint(last - 1), :mobile => true })
+      links << link_to('Mobile', '#', :class => 'btn btn-default', :data => { :size => 320, :mobile => true })
       links.join('').html_safe
     end
 
