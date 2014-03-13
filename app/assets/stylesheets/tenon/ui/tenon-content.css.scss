@@ -21,6 +21,19 @@
   }
 }
 
+.tn-tc-main-actions {
+  a {
+    color: $tn-black;
+    text-transform: uppercase;
+    margin-right: 20px;
+    font-size: 16px;
+    span { font-size: 12px; }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
 .tenon-content {
   /*@import "variables";
   @import "styleguides/styleguide";

@@ -3,8 +3,14 @@
   Select rows from the library to build this section.
   You can format your text by highlighting it and selecting options from the pop-up menu.
 
-= link_to 'Add Content', '#', class: 'tn-tc-open-library btn btn-primary', 'data-modal-target' => '.tenon-library', 'data-modal-clone' => 'true', 'data-modal-title' => 'Add Row', 'data-association-insertion-node' => "##{field}-tenon-content", 'data-association-insertion-method' => 'prepend', 'data-modal-handler' => 'Tenon.features.tenonContent.Library'
-= link_to 'Open Preview Mode', '#', class: 'tn-tc-pop-out btn btn-info'
+.tn-tc-main-actions
+  = link_to '#', class: 'tn-tc-pop-out' do
+    = fa_icon('eye')
+    %span Open Preview Mode
+
+  = link_to '#', class: 'tn-tc-open-library', 'data-modal-target' => '.tenon-library', 'data-modal-clone' => 'true', 'data-modal-title' => 'Add Content', 'data-association-insertion-node' => "##{field}-tenon-content", 'data-association-insertion-method' => 'prepend', 'data-modal-handler' => 'Tenon.features.tenonContent.Library' do
+    = fa_icon('plus-circle')
+    %span Add Content
 
 .tn-tc-wrap
   .tn-tc-sizes
