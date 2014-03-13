@@ -1,0 +1,29 @@
+- content_for :sidebar do
+  #new-asset{:style => "display: none;"}= render "form", multiple: true
+  .sidebar
+    .content
+      %h2 Asset Library
+      = link_to "Upload New", '#', class: 'btn btn-info btn-block', data: {'modal-target' => '#new-asset', 'modal-title' => 'Upload Assets'}
+
+    %h4 File Types
+    %nav
+      %ul
+        %li.active
+          = link_to('#', data: {type: ''}) do
+            All Assets
+            %span.count= @counts[:all]
+
+        %li
+          = link_to('#images', data: {type: 'images'}) do
+            Images
+            %span.count= @counts[:images]
+
+        %li
+          = link_to('#documents', data: {type: 'documents'}) do
+            Documents
+            %span.count= @counts[:documents]
+
+        %li
+          = link_to('#videos', data: {type: 'videos'}) do
+            Videos
+            %span.count= @counts[:videos]

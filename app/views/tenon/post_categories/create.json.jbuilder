@@ -1,0 +1,1 @@
+json.partial! 'post_category', post_category: @post_category

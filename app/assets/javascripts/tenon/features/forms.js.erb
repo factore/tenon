@@ -1,0 +1,42 @@
+Tenon.features.forms = {
+  init: function () {
+    var self = Tenon.features.forms;
+    self.setupRadioSliders();
+    self.protectChanges();
+  },
+
+  protectChanges: function () {
+    var self = Tenon.features.forms;
+
+    self.changesMade = false;
+    $('input, select, textarea').bind('keyup change', function() {
+      if ($(this).attr('id') != "quick-search") { self.changesMade = true; }
+    });
+
+    // don't run the check if the user is submitting a form of course
+    $(document).on('submit', 'form', function() {
+      window.onbeforeunload = null;
+    });
+
+    window.onbeforeunload = self.confirmNavigation;
+  },
+
+  confirmNavigation: function () {
+    var self = Tenon.features.forms;
+
+    if (typeof CKEDITOR != 'undefined') {
+      for ( instance in CKEDITOR.instances )
+        if(CKEDITOR.instances[instance].checkDirty()) { self.changesMade = true}
+    }
+
+    if (self.changesMade) {
+      return "You have unsaved changes, are you sure you want to leave this page?";
+    }
+  },
+
+  setupRadioSliders: function () {
+    $('.radio-slider').radioSlider({sliderImage: '<%= asset_path'tenon/slider-button.png' %>'});
+  }
+
+
+}

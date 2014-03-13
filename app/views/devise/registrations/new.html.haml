@@ -1,0 +1,22 @@
+%p.font Welcome to Tenon!&nbsp;Please register below.
+
+= error_messages_for resource
+
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+  #login-box-top
+  #login-box
+    %span.label Email Address:
+    = f.text_field :email
+    .spacer{:style => "height:10px"}
+
+    %span.label Password:
+    = f.password_field :password
+    .spacer{:style => "height:10px"}
+
+    %span.label &nbsp;
+    = f.submit "Register"
+  #login-box-bottom
+    %span.label Remember Me?
+    = slider("Yes Please", f.radio_button(:remember_me, true, :checked => true), "No Thanks", f.radio_button(:remember_me, false))
+
+%p{:style => "text-align: right; margin-top: 10px; font-size: 12px;"}= link_to "Log in", "/login"

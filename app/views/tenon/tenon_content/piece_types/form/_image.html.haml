@@ -1,0 +1,38 @@
+= f.hidden_field :image_id, class: 'asset-id-field'
+= f.hidden_field :position
+= f.hidden_field :size
+.image
+  - if f.object.image
+    = image_tag(f.object.image.url(:_medium))
+  - else
+    = link_to(new_item_asset_path, class: 'add-image', data: {'modal-remote' => true, 'modal-title' => "Select Image", 'modal-handler' => 'Tenon.features.tenonContent.AssetAttachment'}) do
+      %span Add Image
+
+  = f.super_text_area :caption, class: 'caption', placeholder: 'Enter caption here...', style: ("display: none;" unless f.object.show_caption)
+  = f.hidden_field :show_caption
+
+  .medium-editor-toolbar.medium-toolbar-arrow-under.medium-editor-toolbar-active.image-controls{style: "display: none; margin-top: -65px;"}
+    %ul.medium-editor-toolbar-actions.clearfix
+      %li
+        %button{title: 'Crop', class: 'asset-crop medium-editor-action medium-editor-button-first', data: {'tooltip' => true, 'post-crop-handler' => 'Tenon.features.tenonContent.PostCropHandler', 'asset-id' => f.object.image_id}}
+          %i.fa.fa-crop
+
+      %li
+        %button{title: 'Grow', class: 'grow-image medium-editor-action', data: {'column-resize-operation' => 'increase', 'tooltip' => true}}
+          %i.fa.fa-plus
+      %li
+        %button{title: 'Shrink', class: 'shrink-image medium-editor-action', data: {'column-resize-operation' => 'decrease', 'tooltip' => true}}
+          %i.fa.fa-minus
+      %li
+        %button{title: 'Toggle Caption', class: 'medium-editor-action toggle-caption', data: {tooltip: true}}
+          %i.fa.fa-comment
+      %li
+        %button{title: 'Swap Sides', class: 'swap-sides medium-editor-action', data: {tooltip: true}}
+          %i.fa.fa-arrows-h
+
+      %li
+        %button{href: new_item_asset_path, title: 'Replace Image', class: 'replace-image medium-editor-action  medium-editor-button-last', data: {'modal-remote' => 'true', 'modal-title' => "Select Image", 'modal-handler' => 'Tenon.features.tenonContent.AssetAttachment', 'tooltip' => true}}
+          %i.fa.fa-picture-o
+
+    .medium-editor-toolbar-form-anchor
+

@@ -1,0 +1,6 @@
+// define breakpoints
+$desktop_breakpoint: new-breakpoint(min-width 1400px 12);
+$laptop_breakpoint: new-breakpoint(min-width 960px 12);
+$tablet_breakpoint: new-breakpoint(min-width 768px 12);
+$mobile_breakpoint: new-breakpoint(max-width 767px 12);
+$max-width: 100%;

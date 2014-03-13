@@ -1,0 +1,25 @@
+!!! Strict
+%html{ :lang => "en" }
+  %head
+    = csrf_meta_tag
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }/
+    %meta{ :content => 'initial-scale=1,width=device-width', :name => 'viewport' }
+    %title
+      = raw @page_title + ": " if @page_title
+      = Tenon::MySettings.site_title if Tenon::MySettings.site_title
+    = stylesheet_link_tag 'tenon/tenon', '//fonts.googleapis.com/css?family=Open+Sans:400,700'
+
+    = javascript_include_tag 'tenon/tenon_manifest'
+
+  %body{data: { controller: params[:controller], action: params[:action] }, class: ('menu-open' if content_for?(:sidebar))}
+    = render 'tenon/shared/util_nav'
+    = render 'tenon/shared/main_nav'
+    - if content_for?(:sidebar)
+      .sidebar-container= yield :sidebar
+    .page-wrap
+      = yield
+
+    .generic-loader
+      %i.fa-gear.fa.fa-4x.fa.fa-spin
+
+    = flash_messages

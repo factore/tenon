@@ -1,0 +1,23 @@
+- content_for :sidebar do
+  .sidebar
+    .content
+      %h2 Settings
+
+    %h4 Sections
+    %nav
+      %ul
+        %li.active= link_to "General Settings", '#general', data: {toggle: 'tab'}
+
+%header
+  %h1 Site Settings
+  .spacer
+
+.main-content
+  .container
+    .alert.alert-info
+      %i.fa.fa-exclamation-triangle
+      You can update general site settings on this page.  Exercise caution, changing some of these settings could have unintended consequences.
+
+    = form_tag({:action => :update}, :method => "PUT") do
+      .tabs
+        #general.tab-pane.active= render :partial => "general"

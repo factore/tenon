@@ -1,0 +1,18 @@
+- content_for :sidebar do
+  .sidebar
+    .content
+      %h2 Pages
+      = link_to "New Page", new_page_path, class: 'btn btn-block btn-info'
+
+%header
+  .container
+    %h1 Pages
+
+    .tools
+      = render "tenon/shared/section_header/quick_search", record_list: '#pages'
+
+  .spacer
+
+.main-content
+  .container
+    %ul#pages.record-list.sortable.nested{data: {records: {url: pages_path(format: 'json'), template: 'tenon/templates/pages/page_row', name: 'page', nested: 'true'}, :'reorder-path' => reorder_pages_path}}

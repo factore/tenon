@@ -1,0 +1,165 @@
+.fields {
+  padding: 0;
+  border: 0;
+  margin-bottom: 20px;
+
+  .form-group {
+    clear: both;
+    margin: 20px 0px;
+
+    &:first-child {
+      margin-top: 0px;
+    }
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+
+  input[type=text], input[type=password], textarea, select {
+    margin: 3px 0px;
+    padding-left: 5px;
+    width: 100%;
+    /* @include transition(all 0.3s); */
+    border: 0px;
+  }
+}
+
+.explanation {
+  color: $tn-dark-grey;
+  font-style: italic;
+  font-size: 12px;
+}
+
+label, input[type=text], input[type=password], textarea, .explanation, h4.box-label {
+  margin: 2px 0px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+label, h4.box-label {
+  color: $tn-box-label;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+input[type=text], input[type=password] {
+  height: 40px;
+  font-size: 16px;
+}
+
+.tn-checkbox {
+  @include styled_checkbox;
+  opacity: 0;
+}
+
+.tn-checkbox-right {
+  @include styled_checkbox($float: right);
+}
+
+.tn-checkbox-left {
+  @include styled_checkbox($float: left);
+}
+
+label[for] {
+  line-height: 28px !important;
+}
+
+.fields .box, form .box {
+  margin-bottom: 15px;
+  background: white;
+
+  .content, .form-group {
+
+    @include media($mobile_breakpoint) {
+
+      button {
+        margin-bottom: 5px;
+      }
+    }
+
+    padding: 10px;
+  }
+
+  input[type=text], input[type=password] {
+    padding: 0px;
+    height: auto;
+    color: $tn-dark-grey;
+    font-weight: bold;
+    font-size: 12px;
+
+    &:focus {
+      outline: none;
+      border: 0px;
+    }
+  }
+
+  label {
+    color: $tn-label;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  hr {
+    border: 1px solid $tn-light-grey;
+  }
+
+  .delete-link {
+    display: block;
+    color: $tn-dark-grey;
+    text-align: right;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+}
+
+.fields .box, form .box, .modal-body {
+
+  .form-group {
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+
+  .form-group.inline {
+    margin: 3px 0px;
+
+    input[type=checkbox], input[type=text] {
+      float: right;
+    }
+
+    input[type=text] {
+      width: 50px;
+      text-align: right;
+    }
+
+    label.holder {
+      display: block;
+      float: none;
+
+      span {
+        float: left;
+      }
+    }
+  }
+
+  .form-group.bordered {
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $tn-light-grey;
+  }
+}
+
+.fields.large {
+
+  input[type=text], textarea {
+    padding: 3px 5px;
+  }
+}
+
+.nested-fields {
+  margin: 0 0 15px;
+}

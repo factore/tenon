@@ -1,0 +1,58 @@
+.tenon-library-holder {
+  display: none;
+}
+
+.tenon-library {
+  ul {
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      @include media($tablet_breakpoint) {
+          width: 50%;
+      }
+
+      @include media($mobile_breakpoint) {
+          width: 100%;
+      }
+      display: inline-block;
+      float: left;
+      border: 1px solid $tn-light-grey;
+
+      background-color: white;
+      color: white;
+
+      p {
+        position: absolute;
+        top: 20px;
+        left: 120px;
+        margin: 0;
+        padding-right: 140px;
+        width: 100%;
+        line-height: 27px;
+      }
+
+      a {
+        position: relative;
+        float: left;
+        padding: 20px;
+        width: 100%;
+        color: $tn-label;
+        font-size: 18px;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      &:hover {
+        background-color: $tn-primary;
+
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+}

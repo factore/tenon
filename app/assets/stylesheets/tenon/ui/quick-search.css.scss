@@ -1,0 +1,45 @@
+.quick-search {
+
+  input[type=text] {
+    @include transition(width 0.25s ease);
+    margin-top: 8px;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: none;
+    color: $tn-label;
+    font-size: 12px;
+    line-height: 30px;
+
+    &:focus {
+      width: 250px;
+      outline: none;
+    }
+  }
+
+  ::-webkit-input-placeholder {
+    color: $tn-label;
+  }
+
+  :-moz-placeholder {
+    color: $tn-label;
+  }
+
+  ::-moz-placeholder {
+    color: $tn-label;
+  }
+
+  :-ms-input-placeholder {
+    color: $tn-label;
+  }
+}
+
+input.filter {
+  border: none;
+  padding-left: 10px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+

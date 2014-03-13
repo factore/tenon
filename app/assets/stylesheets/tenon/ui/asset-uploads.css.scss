@@ -1,0 +1,27 @@
+#progress {
+
+  .progress {
+    @include transition(height 0.5s ease-in-out, margin 0.5s ease-in-out, opacity 0.5s ease-in-out);
+    height: 24px;
+    opacity: 1;
+
+    &.hidden {
+      margin: 0px;
+      height: 0px;
+      opacity: 0;
+    }
+
+    .title {
+      position: absolute;
+      padding: 0 2%;
+      height: 24px;
+      color: white;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 24px;
+    }
+
+    .progress-bar {}
+  }
+}
+

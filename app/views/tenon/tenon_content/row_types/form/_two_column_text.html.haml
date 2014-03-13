@@ -1,0 +1,7 @@
+.two-column-text.multi-text
+  = f.hidden_field :list_order
+  = f.hidden_field :row_type
+  = f.fields_for :pieces do |piece|
+    .six.piece{class: cycle(nil, 'omega')}
+      = render "tenon/tenon_content/piece_types/form/text", f: piece, position: piece.object.position
+  .spacer

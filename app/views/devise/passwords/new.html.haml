@@ -1,0 +1,16 @@
+= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+  .row
+    %h4 Forgot your password?
+
+  - unless resource.errors.empty?
+    .alert= resource.errors.full_messages.join('<br>').html_safe
+  .row.bordered
+    = f.label :email, :class => "font"
+    = f.text_field :email, placeholder: 'user@example.com'
+
+  .row.bordered
+    = f.submit "Send reset instructions", class: 'btn btn-info'
+  .row.bordered
+    %p{:style => "text-align: right; margin-top: 10px; font-size: 12px;"}
+      = link_to "Sign In", "/login"
+

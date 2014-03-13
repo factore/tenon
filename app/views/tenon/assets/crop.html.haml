@@ -1,0 +1,14 @@
+.asset-cropping
+  .modal-backdrop.fade.in
+  .preview
+    = image_tag(@asset.attachment.url, id: 'cropbox', data: { width: @asset.dimensions(:original)[0], height: @asset.dimensions(:original)[1] })
+
+    = form_for @asset, data: {remote: true} do |f|
+      - [:crop_x, :crop_y, :crop_w, :crop_h].each do |field|
+        = f.hidden_field field
+      .crop_buttons.right
+        = f.check_box :duplicate, checked: true, class: 'tn-checkbox-left'
+        = f.label :duplicate, "Create New Asset From Crop?", class: 'left'
+        .right
+          = button_tag "Cancel", class: 'cancel btn btn-info'
+          = f.submit "Save", class: 'btn btn-primary'

@@ -1,0 +1,5 @@
+.three-column-text.multi-text
+  - row.pieces.each do |piece|
+    .four.piece{class: cycle(nil, nil, 'omega')}
+      = render "tenon/tenon_content/piece_types/display/text", piece: piece
+  .spacer

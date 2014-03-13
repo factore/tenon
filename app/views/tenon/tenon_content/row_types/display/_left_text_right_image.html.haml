@@ -1,0 +1,9 @@
+.left-text-right-image.image-and-text
+  - row.pieces.each do |piece|
+    - if piece.piece_type == "Text"
+      .tn-tc-piece{class: piece.size}
+        = render "tenon/tenon_content/piece_types/display/text", piece: piece
+    - if piece.piece_type == "Image"
+      .tn-tc-piece.asset-field.omega{class: piece.size}
+        = render "tenon/tenon_content/piece_types/display/image", piece: piece
+  .spacer

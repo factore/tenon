@@ -1,0 +1,42 @@
+// Use American 'color' in variable names for consistency with CSS keywords.
+
+// Change these on a per-site basis
+$tn-client-color: #9C0F17;
+$tn-primary: #ff6a00;
+$tn-comp: #43239a;
+$tn-nav: #12111a;
+$tn-primary-text: #1eb6c8;
+$tn-sidebar: #242133;
+$tn-sidebar-highlight: #3a3848;
+$tn-button-primary-bg: #978fcc;
+$tn-button-primary-fg: white;
+$tn-button-info-bg: $tn-primary;
+$tn-button-info-fg: white;
+$tn-box-label: #04555d;
+$tn-label: #162433;
+$tn-sidebar-label: #504d5c;
+
+// Named colors
+$tn-light-grey: #f2f2f2;
+$tn-med-grey: #e2e2e2;
+$tn-grey: #ababab;
+$tn-dark-grey: #878787;
+$tn-slate: #242133;
+
+$tn-black: #333333;
+$tn-white: white;
+$tn-off-white: #f9f9f9;
+
+// Text colors
+$tn-body-text-color: $tn-black;
+$tn-link-color: $tn-primary;
+
+// Tenon content
+$tc-light-grey: $tn-light-grey;
+$tc-med-grey: $tn-med-grey;
+$tc-dark-grey: $tn-dark-grey;
+
+// Medium Editor
+$medium-editor-toolbar-border: transparentize(white, 0.6);
+$medium-editor-toolbar-hover: $medium-editor-toolbar-border;
+$medium-editor-toolbar-active: $medium-editor-toolbar-border;

@@ -1,0 +1,14 @@
+%section.util-nav
+  = render 'tenon/shared/breadcrumb'
+
+  %nav
+    %ul
+      %li.hamburger
+        %a{href: "#"}
+          %i.fa.fa-bars
+
+      %li
+        = link_to destroy_user_session_path, method: :delete do
+          %i.fa.fa-sign-out
+
+      %li.user= link_to current_user.email, edit_user_path(current_user)

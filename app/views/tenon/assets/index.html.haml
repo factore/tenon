@@ -1,0 +1,20 @@
+= render "sidebar_index"
+
+%header
+  %h1 Asset Library
+
+  .tools
+    = render "tenon/shared/section_header/list_style_toggle"
+    = render "tenon/shared/section_header/quick_search", record_list: '#assets'
+
+  .spacer
+
+.main-content
+  .container
+    %ul#assets.record-list.with-thumbnail{data: {role: 'records-list', records: {url: assets_path(format: 'json'), template: 'tenon/templates/assets/asset_row', name: 'asset'}}}
+
+    .spacer
+    = link_to "Load More Assets", '#', :class => 'infinite-loader', 'data-record-list' => '#assets'
+
+
+

@@ -1,0 +1,27 @@
+.container {
+  @include outer-container;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.page-wrap {
+
+  @include media($mobile_breakpoint) {
+    padding-top: 50px;
+  }
+
+  padding-top: 100px;
+  padding-bottom: 20px;
+  min-height: 100%;
+}
+
+.main-content {
+  margin: 0px 20px;
+  padding-top: 20px;
+}

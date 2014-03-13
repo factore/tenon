@@ -1,0 +1,53 @@
+// Variables
+$tn-serif: "Georgia", "Times New Roman", Serif;
+$tn-sans-serif: Helvetica, Arial, Sans-Serif;
+$tn-open-sans: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// Default Text Styles
+
+body {
+  color: $tn-body-text-color;
+  font-size: 14px;
+  font-family: $tn-open-sans;
+  line-height: 1.428;
+}
+
+// Links
+
+a {
+  color: $tn-link-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Headers
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  margin: 0px;
+  font-size: 18px;
+}
+
+h5 {
+  margin: 0px;
+  font-size: 14px;
+}
+
+h6 {
+  margin: 0px;
+  font-size: 12px;
+}

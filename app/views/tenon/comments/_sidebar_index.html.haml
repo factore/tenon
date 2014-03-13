@@ -1,0 +1,22 @@
+- content_for :sidebar do
+  .sidebar
+    .content
+      %h2 Comments
+
+    %h4 Filter
+    %nav
+      %ul
+        %li.active
+          = link_to('#', data: {type: '', header: 'Comments'}) do
+            All
+            %span.count= @counts[:all]
+
+        %li
+          = link_to('#', data: {type: 'unapproved', header: 'Unapproved Comments'}) do
+            Unapproved
+            %span.count= @counts[:unapproved]
+
+        %li
+          = link_to('#', data: {type: 'approved', header: 'Approved Comments'}) do
+            Approved
+            %span.count= @counts[:approved]

@@ -1,0 +1,12 @@
+.left-image-right-text.image-and-text
+  = f.hidden_field :row_type
+  = f.hidden_field :list_order
+  = f.fields_for :pieces do |piece|
+    = piece.hidden_field :piece_type
+    - if piece.object.piece_type == "Image"
+      .tn-tc-piece.asset-field{:class => piece.object.size}
+        = render "tenon/tenon_content/piece_types/form/image", f: piece, style: 'half'
+    - elsif piece.object.piece_type == "Text"
+      .tn-tc-piece.omega{:class => piece.object.size}
+        = render "tenon/tenon_content/piece_types/form/text", f: piece
+  .spacer

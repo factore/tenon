@@ -1,0 +1,47 @@
+- content_for :sidebar do
+  .sidebar
+    .content
+      %h2 Pages
+
+    %h4 Edit Options
+    %nav
+      %ul
+        %li.active= link_to "Page Content", '#details', data: {toggle: 'tab'}
+        %li= link_to "Seach Optimization", '#seo', data: {toggle: 'tab'}
+
+= form_for @page, :builder => Tenon::FormBuilder do |f|
+  = error_messages_for :page
+  .fields.large.tabs
+    .tab-pane.active#details
+      .form-group
+        = f.text_field :title, :explanation => "This is the title that shows up at the top of your page."
+
+      .form-group= f.tenon_content :content
+
+    .tab-pane#seo= render "tenon/shared/seo_fields", :f => f
+
+  .fields.small
+    %h4.box-label Details
+    .box
+      .form-group.bordered
+        = f.super_label :parent_id, "Parent Page"
+        = f.collection_select :parent_id, @potential_parents, :id, :option_title, {:include_blank => "(No Parent)"}
+
+      .form-group.inline.bordered
+        = f.check_box :show_in_menu, class: 'tn-checkbox-right'
+        = f.super_label :show_in_menu, "Show in Menu?"
+
+      = publish_box(f, @page)
+
+    %h4.box-label Publish Your Page
+    .box
+      .form-group
+        = f.text_field :publish_at, label: "Publish Date", data: {behaviour: 'datetime-picker'}, placeholder: '--'
+
+      .row.content
+        %button.btn.btn-primary.btn-block.submit Save
+
+      - if @page.persisted?
+        %hr
+        .content
+          = link_to "Delete", [:tenon, @page], :data => {:method => :delete, :confirm => "Are you sure you want to delete this?"}, :class => 'delete-link'

@@ -1,0 +1,26 @@
+%label= field.to_s.titleize
+.explanation
+  Select rows from the library to build this section.
+  You can format your text by highlighting it and selecting options from the pop-up menu.
+
+= link_to 'Add Content', '#', class: 'tn-tc-open-library btn btn-primary', 'data-modal-target' => '.tenon-library', 'data-modal-clone' => 'true', 'data-modal-title' => 'Add Row', 'data-association-insertion-node' => "##{field}-tenon-content", 'data-association-insertion-method' => 'prepend', 'data-modal-handler' => 'Tenon.features.tenonContent.Library'
+= link_to 'Open Preview Mode', '#', class: 'tn-tc-pop-out btn btn-info'
+
+.tn-tc-wrap
+  .tn-tc-sizes
+    %h2 Preview Mode
+    %p
+      Use preview mode to see how your content will look on different devices.  You can still make edits when you're in preview mode, but the toolbars are hidden to give you a better picture of how your content will be laid out.
+    = tenon_content_sizes
+    = link_to 'Done', '#', class: 'tn-tc-pop-out-close btn btn-info'
+  .tenon-content{id: "#{field}-tenon-content"}
+    = f.fields_for "#{field}_tenon_content_rows" do |row|
+      - if row.object
+        = render "tenon/tenon_content/row", f: row, row_partial: row.object.decorate.form_partial, field: field, title: row.object.row_type.titleize
+
+.tenon-library-holder
+  .tenon-library
+    %ul
+      - Tenon::TenonContent::RowTypes::LIBRARY_ROW_TYPES.each do |title, row_type|
+        %li= row_link(title, row_type, field, f)
+    .spacer

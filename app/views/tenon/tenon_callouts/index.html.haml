@@ -1,0 +1,18 @@
+- content_for :sidebar do
+  .sidebar
+    .content
+      %h2 Tenon Callouts
+      = link_to "New Tenon Callout", new_tenon_callout_path, class: 'btn btn-block btn-info'
+
+%header
+  %h1 Tenon Callouts
+
+  .tools
+    = render "tenon/shared/section_header/quick_search", record_list: '#tenon_callouts'
+
+  .spacer
+
+.main-content
+  .container
+    = error_messages_for :tenon_callout
+    %ul#tenon_callouts.record-list.sortable{data: {records: {url: tenon_callouts_path(format: 'json'), template: 'tenon/templates/tenon_callouts/tenon_callout_row', name: 'tenon_callout'}, :'reorder-path' => reorder_tenon_callouts_path}}

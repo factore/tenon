@@ -1,0 +1,22 @@
+%label.asset-label= asset.to_s.titleize
+.asset-field
+  = f.hidden_field "#{asset}_id", class: 'asset-id-field', value: nil
+  .thumbnail
+    - if f.object.send(asset)
+      = image_tag url_for(f.object.send(asset).url(:_thumbnail))
+    - else
+      = image_tag "http://placehold.it/500x500"
+  .details
+    .asset-info
+      - if f.object.send(asset)
+        = f.object.send(asset).display_name
+      - else
+        No asset selected.
+
+    .browse-button-holder{:class => ('with-remove' if defined?(remove_association) && remove_association)}
+      .browse-button
+        = link_to 'Browse', new_item_asset_path, class: 'btn btn-primary browse', data: {'modal-remote' => true, 'modal-title' => "Select #{asset.to_s.titleize}", 'modal-handler' => 'Tenon.features.AssetAttachment'}
+        - if defined?(remove_association) && remove_association
+          %small
+            or
+            = link_to_remove_association "remove", f

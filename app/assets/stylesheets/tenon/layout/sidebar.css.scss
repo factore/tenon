@@ -1,0 +1,115 @@
+.sidebar-container {
+  @include transition(all 0.2s ease-in);
+
+  @include media($mobile_breakpoint) {
+    display: none;
+
+    &.mobile-open {
+      position: absolute;
+      left: 50%;
+      display: block;
+      float: left;
+      overflow: hidden;
+      width: 50%;
+    }
+  }
+
+  position: fixed;
+  top: 0px;
+  left: 60px;
+  z-index: 998;
+  float: left;
+  overflow: auto;
+  overflow: hidden;
+  padding: 20px 0px;
+  padding-top: 90px;
+  width: 190px;
+  height: 100%;
+  background: $tn-sidebar;
+  color: $tn-light-grey;
+
+  .sidebar {
+    overflow: auto;
+    padding-bottom: 40px;
+    height: 100%;
+
+    .content, h4 {
+      padding: 0px 15px;
+    }
+
+    h2 {
+      margin: 0 0 30px;
+      padding: 0;
+      color: $tn-off-white;
+      font-weight: normal;
+      font-size: 18px;
+    }
+
+    h3 {
+      color: $tn-off-white;
+      text-transform: uppercase;
+      font-weight: normal;
+      font-size: 15px;
+    }
+
+    h4 {
+      margin-top: 20px;
+      margin-bottom: 3px;
+      padding-bottom: 0;
+      color: $tn-sidebar-label;
+      text-transform: uppercase;
+      font-size: 10px;
+      line-height: 30px;
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        padding: 10px 15px;
+
+        &.active {
+          background: $tn-sidebar-highlight;
+        }
+      }
+
+      a {
+        display: block;
+        color: $tn-off-white;
+        font-size: 14px;
+
+        span.count {
+          position: relative;
+          top: -3px;
+          display: inline-block;
+          float: right;
+          padding: 5px;
+          min-width: 25px;
+          border-radius: 25px;
+          background: lighten($tn-sidebar, 10%);
+          color: $tn-primary-text;
+          vertical-align: middle;
+          text-align: center;
+          font-size: 11px;
+        }
+      }
+    }
+
+    .notification {
+      margin-bottom: 20px;
+      font-size: 12px;
+
+      a {
+        display: inline-block;
+        margin-top: 3px;
+        padding: 5px 10px;
+        border-radius: 25px;
+        background: lighten($tn-sidebar, 10%);
+        color: $tn-primary-text;
+        text-align: left;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

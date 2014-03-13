@@ -1,0 +1,16 @@
+- content_for :sidebar do
+  .sidebar
+    .content
+      %h2 Users
+      = link_to "New User", new_user_path, class: 'btn btn-block btn-info'
+
+%header
+  %h1 Users
+  .tools
+    = render "tenon/shared/section_header/quick_search", record_list: '#users'
+  .spacer
+
+
+.main-content
+  .container
+    %ul#users.record-list{data: {records: {url: users_path(format: 'json'), template: 'tenon/templates/users/user_row', name: 'user'}}}

@@ -1,0 +1,21 @@
+- content_for :sidebar do
+  .sidebar
+    .content
+      %h2 Events
+      = link_to "New Event", new_event_path, class: 'btn btn-block btn-info'
+
+%header
+  .container
+    %h1 Events
+
+    .tools
+      = render "tenon/shared/section_header/quick_search", record_list: '#events'
+
+  .spacer
+
+.main-content
+  .container
+    %ul#events.record-list{data: {role: 'records-list', records: {url: events_path(format: 'json'), template: 'tenon/templates/events/event_row', name: 'event'}}}
+
+    .spacer
+    = link_to "Load More Events", '#', :class => 'infinite-loader', 'data-record-list' => '#events'

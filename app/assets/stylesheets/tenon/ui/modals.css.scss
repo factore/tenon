@@ -1,0 +1,176 @@
+.modal-open {
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  display: none;
+  overflow: hidden;
+}
+
+.modal.fade .modal-dialog {
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2);
+}
+
+.modal.in .modal-dialog {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.modal-dialog {
+  position: relative;
+  z-index: 1050;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal-content {
+  position: absolute;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: none;
+  border-radius: 2px;
+  background-color: $tn-light-grey;
+}
+
+.modal-backdrop {
+  @include transition(opacity 0.2s);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #000;
+}
+
+.modal-backdrop.fade {
+  opacity: 0;
+  filter: alpha(opacity = 0);
+}
+
+.modal-backdrop.in {
+  opacity: 0.75;
+  filter: alpha(opacity = 75);
+}
+
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid $tn-med-grey;
+  background: white;
+}
+
+.modal-header .close {
+  margin-top: -10px;
+  font-size: 40px;
+}
+
+.modal-title {
+  margin: 0;
+  color: $tn-label;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 18px;
+}
+
+.modal-body {
+  position: relative;
+  padding: 20px;
+}
+
+.modal-footer {
+  padding: 0 20px 20px;
+  text-align: right;
+}
+
+.modal-footer:before, .modal-footer:after {
+  /* 1 */
+  display: table;
+  content: " ";
+  /* 2 */
+}
+
+.modal-footer:after {
+  clear: both;
+}
+
+.modal-footer .btn + .btn {
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+
+.modal-footer .btn-group .btn + .btn {
+  margin-left: -1px;
+}
+
+.modal-footer .btn-block + .btn-block {
+  margin-left: 0;
+}
+
+@include media($tablet_breakpoint) {
+
+  .modal-content {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    width: 600px;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+}
+
+.modal-tab-links {
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 0;
+  list-style-type: none;
+
+  li {
+    float: left;
+    margin-right: 10px;
+
+    &:last-of-type {}
+
+    a {
+      display: block;
+      border-right: 0px;
+      border-right: 0px;
+      color: white;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.asset-list-scroller {
+  margin-top: 30px;
+}
+
+.tab {
+  height: 42px;
+  padding: 9px 12px 1px 12px;
+
+}

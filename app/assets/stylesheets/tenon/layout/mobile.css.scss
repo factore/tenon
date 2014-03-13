@@ -1,0 +1,10 @@
+@include media($mobile_breakpoint) {
+
+  .nav-holder {
+    display: none;
+  }
+
+  .page-wrap {
+    margin-left: 0px;
+  }
+}

@@ -1,0 +1,40 @@
+.medium-toolbar-arrow-under:after {
+  border-color: $tn-primary transparent transparent transparent;
+}
+
+.medium-toolbar-arrow-over:before {
+  border-color: transparent transparent $tn-primary transparent;
+}
+
+.medium-editor-toolbar-form-anchor {
+  background: $tn-primary;
+
+  input {
+    background: $tn-primary;
+  }
+}
+
+.medium-editor-toolbar-anchor-preview {
+  background: $tn-primary;
+}
+
+.medium-editor-toolbar {
+  background-color: $tn-primary;
+  border: 1px solid $medium-editor-toolbar-border;
+
+  li .medium-editor-button-active {
+    background-color: $medium-editor-toolbar-active;
+  }
+
+  li button {
+    border-right: 1px solid $medium-editor-toolbar-border;
+
+    &:hover {
+      background-color: $medium-editor-toolbar-hover;
+    }
+  }
+}
+
+.medium-editor-placeholder:after {
+  color: $medium-editor-toolbar-border;
+}

@@ -1,0 +1,22 @@
+<li>
+  <div class="thumbnail"><%- @comment.gravatar %></div>
+  <div class="record-details">
+    <div class="record-title">
+      <strong>
+        <a href="mailto:<%= @comment.author_email %>"><%= @comment.author %></a>
+        posted on
+        <%- @comment.commentable_link %>
+      </strong>
+      <br />
+      <small><%= @comment.content %></small>
+      <div style="display: none;" id="comment-<%= @comment.id %>"><%= @comment.content %></div>
+
+    </div>
+
+    <div class="record-actions">
+      <%- @comment.read_link %>
+      <%- @comment.approval_link %>
+      <%- @comment.delete_link %>
+    </div>
+  </div>
+</li>

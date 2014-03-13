@@ -1,0 +1,18 @@
+<li>
+  <div class="record-details">
+    <div class="record-title">
+      <a href="<%= @user.edit_path %>"><%= @user.email %></a>
+      <br />
+      <div class="explanation"><%= @user.roles %></div>
+      <br />
+      <div class="explanation">Last Login: <%= @user.last_login %></div>
+    </div>
+
+    <div class="record-actions">
+      <%- @user.view_link %>
+      <%- @user.subuser_link %>
+      <%- @user.edit_link %>
+      <%- @user.delete_link %>
+    </div>
+  </div>
+</li>

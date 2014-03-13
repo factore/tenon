@@ -1,0 +1,30 @@
+- content_for :sidebar do
+  .sidebar
+    .content
+      %h2 Events
+      = link_to "New Event", new_event_path, class: 'btn btn-block btn-info'
+
+= error_messages_for :event
+
+= form_for @event, :builder => Tenon::FormBuilder do |f|
+  .fields.large
+    .form-group= f.text_field :title
+    .form-group
+      = f.tenon_content :description
+
+  .fields.small
+    %h4.box-label Event Details
+    .box
+      .form-group.bordered= f.text_field :location, :placeholder => '--'
+      .form-group.bordered
+        = f.text_field :starts_at, data: {behaviour: 'datetime-picker'}, placeholder: '--'
+      .form-group.bordered
+        = f.text_field :ends_at, data: {behaviour: 'datetime-picker'}, placeholder: '--'
+
+    %h4.box-label Publish Your Event
+    .box
+      .form-group
+        = f.text_field :publish_at, label: "Publish Date", data: {behaviour: 'datetime-picker'}, placeholder: '--'
+
+      .row.content
+        %button.btn.btn-primary.btn-block.submit Save

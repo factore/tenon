@@ -1,0 +1,28 @@
+= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  .row
+    .logo= image_tag('tenon/client-logo.png')
+    .title
+      = Tenon::MySettings.site_title
+  - unless flash[:alert].blank?
+    .alert= flash[:alert]
+  .row.bordered
+    = f.label :email, :label => "Email Address:"
+    = f.text_field :email, placeholder: 'user@example.com'
+
+  .row.bordered
+    = f.label :password, :label => "Password:"
+    = f.password_field :password, placeholder: 'password'
+
+  .row.bordered
+    .remember
+      = f.check_box :remember_me, class: 'tn-checkbox'
+      = f.label :remember_me, "Remember Me?"
+
+    = f.submit "Login", :class => "btn btn-info"
+
+  .row.bordered
+    %p{:style => "text-align: right; margin-top: 10px; font-size: 12px;"}
+      - if devise_mapping.recoverable? && controller_name != 'passwords'
+        = link_to "Forgot your password?", new_password_path(resource_name)
+      = # " | "
+      = # link_to "Register", "/register"

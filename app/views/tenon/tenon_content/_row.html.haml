@@ -1,0 +1,17 @@
+.tn-tc-row
+  = f.hidden_field :item_method, value: field
+  .tn-tc-topbar
+    .actions
+      %i.fa.fa-arrows-v.drag-anchor
+      = link_to '#', class: 'toggle-tn-tc-menu' do
+        %i.fa.fa-bars
+      .menu
+        = link_to_remove_association(fa_icon('times-circle') + ' Delete This Row...', f, {'data-confirm' => 'Are you sure?', 'data-wrapper-class' => 'tn-tc-row'})
+        %br/
+        = link_to fa_icon('arrow-circle-up') + " Add Row Above...", '#', class: 'tn-tc-open-library above', 'data-modal-target' => '.tenon-library', 'data-modal-title' => "Add Row Above", 'data-modal-handler' => 'Tenon.features.tenonContent.Library'
+        %br/
+        = link_to fa_icon('arrow-circle-down') + " Add Row Below...", '#', class: 'tn-tc-open-library below', 'data-modal-target' => '.tenon-library', 'data-modal-title' => "Add Row Below", 'data-modal-handler' => 'Tenon.features.tenonContent.Library'
+    .spacer
+
+  .tn-tc-fields= render row_partial, f: f
+.spacer

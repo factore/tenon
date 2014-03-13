@@ -1,0 +1,41 @@
+.list-style-toggle-holder {
+  @include media($mobile_breakpoint) {
+    display: none;
+  }
+}
+
+.list-style-toggle {
+  border: 2px solid $tn-med-grey;
+  border-radius: 5px;
+  background: #FFF;
+
+  a {
+    @include transition(all 0.2s ease-in);
+    display: block;
+    float: left;
+    padding: 5px 10px;
+    background: $tn-light-grey;
+    color: $tn-dark-grey;
+    text-align: center;
+
+    &:first-child {
+      padding-right: 12px;
+      border-right: 2px solid $tn-med-grey;
+    }
+
+    &.active {
+      background: #FFF;
+      color: $tn-primary-text;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    i {
+      display: inline-block;
+      width: 20px;
+      text-align: center;
+    }
+  }
+}

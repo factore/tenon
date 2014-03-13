@@ -1,0 +1,21 @@
+- content_for :sidebar do
+  .sidebar
+    .content
+      %h2 Posts
+      = link_to "New Post", new_post_path, class: 'btn btn-block btn-info'
+      #new-post-category{:style => "display: none;"}
+        =# render "form", category: PostCategory.new
+
+    = render "tenon/shared/posts_nav"
+%header
+  .container
+    %h1 Posts
+
+    .tools
+      = render "tenon/shared/section_header/quick_search", record_list: '#posts'
+
+  .spacer
+
+.main-content
+  .container
+    %ul#posts.record-list{data: {records: {url: posts_path(format: 'json'), template: 'tenon/templates/posts/post_row', name: 'post'}}}

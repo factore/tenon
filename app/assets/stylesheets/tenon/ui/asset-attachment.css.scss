@@ -1,0 +1,102 @@
+.asset-field {
+  position: relative;
+
+  .thumbnail {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100px;
+    height: 100px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .details {
+    @include outer-container;
+    margin-left: 100px;
+    padding: 10px;
+    height: 100px;
+    background: white;
+  }
+
+  .asset-info {
+    @include span-columns(9);
+  }
+
+  .browse-button-holder {
+    @include span-columns(3);
+    padding-top: 25px;
+    text-align: right;
+
+    &.with-remove {
+      padding-top: 15px;
+    }
+
+    .btn {
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 12px;
+    }
+
+    .browse-button {
+      display: inline-block;
+      margin: 0px;
+      padding: 0px;
+      width: 64px;
+      text-align: center;
+      line-height: 22px;
+    }
+  }
+}
+
+.asset-list-scroller {
+  overflow-y: auto;
+  height: 350px;
+}
+
+.record-grid.asset-list {
+  overflow-y: auto;
+  background: none;
+
+  li {
+    margin-right: 15px;
+    width: 115px;
+
+    &:nth-child(4n) {
+      margin-right: 0px;
+    }
+
+    .record-actions {
+      display: none;
+    }
+  }
+}
+
+#pick-asset .filter {
+  margin-bottom: 10px;
+
+  input {
+    width: 260px;
+    font-size: 12px;
+  }
+}
+
+.nested-fields {
+
+  .asset-label {
+    display: none;
+  }
+
+  .asset-field {
+    margin-bottom: 10px;
+  }
+}
+
+ul.nested-field-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

@@ -1,0 +1,115 @@
+.util-nav {
+  @include fill-parent;
+  position: fixed;
+  z-index: 999;
+  overflow: hidden;
+  background: $tn-primary;
+  color: white;
+  font-family: $tn-open-sans;
+
+  a {
+    color: $tn-light-grey;
+    text-transform: uppercase;
+    font-size: 12px;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    i {
+      font-size: 20px;
+    }
+  }
+
+  nav {
+    float: right;
+    height: 100%;
+
+    ul {
+
+      @include media($tablet_breakpoint) {
+
+        li.hamburger {
+          display: none;
+        }
+
+        li.user {
+          display: block;
+        }
+      }
+      @include media($mobile_breakpoint) {
+
+        li.hamburger {
+          display: block;
+        }
+
+        li.user {
+          display: none;
+        }
+      }
+      margin: 0px;
+      height: 100%;
+
+      li {
+        display: inline-block;
+        float: right;
+        margin: 0;
+        padding: 0;
+        height: 50px;
+        border-right: 1px solid transparentize(white, 0.6);
+
+        &:first-child {
+          border-right: 0;
+        }
+
+        a {
+          display: inline-block;
+          padding: 17px 15px 13px 15px;
+          height: 50px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .breadcrumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    background: $tn-primary;
+    list-style: none;
+
+    & > li {
+      display: block;
+      float: left;
+      height: 50px;
+
+      &:after {
+        float: left;
+        margin: 0;
+        padding: 0;
+        width: 12px;
+        height: 50px;
+        content: image_url("tenon/breadcrumb.png");
+      }
+
+      &:first-child a {
+        padding: 8px 0 8px 20px;
+        width: 60px;
+        font-weight: bold;
+        font-style: italic;
+        font-size: 25px;
+      }
+
+      a {
+        display: inline-block;
+        float: left;
+        padding: 17px 15px 13px 15px;
+        height: 100%;
+      }
+    }
+  }
+}

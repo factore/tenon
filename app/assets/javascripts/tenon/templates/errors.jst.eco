@@ -1,0 +1,13 @@
+<div class="errorExplanation">
+  <h4>The following errors occurred:</h2>
+  <ul>
+    <% for field, errors of @errors: %>
+      <% for error in errors: %>
+        <li>
+          <%= _.str.capitalize(_.str.humanize(field)) %>
+          <%= error %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

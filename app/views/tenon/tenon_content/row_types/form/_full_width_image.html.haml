@@ -1,0 +1,7 @@
+.full-width-image
+  = f.hidden_field :list_order
+  = f.hidden_field :row_type
+  = f.fields_for :pieces do |piece|
+    .twelve.tn-tc-piece.asset-field
+      = render "tenon/tenon_content/piece_types/form/image", f: piece, position: 0, style: 'full'
+  .spacer

@@ -1,0 +1,12 @@
+= form_for @post_category, builder: Tenon::FormBuilder, data: {modal: true, remote: true, type: 'json', record: 'post_category'} do |f|
+  .modal-body
+    .fields.full
+
+      .form-group
+        = f.text_field :title
+
+
+      .spacer
+
+  .modal-footer
+    = f.submit "Save", class: 'btn btn-primary'

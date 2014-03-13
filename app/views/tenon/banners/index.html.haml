@@ -1,0 +1,18 @@
+- content_for :sidebar do
+  .sidebar
+    .content
+      %h2 Banners
+      = link_to "New Banner", new_banner_path, class: 'btn btn-block btn-info'
+
+%header
+  .container
+    %h1 Banners
+
+    .tools
+      = render "tenon/shared/section_header/quick_search", record_list: '#banners'
+
+  .spacer
+
+.main-content
+  .container
+    %ul#banners.record-list.with-thumbnail.sortable{data: {records: {url: banners_path(format: 'json'), template: 'tenon/templates/banners/banner_row', name: 'banner'}, 'reorder-path' => reorder_banners_path}}

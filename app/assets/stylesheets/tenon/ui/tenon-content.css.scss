@@ -1,0 +1,248 @@
+.tn-tc-wrap {
+
+  .tn-tc-sizes {
+    display: none;
+  }
+
+  &.mobile-breakpoint {
+    .one, .two, .three, .four, .five, .six,
+
+    .seven, .eight, .nine, .ten, .eleven, .twelve {
+      @include span-columns(12);
+    }
+
+    .wrapped-image {
+
+      &.left, &.right {
+        float: none;
+        padding: 0;
+      }
+    }
+  }
+}
+
+.tenon-content {
+  /*@import "variables";
+  @import "styleguides/styleguide";
+  @extend body;*/
+
+  .tn-tc-row {
+    @include transition(box-shadow 0.25s ease-in);
+    @include transition(border 0.25s ease-in);
+    margin-bottom: 0px;
+    padding: 0px;
+    min-height: 50px;
+
+    &.ui-sortable-helper {
+      overflow: hidden;
+      box-sizing: content-box;
+      padding: 5px 10px;
+      max-height: 200px;
+      border: 1px solid $tn-dark-grey;
+      background: $tn-light-grey;
+      box-shadow: 1px 1px 5px $tn-dark-grey;
+    }
+
+    &.sortable-placeholder {
+      min-height: 50px;
+      max-height: 200px;
+      border: 1px dashed $tn-dark-grey;
+    }
+  }
+
+  .tn-tc-row {
+    position: relative;
+  }
+
+  .tn-tc-topbar {
+    padding: 10px 0px;
+
+    .actions {
+      color: $tn-dark-grey;
+      text-align: right;
+
+      i {
+        margin-left: 5px;
+      }
+
+      a {
+        color: $tn-dark-grey;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+
+      .drag-anchor {
+        cursor: move;
+      }
+
+      .menu {
+        position: absolute;
+        top: 35px;
+        right: 3px;
+        z-index: 90;
+        display: none;
+        padding: 10px;
+        border: $tn-med-grey;
+        background: white;
+        box-shadow: 2px 2px 5px $tn-dark-grey;
+        text-align: left;
+        font-size: 12px;
+        font-family: $tn-sans-serif;
+
+        a {
+          color: $tn-black;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      a.toggle-tn-tc-menu:focus ~ .menu {
+        display: block;
+      }
+    }
+  }
+
+  .tn-tc-row:hover {
+
+    .tn-tc-topbar {
+      opacity: 1;
+    }
+  }
+
+  .tn-tc-fields {
+    @include outer-container;
+    min-height: 20px;
+  }
+
+  > div {
+    min-height: 100%;
+  }
+
+  .editable-text {
+    padding: 5px;
+    min-height: 50px;
+    outline: none;
+    background: white;
+
+    p {
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+
+  a.add-image {
+
+    span {
+      display: block;
+      height: 200px;
+      border: 4px dashed $tn-dark-grey;
+      background: $tn-med-grey;
+      color: $tn-dark-grey;
+      text-align: center;
+      font-family: $tn-sans-serif;
+      line-height: 200px;
+    }
+  }
+
+  .wrapped-image {
+
+    @include media($mobile_breakpoint) {
+
+      &.left, &.right {
+        float: none;
+        padding: 0;
+      }
+    }
+
+    &.left {
+      float: left;
+      padding: 5px 10px 0 5px;
+    }
+
+    &.right {
+      float: right;
+      padding: 5px 5px 0 10px;
+    }
+  }
+
+  .medium-editor-placeholder {
+    position: static;
+  }
+
+  .medium-editor-placeholder:after {
+    position: static;
+    display: none;
+  }
+
+  .asset-field img {
+    width: 100%;
+  }
+
+  .image {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  textarea.caption, div.caption {
+    margin: 0px;
+    padding: 5px;
+    width: 100%;
+    background: $tn-dark-grey;
+    color: white;
+    font-size: 12px;
+    resize: none;
+  }
+
+  textarea.caption:-moz-placeholder {
+    color: white;
+  }
+
+  textarea.caption::-webkit-input-placeholder {
+    color: $tn-light-grey;
+  }
+  .one, .two, .three, .four, .five, .six,
+
+  .seven, .eight, .nine, .ten, .eleven, .twelve {
+    @include transition(width 0.25s ease-in-out);
+  }
+}
+
+.tn-tc-templates {
+  display: none;
+}
+
+.wrapped-image-with-text {
+
+  .editable-text {
+    min-height: 200px;
+  }
+}
+
+.image-and-text {
+
+  > div {
+    height: 100%;
+  }
+}
+
+.image-controls {
+  @include transition(none);
+  &.full-width-image {
+    .grow-image, .shrink-image, .swap-sides {
+      display: none;
+    }
+  }
+  button:active, button:focus {
+    outline: none;
+    background: lighten($tn-primary, 10%);
+  }
+}

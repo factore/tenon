@@ -1,0 +1,46 @@
+- content_for :sidebar do
+  .sidebar
+    .content
+      %h2 Users
+      = link_to "New User", new_user_path, class: 'btn btn-block btn-info'
+
+= form_for @user, :builder => Tenon::FormBuilder do |f|
+  = error_messages_for :user
+
+  .fields.large
+    .form-group
+      = f.text_field :email, :autocomplete => "off"
+
+    .form-group.bordered
+      - if @user.persisted?
+        = f.super_label :password, "New Password"
+      - else
+        = f.super_label :password
+      = f.password_field :password, :autocomplete => "off"
+    .form-group
+      - if @user.persisted?
+        = f.super_label :password_confirmation, "Confirm New Password"
+      - else
+        = f.super_label :password_confirmation, "Confirm Password"
+      = f.password_field :password_confirmation
+
+  .fields.small
+    %h4.box-label Roles
+    .explanation Roles define a user's abilities throughout the site.
+    .box
+      .form-group.inline
+        - @roles.each do |role|
+          - unless (role.title == "Super Admin" && !current_user.is_super_admin?) || (role.title == "Admin" && !current_user.is_admin?)
+            = check_box_tag('role_ids[]', role.id, @user.role_ids.include?(role.id), class: 'tn-checkbox-right', id: "role_id_#{role.id}")
+            %label{ for: "role_id_#{role.id}" }= role.title
+            .spacer
+
+    %h4.box-label Actions
+    .box
+      .content
+        = f.submit "Save", :class => 'btn btn-block btn-primary'
+
+      - if @user.persisted?
+        %hr
+        .content
+          = link_to "Delete", [:tenon, @user], :data => {:method => :delete, :confirm => "Are you sure you want to delete this?"}, :class => 'delete-link'

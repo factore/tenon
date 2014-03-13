@@ -1,0 +1,17 @@
+<li class="asset hidden" data-record-id="<%= @asset.id %>">
+  <div class="thumbnail"><%- @asset.icon %></div>
+  <div class="record-details">
+    <div class="record-title big">
+      <strong>
+        <a href="/tenon/assets/<%= @asset.id %>/edit"><%= @asset.display_name %></a>
+      </strong>
+      <div class="explanation">
+        <%= @asset.human_size %>
+      </div>
+    </div>
+    <div class="record-actions">
+      <a data-tooltip="Edit" href="/tenon/assets/<%= @asset.id %>/edit" title="Edit"><i class="fa fa-pencil"></i></a>
+      <a data-confirm="Are you sure? There is no undo for this!" data-method="delete" data-tooltip="Delete" href="/tenon/assets/<%= @asset.id %>" rel="nofollow" title="Delete"><i class="fa fa-trash-o"></i></a>
+    </div>
+  </div>
+</li>

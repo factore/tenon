@@ -1,0 +1,24 @@
+- content_for :sidebar do
+  #new-post_category{:style => "display: none;"}
+    = render "form"
+
+  .sidebar
+    .content
+      %h2 Post Categories
+      = link_to "New Post Category", '#', class: 'btn btn-block btn-info', data: {'modal-target' => '#new-post_category', 'modal-title' => 'New Post Category'}
+
+    = render "tenon/shared/posts_nav"
+
+
+%header
+  %h1 Post Categories
+
+  .tools
+    = render "tenon/shared/section_header/quick_search", record_list: '#post_categories'
+
+  .spacer
+
+.main-content
+  .container
+    = error_messages_for :post_category
+    %ul#post_categories.record-list{data: {records: {url: post_categories_path(format: 'json'), template: 'tenon/templates/post_categories/post_category_row', name: 'post_category'}}}

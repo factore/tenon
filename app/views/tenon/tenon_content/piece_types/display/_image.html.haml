@@ -1,0 +1,5 @@
+.image
+  = image_tag(piece.image.url(:_medium))
+- if piece.show_caption
+  .caption
+    = piece.caption

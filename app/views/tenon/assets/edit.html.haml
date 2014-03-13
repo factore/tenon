@@ -1,0 +1,12 @@
+= form_for @asset, builder: Tenon::FormBuilder, data: {modal: true, remote: true, type: 'json', record: 'asset'} do |f|
+  .modal-body
+    .fields.full
+
+      .form-group
+        = f.text_field :title
+
+
+      .spacer
+
+  .modal-footer
+    = f.submit "Save", class: 'btn btn-primary'

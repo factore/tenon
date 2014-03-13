@@ -1,0 +1,14 @@
+%ul.modal-tab-links
+  %li.active.btn.btn-info.tab= link_to "Upload File", '#upload-asset', data: {toggle: 'tab'}
+  %li.btn.btn-info.tab= link_to "Asset Library", '#pick-asset', data: {toggle: 'tab'}
+  .spacer
+
+.modal-tab-pane.tab-content
+  #upload-asset.tab-pane.active= render "tenon/assets/form", multiple: @multiple
+
+  #pick-asset.tab-pane
+    .filter= text_field_tag :q, '', id: 'quick-search', class: 'filter search', placeholder: 'Filter Assets', data: { 'record-list' => '.asset-list' }
+    .asset-list-scroller
+      %ul#modal-asset-list.asset-list.record-grid.infinite-scroll{data: {records: {url: assets_path(format: 'json'), template: 'tenon/templates/assets/asset_row', name: 'asset'}}}
+
+      = link_to "Load More Assets", '#', :class => 'infinite-loader', 'data-record-list' => '#modal-asset-list'
