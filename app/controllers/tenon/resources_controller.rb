@@ -29,7 +29,7 @@ class Tenon::ResourcesController < Tenon::BaseController
 
   def update
     if resource.update_attributes(resource_params)
-      flash[:notice] = "#{human_name} saved successfully."
+      flash[:notice] = "#{human_name} saved successfully." if !request.xhr?
     end
 
     self.resource = resource.decorate
@@ -38,7 +38,7 @@ class Tenon::ResourcesController < Tenon::BaseController
 
   def create
     self.resource = klass.new(resource_params).decorate
-    flash[:notice] = "#{human_name} saved successfully." if resource.save
+    flash[:notice] = "#{human_name} saved successfully." if resource.save && !request.xhr?
     respond_with(resource.decorate, :location => polymorphic_index_path, :status => 201)
   end
 
