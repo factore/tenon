@@ -23,7 +23,7 @@ module Tenon
           'asset-id' => object.id,
           'post-crop-handler' => 'Tenon.features.AssetListPostCropHandler'
         }
-      )
+      ) if object.attachment_content_type.include?('image') || object.attachment_content_type.include?('video')
     end
 
     def edit_link(opts = {})
