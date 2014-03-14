@@ -19,15 +19,9 @@ describe Tenon::AssetsController do
   end
 
   describe 'GET index.html' do
-    it "should get the asset counts" do
-      expect(Tenon::Asset).to receive(:count) { [] }
-      expect(Tenon::Asset).to receive(:with_type).exactly(3).times { [] }
+    it "should render the index template" do
       get :index, format: 'html'
-    end
-
-    it "should assign the asset counts" do
-      get :index, format: 'html'
-      expect(assigns[:counts]).not_to be_nil
+      expect(response).to render_template('index')
     end
   end
 

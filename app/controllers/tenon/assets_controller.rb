@@ -1,14 +1,7 @@
 class Tenon::AssetsController < Tenon::ResourcesController
   def index
     respond_to do |format|
-      format.html {
-        @counts = {
-          :all => Tenon::Asset.count,
-          :images => Tenon::Asset.with_type('images').count,
-          :documents => Tenon::Asset.with_type('documents').count,
-          :videos => Tenon::Asset.with_type('videos').count
-        }
-      }
+      format.html
       format.json {
         @assets = Tenon::Asset.all
         @assets = @assets.where(search_args) if params[:q]
