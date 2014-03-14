@@ -25,7 +25,7 @@ class Tenon::CommentsController < Tenon::ResourcesController
   def approve
     respond_to do |format|
       if @comment.approve!
-        format.json { render :nothing => true }
+        format.json { render json: @comment.to_json }
         format.html { flash[:notice] = 'Comment approved.' and redirect_to comments_path }
       else
         format.json { render :status => 500, :nothing => true }
@@ -37,7 +37,7 @@ class Tenon::CommentsController < Tenon::ResourcesController
   def unapprove
     respond_to do |format|
       if @comment.unapprove!
-        format.json { render :nothing => true }
+        format.json { render json: @comment.to_json }
         format.html { flash[:notice] = 'Comment unapproved.' and redirect_to comments_path }
       else
         format.json { render :status => 500, :nothing => true }

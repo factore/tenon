@@ -7,21 +7,24 @@ class Tenon.features.RecordApproval
     @$link = $(e.currentTarget)
     @_startIconLoad()
     @_setTooltip('Loading...')
-    $.get @$link.attr('href'), @_finishToggle
+    $.getJSON(@$link.attr('href'))
+      .done(@_finishToggle)
+      .fail((data)=> console.log(data))
 
   _finishToggle:  =>
+    console.log('fired')
     @$link.toggleClass('unapprove approve')
     if @$link.hasClass('approve')
       @_setTooltip('Approve')
-      @$link.find('i').toggleClass('fa fa-spin fa fa-gear fa fa-thumbs-up')
+      @$link.find('i').toggleClass('fa-spin fa-gear fa-thumbs-up')
     else
       @_setTooltip('Unapprove')
-      @$link.find('i').toggleClass('fa fa-spin fa fa-gear fa fa-thumbs-down')
+      @$link.find('i').toggleClass('fa-spin fa-gear fa-thumbs-down')
 
   _startIconLoad: =>
     @$link.find('i')
-      .removeClass('fa fa-thumbs-up fa fa-thumbs-down')
-      .addClass('fa fa-spin fa fa-gear')
+      .removeClass('fa-thumbs-up fa-thumbs-down')
+      .addClass('fa-spin fa-gear')
 
   _setTooltip: (tooltip) =>
     @$link

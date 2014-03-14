@@ -101,7 +101,7 @@ describe Tenon::CommentsController do
   end
 
   ['approve', 'unapprove'].each do |action|
-    describe "GET #{action}.js" do
+    describe "GET #{action}.json" do
       let(:comment) { double }
       before { Tenon::Comment.stub(:find) { comment } }
 
@@ -110,9 +110,9 @@ describe Tenon::CommentsController do
           comment.stub("#{action}!") { true }
         end
 
-        it "should render nothing" do
+        it "should render the comment to json" do
           get action, id: 1, format: 'json'
-          expect(response.body).to eq ' '
+          expect(response.body).to eq double.to_json
         end
 
         it "should be successful" do
