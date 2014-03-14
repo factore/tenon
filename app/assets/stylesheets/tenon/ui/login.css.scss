@@ -84,7 +84,18 @@
   input[type=text], input[type=password] {
     width: 100%;
     border: 0px;
+
+    &:-webkit-autofill {
+      padding: 5px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+
   }
+
 
   input[type=submit] {
     float: right;
