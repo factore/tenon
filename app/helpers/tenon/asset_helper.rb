@@ -4,10 +4,20 @@ module Tenon
       if asset.attachment.exists?(:thumbnail)
         i = image_tag(asset.attachment.url(:thumbnail))
       else
-        i = image_tag('http://placehold.it/500x500')
+        i = image_tag(default_asset_thumbnail(asset))
       end
       link_to(i, [:edit, asset], default_options)
     end
+
+    def default_asset_thumbnail(asset)
+      if asset && asset.attachment_content_type.match('video')
+        'tenon/thumb-video.png'
+      else
+        'tenon/thumb-doc.png'
+      end
+    end
+
+    private
 
     def default_options
       {

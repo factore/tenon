@@ -5,7 +5,7 @@
     - if f.object.send(asset)
       = image_tag url_for(f.object.send(asset).url(:_thumbnail))
     - else
-      = image_tag "http://placehold.it/500x500"
+      = image_tag default_asset_thumbnail(f.object.send(asset))
   .details
     .asset-info
       - if f.object.send(asset)
