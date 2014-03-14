@@ -47,5 +47,9 @@ module Tenon
     config.app_generators do |g|
       g.templates.unshift File::expand_path('../../templates', __FILE__)
     end
+
+    initializer :assets do |config|
+      Rails.application.config.assets.precompile += ['tenon/tenon_manifest.js', 'tenon/tenon.css']
+    end
   end
 end
