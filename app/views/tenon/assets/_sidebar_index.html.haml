@@ -11,19 +11,15 @@
         %li.active
           = link_to('#', data: {type: ''}) do
             All Assets
-            %span.count= @counts[:all]
 
         %li
           = link_to('#images', data: {type: 'images'}) do
             Images
-            %span.count= @counts[:images]
 
         %li
           = link_to('#documents', data: {type: 'documents'}) do
             Documents
-            %span.count= @counts[:documents]
 
         %li
           = link_to('#videos', data: {type: 'videos'}) do
             Videos
-            %span.count= @counts[:videos]
