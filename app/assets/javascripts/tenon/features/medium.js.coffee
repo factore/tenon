@@ -8,3 +8,4 @@ class Tenon.features.Medium
       firstHeader: 'h1'
       secondHeader: 'h2'
       buttons: ['bold', 'italic', 'underline', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist', 'orderedlist']
+      buttonLabels: 'fontawesome'

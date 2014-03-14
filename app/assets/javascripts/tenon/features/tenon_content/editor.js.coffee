@@ -13,7 +13,9 @@ class Tenon.features.tenonContent.Editor
       },
       firstHeader: 'h1',
       secondHeader: 'h2',
-      buttons: ['bold', 'italic', 'underline', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist', 'orderedlist']    });
+      buttons: ['bold', 'italic', 'underline', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist', 'orderedlist'],
+      buttonLabels: 'fontawesome'
+    });
 
   _contentUpdated: (e) =>
     $editable = $(e.currentTarget)
