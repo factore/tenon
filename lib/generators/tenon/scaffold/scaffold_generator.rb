@@ -67,20 +67,28 @@ module Tenon
       end
 
       def add_i18n
+        filename = File.join(Rails.root, 'config', 'i18n_fields.yml')
+
         case self.behavior
         when :invoke
           # Write a couple of lines to config/i18n_fields.yml
           pattern = 'tables:'
           replacement = "tables:\n  #{plural_table_name}:\n    -\n"
+          if File.exist?(filename)
+            puts "Wrote I18n fields config"
+          else
+            puts "Skipped I18n fields config"
+          end
         when :revoke
           # now remove them
           pattern = /^  #{plural_table_name}:\n(    - *[\w]*\n*)*/
           replacement = ''
         end
 
-        filename = File.join(Rails.root, 'config', 'i18n_fields.yml')
-        converted_content = File.read(filename).gsub(pattern, replacement)
-        File.open(filename, 'w') { |f| f.write converted_content }
+        if File.exist?(filename)
+          converted_content = File.read(filename).gsub(pattern, replacement)
+          File.open(filename, 'w') { |f| f.write converted_content }
+        end
       end
 
       no_tasks do
