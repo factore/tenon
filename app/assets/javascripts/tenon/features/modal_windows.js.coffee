@@ -52,7 +52,7 @@ class Tenon.features.ModalWindows
 
   _appendContent: =>
     target = if @_bodyProvided() then '.modal-content' else '.modal-body'
-    @$template.find(target).html(@$el)
+    @$template.find(target).append(@$el)
 
 
   _runShownHandler: =>
