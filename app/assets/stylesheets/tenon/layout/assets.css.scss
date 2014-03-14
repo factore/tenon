@@ -53,6 +53,7 @@ form.edit_asset {
 }
 
 
+#new-asset, #upload-asset {
   .fields.full {
     margin-bottom: 0;
   }
@@ -75,6 +76,7 @@ form.edit_asset {
     }
   }
 
-  .modal-body .form-group {
+  .form-group {
     float: right;
   }
+}
