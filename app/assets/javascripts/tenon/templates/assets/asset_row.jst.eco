@@ -10,8 +10,8 @@
       </div>
     </div>
     <div class="record-actions">
-      <%- @asset.edit_link %>
       <%- @asset.crop_link %>
+      <%- @asset.edit_link %>
       <%- @asset.delete_link %>
     </div>
   </div>
