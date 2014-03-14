@@ -19,6 +19,7 @@ class Tenon.features.AssetUploader
     @$list.prepend(JST["tenon/templates/assets/asset_row"](asset : data.result))
     setTimeout () =>
       @$list.find('.hidden').removeClass('hidden')
+      @$list.find('.info').hide()
       data.context.addClass('hidden')
     , 1000
 
