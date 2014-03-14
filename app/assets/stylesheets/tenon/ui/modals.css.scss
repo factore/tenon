@@ -149,17 +149,25 @@
   li {
     float: left;
     margin-right: 10px;
+    margin-left: 0;
+    padding: 0;
 
     &:last-of-type {}
 
     a {
-      display: block;
       border-right: 0px;
       border-right: 0px;
       color: white;
 
       &:hover {
         text-decoration: none;
+      }
+    }
+
+    &.active {
+      a.btn-info {
+        background: darken($tn-primary, 5%);
+        border-color: darken($tn-primary, 5%);
       }
     }
   }
