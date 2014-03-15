@@ -13,6 +13,8 @@
 
     .tools
       = render "tenon/shared/section_header/quick_search", record_list: '#posts'
+      .header-tool
+        %a{:href => new_post_path }= raw "#{fa_icon('file-text')} +"
 
   .spacer
 

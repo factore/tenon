@@ -6,16 +6,19 @@ header {
     padding-left: 0px;
   }
 
-  position: fixed;
-  top: 50px;
+  @include media($tablet_breakpoint) {
+    position: fixed;
+    top: 50px;
+    padding: 0px 0px 0px 250px;
+
+  }
   left: 0px;
   z-index: 997;
-  padding: 0px 0px 0px 250px;
   width: 100%;
   border-bottom: 1px solid $tn-med-grey;
   background: $tn-light-grey;
   color: $tn-slate;
-  font-size: 13px;
+  font-size: 12px;
 
   h1 {
     float: left;
@@ -32,36 +35,70 @@ header {
       clear: both;
       border-top: 1px solid $tn-med-grey;
       border-left: none;
-      padding-left: 12px;
     }
+
+    @include media($tablet_breakpoint) {
+      float: right;
+      // padding-right: 12px;
+    }
+
     position: relative;
 
-    float: right;
-    padding-right: 12px;
-
     input[type=text] {
-      height: auto;
+      height: 50px;
+      display: inline-block;
+      margin: 0;
+      padding: 0 0 0 20px;
+      border: none;
+      background: none;
+      color: $tn-label;
+      font-size: 12px;
+      line-height: 30px;
     }
   }
 
   .header-tool {
 
     @include media($mobile_breakpoint) {
-      margin-right: 5px;
-      margin-left: 0;
+      // margin-right: 5px;
+      // margin-left: 0;
       border-right: 1px solid $tn-med-grey;
       border-left: 0;
     }
 
     float: left;
-    padding: 4px 5px 5px 5px;
+    padding: 0;
     height: 50px;
     border-left: 1px solid $tn-med-grey;
     vertical-align: middle;
     font-size: 20px;
+    color: $tn-label;
 
-    &:last-child {
-      margin-right: 0px;
+    i {
+      color: $tn-label;
     }
+
+    a {
+      display: inline-block;
+      height: 50px;
+      width: 100%;
+      color: $tn-label;
+      padding: 11px 20px 0 20px;
+
+      &:hover {
+        text-decoration: none;
+        background-color: $tn-primary;
+        color: white;
+
+        i {
+          color: white;
+        }
+      }
+    }
+    // &:last-child {
+    //   margin-right: 0px;
+    // }
+
+
   }
 }

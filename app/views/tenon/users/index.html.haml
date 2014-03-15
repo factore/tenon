@@ -8,6 +8,9 @@
   %h1 Users
   .tools
     = render "tenon/shared/section_header/quick_search", record_list: '#users'
+    .header-tool
+      %a{:href => new_user_path }= raw "#{fa_icon('user')} +"
+
   .spacer
 
 
