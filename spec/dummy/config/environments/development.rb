@@ -26,4 +26,7 @@ Dummy::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  # Enable source maps in the browser
+  config.sass.debug_info = true
 end
