@@ -26,7 +26,7 @@ class Tenon.features.AssetUploader
   _add: (e, data) =>
     @_updateTitle()
     @_drawProgess(e, data)
-    # @_updateButtonText()
+    @_updateButtonText()
 
   _updateTitle: =>
     $title = $('#asset_title')
