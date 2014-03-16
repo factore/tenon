@@ -10,8 +10,8 @@
 
     .tools
       = render "tenon/shared/section_header/quick_search", record_list: '#events'
-      .header-tool
-        %a{:href => new_event_path }= raw "#{fa_icon('calendar')} +"
+      / .header-tool
+      /   %a{:href => new_event_path }= raw "#{fa_icon('calendar')} +"
 
   .spacer
 

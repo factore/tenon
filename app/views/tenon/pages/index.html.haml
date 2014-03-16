@@ -9,9 +9,9 @@
     %h1 Pages
 
     .tools
-      .header-tool
-        %a{:href => new_page_path }= raw "#{fa_icon('file')} +"
       = render "tenon/shared/section_header/quick_search", record_list: '#pages'
+      / .header-tool
+      /   %a{:href => new_page_path }= raw "#{fa_icon('file')} +"
 
   .spacer
 
