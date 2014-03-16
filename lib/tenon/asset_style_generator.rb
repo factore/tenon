@@ -20,9 +20,9 @@ module Tenon
 
     def default_styles
       {
-        :original => { :processors => ['cropper'], :geometry => '' },
-        :thumbnail => '200x200#',
-        :medium => '1400>'
+        original: { processors: ['cropper'], geometry: '' },
+        thumbnail: '200x200#',
+        medium: '1400>'
       }
     end
 
@@ -44,9 +44,9 @@ module Tenon
 
     def attributes_for(item_asset)
       {
-        :klass => item_asset.item_type.constantize,
-        :asset_name => item_asset.asset_name,
-        :prefix => style_prefix_for(item_asset)
+        klass: item_asset.item_type.constantize,
+        asset_name: item_asset.asset_name,
+        prefix: style_prefix_for(item_asset)
       }
     end
 

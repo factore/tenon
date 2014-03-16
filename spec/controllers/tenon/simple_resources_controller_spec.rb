@@ -9,13 +9,13 @@ require 'spec_helper'
 describe Tenon::PostCategoriesController do
   routes { Tenon::Engine.routes }
 
-  let(:user) {
+  let(:user) do
     double(
       :staff? => true,
       :is_super_admin? => false,
       :is_admin? => true
     )
-  }
+  end
 
   before do
     controller.stub(:current_user) { user }
@@ -35,8 +35,8 @@ describe Tenon::PostCategoriesController do
     end
 
     it 'should render the form partial' do
-      get :edit, :id => 1
-      expect(response).to render_template(:partial => 'tenon/post_categories/_form')
+      get :edit, id: 1
+      expect(response).to render_template(partial: 'tenon/post_categories/_form')
     end
   end
 end

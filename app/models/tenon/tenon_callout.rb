@@ -10,7 +10,7 @@ module Tenon
     # Relationships
 
     def self.published
-      where(:published => true)
+      where(published: true)
     end
   end
 end

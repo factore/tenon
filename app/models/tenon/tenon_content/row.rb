@@ -10,7 +10,7 @@ module Tenon
 
     # Relationships
     belongs_to :item
-    has_many :pieces, -> { order 'position' }, :class_name => 'TenonContent::Piece', :dependent => :destroy
+    has_many :pieces, -> { order 'position' }, class_name: 'TenonContent::Piece', dependent: :destroy
 
     # Nested
     accepts_nested_attributes_for :pieces

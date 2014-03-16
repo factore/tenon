@@ -12,11 +12,11 @@ end
 
 describe Tenon::TenonContent do
   let(:dog) { Dog.new }
-  it "should respond_to :content_tenon_content_rows" do
+  it 'should respond_to :content_tenon_content_rows' do
     expect(dog).to respond_to(:content_tenon_content_rows)
   end
 
-  it "should respond_to :content_tenon_content_rows_attributes=" do
+  it 'should respond_to :content_tenon_content_rows_attributes=' do
     expect(dog).to respond_to(:content_tenon_content_rows_attributes=)
   end
 end

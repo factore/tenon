@@ -1,20 +1,20 @@
 class Tenon::UsersController < Tenon::ResourcesController
-  before_filter :get_roles, :only => [:new, :edit, :update, :create]
+  before_filter :get_roles, only: [:new, :edit, :update, :create]
 
   def index
     respond_to do |format|
       format.html
-      format.json {
+      format.json do
         if current_user.is_super_admin?
           @users = Tenon::User.all
         elsif current_user.is_admin?
-          @users = Tenon::User.includes(:roles).where.not(tenon_roles: {title: 'Super Admin'})
+          @users = Tenon::User.includes(:roles).where.not(tenon_roles: { title: 'Super Admin' })
         end
 
         @users = @users.where(search_args) unless params[:q].blank?
         @users = @users.paginate(per_page: 20, page: params[:page])
         @users = Tenon::PaginatingDecorator.new(@users)
-      }
+      end
     end
   end
 
@@ -25,7 +25,7 @@ class Tenon::UsersController < Tenon::ResourcesController
   end
 
   def search_args
-    ["email ILIKE ?", "%#{params[:q]}%"]
+    ['email ILIKE ?', "%#{params[:q]}%"]
   end
 
   def resource_params

@@ -6,7 +6,7 @@ module Tenon
 
       return '' if objects.size == 0
 
-      output = %{<li class='top' data-record-id="#{objects.first.id}">\n<div class='item-content'>\n}
+      output = %(<li class='top' data-record-id="#{objects.first.id}">\n<div class='item-content'>\n)
       path = [nil]
 
       objects.each_with_index do |o, i|
@@ -16,23 +16,25 @@ module Tenon
             # Remove wrong wrong tailing paths elements
             while path.last != o.parent_id
               path.pop
-              output << %{\n</li>\n</ul>}
+              output << %(
+</li>
+</ul>)
             end
 
             if o.parent_id
-              output << %{\n</li>\n<li data-record-id="#{o.id}" class="subpage">\n}
+              output << %(\n</li>\n<li data-record-id="#{o.id}" class="subpage">\n)
             else
-              output << %{\n</li>\n<li data-record-id="#{o.id}" class="top">\n<div class="item-content">\n}
+              output << %(\n</li>\n<li data-record-id="#{o.id}" class="top">\n<div class="item-content">\n)
             end
           else
             path << o.parent_id
-            output << %{\n<ul class="subpages">\n<li class="subpage" data-record-id="#{o.id}">\n}
+            output << %(\n<ul class="subpages">\n<li class="subpage" data-record-id="#{o.id}">\n)
           end
         elsif i != 0
           if o.parent_id
-            output << %{\n</li>\n<li data-record-id="#{o.id}" class="subpage">\n}
+            output << %(\n</li>\n<li data-record-id="#{o.id}" class="subpage">\n)
           else
-            output << %{\n</li>\n<li data-record-id="#{o.id}" class="top">\n<div class="item-content">\n}
+            output << %(\n</li>\n<li data-record-id="#{o.id}" class="top">\n<div class="item-content">\n)
           end
         end
         output << capture(o, path.size - 1, &block)
@@ -40,9 +42,13 @@ module Tenon
 
       path.each do |p|
         if p
-          output << %{\n</li>\n</ul>}
+          output << %(
+</li>
+</ul>)
         else
-          output << %{\n</div>\n</li>}
+          output << %(
+</div>
+</li>)
         end
       end
 

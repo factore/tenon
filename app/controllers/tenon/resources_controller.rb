@@ -2,7 +2,7 @@ class Tenon::ResourcesController < Tenon::BaseController
   respond_to :html, :json, :js
 
   def initialize(*args)
-    self.class.load_and_authorize_resource(self.send(:load_options))
+    self.class.load_and_authorize_resource(send(:load_options))
     super(*args)
   end
 
@@ -10,12 +10,12 @@ class Tenon::ResourcesController < Tenon::BaseController
     params[:page] = 1 if params[:page].to_i == 0
     respond_to do |format|
       format.html
-      format.json {
+      format.json do
         self.collection = klass.all
         self.collection = collection.where(search_args) if params[:q]
-        self.collection = collection.paginate(:per_page => 20, :page => params[:page])
+        self.collection = collection.paginate(per_page: 20, page: params[:page])
         self.collection = Tenon::PaginatingDecorator.decorate(collection)
-      }
+      end
     end
   end
 
@@ -33,36 +33,36 @@ class Tenon::ResourcesController < Tenon::BaseController
     end
 
     self.resource = resource.decorate
-    respond_with(resource.decorate, :location => polymorphic_index_path)
+    respond_with(resource.decorate, location: polymorphic_index_path)
   end
 
   def create
     self.resource = klass.new(resource_params).decorate
     flash[:notice] = "#{human_name} saved successfully." if resource.save && !request.xhr?
-    respond_with(resource.decorate, :location => polymorphic_index_path, :status => 201)
+    respond_with(resource.decorate, location: polymorphic_index_path, status: 201)
   end
 
   def destroy
     if resource.destroy
-      respond_with(resource, :location => polymorphic_index_path)
+      respond_with(resource, location: polymorphic_index_path)
     else
       respond_to do |format|
-        format.json {
-          render :json => { :errors => resource.errors }
-        }
+        format.json do
+          render json: { errors: resource.errors }
+        end
       end
     end
   end
 
   def reorder
     self.collection = klass.reorder!(params['item_list'])
-    respond_with(collection, :location => polymorphic_index_path)
+    respond_with(collection, location: polymorphic_index_path)
   end
 
   private
 
   def self.uses_ckeditor
-    before_filter :uses_ckeditor, :only => [:new, :edit, :update, :create]
+    before_filter :uses_ckeditor, only: [:new, :edit, :update, :create]
   end
 
   def resource
@@ -104,7 +104,7 @@ class Tenon::ResourcesController < Tenon::BaseController
   end
 
   def load_options
-    { :except => [:index, :create] }
+    { except: [:index, :create] }
   end
 
   def search_args

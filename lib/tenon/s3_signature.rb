@@ -14,7 +14,7 @@ module S3SwfUpload
 
     # Absolute barebones "unit" tests
     def assert(expr)
-      raise 'Assertion failed' unless expr
+      fail 'Assertion failed' unless expr
     end
 
     def self_test
@@ -96,7 +96,7 @@ module S3SwfUpload
 
     # Determine the appropriate additive constant for the current iteration
     def sha1_kt(t)
-      return (t < 20) ?  1_518_500_249 : (t < 40) ?  1_859_775_393 :
+      (t < 20) ?  1_518_500_249 : (t < 40) ?  1_859_775_393 :
              (t < 60) ? -1_894_007_588 : -899_497_514
     end
 
@@ -123,13 +123,13 @@ module S3SwfUpload
     # to work around bugs in some JS interpreters.
     def safe_add(x, y)
       v = (x + y) % (2**32)
-      return v > 2**31 ? v - 2**32 : v
+      v > 2**31 ? v - 2**32 : v
     end
 
     # Bitwise rotate a 32-bit number to the left.
     def rol(num, cnt)
       # return (num << cnt) | (num >>> (32 - cnt))
-      return (num.js_shl(cnt)) | (num.js_shr_zf(32 - cnt))
+      (num.js_shl(cnt)) | (num.js_shr_zf(32 - cnt))
     end
 
     # Convert an 8-bit or 16-bit string to an array of big-endian words
@@ -195,7 +195,7 @@ module S3SwfUpload
         end
         i += 3
       end
-      return str
+      str
     end
   end
 end

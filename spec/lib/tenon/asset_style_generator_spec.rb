@@ -12,7 +12,7 @@ describe Tenon::AssetStyleGenerator do
       end
 
       let(:page) do
-        double(banner_styles: {medium: "800x800>", thumbnail: "300x300#"})
+        double(banner_styles: { medium: '800x800>', thumbnail: '300x300#' })
       end
 
       let(:item_assets) do
@@ -23,16 +23,16 @@ describe Tenon::AssetStyleGenerator do
         Tenon::Page.stub(:new) { page }
       end
 
-      it "should return a combination of the default styles and the banner styles" do
+      it 'should return a combination of the default styles and the banner styles' do
         expect(asg.styles).to eq asg.send(:default_styles).merge(
-          tenon_page_banner_medium: "800x800>",
-          tenon_page_banner_thumbnail: "300x300#"
+          tenon_page_banner_medium: '800x800>',
+          tenon_page_banner_thumbnail: '300x300#'
         )
       end
 
       context 'with post with a header with a :wide style as well' do
         let(:post) do
-          double(header_styles: {wide: "800x300#"})
+          double(header_styles: { wide: '800x300#' })
         end
 
         let(:item_assets) do
@@ -46,18 +46,18 @@ describe Tenon::AssetStyleGenerator do
           Tenon::Post.stub(:new) { post }
         end
 
-        it "should return a combination of the default styles, the page banner styles, and the post header styles" do
+        it 'should return a combination of the default styles, the page banner styles, and the post header styles' do
           expect(asg.styles).to eq asg.send(:default_styles).merge(
-            tenon_page_banner_medium: "800x800>",
-            tenon_page_banner_thumbnail: "300x300#",
-            tenon_post_header_wide: "800x300#"
+            tenon_page_banner_medium: '800x800>',
+            tenon_page_banner_thumbnail: '300x300#',
+            tenon_post_header_wide: '800x300#'
           )
         end
       end
 
       context 'with a second page' do
         let(:other_page) do
-          double(banner_styles: {medium: "800x800>", thumbnail: "300x300#"})
+          double(banner_styles: { medium: '800x800>', thumbnail: '300x300#' })
         end
 
         let(:item_assets) do
@@ -71,10 +71,10 @@ describe Tenon::AssetStyleGenerator do
           Tenon::Page.stub(:new) { page }
         end
 
-        it "should return a combination of the default styles and the banner styles without duplicating" do
+        it 'should return a combination of the default styles and the banner styles without duplicating' do
           expect(asg.styles).to eq asg.send(:default_styles).merge(
-            tenon_page_banner_medium: "800x800>",
-            tenon_page_banner_thumbnail: "300x300#"
+            tenon_page_banner_medium: '800x800>',
+            tenon_page_banner_thumbnail: '300x300#'
           )
         end
       end

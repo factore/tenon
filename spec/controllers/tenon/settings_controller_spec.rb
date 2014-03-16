@@ -18,15 +18,15 @@ describe Tenon::SettingsController do
       )
     end
 
-    describe "PATCH update" do
-      it "should redirect to /login" do
+    describe 'PATCH update' do
+      it 'should redirect to /login' do
         patch :update
         expect(response).to redirect_to(new_user_session_path)
       end
     end
 
-    describe "GET show" do
-      it "should redirect to /login" do
+    describe 'GET show' do
+      it 'should redirect to /login' do
         get :show
         expect(response).to redirect_to(new_user_session_path)
       end
@@ -42,15 +42,15 @@ describe Tenon::SettingsController do
       )
     end
 
-    describe "PATCH update" do
+    describe 'PATCH update' do
       it 'should assign a setting for each param setting submitted' do
         expect(Tenon::MySettings).to receive(:one=).with('one')
         expect(Tenon::MySettings).to receive(:two=).with('two')
-        patch :update, settings: {one: 'one', two: 'two'}
+        patch :update, settings: { one: 'one', two: 'two' }
       end
 
       it 'should set the flash' do
-        patch :update, settings: {one: 'one', two: 'two'}
+        patch :update, settings: { one: 'one', two: 'two' }
         expect(controller.flash[:notice]).not_to be_blank
       end
     end

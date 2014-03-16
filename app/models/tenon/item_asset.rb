@@ -6,7 +6,7 @@ module Tenon
 
     # Relationships
     belongs_to :asset
-    belongs_to :item, :polymorphic => true
+    belongs_to :item, polymorphic: true
 
     accepts_nested_attributes_for :asset
 

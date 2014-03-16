@@ -8,13 +8,13 @@ connection.create_table :dogs do |t|
 end
 
 class Dog < ActiveRecord::Base
-  has_asset :avatar, :styles => { :dog_size => '250x250#' }
+  has_asset :avatar, styles: { dog_size: '250x250#' }
 end
 
 describe Tenon::HasAsset do
   let(:dog) { Dog.new }
   context '.has_asset' do
-    %i{avatar_join avatar avatar= avatar_id=}.each do |meth|
+    %i(avatar_join avatar avatar= avatar_id=).each do |meth|
       it "should define ##{meth}" do
         expect(dog).to respond_to(meth)
       end

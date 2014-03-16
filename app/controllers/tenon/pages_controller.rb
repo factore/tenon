@@ -1,17 +1,17 @@
 class Tenon::PagesController < Tenon::ResourcesController
-  before_filter :get_potential_parents, :only => [:new, :edit, :update, :create]
+  before_filter :get_potential_parents, only: [:new, :edit, :update, :create]
 
   def index
     respond_to do |format|
       format.html
-      format.json {
+      format.json do
         if params[:q].blank?
           @pages = Tenon::Page.order(:lft)
         else
           pages = Tenon::Page.where(search_args).map { |p| [p.ancestors, p] }
           @pages = pages.flatten.uniq.sort_by(&:lft)
         end
-      }
+      end
     end
   end
 
@@ -22,7 +22,7 @@ class Tenon::PagesController < Tenon::ResourcesController
 
   def reorder
     @pages = Tenon::Page.reorder!(params[:item_list], params[:parent_id])
-    render :nothing => true
+    render nothing: true
   end
 
   private

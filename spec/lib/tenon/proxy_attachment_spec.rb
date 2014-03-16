@@ -23,11 +23,10 @@ describe Tenon::ProxyAttachment do
     end
   end
 
-
   describe '#original_filename' do
     let(:attachment) { double(original_filename: 'filename') }
 
-    it "should get the original filename from the asset attachment" do
+    it 'should get the original filename from the asset attachment' do
       expect(pa.original_filename).to eq('filename')
     end
   end
@@ -39,7 +38,7 @@ describe Tenon::ProxyAttachment do
       Tenon::AssetDecorator.stub(:new) { ad }
     end
 
-    it "should get the display name from the original asset" do
+    it 'should get the display name from the original asset' do
       expect(pa.display_name).to eq(ad.display_name)
     end
   end
@@ -47,7 +46,7 @@ describe Tenon::ProxyAttachment do
   describe '#url' do
     let(:attachment) { double }
     context 'with a preceding underscore' do
-      it "should get the url from the attachment" do
+      it 'should get the url from the attachment' do
         expect(attachment).to receive(:url).with('original')
         pa.url(:_original)
       end

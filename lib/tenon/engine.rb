@@ -26,7 +26,7 @@ require 'mediaelement_rails'
 require 'medium-editor-rails'
 require 'mime-types'
 require 'nokogiri'
-require "non-stupid-digest-assets"
+require 'non-stupid-digest-assets'
 require 'normalize-rails'
 require 'paperclip'
 require 'rails-observers'
@@ -45,7 +45,7 @@ module Tenon
   class Engine < ::Rails::Engine
     isolate_namespace Tenon
     config.app_generators do |g|
-      g.templates.unshift File::expand_path('../../templates', __FILE__)
+      g.templates.unshift File.expand_path('../../templates', __FILE__)
     end
 
     initializer :assets do |config|

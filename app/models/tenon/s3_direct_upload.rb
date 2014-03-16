@@ -37,11 +37,11 @@ module Tenon
 
     def default_options
       {
-         :config_file     => File.join(Rails.root, 'config', 's3.yml'),
-         :key             => 'videos',
-         :acl             => 'public-read',
-         :expiration_date => 10.hours.from_now.utc.strftime('%Y-%m-%dT%H:%M:%S.000Z'),
-         :max_filesize    => 2.gigabyte
+        config_file: File.join(Rails.root, 'config', 's3.yml'),
+        key: 'videos',
+        acl: 'public-read',
+        expiration_date: 10.hours.from_now.utc.strftime('%Y-%m-%dT%H:%M:%S.000Z'),
+        max_filesize: 2.gigabyte
       }
     end
 

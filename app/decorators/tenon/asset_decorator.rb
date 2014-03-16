@@ -10,7 +10,7 @@ module Tenon
 
     def display_name
       name = object.title.blank? ? object.attachment_file_name : object.title
-      h.truncate(name, :length => 50)
+      h.truncate(name, length: 50)
     end
 
     def crop_link
@@ -18,8 +18,8 @@ module Tenon
         'Crop',
         [:crop, object],
         'crop',
-        :class => 'asset-crop',
-        :data => {
+        class: 'asset-crop',
+        data: {
           'asset-id' => object.id,
           'post-crop-handler' => 'Tenon.features.AssetListPostCropHandler'
         }

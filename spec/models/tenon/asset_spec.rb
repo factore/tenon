@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe Tenon::Asset do
   describe '.with_type' do
-    %w{images videos}.each do |type|
+    %w(images videos).each do |type|
       context "when type is #{type}" do
-        it "should receive the proper args" do
+        it 'should receive the proper args' do
           args = ['attachment_content_type LIKE ?', "%#{type.singularize}%"]
           expect(Tenon::Asset).to receive(:where).with(*args)
           Tenon::Asset.with_type(type)
@@ -12,8 +12,8 @@ describe Tenon::Asset do
       end
     end
 
-    context "when the type is anything else" do
-      it "should fall back on to .documents" do
+    context 'when the type is anything else' do
+      it 'should fall back on to .documents' do
         expect(Tenon::Asset).to receive(:documents)
         Tenon::Asset.with_type('foo')
       end
@@ -39,13 +39,13 @@ describe Tenon::Asset do
 
   describe '#dimensions' do
     let(:asset) { Tenon::Asset.new }
-    let(:attachment) { double(styles: {thumbnail: 'foo'}) }
+    let(:attachment) { double(styles: { thumbnail: 'foo' }) }
     before do
       asset.stub(:attachment) { attachment }
     end
 
     context 'when the style is :original' do
-      it "should use the Paperclip.io_adapters.for chain to get a file from the attachment" do
+      it 'should use the Paperclip.io_adapters.for chain to get a file from the attachment' do
         stub_const('Paperclip::Geometry', double.as_null_object)
         io = double
         expect(Paperclip).to receive(:io_adapters) { io }
@@ -53,7 +53,7 @@ describe Tenon::Asset do
         asset.dimensions
       end
 
-      it "should use Paperclip::Geometry to get the dimensions" do
+      it 'should use Paperclip::Geometry to get the dimensions' do
         Paperclip.stub(:io_adapters) { double.as_null_object }
         stub_const('Paperclip::Geometry', double.as_null_object)
         expect(Paperclip::Geometry).to receive(:from_file)
@@ -62,7 +62,7 @@ describe Tenon::Asset do
     end
 
     context 'when the style is :something else' do
-      it "should use the Paperclip.io_adapters.for chain to get a file from the style" do
+      it 'should use the Paperclip.io_adapters.for chain to get a file from the style' do
         stub_const('Paperclip::Geometry', double.as_null_object)
         io = double
         expect(Paperclip).to receive(:io_adapters) { io }
@@ -70,7 +70,7 @@ describe Tenon::Asset do
         asset.dimensions(:thumbail)
       end
 
-      it "should use Paperclip::Geometry to get the dimensions" do
+      it 'should use Paperclip::Geometry to get the dimensions' do
         Paperclip.stub(:io_adapters) { double.as_null_object }
         stub_const('Paperclip::Geometry', double.as_null_object)
         expect(Paperclip::Geometry).to receive(:from_file)

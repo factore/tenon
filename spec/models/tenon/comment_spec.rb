@@ -6,7 +6,7 @@ describe Tenon::Comment do
 
     context 'when a session is passed' do
       it "should create a comment with the session's attributes" do
-        session = {one: 'one', two: 'two'}
+        session = { one: 'one', two: 'two' }
         expect(Tenon::Comment).to receive(:new).with(session)
         Tenon::Comment.create_comment(object, session)
       end
@@ -14,7 +14,7 @@ describe Tenon::Comment do
 
     context 'when session is nil' do
       it "should create a comment with the object's details" do
-        info = {commentable_type: object.class.to_s, commentable_id: 1}
+        info = { commentable_type: object.class.to_s, commentable_id: 1 }
         expect(Tenon::Comment).to receive(:new).with(info)
         Tenon::Comment.create_comment(object, nil)
       end
@@ -41,7 +41,7 @@ describe Tenon::Comment do
 
     it 'notifies subscribers' do
       @comment.subscribe = 0
-      subscriber = double('subscriber', :email => 'something@something.com')
+      subscriber = double('subscriber', email: 'something@something.com')
       @comment.stub_chain(:commentable, :subscribers).and_return([subscriber])
       Tenon::CommentMailer.stub_chain(:comment_notification, :deliver)
 
@@ -52,7 +52,7 @@ describe Tenon::Comment do
 
   describe '#approve!' do
     let(:comment) { Tenon::Comment.new }
-    it "should set approved to true and save the comment" do
+    it 'should set approved to true and save the comment' do
       expect(comment).to receive(:approved=).with(true)
       expect(comment).to receive(:save)
       comment.approve!
@@ -61,7 +61,7 @@ describe Tenon::Comment do
 
   describe '#unapprove!' do
     let(:comment) { Tenon::Comment.new }
-    it "should set approved to true and save the comment" do
+    it 'should set approved to true and save the comment' do
       expect(comment).to receive(:approved=).with(false)
       expect(comment).to receive(:save)
       comment.unapprove!
@@ -70,7 +70,7 @@ describe Tenon::Comment do
 
   describe '#approve!' do
     let(:comment) { Tenon::Comment.new }
-    it "should set approved to true" do
+    it 'should set approved to true' do
       expect(comment).to receive(:approved=).with(true)
       comment.approve
     end

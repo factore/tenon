@@ -5,7 +5,7 @@ module Tenon
       %w(notice warning error alert).each do |msg|
         unless flash[msg.to_sym].blank?
           content = content_tag(:p, flash[msg.to_sym])
-          messages << content_tag(:div, content, :class => "alert alert-#{msg}")
+          messages << content_tag(:div, content, class: "alert alert-#{msg}")
         end
       end
       messages.join('').html_safe
@@ -17,7 +17,7 @@ module Tenon
       options[:alt_links].each { |a| klass = request.fullpath.match(a) ? 'active' : '' unless klass == 'active' } if options[:alt_links].is_a?(Array)
       klass = 'active' if link == request.fullpath
       klass += " #{options[:class]}" unless options[:class].blank?
-      link_to(title, link, :class => klass)
+      link_to(title, link, class: klass)
     end
 
     # now uses http://github.com/mdeering/gravatar_image_tag
@@ -40,10 +40,10 @@ module Tenon
       tags = []
       if obj
         if obj.respond_to?(:seo_keywords) && !obj.seo_keywords.blank?
-          tags << tag(:meta, { :name => 'keywords', :content => obj.seo_keywords })
+          tags << tag(:meta,  name: 'keywords', content: obj.seo_keywords)
         end
         if obj.respond_to?(:seo_description) && !obj.seo_description.blank?
-          tags << tag(:meta, { :name => 'description', :content => obj.seo_description })
+          tags << tag(:meta,  name: 'description', content: obj.seo_description)
         end
       end
       tags.join
@@ -52,10 +52,10 @@ module Tenon
     # eg. first_image(@product)
     def first_image(obj, options = {})
       opts = {
-        :collection => :images,
-        :method => :image,
-        :style => :thumbnail,
-        :default => image_path('noimage.jpg')
+        collection: :images,
+        method: :image,
+        style: :thumbnail,
+        default: image_path('noimage.jpg')
       }.merge(options.symbolize_keys!)
 
       image = obj.send(opts[:collection]).first
@@ -86,12 +86,12 @@ module Tenon
 
         klass = ie_versions.select { |e| e > version }.map { |e| "ie-lt#{e}" }.join(' ')
 
-        htmls << if_ie("<html lang='#{I18n.locale}' dir='ltr' class='noscript #{klass}'>", :version => version)
+        htmls << if_ie("<html lang='#{I18n.locale}' dir='ltr' class='noscript #{klass}'>", version: version)
       end
 
       # trailing GT for forward compatibility
-      htmls << if_ie("<html lang='#{I18n.locale}' dir='ltr' class='noscript'>", :version => ">=#{max}", :show_in_other_browsers => true)
-      htmls.join($/).html_safe
+      htmls << if_ie("<html lang='#{I18n.locale}' dir='ltr' class='noscript'>", version: ">=#{max}", show_in_other_browsers: true)
+      htmls.join($INPUT_RECORD_SEPARATOR).html_safe
     end
 
     def if_ie(obj, options = {})

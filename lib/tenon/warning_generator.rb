@@ -1,6 +1,5 @@
 module Tenon
   class WarningGenerator
-
     def self.generate
       new.warnings
     end

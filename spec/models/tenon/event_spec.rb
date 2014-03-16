@@ -7,7 +7,7 @@ describe Tenon::Event do
     let(:day) { 10 }
 
     context 'when year, month, and day are passed' do
-      it "should find events on that exact day" do
+      it 'should find events on that exact day' do
         args = [
           'starts_at > ? AND starts_at < ?',
           Time.mktime(year, month, day),
@@ -19,7 +19,7 @@ describe Tenon::Event do
     end
 
     context 'when year and month are passed' do
-      it "should find events in that month" do
+      it 'should find events in that month' do
         args = [
           'starts_at > ? AND starts_at < ?',
           Time.mktime(year, month, nil),
@@ -31,7 +31,7 @@ describe Tenon::Event do
     end
 
     context 'when year is passed' do
-      it "should find events in that year" do
+      it 'should find events in that year' do
         args = [
           'starts_at > ? AND starts_at < ?',
           Time.mktime(year, nil, nil),
@@ -43,14 +43,14 @@ describe Tenon::Event do
     end
 
     context 'when year and day are passed' do
-      it "should raise an ArgumentError" do
+      it 'should raise an ArgumentError' do
         expect { Tenon::Event.on(year, nil, day) }.to raise_error(ArgumentError)
       end
     end
   end
 
   describe '#to_param' do
-    it "should include the ID and the title" do
+    it 'should include the ID and the title' do
       e = Tenon::Event.new(title: 'Test Title')
       e.stub(:id) { 1 }
       expect(e.to_param).to eq('1-test-title')
@@ -58,7 +58,7 @@ describe Tenon::Event do
   end
 
   describe '#next' do
-    it "should look for the first event whose start time is greater" do
+    it 'should look for the first event whose start time is greater' do
       t = Time.now
       args = ['starts_at > ?', t]
       expect(Tenon::Event).to receive(:published) { Tenon::Event }
@@ -68,7 +68,7 @@ describe Tenon::Event do
   end
 
   describe '#previous' do
-    it "should look for the first event whose start time is greater" do
+    it 'should look for the first event whose start time is greater' do
       t = Time.now
       args = ['starts_at < ?', t]
       expect(Tenon::Event).to receive(:published) { Tenon::Event }

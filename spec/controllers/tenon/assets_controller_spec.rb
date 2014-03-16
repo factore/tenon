@@ -5,13 +5,13 @@ describe Tenon::AssetsController do
 
   let(:asset) { double.as_null_object }
 
-  let(:user) {
+  let(:user) do
     double(
       :staff? => true,
       :is_super_admin? => false,
       :is_admin? => true
     )
-  }
+  end
 
   before do
     controller.stub(:current_user) { user }
@@ -19,7 +19,7 @@ describe Tenon::AssetsController do
   end
 
   describe 'GET index.html' do
-    it "should render the index template" do
+    it 'should render the index template' do
       get :index, format: 'html'
       expect(response).to render_template('index')
     end
@@ -33,7 +33,7 @@ describe Tenon::AssetsController do
     end
 
     context 'without params[:q] and without params[:type]' do
-      it "should find, paginate, and decorate the Assets" do
+      it 'should find, paginate, and decorate the Assets' do
         expect(Tenon::Asset).to receive(:all) { Tenon::Asset }
         expect(Tenon::Asset).to receive(:paginate) { Tenon::Asset }
         expect(Tenon::PaginatingDecorator).to receive(:decorate).with(Tenon::Asset)
@@ -48,38 +48,38 @@ describe Tenon::AssetsController do
     end
 
     context 'with params[:q] = "search"' do
-      it "should search the assets with the query" do
+      it 'should search the assets with the query' do
         args = [
           'attachment_file_name ILIKE :q OR title ILIKE :q',
-          { :q => "%search%" }
+          { q: '%search%' }
         ]
         expect(Tenon::Asset).to receive(:where).with(args)
         get :index, format: 'json', q: 'search'
       end
 
-      it "should not sort the assets by type" do
+      it 'should not sort the assets by type' do
         expect(Tenon::Asset).not_to receive(:with_type)
         get :index, format: 'json', q: 'search'
       end
     end
 
     context 'with params[:type] = "images"' do
-      it "should search the assets with the type" do
+      it 'should search the assets with the type' do
         expect(Tenon::Asset).to receive(:with_type).with('images')
         get :index, format: 'json', type: 'images'
       end
 
-      it "should not search the assets by type" do
+      it 'should not search the assets by type' do
         expect(Tenon::Asset).not_to receive(:where)
         get :index, format: 'json', type: 'images'
       end
     end
 
     context 'with params[:q] = "search" and params[:type] = "images"' do
-      it "should search the assets and sort them by type" do
+      it 'should search the assets and sort them by type' do
         args = [
           'attachment_file_name ILIKE :q OR title ILIKE :q',
-          { :q => "%search%" }
+          { q: '%search%' }
         ]
         expect(Tenon::Asset).to receive(:where).with(args)
         expect(Tenon::Asset).to receive(:with_type).with('images')
@@ -93,7 +93,7 @@ describe Tenon::AssetsController do
       Tenon::Asset.stub(:find)
     end
 
-    it "should not render the layout" do
+    it 'should not render the layout' do
       get :edit, id: 1
       expect(response).to render_template(layout: false)
     end
@@ -104,7 +104,7 @@ describe Tenon::AssetsController do
       Tenon::Asset.stub(:find)
     end
 
-    it "should not render the layout" do
+    it 'should not render the layout' do
       get :crop, id: 1
       expect(response).to render_template(layout: false)
     end
@@ -112,12 +112,12 @@ describe Tenon::AssetsController do
 
   describe 'POST create' do
     let(:params) { { 'test' => 'test' } }
-    it "should instantiate an Asset" do
+    it 'should instantiate an Asset' do
       expect(Tenon::Asset).to receive(:new).with(params) { double.as_null_object }
       post :create, asset: params
     end
 
-    it "should attempt to save it" do
+    it 'should attempt to save it' do
       Tenon::Asset.stub(:new) { asset }
       expect(asset).to receive(:save)
       post :create, asset: params
@@ -129,7 +129,7 @@ describe Tenon::AssetsController do
         asset.stub(:save) { true }
       end
 
-      it "should set flash[:notice]" do
+      it 'should set flash[:notice]' do
         post :create, asset: params
         expect(controller.flash[:notice]).not_to be_nil
       end
@@ -144,7 +144,7 @@ describe Tenon::AssetsController do
       before do
         Tenon::Asset.stub(:new) { asset }
         asset.stub(:save) { false }
-        asset.stub(:errors) { {anything: 'will do'} }
+        asset.stub(:errors) { { anything: 'will do' } }
       end
 
       it 'should not set flash[:notice]' do
@@ -164,15 +164,15 @@ describe Tenon::AssetsController do
       Tenon::Asset.stub(:find) { double.as_null_object }
     end
 
-    it "should find an asset" do
+    it 'should find an asset' do
       expect(Tenon::Asset).to receive(:find).with('1')
-      patch :update, asset: {test: 'test'}, id: 1
+      patch :update, asset: { test: 'test' }, id: 1
     end
 
     context 'when creating a duplicate' do
       let(:existing_asset) { double(attachment: 'test') }
       let(:new_asset) { double(:cropping? => false).as_null_object }
-      let(:params) { {'test' => 'test', 'duplicate' => '1'} }
+      let(:params) { { 'test' => 'test', 'duplicate' => '1' } }
 
       before do
         Tenon::Asset.stub(:find) { existing_asset }
@@ -189,25 +189,25 @@ describe Tenon::AssetsController do
         patch :update, asset: params, id: 1
       end
 
-      it "should save and reset the crop field on the new asset" do
+      it 'should save and reset the crop field on the new asset' do
         expect(new_asset).to receive(:save)
         expect(new_asset).to receive(:crop_x=) { nil }
         patch :update, asset: params, id: 1
       end
 
-      it "should not be reprocessed again" do
+      it 'should not be reprocessed again' do
         attachment = double
         new_asset.stub(:attachment) { attachment }
         expect(attachment).not_to receive(:reprocess!)
         patch :update, asset: params, id: 1
       end
 
-      it "should be decorated" do
+      it 'should be decorated' do
         expect(new_asset).to receive(:decorate)
         patch :update, asset: params, id: 1
       end
 
-      it "should render success" do
+      it 'should render success' do
         patch :update, asset: params, id: 1, format: 'json'
         expect(response).to be_success
       end
@@ -217,28 +217,27 @@ describe Tenon::AssetsController do
       let(:existing_asset) do
         double(attachment: 'test', :cropping? => cropping).as_null_object
       end
-      let(:params) { {'test' => 'test'} }
+      let(:params) { { 'test' => 'test' } }
       let(:cropping) { nil }
 
       before do
         Tenon::Asset.stub(:find) { existing_asset }
       end
 
-      it "should attempt to update the attributes" do
+      it 'should attempt to update the attributes' do
         expect(existing_asset).to receive(:update_attributes).with(params)
         patch :update, asset: params, id: 1
       end
 
-      it "should decorate the asset" do
+      it 'should decorate the asset' do
         expect(existing_asset).to receive(:decorate)
         patch :update, asset: params, id: 1
       end
 
-      it "should render success" do
+      it 'should render success' do
         patch :update, asset: params, id: 1, format: 'json'
         expect(response).to be_success
       end
-
 
       context 'when not cropping' do
         it 'should not reprocess the asset' do

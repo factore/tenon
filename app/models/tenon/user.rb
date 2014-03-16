@@ -13,12 +13,12 @@ module Tenon
 
     # Mass create some is_whatev? convenience methods
     ['Admin', 'Super Admin', 'Contributor', 'Member'].each do |role|
-      define_method("is_#{role.dehumanize}?".to_sym) { self.roles.include?(Role.find_by_title(role)) }
+      define_method("is_#{role.dehumanize}?".to_sym) { roles.include?(Role.find_by_title(role)) }
     end
     alias_method :member?, :is_member?
 
     def as_json(opts = {})
-      super(opts.merge(:methods => [:is_admin?]))
+      super(opts.merge(methods: [:is_admin?]))
     end
 
     def staff?
@@ -28,7 +28,7 @@ module Tenon
     private
 
     def apply_member_role
-      self.roles << Role.find_by_title('Member') if self.roles.blank?
+      roles << Role.find_by_title('Member') if roles.blank?
     end
   end
 end

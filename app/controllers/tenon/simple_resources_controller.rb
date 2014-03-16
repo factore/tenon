@@ -6,6 +6,6 @@ class Tenon::SimpleResourcesController < Tenon::ResourcesController
   end
 
   def edit
-    render :partial => 'form', :locals => { singular_name => resource }
+    render partial: 'form', locals: { singular_name => resource }
   end
 end

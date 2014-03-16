@@ -13,8 +13,8 @@ module Tenon
 
     # default tenon action link
     def action_link(title, link, icon, options = {})
-      icon_tag = content_tag(:i, '', :class => "fa fa-#{icon} fa-fw")
-      default_options = { :title => title, :data => { :tooltip => title } }
+      icon_tag = content_tag(:i, '', class: "fa fa-#{icon} fa-fw")
+      default_options = { title: title, data: { tooltip: title } }
       link_to(icon_tag, link, default_options.deep_merge(options))
     end
 
@@ -29,11 +29,11 @@ module Tenon
     # default tenon delete link
     def delete_link(obj, options = {})
       if can?(:destroy, obj)
-        default_options = { :data => {
-          :confirm => 'Are you sure? There is no undo for this!',
-          :tooltip => 'Delete',
-          :method => 'Delete',
-          :remote => 'true'
+        default_options = { data: {
+          confirm: 'Are you sure? There is no undo for this!',
+          tooltip: 'Delete',
+          method: 'Delete',
+          remote: 'true'
         } }
         url = polymorphic_url(obj)
         action_link('Delete', url, 'trash-o', default_options.deep_merge(options))
@@ -43,7 +43,7 @@ module Tenon
     # browser detection and warning message
     def browser_detection(http)
       if http.match(/MSIE 6|MSIE 7|MSIE 8.0/)
-        content_tag(:div, "For an optimal Tenon experience, please upgrade Internet Explorer to the #{link_to 'latest version', 'http://browsehappy.com/', :target => '_blank'} or switch to another #{link_to 'modern browser', 'http://browsehappy.com/', :target => '_blank'}.".html_safe, :id => 'flash-warning', :class => 'flash-msg')
+        content_tag(:div, "For an optimal Tenon experience, please upgrade Internet Explorer to the #{link_to 'latest version', 'http://browsehappy.com/', target: '_blank'} or switch to another #{link_to 'modern browser', 'http://browsehappy.com/', target: '_blank'}.".html_safe, id: 'flash-warning', class: 'flash-msg')
       end
     end
 
@@ -51,10 +51,10 @@ module Tenon
     def publish_box(f, object)
       if can?(:publish, object)
         content = [
-          f.check_box(:published, :class => 'tn-checkbox-right'),
+          f.check_box(:published, class: 'tn-checkbox-right'),
           f.super_label(:published, 'Published?')
         ].join(' ').html_safe
-        content_tag(:div, content, :class => 'form-group inline')
+        content_tag(:div, content, class: 'form-group inline')
       end
     end
   end

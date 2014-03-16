@@ -8,10 +8,9 @@ module Tenon
     has_many :item_assets
 
     # Attachment
-    has_attached_file :attachment,
-      styles: Proc.new { |clip|
-        Tenon::AssetStyleGenerator.generate(clip.instance)
-      }
+    has_attached_file :attachment, styles: Proc.new { |clip|
+            Tenon::AssetStyleGenerator.generate(clip.instance)
+          }
 
     validates_attachment_presence :attachment
     do_not_validate_attachment_file_type :attachment
@@ -24,7 +23,7 @@ module Tenon
     before_destroy :check_attached_items
 
     def self.with_type(type)
-      if %w{images videos}.include?(type)
+      if %w(images videos).include?(type)
         where('attachment_content_type LIKE ?', "%#{type.singularize}%")
       else
         documents
@@ -37,7 +36,7 @@ module Tenon
     end
 
     def is_image?
-      self.attachment_content_type =~ /image/
+      attachment_content_type =~ /image/
     end
 
     def dimensions(style = :original)
@@ -52,15 +51,15 @@ module Tenon
 
     private
 
-      def check_attached_items
-        unless item_assets.count == 0
-          errors.add(:base, "This asset has been attached to items in your site and can't be deleted.")
-          return false
-        end
+    def check_attached_items
+      unless item_assets.count == 0
+        errors.add(:base, "This asset has been attached to items in your site and can't be deleted.")
+        return false
       end
+    end
 
-      def prevent_pdf_thumbnail
-        return false unless attachment_content_type.index('image')
-      end
+    def prevent_pdf_thumbnail
+      return false unless attachment_content_type.index('image')
+    end
   end
 end

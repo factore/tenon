@@ -1,7 +1,7 @@
 module Tenon
   class Event < ActiveRecord::Base
     # Scopes, attachments, etc.
-    scope :published, -> { where(:published => true) }
+    scope :published, -> { where(published: true) }
     scope :upcoming, -> { where(['ends_at > ?', Time.now]).order(:starts_at) }
     scope :past, -> { where(['ends_at < ?', Time.now]).order(:starts_at) }
     tenon_content :description
@@ -10,7 +10,7 @@ module Tenon
     validates_presence_of :title, :starts_at, :ends_at
 
     def self.on(year, month = nil, day = nil)
-      raise ArgumentError, "must pass a month to pass a day" if day && !month
+      fail ArgumentError, 'must pass a month to pass a day' if day && !month
       time = Time.mktime(year, month, day)
       delta = day ? 1.day : month ? 1.month : year ? 1.year : fail
       limit = time + delta

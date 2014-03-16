@@ -7,15 +7,15 @@ module Tenon
     end
 
     validates_presence_of :commentable, :author, :author_email, :content
-    validates_format_of :author_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+    validates_format_of :author_email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
-    belongs_to :commentable, :polymorphic => true
+    belongs_to :commentable, polymorphic: true
 
     attr_accessor :subscribe, :controller
 
     default_scope { order('created_at DESC') }
-    scope :approved, -> { where(:approved => true) }
-    scope :unapproved, -> { where(:approved => false) }
+    scope :approved, -> { where(approved: true) }
+    scope :unapproved, -> { where(approved: false) }
 
     # Comment/uncomment this to turn off/on moderation
     # before_save :approve
@@ -23,17 +23,17 @@ module Tenon
     after_save :handle_subscribers
 
     def self.create_comment(object, session)
-      session.blank? ? Comment.new(:commentable_type => object.class.to_s, :commentable_id => object.id) : Comment.new(session)
+      session.blank? ? Comment.new(commentable_type: object.class.to_s, commentable_id: object.id) : Comment.new(session)
     end
 
     def approve!
       self.approved = true
-      self.save
+      save
     end
 
     def unapprove!
       self.approved = false
-      self.save
+      save
     end
 
     def approve
@@ -43,7 +43,7 @@ module Tenon
     private
     def handle_subscribers
       # create subscriber
-      CommentSubscriber.create(:commentable => commentable, :email => author_email) if self.subscribe.to_i == 1
+      CommentSubscriber.create(commentable: commentable, email: author_email) if subscribe.to_i == 1
 
       # notify subscribers
       if approved? && commentable.respond_to?(:subscribers)

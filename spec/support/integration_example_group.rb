@@ -27,7 +27,7 @@ module RSpec::Rails
     end
 
     RSpec.configure do |c|
-      c.include self, :example_group => { :file_path => /\bspec\/integration\// }
+      c.include self, example_group: { file_path: /\bspec\/integration\// }
     end
   end
 end

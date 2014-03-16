@@ -2,8 +2,8 @@ module Tenon
   module Generators
     class ScaffoldGenerator < Rails::Generators::NamedBase
       source_root File.expand_path('../templates', __FILE__)
-      argument :attributes, :type => :array, :default => [], :banner => 'field:type field:type'
-      class_option :small, :type => :boolean, :default => false, :description => 'Use the small-style template?'
+      argument :attributes, type: :array, default: [], banner: 'field:type field:type'
+      class_option :small, type: :boolean, default: false, description: 'Use the small-style template?'
       invoke :model
 
       def copy_files
@@ -13,10 +13,10 @@ module Tenon
         empty_directory(File.join('app/views/tenon', plural_table_name))
         empty_directory(File.join('app/assets/javascripts/tenon/templates', plural_table_name))
 
-        actions = %w{
+        actions = %w(
           index.html.haml new.html.haml edit.html.haml _form.html.haml
           index.json.jbuilder create.json.jbuilder update.json.jbuilder
-        }
+)
         actions.each do |action|
           src_path = File.join(self.class.source_root, "view_#{action}")
           if File.exist?(src_path)
@@ -34,11 +34,10 @@ module Tenon
         template(
           'controller.rb', File.join('app/controllers/tenon', "#{file_name.pluralize}_controller.rb")
         )
-
       end
 
       def add_routes
-        case self.behavior
+        case behavior
         when :invoke
           # Prepare the routes
           filename = File.join(Rails.root, 'config', 'routes.rb')
@@ -69,15 +68,15 @@ module Tenon
       def add_i18n
         filename = File.join(Rails.root, 'config', 'i18n_fields.yml')
 
-        case self.behavior
+        case behavior
         when :invoke
           # Write a couple of lines to config/i18n_fields.yml
           pattern = 'tables:'
           replacement = "tables:\n  #{plural_table_name}:\n    -\n"
           if File.exist?(filename)
-            puts "Wrote I18n fields config"
+            puts 'Wrote I18n fields config'
           else
-            puts "Skipped I18n fields config"
+            puts 'Skipped I18n fields config'
           end
         when :revoke
           # now remove them
@@ -118,7 +117,7 @@ module Tenon
 
         def timestamps
           @timestamps ||= attributes.select do |a|
-            %w{datetime timestamp}.include?(a.type.to_s) &&
+            %w(datetime timestamp).include?(a.type.to_s) &&
             a.name != 'publish_at'
           end
         end
@@ -129,14 +128,14 @@ module Tenon
 
         def numbers
           @numbers ||= attributes.select do |a|
-            %w{float integer decimal}.include?(a.type.to_s) &&
+            %w(float integer decimal).include?(a.type.to_s) &&
             !a.name.match(/.*_id$/)
           end
         end
 
         def seo_fields
           return @seo_fields if @seo_fields
-          names = %w{seo_title seo_keywords seo_description}
+          names = %w(seo_title seo_keywords seo_description)
           @seo_fields = attributes.select { |a| names.include?(a.name) }
         end
 

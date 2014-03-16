@@ -21,6 +21,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'spring-commands-rspec'
   s.add_development_dependency 'capybara', '~> 2.0.0'
   s.add_development_dependency 'rspec-rails', '>= 2.0.1'
+  s.add_development_dependency 'sass-rails-source-maps'
+  s.add_development_dependency 'rubocop'
 
   s.add_dependency "rails", "~> 4.0"
   s.add_dependency "font-awesome-rails", '4.0.3.1'
@@ -60,8 +62,9 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails-settings-cached', '~> 0.3'
   s.add_dependency 'rdiscount', '~> 2.0.7'
   s.add_dependency 'resque'
-  s.add_dependency 'sass-rails', '~> 4.0.0'
+  s.add_dependency 'sass-rails', '4.0.1'
   s.add_dependency 'simple-rss', '~> 1.2.3'
+  s.add_dependency 'sprockets', '2.11.0'
   s.add_dependency 'uglifier', '>= 1.3.0'
   s.add_dependency 'uuidtools', '~> 2.1.3'
   s.add_dependency 'will_paginate', '~> 3.0.4'

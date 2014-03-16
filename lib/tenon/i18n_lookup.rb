@@ -9,7 +9,7 @@ module Tenon
     end
 
     def self.fields
-      @@fields ||= self.set_fields
+      @@fields ||= set_fields
     end
 
     private
@@ -18,7 +18,7 @@ module Tenon
       if File.exist?(config_file)
         YAML.load(File.open(config_file)).recursive_symbolize_keys!
       else
-        {tables: {}}
+        { tables: {} }
       end
     end
 

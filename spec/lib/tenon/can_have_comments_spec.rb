@@ -12,11 +12,11 @@ end
 
 describe Tenon::CanHaveComments do
   let(:dog) { Dog.new }
-  it "should respond_to :comments" do
+  it 'should respond_to :comments' do
     expect(dog).to respond_to (:comments)
   end
 
-  it "should respond_to :subscribers" do
+  it 'should respond_to :subscribers' do
     expect(dog).to respond_to(:subscribers)
   end
 end

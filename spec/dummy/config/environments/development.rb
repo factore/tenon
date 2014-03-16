@@ -28,5 +28,6 @@ Dummy::Application.configure do
   config.assets.debug = true
 
   # Enable source maps in the browser
-  config.sass.debug_info = true
+  config.sass.sourcemap = true
+  config.sass.cache = false
 end
