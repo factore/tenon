@@ -191,6 +191,8 @@ GEM
     non-stupid-digest-assets (1.0.4)
     normalize-rails (3.0)
     orm_adapter (0.5.0)
+    overcommit (0.7.0)
+      childprocess (>= 0.5.1)
     paperclip (4.1.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -326,6 +328,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara (~> 2.0.0)
+  overcommit
   pg (= 0.17.0)
   rspec-rails (>= 2.0.1)
   rubocop

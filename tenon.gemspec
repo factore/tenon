@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec-rails', '>= 2.0.1'
   s.add_development_dependency 'sass-rails-source-maps'
   s.add_development_dependency 'rubocop'
+  s.add_development_dependency 'overcommit'
 
   s.add_dependency "rails", "~> 4.0"
   s.add_dependency "font-awesome-rails", '4.0.3.1'
