@@ -13,4 +13,15 @@ require 'rspec/core'
 require 'rspec/core/rake_task'
 desc "Run all specs in spec directory (excluding plugin specs)"
 RSpec::Core::RakeTask.new(:spec => 'app:db:test:prepare')
-task :default => :spec
+
+RSpec::Core::RakeTask.new(:fastspec) do |task|
+  file_list = FileList['spec/**/*_spec.rb']
+
+  %w(requests integration features).each do |exclude|
+    file_list = file_list.exclude("spec/#{exclude}/**/*_spec.rb")
+  end
+
+  task.pattern = file_list
+end
+
+task default: :spec
