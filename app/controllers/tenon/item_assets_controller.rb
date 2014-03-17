@@ -1,7 +1,9 @@
-class Tenon::ItemAssetsController < Tenon::BaseController
-  layout false
+module Tenon
+  class ItemAssetsController < Tenon::BaseController
+    layout false
 
-  def new
-    @multiple = params[:multiple]
+    def new
+      @multiple = params[:multiple]
+    end
   end
 end

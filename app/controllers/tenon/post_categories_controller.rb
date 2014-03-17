@@ -1,7 +1,9 @@
-class Tenon::PostCategoriesController < Tenon::SimpleResourcesController
-  private
+module Tenon
+  class PostCategoriesController < Tenon::SimpleResourcesController
+    private
 
-  def resource_params
-    params.require(:post_category).permit!
+    def resource_params
+      params.require(:post_category).permit!
+    end
   end
 end

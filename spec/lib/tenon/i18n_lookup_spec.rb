@@ -9,12 +9,12 @@ describe Tenon::I18nLookup do
   end
 
   describe '#fields' do
-
     context "when there's no match for the class" do
       before do
         Tenon::I18nLookup.stub(:fields) do {
           tables: {}
-        }end
+        }
+        end
       end
 
       it 'should return an empty array' do
@@ -26,7 +26,8 @@ describe Tenon::I18nLookup do
       before do
         Tenon::I18nLookup.stub(:fields) do {
           tables: { strings: %w(a b c) }
-        }end
+        }
+        end
       end
 
       it 'should return the field names' do

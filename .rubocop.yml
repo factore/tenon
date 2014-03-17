@@ -36,10 +36,6 @@ Documentation:
 AccessorMethodName:
   Enabled: false
 
-# Offense count: 1
-AmbiguousOperator:
-  Enabled: false
-
 # Offense count: 5
 # Cop supports --auto-correct.
 AndOr:
@@ -47,7 +43,7 @@ AndOr:
 
 # Offense count: 3
 BlockAlignment:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -74,16 +70,16 @@ CyclomaticComplexity:
 
 # Offense count: 2
 EmptyLinesAroundAccessModifier:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 1
 FavorUnlessOverNegatedIf:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 # Cop supports --auto-correct.
 FinalNewline:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 13
 # Configuration parameters: AllowedVariables.
@@ -93,11 +89,11 @@ GlobalVars:
 # Offense count: 2
 # Configuration parameters: MaxLineLength.
 IfUnlessModifier:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 Lambda:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 22
 # Configuration parameters: CountComments.

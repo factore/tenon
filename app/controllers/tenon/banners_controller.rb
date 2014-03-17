@@ -1,7 +1,9 @@
-class Tenon::BannersController < Tenon::ResourcesController
-  private
+module Tenon
+  class BannersController < Tenon::ResourcesController
+    private
 
-  def resource_params
-    params.require(:banner).permit!
+    def resource_params
+      params.require(:banner).permit!
+    end
   end
 end
