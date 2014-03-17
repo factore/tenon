@@ -1,5 +1,5 @@
 module Tenon
-  class TenonContent
+  module TenonContent
     class Piece < ActiveRecord::Base
       self.table_name = 'tenon_tenon_content_pieces'
 

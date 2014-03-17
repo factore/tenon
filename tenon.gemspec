@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'overcommit'
   s.add_development_dependency 'haml-lint'
   s.add_development_dependency 'scss-lint'
+  s.add_development_dependency 'better_errors'
 
   s.add_dependency "rails", "~> 4.0"
   s.add_dependency "font-awesome-rails", '4.0.3.1'
