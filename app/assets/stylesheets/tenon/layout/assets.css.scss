@@ -62,6 +62,9 @@ form.edit_asset {
     position: relative;
     overflow: hidden;
     margin: 10px 0 0 10px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    // font-size: 12px;
 
     input.upload {
       position: absolute;
