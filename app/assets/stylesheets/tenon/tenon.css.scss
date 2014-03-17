@@ -7,57 +7,57 @@
 */
 
 // third party things
-@import "bourbon";
-@import "neat";
-@import "bootstrap";
-@import "bootstrap.tables";
-@import "bootstrap.datetimepicker";
-@import "jquery.Jcrop";
+@import 'bourbon';
+@import 'neat';
+@import 'bootstrap';
+@import 'bootstrap.tables';
+@import 'bootstrap.datetimepicker';
+@import 'jquery.Jcrop';
 
 // global mixins
-@import "tenon/mixins";
+@import 'tenon/mixins';
 
 // universal variables
-@import "tenon/colors-named";
-@import "tenon/colors-custom";
-@import "tenon/typography";
-@import "tenon/helpers";
-@import "tenon/styleguide";
+@import 'tenon/colors-named';
+@import 'tenon/colors-custom';
+@import 'tenon/typography';
+@import 'tenon/helpers';
+@import 'tenon/styleguide';
 
 // Layouts, try to make one for each different page type
-@import "tenon/layout/breakpoints";
-@import "tenon/layout/grid";
-@import "tenon/layout/global";
-@import "tenon/layout/dashboard";
-@import "tenon/layout/assets";
-@import "tenon/layout/main-nav";
-@import "tenon/layout/util-nav";
-@import "tenon/layout/sidebar";
-@import "tenon/layout/mobile";
+@import 'tenon/layout/breakpoints';
+@import 'tenon/layout/grid';
+@import 'tenon/layout/global';
+@import 'tenon/layout/dashboard';
+@import 'tenon/layout/assets';
+@import 'tenon/layout/main-nav';
+@import 'tenon/layout/util-nav';
+@import 'tenon/layout/sidebar';
+@import 'tenon/layout/mobile';
 
 // UI Components, choose as needed
-@import "tenon/ui/alerts";
-@import "tenon/ui/asset-attachment";
-@import "tenon/ui/asset-cropping";
-@import "tenon/ui/asset-uploads";
-@import "tenon/ui/buttons";
-@import "tenon/ui/callouts";
-@import "tenon/ui/forms";
-@import "tenon/ui/generic-loader";
-@import "tenon/ui/list-style-toggle";
-@import "tenon/ui/login";
-@import "tenon/ui/medium-editor";
-@import "tenon/ui/modals";
-@import "tenon/ui/pagination";
-@import "tenon/ui/progress-bars";
-@import "tenon/ui/quick-search";
-@import "tenon/ui/record-lists";
-@import "tenon/ui/record-grids";
-@import "tenon/ui/section-headers";
-@import "tenon/ui/select2";
-@import "tenon/ui/tables";
-@import "tenon/ui/tabs";
-@import "tenon/ui/tenon-content";
-@import "tenon/ui/tenon-content-library";
-@import "tenon/ui/tenon-content-popped-out";
-@import "tenon/ui/thinking";
+@import 'tenon/ui/alerts';
+@import 'tenon/ui/asset-attachment';
+@import 'tenon/ui/asset-cropping';
+@import 'tenon/ui/asset-uploads';
+@import 'tenon/ui/buttons';
+@import 'tenon/ui/callouts';
+@import 'tenon/ui/forms';
+@import 'tenon/ui/generic-loader';
+@import 'tenon/ui/list-style-toggle';
+@import 'tenon/ui/login';
+@import 'tenon/ui/medium-editor';
+@import 'tenon/ui/modals';
+@import 'tenon/ui/pagination';
+@import 'tenon/ui/progress-bars';
+@import 'tenon/ui/quick-search';
+@import 'tenon/ui/record-lists';
+@import 'tenon/ui/record-grids';
+@import 'tenon/ui/section-headers';
+@import 'tenon/ui/select2';
+@import 'tenon/ui/tables';
+@import 'tenon/ui/tabs';
+@import 'tenon/ui/tenon-content';
+@import 'tenon/ui/tenon-content-library';
+@import 'tenon/ui/tenon-content-popped-out';
+@import 'tenon/ui/thinking';

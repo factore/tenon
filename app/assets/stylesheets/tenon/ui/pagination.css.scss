@@ -1,6 +1,6 @@
 .pagination {
   display: inline-block;
-  margin: 0px 0;
+  margin: 0;
   padding-left: 0;
   border-radius: 4px;
 }
@@ -16,8 +16,8 @@
   float: left;
   margin-left: -1px;
   padding: 6px 12px;
-  border: 1px solid #dddddd;
-  background-color: #ffffff;
+  border: 1px solid #ddd;
+  background-color: #fff;
   text-decoration: none;
   line-height: 1.428571429;
 }
@@ -42,7 +42,7 @@
 .pagination > li > a:focus,
 
 .pagination > li > span:focus {
-  background-color: #eeeeee;
+  background-color: #eee;
 }
 
 .pagination > .active > a,
@@ -55,7 +55,7 @@
   z-index: 2;
   border-color: #428bca;
   background-color: #428bca;
-  color: #ffffff;
+  color: #fff;
   cursor: default;
 }
 
@@ -64,9 +64,9 @@
 .pagination > .disabled > a:hover,
 
 .pagination > .disabled > a:focus {
-  border-color: #dddddd;
-  background-color: #ffffff;
-  color: #999999;
+  border-color: #ddd;
+  background-color: #fff;
+  color: #999;
   cursor: not-allowed;
 }
 
