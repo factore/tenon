@@ -13,7 +13,17 @@ module Tenon
     def self.on(year, month = nil, day = nil)
       fail ArgumentError, 'must pass a month to pass a day' if day && !month
       time = Time.mktime(year, month, day)
-      delta = day ? 1.day : month ? 1.month : year ? 1.year : fail
+      # delta = day ? 1.day : month ? 1.month : year ? 1.year : fail
+      if day
+        delta = 1.day
+      elsif month
+        delta = 1.month
+      elsif year
+        delta = 1.year
+      else
+        fail
+      end
+
       limit = time + delta
 
       where('starts_at > ? AND starts_at < ?', time, limit).order('starts_at')

@@ -96,8 +96,15 @@ module S3SwfUpload
 
     # Determine the appropriate additive constant for the current iteration
     def sha1_kt(t)
-      (t < 20) ?  1_518_500_249 : (t < 40) ?  1_859_775_393 :
-             (t < 60) ? -1_894_007_588 : -899_497_514
+      if t < 20
+        1_518_500_249
+      elsif t < 40
+        1_859_775_393
+      elsif t < 60
+        -1_894_007_588
+      else
+        -899_497_514
+      end
     end
 
     # Calculate the HMAC-SHA1 of a key and some data

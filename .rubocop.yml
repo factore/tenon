@@ -37,11 +37,6 @@ AndOr:
 Blocks:
   Enabled: false
 
-# Offense count: 10
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-ClassAndModuleChildren:
-  Enabled: false
-
 # Offense count: 1
 # Configuration parameters: CountComments.
 ClassLength:
@@ -79,7 +74,7 @@ MultilineBlockChain:
 
 # Offense count: 4
 NestedTernaryOperator:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 ParenthesesAsGroupedExpression:
