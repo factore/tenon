@@ -64,7 +64,7 @@ form.edit_asset {
     margin: 10px 0 0 10px;
     padding: 5px 10px;
     border-radius: 15px;
-    // font-size: 12px;
+    font-size: 12px;
 
     input.upload {
       position: absolute;
@@ -72,7 +72,7 @@ form.edit_asset {
       right: 0;
       margin: 0;
       padding: 0;
-      font-size: 20px;
+      // font-size: 20px;
       opacity: 0;
       filter: alpha(opacity = 0);
       cursor: pointer;
