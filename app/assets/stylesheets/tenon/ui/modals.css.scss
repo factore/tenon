@@ -14,22 +14,14 @@
 }
 
 .modal.fade .modal-dialog {
+  @include transition(all 0.3s ease);
+  @include transform(scale(2));
   opacity: 0;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-  -webkit-transform: scale(2);
-  -moz-transform: scale(2);
-  -ms-transform: scale(2);
-  transform: scale(2);
 }
 
 .modal.in .modal-dialog {
+  @include transform(scale(1));
   opacity: 1;
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
 }
 
 .modal-dialog {
@@ -46,10 +38,10 @@
   position: absolute;
   overflow-x: hidden;
   overflow-y: auto;
+  width: 100%;
   outline: none;
   border-radius: 2px;
   background-color: $tn-light-grey;
-  width: 100%;
 }
 
 .modal-backdrop {
@@ -76,7 +68,7 @@
 .modal-header {
   padding: 15px;
   border-bottom: 1px solid $tn-med-grey;
-  background: white;
+  background: #fff;
 }
 
 .modal-header .close {
@@ -103,10 +95,10 @@
 }
 
 .modal-footer:before, .modal-footer:after {
-  /* 1 */
+  // 1
   display: table;
-  content: " ";
-  /* 2 */
+  content: ' ';
+  // 2
 }
 
 .modal-footer:after {
@@ -126,20 +118,17 @@
   margin-left: 0;
 }
 
-@include media($tablet_breakpoint) {
+@include media($tablet-breakpoint) {
 
   .modal-content {
+    @include transform(translate(-50%, 0));
     position: fixed;
     top: 20px;
     left: 50%;
     width: 600px;
-    -webkit-transform: translate(-50%, 0);
-    -moz-transform: translate(-50%, 0);
-    -ms-transform: translate(-50%, 0);
-    -o-transform: translate(-50%, 0);
-    transform: translate(-50%, 0);
   }
 }
+
 
 .modal-tab-links {
   margin: 0;
@@ -153,33 +142,27 @@
     margin-left: 0;
     padding: 0;
 
-    &:last-of-type {}
-
     a {
-      border-right: 0px;
-      border-right: 0px;
-      color: white;
+      border-right: 0;
+      color: #fff;
 
       &:hover {
         text-decoration: none;
       }
     }
 
-    &.active {
-      a.btn-info {
-        background: darken($tn-primary, 5%);
-        border-color: darken($tn-primary, 5%);
-      }
+    &.active a.btn-info {
+      border-color: darken($tn-primary, 5%);
+      background: darken($tn-primary, 5%);
     }
   }
 }
 
 .asset-list-scroller {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .tab {
+  padding: 9px 12px 1px;
   height: 42px;
-  padding: 9px 12px 1px 12px;
-
 }

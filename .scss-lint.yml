@@ -1,0 +1,13 @@
+linters:
+  PropertySortOrder:
+    enabled: false
+
+  SelectorDepth:
+    max_depth: 6
+    # this defaults to 3
+
+  LeadingZero:
+    enabled: false
+
+  SingleLinePerSelector:
+    enabled: false

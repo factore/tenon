@@ -1,4 +1,4 @@
-@mixin styled_checkbox($unchecked: "\f10c", $checked: "\f058", $active: inherit, $hover: inherit, $font-family: "FontAwesome", $float: none, $unchecked-color: $tn-grey, $checked-color: $tn-primary, $active-color: inherit, $hover-color: inherit) {
+@mixin styled-checkbox($unchecked: "\f10c", $checked: "\f058", $active: inherit, $hover: inherit, $font-family: "FontAwesome", $float: none, $unchecked-color: $tn-grey, $checked-color: $tn-primary, $active-color: inherit, $hover-color: inherit) {
   position: absolute;
   z-index: 5;
   opacity: 0;
@@ -10,7 +10,7 @@
     &:before {
       float: $float;
       margin-top: 2px;
-      padding: 1px 2px 0 2px;
+      padding: 1px 2px 0;
       color: $unchecked-color;
       content: $unchecked;
       font: 22px $font-family;
@@ -26,17 +26,15 @@
     color: $checked-color;
     content: $checked;
   }
-  /*
 
-  &:hover + label:before {
+  // &:hover + label:before {
 
-    @if $hover-color != inherit {
-      color: $hover-color;
-    }
-    content: $hover;
-    outline: 2px auto $checked-color;
-  }
-  */
+  //   @if $hover-color != inherit {
+  //     color: $hover-color;
+  //   }
+  //   content: $hover;
+  //   outline: 2px auto $checked-color;
+  // }
 
   &:focus + label:before {
     outline: 1px dotted $checked-color;

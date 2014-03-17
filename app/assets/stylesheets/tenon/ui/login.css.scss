@@ -1,6 +1,7 @@
 .tenon-login {
-  @include media($mobile_breakpoint) {
-    padding: 10px 0px;
+
+  @include media($mobile-breakpoint) {
+    padding: 10px 0;
     min-height: 100%;
     height: auto;
 
@@ -9,24 +10,24 @@
     }
   }
 
-  @include media($tablet_breakpoint) {
+  @include media($tablet-breakpoint) {
     padding-top: 150px;
+
     form {
       width: 448px;
     }
   }
 
-  background: image-url('tenon/noise.png') $tn-client-color;
-
   width: 100%;
   height: 100%;
+  background: image-url('tenon/noise.png') $tn-client-color;
 
   form {
-    margin: 0px auto;
-    padding: 24px 0px;
+    margin: 0 auto;
+    padding: 24px 0;
     border: 1px solid $tn-dark-grey;
     border-radius: 5px;
-    background: white;
+    background: #fff;
     box-shadow: 1px 1px 5px darken($tn-client-color, 10%);
   }
 
@@ -62,7 +63,7 @@
   .alert {
     margin: 0;
     padding: 6px 24px;
-    background: #F8FFB9;
+    background: #f8ffb9;
     color: $tn-dark-grey;
     text-transform: uppercase;
     font-size: 12px;
@@ -83,7 +84,7 @@
 
   input[type=text], input[type=password] {
     width: 100%;
-    border: 0px;
+    border: 0;
 
     &:-webkit-autofill {
       padding: 5px;
@@ -92,10 +93,7 @@
         outline: none;
       }
     }
-
-
   }
-
 
   input[type=submit] {
     float: right;

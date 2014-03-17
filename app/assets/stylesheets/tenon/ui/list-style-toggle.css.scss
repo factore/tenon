@@ -1,5 +1,6 @@
 .list-style-toggle-holder {
-  @include media($mobile_breakpoint) {
+
+  @include media($mobile-breakpoint) {
     display: none;
   }
 }
@@ -7,7 +8,7 @@
 .list-style-toggle {
   border: 2px solid $tn-med-grey;
   border-radius: 5px;
-  background: #FFF;
+  background: #fff;
 
   a {
     @include transition(all 0.2s ease-in);
@@ -24,7 +25,7 @@
     }
 
     &.active {
-      background: #FFF;
+      background: #fff;
       color: $tn-primary-text;
     }
 

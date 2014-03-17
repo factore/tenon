@@ -25,8 +25,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'sass-rails-source-maps'
   s.add_development_dependency 'rubocop'
   s.add_development_dependency 'overcommit'
-  s.add_development_dependency 'haml-lint'
-  s.add_development_dependency 'scss-lint'
   s.add_development_dependency 'factory_girl_rails'
   s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'better_errors'

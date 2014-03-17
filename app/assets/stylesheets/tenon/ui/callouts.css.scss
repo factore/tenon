@@ -1,6 +1,6 @@
 #dashboard-callouts {
 
-  @include media($tablet_breakpoint) {
+  @include media($tablet-breakpoint) {
 
     .callout {
       @include span-columns(6);
@@ -12,6 +12,7 @@
       &:nth-child(2n + 2) {
         margin-right: 0;
       }
+
       // 'tetris' magic: reset
 
       &:nth-child(3n + 1):last-child {
@@ -21,6 +22,7 @@
       &:nth-child(3n + 1):nth-last-child(2) {
         margin-right: 0;
       }
+
       // 'tetris' magic for tablet
 
       &:nth-child(2n + 1):last-child {
@@ -29,7 +31,7 @@
     }
   }
 
-  @include media($mobile_breakpoint) {
+  @include media($mobile-breakpoint) {
 
     .callout {
       @include span-columns(4);
@@ -46,16 +48,18 @@
     @include span-columns(4);
     margin-bottom: $gutter;
     padding: 14px;
-    background-color: white;
+    background-color: #fff;
 
     &:nth-child(3n + 3) {
       margin-right: 0;
     }
+
     // 'tetris' magic
 
     &:nth-child(3n + 1):last-child {
       @include span-columns(12);
     }
+
     &:nth-child(3n + 1):nth-last-child(2),
 
     &:nth-child(3n + 2):last-child {
