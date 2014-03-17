@@ -4,13 +4,13 @@ class Tenon.features.RecordListToggling
     $('body').on('click', '.enable-list', @_switchToList)
     $('body').on('click', '.enable-grid, .enable-list', @_setActive)
 
-  _switchToGrid: (e) =>
+  _switchToGrid: (e) ->
     $('.record-list').fadeOut 100, ->
       $(this)
         .removeClass('record-list')
         .addClass('record-grid')
         .fadeIn(100)
-    $('.main-content').addClass('with-fixed-grid');
+    $('.main-content').addClass('with-fixed-grid')
 
   _switchToList: (e) =>
     @_setActive($(e.currentTarget))
@@ -18,11 +18,11 @@ class Tenon.features.RecordListToggling
       $(this)
         .removeClass('record-grid')
         .addClass('record-list')
-        .fadeIn(100);
-    $('.main-content').removeClass('with-fixed-grid');
+        .fadeIn(100)
+    $('.main-content').removeClass('with-fixed-grid')
 
 
-  _setActive: (e) =>
+  _setActive: (e) ->
     $(e.currentTarget)
       .addClass('active')
       .siblings().removeClass('active')

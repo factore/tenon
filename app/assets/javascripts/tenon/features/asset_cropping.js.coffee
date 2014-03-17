@@ -10,7 +10,7 @@ class Tenon.features.AssetCropping
     url = "/tenon/assets/#{@$link.data('asset-id')}/crop"
     $.get(url, {format: 'html'}, @_startCrop, 'html')
 
-  _cancelCrop: (e) =>
+  _cancelCrop: (e) ->
     e.preventDefault()
     $('.asset-cropping').remove()
 

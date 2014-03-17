@@ -59,7 +59,7 @@ class Tenon.features.ModalWindows
     if @$link.data('modal-handler')
       parts = @$link.data('modal-handler').split('.')
       method = window
-      $(parts).each (i, part) -> method = method[part];
+      $(parts).each (i, part) -> method = method[part]
       new method(@$link, @$el, @$template)
 
     # Default shown action

@@ -9,7 +9,7 @@ class Tenon.features.RecordApproval
     @_setTooltip('Loading...')
     $.getJSON(@$link.attr('href'))
       .done(@_finishToggle)
-      .fail((data)=> console.log(data))
+      .fail((data)-> console.log(data))
 
   _finishToggle:  =>
     console.log('fired')

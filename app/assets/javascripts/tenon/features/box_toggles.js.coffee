@@ -12,6 +12,6 @@ class Tenon.features.BoxToggles
     $link = $('<a />').html($angles).addClass('box-action toggle-box')
     $link.appendTo($header)
 
-  _toggle: (e) =>
+  _toggle: (e) ->
     $link = $(e.currentTarget)
     $link.closest('.box').toggleClass('closed')
