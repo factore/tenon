@@ -28,36 +28,14 @@ PreCommit:
     description: 'Checking author email'
     requires_files: false
     required: true
-    quiet: true
+    quiet: false
     pattern: '^[^@]+@.*$'
 
   AuthorName:
     description: 'Checking for author name'
     requires_files: false
     required: true
-    quiet: true
-
-  BundleCheck:
-    description: 'Checking Gemfile dependencies'
-    include:
-      - 'Gemfile'
-      - 'Gemfile.lock'
-      - '*.gemspec'
-
-  CoffeeLint:
-    description: 'Analyzing with coffeelint'
-    include: '**/*.coffee'
-
-  CssLint:
-    description: 'Analyzing with csslint'
-    include: '**/*.css'
-
-  HamlLint:
-    description: 'Analyzing with haml-lint'
-    include: '**/*.haml'
-
-  HardTabs:
-    description: 'Checking for hard tabs'
+    quiet: false
 
   ImageOptim:
     description: 'Checking for optimizable images'
@@ -76,32 +54,10 @@ PreCommit:
     include: '**/*.js'
 
   PythonFlake8:
-    description: 'Analyzing with flake8'
-    include: '**/*.py'
-
-  Rubocop:
-    description: 'Analyzing with Rubocop'
-    include:
-      - '**/*.gemspec'
-      - '**/*.rake'
-      - '**/*.rb'
-      - '**/Gemfile'
-      - '**/Rakefile'
-
-  ScssLint:
-    description: 'Analyzing with scss-lint'
-    include: '**/*.scss'
-
-  TrailingWhitespace:
-    description: 'Checking for trailing whitespace'
+    enabled: false
 
   TravisLint:
-    description: 'Checking Travis CI configuration'
-    include: '.travis.yml'
-
-  YamlSyntax:
-    description: 'Checking YAML syntax'
-    include: '**/*.yml'
+    enabled: false
 
 # Hooks that are run against every commit message after a user has written it.
 # These hooks are useful for enforcing policies on commit messages written for a
