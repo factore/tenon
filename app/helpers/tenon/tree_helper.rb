@@ -71,7 +71,7 @@ module Tenon
 
       # Sort each sub-list individually
       children_of.each_value do |children|
-        children = children.sort_by &order
+        children = children.sort_by(&order)
       end
 
       # Re-join them into a single list

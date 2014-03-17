@@ -41,6 +41,7 @@ module Tenon
     end
 
     private
+
     def handle_subscribers
       # create subscriber
       CommentSubscriber.create(commentable: commentable, email: author_email) if subscribe.to_i == 1

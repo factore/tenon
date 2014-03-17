@@ -9,8 +9,8 @@ module Tenon
 
     # Attachment
     has_attached_file :attachment, styles: Proc.new { |clip|
-            Tenon::AssetStyleGenerator.generate(clip.instance)
-          }
+      Tenon::AssetStyleGenerator.generate(clip.instance)
+    }
 
     validates_attachment_presence :attachment
     do_not_validate_attachment_file_type :attachment

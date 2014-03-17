@@ -1,22 +1,22 @@
-$:.push File.expand_path("../lib", __FILE__)
+$LOAD_PATH.push File.expand_path('../lib', __FILE__)
 
 # Maintain your gem's version:
-require "tenon/version"
+require 'tenon/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "tenon"
+  s.name        = 'tenon'
   s.version     = Tenon::VERSION
-  s.authors     = ["factor[e] design initiative"]
-  s.email       = ["info@factore.ca"]
-  s.homepage    = "http://factore.ca/tenon-cms"
-  s.summary     = "A highly flexible mountable Rails CMS built for rapid application development."
-  s.description = "A highly flexible mountable Rails CMS built for rapid application development."
+  s.authors     = ['factor[e] design initiative']
+  s.email       = ['info@factore.ca']
+  s.homepage    = 'http://factore.ca/tenon-cms'
+  s.summary     = 'A highly flexible mountable Rails CMS built for rapid application development.'
+  s.description = 'A highly flexible mountable Rails CMS built for rapid application development.'
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["spec/**/*"]
+  s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
+  s.test_files = Dir['spec/**/*']
 
-  s.add_development_dependency "pg", '0.17.0'
+  s.add_development_dependency 'pg', '0.17.0'
   s.add_development_dependency 'spring'
   s.add_development_dependency 'spring-commands-rspec'
   s.add_development_dependency 'capybara', '~> 2.0.0'
@@ -29,9 +29,10 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'scss-lint'
   s.add_development_dependency 'factory_girl_rails'
   s.add_development_dependency 'database_cleaner'
+  s.add_development_dependency 'better_errors'
 
-  s.add_dependency "rails", "~> 4.0"
-  s.add_dependency "font-awesome-rails", '4.0.3.1'
+  s.add_dependency 'rails', '~> 4.0'
+  s.add_dependency 'font-awesome-rails', '4.0.3.1'
   s.add_dependency 'acts-as-taggable-on', '~> 2.4.1'
   s.add_dependency 'awesome_nested_set', '~> 3.0.0.rc.1'
   s.add_dependency 'aws-s3', '~> 0.6.3'
@@ -61,7 +62,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'mime-types', '~> 1.21'
   s.add_dependency 'neat'
   s.add_dependency 'nokogiri', '1.5.10'
-  s.add_dependency "non-stupid-digest-assets", '~>1.0.4'
+  s.add_dependency 'non-stupid-digest-assets', '~>1.0.4'
   s.add_dependency 'normalize-rails'
   s.add_dependency 'paperclip'
   s.add_dependency 'rails-observers', '~> 0.1.1'
