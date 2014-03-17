@@ -1,4 +1,4 @@
-<div class="errorExplanation">
+<div class="error-explanation">
   <h4>The following errors occurred:</h2>
   <ul>
     <% for field, errors of @errors: %>

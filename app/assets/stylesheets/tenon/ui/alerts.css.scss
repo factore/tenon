@@ -1,4 +1,4 @@
-.alert, .errorExplanation {
+.alert, .error-explanation {
   margin-bottom: 20px;
   padding: 15px;
   border: 1px solid transparent;
@@ -90,7 +90,7 @@
   }
 }
 
-.alert-warning, .errorExplanation {
+.alert-warning, .error-explanation {
   border-color: #eed3d7;
   background-color: #f2dede;
   color: #b94a48;

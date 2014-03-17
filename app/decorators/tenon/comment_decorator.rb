@@ -16,7 +16,7 @@ module Tenon
     def error_message
       errors = []
       @object.errors.full_messages.each { |error| errors << "<li>#{error}</li>" }
-      "<div class='errorExplanation' id='errorExplanation'>There were problems with the following fields:<ul>#{errors.join('')}<ul></div>"
+      "<div class='error-explanation' id='error-explanation'>There were problems with the following fields:<ul>#{errors.join('')}<ul></div>"
     end
   end
 end
