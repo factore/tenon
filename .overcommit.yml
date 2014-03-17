@@ -2,15 +2,6 @@
 # for updating source tags (e.g. via ctags) or warning about new migrations,
 # etc.
 PostCheckout:
-  ALL:
-    required: false
-    quiet: false
-  BundleCheck:
-    description: 'Checking Gemfile dependencies'
-    include:
-      - 'Gemfile'
-      - 'Gemfile.lock'
-      - '*.gemspec'
   IndexTags:
     enabled: false
 
@@ -19,32 +10,6 @@ PostCheckout:
 # other checks that you want to run before you allow a commit object to be
 # created.
 PreCommit:
-  ALL:
-    requires_files: true
-    required: false
-    quiet: false
-
-  AuthorEmail:
-    description: 'Checking author email'
-    requires_files: false
-    required: true
-    quiet: false
-    pattern: '^[^@]+@.*$'
-
-  AuthorName:
-    description: 'Checking for author name'
-    requires_files: false
-    required: true
-    quiet: false
-
-  ImageOptim:
-    description: 'Checking for optimizable images'
-    include:
-      - '**/*.gif'
-      - '**/*.jpg'
-      - '**/*.jpeg'
-      - '**/*.png'
-
   Jscs:
     description: 'Analyzing with JSCS'
     include: '**/*.js'
