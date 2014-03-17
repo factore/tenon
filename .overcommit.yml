@@ -13,3 +13,99 @@ PostCheckout:
       - '*.gemspec'
   IndexTags:
     enabled: false
+
+# Hooks that are run after `git commit` is executed, before the commit message
+# editor is displayed. These hooks are ideal for syntax checkers, linters, and
+# other checks that you want to run before you allow a commit object to be
+# created.
+PreCommit:
+  ALL:
+    requires_files: true
+    required: false
+    quiet: false
+
+  AuthorEmail:
+    description: 'Checking author email'
+    requires_files: false
+    required: true
+    quiet: true
+    pattern: '^[^@]+@.*$'
+
+  AuthorName:
+    description: 'Checking for author name'
+    requires_files: false
+    required: true
+    quiet: true
+
+  BundleCheck:
+    description: 'Checking Gemfile dependencies'
+    include:
+      - 'Gemfile'
+      - 'Gemfile.lock'
+      - '*.gemspec'
+
+  CoffeeLint:
+    description: 'Analyzing with coffeelint'
+    include: '**/*.coffee'
+
+  CssLint:
+    description: 'Analyzing with csslint'
+    include: '**/*.css'
+
+  HamlLint:
+    description: 'Analyzing with haml-lint'
+    include: '**/*.haml'
+
+  HardTabs:
+    description: 'Checking for hard tabs'
+
+  ImageOptim:
+    description: 'Checking for optimizable images'
+    include:
+      - '**/*.gif'
+      - '**/*.jpg'
+      - '**/*.jpeg'
+      - '**/*.png'
+
+  Jscs:
+    description: 'Analyzing with JSCS'
+    include: '**/*.js'
+
+  JsHint:
+    description: 'Analyzing with JSHint'
+    include: '**/*.js'
+
+  PythonFlake8:
+    description: 'Analyzing with flake8'
+    include: '**/*.py'
+
+  Rubocop:
+    description: 'Analyzing with Rubocop'
+    include:
+      - '**/*.gemspec'
+      - '**/*.rake'
+      - '**/*.rb'
+      - '**/Gemfile'
+      - '**/Rakefile'
+
+  ScssLint:
+    description: 'Analyzing with scss-lint'
+    include: '**/*.scss'
+
+  TrailingWhitespace:
+    description: 'Checking for trailing whitespace'
+
+  TravisLint:
+    description: 'Checking Travis CI configuration'
+    include: '.travis.yml'
+
+  YamlSyntax:
+    description: 'Checking YAML syntax'
+    include: '**/*.yml'
+
+# Hooks that are run against every commit message after a user has written it.
+# These hooks are useful for enforcing policies on commit messages written for a
+# project.
+CommitMsg:
+  ALL:
+    enabled: false
