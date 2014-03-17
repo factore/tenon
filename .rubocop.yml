@@ -72,10 +72,6 @@ MethodLength:
 MultilineBlockChain:
   Enabled: false
 
-# Offense count: 4
-NestedTernaryOperator:
-  Enabled: true
-
 # Offense count: 2
 ParenthesesAsGroupedExpression:
   Enabled: false
@@ -105,16 +101,6 @@ RescueModifier:
 
 # Offense count: 2
 SelfAssignment:
-  Enabled: false
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: AllowAsExpressionSeparator.
-Semicolon:
-  Enabled: false
-
-# Offense count: 2
-StringConversionInInterpolation:
   Enabled: false
 
 # Offense count: 12

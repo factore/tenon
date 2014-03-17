@@ -13,7 +13,10 @@ module Tenon
             title: title
           }
         },
-        :wrap_object => proc { |row| row.set_row_type(row_type); row.decorate }
+        :wrap_object => proc do |row|
+          row.set_row_type(row_type)
+          row.decorate
+        end
       }
       link_to_add_association row_link_content(title, row_type), f, "#{field}_tenon_content_rows".to_sym, opts
     end

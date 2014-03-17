@@ -120,9 +120,9 @@ module Tenon
       selector = "#{negative && '!'}(#{modifier} IE #{version})"
 
       if show_in_other_browsers
-        "<!--[if #{selector}]> -->#{obj.to_s}<!-- <![endif]-->"
+        "<!--[if #{selector}]> -->#{obj}<!-- <![endif]-->"
       else
-        "<!--[if #{selector}]>#{obj.to_s}<![endif]-->"
+        "<!--[if #{selector}]>#{obj}<![endif]-->"
       end
     end
 
