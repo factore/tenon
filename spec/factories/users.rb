@@ -1,13 +1,13 @@
 FactoryGirl.define do
   factory :user, class: Tenon::User do
     sequence(:email) { |n| "user#{n}@factore.ca" }
-    password "password"
+    password 'password'
     approved true
   end
 
   factory :admin, parent: :user do
-    email "admin@factore.ca"
-    roles { [Tenon::Role.find_by_title("Admin") || create(:admin_role)] }
+    email 'admin@factore.ca'
+    roles { [Tenon::Role.find_by_title('Admin') || create(:admin_role)] }
   end
 
   factory :role, class: Tenon::Role do
@@ -15,6 +15,6 @@ FactoryGirl.define do
   end
 
   factory :admin_role, parent: :role do
-    title "Admin"
+    title 'Admin'
   end
 end

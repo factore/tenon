@@ -7,7 +7,7 @@ describe 'Approving and unapproving comments in Tenon' do
       @comment = @post.comments.create!(author: 'Sean', author_email: 'sean@factore.ca', content: 'Test')
     end
 
-    it "should mark the comment as approved" do
+    it 'should mark the comment as approved' do
       visit comments_path
 
     end

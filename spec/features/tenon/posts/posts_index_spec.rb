@@ -11,13 +11,12 @@ describe 'Viewing the list of posts', js: true do
   context 'when there is a post' do
     let!(:post) { create(:post) }
 
-
-    it "should see the post in a list" do
+    it 'should see the post in a list' do
       visit posts_path
       expect(page).to have_content(post.title)
     end
 
-    it "should delete the post" do
+    it 'should delete the post' do
       visit posts_path
       within 'ul#posts' do
         click_on 'Delete'
@@ -26,11 +25,11 @@ describe 'Viewing the list of posts', js: true do
     end
   end
 
-  context "when there are two posts" do
+  context 'when there are two posts' do
     let!(:old_post) { create(:post) }
     let!(:new_post) { create(:post, created_at: Time.now + 1.day, title: 'New Post') }
 
-    it "should show the new post first" do
+    it 'should show the new post first' do
       visit posts_path
       within('ul#posts li:first-child') do
         expect(page).to have_content new_post.title

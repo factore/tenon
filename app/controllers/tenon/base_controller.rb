@@ -6,7 +6,7 @@ module Tenon
     before_filter :require_admin, unless: :devise_controller?
 
     rescue_from CanCan::AccessDenied do |exception|
-      flash[:warning] = "You are not authorized to access that page."
+      flash[:warning] = 'You are not authorized to access that page.'
       redirect_to '/tenon'
     end
 

@@ -11,13 +11,12 @@ describe 'Viewing the list of galleries', js: true do
   context 'when there is a gallery' do
     let!(:gallery) { create(:gallery) }
 
-
-    it "should see the gallery in a list" do
+    it 'should see the gallery in a list' do
       visit galleries_path
       expect(page).to have_content(gallery.title)
     end
 
-    it "should delete the gallery" do
+    it 'should delete the gallery' do
       visit galleries_path
       within 'ul#galleries' do
         click_on 'Delete'

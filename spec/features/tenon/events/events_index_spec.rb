@@ -11,13 +11,12 @@ describe 'Viewing the list of events', js: true do
   context 'when there is a event' do
     let!(:event) { create(:event) }
 
-
-    it "should see the event in a list" do
+    it 'should see the event in a list' do
       visit events_path
       expect(page).to have_content(event.title)
     end
 
-    it "should delete the event" do
+    it 'should delete the event' do
       visit events_path
       within 'ul#events' do
         click_on 'Delete'
@@ -26,7 +25,7 @@ describe 'Viewing the list of events', js: true do
     end
   end
 
-  context "when there are two events" do
+  context 'when there are two events' do
     let!(:old_event) { create(:event) }
     let!(:new_event) {
       create(
@@ -36,7 +35,7 @@ describe 'Viewing the list of events', js: true do
       )
     }
 
-    it "should show the new event first" do
+    it 'should show the new event first' do
       visit events_path
       within('ul#events li:first-child') do
         expect(page).to have_content new_event.title

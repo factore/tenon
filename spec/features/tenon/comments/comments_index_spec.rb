@@ -10,20 +10,20 @@ describe 'Viewing a list of comments', js: true do
       login(admin)
     end
 
-    it "should see the comment in a list" do
+    it 'should see the comment in a list' do
       visit comments_path
       expect(page).to have_content('Test Comment')
     end
 
-    it "should delete a comment" do
+    it 'should delete a comment' do
       visit comments_path
       click_on 'Delete'
       expect(page).not_to have_content('Test Comment')
     end
 
-    it "should approve a comment" do
+    it 'should approve a comment' do
       visit comments_path
-      within("ul#comments") do
+      within('ul#comments') do
         expect(page).not_to have_selector('a.unapprove')
         page.find('a.approve').click
         expect(page).to have_selector('a.unapprove')
@@ -31,7 +31,7 @@ describe 'Viewing a list of comments', js: true do
       end
     end
 
-    it "should unapprove a comment" do
+    it 'should unapprove a comment' do
       comment.update_attributes(approved: true)
       visit comments_path
 
