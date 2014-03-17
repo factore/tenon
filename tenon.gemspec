@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'spring'
   s.add_development_dependency 'spring-commands-rspec'
   s.add_development_dependency 'capybara', '~> 2.0.0'
-  s.add_development_dependency "capybara-webkit"
+  s.add_development_dependency 'capybara-webkit'
   s.add_development_dependency 'rspec-rails', '>= 2.0.1'
   s.add_development_dependency 'sass-rails-source-maps'
   s.add_development_dependency 'rubocop'
