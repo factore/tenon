@@ -4,6 +4,7 @@ module Tenon
     scope :published, -> { where(published: true) }
     scope :upcoming, -> { where(['ends_at > ?', Time.now]).order(:starts_at) }
     scope :past, -> { where(['ends_at < ?', Time.now]).order(:starts_at) }
+    default_scope -> { order 'starts_at DESC' }
     tenon_content :description
 
     # Validations

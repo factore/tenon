@@ -5,7 +5,7 @@ class Tenon::BaseController < ApplicationController
   before_filter :require_admin, unless: :devise_controller?
 
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:warning] = exception.message
+    flash[:warning] = "You are not authorized to access that page."
     redirect_to '/tenon'
   end
 

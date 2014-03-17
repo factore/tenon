@@ -15,7 +15,7 @@ module Tenon
     end
 
     def published?
-      if object.respond_to?(:publish_at)
+      if object.try(:publish_at)
         object.publish_at <= Time.now
       elsif object.respond_to?(:published)
         object.published
