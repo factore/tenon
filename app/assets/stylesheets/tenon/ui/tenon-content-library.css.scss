@@ -11,12 +11,20 @@
 
     li {
 
-      @include media($tablet-breakpoint) {
-        width: 50%;
-      }
-
       @include media($mobile-breakpoint) {
         width: 100%;
+
+        img {
+          width: 40px;
+        }
+      }
+
+      @include media($tablet-breakpoint) {
+        width: 50%;
+
+        img {
+          width: 80px;
+        }
       }
 
       display: inline-block;
@@ -25,22 +33,19 @@
       background-color: #fff;
       color: #fff;
 
-      img {
-        width: 40px;
-      }
-
       p {
 
         @include media($mobile-breakpoint) {
+          top: 20px;
           left: 80px;
         }
 
         @include media($tablet-breakpoint) {
+          top: 13px;
           left: 120px;
         }
 
         position: absolute;
-        top: 20px;
         margin: 0;
         padding-right: 140px;
         width: 100%;
