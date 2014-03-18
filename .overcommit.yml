@@ -15,8 +15,7 @@ PreCommit:
     enabled: false
 
   Jscs:
-    description: 'Analyzing with JSCS'
-    include: '**/*.js'
+    enabled: false
 
   JsHint:
     description: 'Analyzing with JSHint'
