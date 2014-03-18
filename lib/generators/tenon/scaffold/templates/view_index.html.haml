@@ -15,4 +15,4 @@
 .main-content
   .container
     = error_messages_for :<%= singular_name %>
-    %ul#<%= plural_name %>.record-list<% if attributes.map(&:name).include?('list_order') %>.sortable<% end -%>{data: {records: {url: <%= plural_name %>_path(format: 'json'), template: 'tenon/templates/<%= plural_name %>/<%= singular_name %>_row', name: '<%= singular_name %>'}<% if attributes.map(&:name).include?('list_order') %>:'reorder-path' => reorder_tenon_<%= plural_name %>_path<% end %>}}
+    %ul#<%= plural_name %>.record-list<% if attributes.map(&:name).include?('list_order') %>.sortable<% end -%>{data: {records: {url: <%= plural_name %>_path(format: 'json'), template: 'tenon/templates/<%= plural_name %>/<%= singular_name %>_row', name: '<%= singular_name %>'}<% if attributes.map(&:name).include?('list_order') %>, :'reorder-path' => reorder_<%= plural_name %>_path<% end %>}}

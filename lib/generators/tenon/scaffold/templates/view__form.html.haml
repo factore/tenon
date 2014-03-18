@@ -12,6 +12,7 @@
         %li= link_to "Search Optimization", '#seo', data: {toggle: 'tab'}
 <% end -%>
 = form_for @<%= singular_name %>, builder: Tenon::FormBuilder do |f|
+  = error_messages_for :<%= singular_name %>
   .fields.large.tabs
     .tab-pane.active#details
 <% text_fields.each do |field| -%>
