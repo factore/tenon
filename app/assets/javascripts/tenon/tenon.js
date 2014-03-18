@@ -27,10 +27,10 @@ var Tenon = {
     // init select2
     $('select').select2();
 
-    Tenon.features.i18n.init();
     Tenon.features.forms.init();
     Tenon.features.fileSelectWidget.init();
     Tenon.features.videoFeeds.init();
+    new Tenon.features.i18n();
     new Tenon.features.Alert();
     new Tenon.features.AssetCropping();
     new Tenon.features.MainMenu();
