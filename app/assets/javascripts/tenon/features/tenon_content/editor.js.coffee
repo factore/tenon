@@ -28,7 +28,7 @@ class Tenon.features.tenonContent.Editor
     $editable.next('input[type=hidden]').val($editable.html())
 
   _updateButtons: =>
-    if $('.tn-tc-row').length == 0
+    if $('.tn-tc-row:visible').length == 0
       $('#tn-tc-add-content').show()
       $('#tn-tc-pop-out').hide()
       console.log 'no content rows'
