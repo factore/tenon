@@ -3,7 +3,7 @@ class Tenon.features.Pagination
     $('ul.pagination').on('click', 'a', @_pageClicked)
 
   _pageClicked: (e) =>
-    e.preventDefault();
+    e.preventDefault()
     @$link = $(e.currentTarget)
     @$pagination = @$link.closest('.pagination')
     @_goToPage()
@@ -13,7 +13,7 @@ class Tenon.features.Pagination
     $recordList = $(@$pagination.data('record-list'))
     $recordList
       .data('records-page', @$link.data('page'))
-      .find('li').addClass('hidden').delay(250).remove();
+      .find('li').addClass('hidden').delay(250).remove()
     new Tenon.features.RecordList($recordList)
 
   _setActive: =>

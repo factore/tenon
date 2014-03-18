@@ -1,18 +1,18 @@
 header {
 
-  @include media($mobile_breakpoint) {
+  @include media($mobile-breakpoint) {
     position: static;
     top: 0;
-    padding-left: 0px;
+    padding-left: 0;
   }
 
-  @include media($tablet_breakpoint) {
+  @include media($tablet-breakpoint) {
     position: fixed;
     top: 50px;
-    padding: 0px 0px 0px 250px;
-
+    padding: 0 0 0 250px;
   }
-  left: 0px;
+
+  left: 0;
   z-index: 997;
   width: 100%;
   border-bottom: 1px solid $tn-med-grey;
@@ -30,14 +30,15 @@ header {
   }
 
   .tools {
-    @include media($mobile_breakpoint) {
+
+    @include media($mobile-breakpoint) {
       float: none;
       clear: both;
       border-top: 1px solid $tn-med-grey;
-      border-left: none;
+      border-left: 0;
     }
 
-    @include media($tablet_breakpoint) {
+    @include media($tablet-breakpoint) {
       float: right;
       // padding-right: 12px;
     }
@@ -45,11 +46,11 @@ header {
     position: relative;
 
     input[type=text] {
-      height: 50px;
       display: inline-block;
       margin: 0;
       padding: 0 0 0 20px;
-      border: none;
+      height: 50px;
+      border: 0;
       background: none;
       color: $tn-label;
       font-size: 12px;
@@ -59,7 +60,7 @@ header {
 
   .header-tool {
 
-    @include media($mobile_breakpoint) {
+    @include media($mobile-breakpoint) {
       // margin-right: 5px;
       // margin-left: 0;
       border-right: 1px solid $tn-med-grey;
@@ -70,9 +71,9 @@ header {
     padding: 0;
     height: 50px;
     border-left: 1px solid $tn-med-grey;
+    color: $tn-label;
     vertical-align: middle;
     font-size: 20px;
-    color: $tn-label;
 
     i {
       color: $tn-label;
@@ -80,25 +81,25 @@ header {
 
     a {
       display: inline-block;
-      height: 50px;
+      padding: 11px 20px 0;
       width: 100%;
+      height: 50px;
       color: $tn-label;
-      padding: 11px 20px 0 20px;
 
       &:hover {
-        text-decoration: none;
         background-color: $tn-primary;
-        color: white;
+        color: #fff;
+        text-decoration: none;
 
         i {
-          color: white;
+          color: #fff;
         }
       }
     }
-    // &:last-child {
-    //   margin-right: 0px;
-    // }
 
+    // &:last-child {
+    //   margin-right: 0;
+    // }
 
   }
 }

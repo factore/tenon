@@ -1,7 +1,7 @@
 .nav-holder {
-  @include transition(width 0.2s ease-in-out);
+  @include transition(width .2s ease-in-out);
 
-  @include media($mobile_breakpoint) {
+  @include media($mobile-breakpoint) {
     display: none;
 
     &.mobile-open {
@@ -18,7 +18,7 @@
     }
   }
 
-  @include media($tablet_breakpoint) {
+  @include media($tablet-breakpoint) {
     &.open {
       width: 260px;
     }
@@ -26,7 +26,7 @@
 
   position: fixed;
   top: 50px;
-  left: 0px;
+  left: 0;
   z-index: 999;
   overflow: hidden;
   width: 60px;
@@ -37,7 +37,7 @@
   nav.main-nav {
     overflow-x: hidden;
     overflow-y: auto;
-    margin: 0px 10px 0 0;
+    margin: 0 10px 0 0;
     width: 250px;
     height: 100%;
     background: $tn-nav;
@@ -55,7 +55,7 @@
         background: $tn-primary;
 
         a {
-          @include transition(all 0.2s ease);
+          @include transition(all .2s ease);
           display: block;
           padding: 14px 20px 14px 16px;
           border-bottom: 1px solid $tn-sidebar;
@@ -72,12 +72,12 @@
 
           &:hover, &.active {
             background: $tn-sidebar;
-            color: white;
+            color: #fff;
             text-decoration: none;
           }
 
           &.toggle-menu {
-            border-top: none;
+            border-top: 0;
           }
         }
 
@@ -100,14 +100,14 @@
 
         ul {
           padding: 0;
-          border-bottom: none;
+          border-bottom: 0;
         }
 
         li {
 
           a {
             padding: 10px 20px 10px 50px;
-            border-top: none;
+            border-top: 0;
             color: $tn-light-grey;
           }
         }
@@ -117,9 +117,9 @@
 }
 
 .page-wrap {
-  @include transition(margin-left 0.2s ease);
+  @include transition(margin-left .2s ease);
 
-  @include media($mobile_breakpoint) {
+  @include media($mobile-breakpoint) {
     margin-left: 0;
   }
 
@@ -133,29 +133,29 @@
 
   .page-wrap {
 
-    @include media($mobile_breakpoint) {
-      margin-left: 0px;
+    @include media($mobile-breakpoint) {
+      margin-left: 0;
     }
 
     margin-left: 250px;
   }
 
   nav.main-nav {
-    left: 0px;
+    left: 0;
   }
 }
 
-/* Submenu stuff */
+// Submenu stuff
 
 nav.main-nav ul ul li {
-  @include transition(all 0.3s ease);
+  @include transition(all .3s ease);
   overflow-y: hidden;
-  max-height: 0px;
+  max-height: 0;
   background: $tn-dark-grey;
   font-size: 12px;
 
   li a {
-    color: white;
+    color: #fff;
 
     &:hover {
       background: $tn-med-grey;

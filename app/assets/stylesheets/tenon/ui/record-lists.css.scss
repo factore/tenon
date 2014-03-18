@@ -6,15 +6,15 @@ ul.record-list {
   li {
     position: relative;
     margin-bottom: 2px;
-    background-color: white;
+    background-color: #fff;
 
     ul {
-      margin: 10px 0px 0px;
-      padding: 0px 0px 10px 0px;
+      margin: 10px 0 0;
+      padding: 0 10px;
       list-style: none;
 
       &:last-child {
-        padding-bottom: 0px;
+        padding-bottom: 0;
       }
 
       li {
@@ -22,13 +22,13 @@ ul.record-list {
         border-bottom: 0;
 
         &:last-child {
-          padding-bottom: 0px;
+          padding-bottom: 0;
         }
       }
     }
 
     &.top:last-child {
-      border-bottom: 0px;
+      border-bottom: 0;
     }
 
     &.loader {
@@ -55,7 +55,8 @@ ul.record-list {
   .record-details {
     padding: 10px;
     // height: 100px;
-    background-color: white;
+    background-color: #fff;
+
     &:hover > .record-actions {
       opacity: 1;
     }
@@ -68,7 +69,7 @@ ul.record-list {
     .record-actions {
       @include transition(opacity 0.2s ease-in-out);
 
-      @include media($tablet_breakpoint) {
+      @include media($tablet-breakpoint) {
         opacity: 0.25;
       }
 
@@ -108,12 +109,13 @@ ul.record-list {
     li {
       background: none;
     }
+
     .nested-record-info {
       background: none;
 
       .record-details {
         height: auto;
-        background-color: white;
+        background-color: #fff;
 
         .record-actions {
           top: 0;
@@ -123,9 +125,9 @@ ul.record-list {
     }
 
     li.subpage {
+      margin-bottom: 0;
       padding-left: 30px;
       background: none;
-      margin-bottom: 0;
 
       .nested-record-info {
         background: $tn-off-white;
@@ -133,7 +135,7 @@ ul.record-list {
     }
 
     li ul {
-      margin: 1px 0px 0px;
+      margin: 1px 0 0;
     }
 
     .nested-record-info:hover > .record-actions {

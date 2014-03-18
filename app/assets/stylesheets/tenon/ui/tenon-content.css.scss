@@ -22,12 +22,17 @@
 }
 
 .tn-tc-main-actions {
+
   a {
+    margin-right: 20px;
     color: $tn-black;
     text-transform: uppercase;
-    margin-right: 20px;
     font-size: 16px;
-    span { font-size: 12px; }
+
+    span {
+      font-size: 12px;
+    }
+
     &:hover {
       text-decoration: none;
     }
@@ -35,19 +40,18 @@
 }
 
 .tenon-content {
-  /*@import "variables";
-  @import "styleguides/styleguide";
-  @extend body;*/
-
-  padding-top: 10px;
   margin-top: 20px;
+  // @import "variables";
+  // @import "styleguides/styleguide";
+  // @extend body;
+  padding-top: 10px;
   border-top: 1px solid $tn-med-grey;
 
   .tn-tc-row {
     @include transition(box-shadow 0.25s ease-in);
     @include transition(border 0.25s ease-in);
     margin-bottom: 10px;
-    padding: 0px;
+    padding: 0;
     min-height: 50px;
 
     &.ui-sortable-helper {
@@ -76,7 +80,7 @@
   }
 
   .tn-tc-topbar {
-    padding: 10px 0px;
+    padding: 10px 0;
 
     .actions {
       color: $tn-dark-grey;
@@ -91,9 +95,10 @@
       }
 
       a.tn-tc-open-library {
+        margin-right: 20px;
         color: $tn-black;
         text-transform: uppercase;
-        margin-right: 20px;
+
         span {
           font-size: 12px;
         }
@@ -103,11 +108,9 @@
         text-decoration: none;
       }
 
-
-
       .drag-anchor {
-        cursor: move;
         float: left;
+        cursor: move;
       }
     }
   }
@@ -132,7 +135,7 @@
     padding: 5px;
     min-height: 50px;
     outline: none;
-    background: white;
+    background: #fff;
 
     p {
       margin-top: 0;
@@ -156,7 +159,7 @@
 
   .wrapped-image {
 
-    @include media($mobile_breakpoint) {
+    @include media($mobile-breakpoint) {
 
       &.left, &.right {
         float: none;
@@ -199,22 +202,23 @@
   }
 
   textarea.caption, div.caption {
-    margin: 0px;
+    margin: 0;
     padding: 5px;
     width: 100%;
     background: $tn-dark-grey;
-    color: white;
+    color: #fff;
     font-size: 12px;
     resize: none;
   }
 
   textarea.caption:-moz-placeholder {
-    color: white;
+    color: #fff;
   }
 
   textarea.caption::-webkit-input-placeholder {
     color: $tn-light-grey;
   }
+
   .one, .two, .three, .four, .five, .six,
 
   .seven, .eight, .nine, .ten, .eleven, .twelve {
@@ -242,11 +246,14 @@
 
 .image-controls {
   @include transition(none);
+
   &.full-width-image {
+
     .grow-image, .shrink-image, .swap-sides {
       display: none;
     }
   }
+
   button:active, button:focus {
     outline: none;
     background: lighten($tn-primary, 10%);

@@ -5,35 +5,37 @@
 .tenon-library {
 
   ul {
-
     margin: 0;
     padding: 0;
     list-style: none;
+
     li {
-      @include media($tablet_breakpoint) {
-          width: 50%;
+
+      @include media($tablet-breakpoint) {
+        width: 50%;
       }
 
-      @include media($mobile_breakpoint) {
-          width: 100%;
+      @include media($mobile-breakpoint) {
+        width: 100%;
       }
+
       display: inline-block;
       float: left;
       border: 1px solid $tn-light-grey;
-
-      background-color: white;
-      color: white;
+      background-color: #fff;
+      color: #fff;
 
       img {
         width: 40px;
       }
 
       p {
-        @include media($mobile_breakpoint) {
+
+        @include media($mobile-breakpoint) {
           left: 80px;
         }
 
-        @include media($tablet_breakpoint) {
+        @include media($tablet-breakpoint) {
           left: 120px;
         }
 
@@ -62,7 +64,7 @@
         background-color: $tn-primary;
 
         a {
-          color: white;
+          color: #fff;
         }
       }
     }

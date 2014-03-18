@@ -3,8 +3,8 @@
 
   .thumbnail {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100px;
     height: 100px;
 
@@ -19,7 +19,7 @@
     margin-left: 100px;
     padding: 10px;
     height: 100px;
-    background: white;
+    background: #fff;
   }
 
   .asset-info {
@@ -43,8 +43,8 @@
 
     .browse-button {
       display: inline-block;
-      margin: 0px;
-      padding: 0px;
+      margin: 0;
+      padding: 0;
       width: 64px;
       text-align: center;
       line-height: 22px;
@@ -62,12 +62,24 @@
   background: none;
 
   li {
-    margin-right: 15px;
-    width: 115px;
 
-    &:nth-child(4n) {
-      margin-right: 0px;
+    @include media($mobile-breakpoint) {
+      width: 29%;
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
     }
+
+    @include media($tablet-breakpoint) {
+      width: 22%;
+
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
+    }
+
+    margin-right: 15px;
 
     .record-actions {
       display: none;

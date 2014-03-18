@@ -4,7 +4,7 @@ class Tenon.features.RecordDeletion
     $('.record-list').on('ajax:beforeSend', selector, @_showSpinner)
     $('.record-list').on('ajax:success', selector, @_handleSuccess)
 
-  _showSpinner: (e) =>
+  _showSpinner: (e) ->
     $link = $(e.currentTarget)
     $link.find('i')
          .removeClass('fa fa-trash-o')

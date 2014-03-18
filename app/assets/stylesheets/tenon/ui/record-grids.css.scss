@@ -1,7 +1,7 @@
 ul.record-grid {
   margin: 0;
   padding: 0;
-  background: white;
+  background: #fff;
   list-style: none;
 
   li {
@@ -9,7 +9,7 @@ ul.record-grid {
     margin-right: 20px;
     margin-bottom: 20px;
     width: 200px;
-    background: white;
+    background: #fff;
 
     .header {
       display: none;
@@ -19,6 +19,7 @@ ul.record-grid {
       @include fill_parent;
       // width: 200px;
       // height: 200px;
+
     }
 
     .loader {
@@ -30,9 +31,7 @@ ul.record-grid {
       color: $tn-dark-grey;
       text-align: center;
     }
-
   }
-
 
   a {
     color: $tn-black;
@@ -64,9 +63,8 @@ ul.record-grid {
       }
     }
   }
-
 }
 
 .main-content.with-fixed-grid {
-  margin-right: 0px;
+  margin-right: 0;
 }

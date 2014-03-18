@@ -2,7 +2,7 @@ class Tenon.features.AssetUploader
   constructor: (@doneFunction) ->
     @$progress = $('#progress')
     @$list = $('#assets.record-list')
-    @titleCounter = 1;
+    @titleCounter = 1
     @doneFunction ||= @_drawAsset
 
   initialize: (form) =>
@@ -40,7 +40,7 @@ class Tenon.features.AssetUploader
       $title.val(newVal)
     @titleCounter += 1
 
-  _updateButtonText: =>
+  _updateButtonText: ->
     $('#choose-files').text('Choose Another File')
 
   _resetCounter: =>
@@ -52,12 +52,12 @@ class Tenon.features.AssetUploader
     @$progress.append(data.context)
     data.submit()
 
-  _updateProgess: (e, data) =>
+  _updateProgess: (e, data) ->
     if data.context
       currentProgress = parseInt(data.loaded / data.total * 100, 10)
       data.context.find('.progress-bar').css('width', currentProgress + '%')
 
-  _progressBarStatus: (context, status) =>
+  _progressBarStatus: (context, status) ->
     # status accepts: warning(orange), success(green), danger(red)
     $progressBar = context.find('.progress-bar')
     $progressBar.addClass('progress-bar-' + status)

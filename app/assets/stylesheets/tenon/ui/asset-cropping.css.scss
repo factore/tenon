@@ -7,26 +7,27 @@
     left: 50%;
     left: 50%;
     z-index: 1040;
-    padding: 20px;
-    background-color: white;
+    // padding: 20px;
+    background-color: $tn-light-grey;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 
+    .image-holder {
+      padding: 20px;
+      background-color: $tn-light-grey;
+    }
+
     .crop_buttons {
 
       input {
-        margin: 10px 0 0 0;
-      }
-
-      button {
-        margin: 10px 10px 0 0;
+        margin: 0;
       }
 
       label {
-        margin: 12px 10px 0 0;
+        margin: 2px 10px 0 0;
 
         &:before {
           margin-right: 5px;
@@ -36,7 +37,7 @@
 
     .edit_asset {
       margin: 0;
-      padding-top: 10px;
+      padding: 0 20px 20px;
     }
 
     @media screen and (orientation: portrait) {
@@ -49,17 +50,13 @@
     @media screen and (orientation: landscape) {
 
       .preview {
-        max-height: 90vh;
+        max-height: 85vh;
       }
     }
 
-    .jcrop-tracker {}
-
-    .jcrop-holder {}
-
     img {
       max-width: 85vw;
-      max-height: 85vh;
+      max-height: 80vh;
     }
   }
 }

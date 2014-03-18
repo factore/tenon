@@ -1,7 +1,7 @@
 .sidebar-container {
   @include transition(all 0.2s ease-in);
 
-  @include media($mobile_breakpoint) {
+  @include media($mobile-breakpoint) {
     display: none;
 
     &.mobile-open {
@@ -15,13 +15,12 @@
   }
 
   position: fixed;
-  top: 0px;
+  top: 0;
   left: 60px;
   z-index: 998;
   float: left;
-  overflow: auto;
   overflow: hidden;
-  padding: 20px 0px;
+  padding: 20px 0;
   padding-top: 90px;
   width: 190px;
   height: 100%;
@@ -34,7 +33,7 @@
     height: 100%;
 
     .content, h4 {
-      padding: 0px 15px;
+      padding: 0 15px;
     }
 
     h2 {

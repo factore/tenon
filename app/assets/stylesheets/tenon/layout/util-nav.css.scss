@@ -4,7 +4,7 @@
   z-index: 999;
   overflow: hidden;
   background: $tn-primary;
-  color: white;
+  color: #fff;
   font-family: $tn-open-sans;
 
   a {
@@ -27,7 +27,7 @@
 
     ul {
 
-      @include media($tablet_breakpoint) {
+      @include media($tablet-breakpoint) {
 
         li.hamburger {
           display: none;
@@ -37,7 +37,8 @@
           display: block;
         }
       }
-      @include media($mobile_breakpoint) {
+
+      @include media($mobile-breakpoint) {
 
         li.hamburger {
           display: block;
@@ -47,7 +48,8 @@
           display: none;
         }
       }
-      margin: 0px;
+
+      margin: 0;
       height: 100%;
 
       li {
@@ -56,7 +58,7 @@
         margin: 0;
         padding: 0;
         height: 50px;
-        border-right: 1px solid transparentize(white, 0.6);
+        border-right: 1px solid transparentize(#fff, 0.6);
 
         &:first-child {
           border-right: 0;
@@ -64,7 +66,7 @@
 
         a {
           display: inline-block;
-          padding: 17px 15px 13px 15px;
+          padding: 17px 15px 13px;
           height: 50px;
           text-align: center;
         }
@@ -93,7 +95,7 @@
         padding: 0;
         width: 12px;
         height: 50px;
-        content: image_url("tenon/breadcrumb.png");
+        content: image-url('tenon/breadcrumb.png');
       }
 
       &:first-child a {
@@ -107,7 +109,7 @@
       a {
         display: inline-block;
         float: left;
-        padding: 17px 15px 13px 15px;
+        padding: 17px 15px 13px;
         height: 100%;
       }
     }

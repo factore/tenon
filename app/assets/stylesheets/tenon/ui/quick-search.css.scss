@@ -5,6 +5,7 @@
   }
 
   padding-left: 20px;
+
   input[type=text] {
     @include transition(width 0.25s ease);
     width: 70px;
@@ -25,5 +26,5 @@ input.filter {
   top: 20px;
   right: 20px;
   padding-left: 10px;
-  border: none;
+  border: 0;
 }

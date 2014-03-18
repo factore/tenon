@@ -43,7 +43,7 @@ class Tenon.features.RecordList
     else
       @_drawRecords(data.records)
       @_toggleInfiniteLoader(data.pagination)
-    $('.sortable').tenonTwoLevelSort();
+    $('.sortable').tenonTwoLevelSort()
 
   _failedLoad: =>
     @_showInfoLi('There was an error contacting the server.')
@@ -77,4 +77,4 @@ class Tenon.features.RecordList
       .appendTo(@$list)
 
   _hideLoader: =>
-    @$list.find('li.loader').remove();
+    @$list.find('li.loader').remove()

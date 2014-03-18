@@ -61,7 +61,7 @@
 
 .seven, .eight, .nine, .ten, .eleven, .twelve {
 
-  @include media($mobile_breakpoint) {
+  @include media($mobile-breakpoint) {
     @include span-columns(12);
   }
 }
@@ -71,49 +71,49 @@
 .full {
   @include span-columns(12);
 
-  @include media($laptop_breakpoint) {
+  @include media($laptop-breakpoint) {
     @include span-columns(12);
   }
 
-  @include media($mobile_breakpoint) {
+  @include media($mobile-breakpoint) {
     @include span-columns(12);
   }
 }
 
 .small {
 
-  @include media($tablet_breakpoint) {
+  @include media($tablet-breakpoint) {
     @include span-columns(12);
   }
 
-  @include media($laptop_breakpoint) {
+  @include media($laptop-breakpoint) {
     @include span-columns(4);
   }
 
-  @include media($desktop_breakpoint) {
+  @include media($desktop-breakpoint) {
     @include span-columns(3);
   }
 
-  @include media($mobile_breakpoint) {
+  @include media($mobile-breakpoint) {
     @include span-columns(12);
   }
 }
 
 .large {
 
-  @include media($tablet_breakpoint) {
+  @include media($tablet-breakpoint) {
     @include span-columns(12);
   }
 
-  @include media($laptop_breakpoint) {
+  @include media($laptop-breakpoint) {
     @include span-columns(8);
   }
 
-  @include media($desktop_breakpoint) {
+  @include media($desktop-breakpoint) {
     @include span-columns(9);
   }
 
-  @include media($mobile_breakpoint) {
+  @include media($mobile-breakpoint) {
     @include span-columns(12);
   }
 }
@@ -121,11 +121,11 @@
 .half {
   @include span-columns(6);
 
-  @include media($laptop_breakpoint) {
+  @include media($laptop-breakpoint) {
     @include span-columns(6);
   }
 
-  @include media($mobile_breakpoint) {
+  @include media($mobile-breakpoint) {
     @include span-columns(6);
   }
 }
@@ -133,15 +133,15 @@
 .third {
   @include span-columns(4);
 
-  @include media($laptop_breakpoint) {
+  @include media($laptop-breakpoint) {
     @include span-columns(4);
   }
 
-  @include media($mobile_breakpoint) {
+  @include media($mobile-breakpoint) {
     @include span-columns(4);
   }
 
-  @include media($tablet_breakpoint) {
+  @include media($tablet-breakpoint) {
     @include span-columns(12);
   }
 }

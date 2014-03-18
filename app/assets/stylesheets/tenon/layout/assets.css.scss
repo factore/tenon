@@ -29,7 +29,7 @@
   display: block;
   border: 1px solid $tn-med-grey;
   background: $tn-light-grey;
-  color: black;
+  color: #000;
   text-align: center;
 
   &:hover {
@@ -43,7 +43,7 @@
 
 form.edit_asset {
   display: inline-block;
-  margin: 20px 0 0 0;
+  margin: 20px 0 0;
   width: 100%;
 
   // .preview {
@@ -58,7 +58,7 @@ form.edit_asset {
     margin-bottom: 0;
   }
 
-  .fileUpload {
+  .fileupload {
     position: relative;
     overflow: hidden;
     margin: 10px 0 0 10px;
