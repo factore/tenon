@@ -49,7 +49,7 @@ describe Tenon::Post do
 
     context 'when published and created_at in the future' do
       let(:published) { true }
-      let(:created_at) { Date.today + 1.day }
+      let(:created_at) { Time.now + 24.hours }
       it 'should not be true' do
         expect(post.posted?).not_to be_true
       end

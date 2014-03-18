@@ -1,7 +1,7 @@
 require 'spec_helper'
 include RequestHelpers
 
-describe 'Viewing a list of comments', js: true do
+describe 'An admin viewing the comments index', js: true do
   let!(:admin) { FactoryGirl.create(:admin) }
 
   context 'when there is a comment' do
@@ -15,13 +15,13 @@ describe 'Viewing a list of comments', js: true do
       expect(page).to have_content('Test Comment')
     end
 
-    it 'should delete a comment' do
+    it 'should be able to delete the comment' do
       visit comments_path
       click_on 'Delete'
       expect(page).not_to have_content('Test Comment')
     end
 
-    it 'should approve a comment' do
+    it 'should be able to approve the comment' do
       visit comments_path
       within('ul#comments') do
         expect(page).not_to have_selector('a.unapprove')
@@ -31,7 +31,7 @@ describe 'Viewing a list of comments', js: true do
       end
     end
 
-    it 'should unapprove a comment' do
+    it 'should be able to unapprove the comment' do
       comment.update_attributes(approved: true)
       visit comments_path
 
