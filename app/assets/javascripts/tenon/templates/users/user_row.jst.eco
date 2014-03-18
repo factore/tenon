@@ -1,4 +1,4 @@
-<li>
+<li data-record-id="<%= @user.id %>">
   <div class="record-details">
     <div class="record-title">
       <a href="<%= @user.edit_path %>"><%= @user.email %></a>

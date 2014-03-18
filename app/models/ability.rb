@@ -16,6 +16,7 @@ class Ability
       can([:update], Tenon::User) do |user|
         !user.is_super_admin?
       end
+      can :create, Tenon::User
     elsif u.is_contributor?
       can([:update, :edit], Tenon::User) { |user| user == u }
       can :read, :all
