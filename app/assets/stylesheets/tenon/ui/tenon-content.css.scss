@@ -237,9 +237,8 @@
   textarea.caption::-webkit-input-placeholder {
     color: $tn-light-grey;
   }
-  .one, .two, .three, .four, .five, .six,
 
-  .seven, .eight, .nine, .ten, .eleven, .twelve {
+  .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve {
     @include transition(width 0.25s ease-in-out);
   }
 }
