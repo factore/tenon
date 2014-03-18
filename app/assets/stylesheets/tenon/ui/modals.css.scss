@@ -27,7 +27,8 @@
 .modal-dialog {
   position: relative;
   z-index: 1050;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   margin: 0;
   padding: 0;
   width: 100vw;

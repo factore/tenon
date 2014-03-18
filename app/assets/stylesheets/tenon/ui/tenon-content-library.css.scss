@@ -36,18 +36,18 @@
       p {
 
         @include media($mobile-breakpoint) {
-          top: 20px;
           left: 80px;
+          padding-right: 100px;
         }
 
         @include media($tablet-breakpoint) {
-          top: 13px;
           left: 120px;
+          padding-right: 140px;
         }
 
+        top: 13px;
         position: absolute;
         margin: 0;
-        padding-right: 140px;
         width: 100%;
         line-height: 27px;
       }
