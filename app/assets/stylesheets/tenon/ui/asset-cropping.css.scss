@@ -1,19 +1,12 @@
 .asset-cropping {
 
   .preview {
+    @include transform(translate(-50%, 0));
     position: fixed;
-    top: 50%;
-    top: 50%;
-    left: 50%;
+    top: 20px;
     left: 50%;
     z-index: 1040;
-    // padding: 20px;
     background-color: $tn-light-grey;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
 
     .image-holder {
       padding: 20px;
@@ -40,18 +33,21 @@
       padding: 0 20px 20px;
     }
 
-    @media screen and (orientation: portrait) {
+    // @media screen and (orientation: portrait) {
+    //   .preview {
+    //     max-width: 90vw;
+    //   }
+    // }
 
-      .preview {
-        max-width: 90vw;
-      }
-    }
+    // @media screen and (orientation: landscape) {
 
-    @media screen and (orientation: landscape) {
+    //   .preview {
+    //     max-height: 85vh;
+    //   }
+    // }
 
-      .preview {
-        max-height: 85vh;
-      }
+    .jcrop-keymgr {
+      display: none;
     }
 
     img {
