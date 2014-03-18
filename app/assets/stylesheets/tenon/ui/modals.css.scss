@@ -27,7 +27,8 @@
 .modal-dialog {
   position: relative;
   z-index: 1050;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -35,10 +36,22 @@
 }
 
 .modal-content {
-  position: absolute;
+
+  @include media($tablet-breakpoint) {
+    @include transform(translate(-50%, 0));
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    width: 600px;
+  }
+
+  @include media($mobile-breakpoint) {
+    position: absolute;
+    width: 100%;
+  }
+
   overflow-x: hidden;
   overflow-y: auto;
-  width: 100%;
   outline: none;
   border-radius: 2px;
   background-color: $tn-light-grey;
@@ -117,18 +130,6 @@
 .modal-footer .btn-block + .btn-block {
   margin-left: 0;
 }
-
-@include media($tablet-breakpoint) {
-
-  .modal-content {
-    @include transform(translate(-50%, 0));
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    width: 600px;
-  }
-}
-
 
 .modal-tab-links {
   margin: 0;
