@@ -80,23 +80,41 @@
   }
 
   .tn-tc-topbar {
-    padding: 10px 0;
+    padding: 0;
+    // background-color: $tn-med-grey;
 
     .actions {
+      @include transition(all 0.3s ease);
       color: $tn-dark-grey;
       text-align: right;
 
+      &:hover {
+        color: $tn-black;
+
+        a {
+          color: $tn-black;
+        }
+      }
+
       i {
-        margin-left: 5px;
+        font-size: 20px;
       }
 
       a {
+        @include transition(all 0.3s ease);
+        display: inline-block;
+        padding: 10px 0 5px;
         color: $tn-dark-grey;
+
+        span {
+          position: relative;
+          top: -2px;
+          display: inline-block;
+        }
       }
 
       a.tn-tc-open-library {
         margin-right: 20px;
-        color: $tn-black;
         text-transform: uppercase;
 
         span {
@@ -110,6 +128,7 @@
 
       .drag-anchor {
         float: left;
+        padding: 10px 0 5px;
         cursor: move;
       }
     }
@@ -218,7 +237,6 @@
   textarea.caption::-webkit-input-placeholder {
     color: $tn-light-grey;
   }
-
   .one, .two, .three, .four, .five, .six,
 
   .seven, .eight, .nine, .ten, .eleven, .twelve {
