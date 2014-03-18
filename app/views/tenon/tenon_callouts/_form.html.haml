@@ -5,6 +5,8 @@
       = link_to "New Tenon Callout", new_tenon_callout_path, class: 'btn btn-block btn-info'
 
 = form_for @tenon_callout, builder: Tenon::FormBuilder do |f|
+  = error_messages_for :tenon_callout
+
   .fields.large.tabs
     .tab-pane.active#details
       .form-group
