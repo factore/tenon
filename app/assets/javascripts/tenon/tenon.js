@@ -29,7 +29,6 @@ var Tenon = {
 
     Tenon.features.forms.init();
     Tenon.features.fileSelectWidget.init();
-    Tenon.features.videoFeeds.init();
     new Tenon.features.i18n();
     new Tenon.features.Alert();
     new Tenon.features.AssetCropping();
@@ -49,6 +48,7 @@ var Tenon = {
       new Tenon.features.RecordList($(this));
     });
     new Tenon.features.SortableNestedFields();
+    new Tenon.features.videoFeeds();
     new Tenon.features.tenonContent.Base();
     new Tenon.features.Medium();
 
