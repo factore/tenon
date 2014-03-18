@@ -124,13 +124,17 @@ ul.record-list {
       }
     }
 
-    li.subpage {
-      margin-bottom: 0;
-      padding-left: 30px;
-      background: none;
+    ul.subpages {
+      padding-right: 0;
 
-      .nested-record-info {
-        background: $tn-off-white;
+      li.subpage {
+        margin-bottom: 0;
+        padding-left: 30px;
+        background: none;
+
+        .nested-record-info {
+          background: $tn-off-white;
+        }
       }
     }
 
