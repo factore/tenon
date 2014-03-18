@@ -3,6 +3,8 @@ class Tenon.features.AssetCropping
     $(document).on('click', '.asset-crop', @_loadCrop)
     $(document).on('click', '.asset-cropping .close', @_cancelCrop)
     $(document).on('ajax:success', '.asset-cropping form[data-remote]', @_saveCrop)
+    $(document).keyup (ev) =>
+      @_cancelCrop(ev) if ev.keyCode is 27
 
   _loadCrop: (e) =>
     e.preventDefault()
