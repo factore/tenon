@@ -31,8 +31,6 @@ class Tenon.features.tenonContent.Editor
     if $('.tn-tc-row:visible').length == 0
       $('#tn-tc-add-content').show()
       $('#tn-tc-pop-out').hide()
-      console.log 'no content rows'
     else
       $('#tn-tc-add-content').hide()
       $('#tn-tc-pop-out').show()
-      console.log 'has content rows'
