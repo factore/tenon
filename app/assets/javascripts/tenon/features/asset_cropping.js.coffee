@@ -18,13 +18,15 @@ class Tenon.features.AssetCropping
 
   _startCrop: (data) =>
     $(data).appendTo('body')
-    $cb = $('#cropbox')
+    $cropbox = $('#cropbox')
 
     $("#cropbox").Jcrop
       onChange: @_updateCrop
       onSelect: @_updateCrop
-      addClass: 'jcrop-centered'
-      trueSize: [$cb.data('width'), $cb.data('height')]
+      boxWidth: $(window).width() * 0.8
+      boxHeight: $(window).height() * 0.8
+      # addClass: 'jcrop-centered'
+      # trueSize: [$cropbox.d`ata('width'), $cropbox.d`ata('height')]
 
   _saveCrop: (e, data) =>
     if @$link.data('post-crop-handler')
