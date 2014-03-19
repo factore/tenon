@@ -1,4 +1,4 @@
-.editable-text= raw f.object.try(:content) || '--'
+.editable-text{ 'data-ph' => "Enter your text here..." }= raw f.object.try(:content)
 = f.hidden_field :content
 = f.hidden_field :position
 = f.hidden_field :size

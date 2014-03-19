@@ -286,3 +286,8 @@
     background: lighten($tn-primary, 10%);
   }
 }
+
+[contenteditable=true]:empty:not(:focus):before {
+  content: attr(data-ph);
+  color: $tn-med-grey;
+}
