@@ -5,7 +5,7 @@
     display: none;
 
     &.mobile-open {
-      position: absolute;
+      position: fixed;
       left: 50%;
       display: block;
       float: left;
