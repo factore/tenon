@@ -10,6 +10,10 @@ require 'database_cleaner'
 # Load support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
+# Load the factories from lib
+FactoryGirl.definition_file_paths += %W(lib/tenon/factories)
+FactoryGirl.reload
+
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
