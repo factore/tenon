@@ -91,15 +91,8 @@
       color: $tn-dark-grey;
       text-align: right;
 
-      &:hover {
-        color: $tn-black;
-
-        a {
-          color: $tn-black;
-        }
-      }
-
       i {
+        @include transition(all 0.3s ease);
         font-size: 20px;
       }
 
@@ -138,6 +131,20 @@
   }
 
   .tn-tc-row:hover {
+
+    &:hover {
+      .tn-tc-topbar {
+        color: $tn-black;
+
+        a {
+          color: $tn-black;
+        }
+
+        i {
+          color: $tn-black;
+        }
+      }
+    }
 
     .tn-tc-topbar {
       opacity: 1;
@@ -278,4 +285,9 @@
     outline: none;
     background: lighten($tn-primary, 10%);
   }
+}
+
+[contenteditable=true]:empty:not(:focus):before {
+  content: attr(data-placeholder);
+  color: $tn-med-grey;
 }

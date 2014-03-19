@@ -17,9 +17,8 @@ PreCommit:
   Jscs:
     enabled: false
 
-  JsHint:
-    description: 'Analyzing with JSHint'
-    include: '**/*.js'
+  ImageOptim:
+    enabled: false
 
   PythonFlake8:
     enabled: false
