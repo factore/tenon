@@ -11,6 +11,7 @@
     </div>
     <div class="record-actions">
       <%- @asset.crop_link %>
+      <%- @asset.download_link %>
       <%- @asset.edit_link %>
       <%- @asset.delete_link %>
     </div>

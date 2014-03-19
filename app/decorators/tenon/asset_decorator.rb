@@ -34,6 +34,10 @@ module Tenon
       super(opts.merge(defaults))
     end
 
+    def download_link
+      h.action_link('Download', object.attachment.url, 'download', target: '_')
+    end
+
     def style_urls
       styles = object.attachment.styles.map do |key, style|
         [key, object.attachment.url(key)]
