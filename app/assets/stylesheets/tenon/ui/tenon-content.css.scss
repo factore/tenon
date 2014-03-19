@@ -288,6 +288,6 @@
 }
 
 [contenteditable=true]:empty:not(:focus):before {
-  content: attr(data-ph);
+  content: attr(data-placeholder);
   color: $tn-med-grey;
 }
