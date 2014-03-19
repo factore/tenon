@@ -6,19 +6,20 @@ class Tenon.features.HamburgerNavigation
     @openClass = 'mobile-open'
 
     # listeners
-    @$toggle.on('click', @toggleNavigation)
+    @$toggle.on('click', @toggleNav)
+    $(document).on('click', '.sidebar-container.mobile-open a', @_closeNav)
 
-  toggleNavigation: (e) =>
+  toggleNav: (e) =>
     e.preventDefault()
     if @$toggle.hasClass(@openClass)
-      @_closeNavigation()
+      @_closeNav()
     else
-      @_openNavigation()
+      @_openNav()
 
-  _closeNavigation: () =>
+  _closeNav: () =>
     @$toggle.removeClass(@openClass)
     @$navigation.removeClass(@openClass)
 
-  _openNavigation: () =>
+  _openNav: () =>
     @$toggle.addClass(@openClass)
     @$navigation.addClass(@openClass)
