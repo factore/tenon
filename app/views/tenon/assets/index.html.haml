@@ -4,7 +4,7 @@
   %h1 Asset Library
 
   .tools
-    / = render "tenon/shared/section_header/list_style_toggle"
+    = render "tenon/shared/section_header/list_style_toggle"
     = render "tenon/shared/section_header/quick_search", record_list: '#assets'
     / .header-tool
     /   = link_to raw("#{fa_icon('picture-o')} +"), '#', data: {'modal-target' => '#new-asset', 'modal-title' => 'Upload Assets'}

@@ -3,6 +3,8 @@
   @include media($mobile-breakpoint) {
     display: none;
   }
+
+  padding: 4px !important;
 }
 
 .list-style-toggle {
@@ -30,6 +32,7 @@
     }
 
     &:hover {
+      color: $tn-black;
       text-decoration: none;
     }
 
