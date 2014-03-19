@@ -31,7 +31,7 @@ class Tenon.features.ModalForms
     @$list.find('li.info').remove()
 
   _hideModal: =>
-    @$form.find('.error-explanation').remove()
+    @$form.find('.errorExplanation').remove()
     @$form[0].reset()
     @$form.closest('.modal').modal('hide')
 
@@ -39,6 +39,6 @@ class Tenon.features.ModalForms
     @$form = $(e.currentTarget)
     errors = $.parseJSON(response.responseText).errors
     $template = $(JST['tenon/templates/errors'](errors: errors))
-    @$form.find('.error-explanation').remove()
+    @$form.find('.errorExplanation').remove()
     $template.prependTo('.modal-body')
 

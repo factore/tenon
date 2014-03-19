@@ -28,7 +28,7 @@ class Tenon.features.AssetCropping
       onChange: @_updateCrop
       onSelect: @_updateCrop
       boxWidth: $(window).width() * 0.8
-      boxHeight: $(window).height() * 0.8
+      boxHeight: $(window).height() * 0.75
 
   _saveCrop: (e, data) =>
     if @$link.data('post-crop-handler')

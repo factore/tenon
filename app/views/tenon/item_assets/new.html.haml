@@ -1,10 +1,10 @@
 %ul.modal-tab-links
-  %li.active.tab= link_to "Upload File", '#upload-asset', data: {toggle: 'tab'}, class: 'btn btn-info'
+  %li.active.tab= link_to "New Image", '#upload-asset', data: {toggle: 'tab'}, class: 'btn btn-info'
   %li.tab= link_to "Asset Library", '#pick-asset', data: {toggle: 'tab'}, class: 'btn btn-info'
   .spacer
 
 .modal-tab-pane.tab-content
-  #upload-asset.tab-pane.active= render "tenon/assets/form", multiple: @multiple
+  #upload-asset.tab-pane.active= render "tenon/assets/form"#, multiple: @multiple
 
   #pick-asset.tab-pane
     .filter= text_field_tag :q, '', id: 'quick-search', class: 'filter search', placeholder: 'Filter Assets', data: { 'record-list' => '.asset-list' }
