@@ -63,6 +63,18 @@ describe Tenon::AssetDecorator do
     end
   end
 
+  describe '#download_link' do
+    before do
+      asset.stub(:attachment) { double(url: 'download_url') }
+    end
+
+    it 'should create an action_link' do
+      args = ['Download', 'download_url', 'download', { target: '_' }]
+      expect(ad.h).to receive(:action_link).with(*args)
+      ad.download_link
+    end
+  end
+
   describe '#edit_link' do
     it 'should send the default options' do
       defaults = {
