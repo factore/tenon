@@ -15,6 +15,21 @@
       background-color: $tn-light-grey;
     }
 
+    .spinner {
+      @include transform(translate(-50%, -50%));
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      z-index: 2000;
+      display: none;
+
+      i {
+        color: #fff;
+        font-size: 100px;
+        opacity: 0.5;
+      }
+    }
+
     .crop_buttons {
 
       input {
@@ -35,8 +50,7 @@
       margin: 0;
       padding: 0 20px 20px;
       background-color: $tn-light-grey;
-   }
-
+    }
   }
 }
 

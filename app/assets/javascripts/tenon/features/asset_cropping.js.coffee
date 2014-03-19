@@ -5,6 +5,10 @@ class Tenon.features.AssetCropping
     $(document).on('ajax:success', '.asset-cropping form[data-remote]', @_saveCrop)
     $(document).keyup (ev) =>
       @_cancelCrop(ev) if ev.keyCode is 27
+    $(document).on('click', '.save', @_showSpinner)
+
+  _showSpinner: (e) ->
+    $('.spinner').fadeIn()
 
   _loadCrop: (e) =>
     e.preventDefault()
@@ -25,8 +29,6 @@ class Tenon.features.AssetCropping
       onSelect: @_updateCrop
       boxWidth: $(window).width() * 0.8
       boxHeight: $(window).height() * 0.8
-      # addClass: 'jcrop-centered'
-      # trueSize: [$cropbox.d`ata('width'), $cropbox.d`ata('height')]
 
   _saveCrop: (e, data) =>
     if @$link.data('post-crop-handler')
