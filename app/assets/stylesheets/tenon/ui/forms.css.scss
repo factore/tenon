@@ -158,6 +158,29 @@ label[for] {
   input[type=text], textarea {
     padding: 3px 5px;
   }
+
+  .select2-container {
+    background: $tn-white;
+    padding: 3px 5px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 34px;
+
+    a.select2-choice {
+      color: $tn-black;
+    }
+
+    .select2-arrow {
+      line-height: 34px;
+      padding-top: 5px;
+    }
+
+    &.select2-dropdown-open {
+      padding: 0;
+      background: transparent;
+      height: auto;
+    }
+  }
 }
 
 .nested-fields {
