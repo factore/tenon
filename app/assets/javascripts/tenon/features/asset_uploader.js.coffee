@@ -4,6 +4,9 @@ class Tenon.features.AssetUploader
     @$list = $('#assets.record-list')
     @titleCounter = 1
     @doneFunction ||= @_drawAsset
+    @_allowEsc()
+    $(document).on('click', '.upload', @_blockEsc)
+    $(document).on('keyup', @_keyUp)
 
   initialize: (form) =>
     @$form = $(form)
@@ -13,6 +16,21 @@ class Tenon.features.AssetUploader
       done: @doneFunction
       fail: @_errorMessage
       stop: @_resetCounter
+
+  _keyUp: (ev) =>
+    if (ev.keyCode is 27) && @allowEsc
+      $('.modal').removeClass('in')
+      $('.modal-backdrop').removeClass('in')
+      $('.modal').fadeOut()
+      $('.modal-backdrop').fadeOut()
+    else
+      @_allowEsc()
+
+  _blockEsc: =>
+    @allowEsc = false
+
+  _allowEsc: =>
+    @allowEsc = true
 
   _drawAsset: (e, data) =>
     @_progressBarStatus(data.context, 'success')

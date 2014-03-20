@@ -1,6 +1,6 @@
 class Tenon.features.ModalWindows
   constructor: ->
-    tags = '[data-modal-target], [data-modal-remote], [data-model-content]'
+    tags = '[data-modal-target], [data-modal-remote], [data-model-content], [data-keyboard]'
     $(document).on('click', tags, @_setupAndLaunch)
 
   _setupAndLaunch: (e) =>
@@ -36,7 +36,7 @@ class Tenon.features.ModalWindows
     @$template = $(@_setupTemplate())
     @_appendContent()
     @$el.show()
-    @modal = @$template.modal(keyboard: true)
+    @modal = @$template.modal(keyboard: @$link.data('keyboard'))
     @modal
       .on('shown.bs.modal', @_runShownHandler)
       .on('hidden.bs.modal', @_runHiddenHandler)
