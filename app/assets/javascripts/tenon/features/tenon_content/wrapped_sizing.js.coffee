@@ -4,12 +4,16 @@ class Tenon.features.tenonContent.WrappedSizing
 
   _changeSize: (e) =>
     e.preventDefault()
-    e.stopImmediatePropagation(); # prevent closure of controls
+    e.stopImmediatePropagation() # prevent closure of controls
     @$button = $(e.currentTarget)
     operation = @$button.data('column-resize-operation')
     @$column = @_getColumn()
     $.each @_words, (i, word) =>
       @["_#{operation}From"](word, i + 1) and false if @$column.hasClass(word)
+
+    # Let the other classes know the size has changed
+    @$column.on 'transitionend MSTransitionEnd webkitTransitionEnd oTransitionEnd', =>
+      @$column.trigger('tenon.content.column_resized')
 
   _increaseFrom: (word, num) =>
     unless num >= @_words.length - 1
