@@ -1,8 +1,22 @@
 .modal-tab-pane.tab-content
-  #upload-asset= render "tenon/assets/form"
+  #upload-asset
+    %h5 From Your Computer
+    #progress
+    = form_for Tenon::Asset.new, format: 'json', builder: Tenon::FormBuilder do |f|
+      = error_messages_for :asset
+      .fields.full
+        .form-group
+          .browse-button-holder.solo
+            .fileupload.btn.btn-primary.browse
+              %span#choose-files Browse
+              %input{ :type => 'file', :class => 'upload', multiple: defined?(multiple) && multiple, style: 'width: 100%;', name: 'asset[attachment]' }
+      .spacer
 
   #pick-asset
+    %h5 From the Asset Library
+
     .filter= text_field_tag :q, '', id: 'quick-search', class: 'filter search', placeholder: 'Filter Assets', data: { 'record-list' => '.asset-list' }
+
     .asset-list-scroller
       %ul#modal-asset-list.asset-list.record-grid.infinite-scroll{data: {records: {url: assets_path(format: 'json'), template: 'tenon/templates/assets/asset_row', name: 'asset'}}}
 

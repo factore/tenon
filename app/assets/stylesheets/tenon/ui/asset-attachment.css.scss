@@ -35,6 +35,10 @@
       padding-top: 15px;
     }
 
+    &.solo {
+      text-align: left;
+    }
+
     .btn {
       padding: 5px 10px;
       border-radius: 15px;
@@ -91,6 +95,14 @@
   border-bottom: 1px solid $tn-med-grey;
   padding-bottom: 20px;
   margin-bottom: 20px;
+
+  .form-group {
+    float: none;
+  }
+
+  .fileupload {
+    margin: 0;
+  }
 }
 
 #pick-asset .filter {
