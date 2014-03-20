@@ -31,7 +31,7 @@
       .form-group.inline
         - @roles.each do |role|
           - unless (role.title == "Super Admin" && !current_user.is_super_admin?) || (role.title == "Admin" && !current_user.is_admin?)
-            = check_box_tag('role_ids[]', role.id, @user.role_ids.include?(role.id), class: 'tn-checkbox-right', id: "role_id_#{role.id}")
+            = check_box_tag('user[role_ids][]', role.id, @user.role_ids.include?(role.id), class: 'tn-checkbox-right', id: "role_id_#{role.id}")
             %label{ for: "role_id_#{role.id}" }= role.title
             .spacer
 
