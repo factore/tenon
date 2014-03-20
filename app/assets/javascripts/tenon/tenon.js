@@ -36,6 +36,7 @@ var Tenon = {
     new Tenon.features.MainMenu();
     new Tenon.features.Pagination();
     new Tenon.features.HamburgerNavigation();
+    new Tenon.features.HeaderMenu();
     new Tenon.features.InfiniteLoading();
     new Tenon.features.RecordListToggling();
     new Tenon.features.RecordTypeSelector();

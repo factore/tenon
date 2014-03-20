@@ -1,0 +1,54 @@
+header .header-tool.header-menu {
+  position: relative;
+  width: 200px;
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 41px;
+
+  a {
+    color: $tn-black;
+    display: block;
+    padding: 5px 10px 5px 20px;
+  }
+
+  a i {
+    float: right;
+    line-height: 41px;
+  }
+
+  ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -1px;
+    background: $tn-white;
+    padding: 0;
+    margin: 0;
+    width: 201px;
+    border: 1px solid $tn-med-grey;
+
+    list-style: none;
+
+    li {
+      border-top: 1px solid $tn-med-grey;
+      &:first-child {
+        border-top: none;
+      }
+    }
+
+    a {
+      color: $tn-black;
+      display: block;
+      padding: 10px 10px 10px 20px;
+      line-height: 20px;
+    }
+  }
+
+  &.active {
+    background: $tn-white;
+
+    ul {
+      display: block;
+    }
+  }
+}
