@@ -28,9 +28,11 @@ class Tenon.features.AssetUploader
 
   _blockEsc: =>
     @allowEsc = false
+    return true
 
   _allowEsc: =>
     @allowEsc = true
+    return true
 
   _drawAsset: (e, data) =>
     @_progressBarStatus(data.context, 'success')
