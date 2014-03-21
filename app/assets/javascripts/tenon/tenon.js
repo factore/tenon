@@ -11,6 +11,8 @@ var Tenon = {
   helpers: {},
 
   init: function() {
+    Tenon.refreshed = true;
+
     // setup generic loader
     Tenon.$genericLoader = $('.generic-loader');
 

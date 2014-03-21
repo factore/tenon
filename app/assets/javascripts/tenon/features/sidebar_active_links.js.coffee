@@ -1,7 +1,7 @@
 class Tenon.features.SidebarActiveLinks
   constructor: ->
     $('.sidebar nav.list-toggles').on('click', 'a', @_setActiveByClick)
-    @_setActiveByUrl()
+    # @_setActiveByUrl()
     $(window).on('popstate', @_setActiveByUrl)
 
   _setActiveByUrl: =>
