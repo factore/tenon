@@ -7,7 +7,7 @@
     %nav.list-toggles
       %ul
         %li
-          = link_to(comments_path, class: 'record-list-updater') do
+          = link_to(comments_path, :class => 'record-list-updater', 'data-clear-record-list-params' => true}) do
             All
             %span.count= @counts[:all]
 

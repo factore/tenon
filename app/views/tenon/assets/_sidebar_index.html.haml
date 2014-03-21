@@ -9,7 +9,7 @@
     %nav.list-toggles
       %ul
         %li
-          = link_to 'All Assets', assets_path, class: 'record-list-updater'
+          = link_to 'All Assets', assets_path, :class => 'record-list-updater', 'data-clear-record-list-params' => true
 
         %li
           = link_to 'Images', '?type=images', class: 'record-list-updater'
