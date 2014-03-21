@@ -38,8 +38,6 @@ var Tenon = {
     new Tenon.features.HamburgerNavigation();
     new Tenon.features.HeaderMenu();
     new Tenon.features.InfiniteLoading();
-    new Tenon.features.RecordListToggling();
-    new Tenon.features.RecordTypeSelector();
     new Tenon.features.QuickSearch();
     new Tenon.features.DateTimePicker();
     new Tenon.features.ModalWindows();
@@ -49,6 +47,9 @@ var Tenon = {
     $.each($('[data-records-url]'), function () {
       new Tenon.features.RecordList($(this));
     });
+    new Tenon.features.RecordListToggling();
+    new Tenon.features.RecordListUpdater();
+    new Tenon.features.SidebarActiveLinks();
     new Tenon.features.SortableNestedFields();
     new Tenon.features.videoFeeds();
     new Tenon.features.tenonContent.Base();

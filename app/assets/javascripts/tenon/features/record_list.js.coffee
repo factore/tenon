@@ -1,9 +1,14 @@
 class Tenon.features.RecordList
   constructor: (@$list, @opts = {}) ->
+    Tenon.activeRecordList = this
+    @refresh()
+
+  refresh: (opts = {}) =>
+    @opts = $.extend(@opts, opts)
     @_clearRecords() if @opts.clear
     @_setupTemplate()
     @_setupPagination()
-    @_updateParams() if @opts.params
+    @_updateParams()
     @_showLoader()
     @_loadRecords()
 
@@ -22,13 +27,13 @@ class Tenon.features.RecordList
     @$list.data('records-page', 1)
 
   _updateParams: =>
-    params = @$list.data('records-params')
-    params = $.extend(params, @opts.params)
-    @$list.data('records-params', params)
+    @params = URI(window.location).query(true)
+    @params = $.extend(@params, @$list.data('records-params'))
+    @params = $.extend(@params, @opts.params)
 
   _loadRecords: (i, list) =>
     data = {page: @_currentPage}
-    data = $.extend(data, @$list.data('records-params'))
+    data = $.extend(data, @params)
     $.getJSON(@$list.data('records-url'), data)
       .done(@_dataLoaded)
       .fail(@_failedLoad)

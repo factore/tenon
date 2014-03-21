@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'binding_of_caller'
 
   s.add_dependency 'rails', '~> 4.0'
-  s.add_dependency 'font-awesome-rails', '4.0.3.1'
+
   s.add_dependency 'acts-as-taggable-on', '~> 2.4.1'
   s.add_dependency 'awesome_nested_set', '~> 3.0.0.rc.1'
   s.add_dependency 'aws-s3', '~> 0.6.3'
@@ -45,6 +45,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'draper', '~> 1.3'
   s.add_dependency 'dynamic_form', '~> 1.1.4'
   s.add_dependency 'eco'
+  s.add_dependency 'font-awesome-rails', '4.0.3.1'
   s.add_dependency 'gravatar_image_tag', '~> 1.1.3'
   s.add_dependency 'haml', '~> 4.0.3'
   s.add_dependency 'hpricot', '~> 0.8.6'

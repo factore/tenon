@@ -22,6 +22,7 @@
 //= require jquery.ui.sortable
 //= require medium-editor
 //= require select2
+//= require uri
 
 // -- Plugins that need to be loaded in order
 //= require moment

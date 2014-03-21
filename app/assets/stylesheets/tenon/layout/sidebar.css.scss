@@ -68,7 +68,7 @@
       li {
         padding: 10px 15px;
 
-        &.active {
+        &.active, &:target {
           background: $tn-sidebar-highlight;
         }
       }

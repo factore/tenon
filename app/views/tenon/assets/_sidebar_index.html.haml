@@ -6,20 +6,16 @@
       = link_to "Upload New", '#', class: 'btn btn-info btn-block', data: {'modal-target' => '#new-asset', 'modal-title' => 'Upload Assets', 'keyboard' => 'false' }
 
     %h4 File Types
-    %nav
+    %nav.list-toggles
       %ul
-        %li.active
-          = link_to('#', data: {type: ''}) do
-            All Assets
+        %li
+          = link_to 'All Assets', assets_path, class: 'record-list-updater'
 
         %li
-          = link_to('#images', data: {type: 'images'}) do
-            Images
+          = link_to 'Images', '?type=images', class: 'record-list-updater'
 
         %li
-          = link_to('#documents', data: {type: 'documents'}) do
-            Documents
+          = link_to 'Documents', '?type=documents', class: 'record-list-updater'
 
         %li
-          = link_to('#videos', data: {type: 'videos'}) do
-            Videos
+          = link_to 'Videos', '?type=videos', class: 'record-list-updater'

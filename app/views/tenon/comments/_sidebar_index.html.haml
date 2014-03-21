@@ -4,19 +4,19 @@
       %h2 Comments
 
     %h4 Filter
-    %nav
+    %nav.list-toggles
       %ul
-        %li.active
-          = link_to('#', data: {type: '', header: 'Comments'}) do
+        %li
+          = link_to(comments_path, class: 'record-list-updater') do
             All
             %span.count= @counts[:all]
 
         %li
-          = link_to('#', data: {type: 'unapproved', header: 'Unapproved Comments'}) do
+          = link_to(url_for(type: 'unapproved'), class: 'record-list-updater') do
             Unapproved
             %span.count= @counts[:unapproved]
 
         %li
-          = link_to('#', data: {type: 'approved', header: 'Approved Comments'}) do
+          = link_to(url_for(type: 'approved'), class: 'record-list-updater') do
             Approved
             %span.count= @counts[:approved]
