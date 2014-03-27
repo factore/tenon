@@ -68,7 +68,7 @@ class Tenon.features.RecordList
 
   _toggleInfiniteLoader: (pagination) =>
     $loader = $(".infinite-loader[data-record-list='##{@$list.attr('id')}']")
-    if parseInt(pagination.totalPages) > 0
+    if @_currentPage < parseInt(pagination.totalPages)
       $loader.show()
     else
       $loader.hide()
