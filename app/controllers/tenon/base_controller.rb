@@ -28,11 +28,11 @@ module Tenon
     def set_title
       case params[:action]
       when 'new', 'create'
-        @page_title = "New #{params[:controller].gsub('tenon/', '').singularize.humanize} - Tenon".titleize
+        @page_title = "New #{params[:controller].gsub('tenon/', '').singularize.humanize}".titleize
       when 'edit', 'update'
-        @page_title = "Edit #{params[:controller].gsub('tenon/', '').singularize.humanize} - Tenon".titleize
+        @page_title = "Edit #{params[:controller].gsub('tenon/', '').singularize.humanize}".titleize
       else
-        @page_title = params[:controller].gsub('tenon/', '').humanize.titleize + ' - Tenon'
+        @page_title = params[:controller].gsub('tenon/', '').humanize.titleize
       end
       @page_title = 'Tenon' if params[:controller].gsub('tenon/', '') == 'index'
     end
