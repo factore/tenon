@@ -1,70 +1,31 @@
+@mixin tetris-grid($number-of-columns: 2) {
+  @include span-columns(12 / $number-of-columns);
+
+  &:nth-child(#{$number-of-columns}n + #{$number-of-columns}) {
+    margin-right: 0;
+  }
+
+  &:nth-child(#{2 * $number-of-columns}n + 1):last-child, &:nth-child(#{2 * $number-of-columns}n + 2):last-child {
+    @include span-columns(12);
+  }
+}
+
 #dashboard-callouts {
 
-  @include media($tablet-breakpoint) {
-
-    .callout {
-      @include span-columns(6);
-
-      &:nth-child(3n + 3) {
-        @include span-columns(6);
-      }
-
-      &:nth-child(2n + 2) {
-        margin-right: 0;
-      }
-
-      // 'tetris' magic: reset
-
-      &:nth-child(3n + 1):last-child {
-        @include span-columns(6);
-      }
-
-      &:nth-child(3n + 1):nth-last-child(2) {
-        margin-right: 0;
-      }
-
-      // 'tetris' magic for tablet
-
-      &:nth-child(2n + 1):last-child {
-        @include span-columns(12);
-      }
-    }
-  }
-
-  @include media($mobile-breakpoint) {
-
-    .callout {
-      @include span-columns(4);
-      // 'tetris' magic: reset
-      &:nth-child(3n + 1):nth-last-child(2),
-
-      &:nth-child(3n + 2):last-child {
-        @include span-columns(4);
-      }
-    }
-  }
-
   .callout {
-    @include span-columns(4);
+
+    @include media($mobile-breakpoint) {
+      @include tetris-grid(2);
+    }
+
+    @include media($tablet-breakpoint) {
+      @include tetris-grid(4);
+    }
+
+    position: relative;
     margin-bottom: $gutter;
     padding: 14px;
     background-color: #fff;
-
-    &:nth-child(3n + 3) {
-      margin-right: 0;
-    }
-
-    // 'tetris' magic
-
-    &:nth-child(3n + 1):last-child {
-      @include span-columns(12);
-    }
-
-    &:nth-child(3n + 1):nth-last-child(2),
-
-    &:nth-child(3n + 2):last-child {
-      @include span-columns(6);
-    }
 
     h4.title {
       font-weight: 400;
@@ -75,7 +36,18 @@
       }
     }
 
+    .btn {
+      width: 75%;
+    }
+
     > p:last-child {
+      @include transform(translate(-50%, 0));
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      display: block;
+      padding: 0 14px;
+      width: 100%;
       text-align: center;
     }
   }

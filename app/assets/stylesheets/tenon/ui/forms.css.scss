@@ -37,6 +37,7 @@ label, input[type=text], input[type=password], textarea, .explanation, h4.box-la
 
 textarea {
   resize: vertical;
+  height: 180px;
 }
 
 label, h4.box-label {
@@ -63,10 +64,6 @@ input[type=text], input[type=password] {
 
 .tn-checkbox-left {
   @include styled-checkbox($float: left);
-}
-
-label[for] {
-  line-height: 28px !important;
 }
 
 .fields .box, form .box {

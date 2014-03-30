@@ -5,7 +5,7 @@ module Tenon
     default_scope { order(:list_order) }
 
     # Validations
-    validates_presence_of :title, :icon, :uri, :button_text
+    validates_presence_of :title, :icon
     validates_uniqueness_of :title
     # Relationships
 

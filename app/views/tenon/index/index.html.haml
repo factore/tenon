@@ -23,5 +23,6 @@
           = callout.title
 
         .callout-content= raw callout.content
-        %p
-          = link_to callout.button_text, callout.uri, class: "btn btn-info", target: ("_" if callout.new_window)
+        - if callout.uri.present?
+          %p
+            = link_to callout.button_text, callout.uri, class: "btn btn-info", target: ("_" if callout.new_window)

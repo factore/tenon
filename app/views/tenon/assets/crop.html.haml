@@ -11,7 +11,7 @@
     = form_for @asset, data: {remote: true} do |f|
       - [:crop_x, :crop_y, :crop_w, :crop_h].each do |field|
         = f.hidden_field field
-      .crop_buttons.right
-        = f.check_box :duplicate, checked: true, class: 'tn-checkbox-left'
+      .crop_buttons.right.full
+        = f.check_box :duplicate, checked: true, class: 'tn-checkbox-right'
         = f.label :duplicate, "Create New Asset From Crop?", class: 'left'
         .right= f.submit "Save", class: 'save btn btn-primary'
