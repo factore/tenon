@@ -10,6 +10,7 @@ module Overcommit
         def run
           config = RSpec.configuration
           config.color = true
+          config.fail_fast = true
 
           json_formatter = RSpec::Core::Formatters::JsonFormatter.new(config.output)
           progress_formatter = RSpec::Core::Formatters::ProgressFormatter.new($stdout)
