@@ -78,7 +78,7 @@ describe Tenon::BannersController do
       end
 
       it 'should search the resources when params[:q] is supplied' do
-        search_args = ['title ILIKE ?', '%test%']
+        search_args = ['tenon_banners.title ILIKE ?', '%test%']
         expect(Tenon::Banner).to receive(:where).with(search_args)
         get :index, format: 'json', q: 'test'
       end

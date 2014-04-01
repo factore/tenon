@@ -33,7 +33,7 @@ describe Tenon::PagesController do
 
     context 'with params[q:]' do
       it 'should search the pages and then order them by lft' do
-        args = ['title ILIKE ?', '%search%']
+        args = ['tenon_pages.title ILIKE ?', '%search%']
         expect(Tenon::Page).to receive(:where).with(args) { Tenon::Page }
         expect(Tenon::Page).to receive(:map) { Tenon::Page }
         expect(Tenon::Page).to receive(:flatten) { Tenon::Page }
