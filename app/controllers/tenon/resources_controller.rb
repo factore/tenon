@@ -109,7 +109,7 @@ module Tenon
     end
 
     def search_args
-      ['title ILIKE ?', "%#{params[:q]}%"]
+      ["#{klass.table_name}.title ILIKE ?", "%#{params[:q]}%"]
     end
 
     def resource_params
