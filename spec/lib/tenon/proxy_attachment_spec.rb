@@ -2,6 +2,10 @@ require 'spec_helper'
 
 class Item; end
 
+module Tenon
+  class Item; end
+end
+
 describe Tenon::ProxyAttachment do
   let(:pa) { Tenon::ProxyAttachment.new(attachment, klass, asset_name) }
   let(:asset_name) { 'banner' }
@@ -56,6 +60,15 @@ describe Tenon::ProxyAttachment do
       it 'should get the url from the attachment including the prefix' do
         expect(attachment).to receive(:url).with('item_banner_original')
         pa.url(:original)
+      end
+
+      context 'when the model is namespaced' do
+        let(:klass) { Tenon::Item }
+
+        it 'should get the url from the attachment including the prefix' do
+          expect(attachment).to receive(:url).with('tenon_item_banner_original')
+          pa.url(:original)
+        end
       end
     end
   end

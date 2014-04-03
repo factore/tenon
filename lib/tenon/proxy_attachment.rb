@@ -4,7 +4,7 @@ module Tenon
 
     def initialize(attachment, klass, asset_name)
       @attachment = attachment.try(:attachment) || attachment
-      @style_prefix = "#{klass.to_s.underscore}_#{asset_name}"
+      @style_prefix = "#{klass.to_s.underscore.gsub('/', '_')}_#{asset_name}"
     end
 
     def original_filename
