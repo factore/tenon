@@ -26,6 +26,9 @@ PreCommit:
   TravisLint:
     enabled: false
 
+  RunRSpec:
+    enabled: true
+
 # Hooks that are run against every commit message after a user has written it.
 # These hooks are useful for enforcing policies on commit messages written for a
 # project.
