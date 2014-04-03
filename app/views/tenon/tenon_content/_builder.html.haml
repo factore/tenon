@@ -30,3 +30,14 @@
       - Tenon::TenonContent::RowTypes::LIBRARY_ROW_TYPES.each do |title, row_type|
         %li= row_link(title, row_type, field, f)
     .spacer
+
+/- Shared Embed Code Modal Body
+.edit-embed-code
+  .modal-body
+    %label{for: 'embed_code'} Paste your embed code here
+    %p.explanation
+      Note: In order to get your embed to work with various screen sizes, you may want to get a code from
+      = link_to 'http://embedresponsively.com/', 'http://embedresponsively.com/', target: '_'
+    = text_area_tag 'embed_code'
+
+  .modal-footer= link_to 'Update', '#', class: 'btn btn-primary update-embed-code'

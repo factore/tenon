@@ -1,0 +1,8 @@
+.embedded-content
+  = link_to 'Edit Embed Code', '#', class: 'open-embed-modal', 'data-modal-target' => '.edit-embed-code', 'data-modal-title' => 'Edit Embed Code', 'data-modal-clone' => 'true', 'data-modal-handler' => 'Tenon.features.tenonContent.EmbeddedContentModalHandler'
+  .embed= raw f.object.try(:embed_code)
+
+
+= f.hidden_field :embed_code, class: 'embed-code-field'
+= f.hidden_field :position
+= f.hidden_field :size

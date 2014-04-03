@@ -291,3 +291,29 @@
   content: attr(data-placeholder);
   color: $tn-med-grey;
 }
+
+a.open-embed-modal {
+  @include transition(all 0.3s ease);
+  padding: 5px 0px;
+  display: block;
+  color: $tn-dark-grey;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.tn-tc-row:hover a.open-embed-modal {
+  color: $tn-black;
+}
+
+.embed {
+  clear: both;
+}
+
+.edit-embed-code {
+  display: none;
+  textarea { width: 100%; }
+}
+
+.modal .edit-embed-code {
+  display: block;
+}
