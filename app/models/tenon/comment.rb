@@ -1,10 +1,7 @@
 module Tenon
   class Comment < ActiveRecord::Base
-    # TODO: put this back in
-    # has_rakismet
-    def spam?
-      false
-    end
+    include Humanizer
+    require_human_on :create
 
     validates_presence_of :commentable, :author, :author_email, :content
     validates_format_of :author_email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
