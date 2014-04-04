@@ -20,7 +20,9 @@ module Overcommit
 
           RSpec::Core::Runner.run(['spec'])
 
-          :good if json_formatter.output_hash[:summary][:failure_count] == 0
+          return :good if json_formatter.output_hash[:summary][:failure_count] == 0
+
+          :bad
         end
       end
     end

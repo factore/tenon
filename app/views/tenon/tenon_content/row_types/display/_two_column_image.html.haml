@@ -1,0 +1,5 @@
+.two-column-image
+  - row.pieces.each do |piece|
+    .six.piece{class: cycle(nil, 'omega')}
+      = render "tenon/tenon_content/piece_types/display/image", piece: piece
+  .spacer
