@@ -1,4 +1,3 @@
-Testing pre-commit hooks
 = Tenon
 
 This project rocks and uses MIT-LICENSE.
