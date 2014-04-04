@@ -1,0 +1,5 @@
+.two-column-image
+  - row.pieces.each do |piece|
+    .tn-tc-piece.asset-field{ class: [piece.size, cycle(nil, 'omega')] }
+      = render "tenon/tenon_content/piece_types/display/image", piece: piece
+  .spacer

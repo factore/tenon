@@ -11,3 +11,6 @@ linters:
 
   SingleLinePerSelector:
     enabled: false
+
+  EmptyLineBetweenBlocks:
+    enabled: false

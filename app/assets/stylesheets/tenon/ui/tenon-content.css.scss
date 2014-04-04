@@ -1,18 +1,14 @@
 .tn-tc-wrap {
-
   .tn-tc-sizes {
     display: none;
   }
-
   &.mobile-breakpoint {
     .one, .two, .three, .four, .five, .six,
 
     .seven, .eight, .nine, .ten, .eleven, .twelve {
       @include span-columns(12);
     }
-
     .wrapped-image {
-
       &.left, &.right {
         float: none;
         padding: 0;
@@ -22,20 +18,17 @@
 }
 
 .tn-tc-main-actions {
-
   a {
     @include transition(all 0.3s ease);
     margin: 10px 20px 0 0;
     text-transform: uppercase;
     font-size: 16px;
-
     span {
       position: relative;
       top: -2px;
       padding-left: 5px;
       font-size: 12px;
     }
-
     &:hover {
       text-decoration: none;
     }
@@ -49,14 +42,12 @@
   // @extend body;
   padding-top: 10px;
   border-top: 1px solid $tn-med-grey;
-
   .tn-tc-row {
     @include transition(box-shadow 0.25s ease-in);
     @include transition(border 0.25s ease-in);
     margin-bottom: 10px;
     padding: 0;
     min-height: 50px;
-
     &.ui-sortable-helper {
       overflow: hidden;
       box-sizing: content-box;
@@ -66,62 +57,50 @@
       background: $tn-light-grey;
       box-shadow: 1px 1px 5px $tn-dark-grey;
     }
-
     &.sortable-placeholder {
       min-height: 50px;
       max-height: 200px;
       border: 1px dashed $tn-dark-grey;
     }
   }
-
   .tn-tc-row {
     position: relative;
   }
-
   .drag-anchor {
     float: left;
   }
-
   .tn-tc-topbar {
     padding: 0;
     // background-color: $tn-med-grey;
-
     .actions {
       @include transition(all 0.3s ease);
       color: $tn-dark-grey;
       text-align: right;
-
       i {
         @include transition(all 0.3s ease);
         font-size: 20px;
       }
-
       a {
         @include transition(all 0.3s ease);
         display: inline-block;
         padding: 10px 0 5px;
         color: $tn-dark-grey;
-
         span {
           position: relative;
           top: -2px;
           display: inline-block;
         }
       }
-
       a.tn-tc-open-library {
         margin-right: 20px;
         text-transform: uppercase;
-
         span {
           font-size: 12px;
         }
       }
-
       a:hover {
         text-decoration: none;
       }
-
       .drag-anchor {
         float: left;
         padding: 10px 0 5px;
@@ -129,51 +108,40 @@
       }
     }
   }
-
   .tn-tc-row:hover {
-
     &:hover {
       .tn-tc-topbar {
         color: $tn-black;
-
         a {
           color: $tn-black;
         }
-
         i {
           color: $tn-black;
         }
       }
     }
-
     .tn-tc-topbar {
       opacity: 1;
     }
   }
-
   .tn-tc-fields {
     @include outer-container;
     min-height: 20px;
   }
-
   > div {
     min-height: 100%;
   }
-
   .editable-text {
     padding: 5px;
     min-height: 50px;
     outline: none;
     background: #fff;
-
     p {
       margin-top: 0;
       padding-top: 0;
     }
   }
-
   a.add-image {
-
     span {
       display: block;
       height: 200px;
@@ -185,11 +153,8 @@
       line-height: 200px;
     }
   }
-
   .wrapped-image {
-
     @include media($mobile-breakpoint) {
-
       &.left, &.right {
         float: none;
         padding: 0;
@@ -200,36 +165,29 @@
       float: left;
       padding: 5px 10px 0 5px;
     }
-
     &.right {
       float: right;
       padding: 5px 5px 0 10px;
     }
   }
-
   .medium-editor-placeholder {
     position: static;
   }
-
   .medium-editor-placeholder:after {
     position: static;
     display: none;
   }
-
   .asset-field img {
     width: 100%;
   }
-
   .image {
     position: relative;
     overflow: hidden;
-
     img {
       display: block;
       width: 100%;
     }
   }
-
   textarea.caption, div.caption {
     margin: 0;
     padding: 5px;
@@ -239,15 +197,12 @@
     font-size: 12px;
     resize: none;
   }
-
   textarea.caption:-moz-placeholder {
     color: #fff;
   }
-
   textarea.caption::-webkit-input-placeholder {
     color: $tn-light-grey;
   }
-
   .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve {
     @include transition(width 0.25s ease-in-out);
   }
@@ -258,14 +213,12 @@
 }
 
 .wrapped-image-with-text {
-
   .editable-text {
     min-height: 200px;
   }
 }
 
 .image-and-text {
-
   > div {
     height: 100%;
   }
@@ -273,14 +226,11 @@
 
 .image-controls {
   @include transition(none);
-
-  &.full-width-image {
-
+  &.full-width-image, &.three-column-image {
     .grow-image, .shrink-image, .swap-sides {
       display: none;
     }
   }
-
   button:active, button:focus {
     outline: none;
     background: lighten($tn-primary, 10%);
@@ -288,14 +238,14 @@
 }
 
 [contenteditable=true]:empty:not(:focus):before {
-  content: attr(data-placeholder);
   color: $tn-med-grey;
+  content: attr(data-placeholder);
 }
 
 a.open-embed-modal {
   @include transition(all 0.3s ease);
-  padding: 5px 0px;
   display: block;
+  padding: 5px 0;
   color: $tn-dark-grey;
   text-transform: uppercase;
   font-size: 12px;
@@ -311,7 +261,9 @@ a.open-embed-modal {
 
 .edit-embed-code {
   display: none;
-  textarea { width: 100%; }
+  textarea {
+    width: 100%;
+  }
 }
 
 .modal .edit-embed-code {

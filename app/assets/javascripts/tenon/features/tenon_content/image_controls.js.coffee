@@ -6,7 +6,7 @@ class Tenon.features.tenonContent.ImageControls
   toggleControls: (e) =>
     @hideControls()
     @_buildControls(e)
-    e.stopImmediatePropagation();
+    e.stopImmediatePropagation()
 
   hideControls: =>
     $('body > .image-controls').hide()
@@ -40,6 +40,8 @@ class Tenon.features.tenonContent.ImageControls
       @$controls.addClass('wrapped-image', true)
     else if @$image.closest('.full-width-image').length > 0
       @$controls.addClass('full-width-image')
+    else if @$image.closest('.three-column-image').length > 0
+      @$controls.addClass('three-column-image')
     else
       @$controls.addClass('column-image')
 
