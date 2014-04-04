@@ -6,7 +6,7 @@
 .tn-tc-main-actions
   = link_to '#', id: 'tn-tc-pop-out',  class: 'tn-tc-pop-out btn btn-info' do
     = fa_icon('eye')
-    %span Open Preview Mode
+    %span Edit in Preview Mode
 
   = link_to '#', id: 'tn-tc-add-content', class: 'tn-tc-add-content btn btn-info', 'data-modal-target' => '.tenon-library', 'data-modal-clone' => 'true', 'data-modal-title' => 'Add Content', 'data-association-insertion-node' => "##{field}-tenon-content", 'data-association-insertion-method' => 'prepend', 'data-modal-handler' => 'Tenon.features.tenonContent.Library' do
     = fa_icon('plus-circle')
