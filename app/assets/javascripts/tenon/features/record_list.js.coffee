@@ -49,6 +49,7 @@ class Tenon.features.RecordList
       @_drawRecords(data.records)
       @_toggleInfiniteLoader(data.pagination)
     $('.sortable').tenonTwoLevelSort()
+    @$list.trigger('tenon.records-refreshed')
 
   _failedLoad: =>
     @_showInfoLi('There was an error contacting the server.')
