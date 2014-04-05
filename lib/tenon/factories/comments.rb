@@ -5,5 +5,6 @@ FactoryGirl.define do
     author 'Sean Roberts'
     content 'Test Comment'
     commentable { create(:post) }
+    bypass_humanizer true
   end
 end

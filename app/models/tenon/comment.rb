@@ -1,14 +1,14 @@
 module Tenon
   class Comment < ActiveRecord::Base
     include Humanizer
-    require_human_on :create
+    require_human_on :create, unless: :bypass_humanizer
 
     validates_presence_of :commentable, :author, :author_email, :content
     validates_format_of :author_email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
     belongs_to :commentable, polymorphic: true
 
-    attr_accessor :subscribe, :controller
+    attr_accessor :subscribe, :controller, :bypass_humanizer
 
     default_scope { order('created_at DESC') }
     scope :approved, -> { where(approved: true) }
