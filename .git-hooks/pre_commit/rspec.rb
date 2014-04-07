@@ -1,4 +1,4 @@
-require 'rspec'
+require 'rspec/core'
 require 'rspec/core/formatters/json_formatter'
 require 'rspec/core/formatters/progress_formatter'
 

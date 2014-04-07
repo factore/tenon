@@ -50,6 +50,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'haml', '~> 4.0.3'
   s.add_dependency 'hpricot', '~> 0.8.6'
   s.add_dependency 'httparty', '~> 0.10.2'
+  s.add_dependency 'humanizer', '~> 2.6'
   s.add_dependency 'jbuilder'
   s.add_dependency 'jquery-fileupload-rails'
   s.add_dependency 'jquery-rails', '~> 3.1.0'
