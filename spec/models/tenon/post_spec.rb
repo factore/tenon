@@ -30,34 +30,16 @@ describe Tenon::Post do
   end
 
   describe 'posted?' do
-    let(:post) { Tenon::Post.new(published: published, created_at: created_at) }
-    context 'when published and created_at in the past' do
-      let(:published) { true }
+    let(:post) { Tenon::Post.new(created_at: created_at) }
+    context 'when created_at in the past' do
       let(:created_at) { Date.today - 1.day }
       it 'should be true' do
         expect(post.posted?).to be_true
       end
     end
 
-    context 'when not published and created_at in the future' do
-      let(:published) { false }
+    context 'when created_at in the future' do
       let(:created_at) { Date.today + 1.day }
-      it 'should not be true' do
-        expect(post.posted?).not_to be_true
-      end
-    end
-
-    context 'when published and created_at in the future' do
-      let(:published) { true }
-      let(:created_at) { Time.now + 24.hours }
-      it 'should not be true' do
-        expect(post.posted?).not_to be_true
-      end
-    end
-
-    context 'when not published and created_at in the past' do
-      let(:published) { false }
-      let(:created_at) { Date.today - 1.day }
       it 'should not be true' do
         expect(post.posted?).not_to be_true
       end
