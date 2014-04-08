@@ -11,7 +11,7 @@ class Tenon.features.RecordListUpdater
     if $el.prop("tagName").toLowerCase() == 'form'
       @_updateWithQuery(@_processFormData($el), 'Search')
     else
-      @_updateWithQuery(URI($el.attr('href')).query(), $el.textContent)
+      @_updateWithQuery(URI($el.attr('href')).query(true), $el.textContent)
 
   _processFormData: (form) =>
     formData = URI("?" + form.serialize()).query(true)
@@ -22,7 +22,7 @@ class Tenon.features.RecordListUpdater
 
   _updateWithQuery: (query, title) =>
     query = if @clearQuery then query else @_mergedQuery(query)
-    history.pushState({recordListUpdate: true}, title, "?#{query}")
+    history.pushState({recordListUpdate: true}, title, "?#{query.toString()}")
     Tenon.refreshed = false
     Tenon.activeRecordList.refresh(clear: true)
 
