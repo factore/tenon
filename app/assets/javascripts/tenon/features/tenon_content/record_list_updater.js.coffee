@@ -9,9 +9,16 @@ class Tenon.features.RecordListUpdater
     $el = $(e.currentTarget)
     @clearQuery = $el.attr('data-clear-record-list-params')
     if $el.prop("tagName").toLowerCase() == 'form'
-      @_updateWithQuery($el.serialize(), 'Search')
+      @_updateWithQuery(@_processFormData($el), 'Search')
     else
       @_updateWithQuery(URI($el.attr('href')).query(), $el.textContent)
+
+  _processFormData: (form) =>
+    formData = URI("?" + form.serialize()).query(true)
+    form.find("input:checkbox").each ->
+      if !(@.checked)
+        formData[@.name] = "0"
+    formData
 
   _updateWithQuery: (query, title) =>
     query = if @clearQuery then query else @_mergedQuery(query)
@@ -23,9 +30,8 @@ class Tenon.features.RecordListUpdater
   # the link or form is adding.  This allows us to, for example, submit
   # an advanced search form and then change the sort order with a link.
   # Add data-clear-record-list-params to prevent this merge.
-  _mergedQuery: (newQuery) =>
+  _mergedQuery: (newQueryObj) =>
     oldQueryObj = URI(location.href).query(true)
-    newQueryObj = URI("?" + newQuery).query(true)
     $.param($.extend(oldQueryObj, newQueryObj))
 
   popUpdate: (e) =>
