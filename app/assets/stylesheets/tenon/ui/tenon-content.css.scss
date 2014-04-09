@@ -76,6 +76,7 @@
       @include transition(all 0.3s ease);
       color: $tn-dark-grey;
       text-align: right;
+      position: relative;
       i {
         @include transition(all 0.3s ease);
         font-size: 20px;
@@ -92,7 +93,10 @@
         }
       }
       a.tn-tc-open-library {
-        margin-right: 20px;
+        @include transform(translate(-50%, 0));
+        position: absolute;
+        top: 0;
+        left: 50%;
         text-transform: uppercase;
         span {
           font-size: 12px;
