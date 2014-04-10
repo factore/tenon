@@ -2,6 +2,10 @@ module Tenon
   class ApplicationDecorator < Draper::Decorator
     delegate_all
 
+    def path
+      h.url_for(object)
+    end
+
     def edit_path
       h.url_for([:edit, object])
     end
