@@ -42,6 +42,8 @@ class Tenon.features.tenonContent.ImageControls
       @$controls.addClass('full-width-image')
     else if @$image.closest('.three-column-image').length > 0
       @$controls.addClass('three-column-image')
+    else if @$image.closest('.four-column-image').length > 0
+      @$controls.addClass('four-column-image')
     else
       @$controls.addClass('column-image')
 

@@ -2,7 +2,7 @@
   <div class="record-details">
     <div class="record-title">
       <strong>
-        <i class="fa fa-<%= @tenon_callout.icon %>"></i>
+        <i class="fa fa-<%= @tenon_callout.icon %> fa-fw"></i>
         <a href="<%= @tenon_callout.edit_path %>"><%= @tenon_callout.title %></a>
       </strong>
       <div class="explanation">

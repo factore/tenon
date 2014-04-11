@@ -8,9 +8,10 @@ module Tenon
         'Two Images'               => 'TwoColumnImage',
         'Three Columns of Text'    => 'ThreeColumnText',
         'Three Images'             => 'ThreeColumnImage',
+        'Embedded Content'         => 'FullWidthEmbeddedContent',
+        'Four Images'             => 'FourColumnImage',
         'Wrapped Image with Text'  => 'LeftWrappedImageWithText',
-        'Image and Text (No Wrap)' => 'LeftImageRightText',
-        'Embedded Content'         => 'FullWidthEmbeddedContent'
+        'Image and Text (No Wrap)' => 'LeftImageRightText'
       }
     end
   end
