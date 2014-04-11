@@ -7,7 +7,7 @@ module Tenon
     tenon_content :content
 
     # Relationships
-    has_and_belongs_to_many :post_categories
+    has_and_belongs_to_many :post_categories, class_name: 'Tenon::PostCategory'
     can_have_comments
 
     # Validations
