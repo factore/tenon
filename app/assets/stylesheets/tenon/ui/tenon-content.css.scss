@@ -62,6 +62,14 @@
       max-height: 200px;
       border: 1px dashed $tn-dark-grey;
     }
+
+    .tn-tc-bottombar {
+      display: none;
+    }
+
+    &:last-of-type .tn-tc-bottombar {
+      display: block;
+    }
   }
   .tn-tc-row {
     position: relative;
@@ -69,7 +77,8 @@
   .drag-anchor {
     float: left;
   }
-  .tn-tc-topbar {
+
+  .tn-tc-topbar, .tn-tc-bottombar {
     padding: 0;
     // background-color: $tn-med-grey;
     .actions {
@@ -114,7 +123,7 @@
   }
   .tn-tc-row:hover {
     &:hover {
-      .tn-tc-topbar {
+      .tn-tc-topbar, .tn-tc-bottombar {
         color: $tn-black;
         a {
           color: $tn-black;
@@ -124,7 +133,7 @@
         }
       }
     }
-    .tn-tc-topbar {
+    .tn-tc-topbar, .tn-tc-bottombar {
       opacity: 1;
     }
   }

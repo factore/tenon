@@ -13,12 +13,7 @@
 
   .tn-tc-fields= render row_partial, f: f
 
-  / This needs to only display for last row
-  / .tn-tc-topbar
-  /   .actions
-  /     = link_to '#', class: 'tn-tc-open-library below', 'data-modal-target' => '.tenon-library', 'data-modal-title' => "Insert Content", 'data-modal-handler' => 'Tenon.features.tenonContent.Library', 'data-modal-clone' => 'true' do
-  /       = fa_icon('plus-circle')
-  /       %span Insert Content
-
-
-.spacer
+  .tn-tc-bottombar
+    .actions
+      = link_to '#', class: 'tn-tc-open-library below', 'data-modal-target' => '.tenon-library', 'data-modal-title' => "Insert Content", 'data-modal-handler' => 'Tenon.features.tenonContent.Library', 'data-modal-clone' => 'true', 'data-tooltip' => '', title: 'Insert Content' do
+        = fa_icon('plus-circle')

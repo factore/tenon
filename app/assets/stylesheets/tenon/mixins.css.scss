@@ -9,7 +9,7 @@
 
     &:before {
       float: $float;
-      padding: 1px 2px 0;
+      padding: 0 2px;
       color: $unchecked-color;
       content: $unchecked;
       font: 22px $font-family;
