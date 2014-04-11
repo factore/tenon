@@ -1,1 +1,1 @@
-//= require_tree ./tenon
+//= require_tree ./tenon_addons
