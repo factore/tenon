@@ -29,18 +29,18 @@ describe Tenon::WarningGenerator do
     end
   end
 
-  context 'when there is no site url' do
+  context 'when there is no site domain' do
     before do
       settings.stub(:site_url) { nil }
     end
 
-    it 'should not include a warning about no site url' do
+    it 'should not include a warning about no site domain' do
       warning = "Your site needs an address<br /><a href='/tenon/settings'>OK</a><br />"
       expect(wg.warnings).to include(warning)
     end
   end
 
-  context 'when there is a site url' do
+  context 'when there is a site domain' do
     before do
       settings.stub(:site_url) { 'test' }
     end

@@ -63,6 +63,14 @@
       max-height: 200px;
       border: 1px dashed $tn-dark-grey;
     }
+
+    .tn-tc-bottombar {
+      display: none;
+    }
+
+    &:last-of-type .tn-tc-bottombar {
+      display: block;
+    }
   }
   .tn-tc-row {
     position: relative;
@@ -70,13 +78,15 @@
   .drag-anchor {
     float: left;
   }
-  .tn-tc-topbar {
+
+  .tn-tc-topbar, .tn-tc-bottombar {
     padding: 0;
     // background-color: $tn-med-grey;
     .actions {
       @include transition(all 0.3s ease);
       color: $tn-dark-grey;
       text-align: right;
+      position: relative;
       i {
         @include transition(all 0.3s ease);
         font-size: 20px;
@@ -93,7 +103,10 @@
         }
       }
       a.tn-tc-open-library {
-        margin-right: 20px;
+        @include transform(translate(-50%, 0));
+        position: absolute;
+        top: 0;
+        left: 50%;
         text-transform: uppercase;
         span {
           font-size: 12px;
@@ -111,7 +124,7 @@
   }
   .tn-tc-row:hover {
     &:hover {
-      .tn-tc-topbar {
+      .tn-tc-topbar, .tn-tc-bottombar {
         color: $tn-black;
         a {
           color: $tn-black;
@@ -121,7 +134,7 @@
         }
       }
     }
-    .tn-tc-topbar {
+    .tn-tc-topbar, .tn-tc-bottombar {
       opacity: 1;
     }
   }
