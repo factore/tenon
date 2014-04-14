@@ -15,7 +15,20 @@ module Tenon
     def action_link(title, link, icon, options = {})
       icon_tag = content_tag(:i, '', class: "fa fa-#{icon} fa-fw")
       default_options = { title: title, data: { tooltip: title } }
-      link_to(icon_tag, link, default_options.deep_merge(options))
+      link_to icon_tag, link, default_options.deep_merge(options)
+    end
+
+    # extention of action_link for boolean toggles
+    def toggle_link(state, link, true_values, false_values)
+      icon = state ? true_values[0] : false_values[0]
+      tooltip = state ? true_values[1] : false_values[1]
+      data = {
+        trueicon:     true_values[0],
+        falseicon:    false_values[0],
+        truetooltip:  true_values[1],
+        falsetooltip: false_values[1]
+      }
+      action_link tooltip, link, icon, class: "toggle #{state}", data: data
     end
 
     # default tenon edit link

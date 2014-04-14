@@ -1,0 +1,56 @@
+<li>
+  <div class="record-details">
+    <div class="record-title">
+      From:
+      <strong>
+        <a href="mailto:<%= @contact.email %>"><%= @contact.name %> (<%= @contact.email %>)</a>
+      </strong>
+      <br />
+      <small>
+        Sent on:
+        <strong>
+          <%- @contact.sent_date %>
+        </strong>
+      </small>
+      <br />
+      <small><%= @contact.content %></small>
+      <div style="display: none;" id="contact-<%= @contact.id %>">
+        <p><%= @contact.content %></p>
+        <hr />
+        <p>
+          <strong>Name: </strong>
+          <%= @contact.name %>
+        </p>
+        <p>
+          <strong>Email: </strong>
+          <a href="mailto: <%= @contact.email %>"><%= @contact.email %></a>
+        </p>
+        <p>
+        <p>
+          <strong>Phone: </strong>
+          <%= @contact.ophone %>
+        </p>
+        <p>
+          <strong>IP:</strong>
+          <%= @contact.user_ip %>
+        </p>
+        <p>
+          <strong>Agent:</strong>
+          <%= @contact.user_agent %>
+        </p>
+        <p>
+          <strong>Referrer:</strong>
+          <%= @contact.referrer %>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="record-actions">
+      <%- @contact.display_link %>
+      <%- @contact.read_link %>
+      <%- @contact.reply_link %>
+      <%- @contact.delete_link %>
+    </div>
+  </div>
+</li>

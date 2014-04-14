@@ -11,6 +11,11 @@ Tenon::Engine.routes.draw do
     get 'unapprove', :on => :member
   end
 
+  resources :contacts, :only => [:index, :destroy] do
+    get 'toggle_read', :on => :member
+    get 'toggle_reply', :on => :member
+  end
+
   resources :events, :except => [:show]
 
   resources :galleries, :except => [:show] do

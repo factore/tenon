@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411195011) do
+ActiveRecord::Schema.define(version: 20140414120000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,23 @@ ActiveRecord::Schema.define(version: 20140411195011) do
   add_index "tenon_comments", ["commentable_id"], name: "index_comments_on_post_id", using: :btree
   add_index "tenon_comments", ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
   add_index "tenon_comments", ["created_at"], name: "index_comments_on_created_at", using: :btree
+
+  create_table "tenon_contacts", force: true do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.text     "content"
+    t.string   "user_ip"
+    t.string   "user_agent"
+    t.string   "referrer"
+    t.integer  "commentable_id"
+    t.boolean  "read",           default: false, null: false
+    t.boolean  "replied",        default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tenon_contacts", ["created_at"], name: "index_contacts_on_created_at", using: :btree
 
   create_table "tenon_delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0

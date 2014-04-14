@@ -1,0 +1,11 @@
+= render "sidebar_index"
+
+%header
+  %h1 Contacts
+  .tools
+    = render "tenon/shared/section_header/quick_search", record_list: '#contacts'
+  .spacer
+
+.main-content
+  .container
+    %ul#contacts.record-list{data: {records: {url: contacts_path(format: 'json'), template: 'tenon/templates/contacts/contact_row', name: 'contact'}}}
