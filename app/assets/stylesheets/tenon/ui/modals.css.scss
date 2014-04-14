@@ -104,6 +104,10 @@
 .modal-body {
   position: relative;
   padding: 20px;
+  hr {
+    height: 1px;
+    background-color: $tn-med-grey;
+  }
 }
 
 .modal-footer {
