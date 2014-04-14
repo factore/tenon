@@ -17,16 +17,6 @@ class CreateTenonTables < ActiveRecord::Migration
     add_index "tenon_assets", ["created_at"], name: "index_assets_on_created_at", using: :btree
     add_index "tenon_assets", ["job_id"], name: "index_assets_on_job_id", using: :btree
 
-    create_table "tenon_banners" do |t|
-      t.string   "title"
-      t.integer  "list_order", default: 999
-      t.datetime "publish_at"
-      t.datetime "created_at"
-      t.datetime "updated_at"
-    end
-
-    add_index "tenon_banners", ["list_order"], name: "index_banners_on_list_order", using: :btree
-
     create_table "tenon_comment_subscribers" do |t|
       t.integer  "commentable_id"
       t.string   "commentable_type"

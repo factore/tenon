@@ -6,10 +6,6 @@ Tenon::Engine.routes.draw do
     get :crop, :on => :member
   end
 
-  resources :banners, :except => [:show] do
-    post    'reorder', :on => :collection
-  end
-
   resources :comments, :only => [:index, :destroy] do
     get 'approve', :on => :member
     get 'unapprove', :on => :member

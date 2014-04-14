@@ -1,17 +1,17 @@
-# We test the BannersController as it inherits completely from
+# We test the GalleriesController as it inherits completely from
 # resources controller.  Other controllers should only test
 # methods that they override.
 
 require 'spec_helper'
 
-describe Tenon::BannersController do
+describe Tenon::GalleriesController do
   routes { Tenon::Engine.routes }
 
-  let(:banner) { double.as_null_object }
+  let(:gallery) { double.as_null_object }
 
   before do
     controller.stub(:current_user) { user }
-    controller.stub(:polymorphic_index_path) { '/tenon/banners' }
+    controller.stub(:polymorphic_index_path) { '/tenon/galleries' }
   end
 
   context 'with an administrator' do
@@ -48,7 +48,7 @@ describe Tenon::BannersController do
     describe 'GET index.json' do
       before do
         [:all, :where, :paginate].each do |query|
-          Tenon::Banner.stub(query) { Tenon::Banner }
+          Tenon::Gallery.stub(query) { Tenon::Gallery }
         end
       end
 
@@ -63,23 +63,23 @@ describe Tenon::BannersController do
       end
 
       it 'should attempt to get all the resources' do
-        expect(Tenon::Banner).to receive(:all) { Tenon::Banner }
+        expect(Tenon::Gallery).to receive(:all) { Tenon::Gallery }
         get :index, format: 'json'
       end
 
       it 'should paginate the resources' do
-        expect(Tenon::Banner).to receive(:paginate).and_return(Tenon::Banner)
+        expect(Tenon::Gallery).to receive(:paginate).and_return(Tenon::Gallery)
         get :index, format: 'json'
       end
 
       it 'should decorate the resources' do
-        expect(Tenon::PaginatingDecorator).to receive(:decorate).with(Tenon::Banner)
+        expect(Tenon::PaginatingDecorator).to receive(:decorate).with(Tenon::Gallery)
         get :index, format: 'json'
       end
 
       it 'should search the resources when params[:q] is supplied' do
-        search_args = ['tenon_banners.title ILIKE ?', '%test%']
-        expect(Tenon::Banner).to receive(:where).with(search_args)
+        search_args = ['tenon_galleries.title ILIKE ?', '%test%']
+        expect(Tenon::Gallery).to receive(:where).with(search_args)
         get :index, format: 'json', q: 'test'
       end
     end
@@ -96,14 +96,14 @@ describe Tenon::BannersController do
       end
 
       it 'should instantiate a resource' do
-        expect(Tenon::Banner).to receive(:new) { banner }
+        expect(Tenon::Gallery).to receive(:new) { gallery }
         get :new
       end
     end
 
     describe 'GET edit' do
       before do
-        Tenon::Banner.stub(:find) { banner }
+        Tenon::Gallery.stub(:find) { gallery }
       end
 
       it 'should respond with success' do
@@ -117,99 +117,99 @@ describe Tenon::BannersController do
       end
 
       it 'should find a resource' do
-        expect(Tenon::Banner).to receive(:find).with('1')
+        expect(Tenon::Gallery).to receive(:find).with('1')
         get :edit, id: 1
       end
     end
 
     describe 'POST create' do
       before do
-        Tenon::Banner.stub(:new) { banner }
+        Tenon::Gallery.stub(:new) { gallery }
       end
 
       let(:params) { { 'test' => 'test' } }
 
       it 'should instantiate a resource' do
-        expect(Tenon::Banner).to receive(:new).with(params) { banner }
-        post :create, banner: params
+        expect(Tenon::Gallery).to receive(:new).with(params) { gallery }
+        post :create, gallery: params
       end
 
       it 'should attempt to save it' do
-        expect(banner).to receive(:save)
-        post :create, banner: params
+        expect(gallery).to receive(:save)
+        post :create, gallery: params
       end
 
       context 'with an unsuccessful save' do
         before do
-          banner.stub(:errors) { { anything: 'will do' } }
+          gallery.stub(:errors) { { anything: 'will do' } }
         end
 
         it 'should respond with success' do
-          post :create, banner: params
+          post :create, gallery: params
           expect(response).to be_success
         end
 
         it 'should render the new template' do
-          post :create, format: 'html', banner: params
+          post :create, format: 'html', gallery: params
           expect(response).to render_template('new')
         end
       end
 
       context 'with a successful save' do
         it 'should redirect to index' do
-          post :create, banner: params
-          expect(response).to redirect_to('/tenon/banners')
+          post :create, gallery: params
+          expect(response).to redirect_to('/tenon/galleries')
         end
       end
     end
 
     describe 'PATCH update' do
       before do
-        Tenon::Banner.stub(:find) { banner }
+        Tenon::Gallery.stub(:find) { gallery }
       end
 
       let(:params) { { 'test' => 'test' } }
 
       it 'should find a resource' do
-        expect(Tenon::Banner).to receive(:find).with('1') { banner }
-        patch :update, banner: params, id: 1
+        expect(Tenon::Gallery).to receive(:find).with('1') { gallery }
+        patch :update, gallery: params, id: 1
       end
 
       it 'should attempt to update it' do
-        expect(banner).to receive(:update_attributes).with(params)
-        patch :update, banner: params, id: 1
+        expect(gallery).to receive(:update_attributes).with(params)
+        patch :update, gallery: params, id: 1
       end
 
       context 'with an unsuccessful save' do
         before do
-          banner.stub(:errors) { { anything: 'will do' } }
-          banner.stub(:update_attributes) { false }
+          gallery.stub(:errors) { { anything: 'will do' } }
+          gallery.stub(:update_attributes) { false }
         end
 
         it 'should respond with success' do
-          patch :update, banner: params, id: 1
+          patch :update, gallery: params, id: 1
           expect(response).to be_success
         end
 
         it 'should render the edit template' do
-          patch :update, banner: params, id: 1
+          patch :update, gallery: params, id: 1
           expect(response).to render_template('edit')
         end
 
         it 'should not set the flash' do
-          patch :update, banner: params, id: 1
+          patch :update, gallery: params, id: 1
           expect(controller.flash[:notice]).to be_blank
         end
       end
 
       context 'with a successful save' do
         it 'should redirect to index' do
-          patch :update, banner: params, id: 1
-          expect(response).to redirect_to('/tenon/banners')
+          patch :update, gallery: params, id: 1
+          expect(response).to redirect_to('/tenon/galleries')
         end
 
         it 'should set the flash' do
-          patch :update, banner: params, id: 1
+          patch :update, gallery: params, id: 1
           expect(controller.flash[:notice]).not_to be_blank
         end
       end
@@ -217,35 +217,35 @@ describe Tenon::BannersController do
 
     describe 'DELETE destroy' do
       before do
-        Tenon::Banner.stub(:find) { banner }
+        Tenon::Gallery.stub(:find) { gallery }
       end
 
       it 'should find the resource' do
-        expect(Tenon::Banner).to receive(:find).with('1') { banner }
+        expect(Tenon::Gallery).to receive(:find).with('1') { gallery }
         delete :destroy, id: 1
       end
 
       it 'should try to destroy the resource' do
-        expect(banner).to receive(:destroy)
+        expect(gallery).to receive(:destroy)
         delete :destroy, id: 1
       end
 
       context 'on successful destruction' do
         before do
-          banner.stub(:destroy) { true }
+          gallery.stub(:destroy) { true }
         end
 
         it 'should redirect to index' do
           delete :destroy, id: 1
-          expect(response).to redirect_to('/tenon/banners')
+          expect(response).to redirect_to('/tenon/galleries')
         end
       end
 
       context 'on failure' do
         let(:errors) { { anything: 'will do' } }
         before do
-          banner.stub(:destroy) { false }
-          banner.stub(:errors) { errors }
+          gallery.stub(:destroy) { false }
+          gallery.stub(:errors) { errors }
         end
 
         it 'should render errors' do
@@ -282,7 +282,7 @@ describe Tenon::BannersController do
 
     describe 'POST create' do
       it 'should redirect' do
-        post :create, banner: {}
+        post :create, gallery: {}
         expect(response).to be_redirect
       end
     end
@@ -328,7 +328,7 @@ describe Tenon::BannersController do
 
     describe 'POST create' do
       it 'should redirect' do
-        post :create, banner: {}
+        post :create, gallery: {}
         expect(response).to be_redirect
       end
     end
