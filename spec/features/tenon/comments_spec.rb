@@ -21,25 +21,30 @@ describe 'An admin viewing the comments index', js: true do
       expect(page).not_to have_content('Test Comment')
     end
 
-    it 'should be able to approve the comment' do
-      visit comments_path
-      within('ul#comments') do
-        expect(page).not_to have_selector('a.unapprove')
-        page.find('a.approve').click
-        expect(page).to have_selector('a.unapprove')
-        expect(comment.reload.approved?).to be_true
-      end
-    end
+    %w(approved).each do |action|
+      context "if #{action} is false" do
+        it "should be able to toggle #{action} to true" do
+          visit comments_path
+          within('ul#comments') do
+            expect(page).to have_selector("a.toggle.#{action}.false")
+            page.find("a.toggle.#{action}").click
+            expect(comment.reload.send("toggle_#{action}!")).to be_true
+            expect(page).to have_selector("a.toggle.#{action}.true")
+          end
+        end
 
-    it 'should be able to unapprove the comment' do
-      comment.update_attributes(approved: true)
-      visit comments_path
-
-      within('ul#comments') do
-        expect(page).not_to have_selector('a.approve')
-        page.find('a.unapprove').click
-        expect(page).to have_selector('a.approve')
-        expect(comment.reload.approved?).to be_false
+        context "if #{action} is true" do
+          it "should be able to toggle #{action} to false" do
+            comment.update_attributes(action.to_sym => true)
+            visit comments_path
+            within('ul#comments') do
+              expect(page).to have_selector("a.toggle.#{action}.true")
+              page.find("a.toggle.#{action}").click
+              expect(comment.reload.send("toggle_#{action}!")).to be_true
+              expect(page).to have_selector("a.toggle.#{action}.false")
+            end
+          end
+        end
       end
     end
   end
