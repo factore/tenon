@@ -19,7 +19,8 @@ module Tenon
     end
 
     # extention of action_link for boolean toggles
-    def toggle_link(state, link, true_values, false_values)
+    def toggle_link(object, field, link, true_values, false_values)
+      state = object.send(field)
       icon = state ? true_values[0] : false_values[0]
       tooltip = state ? true_values[1] : false_values[1]
       data = {
@@ -28,7 +29,7 @@ module Tenon
         truetooltip:  true_values[1],
         falsetooltip: false_values[1]
       }
-      action_link tooltip, link, icon, class: "toggle #{state}", data: data
+      action_link tooltip, link, icon, class: "toggle #{field} #{state}", data: data
     end
 
     # default tenon edit link
