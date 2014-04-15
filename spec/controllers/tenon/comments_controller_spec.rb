@@ -100,7 +100,7 @@ describe Tenon::CommentsController do
     end
   end
 
-  %w(approve unapprove).each do |action|
+  %w(toggle_approved).each do |action|
     describe "GET #{action}.json" do
       let(:comment) { double }
       before { Tenon::Comment.stub(:find) { comment } }

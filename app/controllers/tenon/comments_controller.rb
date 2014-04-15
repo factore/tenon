@@ -23,26 +23,14 @@ module Tenon
       end
     end
 
-    def approve
+    def toggle_approved
       respond_to do |format|
-        if @comment.approve!
+        if @comment.toggle_approved!
           format.json { render json: @comment.to_json }
           format.html { flash[:notice] = 'Comment approved.' and redirect_to comments_path }
         else
           format.json { render status: 500, nothing: true }
           format.html { flash[:warning] = 'Error approving comment.' and redirect_to comments_path }
-        end
-      end
-    end
-
-    def unapprove
-      respond_to do |format|
-        if @comment.unapprove!
-          format.json { render json: @comment.to_json }
-          format.html { flash[:notice] = 'Comment unapproved.' and redirect_to comments_path }
-        else
-          format.json { render status: 500, nothing: true }
-          format.html { flash[:warning] = 'Error unapproving comment.' and redirect_to comments_path }
         end
       end
     end

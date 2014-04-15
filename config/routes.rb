@@ -7,8 +7,7 @@ Tenon::Engine.routes.draw do
   end
 
   resources :comments, :only => [:index, :destroy] do
-    get 'approve', :on => :member
-    get 'unapprove', :on => :member
+    get 'toggle_approved', :on => :member
   end
 
   resources :contacts, :only => [:index, :destroy] do
