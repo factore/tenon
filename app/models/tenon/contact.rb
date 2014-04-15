@@ -31,8 +31,17 @@ module Tenon
       address.present?
     end
 
-    # To send contact requests from a front-end controller:
+    # To send contact requests from a controller:
     # ContactMailer.contact_notification(@contact).deliver
+
+    # To check the honeypot from a controller:
+    # if @contact.pooh_in_the_honey?
+    #   return false positive
+    # elsif @contact.save
+    #   return positive
+    # else
+    #   return errors
+    # end
 
     private
 
