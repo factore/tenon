@@ -13,7 +13,7 @@ Tenon::Engine.routes.draw do
 
   resources :contacts, :only => [:index, :destroy] do
     get 'toggle_read', :on => :member
-    get 'toggle_reply', :on => :member
+    get 'toggle_replied', :on => :member
   end
 
   resources :events, :except => [:show]

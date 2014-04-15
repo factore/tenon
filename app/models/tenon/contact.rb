@@ -16,9 +16,7 @@ module Tenon
     scope :replied, -> { where(replied: true) }
     scope :unreplied, -> { where(replied: false) }
 
-    # after_save :handle_subscribers
-
-    def toggle_reply!
+    def toggle_replied!
       self.replied = self.replied? ? false : true
       save
     end
@@ -30,14 +28,5 @@ module Tenon
 
     private
 
-    def handle_subscribers
-      # create subscriber
-      # CommentSubscriber.create(commentable: commentable, email: author_email) if subscribe.to_i == 1
-
-      # notify subscribers
-      # if replied? && commentable.respond_to?(:subscribers)
-        # commentable.subscribers.each { |subscriber| CommentMailer.comment_notification(subscriber.email, self).deliver }
-      # end
-    end
   end
 end

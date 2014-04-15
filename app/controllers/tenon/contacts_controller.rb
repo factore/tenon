@@ -37,9 +37,9 @@ module Tenon
       end
     end
 
-    def toggle_reply
+    def toggle_replied
       respond_to do |format|
-        if @contact.toggle_reply!
+        if @contact.toggle_replied!
           format.json { render json: @contact.to_json }
           format.html { flash[:notice] = 'Comment flagged as replied.' and redirect_to contacts_path }
         else

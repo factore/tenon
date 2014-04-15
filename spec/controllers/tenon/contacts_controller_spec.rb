@@ -16,14 +16,15 @@ describe Tenon::ContactsController do
   before do
     controller.stub(:current_user) { user }
     controller.stub(:polymorphic_index_path) { '/tenon/contacts' }
-
   end
 
   describe 'GET index.html' do
     it 'should get the contact counts' do
       expect(Tenon::Contact).to receive(:count) { [] }
-      expect(Tenon::Contact).to receive(:approved) { [] }
-      expect(Tenon::Contact).to receive(:unapproved) { [] }
+      expect(Tenon::Contact).to receive(:read) { [] }
+      expect(Tenon::Contact).to receive(:unread) { [] }
+      expect(Tenon::Contact).to receive(:replied) { [] }
+      expect(Tenon::Contact).to receive(:unreplied) { [] }
       get :index, format: 'html'
     end
 
