@@ -8,7 +8,6 @@ class CreateContacts < ActiveRecord::Migration
       t.string   "user_ip"
       t.string   "user_agent"
       t.string   "referrer"
-      t.integer  "commentable_id"
       t.boolean  "read",              default: false, null: false
       t.boolean  "replied",         default: false, null: false
       t.datetime "created_at"
