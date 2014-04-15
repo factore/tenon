@@ -42,4 +42,21 @@ describe Tenon::Contact do
       end
     end
   end
+
+  describe '#pooh_in_the_honey?' do
+    let(:contact) { Tenon::Contact.new(address: address) }
+    context 'when address field is submitted empty' do
+      let(:address) { '' }
+      it 'should return false' do
+        contact.pooh_in_the_honey?
+      end
+    end
+    context 'when address field is submitted filled' do
+      let(:address) { '162 Locke St South' }
+      it 'should return true' do
+        contact.pooh_in_the_honey?
+      end
+    end
+  end
+
 end

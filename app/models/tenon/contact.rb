@@ -3,7 +3,8 @@ module Tenon
     include Humanizer
     require_human_on :create, unless: :bypass_humanizer
 
-    attr_accessor :subscribe, :controller, :bypass_humanizer, :page_id
+    attr_accessor :subscribe, :controller, :bypass_humanizer, :page_id, :address
+    # attr_accessor :address is for the honeypot
 
     # Validations
     validates_presence_of :name, :email, :content
@@ -24,6 +25,10 @@ module Tenon
     def toggle_read!
       self.read = self.read? ? false : true
       save
+    end
+
+    def pooh_in_the_honey?
+      address.present?
     end
 
     # To send contact requests from a front-end controller:
