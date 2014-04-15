@@ -50,25 +50,28 @@ describe Tenon::Comment do
     end
   end
 
-  describe '#approve!' do
-    let(:comment) { Tenon::Comment.new }
-    it 'should set approved to true and save the comment' do
-      expect(comment).to receive(:approved=).with(true)
-      expect(comment).to receive(:save)
-      comment.approve!
+  describe '#toggle_approved!' do
+    let(:comment) { Tenon::Comment.new(approved: approved) }
+    context 'when approved is true' do
+      let(:approved) { true }
+      it 'should set approved to false and save the comment' do
+        expect(comment).to receive(:approved=).with(false)
+        expect(comment).to receive(:save)
+        comment.toggle_approved!
+      end
+    end
+
+    context 'when approved is false' do
+      let(:approved) { false }
+      it 'should set approved to true and save the comment' do
+        expect(comment).to receive(:approved=).with(true)
+        expect(comment).to receive(:save)
+        comment.toggle_approved!
+      end
     end
   end
 
-  describe '#unapprove!' do
-    let(:comment) { Tenon::Comment.new }
-    it 'should set approved to true and save the comment' do
-      expect(comment).to receive(:approved=).with(false)
-      expect(comment).to receive(:save)
-      comment.unapprove!
-    end
-  end
-
-  describe '#approve!' do
+  describe '#approve' do
     let(:comment) { Tenon::Comment.new }
     it 'should set approved to true' do
       expect(comment).to receive(:approved=).with(true)

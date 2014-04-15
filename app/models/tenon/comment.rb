@@ -23,13 +23,8 @@ module Tenon
       session.blank? ? Comment.new(commentable_type: object.class.to_s, commentable_id: object.id) : Comment.new(session)
     end
 
-    def approve!
-      self.approved = true
-      save
-    end
-
-    def unapprove!
-      self.approved = false
+    def toggle_approved!
+      self.approved = self.approved? ? false : true
       save
     end
 
