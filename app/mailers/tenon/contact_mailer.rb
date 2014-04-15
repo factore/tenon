@@ -3,12 +3,12 @@ module Tenon
     # TODO: Find a better way to set the host
     # default_url_options[:host] = MySettings.site_url ? MySettings.site_url.gsub('http://', '') : 'localhost:3000'
 
-    def contact_notification(email, contact)
+    def contact_notification(contact)
       @contact = contact
       mail(
-        to: email,
+        to: Tenon::MySettings.contact_email,
         subject: "#{Tenon::MySettings.site_name} - New Contact Request",
-        from: Tenon::MySettings.from_email
+        from: @contact.email
       )
     end
   end

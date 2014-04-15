@@ -1,6 +1,15 @@
 %p
   A new contact request has been recieved.
+  Reply to this email to get in touch with the person who sent it.
 
 %p{:style => "text-align:center"} --
+
+%p
+  %strong From:
+  = @contact.name
+
+%p
+  %strong Email:
+  = @contact.email
 
 %p= simple_format(@contact.content)

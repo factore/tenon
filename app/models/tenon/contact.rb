@@ -26,6 +26,9 @@ module Tenon
       save
     end
 
+    # To send contact requests from a front-end controller:
+    # ContactMailer.contact_notification(@contact).deliver
+
     private
 
   end
