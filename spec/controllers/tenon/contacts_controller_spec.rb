@@ -60,7 +60,7 @@ describe Tenon::ContactsController do
     context 'with params[:q] = "search"' do
       it 'should search the contacts with the query' do
         args = [
-          'author ILIKE :q OR author_url ILIKE :q OR author_email ILIKE :q OR content ILIKE :q OR user_ip ILIKE :q',
+          'name ILIKE :q OR email ILIKE :q OR phone ILIKE :q OR content ILIKE :q OR user_ip ILIKE :q',
           { q: '%search%' }
         ]
         expect(Tenon::Contact).to receive(:all) { Tenon::Contact }
@@ -74,10 +74,10 @@ describe Tenon::ContactsController do
       end
     end
 
-    %w(approved unapproved).each do |type|
+    %w(read unread replied unreplied).each do |type|
       context "with params[:type] = #{type}" do
         it 'should search the contacts with the type' do
-          expect(Tenon::Contact).to receive(type)
+          expect(Tenon::Contact).to receive(type) { Tenon::Contact }
           get :index, format: 'json', type: type
         end
 
@@ -90,18 +90,18 @@ describe Tenon::ContactsController do
       context "with params[:q] = 'search' and params[:type] = '#{type}'" do
         it 'should search the contacts and sort them by type' do
           args = [
-            'author ILIKE :q OR author_url ILIKE :q OR author_email ILIKE :q OR content ILIKE :q OR user_ip ILIKE :q',
+            'name ILIKE :q OR email ILIKE :q OR phone ILIKE :q OR content ILIKE :q OR user_ip ILIKE :q',
             { q: '%search%' }
           ]
-          expect(Tenon::Contact).to receive(:where).with(args)
-          expect(Tenon::Contact).to receive(type)
+          expect(Tenon::Contact).to receive(:where).with(args) { Tenon::Contact }
+          expect(Tenon::Contact).to receive(type) { Tenon::Contact }
           get :index, format: 'json', type: type, q: 'search'
         end
       end
     end
   end
 
-  %w(approve unapprove).each do |action|
+  %w(toggle_read toggle_replied).each do |action|
     describe "GET #{action}.json" do
       let(:contact) { double }
       before { Tenon::Contact.stub(:find) { contact } }

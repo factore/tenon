@@ -1,6 +1,6 @@
 module Tenon
   class ContactsController < Tenon::ResourcesController
-    before_filter :get_contact, only: [:approve, :unapprove, :destroy]
+    before_filter :get_contact, only: [:toggle_read, :toggle_replied, :destroy]
 
     def index
       respond_to do |format|
@@ -57,7 +57,7 @@ module Tenon
 
     def search_args
       [
-        'name ILIKE :q OR email ILIKE :q OR content ILIKE :q OR user_ip ILIKE :q',
+        'name ILIKE :q OR email ILIKE :q OR phone ILIKE :q OR content ILIKE :q OR user_ip ILIKE :q',
         { q: "%#{params[:q]}%" }
       ]
     end
