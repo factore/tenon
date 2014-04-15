@@ -3,7 +3,7 @@ module Tenon
     include Humanizer
     require_human_on :create, unless: :bypass_humanizer
 
-    attr_accessor :subscribe, :controller, :bypass_humanizer
+    attr_accessor :subscribe, :controller, :bypass_humanizer, :page_id
 
     # Validations
     validates_presence_of :name, :email, :content

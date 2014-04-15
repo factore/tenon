@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414120000) do
+ActiveRecord::Schema.define(version: 20140415172352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -191,8 +191,8 @@ ActiveRecord::Schema.define(version: 20140414120000) do
     t.string   "path"
     t.string   "unique_key"
     t.text     "content"
-    t.integer  "list_order",      default: 999
-    t.boolean  "show_in_menu",    default: true
+    t.integer  "list_order",        default: 999
+    t.boolean  "show_in_menu",      default: true
     t.integer  "creator_id"
     t.integer  "updater_id"
     t.boolean  "published"
@@ -206,6 +206,7 @@ ActiveRecord::Schema.define(version: 20140414120000) do
     t.integer  "rgt"
     t.integer  "depth"
     t.datetime "publish_at"
+    t.boolean  "show_contact_form", default: false
   end
 
   add_index "tenon_pages", ["creator_id"], name: "index_pages_on_creator_id", using: :btree
