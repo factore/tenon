@@ -112,7 +112,6 @@ ActiveRecord::Schema.define(version: 20140414120000) do
     t.string   "user_ip"
     t.string   "user_agent"
     t.string   "referrer"
-    t.integer  "commentable_id"
     t.boolean  "read",           default: false, null: false
     t.boolean  "replied",        default: false, null: false
     t.datetime "created_at"
