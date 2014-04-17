@@ -9,8 +9,6 @@
     </div>
 
     <div class="record-actions">
-      <%- @user.view_link %>
-      <%- @user.subuser_link %>
       <%- @user.edit_link %>
       <%- @user.delete_link %>
     </div>
