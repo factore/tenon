@@ -13,6 +13,7 @@
 @import 'bootstrap.tables';
 @import 'bootstrap.datetimepicker';
 @import 'jquery.Jcrop';
+@import 'select2';
 
 // global mixins
 @import 'tenon/mixins';
@@ -55,7 +56,7 @@
 @import 'tenon/ui/record-lists';
 @import 'tenon/ui/record-grids';
 @import 'tenon/ui/section-headers';
-@import 'tenon/ui/select2';
+@import 'tenon/ui/select2-custom';
 @import 'tenon/ui/tables';
 @import 'tenon/ui/tabs';
 @import 'tenon/ui/tenon-content';
