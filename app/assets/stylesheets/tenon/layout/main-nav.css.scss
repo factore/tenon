@@ -57,7 +57,7 @@
         a {
           @include transition(all .2s ease);
           display: block;
-          padding: 14px 20px 14px 16px;
+          padding: 14px 16px;
           border-bottom: 1px solid $tn-sidebar;
           background: $tn-nav;
           color: $tn-grey;

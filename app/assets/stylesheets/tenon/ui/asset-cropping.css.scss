@@ -3,7 +3,7 @@
   .preview {
     @include transform(translate(-50%, 0));
     position: fixed;
-    top: 20px;
+    top: 16px;
     left: 50%;
     z-index: 1040;
     max-width: 90vw;
@@ -11,7 +11,7 @@
     background-color: $tn-light-grey;
 
     .image-holder {
-      padding: 20px;
+      padding: 16px;
       background-color: $tn-light-grey;
     }
 
@@ -48,7 +48,7 @@
     .edit_asset {
       @include clearfix;
       margin: 0;
-      padding: 0 20px 20px;
+      padding: 0 16px 16px;
       background-color: $tn-light-grey;
     }
   }
