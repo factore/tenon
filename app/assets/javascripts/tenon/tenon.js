@@ -45,6 +45,7 @@ var Tenon = {
     new Tenon.features.ModalWindows();
     new Tenon.features.ModalForms();
     new Tenon.features.RecordApproval();
+    new Tenon.features.RecordBooleanToggle();
     new Tenon.features.RecordDeletion();
     $.each($('[data-records-url]'), function () {
       new Tenon.features.RecordList($(this));
