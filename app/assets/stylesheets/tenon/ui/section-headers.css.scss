@@ -59,11 +59,13 @@ header {
   }
 
   .header-tool {
+
     @include media($mobile-breakpoint) {
       border-right: 1px solid $tn-med-grey;
+      border-left: 0;
     }
 
-    float: right;
+    float: left;
     padding: 0;
     height: 50px;
     border-left: 1px solid $tn-med-grey;
@@ -71,7 +73,6 @@ header {
 
     &:last-child {
       margin-right: 0;
-      border-right: 0;
     }
   }
 }
