@@ -1,4 +1,4 @@
-class Tenon.features.RecordApproval
+class Tenon.features.RecordBooleanToggle
   constructor: ->
     $(document).on 'click', 'a.toggle', @_toggleRecordBoolean
 

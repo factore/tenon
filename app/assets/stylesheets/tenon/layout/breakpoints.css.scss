@@ -4,3 +4,45 @@ $laptop-breakpoint: new-breakpoint(min-width 960px 12);
 $tablet-breakpoint: new-breakpoint(min-width 768px 12);
 $mobile-breakpoint: new-breakpoint(max-width 767px 12);
 $max-width: 100%;
+
+.mobile {
+  @include media($tablet-breakpoint) {
+    display: none !important;
+  }
+}
+
+.tablet {
+  @include media($mobile-breakpoint) {
+    display: none !important;
+  }
+  @include media($tablet-breakpoint) {
+    display: block !important;
+  }
+}
+
+.laptop {
+  @include media($mobile-breakpoint) {
+    display: none !important;
+  }
+  @include media($tablet-breakpoint) {
+    display: none !important;
+  }
+  @include media($laptop-breakpoint) {
+    display: block !important;
+  }
+}
+
+.desktop {
+  @include media($mobile-breakpoint) {
+    display: none !important;
+  }
+  @include media($tablet-breakpoint) {
+    display: none !important;
+  }
+  @include media($laptop-breakpoint) {
+    display: none !important;
+  }
+  @include media($desktop-breakpoint) {
+    display: block !important;
+  }
+}
