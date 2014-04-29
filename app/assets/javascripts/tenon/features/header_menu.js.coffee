@@ -9,5 +9,5 @@ class Tenon.features.HeaderMenu
     $(e.currentTarget).closest('.header-menu').toggleClass('active')
 
   hideMenu: (e) =>
-    unless $(e.target).is('.header-menu ul *, .header-menu ul')
-      $('.header-menu').removeClass('active')
+    # unless $(e.target).is('.header-menu ul *, .header-menu ul')
+    $('.header-menu').removeClass('active')

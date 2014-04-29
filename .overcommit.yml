@@ -10,6 +10,9 @@ PostCheckout:
 # other checks that you want to run before you allow a commit object to be
 # created.
 PreCommit:
+  ALL:
+    exclude: 'vendor/assets/**'
+
   # disable haml-lint for now since it complains about things but has no way to disable said complaints
   HamlLint:
     enabled: false

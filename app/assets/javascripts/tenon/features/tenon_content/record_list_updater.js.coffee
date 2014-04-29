@@ -22,7 +22,8 @@ class Tenon.features.RecordListUpdater
 
   _updateWithQuery: (query, title) =>
     query = if @clearQuery then query else @_mergedQuery(query)
-    history.pushState({recordListUpdate: true}, title, "?#{query.toString()}")
+    state = if $.isEmptyObject(query) then "?" else "?#{query.toString()}"
+    history.pushState({recordListUpdate: true}, title, state)
     Tenon.refreshed = false
     Tenon.activeRecordList.refresh(clear: true)
 
