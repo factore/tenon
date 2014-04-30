@@ -34,14 +34,12 @@
           = f.super_label :post_categories, 'Categories'
           = f.select :post_category_ids, @categories.map { |c| [c.title, c.id] }, { }, {multiple: true}
 
-    %h4.box-label Author
+    %h4.box-label Publish Your Post
     .box
       .form-group.bordered
         = f.super_label :user_id, 'Author'
         = f.collection_select :user_id, @users, :id, :email, {:include_blank => "(No Author)"}
 
-    %h4.box-label Publish Your Post
-    .box
       .form-group.inline.bordered
         = f.check_box :allow_comments, class: 'tn-checkbox-right'
         = f.super_label :allow_comments, "Allow Comments?"
