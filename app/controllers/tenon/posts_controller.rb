@@ -15,6 +15,7 @@ module Tenon
 
     def get_collections
       @categories = Tenon::PostCategory.order(:title)
+      @users = Tenon::User.exclude_super_admins.approved
     end
 
     def search_args

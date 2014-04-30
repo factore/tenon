@@ -13,12 +13,15 @@ module Tenon
     after_create :apply_member_role
 
     # Scope to exclude super admins
-    scope :exclude_super_admins, lambda {
+    scope :exclude_super_admins, -> () {
       includes(:roles)
       .where
       .not(tenon_roles: { title: 'Super Admin' })
       .references(:roles)
     }
+
+    # Scope to only get approved users
+    scope :approved, -> () { where(approved: true) }
 
     # Mass create some is_whatev? convenience methods
     ['Admin', 'Super Admin', 'Contributor', 'Member'].each do |role|
