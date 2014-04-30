@@ -38,7 +38,7 @@
     .box
       .form-group.bordered
         = f.super_label :user_id, 'Author'
-        = f.collection_select :user_id, Tenon::User.approved, :id, :email, {:include_blank => "(No Author)"}
+        = f.collection_select :user_id, @users, :id, :email, {:include_blank => "(No Author)"}
 
     %h4.box-label Publish Your Post
     .box
