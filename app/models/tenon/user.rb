@@ -7,6 +7,7 @@ module Tenon
     # Roles
     has_many :role_assignments
     has_many :roles, through: :role_assignments
+    has_many :posts
 
     # After a user is created, always give them the role of Member
     after_create :apply_member_role

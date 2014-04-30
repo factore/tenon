@@ -8,6 +8,7 @@ module Tenon
 
     # Relationships
     has_and_belongs_to_many :post_categories, class_name: 'Tenon::PostCategory'
+    belongs_to :user
     can_have_comments
 
     # Validations
