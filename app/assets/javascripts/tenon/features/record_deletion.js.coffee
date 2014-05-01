@@ -18,7 +18,7 @@ class Tenon.features.RecordDeletion
       @$link.closest('li').fadeOut(-> $(@).remove())
 
   _handleError: (error) =>
-    new Tenon.features.Alert('error', error)
+    new Tenon.features.Flash('error', error)
     @$link.find('i')
           .removeClass('fa fa-spinner fa fa-spin')
           .addClass('fa fa-trash-o')

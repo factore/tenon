@@ -1,105 +1,65 @@
-.alert, .errorExplanation {
+.errorExplanation {
   margin-bottom: 20px;
   padding: 15px;
   border: 1px solid transparent;
-  border-radius: 4px;
-}
-
-.alert {
-  @include transition(bottom, 0.25s ease-in-out);
-  display: none;
-  position: fixed;
-  left: 0;
-  z-index: 1020;
-  margin: 0;
-  border-radius: 0;
-  width: 100%;
-  text-align: center;
-  padding: 0 50px 19px;
-}
-
-.alert h4 {
-  margin-top: 0;
-  color: inherit;
-}
-
-.alert .alert-link {
-  font-weight: bold;
-}
-
-.alert > p,
-
-.alert > ul {
-  margin-bottom: 0;
-}
-
-.alert > p + p {
-  margin-top: 5px;
-}
-
-.alert-dismissable {
-  padding-right: 35px;
-}
-
-.alert-dismissable .close {
-  position: relative;
-  top: -2px;
-  right: -21px;
-  color: inherit;
-}
-
-.alert-notice {
-  border-color: #d6e9c6;
-  background-color: #dff0d8;
-  color: #468847;
-}
-
-.alert-notice hr {
-  border-top-color: #c9e2b3;
-}
-
-.alert-notice .alert-link {
-  color: #356635;
-}
-
-.alert-info {
-  border-color: #bce8f1;
-  background-color: #d9edf7;
-  color: #3a87ad;
-}
-
-.alert-info hr {
-  border-top-color: #a6e1ec;
-}
-
-.alert-info .alert-link {
-  color: #2d6987;
-}
-
-.alert-danger {
-  border-color: #fbeed5;
-  background-color: #fcf8e3;
-  color: #c09853;
-
-  hr {
-    border-top-color: #f8e5be;
-  }
-
-  .alert-link {
-    color: #a47e3c;
-  }
-}
-
-.alert-warning, .errorExplanation {
   border-color: #eed3d7;
+  border-radius: 4px;
   background-color: #f2dede;
   color: #b94a48;
-
   hr {
     border-top-color: #e6c1c7;
   }
+}
 
-  .alert-link {
-    color: #953b39;
+.flash {
+  display: none;
+  position: relative;
+  margin: 0;
+  padding: 14px 0;
+  width: 100%;
+  min-height: 50px;
+  border: 0;
+  border-radius: 0;
+  text-align: center;
+  font-style: italic;
+  font-size: 16px;
+  color: $tn-black;
+  & > p, & > ul {
+    margin: 0 50px;
+  }
+  & > p + p {
+    margin-top: 5px;
+  }
+  i {
+    font-size: 20px;
+    float: right;
+    margin-right: 15px;
+    position: relative;
+    top: -20px;
+  }
+
+  a {
+    color: $tn-black;
+  }
+}
+
+.flash-notice {
+  background-color: #01cd87;
+}
+
+.flash-alert {
+  background-color: #a2e907;
+}
+
+.flash-warning {
+  background-color: #cd9b01;
+}
+
+.flash-error {
+  background-color: #cd5301;
+  color: #fff;
+
+  a {
+    color: #fff;
   }
 }

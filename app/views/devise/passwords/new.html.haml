@@ -3,7 +3,7 @@
     %h4 Forgot your password?
 
   - unless resource.errors.empty?
-    .alert= resource.errors.full_messages.join('<br>').html_safe
+    .flash= resource.errors.full_messages.join('<br>').html_safe
   .row.bordered
     = f.label :email, :class => "font"
     = f.text_field :email, placeholder: 'user@example.com'

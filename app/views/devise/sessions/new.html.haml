@@ -4,7 +4,7 @@
     .title
       = Tenon::MySettings.site_title
   - unless flash[:alert].blank?
-    .alert= flash[:alert]
+    .flash= flash[:alert]
   .row.bordered
     = f.label :email, :label => "Email Address:"
     = f.text_field :email, placeholder: 'user@example.com'

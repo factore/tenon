@@ -2,10 +2,11 @@ module Tenon
   module ApplicationHelper
     def flash_messages
       messages = []
-      %w(notice warning error alert).each do |msg|
+      %w(notice alert warning error).each do |msg|
         unless flash[msg.to_sym].blank?
           content = content_tag(:p, flash[msg.to_sym])
-          messages << content_tag(:div, content, class: "alert alert-#{msg}")
+          content += link_to fa_icon('times'), '#', id: 'flash-dismiss'
+          messages << content_tag(:div, content, class: "flash flash-#{msg}")
         end
       end
       messages.join('').html_safe
