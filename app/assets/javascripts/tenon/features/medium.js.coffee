@@ -5,7 +5,7 @@ class Tenon.features.Medium
       cssClasses:
         placeholder: 'medium-placeholder'
       forcePlainText: true
-      firstHeader: 'h1'
-      secondHeader: 'h2'
+      firstHeader: 'h3'
+      secondHeader: 'h4'
       buttons: ['bold', 'italic', 'underline', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist', 'orderedlist']
       buttonLabels: 'fontawesome'
