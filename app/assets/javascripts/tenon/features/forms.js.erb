@@ -3,6 +3,7 @@ Tenon.features.forms = {
     var self = Tenon.features.forms;
     self.setupRadioSliders();
     self.protectChanges();
+    self.focusFirstField();
   },
 
   protectChanges: function () {
@@ -36,7 +37,11 @@ Tenon.features.forms = {
 
   setupRadioSliders: function () {
     $('.radio-slider').radioSlider({sliderImage: '<%= asset_path'tenon/slider-button.png' %>'});
-  }
+  },
 
+  focusFirstField: function () {
+    el = $(".main-content form input[type!='hidden'], .main-content form select, .main-content form textarea")[0];
+    $(el).focus();
+  }
 
 }
