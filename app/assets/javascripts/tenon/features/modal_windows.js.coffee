@@ -65,5 +65,12 @@ class Tenon.features.ModalWindows
     # Default shown action
     $('select').select2()
 
+    @_focusFirstField()
+
   _runHiddenHandler: =>
     @$template.remove() if @remote
+
+  _focusFirstField: =>
+    el = $(".modal-content form input[type!='hidden'], .modal-content form select, .modal-content form textarea")[0]
+    $(el).focus()
+    console.log $(el).is(":focus")
