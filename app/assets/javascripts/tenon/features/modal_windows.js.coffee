@@ -73,4 +73,3 @@ class Tenon.features.ModalWindows
   _focusFirstField: =>
     el = $(".modal-content form input[type!='hidden'], .modal-content form select, .modal-content form textarea")[0]
     $(el).focus()
-    console.log $(el).is(":focus")
