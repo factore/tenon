@@ -8,5 +8,6 @@ class Tenon.features.Flash
     @$flash.insertAfter($('header'))
     @$flash.show()
 
-  _dismissFlash: =>
+  _dismissFlash: (e) =>
+    e.preventDefault()
     @$flash.fadeOut()
