@@ -1,52 +1,53 @@
-header .header-tool.header-menu {
+header .header-tool.header-menu, nav .header-tool.header-menu {
   position: relative;
   width: 200px;
-  font-size: 12px;
   text-transform: uppercase;
+  font-size: $tn-font-small;
   line-height: 41px;
-
   a {
-    color: $tn-black;
     display: block;
-    padding: 5px 10px 5px 16px;
+    padding: 5px $tn-padding;
+    i {
+      float: right;
+      line-height: 41px;
+    }
+    &:hover {
+      background-color: transparentize(#fff, 0.6);
+    }
   }
-
-  a i {
-    float: right;
-    line-height: 41px;
-  }
-
   ul {
-    display: none;
-    position: absolute;
-    top: 100%;
+    position: relative;
     left: -1px;
-    background: $tn-white;
-    padding: 0;
+    z-index: $tn-z-header-menu;
+    display: none;
     margin: 0;
+    padding: 0;
     width: 201px;
     border: 1px solid $tn-med-grey;
-
+    background: $tn-white;
     list-style: none;
 
+    i {
+      float: none;
+    }
     li {
+      float: none;
+      width: 100%;
       border-top: 1px solid $tn-med-grey;
       &:first-child {
         border-top: none;
       }
     }
-
     a {
-      color: $tn-black;
       display: block;
-      padding: 10px 10px 10px 16px;
+      padding: 10px 10px 10px $tn-padding;
+      color: $tn-black;
       line-height: 20px;
     }
   }
-
   &.active {
-    background: $tn-white;
-
+    // background: $tn-white;
+    // background-color: transparentize(#fff, 0.6);
     ul {
       display: block;
     }

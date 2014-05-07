@@ -8,7 +8,7 @@
   text-align: center;
   white-space: nowrap;
   font-weight: normal;
-  font-size: 14px;
+  font-size: $tn-font-normal;
   line-height: 1.428571429;
   cursor: pointer;
   -webkit-user-select: none;
@@ -359,7 +359,7 @@ fieldset[disabled] .btn-link:focus {
 }
 
 .btn-lg {
-  padding: 10px 16px;
+  padding: 10px $tn-padding;
   border-radius: 6px;
   font-size: 18px;
   line-height: 1.33;
@@ -370,7 +370,7 @@ fieldset[disabled] .btn-link:focus {
 .btn-xs {
   padding: 5px 10px;
   border-radius: 3px;
-  font-size: 12px;
+  font-size: $tn-font-small;
   line-height: 1.5;
 }
 

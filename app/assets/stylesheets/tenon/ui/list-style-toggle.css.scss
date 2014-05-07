@@ -1,18 +1,15 @@
 .list-style-toggle-holder {
-
   @include media($mobile-breakpoint) {
     display: none;
   }
 
-  padding: 4px !important;
+  padding: 5px !important;
 }
 
 .list-style-toggle {
-  border: 2px solid $tn-med-grey;
-  border-radius: 5px;
+  border: 1px solid $tn-med-grey;
   background: #fff;
   font-size: 20px;
-
   a {
     @include transition(all 0.2s ease-in);
     display: block;
@@ -21,22 +18,18 @@
     background: $tn-light-grey;
     color: $tn-dark-grey;
     text-align: center;
-
     &:first-child {
       padding-right: 12px;
-      border-right: 2px solid $tn-med-grey;
+      border-right: 1px solid $tn-med-grey;
     }
-
     &.active {
       background: #fff;
       color: $tn-primary-text;
     }
-
     &:hover {
       color: $tn-black;
       text-decoration: none;
     }
-
     i {
       display: inline-block;
       width: 20px;

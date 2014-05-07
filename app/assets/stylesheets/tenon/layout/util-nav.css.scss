@@ -1,116 +1,85 @@
 .util-nav {
-  @include fill-parent;
   position: fixed;
-  z-index: 999;
-  overflow: hidden;
+  z-index: $tn-z-util-nav;
+  width: 100%;
+  height: 50px;
   background: $tn-primary;
   color: #fff;
   font-family: $tn-open-sans;
-
   a {
     color: $tn-off-white;
     text-transform: uppercase;
-    font-size: 12px;
-
+    font-size: $tn-font-small;
     &:hover {
       text-decoration: none;
     }
-
     i {
       font-size: 20px;
     }
   }
-
+  #logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 10px 8px;
+    width: 50px;
+    height: 50px;
+    list-style: none;
+    a {
+      display: block;
+      width: 50px;
+      height: 50px;
+    }
+  }
   nav {
     float: right;
     height: 100%;
-
     ul {
-
-      @include media($tablet-breakpoint) {
-
-        li.hamburger {
-          display: none;
-        }
-
-        li.user {
-          display: block;
-        }
-      }
-
-      @include media($mobile-breakpoint) {
-
-        li.hamburger {
-          display: block;
-        }
-
-        li.user {
-          display: none;
-        }
-      }
-
       margin: 0;
       height: 100%;
-
       li {
+        @include media($tablet-breakpoint) {
+          &.hamburger {
+            display: none;
+          }
+          &.user {
+            display: block;
+          }
+        }
+
+        @include media($mobile-breakpoint) {
+          &.hamburger {
+            display: block;
+          }
+          &.user {
+            display: none;
+          }
+        }
+
         display: inline-block;
         float: right;
         margin: 0;
         padding: 0;
         height: 50px;
         border-right: 1px solid transparentize(#fff, 0.6);
-
+        &.user.mobile-open {
+          display: block;
+        }
+        &.hamburger {
+          margin: 7px;
+        }
         &:first-child {
           border-right: 0;
         }
 
+        &:last-child {
+          border-right: 0;
+        }
         a {
           display: inline-block;
-          padding: 17px 15px 13px;
-          height: 50px;
           text-align: center;
         }
-      }
-    }
-  }
-
-  .breadcrumb {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    height: 50px;
-    background: $tn-primary;
-    list-style: none;
-
-    & > li {
-      display: block;
-      float: left;
-      height: 50px;
-
-      &:after {
-        float: left;
-        margin: 0;
-        padding: 0;
-        width: 12px;
-        height: 50px;
-        content: image-url('tenon/breadcrumb.png');
-      }
-
-      &:first-child a {
-        padding: 10px;
-        width: 60px;
-        font-weight: bold;
-        font-style: italic;
-        font-size: 25px;
-      }
-
-      a {
-        display: inline-block;
-        float: left;
-        padding: 17px 15px 13px;
-        height: 100%;
       }
     }
   }

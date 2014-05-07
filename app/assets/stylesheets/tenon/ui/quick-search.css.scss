@@ -1,26 +1,23 @@
 .quick-search {
-
   @include placeholder {
     color: $tn-label;
   }
 
   padding-left: 20px;
-
   input[type=text] {
     @include transition(width 0.25s ease);
     width: 70px;
-
     &:focus {
       width: 250px;
       outline: none;
     }
   }
-
   i {
-    padding-right: 12px;
     @include media($tablet-breakpoint) {
-      padding-right: 16px;
+      padding-right: $tn-padding;
     }
+
+    padding-right: 12px;
   }
 }
 

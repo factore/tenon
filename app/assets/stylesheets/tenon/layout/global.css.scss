@@ -17,11 +17,11 @@ body {
   }
 
   padding-top: 100px;
-  padding-bottom: 16px;
+  padding-bottom: $tn-padding;
   min-height: 100%;
 }
 
 .main-content {
-  margin: 0 16px;
-  padding-top: 16px;
+  margin: 0 $tn-margin;
+  padding-top: $tn-padding;
 }

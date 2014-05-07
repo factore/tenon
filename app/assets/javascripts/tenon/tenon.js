@@ -53,6 +53,7 @@ var Tenon = {
     new Tenon.features.RecordListToggling();
     new Tenon.features.RecordListUpdater();
     new Tenon.features.SidebarActiveLinks();
+    new Tenon.features.SidebarNavigation();
     new Tenon.features.SortableNestedFields();
     new Tenon.features.videoFeeds();
     new Tenon.features.tenonContent.Base();

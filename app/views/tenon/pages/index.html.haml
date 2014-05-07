@@ -10,8 +10,18 @@
 
     .tools
       = render "tenon/shared/section_header/quick_search", record_list: '#pages'
-      / .header-tool
-      /   %a{:href => new_page_path }= raw "#{fa_icon('file')} +"
+      = link_to '#', class: 'btn btn-primary', id: 'sidebar-toggle' do
+        %i.fa.fa-fw.fa-caret-square-o-down
+
+    .list-sort.header-tool.header-menu
+      = link_to '#', class: 'toggle-sort-list' do
+        Sort By
+        %i.fa.fa-caret-down
+
+      %ul.list-sort-options
+        %li= link_to current_user.email, edit_user_path(current_user)
+        %li= link_to current_user.email, edit_user_path(current_user)
+        %li= link_to current_user.email, edit_user_path(current_user)
 
   .spacer
 

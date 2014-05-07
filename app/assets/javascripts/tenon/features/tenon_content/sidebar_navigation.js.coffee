@@ -1,13 +1,12 @@
-class Tenon.features.HamburgerNavigation
+class Tenon.features.SidebarNavigation
   constructor: ->
-    @$navigation = $('.nav-holder, .user.header-menu')
-    @$head = $('.util-nav')
-    @$toggle = @$head.find('.hamburger a')
+    @$navigation = $('.sidebar-container')
+    @$toggle = $('#sidebar-toggle')
     @openClass = 'mobile-open'
 
     # listeners
     @$toggle.on('click', @toggleNav)
-    $(document).on('click', '.nav-holder.mobile-open a', @_closeNav)
+    $(document).on('click', '.sidebar-container.mobile-open a', @_closeNav)
 
   toggleNav: (e) =>
     e.preventDefault()

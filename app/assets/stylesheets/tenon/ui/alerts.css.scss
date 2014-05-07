@@ -19,10 +19,9 @@
   width: 100%;
   min-height: 50px;
   border: 0;
-  border-radius: 0;
   text-align: center;
   font-style: italic;
-  font-size: 16px;
+  font-size: $tn-font-large;
   color: $tn-black;
   & > p, & > ul {
     margin: 0 50px;

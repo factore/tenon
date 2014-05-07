@@ -2,7 +2,7 @@
   position: fixed;
   top: 10%;
   left: 50%;
-  z-index: 1050;
+  z-index: $tn-z-generic-loader;
   display: none;
   margin-left: -100px;
   width: 200px;

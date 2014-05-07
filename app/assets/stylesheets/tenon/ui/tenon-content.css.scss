@@ -22,15 +22,12 @@
     @include transition(all 0.3s ease);
     margin: 10px 20px 0 0;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: $tn-font-large;
     span {
       position: relative;
       top: -2px;
       padding-left: 5px;
-      font-size: 12px;
-    }
-    i {
-      font-size: 20px;
+      font-size: $tn-font-small;
     }
     &:hover {
       text-decoration: none;
@@ -89,7 +86,6 @@
       position: relative;
       i {
         @include transition(all 0.3s ease);
-        font-size: 20px;
       }
       a {
         @include transition(all 0.3s ease);
@@ -109,7 +105,7 @@
         left: 50%;
         text-transform: uppercase;
         span {
-          font-size: 12px;
+          font-size: $tn-font-small;
         }
       }
       a:hover {
@@ -208,7 +204,7 @@
     width: 100%;
     background: $tn-dark-grey;
     color: #fff;
-    font-size: 12px;
+    font-size: $tn-font-small;
     resize: none;
   }
   textarea.caption:-moz-placeholder {
@@ -262,7 +258,7 @@ a.open-embed-modal {
   padding: 5px 0;
   color: $tn-dark-grey;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: $tn-font-small;
 }
 
 .tn-tc-row:hover a.open-embed-modal {

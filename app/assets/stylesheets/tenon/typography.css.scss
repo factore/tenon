@@ -3,11 +3,14 @@ $tn-serif: "Georgia", "Times New Roman", Serif;
 $tn-sans-serif: Helvetica, Arial, Sans-Serif;
 $tn-open-sans: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-// Default Text Styles
+$tn-font-small: 12px;
+$tn-font-normal: 14px;
+$tn-font-large: 16px;
 
+// Default Text Styles
 body {
   color: $tn-body-text-color;
-  font-size: 14px;
+  font-size: $tn-font-normal;
   font-family: $tn-open-sans;
   line-height: 1.428;
 }
@@ -50,4 +53,8 @@ h5 {
 h6 {
   margin: 0;
   font-size: 12px;
+}
+
+i {
+  font-size: 20px;
 }

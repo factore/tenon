@@ -1,14 +1,19 @@
 %section.util-nav
-  = render 'tenon/shared/breadcrumb'
+  #logo= link_to image_tag('tenon/tenon_icon.png'), "/tenon"
 
   %nav
     %ul
       %li.hamburger
-        %a{href: "#"}
-          %i.fa.fa-bars
+        = link_to '#', class: 'btn btn-primary' do
+          %i.fa.fa-fw.fa-bars
 
-      %li
-        = link_to destroy_user_session_path, method: :delete do
-          %i.fa.fa-sign-out
+      %li.user.header-tool.header-menu
+        = link_to '#', class: 'user-menu' do
+          = current_user.email
+          %i.fa.fa-fw.fa-caret-down
 
-      %li.user= link_to current_user.email, edit_user_path(current_user)
+        %ul
+          %li= link_to current_user.email, edit_user_path(current_user)
+          %li
+            = link_to destroy_user_session_path, method: :delete do
+              %i.fa.fa-sign-out

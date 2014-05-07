@@ -10,7 +10,7 @@
     padding: 5px;
     text-align: left;
     font-weight: normal;
-    font-size: 14px;
+    font-size: $tn-font-normal;
   }
 }
 
@@ -21,7 +21,7 @@
   color: $tn-dark-grey;
   text-align: left;
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: $tn-font-normal;
   box-shadow: none;
 }
 

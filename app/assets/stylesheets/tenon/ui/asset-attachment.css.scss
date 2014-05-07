@@ -42,7 +42,7 @@
     .btn {
       padding: 5px 10px;
       border-radius: 15px;
-      font-size: 12px;
+      font-size: $tn-font-small;
     }
 
     .browse-button {
@@ -93,8 +93,8 @@
 
 #upload-asset {
   border-bottom: 1px solid $tn-med-grey;
-  padding-bottom: 16px;
-  margin-bottom: 16px;
+  padding-bottom: $tn-padding;
+  margin-bottom: $tn-margin;
 
   .form-group {
     float: none;
@@ -110,7 +110,7 @@
 
   input {
     width: 260px;
-    font-size: 12px;
+    font-size: $tn-font-small;
   }
 }
 

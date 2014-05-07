@@ -3,7 +3,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1029;
+  z-index: $tn-z-content-popped;
   overflow: auto;
   min-height: 500px;
   width: 100%;
@@ -14,7 +14,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1020;
+    z-index: $tn-z-content-popped-backdrop;
     width: 100%;
     height: 100%;
     background: #fff;
@@ -32,7 +32,7 @@
   .tn-tc-sizer {
     position: absolute;
     top: 20px;
-    z-index: 1029;
+    z-index: $tn-z-tc-sizer;
     width: 100%;
   }
 

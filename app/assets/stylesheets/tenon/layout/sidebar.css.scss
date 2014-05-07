@@ -6,22 +6,23 @@
 
     &.mobile-open {
       position: fixed;
-      left: 50%;
       display: block;
-      float: left;
+      width: auto;
+      left: 0;
+      right: 0;
       overflow: hidden;
-      width: 50%;
+      margin-right: 65px;
     }
   }
 
   position: fixed;
   top: 0;
   left: 60px;
-  z-index: 998;
+  z-index: $tn-z-sidebar;
   float: left;
   overflow: hidden;
   padding: 20px 0;
-  padding-top: 90px;
+  padding-top: 66px;
   width: 190px;
   height: 100%;
   background: $tn-sidebar;

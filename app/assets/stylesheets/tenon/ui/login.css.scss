@@ -62,11 +62,11 @@
 
   .flash {
     margin: 0;
-    padding: 16px 24px;
+    padding: $tn-padding 24px;
     background: #f8ffb9;
     color: $tn-dark-grey;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: $tn-font-small;
   }
 
   .bottom {

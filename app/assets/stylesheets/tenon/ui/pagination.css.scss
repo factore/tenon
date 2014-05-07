@@ -52,7 +52,7 @@
 .pagination > .active > a:focus,
 
 .pagination > .active > span:focus {
-  z-index: 2;
+  z-index: $tn-z-pagination;
   border-color: #428bca;
   background-color: #428bca;
   color: #fff;
@@ -73,7 +73,7 @@
 .pagination-lg > li > a,
 
 .pagination-lg > li > span {
-  padding: 10px 16px;
+  padding: 10px $tn-padding;
   font-size: 18px;
 }
 
@@ -95,7 +95,7 @@
 
 .pagination-sm > li > span {
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: $tn-font-small;
 }
 
 .pagination-sm > li:first-child > a,

@@ -3,15 +3,15 @@
   .preview {
     @include transform(translate(-50%, 0));
     position: fixed;
-    top: 16px;
+    top: $tn-margin;
     left: 50%;
-    z-index: 1040;
+    z-index: $tn-z-asset-cropping;
     max-width: 90vw;
     max-height: 90vh;
     background-color: $tn-light-grey;
 
     .image-holder {
-      padding: 16px;
+      padding: $tn-padding;
       background-color: $tn-light-grey;
     }
 
@@ -20,12 +20,12 @@
       position: fixed;
       top: 50%;
       left: 50%;
-      z-index: 2000;
+      z-index: $tn-z-asset-cropping-spinner;
       display: none;
 
       i {
         color: #fff;
-        font-size: 100px;
+        font-size: 90px;
         opacity: 0.5;
       }
     }
@@ -48,7 +48,7 @@
     .edit_asset {
       @include clearfix;
       margin: 0;
-      padding: 0 16px 16px;
+      padding: 0 $tn-padding $tn-padding;
       background-color: $tn-light-grey;
     }
   }

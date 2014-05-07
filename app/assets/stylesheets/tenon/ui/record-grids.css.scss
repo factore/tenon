@@ -6,8 +6,8 @@ ul.record-grid {
 
   li {
     float: left;
-    margin-right: 16px;
-    margin-bottom: 16px;
+    margin-right: $tn-margin;
+    margin-bottom: $tn-margin;
     width: 200px;
     background: #fff;
 
@@ -25,7 +25,7 @@ ul.record-grid {
     .loader {
       float: none;
       clear: both;
-      margin-right: 16px;
+      margin-right: $tn-margin;
       width: 100%;
       background: $tn-light-grey;
       color: $tn-dark-grey;
