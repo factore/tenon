@@ -2,7 +2,7 @@
   .sidebar
     .content
       %h2 <%= plural_name.titleize %>
-      = link_to "New <%= singular_name.titleize %>", new_<%= singular_name %>_path, class: 'btn btn-block btn-info'
+      = link_to "New <%= singular_name.titleize %>", new_<%= singular_name %>_path, class: 'btn btn-block btn-primary'
 
 <% if has_seo? -%>
     %h4 Edit Options
@@ -63,7 +63,7 @@
         = f.text_field :publish_at, label: 'Publish Date', data: {behaviour: 'datetime-picker'}, placeholder: '--'
 <% end -%>
       .content
-        %button.btn.btn-block.btn-primary Save
+        %button.btn.btn-block.btn-comp Save
 
       - if @<%= singular_name %>.persisted?
         %hr

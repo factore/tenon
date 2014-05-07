@@ -44,3 +44,23 @@
     }
   }
 }
+
+@mixin button($border-color, $background-color, $color, $highlight-border-color, $highlight-background-color) {
+  @include transition(all 0.3s ease);
+  border-color: $border-color;
+  background-color: $background-color;
+  color: $color;
+  &:hover, &:focus, &:active, &.active {
+    border-color: $highlight-border-color;
+    background-color: $highlight-background-color;
+    color: $color;
+  }
+  &.disabled,
+  &.disabled:hover,
+  &.disabled:focus,
+  &.disabled:active,
+  &.disabled.active {
+    border-color: $border-color;
+    background-color: $background-color;
+  }
+}

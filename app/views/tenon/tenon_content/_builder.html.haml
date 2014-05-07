@@ -4,11 +4,11 @@
   You can format your text by highlighting it and selecting options from the pop-up menu.
 
 .tn-tc-main-actions
-  = link_to '#', id: 'tn-tc-pop-out',  class: 'tn-tc-pop-out btn btn-info' do
+  = link_to '#', id: 'tn-tc-pop-out',  class: 'tn-tc-pop-out btn btn-primary' do
     = fa_icon('eye')
     %span Edit in Preview Mode
 
-  = link_to '#', id: 'tn-tc-add-content', class: 'tn-tc-add-content btn btn-info', 'data-modal-target' => '.tenon-library', 'data-modal-clone' => 'true', 'data-modal-title' => 'Add Content', 'data-association-insertion-node' => "##{field}-tenon-content", 'data-association-insertion-method' => 'prepend', 'data-modal-handler' => 'Tenon.features.tenonContent.Library' do
+  = link_to '#', id: 'tn-tc-add-content', class: 'tn-tc-add-content btn btn-primary', 'data-modal-target' => '.tenon-library', 'data-modal-clone' => 'true', 'data-modal-title' => 'Add Content', 'data-association-insertion-node' => "##{field}-tenon-content", 'data-association-insertion-method' => 'prepend', 'data-modal-handler' => 'Tenon.features.tenonContent.Library' do
     = fa_icon('plus-circle')
     %span Add Content
 
@@ -18,7 +18,7 @@
     %p
       Use preview mode to see how your content will look on different devices.  You can still make edits when you're in preview mode, but the toolbars are hidden to give you a better picture of how your content will be laid out.
     = tenon_content_sizes
-    = link_to 'Done', '#', class: 'tn-tc-pop-out-close btn btn-info'
+    = link_to 'Done', '#', class: 'tn-tc-pop-out-close btn btn-comp'
   .tenon-content{id: "#{field}-tenon-content"}
     = f.fields_for "#{field}_tenon_content_rows" do |row|
       - if row.object
@@ -40,4 +40,4 @@
       = link_to 'http://embedresponsively.com/', 'http://embedresponsively.com/', target: '_'
     = text_area_tag 'embed_code'
 
-  .modal-footer= link_to 'Update', '#', class: 'btn btn-primary update-embed-code'
+  .modal-footer= link_to 'Update', '#', class: 'btn btn-comp update-embed-code'

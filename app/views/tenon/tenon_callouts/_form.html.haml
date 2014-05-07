@@ -2,7 +2,7 @@
   .sidebar
     .content
       %h2 Tenon Callouts
-      = link_to "New Tenon Callout", new_tenon_callout_path, class: 'btn btn-block btn-info'
+      = link_to "New Tenon Callout", new_tenon_callout_path, class: 'btn btn-block btn-primary'
 
 = form_for @tenon_callout, builder: Tenon::FormBuilder do |f|
   = error_messages_for :tenon_callout
@@ -35,7 +35,7 @@
         = f.super_label :published
 
       .content
-        %button.btn.btn-primary.submit.btn-block{:href => 'javascript:;'} Save
+        %button.btn.btn-comp.submit.btn-block{:href => 'javascript:;'} Save
 
 
       - if @tenon_callout.persisted?

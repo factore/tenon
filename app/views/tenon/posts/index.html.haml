@@ -2,7 +2,7 @@
   .sidebar
     .content
       %h2 Posts
-      = link_to "New Post", new_post_path, class: 'btn btn-block btn-info'
+      = link_to "New Post", new_post_path, class: 'btn btn-block btn-primary'
       #new-post-category{:style => "display: none;"}
         =# render "form", category: PostCategory.new
 

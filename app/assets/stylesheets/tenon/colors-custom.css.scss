@@ -7,10 +7,13 @@ $tn-comp: #43239a;
 $tn-nav: #12111a;
 $tn-sidebar: #242133;
 $tn-sidebar-highlight: #3a3848;
-$tn-button-primary-bg: #978fcc;
+
+$tn-button-primary-bg: $tn-primary;
 $tn-button-primary-fg: #fff;
-$tn-button-info-bg: $tn-primary;
+
+$tn-button-info-bg: #978fcc;
 $tn-button-info-fg: #fff;
+
 $tn-box-label: #04555d;
 $tn-label: #162433;
 $tn-sidebar-label: #504d5c;

@@ -15,7 +15,7 @@
 
     .browse-button-holder{:class => ('with-remove' if defined?(remove_association) && remove_association)}
       .browse-button
-        = link_to 'Browse', new_item_asset_path, class: 'btn btn-primary browse', data: {'modal-remote' => true, 'modal-title' => "Select #{asset.to_s.titleize}", 'modal-handler' => 'Tenon.features.AssetAttachment'}
+        = link_to 'Browse', new_item_asset_path, class: 'btn btn-comp browse', data: {'modal-remote' => true, 'modal-title' => "Select #{asset.to_s.titleize}", 'modal-handler' => 'Tenon.features.AssetAttachment'}
         - if defined?(remove_association) && remove_association
           %small
             or

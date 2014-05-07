@@ -2,7 +2,7 @@
   .sidebar
     .content
       %h2 Pages
-      = link_to "New Page", new_page_path, class: 'btn btn-block btn-info'
+      = link_to "New Page", new_page_path, class: 'btn btn-block btn-primary'
 
 %header
   .container
@@ -10,7 +10,7 @@
 
     .tools
       = render "tenon/shared/section_header/quick_search", record_list: '#pages'
-      = link_to '#', class: 'btn btn-primary', id: 'sidebar-toggle' do
+      = link_to '#', class: 'btn btn-comp', id: 'sidebar-toggle' do
         %i.fa.fa-fw.fa-caret-square-o-down
 
     .list-sort.header-tool.header-menu

@@ -29,10 +29,10 @@ module Tenon
     def tenon_content_sizes
       links = []
       Tenon.config.front_end[:breakpoints].each do |name, size|
-        links << link_to(name.to_s.titleize, '#', class: 'btn btn-default', data: { size: size_for_breakpoint(size) })
+        links << link_to(name.to_s.titleize, '#', class: 'btn btn-white', data: { size: size_for_breakpoint(size) })
       end
       last = Tenon.config.front_end[:breakpoints].values.last
-      links << link_to('Mobile', '#', class: 'btn btn-default', data: { size: 320, mobile: true })
+      links << link_to('Mobile', '#', class: 'btn btn-white', data: { size: 320, mobile: true })
       links.join('').html_safe
     end
 

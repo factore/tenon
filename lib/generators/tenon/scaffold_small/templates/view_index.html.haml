@@ -5,7 +5,7 @@
   .sidebar
     .content
       %h2 <%= plural_name.titleize %>
-      = link_to "New <%= singular_name.titleize %>", '#', class: 'btn btn-block btn-info', data: {'modal-target' => '#new-<%= singular_name %>', 'modal-title' => 'New <%= singular_name.titleize %>'}
+      = link_to "New <%= singular_name.titleize %>", '#', class: 'btn btn-block btn-primary', data: {'modal-target' => '#new-<%= singular_name %>', 'modal-title' => 'New <%= singular_name.titleize %>'}
 
 %header
   %h1 <%= plural_name.titleize %>

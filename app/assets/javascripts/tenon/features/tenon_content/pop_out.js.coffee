@@ -5,7 +5,7 @@ class Tenon.features.tenonContent.PopOut
     $(document).on('click', '.tn-tc-wrap a[data-size]', @resize)
 
   popOut: (e) =>
-    e.preventDefault();
+    e.preventDefault()
     $link = $(e.currentTarget)
     $template = $(JST['tenon/templates/tenon_content/popped_out']())
     $wrap = $link.closest('.tn-tc-main-actions').next('.tn-tc-wrap')
@@ -17,7 +17,7 @@ class Tenon.features.tenonContent.PopOut
     $wrap.trigger('tenon.content.popped')
 
   resize: (e) =>
-    e.preventDefault();
+    e.preventDefault()
     $link = $(e.currentTarget)
     @_setActive($link)
     $wrap = $link.closest('.tn-tc-wrap')
@@ -26,18 +26,18 @@ class Tenon.features.tenonContent.PopOut
     $wrap.trigger('tenon.content.resized')
 
   close: (e) =>
-    e.preventDefault();
+    e.preventDefault()
     $link = $(e.currentTarget)
     $link.closest('.tn-tc-wrap')
       .css('width', '')
       .removeClass('mobile-breakpoint')
       .insertAfter($link.data('place').closest('.tn-tc-main-actions'))
       .trigger('tenon.content.popped')
-    $('.tn-tc-popped-out').remove();
+    $('.tn-tc-popped-out').remove()
 
   _setActive: ($link) =>
-    $('a[data-size]').removeClass('btn-primary').addClass('btn-default')
-    $link.removeClass('btn-default').addClass('btn-primary')
+    $('a[data-size]').removeClass('btn-primary').addClass('btn-white')
+    $link.removeClass('btn-white').addClass('btn-primary')
 
   _setMobile: ($link, $wrap) =>
     if $link.data('mobile')

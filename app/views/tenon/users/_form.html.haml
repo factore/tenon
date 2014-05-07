@@ -2,7 +2,7 @@
   .sidebar
     .content
       %h2 Users
-      = link_to "New User", new_user_path, class: 'btn btn-block btn-info'
+      = link_to "New User", new_user_path, class: 'btn btn-block btn-primary'
 
 = form_for @user, :builder => Tenon::FormBuilder do |f|
   = error_messages_for :user
@@ -38,7 +38,7 @@
     %h4.box-label Actions
     .box
       .content
-        = f.submit "Save", :class => 'btn btn-block btn-primary'
+        = f.submit "Save", :class => 'btn btn-block btn-comp'
 
       - if @user.persisted?
         %hr

@@ -8,7 +8,7 @@
 
       .form-group
         .browse-button-holder
-          .fileupload.btn.btn-primary.browse
+          .fileupload.btn.btn-comp.browse
             %span#choose-files= defined?(multiple) ? 'Choose Files' : 'Choose File'
             %input{ :type => 'file', :class => 'upload', multiple: defined?(multiple) && multiple, style: 'width: 100%;', name: 'asset[attachment]' }
 

@@ -4,24 +4,3 @@
   = f.text_area :seo_keywords, :style => "width: 100%;", :rows => 5, :label => "META Keywords", :'data-popover' => true, :explanation => "These META keywords will be used by some search engines when crawling your site.  Separate keywords with a comma.  Note: Google does not factor in keywords when calculating your rank.  Other search engines may or may not.", :'data-placement' => 'bottom'
 .form-group
   = f.text_area :seo_description, :style => "width: 100%;", :rows => 5, :label => "META Description", :'data-popover' => true, :explanation => "This description will show up on search engines and in some cases will affect your rank.  It should be no longer than 150-160 characters (about the length of a tweet.)", :'data-placement' => 'bottom'
-
-.help.modal.fade
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %h4 SEO Tips
-
-      .modal-body
-        %p
-          Search engines make their money by delivering relevant content to their users.  Think of SEO as telling a search engine that your site is worth displaying.
-
-        %ul
-          %li Write good content that people will want to read and share.
-          %li Update your website frequently with original content.
-          %li Think about the keywords that you're targeting in your content. Be specific and find your niche. "Auto repair" is overly broad.  "Fast auto repair in Hamilton, Ontario" is precise and specific, and that cuts down your competition.
-          %li Promote your site! Offer to write guest columns for industry blogs, or offer to link to a colleague's website in exchange for a link back to yours. The more sites that link to yours, the more important a search engine will think your site is.  That said, don't participate in link exchanges with unfamiliar websites: search engines can detect link exchanges and may penalize your site for participation.
-          %li Be wary of companies offering to get your site "to the top of Google."  No legitimate business will make that claim, and their shady tactics could adversely affect your ranking.
-        %br/
-        = raw(Tenon.config.seo_callout)
-      .modal-footer
-        %button.btn.btn-default{:type => "button", :data => {:dismiss => "modal"}} Close

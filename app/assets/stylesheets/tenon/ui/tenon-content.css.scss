@@ -20,7 +20,7 @@
 .tn-tc-main-actions {
   a {
     @include transition(all 0.3s ease);
-    margin: 10px 20px 0 0;
+    margin: $tn-margin $tn-margin 0 0;
     text-transform: uppercase;
     font-size: $tn-font-large;
     span {
@@ -36,7 +36,7 @@
 }
 
 .tenon-content {
-  margin-top: 10px;
+  margin-top: $tn-margin;
   // @import "variables";
   // @import "styleguides/styleguide";
   // @extend body;

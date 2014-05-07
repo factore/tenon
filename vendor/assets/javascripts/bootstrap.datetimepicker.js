@@ -827,7 +827,7 @@
               '<td class="separator">:</td>' +
               '<td>' + tpGlobal.minuteTemplate + '</td> ' +
               (!picker.use24hours ? '<td class="separator"></td>' +
-              '<td><button type="button" class="btn btn-primary" data-action="togglePeriod"></button></td>' : '') +
+              '<td><button type="button" class="btn btn-comp" data-action="togglePeriod"></button></td>' : '') +
             '</tr>' +
             '<tr>' +
               '<td><a href="#" class="btn" data-action="decrementHours"><span class="' + picker.options.icons.down + '"></span></a></td>' +
