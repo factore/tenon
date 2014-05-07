@@ -40,7 +40,7 @@
 }
 
 .btn-comp {
-  @include button($border-color: $tn-button-info-bg, $background-color: $tn-button-info-bg, $color: $tn-button-info-fg, $highlight-border-color: darken($tn-button-info-bg, 5%), $highlight-background-color: darken($tn-button-info-bg, 5%));
+  @include button($border-color: $tn-button-comp-bg, $background-color: $tn-button-comp-bg, $color: $tn-button-comp-fg, $highlight-border-color: darken($tn-button-comp-bg, 5%), $highlight-background-color: darken($tn-button-comp-bg, 5%));
 }
 
 .btn-white {
