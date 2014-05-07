@@ -13,15 +13,15 @@
       = link_to '#', class: 'btn btn-comp', id: 'sidebar-toggle' do
         %i.fa.fa-fw.fa-caret-square-o-down
 
-    .list-sort.header-tool.header-menu
-      = link_to '#', class: 'toggle-sort-list' do
-        Sort By
-        %i.fa.fa-caret-down
+    / .list-sort.header-tool.header-menu
+    /   = link_to '#', class: 'toggle-sort-list' do
+    /     Sort By
+    /     %i.fa.fa-caret-down
 
-      %ul.list-sort-options
-        %li= link_to current_user.email, edit_user_path(current_user)
-        %li= link_to current_user.email, edit_user_path(current_user)
-        %li= link_to current_user.email, edit_user_path(current_user)
+    /   %ul.list-sort-options
+    /     %li= link_to current_user.email, edit_user_path(current_user)
+    /     %li= link_to current_user.email, edit_user_path(current_user)
+    /     %li= link_to current_user.email, edit_user_path(current_user)
 
   .spacer
 
