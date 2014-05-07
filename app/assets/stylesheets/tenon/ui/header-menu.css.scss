@@ -2,21 +2,21 @@ header .header-tool.header-menu, nav .header-tool.header-menu {
   position: relative;
   width: 200px;
   text-transform: uppercase;
-  font-size: $tn-font-small;
-  line-height: 41px;
+  line-height: 40px;
   a {
     display: block;
     padding: 5px $tn-padding;
     i {
       float: right;
-      line-height: 41px;
+      line-height: 40px;
     }
     &:hover {
       background-color: transparentize(#fff, 0.6);
+      text-decoration: none;
     }
   }
   ul {
-    position: relative;
+    position: absolute;
     left: -1px;
     z-index: $tn-z-header-menu;
     display: none;
@@ -26,30 +26,38 @@ header .header-tool.header-menu, nav .header-tool.header-menu {
     border: 1px solid $tn-med-grey;
     background: $tn-white;
     list-style: none;
-
     i {
-      float: none;
+      float: right;
     }
     li {
       float: none;
-      width: 100%;
+      margin: 0;
+      padding: 0;
+      width: 200px;
+      height: 50px;
       border-top: 1px solid $tn-med-grey;
       &:first-child {
-        border-top: none;
+        border-top: 0;
       }
-    }
-    a {
-      display: block;
-      padding: 10px 10px 10px $tn-padding;
-      color: $tn-black;
-      line-height: 20px;
+      a {
+        display: block;
+        height: 50px;
+        color: $tn-black;
+        line-height: 40px;
+      }
     }
   }
   &.active {
-    // background: $tn-white;
-    // background-color: transparentize(#fff, 0.6);
     ul {
       display: block;
     }
   }
+}
+
+nav .header-tool.header-menu ul {
+  border-top: 0;
+}
+
+header .header-tool.header-menu a {
+  color: $tn-black;
 }

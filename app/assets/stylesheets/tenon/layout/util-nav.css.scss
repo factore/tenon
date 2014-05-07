@@ -35,10 +35,10 @@
   nav {
     float: right;
     height: 100%;
-    ul {
+    & > ul {
       margin: 0;
       height: 100%;
-      li {
+      & > li {
         @include media($tablet-breakpoint) {
           &.hamburger {
             display: none;
@@ -76,7 +76,7 @@
         &:last-child {
           border-right: 0;
         }
-        a {
+        & > a {
           display: inline-block;
           text-align: center;
         }
