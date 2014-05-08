@@ -48,7 +48,8 @@ describe Tenon::ProxyAttachment do
   end
 
   describe '#url' do
-    let(:attachment) { double }
+    let(:attachment) { double(styles: styles) }
+    let(:styles) { nil }
     context 'with a preceding underscore' do
       it 'should get the url from the attachment' do
         expect(attachment).to receive(:url).with('original')
@@ -58,15 +59,35 @@ describe Tenon::ProxyAttachment do
 
     context 'without a preceding underscore' do
       it 'should get the url from the attachment including the prefix' do
-        expect(attachment).to receive(:url).with('item_banner_original')
-        pa.url(:original)
+        expect(attachment).to receive(:url).with('item_banner_medium')
+        pa.url(:medium)
       end
 
       context 'when the model is namespaced' do
         let(:klass) { Tenon::Item }
 
         it 'should get the url from the attachment including the prefix' do
-          expect(attachment).to receive(:url).with('tenon_item_banner_original')
+          expect(attachment).to receive(:url).with('tenon_item_banner_medium')
+          pa.url(:medium)
+        end
+      end
+    end
+
+    context 'when asking for the orginal' do
+      context 'when an original style has been set on the model' do
+        let(:styles) { { item_banner_original: 'foo' } }
+
+        it 'should get the url from the attachment including the prefix' do
+          expect(attachment).to receive(:url).with(:item_banner_original)
+          pa.url(:original)
+        end
+      end
+
+      context 'when no original style has been set on the model' do
+        let(:styles) { {} }
+
+        it 'should get the url from the attachment without the prefix' do
+          expect(attachment).to receive(:url).with(:original)
           pa.url(:original)
         end
       end
