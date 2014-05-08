@@ -1,7 +1,5 @@
 .four-column-image
-  - row.pieces.each_slice(2) do |group|
-    .tn-tc-piece.six{class: cycle('', 'omega')}
-      - group.each do |piece|
-        .tn-tc-piece.nested.six
-          = render "tenon/tenon_content/piece_types/display/image", piece: piece
+  - row.pieces.each do |piece|
+    .tn-tc-piece.four{class: cycle('', '', '', 'omega')}
+      = render "tenon/tenon_content/piece_types/display/image", piece: piece
   .spacer
