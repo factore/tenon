@@ -5,9 +5,9 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
-['Super Admin', 'Admin', 'Contributor', 'Member'].each { |r| Tenon::Role.find_or_create_by(title: r) }
+['Super Admin', 'Admin'].each { |r| Tenon::Role.find_or_create_by(title: r) }
 
-%w{admin super_admin contributor member}.each do |role|
+%w{admin super_admin}.each do |role|
   password = ENV['PASSWORD'].blank? ? role : ENV['PASSWORD']
   user = Tenon::User.new(:password => password, :password_confirmation => password, :email => "#{role}@factore.ca")
   user.approved = true
