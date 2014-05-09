@@ -2,7 +2,7 @@
   .twelve
     - row.pieces.each do |piece|
       - if piece.piece_type == "Image"
-        .wrapped-image.right.omega{class: piece.size}
+        .tn-tc-wrapped-image.right.omega{class: piece.size}
           = render "tenon/tenon_content/piece_types/display/image", piece: piece
       - if piece.piece_type == "Text"
         = render "tenon/tenon_content/piece_types/display/text", piece: piece
