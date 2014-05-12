@@ -4,7 +4,7 @@ module Tenon
     acts_as_nested_set
     tenon_content :content
     default_scope { order('tenon_pages.lft, tenon_pages.list_order') }
-    scope :published, -> { where(published: true) }
+    scope :published, -> { where('publish_at <= ?', Time.now) }
     scope :find_for_menu, -> { published.where('parent_id IS NULL AND show_in_menu = ?', true).includes(:subpages) }
     scope :top, -> { where(parent_id: nil) }
 
