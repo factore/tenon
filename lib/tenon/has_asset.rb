@@ -66,7 +66,9 @@ module Tenon
       def build_asset_setter(asset_name)
         define_method("#{asset_name}=") do |val|
           attrs = { asset_attributes: { attachment: val } }
-          join = send("create_#{asset_name}_join", attrs)
+          join = send("#{asset_name}_join") || send("build_#{asset_name}_join")
+          join.assign_attributes(attrs)
+          join.save
           asset = join.asset
           asset.item_assets << join
           attach = ProxyAttachment.new(asset, self.class, asset_name)
@@ -78,7 +80,10 @@ module Tenon
         define_method("#{asset_name}_id=") do |val|
           unless val.blank?
             asset = Tenon::Asset.find(val)
-            send("create_#{asset_name}_join",  asset_id: val)
+            attrs = { asset_id: val }
+            join = send("#{asset_name}_join") || send("build_#{asset_name}_join")
+            join.assign_attributes(attrs)
+            join.save
             attachment = ProxyAttachment.new(asset.attachment, self.class, asset_name)
             instance_variable_set("@#{asset_name}_id", val)
             instance_variable_set("@#{asset_name}", attachment)
