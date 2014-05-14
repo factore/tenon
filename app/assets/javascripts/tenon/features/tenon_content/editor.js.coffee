@@ -7,17 +7,7 @@ class Tenon.features.tenonContent.Editor
 
   _rowInserted: (e) =>
     Tenon.mediumEditor.deactivate()
-    Tenon.mediumEditor = new MediumEditor($('.editable-text'), {
-      placeholder: '',
-      forcePlainText: true,
-      cssClasses: {
-        placeholder: 'medium-placeholder'
-      },
-      firstHeader: 'h1',
-      secondHeader: 'h2',
-      buttons: ['bold', 'italic', 'underline', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist', 'orderedlist'],
-      buttonLabels: 'fontawesome'
-    })
+    new Tenon.features.Medium
     @_updateButtons()
 
   _rowRemoved: (e) =>
