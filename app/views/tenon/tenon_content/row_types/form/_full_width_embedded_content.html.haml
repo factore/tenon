@@ -2,6 +2,6 @@
   = f.hidden_field :list_order
   = f.hidden_field :row_type
   = f.fields_for :pieces do |piece|
-    .twelve.piece
+    .tn-tc-piece.twelve
       = render "tenon/tenon_content/piece_types/form/embedded_content", f: piece, position: 0
   .spacer
