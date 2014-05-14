@@ -1,6 +1,6 @@
 class Tenon.features.Medium
   constructor: ($el = $('.editable-text')) ->
-    Tenon.mediumEditor = new MediumEditor $('.editable-text'),
+    Tenon.mediumEditor = new MediumEditor $('.editable-text'), @opts
 
   opts:
     placeholder: ''
