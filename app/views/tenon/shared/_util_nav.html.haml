@@ -1,24 +1,20 @@
-%section.util-nav
+%util-nav
   #logo= link_to image_tag('tenon/tenon_icon.png'), "/tenon"
 
-  %nav
-    %ul
-      %li.hamburger
-        = link_to '#', class: 'btn btn-comp' do
-          = fa_icon('fw bars')
+  .tools
+    .header-button.hamburger.mobile= link_to fa_icon('fw bars'), '#'
 
-      %li.user.header-tool.header-menu
-        = link_to '#', class: 'user-menu' do
-          = current_user.email
-          = fa_icon('fw caret-down')
+    .header-menu.hamburger-toggle
+      = link_to '#', class: 'user-menu', data: { icon: 'user' } do
+        .header-icon= fa_icon('fw user')
+        .header-label= current_user.email
 
-        %ul
-          %li
-            = link_to edit_user_path(current_user) do
-              = current_user.email
-              = fa_icon('fw user')
-
-          %li
-            = link_to destroy_user_session_path, method: :delete do
-              Sign Out
-              = fa_icon('fw sign-out')
+      %ul
+        %li
+          = link_to edit_user_path(current_user) do
+            .header-icon= fa_icon('fw gear')
+            .header-label Settings
+        %li
+          = link_to destroy_user_session_path, method: :delete do
+            .header-icon= fa_icon('fw sign-out')
+            .header-label Sign Out

@@ -1,29 +1,20 @@
-.quick-search {
-  @include placeholder {
-    color: $tn-label;
-  }
+#quick-search {
+  @include transition(all 0.2s ease);
 
-  padding-left: 20px;
-  input[type=text] {
-    @include transition(width 0.25s ease);
-    width: 70px;
-    &:focus {
-      width: 250px;
-      outline: none;
-    }
-  }
-  i {
-    @include media($tablet-breakpoint) {
-      padding-right: $tn-padding;
-    }
-
-    padding-right: 12px;
+  &.open {
+    background-color: $tn-highlight;
+    @include transition(all 0.2s ease);
   }
 }
 
-input.filter {
-  top: 20px;
-  right: 20px;
-  padding-left: 10px;
-  border: 0;
+toolbox #quick-search-container {
+  display: none;
+  padding: $tn-padding;
+  &.open {
+    display: block;
+  }
+
+  input[type=text] {
+    outline: none;
+  }
 }

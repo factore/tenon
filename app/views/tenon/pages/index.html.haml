@@ -5,26 +5,17 @@
       = link_to "New Page", new_page_path, class: 'btn btn-block btn-primary'
 
 %header
-  .container
-    %h1 Pages
+  %h1 Pages
 
-    .tools
-      = render "tenon/shared/section_header/quick_search", record_list: '#pages'
-      = link_to '#', class: 'btn btn-comp', id: 'sidebar-toggle' do
-        %i.fa.fa-fw.fa-caret-square-o-down
+  .tools
+    = render "tenon/shared/section_header/sidebar_toggle"
 
-    / .list-sort.header-tool.header-menu
-    /   = link_to '#', class: 'toggle-sort-list' do
-    /     Sort By
-    /     %i.fa.fa-caret-down
+    .header-button
+      = link_to '#', id: 'quick-search' do
+        .header-icon= fa_icon('fw search')
 
-    /   %ul.list-sort-options
-    /     %li= link_to current_user.email, edit_user_path(current_user)
-    /     %li= link_to current_user.email, edit_user_path(current_user)
-    /     %li= link_to current_user.email, edit_user_path(current_user)
-
-  .spacer
+  %toolbox
+    = render "tenon/shared/section_header/quick_search", record_list: '#pages'
 
 .main-content
-  .container
-    %ul#pages.record-list.sortable.nested{data: {records: {url: pages_path(format: 'json'), template: 'tenon/templates/pages/page_row', name: 'page', nested: 'true'}, :'reorder-path' => reorder_pages_path}}
+  %ul#pages.record-list.sortable.nested{data: {records: {url: pages_path(format: 'json'), template: 'tenon/templates/pages/page_row', name: 'page', nested: 'true'}, :'reorder-path' => reorder_pages_path}}

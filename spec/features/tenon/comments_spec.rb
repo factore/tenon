@@ -12,7 +12,7 @@ describe 'An admin viewing the comments index', js: true do
 
     it 'should see the comment in a list' do
       visit comments_path
-      expect(page).to have_content('Test Comment')
+      expect(page).to have_content('Test Comment'.upcase)
     end
 
     it 'should be able to delete the comment' do

@@ -2,10 +2,9 @@
   %h1 Editing Event
 
   .tools
+    = render "tenon/shared/section_header/sidebar_toggle"
+
     = language_switcher(:events)
 
-  .spacer
-
 .main-content
-  .container
-    = render "form"
+  = render "form"

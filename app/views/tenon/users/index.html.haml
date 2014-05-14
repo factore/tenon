@@ -6,14 +6,19 @@
 
 %header
   %h1 Users
+
   .tools
-    = render "tenon/shared/section_header/quick_search", record_list: '#users'
+    = render "tenon/shared/section_header/sidebar_toggle"
+
+    .header-button
+      = link_to '#', id: 'quick-search' do
+        .header-icon= fa_icon('fw search')
+
     / .header-tool
     /   %a{:href => new_user_path }= raw "#{fa_icon('user')} +"
 
-  .spacer
-
+  %toolbox
+    = render "tenon/shared/section_header/quick_search", record_list: '#users'
 
 .main-content
-  .container
-    %ul#users.record-list{data: {records: {url: users_path(format: 'json'), template: 'tenon/templates/users/user_row', name: 'user'}}}
+  %ul#users.record-list{data: {records: {url: users_path(format: 'json'), template: 'tenon/templates/users/user_row', name: 'user'}}}

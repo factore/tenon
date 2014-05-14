@@ -2,10 +2,15 @@
   <div class="record-details">
     <div class="record-title">
       <a href="<%= @user.edit_path %>"><%= @user.email %></a>
-      <br />
-      <div class="explanation"><%= @user.roles %></div>
-      <br />
-      <div class="explanation">Last Login: <%= @user.last_login %></div>
+    </div>
+
+    <div class="record-fields">
+      <div class="record-field">
+        Roles - <%= @user.roles %>
+      </div>
+      <div class="record-field">
+        Last Login - <%= @user.last_login %>
+      </div>
     </div>
 
     <div class="record-actions">

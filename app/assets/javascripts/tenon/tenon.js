@@ -50,7 +50,6 @@ var Tenon = {
     $.each($('[data-records-url]'), function () {
       new Tenon.features.RecordList($(this));
     });
-    new Tenon.features.RecordListToggling();
     new Tenon.features.RecordListUpdater();
     new Tenon.features.SidebarActiveLinks();
     new Tenon.features.SidebarNavigation();

@@ -19,7 +19,7 @@
 
 .tn-tc-main-actions {
   a {
-    @include transition(all 0.3s ease);
+    @include transition(all 0.2s ease);
     margin: $tn-margin $tn-margin 0 0;
     text-transform: uppercase;
     font-size: $tn-font-large;
@@ -41,8 +41,8 @@
   // @import "styleguides/styleguide";
   // @extend body;
   .tn-tc-row {
-    @include transition(box-shadow 0.25s ease-in);
-    @include transition(border 0.25s ease-in);
+    @include transition(box-shadow 0.2s ease-in);
+    @include transition(border 0.2s ease-in);
     margin-bottom: 10px;
     padding: 0;
     min-height: 50px;
@@ -80,15 +80,15 @@
     padding: 0;
     // background-color: $tn-med-grey;
     .actions {
-      @include transition(all 0.3s ease);
+      @include transition(all 0.2s ease);
       color: $tn-dark-grey;
       text-align: right;
       position: relative;
       i {
-        @include transition(all 0.3s ease);
+        @include transition(all 0.2s ease);
       }
       a {
-        @include transition(all 0.3s ease);
+        @include transition(all 0.2s ease);
         display: inline-block;
         padding: 10px 0 5px;
         color: $tn-dark-grey;
@@ -214,7 +214,7 @@
     color: $tn-light-grey;
   }
   .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve {
-    @include transition(width 0.25s ease-in-out);
+    @include transition(width 0.2s ease);
   }
 }
 
@@ -253,7 +253,7 @@
 }
 
 a.open-embed-modal {
-  @include transition(all 0.3s ease);
+  @include transition(all 0.2s ease);
   display: block;
   padding: 5px 0;
   color: $tn-dark-grey;

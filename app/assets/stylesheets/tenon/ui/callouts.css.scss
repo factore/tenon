@@ -1,19 +1,5 @@
-@mixin tetris-grid($number-of-columns: 2) {
-  @include span-columns(12 / $number-of-columns);
-
-  &:nth-child(#{$number-of-columns}n + #{$number-of-columns}) {
-    margin-right: 0;
-  }
-
-  &:nth-child(#{2 * $number-of-columns}n + 1):last-child, &:nth-child(#{2 * $number-of-columns}n + 2):last-child {
-    @include span-columns(12);
-  }
-}
-
 #dashboard-callouts {
-
   .callout {
-
     @include media($mobile-breakpoint) {
       @include tetris-grid(2);
     }
@@ -23,32 +9,18 @@
     }
 
     position: relative;
-    margin-bottom: $gutter;
-    padding: 14px;
+    margin-bottom: $tn-margin;
+    padding: $tn-padding;
     background-color: #fff;
-
     h4.title {
+      margin-bottom: $tn-margin;
       font-weight: 400;
-
       i {
-        margin-right: 6px;
         font-size: 25px;
       }
     }
-
-    .btn {
-      width: 75%;
-    }
-
     > p:last-child {
-      @include transform(translate(-50%, 0));
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      display: block;
-      padding: 0 14px;
-      width: 100%;
-      text-align: center;
+      margin-bottom: 0;
     }
   }
 }

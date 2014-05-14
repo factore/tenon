@@ -11,7 +11,8 @@
 %header
   %h1 Welcome to Tenon
 
-  .spacer
+  .tools
+    = render "tenon/shared/section_header/sidebar_toggle"
 
 .main-content
   #dashboard-callouts.container
@@ -19,10 +20,10 @@
     - @tenon_callouts.each do |callout|
       .callout
         %h4.title
-          %i{class: "fa fa-#{callout.icon}"}
+          %i{class: "fa fa-fw fa-#{callout.icon}"}
           = callout.title
 
         .callout-content= raw callout.content
         - if callout.uri.present?
           %p
-            = link_to callout.button_text, callout.uri, class: "btn btn-primary", target: ("_" if callout.new_window)
+            = link_to callout.button_text, callout.uri, class: "btn btn-primary btn-block", target: ("_" if callout.new_window)

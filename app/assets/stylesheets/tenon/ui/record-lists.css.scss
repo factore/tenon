@@ -6,69 +6,61 @@ ul.record-list {
   li {
     position: relative;
     margin-bottom: 2px;
-    background-color: #fff;
-
     ul {
       margin: 10px 0 0;
       padding: 0 10px;
       list-style: none;
-
       &:last-child {
         padding-bottom: 0;
       }
-
       li {
         border-top: 1px solid $tn-light-grey;
         border-bottom: 0;
-
         &:last-child {
           padding-bottom: 0;
         }
       }
     }
-
     &.top:last-child {
       border-bottom: 0;
     }
-
     &.loader {
       background: $tn-light-grey;
       color: $tn-dark-grey;
       text-align: center;
     }
 
-    .header {
-      color: $tn-primary-text;
-      text-transform: uppercase;
-      font-size: $tn-font-small;
+    &:hover > .record-actions, &:hover .record-fields {
+      opacity: 1;
     }
   }
-
   a {
     color: $tn-black;
   }
-
-  li:hover > .record-actions, li.header .record-actions {
-    opacity: 1;
-  }
-
   .record-details {
     padding: 10px;
-    // height: 100px;
     background-color: #fff;
-
     &:hover > .record-actions {
       opacity: 1;
     }
-
     .record-title {
-      margin-right: 200px;
+      margin-right: 0;
       word-wrap: break-word;
     }
-
+    .record-fields {
+      @include transition(opacity 0.2s ease);
+      padding: 10px 0 0;
+      width: 100%;
+      @include clearfix;
+      color: $tn-black;
+      font-size: $tn-font-small;
+      text-transform: uppercase;
+      @include media($tablet-breakpoint) {
+        opacity: 0.5;
+      }
+    }
     .record-actions {
-      @include transition(opacity 0.2s ease-in-out);
-
+      @include transition(opacity 0.2s ease);
       @include media($tablet-breakpoint) {
         opacity: 0.25;
       }
@@ -76,68 +68,53 @@ ul.record-list {
       position: absolute;
       top: 10px;
       right: 0;
-      width: 200px;
       text-align: right;
-
       a {
         margin: 0;
         padding: 5px;
-
         &:hover {
           text-decoration: none;
         }
       }
     }
   }
-
   &.sortable li {
     cursor: move;
   }
-
   span.nester {
     display: inline-block;
     width: 20px;
   }
-
   &.nested {
     background: none;
-
     li {
       background: none;
     }
-
     .nested-record-info {
       background: none;
-
       .record-details {
         height: auto;
         background-color: #fff;
-
         .record-actions {
           top: 0;
           margin-top: 10px;
         }
       }
     }
-
     ul.subpages {
       padding-right: 0;
-
       li.subpage {
         margin-bottom: 0;
         padding-left: 30px;
         background: none;
-
         .nested-record-info {
           background: $tn-off-white;
         }
       }
     }
-
     li ul {
       margin: 1px 0 0;
     }
-
     .nested-record-info:hover > .record-actions {
       opacity: 1;
     }
@@ -145,39 +122,26 @@ ul.record-list {
 }
 
 .record-list.with-thumbnail {
-
   li {
     height: 100px;
   }
-
   .thumbnail {
     position: absolute;
     top: 0;
     left: 0;
     width: 100px;
     height: 100px;
-
     img {
       width: 100%;
       height: 100%;
     }
   }
-
   .record-details {
     margin-left: 100px;
-
     &:hover > .record-actions {
       opacity: 1;
     }
   }
-}
-
-.record-title.page {
-  margin-right: 170px !important;
-}
-
-.record-actions.page {
-  width: 170px !important;
 }
 
 .infinite-loader {

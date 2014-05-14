@@ -1,6 +1,6 @@
 json.records do
   json.array!(@events) do |event|
-    json.extract!(event, :id, :title, :display_date, :edit_path, :edit_link, :delete_link)
+    json.extract!(event, :id, :title, :display_date, :location, :edit_path, :edit_link, :delete_link)
 
     if event.published? && main_app.respond_to?(:event_path)
       json.view_link action_link("View on Site", main_app.event_path(event), "laptop")

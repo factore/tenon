@@ -46,7 +46,7 @@
 }
 
 @mixin button($border-color, $background-color, $color, $highlight-border-color, $highlight-background-color) {
-  @include transition(all 0.3s ease);
+  @include transition(all 0.2s ease);
   border-color: $border-color;
   background-color: $background-color;
   color: $color;
@@ -64,3 +64,14 @@
     background-color: $background-color;
   }
 }
+
+@mixin tetris-grid($number-of-columns: 2) {
+  @include span-columns(12 / $number-of-columns);
+  &:nth-child(#{$number-of-columns}n + #{$number-of-columns}) {
+    margin-right: 0;
+  }
+  // &:nth-child(#{2 * $number-of-columns}n + 1):last-child, &:nth-child(#{2 * $number-of-columns}n + 2):last-child {
+  //   @include span-columns(12);
+  // }
+}
+

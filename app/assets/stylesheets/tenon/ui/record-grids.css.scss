@@ -1,70 +1,100 @@
+@mixin column($num-columns: 3) {
+  width: 100% / $num-columns;
+  &:nth-of-type(n) {
+    // border-right: $tn-padding solid transparent;
+  }
+  &:nth-child(#{$num-columns}n + #{$num-columns}) {
+    // border-right: 0;
+  }
+}
+
 ul.record-grid {
   margin: 0;
   padding: 0;
-  background: #fff;
   list-style: none;
-
   li {
+    @include media($mobile-breakpoint) {
+      @include column(2);
+    }
+
+    @include media($tablet-breakpoint) {
+      @include column(3);
+    }
+
+    @include media($laptop-breakpoint) {
+      @include column(5);
+    }
+
+    @include media($desktop-breakpoint) {
+      @include column(6);
+    }
+
+    position: relative;
     float: left;
-    margin-right: $tn-margin;
     margin-bottom: $tn-margin;
-    width: 200px;
-    background: #fff;
-
-    .header {
-      display: none;
-    }
-
-    .thumbnail, .thumbnail img {
-      @include fill_parent;
-      // width: 200px;
-      // height: 200px;
-
-    }
-
-    .loader {
-      float: none;
-      clear: both;
-      margin-right: $tn-margin;
+    padding-right: $tn-padding;
+    display: inline-block;
+    background-color: transparent;
+  }
+  .thumbnail {
+    img {
+      display: block;
       width: 100%;
-      background: $tn-light-grey;
-      color: $tn-dark-grey;
-      text-align: center;
     }
   }
-
   a {
     color: $tn-black;
   }
-
-  i {
-    font-size: 20px;
+  .record-details {
+    background-color: #fff;
+    &:hover > .record-actions {
+      opacity: 1;
+    }
   }
-
   .record-title {
     overflow: hidden;
     overflow: hidden;
     padding: 10px;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-weight: bold;
+  }
+  .record-fields {
+    padding: 0 10px 10px;
+    width: 100%;
+    @include clearfix;
+    color: $tn-dark-grey;
+    font-size: $tn-font-small;
+    text-transform: uppercase;
   }
 
   .record-actions {
-    @include transition(opacity 0.2s ease-in-out);
-    padding: 0;
-    text-align: right;
-
-    a {
-      display: inline-block;
-      padding: 5px;
-
+    @include clearfix;
+    @include transition(all 0.2s ease);
+    @include media($tablet-breakpoint) {
+      opacity: 0.25;
       &:hover {
+        opacity: 1;
+      }
+    }
+    a {
+      text-align: center;
+      display: block;
+      float: left;
+      padding: 10px 0;
+      width: 25%;
+      &:hover {
+        @include transition(all 0.2s ease);
         text-decoration: none;
+        background-color: $tn-highlight;
       }
     }
   }
 }
 
-.main-content.with-fixed-grid {
-  margin-right: 0;
+.infinite-loader {
+  display: none;
+  margin-top: 10px;
+  padding: 5px;
+  text-align: center;
 }

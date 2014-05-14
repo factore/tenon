@@ -2,15 +2,16 @@
   <div class="thumbnail"><%- @comment.gravatar %></div>
   <div class="record-details">
     <div class="record-title">
-      <strong>
-        <a href="mailto:<%= @comment.author_email %>"><%= @comment.author %></a>
-        posted on
-        <%- @comment.commentable_link %>
-      </strong>
-      <br />
-      <small><%= @comment.content %></small>
-      <div style="display: none;" id="comment-<%= @comment.id %>"><%= @comment.content %></div>
+      <a href="mailto:<%= @comment.author_email %>"><%= @comment.author %></a>
+      posted on
+      <%- @comment.commentable_link %>
+    </div>
 
+    <div class="record-fields">
+      <div class="record-field">
+        <%= @comment.content %>
+        <div style="display: none;" id="comment-<%= @comment.id %>"><%= @comment.content %></div>
+      </div>
     </div>
 
     <div class="record-actions">

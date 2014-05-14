@@ -1,14 +1,16 @@
 <li class="asset hidden" data-record-id="<%= @asset.id %>" data-style-urls="<%= @asset.json_style_urls %>">
   <div class="thumbnail"><%- @asset.icon %></div>
   <div class="record-details">
-    <div class="record-title big">
-      <strong>
-        <a href="/tenon/assets/<%= @asset.id %>/edit" data-modal-remote="true" data-modal-title="Edit Asset"><%= @asset.display_name %></a>
-      </strong>
-      <div class="explanation">
-        <%= @asset.human_size %>
+    <div class="record-title">
+      <a href="/tenon/assets/<%= @asset.id %>/edit" data-modal-remote="true" data-modal-title="Edit Asset"><%= @asset.display_name %></a>
+    </div>
+
+    <div class="record-fields">
+      <div class="record-field">
+        Size - <%= @asset.human_size %>
       </div>
     </div>
+
     <div class="record-actions">
       <%- @asset.crop_link %>
       <%- @asset.download_link %>

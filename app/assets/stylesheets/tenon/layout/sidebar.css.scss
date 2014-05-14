@@ -1,17 +1,14 @@
 .sidebar-container {
-  @include transition(all 0.2s ease-in);
-
   @include media($mobile-breakpoint) {
     display: none;
-
     &.mobile-open {
       position: fixed;
-      display: block;
-      width: auto;
-      left: 0;
       right: 0;
+      left: 0;
+      display: block;
       overflow: hidden;
-      margin-right: 65px;
+      margin-right: 58px;
+      width: auto;
     }
   }
 
@@ -27,16 +24,13 @@
   height: 100%;
   background: $tn-sidebar;
   color: $tn-light-grey;
-
   .sidebar {
     overflow: auto;
     padding-bottom: 40px;
     height: 100%;
-
     .content, h4 {
       padding: 0 15px;
     }
-
     h2 {
       margin: 0 0 30px;
       padding: 0;
@@ -44,14 +38,12 @@
       font-weight: normal;
       font-size: 18px;
     }
-
     h3 {
       color: $tn-off-white;
       text-transform: uppercase;
       font-weight: normal;
       font-size: 15px;
     }
-
     h4 {
       margin-top: 20px;
       margin-bottom: 3px;
@@ -61,24 +53,19 @@
       font-size: 10px;
       line-height: 30px;
     }
-
     nav ul {
       margin: 0;
       padding: 0;
-
       li {
         padding: 10px 15px;
-
         &.active, &:target {
           background: $tn-sidebar-highlight;
         }
       }
-
       a {
         display: block;
         color: $tn-off-white;
         font-size: 14px;
-
         span.count {
           position: relative;
           top: -3px;
@@ -95,11 +82,9 @@
         }
       }
     }
-
     .notification {
       margin-bottom: 20px;
       font-size: 12px;
-
       a {
         display: inline-block;
         margin-top: 3px;
@@ -111,5 +96,11 @@
         text-transform: uppercase;
       }
     }
+  }
+}
+
+#sidebar-toggle {
+  @include media($tablet-breakpoint) {
+    display: none;
   }
 }

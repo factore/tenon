@@ -1,0 +1,103 @@
+$tn-header-height: 50px;
+$tn-tool-border: 0;
+
+.tools {
+  @include clearfix;
+  .header-icon {
+    display: block;
+    float: right;
+  }
+  .header-label {
+    @include media($mobile-breakpoint) {
+      display: none;
+    }
+
+    @include media($tablet-breakpoint) {
+      display: block;
+    }
+
+    display: block;
+    float: left;
+    margin-right: $tn-margin;
+  }
+  .header-tool, .header-menu, .header-button {
+    position: relative;
+    float: right;
+    text-transform: uppercase;
+    line-height: $tn-header-height;
+    i {
+      position: relative;
+      display: block;
+      padding: 14px 0;
+      height: 50px;
+    }
+    a {
+      display: block;
+      padding: 0 $tn-padding;
+      height: $tn-header-height;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    > a:hover {
+      background-color: $tn-highlight;
+    }
+  }
+  .header-menu {
+    ul {
+      @include transition(all 0.2s ease);
+      position: absolute;
+      right: 0;
+      z-index: $tn-z-header-menu;
+      display: none;
+      margin: 0;
+      padding: 0;
+      width: auto;
+      min-width: 200px;
+      border: 1px solid $tn-med-grey;
+      background-color: $tn-white;
+      list-style: none;
+      .header-label {
+        display: block;
+      }
+      li {
+        @include transition(all 0.2s ease);
+        margin: 0;
+        padding: 0;
+        height: $tn-header-height;
+        border-top: 1px solid $tn-med-grey;
+        &:first-child {
+          border-top: 0;
+        }
+        a {
+          color: $tn-black;
+        }
+        &:hover {
+          background-color: $tn-comp;
+          a {
+            color: #fff;
+          }
+        }
+      }
+    }
+    &.active {
+      background-color: $tn-highlight;
+      ul {
+        display: block;
+      }
+    }
+  }
+}
+
+util-nav {
+  .header-menu ul {
+    border-top: 0;
+  }
+}
+
+header {
+  @include clearfix;
+  a {
+    color: $tn-black;
+  }
+}

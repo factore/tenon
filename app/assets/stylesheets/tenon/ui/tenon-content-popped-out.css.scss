@@ -1,5 +1,5 @@
 .tn-tc-popped-out {
-  @include transition(top 0.25s ease-in-out);
+  @include transition(top 0.2s ease);
   position: absolute;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@
   height: 100%;
 
   .tn-tc-popped-out-backdrop {
-    @include transition(opacity 0.25s ease-in-out);
+    @include transition(opacity 0.2s ease);
     position: fixed;
     top: 0;
     left: 0;

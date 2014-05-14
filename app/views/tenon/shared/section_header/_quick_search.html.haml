@@ -1,3 +1,3 @@
-.quick-search.header-tool
-  = text_field_tag :q, params[:q], id: 'quick-search', class: 'search', placeholder: 'SEARCH', data: { 'record-list' => record_list }
-  %i.fa.fa-search.fa
+#quick-search-container
+  %ul
+    %li= text_field_tag :q, params[:q], id: 'quick-search', class: 'search', placeholder: 'SEARCH', data: { 'record-list' => record_list }

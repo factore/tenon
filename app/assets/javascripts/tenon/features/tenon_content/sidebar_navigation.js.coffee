@@ -10,6 +10,7 @@ class Tenon.features.SidebarNavigation
 
   toggleNav: (e) =>
     e.preventDefault()
+    @$toggle.find('i').toggleClass('fa-caret-square-o-down fa-times')
     if @$toggle.hasClass(@openClass)
       @_closeNav()
     else

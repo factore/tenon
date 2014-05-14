@@ -7,17 +7,22 @@
         =# render "form", category: PostCategory.new
 
     = render "tenon/shared/posts_nav"
+
 %header
-  .container
-    %h1 Posts
+  %h1 Posts
 
-    .tools
-      = render "tenon/shared/section_header/quick_search", record_list: '#posts'
-      / .header-tool
-      /   %a{:href => new_post_path }= raw "#{fa_icon('file-text')} +"
+  .tools
+    = render "tenon/shared/section_header/sidebar_toggle"
 
-  .spacer
+    .header-button
+      = link_to '#', id: 'quick-search' do
+        .header-icon= fa_icon('fw search')
+
+    / .header-tool
+    /   %a{:href => new_post_path }= raw "#{fa_icon('file-text')} +"
+
+  %toolbox
+    = render "tenon/shared/section_header/quick_search", record_list: '#posts'
 
 .main-content
-  .container
-    %ul#posts.record-list{data: {records: {url: posts_path(format: 'json'), template: 'tenon/templates/posts/post_row', name: 'post'}}}
+  %ul#posts.record-list{data: {records: {url: posts_path(format: 'json'), template: 'tenon/templates/posts/post_row', name: 'post'}}}

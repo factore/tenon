@@ -1,7 +1,7 @@
 class Tenon.features.HamburgerNavigation
   constructor: ->
-    @$navigation = $('.nav-holder, .user.header-menu')
-    @$head = $('.util-nav')
+    @$navigation = $('.nav-holder, .hamburger-toggle')
+    @$head = $('util-nav')
     @$toggle = @$head.find('.hamburger a')
     @openClass = 'mobile-open'
 
@@ -11,6 +11,7 @@ class Tenon.features.HamburgerNavigation
 
   toggleNav: (e) =>
     e.preventDefault()
+    @$toggle.find('i').toggleClass('fa-bars fa-times')
     if @$toggle.hasClass(@openClass)
       @_closeNav()
     else

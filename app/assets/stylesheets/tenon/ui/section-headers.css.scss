@@ -13,6 +13,7 @@ header {
 
   left: 0;
   z-index: $tn-z-section-header;
+  display: block;
   width: 100%;
   border-bottom: 1px solid $tn-med-grey;
   background: $tn-light-grey;
@@ -25,44 +26,5 @@ header {
     font-weight: normal;
     font-size: 18px;
     line-height: 18px;
-  }
-  .tools {
-    position: relative;
-    float: right;
-    #sidebar-toggle {
-      @include media($tablet-breakpoint) {
-        display: none;
-      }
-    }
-    i {
-      font-size: 20px;
-    }
-    .btn {
-      margin: 7px;
-    }
-    input[type=text] {
-      display: inline-block;
-      margin: 0;
-      padding: 0 0 0 $tn-padding;
-      height: 50px;
-      border: 0;
-      background: none;
-      color: $tn-label;
-      font-size: $tn-font-small;
-      line-height: 30px;
-    }
-  }
-  .header-tool {
-    @include media($tablet-breakpoint) {
-      border-right: 0;
-    }
-
-    float: right;
-    padding: 0;
-    border-right: 1px solid $tn-med-grey;
-    border-left: 1px solid $tn-med-grey;
-    &:last-child {
-      margin-right: 0;
-    }
   }
 }

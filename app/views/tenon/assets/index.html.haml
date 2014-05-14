@@ -4,19 +4,20 @@
   %h1 Asset Library
 
   .tools
-    = render "tenon/shared/section_header/list_style_toggle"
-    = render "tenon/shared/section_header/quick_search", record_list: '#assets'
+    = render "tenon/shared/section_header/sidebar_toggle"
+
     / .header-tool
     /   = link_to raw("#{fa_icon('picture-o')} +"), '#', data: {'modal-target' => '#new-asset', 'modal-title' => 'Upload Assets'}
 
-  .spacer
+    .header-button
+      = link_to '#', id: 'quick-search' do
+        .header-icon= fa_icon('fw search')
+
+  %toolbox
+    = render "tenon/shared/section_header/quick_search", record_list: '#assets'
 
 .main-content
-  .container
-    %ul#assets.record-list.with-thumbnail{data: {role: 'records-list', records: {url: assets_path(format: 'json'), template: 'tenon/templates/assets/asset_row', name: 'asset'}}}
+  %ul#assets.record-grid{data: {role: 'records-list', records: {url: assets_path(format: 'json'), template: 'tenon/templates/assets/asset_row', name: 'asset'}}}
 
-    .spacer
-    = link_to "Load More Assets", '#', :class => 'infinite-loader', 'data-record-list' => '#assets'
-
-
-
+  .spacer
+  = link_to "Load More Assets", '#', :class => 'infinite-loader', 'data-record-list' => '#assets'

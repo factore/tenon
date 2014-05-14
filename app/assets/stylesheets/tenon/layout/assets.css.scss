@@ -3,7 +3,7 @@
 #assets.record-list {
 
   li.asset {
-    @include transition(opacity 0.25s ease-in, max-height 0.25s ease-in);
+    @include transition(opacity 0.2s ease-in, max-height 0.2s ease-in);
     overflow: hidden;
     max-height: 100;
     opacity: 1;

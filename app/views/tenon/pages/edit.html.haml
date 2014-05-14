@@ -1,12 +1,10 @@
 %header
-  %h1
-    Edit a Page
+  %h1 Edit a Page
 
   .tools
+    = render "tenon/shared/section_header/sidebar_toggle"
+
     = language_switcher(:pages)
 
-  .spacer
-
 .main-content
-  .container
-    = render :partial => "form"
+  = render :partial => "form"

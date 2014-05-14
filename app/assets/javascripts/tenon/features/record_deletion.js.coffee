@@ -1,8 +1,8 @@
 class Tenon.features.RecordDeletion
   constructor: ->
     selector = 'a[data-method="Delete"], a[data-method="delete"]'
-    $('.record-list').on('ajax:beforeSend', selector, @_showSpinner)
-    $('.record-list').on('ajax:success', selector, @_handleSuccess)
+    $('.record-list, .record-grid').on('ajax:beforeSend', selector, @_showSpinner)
+    $('.record-list, .record-grid').on('ajax:success', selector, @_handleSuccess)
 
   _showSpinner: (e) ->
     $link = $(e.currentTarget)

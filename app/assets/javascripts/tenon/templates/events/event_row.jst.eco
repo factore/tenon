@@ -2,9 +2,14 @@
   <div class="record-details">
     <div class="record-title">
       <a href="<%= @event.edit_path %>"><%= @event.title %></a>
-      <br />
-      <div class="explanation">
-        <%= @event.display_date %>
+    </div>
+
+    <div class="record-fields">
+      <div class="record-field">
+        When - <%= @event.display_date %>
+      </div>
+      <div class="record-field">
+        Where - <%= @event.location %>
       </div>
     </div>
 

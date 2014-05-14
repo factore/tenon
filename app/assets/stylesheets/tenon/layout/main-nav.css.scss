@@ -1,12 +1,13 @@
 .nav-holder {
-  @include transition(all 0.2s ease);
   @include media($mobile-breakpoint) {
-    display: none;
+    @include transition(left 0.2s ease);
+    display: block;
+    left: -768px;
     &.mobile-open {
       right: 0;
       left: 0;
       display: block;
-      padding-right: 65px;
+      padding-right: 58px;
       width: auto;
       background-color: transparentize(#000, 0.5);
       nav.main-nav {
@@ -123,7 +124,7 @@
 // Submenu stuff
 
 nav.main-nav ul ul li {
-  @include transition(all 0.3s ease);
+  @include transition(all 0.2s ease);
   overflow-y: hidden;
   max-height: 0;
   background: $tn-dark-grey;

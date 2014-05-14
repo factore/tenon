@@ -1,11 +1,12 @@
 <li data-record-id="<%= @post.id %>">
   <div class="record-details">
-    <div class="record-title post">
-      <strong>
-        <a href="<%= @post.edit_path %>"><%= @post.title %></a>
-      </strong>
-      <div class='explanation'>
-        <%= @post.created_at %>
+    <div class="record-title">
+      <a href="<%= @post.edit_path %>"><%= @post.title %></a>
+    </div>
+
+    <div class="record-fields">
+      <div class="record-field">
+        Created - <%= @post.created_at %>
       </div>
     </div>
 

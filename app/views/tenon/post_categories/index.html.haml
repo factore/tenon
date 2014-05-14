@@ -14,11 +14,15 @@
   %h1 Post Categories
 
   .tools
+    = render "tenon/shared/section_header/sidebar_toggle"
+
+    .header-button
+      = link_to '#', id: 'quick-search' do
+        .header-icon= fa_icon('fw search')
+
+  %toolbox
     = render "tenon/shared/section_header/quick_search", record_list: '#post_categories'
 
-  .spacer
-
 .main-content
-  .container
-    = error_messages_for :post_category
-    %ul#post_categories.record-list{data: {records: {url: post_categories_path(format: 'json'), template: 'tenon/templates/post_categories/post_category_row', name: 'post_category'}}}
+  = error_messages_for :post_category
+  %ul#post_categories.record-list{data: {records: {url: post_categories_path(format: 'json'), template: 'tenon/templates/post_categories/post_category_row', name: 'post_category'}}}

@@ -17,7 +17,7 @@ describe 'An admin', js: true do
         expect(page).to have_content(tenon_callout.title)
         expect(page).to have_content(tenon_callout.content)
         expect(page).to have_selector('i.fa-file-o')
-        expect(page).to have_content(tenon_callout.button_text)
+        expect(page).to have_content(tenon_callout.button_text.upcase)
         expect(page).to have_selector("a[href='#{tenon_callout.uri}']")
       end
     end

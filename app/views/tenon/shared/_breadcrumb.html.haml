@@ -1,6 +1,0 @@
-%ol.breadcrumb
-  %li= link_to image_tag('tenon/tenon_icon.png'), "/tenon"
-  - unless ['tenon/index', 'tenon/settings'].include?(controller_path)
-    %li.tablet= link_to display_controller(controller_path), url_for(:controller => controller_path, :action => 'index')
-  - unless %w{show index}.include? action_name
-    %li.tablet.active= link_to display_action(action_name), url_for(:controller => controller_path, :action => action_name)

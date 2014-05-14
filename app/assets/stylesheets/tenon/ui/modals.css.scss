@@ -14,7 +14,7 @@
 }
 
 .modal.fade .modal-dialog {
-  @include transition(all 0.3s ease);
+  @include transition(all 0.2s ease);
   @include transform(scale(2));
   opacity: 0;
 }

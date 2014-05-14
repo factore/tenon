@@ -10,10 +10,11 @@
 
 %header
   %h1 Site Settings
-  .spacer
+
+  .tools
+    = render "tenon/shared/section_header/sidebar_toggle"
 
 .main-content
-  .container
-    = form_tag({:action => :update}, :method => "PUT") do
-      .tabs
-        #general.tab-pane.active= render :partial => "general"
+  = form_tag({:action => :update}, :method => "PUT") do
+    .tabs
+      #general.tab-pane.active= render :partial => "general"

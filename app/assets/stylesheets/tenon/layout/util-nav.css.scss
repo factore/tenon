@@ -1,4 +1,5 @@
-.util-nav {
+util-nav {
+  min-width: 300px;
   position: fixed;
   z-index: $tn-z-util-nav;
   width: 100%;
@@ -13,74 +14,21 @@
     &:hover {
       text-decoration: none;
     }
-    i {
-      font-size: 20px;
-    }
   }
-  #logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 0;
-    width: 50px;
+}
+
+#logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  a {
+    padding: 10px 13px;
+    display: block;
+    width: 60px;
     height: 50px;
-    list-style: none;
-    a {
-      padding: 10px 8px;
-      display: block;
-      width: 50px;
-      height: 50px;
-    }
-  }
-  nav {
-    float: right;
-    height: 100%;
-    & > ul {
-      margin: 0;
-      height: 100%;
-      & > li {
-        @include media($tablet-breakpoint) {
-          &.hamburger {
-            display: none;
-          }
-          &.user {
-            display: block;
-          }
-        }
-
-        @include media($mobile-breakpoint) {
-          &.hamburger {
-            display: block;
-          }
-          &.user {
-            display: none;
-          }
-        }
-
-        display: inline-block;
-        float: right;
-        margin: 0;
-        padding: 0;
-        height: 50px;
-        border-right: 1px solid transparentize(#fff, 0.6);
-        &.user.mobile-open {
-          display: block;
-        }
-        &.hamburger {
-          margin: 7px;
-        }
-        &:first-child {
-          border-right: 0;
-        }
-
-        &:last-child {
-          border-right: 0;
-        }
-        & > a {
-          display: inline-block;
-          text-align: left;
-        }
-      }
+    &:hover {
+      background-color: transparentize(#fff, 0.6);
     }
   }
 }

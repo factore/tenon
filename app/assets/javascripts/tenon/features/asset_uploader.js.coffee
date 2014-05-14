@@ -1,7 +1,7 @@
 class Tenon.features.AssetUploader
   constructor: (@doneFunction) ->
     @$progress = $('#progress')
-    @$list = $('#assets.record-list')
+    @$list = $('#assets.record-grid')
     @titleCounter = 1
     @doneFunction ||= @_drawAsset
     @_allowEsc()

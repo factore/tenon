@@ -1,7 +1,8 @@
 %header
   %h1 New Gallery
-  .spacer
+
+  .tools
+    = render "tenon/shared/section_header/sidebar_toggle"
 
 .main-content
-  .container
-    = render :partial => "form"
+  = render :partial => "form"

@@ -2,10 +2,16 @@
 
 %header
   %h1 Contacts
+
   .tools
+    = render "tenon/shared/section_header/sidebar_toggle"
+
+    .header-button
+      = link_to '#', id: 'quick-search' do
+        .header-icon= fa_icon('fw search')
+
+  %toolbox
     = render "tenon/shared/section_header/quick_search", record_list: '#contacts'
-  .spacer
 
 .main-content
-  .container
-    %ul#contacts.record-list{data: {records: {url: contacts_path(format: 'json'), template: 'tenon/templates/contacts/contact_row', name: 'contact'}}}
+  %ul#contacts.record-list{data: {records: {url: contacts_path(format: 'json'), template: 'tenon/templates/contacts/contact_row', name: 'contact'}}}
