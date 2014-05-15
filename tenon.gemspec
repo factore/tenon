@@ -72,7 +72,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'resque'
   s.add_dependency 'sass-rails', '4.0.1'
   s.add_dependency 'simple-rss', '~> 1.2.3'
-  s.add_dependency 'sprockets', '2.11.0'
   s.add_dependency 'uglifier', '>= 1.3.0'
   s.add_dependency 'uuidtools', '~> 2.1.3'
   s.add_dependency 'will_paginate', '~> 3.0.4'
