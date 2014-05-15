@@ -1,6 +1,0 @@
-- if can?(:index, Banner)
-  = tenon_menu_item item, banners_path, :active => is_active("banners"), :submenu => can?(:create, Banner)
-  - if can?(:create, Banner)
-    %ul.tenon_submenu{ :class => is_active(["banners"]) ? "#{item} active" : item }
-      = link_to "New Banner", new_banner_path, :class => ("active" if is_active(["banners"]) && params[:action] == "new")
-    .spacer
