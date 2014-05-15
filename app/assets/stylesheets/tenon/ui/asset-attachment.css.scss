@@ -20,6 +20,7 @@
     padding: 10px;
     height: 100px;
     background: #fff;
+    position: relative;
   }
 
   .asset-info {
@@ -27,9 +28,13 @@
   }
 
   .browse-button-holder {
-    @include span-columns(3);
-    padding-top: 25px;
-    text-align: right;
+    // @include span-columns(3);
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    padding: $tn-padding;
+    // padding-top: 25px;
+    // text-align: right;
 
     &.with-remove {
       padding-top: 15px;
@@ -42,14 +47,13 @@
     .btn {
       padding: 5px 10px;
       border-radius: 15px;
-      font-size: $tn-font-small;
     }
 
     .browse-button {
       display: inline-block;
       margin: 0;
       padding: 0;
-      width: 64px;
+      width: 80px;
       text-align: center;
       line-height: 22px;
     }
