@@ -15,9 +15,9 @@
     </div>
 
     <div class="record-actions">
-      <%- @comment.read_link %>
-      <%- @comment.approval_link %>
       <%- @comment.delete_link %>
+      <%- @comment.approval_link %>
+      <%- @comment.read_link %>
     </div>
   </div>
 </li>

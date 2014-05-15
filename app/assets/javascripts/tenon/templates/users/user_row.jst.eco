@@ -14,8 +14,8 @@
     </div>
 
     <div class="record-actions">
-      <%- @user.edit_link %>
       <%- @user.delete_link %>
+      <%- @user.edit_link %>
     </div>
   </div>
 </li>

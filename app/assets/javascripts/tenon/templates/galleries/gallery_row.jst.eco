@@ -5,8 +5,8 @@
     </div>
 
     <div class="record-actions">
-      <%- @gallery.edit_link %>
       <%- @gallery.delete_link %>
+      <%- @gallery.edit_link %>
     </div>
 
     <div class="spacer"></div>

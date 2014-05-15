@@ -55,8 +55,8 @@ describe 'An admin', js: true do
         fill_in 'event[title]', with: 'My Test Event'
 
         # Manually testing the datepickers is outside the scope of this spec
-        page.execute_script("$('#event_starts_at').val('#{Time.now.to_s}')")
-        page.execute_script("$('#event_ends_at').val('#{(Time.now + 1.hour).to_s}')")
+        page.execute_script("$('#event_starts_at').val('#{Time.now}')")
+        page.execute_script("$('#event_ends_at').val('#{(Time.now + 1.hour)}')")
 
         # Save it
         click_on 'Save'

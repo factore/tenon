@@ -6,10 +6,10 @@
     </div>
 
     <div class="record-actions page">
-      <%- @page.view_link %>
-      <%- @page.subpage_link %>
-      <%- @page.edit_link %>
       <%- @page.delete_link %>
+      <%- @page.edit_link %>
+      <%- @page.subpage_link %>
+      <%- @page.view_link %>
     </div>
   </div>
 </div>

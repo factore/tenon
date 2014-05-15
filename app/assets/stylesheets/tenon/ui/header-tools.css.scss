@@ -31,6 +31,7 @@ $tn-tool-border: 0;
       height: 50px;
     }
     a {
+      @include transition(all 0.2s ease);
       display: block;
       padding: 0 $tn-padding;
       height: $tn-header-height;

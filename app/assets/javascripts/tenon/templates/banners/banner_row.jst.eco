@@ -8,8 +8,8 @@
     </div>
 
     <div class="record-actions">
-      <%- @banner.edit_link %>
       <%- @banner.delete_link %>
+      <%- @banner.edit_link %>
     </div>
   </div>
 </li>

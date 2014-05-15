@@ -62,17 +62,20 @@ ul.record-list {
     }
     .record-actions {
       @include transition(opacity 0.2s ease);
+      @include clearfix;
       @include media($tablet-breakpoint) {
         opacity: 0.25;
       }
 
       position: absolute;
-      top: 10px;
+      top: 0;
       right: 0;
       text-align: right;
       a {
         margin: 0;
-        padding: 5px;
+        padding: 10px 5px;
+        display: block;
+        float: right;
         &:hover {
           text-decoration: none;
         }
@@ -96,10 +99,6 @@ ul.record-list {
       .record-details {
         height: auto;
         background-color: #fff;
-        .record-actions {
-          top: 0;
-          margin-top: 10px;
-        }
       }
     }
     ul.subpages {

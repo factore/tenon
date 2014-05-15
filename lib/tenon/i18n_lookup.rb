@@ -12,8 +12,6 @@ module Tenon
       @@fields ||= set_fields
     end
 
-    private
-
     def self.set_fields
       if File.exist?(config_file)
         YAML.load(File.open(config_file)).recursive_symbolize_keys!

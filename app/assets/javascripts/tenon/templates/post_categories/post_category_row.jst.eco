@@ -7,8 +7,8 @@
     </div>
 
     <div class="record-actions">
-      <%- @post_category.edit_link %>
       <%- @post_category.delete_link %>
+      <%- @post_category.edit_link %>
     </div>
   </div>
 </li>
