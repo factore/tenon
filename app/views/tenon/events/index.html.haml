@@ -14,11 +14,8 @@
       = link_to '#', id: 'quick-search-toggle' do
         .header-icon= fa_icon('fw search')
 
-    / .header-tool
-    /   %a{:href => new_event_path }= raw "#{fa_icon('calendar')} +"
-
-  %toolbox
-    = render "tenon/shared/section_header/quick_search", record_list: '#events'
+.toolbox
+  = render "tenon/shared/section_header/quick_search", record_list: '#events'
 
 .main-content
   %ul#events.record-list{data: {role: 'records-list', records: {url: events_path(format: 'json'), template: 'tenon/templates/events/event_row', name: 'event'}}}

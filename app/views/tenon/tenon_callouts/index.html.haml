@@ -14,8 +14,8 @@
       = link_to '#', id: 'quick-search-toggle' do
         .header-icon= fa_icon('fw search')
 
-  %toolbox
-    = render "tenon/shared/section_header/quick_search", record_list: '#tenon_callouts'
+.toolbox
+  = render "tenon/shared/section_header/quick_search", record_list: '#tenon_callouts'
 
 .main-content
   = error_messages_for :tenon_callout

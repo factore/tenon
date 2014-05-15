@@ -10,8 +10,8 @@
       = link_to '#', id: 'quick-search-toggle' do
         .header-icon= fa_icon('fw search')
 
-  %toolbox
-    = render "tenon/shared/section_header/quick_search", record_list: '#comments'
+.toolbox
+  = render "tenon/shared/section_header/quick_search", record_list: '#comments'
 
 .main-content
   %ul#comments.record-list.with-thumbnail{data: {records: {url: comments_path(format: 'json'), template: 'tenon/templates/comments/comment_row', name: 'comment'}}}

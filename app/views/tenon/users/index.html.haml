@@ -14,11 +14,8 @@
       = link_to '#', id: 'quick-search-toggle' do
         .header-icon= fa_icon('fw search')
 
-    / .header-tool
-    /   %a{:href => new_user_path }= raw "#{fa_icon('user')} +"
-
-  %toolbox
-    = render "tenon/shared/section_header/quick_search", record_list: '#users'
+.toolbox
+  = render "tenon/shared/section_header/quick_search", record_list: '#users'
 
 .main-content
   %ul#users.record-list{data: {records: {url: users_path(format: 'json'), template: 'tenon/templates/users/user_row', name: 'user'}}}

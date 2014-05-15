@@ -1,6 +1,6 @@
 class Tenon.features.QuickSearch
   constructor: ->
-    @$content = $('toolbox #quick-search-container')
+    @$content = $('.toolbox #quick-search-container')
     @$toggle = $('#quick-search-toggle')
     @openClass = 'open'
 
@@ -19,7 +19,7 @@ class Tenon.features.QuickSearch
   toggleNav: (e) =>
     e.preventDefault()
     @$toggle.find('i').toggleClass('fa-search fa-times')
-    @$content.slideToggle('fast')
+    @$content.slideToggle('0.2s')
     if @$toggle.hasClass(@openClass)
       @_closeNav()
     else
@@ -27,9 +27,11 @@ class Tenon.features.QuickSearch
 
   _closeNav: () =>
     @$toggle.removeClass(@openClass)
+    $('header').css('border-bottom-width', '1px');
     # @$content.removeClass(@openClass)
 
   _openNav: () =>
     @$toggle.addClass(@openClass)
+    $('header').css('border-bottom-width', '0px');
     # @$content.addClass(@openClass)
     @$content.find('input')[0].focus()

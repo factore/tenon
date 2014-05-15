@@ -14,8 +14,8 @@
       = link_to '#', id: 'quick-search-toggle' do
         .header-icon= fa_icon('fw search')
 
-  %toolbox
-    = render "tenon/shared/section_header/quick_search", record_list: '#pages'
+.toolbox
+  = render "tenon/shared/section_header/quick_search", record_list: '#pages'
 
 .main-content
   %ul#pages.record-list.sortable.nested{data: {records: {url: pages_path(format: 'json'), template: 'tenon/templates/pages/page_row', name: 'page', nested: 'true'}, :'reorder-path' => reorder_pages_path}}
