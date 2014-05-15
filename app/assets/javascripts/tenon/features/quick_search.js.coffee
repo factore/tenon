@@ -11,7 +11,7 @@ class Tenon.features.QuickSearch
     # $(document).on('click', '.nav-holder.mobile-open a', @_closeNav)
 
   _submitSearch: (e) =>
-    @$field = $('#quick-search')
+    @$field = $('input#quick-search')
     @$list = $(@$field.data('record-list'))
     params = {q: @$field.val()}
     new Tenon.features.RecordList(@$list, params: params, clear: true)
@@ -19,6 +19,7 @@ class Tenon.features.QuickSearch
   toggleNav: (e) =>
     e.preventDefault()
     @$toggle.find('i').toggleClass('fa-search fa-times')
+    @$content.slideToggle('fast')
     if @$toggle.hasClass(@openClass)
       @_closeNav()
     else
@@ -26,9 +27,9 @@ class Tenon.features.QuickSearch
 
   _closeNav: () =>
     @$toggle.removeClass(@openClass)
-    @$content.removeClass(@openClass)
+    # @$content.removeClass(@openClass)
 
   _openNav: () =>
     @$toggle.addClass(@openClass)
-    @$content.addClass(@openClass)
+    # @$content.addClass(@openClass)
     @$content.find('input')[0].focus()
