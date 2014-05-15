@@ -1,9 +1,7 @@
 <li data-record-id="<%%= @<%= singular_name %>.id %>">
   <div class="record-details">
     <div class="record-title">
-      <strong>
-        <a href="<%%= @<%= singular_name %>.edit_path %>" data-modal-remote="true" data-modal-title="Edit <%= singular_name.titleize %>"><%%= @<%= singular_name %>.title %></a>
-      </strong>
+      <a href="<%%= @<%= singular_name %>.edit_path %>" data-modal-remote="true" data-modal-title="Edit <%= singular_name.titleize %>"><%%= @<%= singular_name %>.title %></a>
     </div>
 
     <div class="record-actions">

@@ -1,6 +1,10 @@
 %header
   %h1 New <%= singular_name.titleize %>
-  .spacer
+
+  .tools
+    = render "tenon/shared/section_header/sidebar_toggle"
+
+    = language_switcher(:pages)
 
 .main-content
-  .container= render "form"
+  = render "form"

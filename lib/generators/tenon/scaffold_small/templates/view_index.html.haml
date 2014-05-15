@@ -11,11 +11,15 @@
   %h1 <%= plural_name.titleize %>
 
   .tools
+    = render "tenon/shared/section_header/sidebar_toggle"
+
+    .header-button
+      = link_to '#', id: 'quick-search-toggle' do
+        .header-icon= fa_icon('fw search')
+
+  %toolbox
     = render "tenon/shared/section_header/quick_search", record_list: '#<%= plural_name %>'
 
-  .spacer
-
 .main-content
-  .container
-    = error_messages_for :<%= singular_name %>
-    %ul#<%= plural_name %>.record-list<% if attributes.map(&:name).include?('list_order') %>.sortable<% end -%>{data: {records: {url: <%= plural_name %>_path(format: 'json'), template: 'tenon/templates/<%= plural_name %>/<%= singular_name %>_row', name: '<%= singular_name %>'}<% if attributes.map(&:name).include?('list_order') %>, :'reorder-path' => reorder_<%= plural_name %>_path<% end %>}}
+  = error_messages_for :<%= singular_name %>
+  %ul#<%= plural_name %>.record-list<% if attributes.map(&:name).include?('list_order') %>.sortable<% end -%>{data: {records: {url: <%= plural_name %>_path(format: 'json'), template: 'tenon/templates/<%= plural_name %>/<%= singular_name %>_row', name: '<%= singular_name %>'}<% if attributes.map(&:name).include?('list_order') %>, :'reorder-path' => reorder_<%= plural_name %>_path<% end %>}}

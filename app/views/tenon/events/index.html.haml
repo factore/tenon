@@ -23,5 +23,4 @@
 .main-content
   %ul#events.record-list{data: {role: 'records-list', records: {url: events_path(format: 'json'), template: 'tenon/templates/events/event_row', name: 'event'}}}
 
-  .spacer
-  = link_to "Load More Events", '#', :class => 'infinite-loader', 'data-record-list' => '#events'
+  = link_to "Load More Events", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#events'

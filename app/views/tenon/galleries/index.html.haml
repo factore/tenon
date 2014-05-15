@@ -21,5 +21,4 @@
 .main-content
   %ul#galleries.record-list{data: {records: {url: galleries_path(format: 'json'), template: 'tenon/templates/galleries/gallery_row', name: 'gallery'}}}
 
-  .spacer
-  = link_to "Load More Galleries", '#', :class => 'infinite-loader', 'data-record-list' => '#galleries'
+  = link_to "Load More Galleries", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#galleries'
