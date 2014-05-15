@@ -1,35 +1,40 @@
 .sidebar-container {
   @include media($mobile-breakpoint) {
-    display: none;
+    @include transition(all 0.2s ease);
+    left: -100%;
+    right: 100%;
+    display: block;
+    margin-right: 58px;
     &.mobile-open {
-      position: fixed;
       right: 0;
       left: 0;
-      display: block;
-      overflow: hidden;
-      margin-right: 58px;
-      width: auto;
     }
+  }
+
+  @include media($tablet-breakpoint) {
+    left: 60px;
+    width: 190px;
+    float: left;
   }
 
   position: fixed;
   top: 0;
-  left: 60px;
   z-index: $tn-z-sidebar;
-  float: left;
   overflow: hidden;
-  padding: 20px 0;
-  padding-top: 66px;
-  width: 190px;
+  padding: ($tn-header-height + $tn-padding) 0 0;
   height: 100%;
   background: $tn-sidebar;
   color: $tn-light-grey;
   .sidebar {
+    @include media($mobile-breakpoint) {
+      padding-bottom: 50px;
+    }
+
     overflow: auto;
-    padding-bottom: 40px;
+    width: 100%;
     height: 100%;
-    .content, h4 {
-      padding: 0 15px;
+    .content {
+      padding: 0 $tn-padding;
     }
     h2 {
       margin: 0 0 30px;
@@ -45,9 +50,9 @@
       font-size: 15px;
     }
     h4 {
-      margin-top: 20px;
+      margin-top: $tn-margin;
       margin-bottom: 3px;
-      padding-bottom: 0;
+      padding: 0 $tn-padding;
       color: $tn-sidebar-label;
       text-transform: uppercase;
       font-size: 10px;
@@ -57,15 +62,22 @@
       margin: 0;
       padding: 0;
       li {
-        padding: 10px 15px;
+        &:hover {
+          background: $tn-sidebar-highlight;
+        }
         &.active, &:target {
           background: $tn-sidebar-highlight;
         }
       }
       a {
+        padding: 10px $tn-padding;
+        width: 100%;
         display: block;
         color: $tn-off-white;
         font-size: 14px;
+        &:hover {
+          text-decoration: none;
+        }
         span.count {
           position: relative;
           top: -3px;
@@ -96,11 +108,5 @@
         text-transform: uppercase;
       }
     }
-  }
-}
-
-#sidebar-toggle {
-  @include media($tablet-breakpoint) {
-    display: none;
   }
 }

@@ -1,15 +1,14 @@
 .nav-holder {
   @include media($mobile-breakpoint) {
     @include transition(left 0.2s ease);
+    left: -100%;
     display: block;
-    left: -768px;
+    width: 100%;
     &.mobile-open {
       right: 0;
       left: 0;
-      display: block;
       padding-right: 58px;
-      width: auto;
-      background-color: transparentize(#000, 0.5);
+      background-color: transparentize(black, 0.5);
       nav.main-nav {
         width: 100%;
       }
@@ -17,6 +16,8 @@
   }
 
   @include media($tablet-breakpoint) {
+    @include transition(width 0.2s ease);
+    left: 0;
     &.open {
       width: 260px;
     }
@@ -24,12 +25,14 @@
 
   position: fixed;
   top: 50px;
-  left: 0;
   z-index: $tn-z-main-nav;
   overflow: hidden;
   width: 60px;
   height: 100%;
   nav.main-nav {
+    @include media($mobile-breakpoint) {
+      padding-bottom: 50px;
+    }
     overflow-x: hidden;
     overflow-y: auto;
     margin: 0 10px 0 0;
