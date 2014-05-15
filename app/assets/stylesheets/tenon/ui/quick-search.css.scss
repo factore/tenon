@@ -1,4 +1,4 @@
-.header-button #quick-search {
+#quick-search-toggle {
   @include transition(all 0.2s ease);
 
   &.open {
