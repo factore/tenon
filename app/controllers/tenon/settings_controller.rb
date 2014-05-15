@@ -13,7 +13,7 @@ module Tenon
       @settings = Tenon::MySettings
     end
 
-    private
+    # private
 
     # we want some settings to be typecast into boolean values
     # def force_boolean(settings)
