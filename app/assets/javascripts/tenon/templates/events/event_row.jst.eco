@@ -14,9 +14,9 @@
     </div>
 
     <div class="record-actions">
-      <%- @event.view_link %>
-      <%- @event.edit_link %>
       <%- @event.delete_link %>
+      <%- @event.edit_link %>
+      <%- @event.view_link %>
     </div>
 
     <div class="spacer"></div>

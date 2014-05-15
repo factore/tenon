@@ -12,8 +12,8 @@
     </div>
 
     <div class="record-actions">
-      <%- @tenon_callout.edit_link %>
       <%- @tenon_callout.delete_link %>
+      <%- @tenon_callout.edit_link %>
     </div>
   </div>
 </li>

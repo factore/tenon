@@ -11,10 +11,10 @@
     </div>
 
     <div class="record-actions">
-      <%- @post.view_link %>
-      <%- @post.subpost_link %>
-      <%- @post.edit_link %>
       <%- @post.delete_link %>
+      <%- @post.edit_link %>
+      <%- @post.subpost_link %>
+      <%- @post.view_link %>
     </div>
   </div>
 </li>
