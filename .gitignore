@@ -11,3 +11,4 @@ spec/dummy/public/assets
 vendor/ruby
 spec/dummy/public/system
 spec/dummy/db/migrate/
+tags
