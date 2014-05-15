@@ -2,13 +2,16 @@
   width: 100% / $num-columns;
   &:nth-of-type(n) {
     // border-right: $tn-padding solid transparent;
+
   }
   &:nth-child(#{$num-columns}n + #{$num-columns}) {
     // border-right: 0;
+
   }
 }
 
 ul.record-grid {
+  @include clearfix;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -30,10 +33,10 @@ ul.record-grid {
     }
 
     position: relative;
+    display: inline-block;
     float: left;
     margin-bottom: $tn-margin;
     padding-right: $tn-padding;
-    display: inline-block;
     background-color: transparent;
   }
   .thumbnail {
@@ -60,14 +63,13 @@ ul.record-grid {
     font-weight: bold;
   }
   .record-fields {
+    @include clearfix;
     padding: 0 10px 10px;
     width: 100%;
-    @include clearfix;
     color: $tn-dark-grey;
-    font-size: $tn-font-small;
     text-transform: uppercase;
+    font-size: $tn-font-small;
   }
-
   .record-actions {
     @include clearfix;
     @include transition(all 0.2s ease);
@@ -77,16 +79,17 @@ ul.record-grid {
         opacity: 1;
       }
     }
+
     a {
-      text-align: center;
       display: block;
       float: left;
       padding: 10px 0;
       width: 25%;
+      text-align: center;
       &:hover {
         @include transition(all 0.2s ease);
-        text-decoration: none;
         background-color: $tn-highlight;
+        text-decoration: none;
       }
     }
   }
@@ -94,7 +97,11 @@ ul.record-grid {
 
 .infinite-loader {
   display: none;
-  margin-top: 10px;
-  padding: 5px;
+  margin: $tn-margin auto;
+  padding: 5px $tn-padding;
+  width: 200px;
   text-align: center;
+  &.open {
+    display: block;
+  }
 }

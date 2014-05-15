@@ -1,5 +1,6 @@
 class Tenon.features.RecordList
   constructor: (@$list, @opts = {}) ->
+    @openClass = 'open'
     Tenon.activeRecordList = this
     @refresh()
 
@@ -70,9 +71,9 @@ class Tenon.features.RecordList
   _toggleInfiniteLoader: (pagination) =>
     $loader = $(".infinite-loader[data-record-list='##{@$list.attr('id')}']")
     if @_currentPage < parseInt(pagination.totalPages)
-      $loader.show()
+      $loader.addClass(@openClass)
     else
-      $loader.hide()
+      $loader.removeClass(@openClass)
 
   _showLoader: =>
     i = $('<i />').addClass('fa fa-gear fa fa-4x fa fa-spin')

@@ -146,7 +146,11 @@ ul.record-list {
 
 .infinite-loader {
   display: none;
-  margin-top: 10px;
-  padding: 5px;
+  margin: $tn-margin auto;
+  padding: 5px $tn-padding;
+  width: 200px;
   text-align: center;
+  &.open {
+    display: block;
+  }
 }
