@@ -1,3 +1,7 @@
+.main-content > form {
+  @include clearfix;
+}
+
 .fields {
   margin-bottom: $tn-margin;
   padding: 0;
