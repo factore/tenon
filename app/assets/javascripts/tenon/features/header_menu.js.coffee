@@ -11,4 +11,10 @@ class Tenon.features.HeaderMenu
 
   hideMenu: (e) =>
     # unless $(e.target).is('.header-menu ul *, .header-menu ul')
-    $('.header-menu').removeClass('active')
+    for headerMenu in $('.header-menu')
+      $hm = $(headerMenu)
+      $a = $hm.find('a:first')
+      $hm.removeClass('active')
+      $a.find('i')
+        .removeClass('fa-times')
+        .addClass('fa-' + $a.data('icon'))
