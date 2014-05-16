@@ -13,7 +13,13 @@
 
     <div class="record-fields">
       <div class="record-field">
+        Author - <%= @post.user.email %>
+      </div>
+      <div class="record-field">
         Created - <%= @post.created_at %>
+      </div>
+      <div class="record-field">
+        Categories - <%= @post.categories %>
       </div>
     </div>
   </div>
