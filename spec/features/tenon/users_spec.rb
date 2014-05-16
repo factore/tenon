@@ -51,7 +51,7 @@ describe 'An admin', js: true do
           fill_in 'user[email]', with: 'test@user.com'
           fill_in 'user[password]', with: 'password123'
           fill_in 'user[password_confirmation]', with: 'password123'
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content('test@user.com')
         expect(page).to have_content('User saved successfully.')
@@ -62,7 +62,7 @@ describe 'An admin', js: true do
       it 'should see validation errors' do
         visit new_user_path
         within('form#new_user') do
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content("Password can't be blank")
       end
@@ -78,7 +78,7 @@ describe 'An admin', js: true do
         visit edit_user_path(user)
         within('form.edit_user') do
           fill_in 'user[email]', with: 'test@user.com'
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content('test@user.com')
         expect(page).to have_content('User saved successfully.')
@@ -90,7 +90,7 @@ describe 'An admin', js: true do
         visit edit_user_path(user)
         within('form.edit_user') do
           fill_in 'user[email]', with: ''
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content("Email can't be blank")
       end

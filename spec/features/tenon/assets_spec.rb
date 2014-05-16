@@ -57,7 +57,7 @@ describe 'An admin', js: true do
         end
         within('form.edit_asset') do
           fill_in 'asset[title]', with: 'My Test Asset'
-          click_on 'Save'
+          click_button 'Save'
         end
         within("li[data-record-id='#{asset.id}']") do
           expect(page).to have_content('My Test Asset')
@@ -75,7 +75,7 @@ describe 'An admin', js: true do
 
         within('form.edit_asset') do
           fill_in 'asset[title]', with: ''
-          click_on 'Save'
+          click_button 'Save'
         end
 
         within("li[data-record-id='#{asset.id}']") do

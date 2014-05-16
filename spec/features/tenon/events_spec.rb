@@ -59,7 +59,7 @@ describe 'An admin', js: true do
         page.execute_script("$('#event_ends_at').val('#{(Time.now + 1.hour)}')")
 
         # Save it
-        click_on 'Save'
+        click_button 'Save'
         expect(page).to have_content('My Test Event')
         expect(page).to have_content('Event saved successfully.')
       end
@@ -69,7 +69,7 @@ describe 'An admin', js: true do
       it 'should see validation errors' do
         visit new_event_path
         within('form#new_event') do
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content("Title can't be blank")
         expect(page).to have_content("Starts at can't be blank")
@@ -86,7 +86,7 @@ describe 'An admin', js: true do
         fill_in 'event[title]', with: 'My Test Event'
 
         # Save it
-        click_on 'Save'
+        click_button 'Save'
         expect(page).to have_content('My Test Event')
         expect(page).to have_content('Event saved successfully.')
       end
@@ -97,7 +97,7 @@ describe 'An admin', js: true do
         visit edit_event_path(event)
         fill_in 'event[title]', with: ''
         within('form.edit_event') do
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content("Title can't be blank")
       end

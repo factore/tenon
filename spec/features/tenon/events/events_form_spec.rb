@@ -18,7 +18,7 @@ describe 'Using the event form', js: true do
       page.execute_script("$('#event_ends_at').val('#{Time.now + 1.hour}')")
 
       # Save it
-      click_on 'Save'
+      click_button 'Save'
       expect(page).to have_content('My Test Event')
       expect(page).to have_content('Event saved successfully.')
     end
@@ -28,7 +28,7 @@ describe 'Using the event form', js: true do
     it 'should not save the page' do
       visit new_event_path
       within('form#new_event') do
-        click_on 'Save'
+        click_button 'Save'
       end
       expect(page).to have_content("Title can't be blank")
       expect(page).to have_content("Starts at can't be blank")

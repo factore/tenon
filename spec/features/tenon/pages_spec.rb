@@ -52,7 +52,7 @@ describe 'An admin', js: true do
         visit new_page_path
         within('form#new_page') do
           fill_in 'page[title]', with: 'My Test Page'
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content('My Test Page')
         expect(page).to have_content('Page saved successfully.')
@@ -63,7 +63,7 @@ describe 'An admin', js: true do
       it 'should see validation errors' do
         visit new_page_path
         within('form#new_page') do
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content("Title can't be blank")
       end
@@ -78,7 +78,7 @@ describe 'An admin', js: true do
         visit edit_page_path(page_obj)
         within('form.edit_page') do
           fill_in 'page[title]', with: 'My Test Page'
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content('My Test Page')
         expect(page).to have_content('Page saved successfully.')
@@ -90,7 +90,7 @@ describe 'An admin', js: true do
         visit edit_page_path(page_obj)
         within('form.edit_page') do
           fill_in 'page[title]', with: ''
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content("Title can't be blank")
       end

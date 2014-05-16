@@ -56,7 +56,7 @@ describe 'An admin', js: true do
           fill_in 'tenon_callout[uri]', with: 'http://www.google.com'
           fill_in 'tenon_callout[icon]', with: 'file-o'
           fill_in 'tenon_callout[button_text]', with: 'Go!'
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content('My Test TenonCallout')
         expect(page).to have_content('Tenon Callout saved successfully.')
@@ -67,7 +67,7 @@ describe 'An admin', js: true do
       it 'should see validation errors' do
         visit new_tenon_callout_path
         within('form#new_tenon_callout') do
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content("Title can't be blank")
       end
@@ -81,7 +81,7 @@ describe 'An admin', js: true do
         visit edit_tenon_callout_path(tenon_callout)
         within('form.edit_tenon_callout') do
           fill_in 'tenon_callout[title]', with: 'My Test TenonCallout'
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content('My Test TenonCallout')
         expect(page).to have_content('Tenon Callout saved successfully.')
@@ -93,7 +93,7 @@ describe 'An admin', js: true do
         visit edit_tenon_callout_path(tenon_callout)
         within('form.edit_tenon_callout') do
           fill_in 'tenon_callout[title]', with: ''
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content("Title can't be blank")
       end

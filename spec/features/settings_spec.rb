@@ -38,7 +38,7 @@ describe 'An admin', js: true do
         fill_in 'settings[google_analytics]', with: 'analytics'
         fill_in 'settings[contact_email]', with: 'contact@factore.ca'
         fill_in 'settings[from_email]', with: 'reply@factore.ca'
-        click_on 'Save'
+        click_button 'Save'
 
         visit settings_path
         expect(page.find('#settings_site_title').value).to eq('New Site Title')

@@ -33,7 +33,7 @@ describe 'An admin', js: true do
         visit new_gallery_path
         within('form#new_gallery') do
           fill_in 'gallery[title]', with: 'My Test Gallery'
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content('My Test Gallery')
         expect(page).to have_content('Gallery saved successfully.')
@@ -44,7 +44,7 @@ describe 'An admin', js: true do
       it 'should see validation errors' do
         visit new_gallery_path
         within('form#new_gallery') do
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content("Title can't be blank")
       end
@@ -74,7 +74,7 @@ describe 'An admin', js: true do
 
         within('form.edit_gallery') do
           fill_in 'gallery[title]', with: 'My Test Gallery'
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content('My Test Gallery')
         expect(page).to have_content('Gallery saved successfully.')
@@ -86,7 +86,7 @@ describe 'An admin', js: true do
         visit edit_gallery_path(gallery)
         within('form.edit_gallery') do
           fill_in 'gallery[title]', with: ''
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content("Title can't be blank")
       end

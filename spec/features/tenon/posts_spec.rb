@@ -48,7 +48,7 @@ describe 'An admin', js: true do
         visit new_post_path
         within('form#new_post') do
           fill_in 'post[title]', with: 'My Test Post'
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content('My Test Post')
         expect(page).to have_content('Post saved successfully.')
@@ -59,7 +59,7 @@ describe 'An admin', js: true do
       it 'should see validation errors' do
         visit new_post_path
         within('form#new_post') do
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content("Title can't be blank")
       end
@@ -73,7 +73,7 @@ describe 'An admin', js: true do
         visit edit_post_path(post)
         within('form.edit_post') do
           fill_in 'post[title]', with: 'My Test Post'
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content('My Test Post')
         expect(page).to have_content('Post saved successfully.')
@@ -85,7 +85,7 @@ describe 'An admin', js: true do
         visit edit_post_path(post)
         within('form.edit_post') do
           fill_in 'post[title]', with: ''
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content("Title can't be blank")
       end

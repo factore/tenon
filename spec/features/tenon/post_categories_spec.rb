@@ -34,7 +34,7 @@ describe 'An admin', js: true do
         click_on 'New Post Category'
         within('form#new_post_category') do
           fill_in 'post_category[title]', with: 'My Test PostCategory'
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content('My Test PostCategory')
       end
@@ -45,7 +45,7 @@ describe 'An admin', js: true do
         visit post_categories_path
         click_on 'New Post Category'
         within('form#new_post_category') do
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content("Title can't be blank")
       end
@@ -63,7 +63,7 @@ describe 'An admin', js: true do
         end
         within('form.edit_post_category') do
           fill_in 'post_category[title]', with: 'My Test PostCategory'
-          click_on 'Save'
+          click_button 'Save'
         end
         within("li[data-record-id='#{post_category.id}']") do
           expect(page).to have_content('My Test PostCategory')
@@ -81,7 +81,7 @@ describe 'An admin', js: true do
 
         within('form.edit_post_category') do
           fill_in 'post_category[title]', with: ''
-          click_on 'Save'
+          click_button 'Save'
         end
         expect(page).to have_content("Title can't be blank")
       end
