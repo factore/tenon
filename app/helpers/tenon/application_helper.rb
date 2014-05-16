@@ -73,6 +73,12 @@ module Tenon
       open + body + close
     end
 
+    def route_exist?(thing)
+      main_app.polymorphic_path(thing)
+    rescue NoMethodError
+      false
+    end
+
     private
 
     def h5bp_opening_tag(ie_versions = 6..8)
