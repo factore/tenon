@@ -19,3 +19,5 @@
 
 .main-content
   %ul#users.record-list{data: {records: {url: users_path(format: 'json'), template: 'tenon/templates/users/user_row', name: 'user'}}}
+
+  = link_to "Load More Users", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#users'

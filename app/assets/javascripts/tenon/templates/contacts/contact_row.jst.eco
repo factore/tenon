@@ -1,5 +1,12 @@
 <li>
   <div class="record-details">
+    <div class="record-actions">
+      <%- @contact.delete_link %>
+      <%- @contact.reply_link %>
+      <%- @contact.read_link %>
+      <%- @contact.display_link %>
+    </div>
+
     <div class="record-title">
       From:
       <strong>
@@ -44,13 +51,6 @@
         </p>
       </div>
 
-    </div>
-
-    <div class="record-actions">
-      <%- @contact.display_link %>
-      <%- @contact.read_link %>
-      <%- @contact.reply_link %>
-      <%- @contact.delete_link %>
     </div>
   </div>
 </li>

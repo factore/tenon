@@ -15,3 +15,5 @@
 
 .main-content
   %ul#contacts.record-list{data: {records: {url: contacts_path(format: 'json'), template: 'tenon/templates/contacts/contact_row', name: 'contact'}}}
+
+  = link_to "Load More Contacts", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#contacts'

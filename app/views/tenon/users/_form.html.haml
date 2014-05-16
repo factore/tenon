@@ -38,6 +38,10 @@
     %h4.box-label Actions
     .box
       .content
+        = f.check_box :approved, class: 'tn-checkbox-right'
+        = f.super_label :approved, "Approved?"
+
+      .content
         = f.submit "Save", :class => 'btn btn-block btn-comp'
 
       - if @user.persisted?

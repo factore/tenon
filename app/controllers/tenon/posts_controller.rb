@@ -20,7 +20,7 @@ module Tenon
 
     def search_args
       [
-        'title ILIKE :q OR content ILIKE :q',
+        'title ILIKE :q',
         { q: "%#{params[:q].downcase}%" }
       ]
     end

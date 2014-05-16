@@ -1,15 +1,16 @@
 <div class="nested-record-info">
   <span class="record-id" data-record-id="<%= @page.id %>" style="display: none;"></span>
   <div class="record-details">
+    <div class="record-actions page">
+      <%- @page.delete_link %>
+      <%- @page.edit_link %>
+      <%- @page.subpage_link %>
+      <%- @page.view_link %>
+    </div>
+
     <div class="record-title page">
       <a href="<%= @page.edit_path %>"><%= @page.title %></a>
     </div>
 
-    <div class="record-actions page">
-      <%- @page.view_link %>
-      <%- @page.subpage_link %>
-      <%- @page.edit_link %>
-      <%- @page.delete_link %>
-    </div>
   </div>
 </div>

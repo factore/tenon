@@ -39,18 +39,18 @@ ul.record-list {
     color: $tn-black;
   }
   .record-details {
-    padding: 10px;
+    padding: 0 0 10px 10px;
     background-color: #fff;
     &:hover > .record-actions {
       opacity: 1;
     }
     .record-title {
-      margin-right: 0;
       word-wrap: break-word;
+      padding-top: 10px;
     }
     .record-fields {
       @include transition(opacity 0.2s ease);
-      padding: 10px 0 0;
+      padding: 10px 10px 0 0;
       width: 100%;
       @include clearfix;
       color: $tn-black;
@@ -62,17 +62,18 @@ ul.record-list {
     }
     .record-actions {
       @include transition(opacity 0.2s ease);
+      @include clearfix;
       @include media($tablet-breakpoint) {
         opacity: 0.25;
       }
 
-      position: absolute;
-      top: 10px;
-      right: 0;
+      float: right;
       text-align: right;
       a {
         margin: 0;
-        padding: 5px;
+        padding: 10px 5px;
+        display: block;
+        float: right;
         &:hover {
           text-decoration: none;
         }
@@ -96,10 +97,6 @@ ul.record-list {
       .record-details {
         height: auto;
         background-color: #fff;
-        .record-actions {
-          top: 0;
-          margin-top: 10px;
-        }
       }
     }
     ul.subpages {
@@ -124,7 +121,8 @@ ul.record-list {
 
 .record-list.with-thumbnail {
   li {
-    height: 100px;
+    min-height: 100px;
+    background-color: #fff;
   }
   .thumbnail {
     position: absolute;
@@ -139,6 +137,7 @@ ul.record-list {
   }
   .record-details {
     margin-left: 100px;
+    min-height: 100px;
     &:hover > .record-actions {
       opacity: 1;
     }

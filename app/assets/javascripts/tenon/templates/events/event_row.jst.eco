@@ -1,5 +1,11 @@
 <li>
   <div class="record-details">
+    <div class="record-actions">
+      <%- @event.delete_link %>
+      <%- @event.edit_link %>
+      <%- @event.view_link %>
+    </div>
+
     <div class="record-title">
       <a href="<%= @event.edit_path %>"><%= @event.title %></a>
     </div>
@@ -12,13 +18,5 @@
         Where - <%= @event.location %>
       </div>
     </div>
-
-    <div class="record-actions">
-      <%- @event.view_link %>
-      <%- @event.edit_link %>
-      <%- @event.delete_link %>
-    </div>
-
-    <div class="spacer"></div>
   </div>
 </li>

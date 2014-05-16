@@ -1,14 +1,12 @@
 <li data-record-id="<%= @gallery.id %>">
   <div class="record-details">
+    <div class="record-actions">
+      <%- @gallery.delete_link %>
+      <%- @gallery.edit_link %>
+    </div>
+
     <div class="record-title gallery">
       <a href="<%= @gallery.edit_path %>"><%= @gallery.title %></a>
     </div>
-
-    <div class="record-actions">
-      <%- @gallery.edit_link %>
-      <%- @gallery.delete_link %>
-    </div>
-
-    <div class="spacer"></div>
   </div>
 </li>

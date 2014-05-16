@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512163915) do
+ActiveRecord::Schema.define(version: 20140516135347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,16 +61,6 @@ ActiveRecord::Schema.define(version: 20140512163915) do
 
   add_index "tenon_assets", ["created_at"], name: "index_assets_on_created_at", using: :btree
   add_index "tenon_assets", ["job_id"], name: "index_assets_on_job_id", using: :btree
-
-  create_table "tenon_banners", force: true do |t|
-    t.string   "title"
-    t.integer  "list_order", default: 999
-    t.datetime "publish_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "tenon_banners", ["list_order"], name: "index_banners_on_list_order", using: :btree
 
   create_table "tenon_comment_subscribers", force: true do |t|
     t.integer  "commentable_id"
@@ -195,13 +185,14 @@ ActiveRecord::Schema.define(version: 20140512163915) do
     t.datetime "updated_at"
   end
 
+  add_index "tenon_item_versions", ["item_id", "item_type"], name: "index_tenon_item_versions_on_item_id_and_item_type", using: :btree
+
   create_table "tenon_pages", force: true do |t|
     t.integer  "parent_id"
     t.string   "title"
     t.string   "slug"
     t.string   "path"
     t.string   "unique_key"
-    t.text     "content"
     t.integer  "list_order",        default: 999
     t.boolean  "show_in_menu",      default: true
     t.integer  "creator_id"
@@ -256,7 +247,6 @@ ActiveRecord::Schema.define(version: 20140512163915) do
 
   create_table "tenon_posts", force: true do |t|
     t.string   "title"
-    t.text     "content"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

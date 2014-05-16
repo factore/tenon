@@ -1,14 +1,12 @@
 <li data-record-id="<%= @post_category.id %>">
   <div class="record-details">
-    <div class="record-title">
-      <strong>
-        <a href="<%= @post_category.edit_path %>" data-modal-remote="true" data-modal-title="Edit Post Category"><%= @post_category.title %></a>
-      </strong>
+    <div class="record-actions">
+      <%- @post_category.delete_link %>
+      <%- @post_category.edit_link %>
     </div>
 
-    <div class="record-actions">
-      <%- @post_category.edit_link %>
-      <%- @post_category.delete_link %>
+    <div class="record-title">
+      <a href="<%= @post_category.edit_path %>" data-modal-remote="true" data-modal-title="Edit Post Category"><%= @post_category.title %></a>
     </div>
   </div>
 </li>

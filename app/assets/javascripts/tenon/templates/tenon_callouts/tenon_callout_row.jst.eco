@@ -1,5 +1,10 @@
 <li data-record-id="<%= @tenon_callout.id %>">
   <div class="record-details">
+    <div class="record-actions">
+      <%- @tenon_callout.delete_link %>
+      <%- @tenon_callout.edit_link %>
+    </div>
+
     <div class="record-title">
       <i class="fa fa-<%= @tenon_callout.icon %> fa-fw"></i>
       <a href="<%= @tenon_callout.edit_path %>"><%= @tenon_callout.title %></a>
@@ -9,11 +14,6 @@
       <div class="record-field">
         <%= @tenon_callout.uri %>
       </div>
-    </div>
-
-    <div class="record-actions">
-      <%- @tenon_callout.edit_link %>
-      <%- @tenon_callout.delete_link %>
     </div>
   </div>
 </li>

@@ -1,20 +1,30 @@
 <li data-record-id="<%= @post.id %>">
   <div class="record-details">
+    <div class="record-actions">
+      <%- @post.delete_link %>
+      <%- @post.edit_link %>
+      <%- @post.subpost_link %>
+      <%- @post.view_link %>
+    </div>
+
     <div class="record-title">
       <a href="<%= @post.edit_path %>"><%= @post.title %></a>
     </div>
 
     <div class="record-fields">
+      <% if @post.author: %>
+        <div class="record-field">
+          Author - <%= @post.author %>
+        </div>
+      <% end %>
       <div class="record-field">
         Created - <%= @post.created_at %>
       </div>
-    </div>
-
-    <div class="record-actions">
-      <%- @post.view_link %>
-      <%- @post.subpost_link %>
-      <%- @post.edit_link %>
-      <%- @post.delete_link %>
+      <% if @post.categories: %>
+        <div class="record-field">
+          Categories - <%= @post.categories %>
+        </div>
+      <% end %>
     </div>
   </div>
 </li>

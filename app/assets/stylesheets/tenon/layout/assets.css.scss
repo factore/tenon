@@ -1,37 +1,11 @@
 // Put your asset page layout here.
 
-#assets.record-list {
-
-  li.asset {
-    @include transition(opacity 0.2s ease-in, max-height 0.2s ease-in);
-    overflow: hidden;
-    max-height: 100;
-    opacity: 1;
-
-    &.hidden {
-      padding: 0;
-      max-height: 0;
-      opacity: 0;
-    }
-  }
-
-  a.asset-icon {
-    width: 10%;
-    height: 100%;
-  }
-}
-
-#assets.record-grid a.asset-icon {
-  display: none;
-}
-
 #assets a.asset-icon {
   display: block;
   border: 1px solid $tn-med-grey;
   background: $tn-light-grey;
   color: #000;
   text-align: center;
-
   &:hover {
     text-decoration: none;
   }
@@ -45,19 +19,12 @@ form.edit_asset {
   display: inline-block;
   margin: $tn-margin 0 0;
   width: 100%;
-
-  // .preview {
-
-  //   img { max-width: 100%;}
-  // }
 }
-
 
 #new-asset, #upload-asset {
   .fields.full {
     margin-bottom: 0;
   }
-
   .fileupload {
     position: relative;
     overflow: hidden;
@@ -65,7 +32,6 @@ form.edit_asset {
     padding: 5px 10px;
     border-radius: 15px;
     font-size: $tn-font-small;
-
     input.upload {
       position: absolute;
       top: 0;
@@ -77,7 +43,6 @@ form.edit_asset {
       cursor: pointer;
     }
   }
-
   .form-group {
     float: right;
   }

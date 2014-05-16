@@ -6,7 +6,7 @@ describe Tenon::ContactDecorator do
   describe '#sent_date' do
     let(:contact) { double(created_at: Time.new(2014, 03, 26)) }
     it 'should return created_at as %B %e, %Y at %l:%M %p' do
-      expect(cd.sent_date).to eq( Time.new(2014, 03, 26).strftime('%B %e, %Y at %l:%M %p') )
+      expect(cd.sent_date).to eq(Time.new(2014, 03, 26).strftime('%B %e, %Y at %l:%M %p'))
     end
 
   end

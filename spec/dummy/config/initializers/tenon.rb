@@ -5,16 +5,16 @@ Tenon.configure do |config|
   # Set up grid config for the front end.  This is done here so that we can
   # present accurate sizing
   config.front_end = {
-    :breakpoints => {
-      :desktop => 1400,
-      :laptop => 960,
-      :tablet => 768
+    breakpoints: {
+      desktop: 1400,
+      laptop: 960,
+      tablet: 768
     },
-    :columns => 24,
-    :gutter => 20,
+    columns: 24,
+    gutter: 20,
 
-    :content_columns => {
-      :default => 18
+    content_columns: {
+      default: 18
     }
   }
 

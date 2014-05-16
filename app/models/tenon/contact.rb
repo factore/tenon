@@ -42,8 +42,5 @@ module Tenon
     # else
     #   return errors
     # end
-
-    private
-
   end
 end

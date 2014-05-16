@@ -1,5 +1,10 @@
 <li data-record-id="<%= @user.id %>">
   <div class="record-details">
+    <div class="record-actions">
+      <%- @user.delete_link %>
+      <%- @user.edit_link %>
+    </div>
+
     <div class="record-title">
       <a href="<%= @user.edit_path %>"><%= @user.email %></a>
     </div>
@@ -11,11 +16,6 @@
       <div class="record-field">
         Last Login - <%= @user.last_login %>
       </div>
-    </div>
-
-    <div class="record-actions">
-      <%- @user.edit_link %>
-      <%- @user.delete_link %>
     </div>
   </div>
 </li>

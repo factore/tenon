@@ -26,3 +26,5 @@
 .main-content
   = error_messages_for :post_category
   %ul#post_categories.record-list{data: {records: {url: post_categories_path(format: 'json'), template: 'tenon/templates/post_categories/post_category_row', name: 'post_category'}}}
+
+  = link_to "Load More Post Categories", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#post_categories'

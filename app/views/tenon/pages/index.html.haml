@@ -19,3 +19,5 @@
 
 .main-content
   %ul#pages.record-list.sortable.nested{data: {records: {url: pages_path(format: 'json'), template: 'tenon/templates/pages/page_row', name: 'page', nested: 'true'}, :'reorder-path' => reorder_pages_path}}
+
+  = link_to "Load More Pages", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#pages'

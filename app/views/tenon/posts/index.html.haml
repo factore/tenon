@@ -23,3 +23,5 @@
 
 .main-content
   %ul#posts.record-list{data: {records: {url: posts_path(format: 'json'), template: 'tenon/templates/posts/post_row', name: 'post'}}}
+
+  = link_to "Load More Posts", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#posts'
