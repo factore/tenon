@@ -12,15 +12,19 @@
     </div>
 
     <div class="record-fields">
-      <div class="record-field">
-        Author - <%= @post.user.email %>
-      </div>
+      <% if @post.author: %>
+        <div class="record-field">
+          Author - <%= @post.author %>
+        </div>
+      <% end %>
       <div class="record-field">
         Created - <%= @post.created_at %>
       </div>
-      <div class="record-field">
-        Categories - <%= @post.categories %>
-      </div>
+      <% if @post.categories: %>
+        <div class="record-field">
+          Categories - <%= @post.categories %>
+        </div>
+      <% end %>
     </div>
   </div>
 </li>

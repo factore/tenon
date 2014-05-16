@@ -1,6 +1,6 @@
 json.records do
   json.array!(@posts) do |post|
-    json.extract!(post, :title, :to_param, :user, :id)
+    json.extract!(post, :title, :to_param, :id)
     json.created_at post.created_at.strftime('%B %e, %Y at %l:%m%p')
     json.edit_path edit_post_path(post)
     if post.published?
@@ -9,6 +9,7 @@ json.records do
     json.categories post.post_categories.map{ |c| c.title }.join(', ')
     json.edit_link edit_link(post)
     json.delete_link delete_link(post)
+    json.author post.user.email if post.user.present?
   end
 end
 
