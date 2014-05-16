@@ -4,7 +4,7 @@ json.records do
     json.gravatar gravatar_for(comment)
     json.commentable_link link_to("#{comment.commentable.title}", comment.commentable, :target => "_")
     json.read_link action_link("Read", '#', 'eye', 'data-modal-target' => "#comment-#{comment.id}", 'data-modal-title' => 'Read Comment')
-    json.approval_link toggle_link(comment, 'approved', toggle_approved_comment_path(comment), ['thumbs-up', 'This is true'], ['thumbs-down', 'This is false'])
+    json.approval_link toggle_link(comment, 'approved', toggle_approved_comment_path(comment), ['thumbs-up', 'Approved'], ['thumbs-down', 'Not Approved'])
     json.delete_link delete_link(comment)
   end
 end
