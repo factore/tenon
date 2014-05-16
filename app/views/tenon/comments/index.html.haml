@@ -15,3 +15,5 @@
 
 .main-content
   %ul#comments.record-list.with-thumbnail{data: {records: {url: comments_path(format: 'json'), template: 'tenon/templates/comments/comment_row', name: 'comment'}}}
+
+  = link_to "Load More Comments", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#comments'

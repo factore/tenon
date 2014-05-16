@@ -20,3 +20,5 @@
 .main-content
   = error_messages_for :tenon_callout
   %ul#tenon_callouts.record-list.sortable{data: {records: {url: tenon_callouts_path(format: 'json'), template: 'tenon/templates/tenon_callouts/tenon_callout_row', name: 'tenon_callout'}, :'reorder-path' => reorder_tenon_callouts_path}}
+
+  = link_to "Load More Callouts", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#tenon_callouts'

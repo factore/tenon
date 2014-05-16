@@ -121,7 +121,8 @@ ul.record-list {
 
 .record-list.with-thumbnail {
   li {
-    height: 100px;
+    min-height: 100px;
+    background-color: #fff;
   }
   .thumbnail {
     position: absolute;
@@ -136,6 +137,7 @@ ul.record-list {
   }
   .record-details {
     margin-left: 100px;
+    min-height: 100px;
     &:hover > .record-actions {
       opacity: 1;
     }
