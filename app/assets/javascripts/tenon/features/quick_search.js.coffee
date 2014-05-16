@@ -6,7 +6,7 @@ class Tenon.features.QuickSearch
     @$field = $('#quick-search')
 
     # listeners
-    $(document).on('keyup', @$field, $.debounce(500, @_submitSearch))
+    $(document).on('keyup', '#quick-search', $.debounce(500, @_submitSearch))
 
     @$toggle.on('click', @toggleNav)
     # $(document).on('click', '.nav-holder.mobile-open a', @_closeNav)
