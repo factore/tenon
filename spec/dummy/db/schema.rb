@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140516135347) do
+ActiveRecord::Schema.define(version: 20140515202140) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -172,19 +173,6 @@ ActiveRecord::Schema.define(version: 20140516135347) do
 
   add_index "tenon_item_assets", ["asset_id"], name: "index_item_assets_on_asset_id", using: :btree
   add_index "tenon_item_assets", ["item_id", "item_type"], name: "index_item_assets_on_item_id_and_item_type", using: :btree
-
-  create_table "tenon_item_versions", force: true do |t|
-    t.integer  "item_id"
-    t.string   "item_type"
-    t.binary   "attrs"
-    t.string   "title"
-    t.string   "save_type"
-    t.integer  "creator_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "tenon_item_versions", ["item_id", "item_type"], name: "index_tenon_item_versions_on_item_id_and_item_type", using: :btree
 
   create_table "tenon_pages", force: true do |t|
     t.integer  "parent_id"
