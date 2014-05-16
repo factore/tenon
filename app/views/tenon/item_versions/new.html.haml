@@ -1,0 +1,12 @@
+= form_for @item_version, builder: Tenon::FormBuilder do |f|
+  .modal-body
+    .fields.full
+      .form-group
+        = f.text_field :title
+        = f.hidden_field :item_type
+        = f.hidden_field :item_id
+
+      .spacer
+
+  .modal-footer
+    %button.btn.btn-comp.submit Save Draft

@@ -1,0 +1,9 @@
+.modal-body
+  Choose a draft to load from the list below.  Loading a draft will open it
+  but it will not overwrite the active version of your item until you
+  press Save.
+
+  .asset-list-scroller
+    %ul.record-list#item_versions{data: {records: {url: item_versions_path(format: 'json', item_type: params[:item_type], item_id: params[:item_id]), template: 'tenon/templates/item_versions/item_version_row', name: 'item_version'}}}
+
+    = link_to "Load Older Drafts", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#item_versions'

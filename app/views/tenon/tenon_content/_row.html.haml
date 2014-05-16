@@ -1,4 +1,4 @@
-.tn-tc-row
+.tn-tc-row{:style => ("display: none;" if f.object._destroy)}
   = f.hidden_field :item_method, value: field
   .tn-tc-topbar
     .actions

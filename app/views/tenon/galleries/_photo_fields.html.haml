@@ -1,3 +1,3 @@
-%li.nested-fields
+%li.nested-fields{:style => ('display: none;' if f.object._destroy)}
   = render "tenon/shared/asset_field", f: f, asset: :file, remove_association: true
   = f.hidden_field :list_order

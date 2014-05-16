@@ -42,6 +42,7 @@ var Tenon = {
     new Tenon.features.InfiniteLoading();
     new Tenon.features.QuickSearch();
     new Tenon.features.DateTimePicker();
+    new Tenon.features.ItemVersionAutosave();
     new Tenon.features.ModalWindows();
     new Tenon.features.ModalForms();
     new Tenon.features.RecordApproval();

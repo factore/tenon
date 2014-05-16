@@ -5,6 +5,7 @@ module Tenon
     scope :for_archive, ->(year, month) { where(Post.for_archive_conditions(year, month)) }
     default_scope { order('created_at DESC') }
     tenon_content :content
+    has_history includes: [:content_tenon_content_rows]
 
     # Relationships
     has_and_belongs_to_many :post_categories, class_name: 'Tenon::PostCategory'

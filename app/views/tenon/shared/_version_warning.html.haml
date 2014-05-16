@@ -1,0 +1,13 @@
+.flash.flash-notice
+  %p
+    You are viewing a draft version of this resource.  Hitting save will replace the active version with this version.
+
+  %p Auto-saving is disabled when you are viewing a draft version.
+
+  %p
+    %small
+      Draft
+      - unless @item_version.title.blank?
+        %strong "#{@item_version.title}"
+      was created on #{@item_version.created_at.strftime('%m/%d/%Y at %l:%M %p')}
+      by #{@item_version.user.try(:email)}

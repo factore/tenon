@@ -2,6 +2,8 @@ module Tenon
   class Page < ActiveRecord::Base
     # Scopes, Attrs, Etc.
     acts_as_nested_set
+    has_history except: [:lft, :rgt, :parent_id, :depth],
+                includes: [:content_tenon_content_rows]
     tenon_content :content
     default_scope { order('tenon_pages.lft, tenon_pages.list_order') }
     scope :published, -> { where('publish_at <= ?', Time.now) }

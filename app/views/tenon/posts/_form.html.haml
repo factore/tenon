@@ -11,7 +11,7 @@
 
     = render "tenon/shared/posts_nav"
 
-= form_for @post, :builder => Tenon::FormBuilder do |f|
+= autosaving_form_for @post do |f|
   = error_messages_for :post
   .fields.large.tabs
     .tab-pane.active#details
@@ -52,7 +52,12 @@
 
       .row.content
         %button.btn.btn-comp.btn-block.submit Save
-      - if @post.persisted?
-        %hr
-        .content
+        = save_draft_button(@post)
+        .last-autosave
+
+      %hr
+      .content
+        = clear_draft_link if params[:version]
+        = load_draft_link(@post)
+        - if @post.persisted?
           = link_to "Delete", @post, :data => {:method => :delete, :confirm => "Are you sure you want to delete this?"}, :class => 'delete-link'

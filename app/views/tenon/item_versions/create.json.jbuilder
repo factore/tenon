@@ -1,0 +1,1 @@
+json.partial! 'item_version', item_version: @item_version

@@ -181,3 +181,11 @@ input[type=text], input[type=password] {
 .nested-fields {
   margin: 0 0 15px;
 }
+
+.last-autosave {
+  font-style: italic;
+  font-size: 12px;
+  padding-top: 5px;
+  color: $tn-dark-grey;
+  display: none;
+}

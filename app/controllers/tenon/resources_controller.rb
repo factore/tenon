@@ -21,15 +21,24 @@ module Tenon
     end
 
     def new
+      if params[:version] && resource.respond_to?(:revert)
+        @item_version = Tenon::ItemVersion.find(params[:version])
+        resource.revert(@item_version)
+      end
       respond_with(resource)
     end
 
     def edit
+      if params[:version] && resource.respond_to?(:revert)
+        @item_version = Tenon::ItemVersion.find(params[:version])
+        resource.revert(@item_version)
+      end
       respond_with(resource)
     end
 
     def update
       if resource.update_attributes(resource_params)
+        save_item_version if resource.respond_to?(:versions)
         flash[:notice] = "#{human_name} saved successfully." unless request.xhr?
       end
 
@@ -39,7 +48,10 @@ module Tenon
 
     def create
       self.resource = klass.new(resource_params).decorate
-      flash[:notice] = "#{human_name} saved successfully." if resource.save && !request.xhr?
+      if resource.save && !request.xhr?
+        flash[:notice] = "#{human_name} saved successfully."
+        save_item_version if resource.respond_to?(:versions)
+      end
       respond_with(resource.decorate, location: polymorphic_index_path, status: 201)
     end
 
@@ -62,8 +74,14 @@ module Tenon
 
     private
 
-    def self.uses_ckeditor
-      before_filter :uses_ckeditor, only: [:new, :edit, :update, :create]
+    def save_item_version
+      item_version = resource.versions.build
+      item_version.attrs = resource_params
+      item_version.user = current_user
+      item_version.created_at = resource.updated_at
+      item_version.save_type = 'post-save'
+      item_version.title = 'Post-Save'
+      item_version.save
     end
 
     def resource

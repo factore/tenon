@@ -30,7 +30,6 @@ class Tenon.features.QuickSearch
     $('header').css('border-bottom-width', '1px')
     @$content.removeClass(@openClass)
 
-
   _openNav: () =>
     @$toggle.addClass(@openClass)
     $('header').css('border-bottom-width', '0px')

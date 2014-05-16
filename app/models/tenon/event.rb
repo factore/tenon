@@ -6,6 +6,7 @@ module Tenon
     scope :past, -> { where(['ends_at < ?', Time.now]).order(:starts_at) }
     default_scope -> { order 'starts_at DESC' }
     tenon_content :description
+    has_history includes: [:description_tenon_content_rows]
 
     # Validations
     validates_presence_of :title, :starts_at, :ends_at

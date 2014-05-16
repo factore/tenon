@@ -6,6 +6,7 @@ module Tenon
     validates_presence_of :title
     validates_uniqueness_of :title
     default_scope { order('tenon_galleries.list_order') }
+    has_history includes: [:photos]
 
     def self.find_with_photos(id)
       includes(:photos).order('tenon_photos.list_order').find(id)

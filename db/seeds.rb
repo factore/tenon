@@ -9,7 +9,7 @@
 
 %w(admin super_admin).each do |role|
   password = ENV['PASSWORD'].blank? ? role + '1234' : ENV['PASSWORD']
-  user = Tenon::User.new(:password => password, :password_confirmation => password, :email => "#{role}@factore.ca")
+  user = Tenon::User.new(password: password, password_confirmation: password, email: "#{role}@factore.ca")
   user.approved = true
   user.roles << Tenon::Role.find_by(title: role.humanize.titleize)
   if user.save

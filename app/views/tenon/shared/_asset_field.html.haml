@@ -1,6 +1,6 @@
 %label.asset-label= asset.to_s.titleize
 .asset-field
-  = f.hidden_field "#{asset}_id", class: 'asset-id-field', value: nil
+  = f.hidden_field "#{asset}_id", class: 'asset-id-field'
   .thumbnail
     - if f.object.send(asset)
       = image_tag url_for(f.object.send(asset).url(:_thumbnail))

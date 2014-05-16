@@ -1,0 +1,21 @@
+<li data-record-id="<%= @item_version.id %>">
+  <div class="record-details">
+    <div class="record-title">
+      <%= @item_version.title %>
+    </div>
+
+    <div class="record-fields">
+      <div class="record-field">
+        Created - <%= @item_version.created_at %>
+      </div>
+
+      <div class="record-field">
+        Creator - <%= @item_version.user_email %>
+      </div>
+    </div>
+
+    <div class="record-actions">
+      <%- @item_version.load_link %>
+    </div>
+  </div>
+</li>
