@@ -9,6 +9,8 @@ html {
 
 body {
   height: 100%;
+  background-color: $tn-light-grey;
+  @include clearfix;
 }
 
 .page-wrap {
