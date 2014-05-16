@@ -10,10 +10,10 @@ module Tenon
 
     accepts_nested_attributes_for :asset
 
-    after_create :reprocess_asset
+    after_save :reprocess_asset
 
     def reprocess_asset
-      asset.reload.attachment.reprocess!
+      asset.reload.attachment.reprocess! if asset_id_changed?
     end
   end
 end
