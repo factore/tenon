@@ -1,12 +1,12 @@
 <li data-record-id="<%%= @<%= singular_name %>.id %>">
   <div class="record-details">
-    <div class="record-title">
-      <a href="<%%= @<%= singular_name %>.edit_path %>" data-modal-remote="true" data-modal-title="Edit <%= singular_name.titleize %>"><%%= @<%= singular_name %>.title %></a>
+    <div class="record-actions">
+      <%%- @<%= singular_name %>.delete_link %>
+      <%%- @<%= singular_name %>.edit_link %>
     </div>
 
-    <div class="record-actions">
-      <%%- @<%= singular_name %>.edit_link %>
-      <%%- @<%= singular_name %>.delete_link %>
+    <div class="record-title">
+      <a href="<%%= @<%= singular_name %>.edit_path %>" data-modal-remote="true" data-modal-title="Edit <%= singular_name.titleize %>"><%%= @<%= singular_name %>.title %></a>
     </div>
   </div>
 </li>
