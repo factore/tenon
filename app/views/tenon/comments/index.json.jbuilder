@@ -5,12 +5,11 @@ json.records do
 
     if comment.commentable.published? && route_exist?(comment.commentable)
       json.commentable_link link_to("#{comment.commentable.title}", main_app.polymorphic_path(comment.commentable), :target => "_")
-      json.read_link action_link("Read", '#', 'eye', 'data-modal-target' => "#comment-#{comment.id}", 'data-modal-title' => 'Read Comment')
     else
       json.commentable_link comment.commentable.title
     end
 
-
+    json.read_link action_link("Read", '#', 'eye', 'data-modal-target' => "#comment-#{comment.id}", 'data-modal-title' => 'Read Comment')
     json.approval_link toggle_link(comment, 'approved', toggle_approved_comment_path(comment), ['thumbs-up', 'Approved'], ['thumbs-down', 'Not Approved'])
     json.delete_link delete_link(comment)
   end
