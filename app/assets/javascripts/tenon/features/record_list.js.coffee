@@ -13,7 +13,6 @@ class Tenon.features.RecordList
     @_showLoader()
     @_loadRecords()
 
-
   _setupTemplate: =>
     @_templatePath = @$list.data('records-template')
     @_recordName = @$list.data('records-name')
