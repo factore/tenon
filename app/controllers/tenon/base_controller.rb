@@ -2,7 +2,7 @@ module Tenon
   class BaseController < ApplicationController
     layout :layout_for_resource
 
-    before_filter :set_crumbs, :set_title
+    before_filter :set_title
     before_filter :require_admin, unless: :devise_controller?
 
     rescue_from CanCan::AccessDenied do |exception|
@@ -18,11 +18,6 @@ module Tenon
       else
         'tenon/application'
       end
-    end
-
-    def set_crumbs
-      @controller_crumb = params[:controller]
-      @action_crumb = params[:action]
     end
 
     def set_title
