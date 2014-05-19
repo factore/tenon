@@ -12,5 +12,10 @@
       <a href="<%= @page.edit_path %>"><%= @page.title %></a>
     </div>
 
+    <div class="record-fields">
+      <div class="record-field">
+        Last Updated - <%= @page.updated_at %> by <%=@page.updater %>
+      </div>
+    </div>
   </div>
 </div>

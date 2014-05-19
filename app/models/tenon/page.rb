@@ -12,6 +12,8 @@ module Tenon
 
     # Relationships
     belongs_to :parent, class_name: 'Page', foreign_key: 'parent_id'
+    belongs_to :creator, class_name: 'User', foreign_key: 'creator_id'
+    belongs_to :updater, class_name: 'User', foreign_key: 'updater_id'
     has_many :subpages, -> { order 'list_order' }, class_name: 'Page', foreign_key: 'parent_id', dependent: :destroy
 
     # Validations

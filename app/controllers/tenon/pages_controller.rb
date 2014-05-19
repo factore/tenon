@@ -21,6 +21,17 @@ module Tenon
       super
     end
 
+    def update
+      resource.updater_id = current_user.id
+      super
+    end
+
+    def create
+      params[:page][:creator_id] = current_user.id
+      params[:page][:updater_id] = current_user.id
+      super
+    end
+
     def reorder
       @pages = Tenon::Page.reorder!(params[:item_list], params[:parent_id])
       render nothing: true
