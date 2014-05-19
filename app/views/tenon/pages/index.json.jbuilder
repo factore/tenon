@@ -4,7 +4,7 @@ json.records do
   json.array!(pages) do |page|
     json.extract!(page, :title, :lft, :rgt, :to_param, :parent_id, :id, :list_order)
     json.updated_at page.updated_at.strftime('%B %e, %Y at %l:%m%p')
-    json.updater page.updater.present? ? page.updater.email : 'Deleted User'
+    json.updater page.updater.present? ? page.updater.email : 'Unknown User'
     json.edit_path edit_page_path(page)
 
     if page.published? && route_exist?(page)
