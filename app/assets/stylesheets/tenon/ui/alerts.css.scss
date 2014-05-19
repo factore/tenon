@@ -15,7 +15,7 @@
   display: none;
   position: relative;
   margin: 0;
-  padding: 14px 0;
+  padding: $tn-padding 0;
   width: 100%;
   min-height: 50px;
   border: 0;
@@ -30,11 +30,12 @@
     margin-top: 5px;
   }
   i {
-    font-size: 20px;
-    float: right;
-    margin-right: 15px;
-    position: relative;
-    top: -20px;
+    // font-size: 20px;
+    // float: right;
+    // margin-right: 15px;
+    position: absolute;
+    top: $tn-padding;
+    right: $tn-padding;
   }
 
   a {
