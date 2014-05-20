@@ -11,10 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140516135347) do
+ActiveRecord::Schema.define(version: 20140520150508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dogs", force: true do |t|
+  end
 
   create_table "settings", force: true do |t|
     t.string   "var",                   null: false
@@ -250,14 +253,14 @@ ActiveRecord::Schema.define(version: 20140516135347) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "allow_comments",  default: true,  null: false
+    t.boolean  "allow_comments",  default: true, null: false
     t.integer  "creator_id"
     t.integer  "updater_id"
-    t.boolean  "published",       default: false
     t.text     "excerpt"
     t.string   "seo_title"
     t.text     "seo_keywords"
     t.text     "seo_description"
+    t.datetime "publish_at"
   end
 
   add_index "tenon_posts", ["created_at"], name: "index_posts_on_created_at", using: :btree

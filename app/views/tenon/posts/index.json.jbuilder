@@ -1,7 +1,7 @@
 json.records do
   json.array!(@posts) do |post|
     json.extract!(post, :title, :to_param, :id)
-    json.created_at post.created_at.strftime('%B %e, %Y at %l:%m%p')
+    json.publish_at post.publish_at.present? ? post.publish_at.strftime('%B %e, %Y at %l:%m%p') : 'Date not set'
     json.edit_path edit_post_path(post)
     if post.published? && main_app.respond_to?(:post_path)
       json.view_link action_link('View on Site', main_app.post_path(post), 'laptop')

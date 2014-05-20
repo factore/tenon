@@ -28,15 +28,15 @@ describe 'An admin', js: true do
 
     context 'when there are two posts' do
       let!(:old_post) { create(:post) }
-      let!(:new_post) { create(:post, created_at: Time.now + 1.day, title: 'New Post') }
+      let!(:new_post) { create(:post, publish_at: Time.now + 1.day, title: 'New Post') }
 
-      it 'should see the new post first' do
+      it 'should see the unpublished post first' do
         visit posts_path
         within('ul#posts li:first-child') do
-          expect(page).to have_content new_post.title
+          expect(page).to have_content old_post.title
         end
         within('ul#posts li:last-child') do
-          expect(page).to have_content old_post.title
+          expect(page).to have_content new_post.title
         end
       end
     end
