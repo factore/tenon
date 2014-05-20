@@ -12,3 +12,4 @@ vendor/ruby
 spec/dummy/public/system
 spec/dummy/db/migrate/
 tags
+*.gem
