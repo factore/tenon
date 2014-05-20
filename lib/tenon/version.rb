@@ -1,3 +1,3 @@
 module Tenon
-  VERSION = '0.0.1'
+  VERSION = '1.01'
 end
