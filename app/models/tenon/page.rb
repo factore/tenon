@@ -61,6 +61,10 @@ module Tenon
       end
     end
 
+    def published?
+      publish_at.present? ? publish_at <= Time.now : false
+    end
+
     protected
 
     def path_is_not_route
