@@ -1,7 +1,7 @@
 module Tenon
   class Event < ActiveRecord::Base
     # Scopes, attachments, etc.
-    scope :published, -> { where(published: true) }
+    scope :published, -> { where('publish_at <= ?', Time.now) }
     scope :upcoming, -> { where(['ends_at > ?', Time.now]).order(:starts_at) }
     scope :past, -> { where(['ends_at < ?', Time.now]).order(:starts_at) }
     default_scope -> { order 'starts_at DESC' }
