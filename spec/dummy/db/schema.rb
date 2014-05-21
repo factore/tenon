@@ -16,6 +16,9 @@ ActiveRecord::Schema.define(version: 20140520161213) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "dogs", force: true do |t|
+  end
+
   create_table "settings", force: true do |t|
     t.string   "var",                   null: false
     t.text     "value"
