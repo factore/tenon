@@ -1,17 +1,29 @@
 // define z-indexes
+
+// general page-level
 $tn-z-page-wrap: 2;
 $tn-z-pagination: 2;
+
+// headers, sidebar, nav
 $tn-z-section-header: 997;
 $tn-z-sidebar: 998;
 $tn-z-main-nav: 999;
 $tn-z-util-nav: 1000;
+
+// Tenon content
 $tn-z-content-popped-backdrop: 1020;
 $tn-z-content-popped: 1029;
 $tn-z-tc-sizer: 1029;
+
+// modals
 $tn-z-modal-backdrop: 1030;
 $tn-z-asset-cropping: 1040;
 $tn-z-modal: 1040;
 $tn-z-modal-dialog: 1050;
+
+// spinners
 $tn-z-generic-loader: 1050;
 $tn-z-asset-cropping-spinner: 2000;
+
+// header menu
 $tn-z-header-menu: 3000;
