@@ -4,7 +4,6 @@ class Tenon.features.ItemVersionAutosave
     @$form.on('keyup change cocoon:after-insert cocoon:after-remove', $.debounce(6000, @autosave))
 
   autosave: =>
-    console.log('saved')
     jqxhr = $.ajax
       url: @$form.data('version-create-path')
       data: @_formData()
