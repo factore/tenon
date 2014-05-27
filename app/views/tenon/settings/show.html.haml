@@ -7,6 +7,8 @@
     %nav
       %ul
         %li.active= link_to "General Settings", '#general', data: {toggle: 'tab'}
+        %li= link_to 'Contact Management', '#contact', data: {toggle: 'tab'}
+        %li= link_to 'Search Optimization', '#seo', data: {toggle: 'tab'}
 
 %header
   %h1 Site Settings
@@ -16,5 +18,14 @@
 
 .main-content
   = form_tag({:action => :update}, :method => "PUT") do
-    .tabs
-      #general.tab-pane.active= render :partial => "general"
+    .fields.large.tabs
+      #general.tab-pane.active= render :partial => 'general'
+      #contact.tab-pane= render :partial => 'contact'
+      #seo.tab-pane= render :partial => 'seo'
+
+    .fields.small
+      %h4.box-label Actions
+      .box
+        .content
+          %button.btn.btn-primary.btn-block.submit Save
+

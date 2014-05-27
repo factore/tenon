@@ -1,40 +1,12 @@
-.fields.large
-  .form-group
-    %label Site Name
-    = text_field_tag "settings[site_title]", Tenon::MySettings.site_title
+.form-group
+  %label Site Name
+  = text_field_tag 'settings[site_title]', Tenon::MySettings.site_title
 
-  .form-group
-    %label Site Domain
-    = text_field_tag "settings[site_url]", Tenon::MySettings.site_url
+.form-group
+  %label Site Domain
+  = text_field_tag 'settings[site_url]', Tenon::MySettings.site_url
 
-  .form-group
-    %label Google Analytics Code
-    .explanation= link_to "Create a New Profile Here", "https://www.google.com/analytics/settings/add_profile?scid=16153080", :target => "_"
-    = text_area_tag "settings[google_analytics]", Tenon::MySettings.google_analytics, :style => "height: 180px;"
-
-.fields.small
-  %h4.box-label Details
-  .box
-    .form-group.inline.bordered
-      = check_box_tag "settings[comment_email]", 1, Tenon::MySettings.comment_email, class: 'tn-checkbox-right'
-      %label{for: 'settings_comment_email'} Comment Email
-      .explanation Do you want to receive an email when someone posts a comment?
-
-    .form-group.bordered
-      %label Contact Email
-      .explanation Destination email address for alerts.  Separate multiple email addresses with commas.
-      = text_field_tag "settings[contact_email]", Tenon::MySettings.contact_email, :placeholder => "--"
-
-
-
-    .form-group.bordered
-      %label Sender Email
-      .explanation "From" email address for alerts.
-      = text_field_tag "settings[from_email]", Tenon::MySettings.from_email, :placeholder => "--"
-
-  %h4.box-label Actions
-  .box
-    .content
-      %button.btn.btn-comp.btn-block.submit Save
-
-  .spacer
+.form-group
+  %label Google Analytics Code
+  .explanation= link_to 'Create a New Profile Here', 'https://www.google.com/analytics/settings/add_profile?scid=16153080', target: '_'
+  = text_area_tag 'settings[google_analytics]', Tenon::MySettings.google_analytics, style: 'height: 180px;'
