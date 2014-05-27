@@ -92,6 +92,20 @@ util-nav {
   .header-menu ul {
     border-top: 0;
   }
+
+  .tools {
+    .header-menu.active, .header-menu > a:hover, .header-button > a:hover, .header-button.active {
+      background-color: transparent;
+    }
+
+    .header-menu > a:hover {
+      text-decoration: underline;
+    }
+
+    .header-menu ul {
+      border-top: 0;
+    }
+  }
 }
 
 header {
