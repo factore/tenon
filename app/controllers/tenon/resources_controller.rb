@@ -136,11 +136,6 @@ module Tenon
       fail 'Define strong paramaters in controller method resource_params'
     end
 
-    def sidebar
-      partial = "tenon/#{controller_name.pluralize}/sidebar"
-      partial if File.exist? File.join(Rails.root, 'app', 'views', partial)
-    end
-
     helper_method :sidebar
   end
 end
