@@ -28,7 +28,7 @@ util-nav {
     width: 60px;
     height: 50px;
     &:hover {
-      background-color: transparentize(#fff, 0.6);
+      background-color: $tn-highlight;
     }
   }
 }

@@ -71,12 +71,11 @@ $tn-tool-border: 0;
         }
         a {
           color: $tn-black;
-        }
-        &:hover {
-          background-color: $tn-comp;
-          a {
+
+          &:hover {
+            background-color: $tn-comp;
             color: #fff;
-          }
+                      }
         }
       }
     }
