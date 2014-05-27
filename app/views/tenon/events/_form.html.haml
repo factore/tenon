@@ -27,9 +27,11 @@
         = f.text_field :publish_at, label: "Publish Date", data: {behaviour: 'datetime-picker'}, placeholder: '--'
 
       .row.content
-        %button.btn.btn-comp.btn-block.submit Save
-        = save_draft_button(@event)
-        .last-autosave
+        - if can?(:publish, @event)
+          %button.btn.btn-comp.btn-block.submit Save
+        - if can?(:create, Tenon::ItemVersion)
+          = save_draft_button(@event)
+          .last-autosave
 
       %hr
       .content

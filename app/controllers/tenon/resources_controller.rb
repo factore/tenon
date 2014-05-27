@@ -37,6 +37,7 @@ module Tenon
     end
 
     def update
+      authorize!(:publish, resource)
       if resource.update_attributes(resource_params)
         save_item_version if resource.respond_to?(:versions)
         flash[:notice] = "#{human_name} saved successfully." unless request.xhr?
@@ -48,6 +49,7 @@ module Tenon
 
     def create
       self.resource = klass.new(resource_params).decorate
+      authorize!(:publish, resource)
       if resource.save && !request.xhr?
         flash[:notice] = "#{human_name} saved successfully."
         save_item_version if resource.respond_to?(:versions)
@@ -132,11 +134,6 @@ module Tenon
 
     def resource_params
       fail 'Define strong paramaters in controller method resource_params'
-    end
-
-    def sidebar
-      partial = "tenon/#{controller_name.pluralize}/sidebar"
-      partial if File.exist? File.join(Rails.root, 'app', 'views', partial)
     end
 
     helper_method :sidebar
