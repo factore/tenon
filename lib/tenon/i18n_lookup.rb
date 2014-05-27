@@ -13,10 +13,12 @@ module Tenon
     end
 
     def self.set_fields
+      default = { tables: {} }
       if File.exist?(config_file)
-        YAML.load(File.open(config_file)).recursive_symbolize_keys!
+        result = YAML.load(File.open(config_file)).recursive_symbolize_keys!
+        result || default
       else
-        { tables: {} }
+        default
       end
     end
 
