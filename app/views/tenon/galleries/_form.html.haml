@@ -23,9 +23,12 @@
     %h4.box-label Publish
     .box
       .content
-        = f.submit 'Save', class: 'btn btn-block btn-comp'
-        = save_draft_button(@gallery)
-        .last-autosave
+        - if can?(:publish, @gallery)
+          = f.submit 'Save', class: 'btn btn-block btn-comp'
+
+        - if can?(:create, Tenon::ItemVersion)
+          = save_draft_button(@gallery)
+          .last-autosave
 
       %hr
       .content

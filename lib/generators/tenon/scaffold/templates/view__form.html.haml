@@ -63,15 +63,16 @@
         = f.text_field :publish_at, label: 'Publish Date', data: {behaviour: 'datetime-picker'}, placeholder: '--'
 <% end -%>
       .content
-        %button.btn.btn-block.btn-comp Save
-        = save_draft_button(@<%= singular_name %>)
-        .last-autosave
+        - if can?(:publish, @<%= singular_name %>)
+          %button.btn.btn-block.btn-comp Save
+        - if can?(:create, Tenon::ItemVersion)
+          = save_draft_button(@<%= singular_name %>)
+          .last-autosave
 
-
-        %hr
-        .content
-          = clear_draft_link if params[:version]
-          = load_draft_link(@<%= singular_name %>)
-          - if @<%= singular_name %>.persisted?
-            = link_to "Delete", @<%= singular_name %>, data: {method: :delete, confirm: 'Are you sure you want to delete this?'}, :class => 'delete-link'
+      %hr
+      .content
+        = clear_draft_link if params[:version]
+        = load_draft_link(@<%= singular_name %>)
+        - if @<%= singular_name %>.persisted?
+          = link_to "Delete", @<%= singular_name %>, data: {method: :delete, confirm: 'Are you sure you want to delete this?'}, :class => 'delete-link'
     .spacer
