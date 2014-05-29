@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'spring', '1.1.3'
   s.add_development_dependency 'spring-commands-rspec', '1.0.2'
 
-  s.add_dependency 'rails', '~> 4.0'
+  s.add_dependency 'rails', '>= 4.0.0'
 
   s.add_dependency 'acts-as-taggable-on', '2.4.1'
   s.add_dependency 'awesome_nested_set', '3.0.0.rc.5'
@@ -59,7 +59,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'launchy', '2.4.2'
   s.add_dependency 'lodash-rails', '2.4.1'
   s.add_dependency 'mediaelement_rails', '0.4.0'
-  s.add_dependency 'medium-editor-rails', '0.4.0'
+  s.add_dependency 'medium-editor-rails', '0.9.3'
   s.add_dependency 'mime-types', '1.25.1'
   s.add_dependency 'neat', '1.6.0'
   s.add_dependency 'nokogiri', '1.5.10'

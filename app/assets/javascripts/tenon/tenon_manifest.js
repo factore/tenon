@@ -21,6 +21,7 @@
 //= require jquery.twoLevelSort
 //= require jquery.ui.sortable
 //= require medium-editor
+//= require ./medium_customizations
 //= require select2
 //= require uri
 
