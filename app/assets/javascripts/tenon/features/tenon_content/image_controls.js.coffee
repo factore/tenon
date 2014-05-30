@@ -24,7 +24,7 @@ class Tenon.features.tenonContent.ImageControls
     $('.tooltip').remove()
 
   _removeControls: =>
-    $('body > .image-controls').remove()
+    $('body > .image-controls, body > .link-form').remove()
     delete Tenon.activeImageControls
 
   _buildControls: (e) =>

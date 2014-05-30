@@ -1,6 +1,6 @@
 class Tenon.features.tenonContent.ImageLinks
   constructor: (@$container) ->
-    $(document).on('click', '.column-image .add-link, .wrapped-image .add-link', @buildLinkForm)
+    $(document).on('click', '.image-controls .add-link', @buildLinkForm)
 
   buildLinkForm: (e) =>
     @$button = $(e.currentTarget)
@@ -41,7 +41,9 @@ class Tenon.features.tenonContent.ImageLinks
   _formFilled: (e) =>
     @saveForm() if e.keyCode == 13
 
-  _cancel: (e) => @$visibleForm.remove()
+  _cancel: (e) =>
+    e.preventDefault()
+    @$visibleForm.remove()
 
   _setButtonActiveState: (e) =>
     if @$visibleForm.find('input').val() != ''
