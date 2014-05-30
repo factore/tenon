@@ -12,3 +12,4 @@ class Tenon.features.tenonContent.Base
     new Tenon.features.tenonContent.PopOut($container)
     new Tenon.features.tenonContent.Sortable($container)
     new Tenon.features.tenonContent.WrappedSizing($container)
+    new Tenon.features.tenonContent.ImageLinks($container)

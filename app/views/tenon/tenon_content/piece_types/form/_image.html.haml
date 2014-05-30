@@ -11,6 +11,12 @@
   = f.super_text_area :caption, class: 'caption', placeholder: 'Enter caption here...', style: ("display: none;" unless f.object.show_caption)
   = f.hidden_field :show_caption
 
+  .medium-editor-toolbar-form-anchor.link-form{style: 'position: absolute; z-index: 2000;'}
+    = f.super_text_field :link_url, placeholder: 'Paste or type a link', style: 'display; inline; width: 316px;';
+    = link_to new_item_asset_path(hide_upload: true), 'title' => 'Link to an Asset', 'data-modal-remote' => 'true', 'data-modal-handler' => 'Tenon.features.tenonContent.ImageAssetLink', 'data-modal-title' => 'Link to Asset', 'data-tooltip' => true do
+      %i.fa.fa-file-pdf-o
+    = link_to '&times;'.html_safe, '#', class: 'medium-editor-cancel'
+
   .medium-editor-toolbar.medium-toolbar-arrow-under.medium-editor-toolbar-active.image-controls{style: "display: none; margin-top: -65px;"}
     %ul.medium-editor-toolbar-actions.clearfix
       %li
@@ -29,6 +35,10 @@
       %li
         %button{title: 'Swap Sides', class: 'swap-sides medium-editor-action', data: {tooltip: true}}
           %i.fa.fa-arrows-h
+
+      %li
+        %button.add-link.medium-editor-action{title: 'Add Link', class: ('medium-editor-button-active' unless f.object.link_url.blank?), data: {tooltip: true}}
+          %i.fa.fa-link
 
       %li
         %button{href: new_item_asset_path, title: 'Replace Image', class: 'replace-image medium-editor-action  medium-editor-button-last', data: {'modal-remote' => 'true', 'modal-title' => "Select Image", 'modal-handler' => 'Tenon.features.tenonContent.AssetAttachment', 'tooltip' => true}}

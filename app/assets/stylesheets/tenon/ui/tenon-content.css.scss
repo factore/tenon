@@ -241,6 +241,10 @@
     outline: none;
     background: lighten($tn-primary, 10%);
   }
+
+  .link-form {
+    z-index: $tn-z-medium-editor-controls;
+  }
 }
 
 [contenteditable=true]:empty:not(:focus):before {

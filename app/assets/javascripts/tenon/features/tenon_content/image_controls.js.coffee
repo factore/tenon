@@ -8,26 +8,33 @@ class Tenon.features.tenonContent.ImageControls
     @_buildControls(e)
     e.stopImmediatePropagation()
 
+  showControls: (x, y) =>
+    x ||= @previousX
+    y ||= @previousY
+    @$controls.appendTo('body').css
+      left: @_leftOffset(x)
+      top: y + 'px'
+      display: 'block'
+
+    @previousX = x
+    @previousY = y
+
   hideControls: =>
     $('body > .image-controls').hide()
     $('.tooltip').remove()
 
   _removeControls: =>
     $('body > .image-controls').remove()
+    delete Tenon.activeImageControls
 
   _buildControls: (e) =>
     @_removeControls()
+    Tenon.activeImageControls = this
     $img = $(e.currentTarget)
     @$image = $img.closest('.image')
     @$controls = @$image.find('.image-controls').clone()
     @_tagControls()
-    @_showControls(e.pageX, e.pageY)
-
-  _showControls: (left, top) =>
-    @$controls.appendTo('body').css
-      left: @_leftOffset(left)
-      top: top + 'px'
-      display: 'block'
+    @showControls(e.pageX, e.pageY)
 
   _tagControls: =>
     # Add some data for use in operations
