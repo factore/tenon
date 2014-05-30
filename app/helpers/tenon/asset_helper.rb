@@ -6,7 +6,15 @@ module Tenon
       else
         i = image_tag(default_asset_thumbnail(asset))
       end
-      link_to(i, [:edit, asset], default_options)
+      asset_icon_link(asset, i)
+    end
+
+    def asset_icon_link(asset, icon)
+      if asset.is_image?
+        link_to(icon, [:crop, asset], crop_options(asset))
+      else
+        link_to(icon, asset.attachment.url, target: '_')
+      end
     end
 
     def default_asset_thumbnail(asset)
@@ -18,6 +26,16 @@ module Tenon
     end
 
     private
+
+    def crop_options(asset)
+      {
+        class: 'asset-crop',
+        data: {
+          'asset-id' => asset.id,
+          'post-crop-handler' => 'Tenon.features.AssetListPostCropHandler'
+        }
+      }
+    end
 
     def default_options
       {
