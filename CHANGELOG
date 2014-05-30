@@ -1,3 +1,6 @@
+1.0.10  2014-05-30
+  * Fix issues with adding links to images
+
 1.0.9  2014-05-30
   * Thumbnails in asset library now link to crop view or download depending on asset type
   * You can now add links to images in TenonContent
