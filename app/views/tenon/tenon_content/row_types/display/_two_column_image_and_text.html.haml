@@ -1,0 +1,11 @@
+.two-column-image-and-text.stacked-image-and-text
+  -[[0,1], [2,3]].each do |positions|
+    .six{class: cycle('', 'omega')}
+      - row.pieces.select { |p| positions.include?(p.position) }.each do |piece|
+        - if piece.object.piece_type == 'Image'
+          .tn-tc-piece
+            = render "tenon/tenon_content/piece_types/display/image", piece: piece
+        - else
+          .tn-tc-piece
+            = render 'tenon/tenon_content/piece_types/form/text', piece: piece
+  .spacer

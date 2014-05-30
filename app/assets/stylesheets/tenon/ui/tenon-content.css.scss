@@ -232,7 +232,8 @@
 
 .image-controls {
   @include transition(none);
-  &.full-width-image, &.three-column-image, &.four-column-image {
+  &.full-width-image, &.three-column-image, &.four-column-image,
+  &.stacked-image-and-text {
     .grow-image, .shrink-image, .swap-sides {
       display: none;
     }

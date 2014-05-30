@@ -51,6 +51,8 @@ class Tenon.features.tenonContent.ImageControls
       @$controls.addClass('three-column-image')
     else if @$image.closest('.four-column-image').length > 0
       @$controls.addClass('four-column-image')
+    else if @$image.closest('.stacked-image-and-text').length > 0
+      @$controls.addClass('stacked-image-and-text')
     else
       @$controls.addClass('column-image')
 
