@@ -1,0 +1,19 @@
+1.0.8  2014-05-29
+  * Add linking to assets in medium
+
+1.0.7  2014-05-29
+  * Flexible load more button
+
+1.0.6  2014-05-28
+  * Permissions on post nav
+  * Authorize publish on create/update resources controller
+  * Remove unused sidebar method
+  * Reduce autosave debounce delay
+  * Check for publish rights on save button
+  * Fix an annoying i18n bug
+  * Remove the custom colors from the dummy app
+  * Change the default highlight stuff
+  * seo meta tags added to tenon::settings
+
+1.0.5  2014-05-23
+  * added comments to z-index.css.scss, updated font-awesome-rails and bumped Tenon to 1.0.5
