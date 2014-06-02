@@ -21,13 +21,13 @@ module Tenon
       content += text
       opts[:class] ||= ''
       opts[:title] ||= text
-      opts[:class] += " #{active_class(path)}"
+      opts[:class] += " #{active_class(path, opts[:active])}"
       link_to(content, path, opts)
     end
 
-    def active_class(path)
+    def active_class(path, active)
       path = url_for(path).split('/')[0..2].join('/')[1..-1]
-      'active' if path == controller_path
+      'active' if active || path == controller_path
     end
   end
 end

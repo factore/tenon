@@ -5,7 +5,7 @@
       = nav_item 'Asset Library', assets_path, 'picture-o'
       = nav_item 'Comments', comments_path, 'comment'
       = nav_item 'Pages', pages_path, 'file'
-      = nav_item 'Posts', posts_path, 'file-text'
+      = nav_item 'Posts', posts_path, 'file-text', active: ['post_categories'].include?(controller_name)
       = nav_item 'Users', users_path, 'user'
       = nav_item 'Events', events_path, 'calendar'
       = nav_item 'Galleries', galleries_path, 'th'
