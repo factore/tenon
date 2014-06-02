@@ -1,3 +1,8 @@
+1.0.15  2014-06-02
+  * Add optional :active param to nav_item helper to add additional conditions
+    for item to appear active
+      eg. <%= nav_item 'Posts', posts_path, 'file-text', active: ['post_categories'].include?(controller_name) %>
+
 1.0.14  2014-06-02
   * Fix display partial bugs in new row types
 
