@@ -3,6 +3,9 @@
 }
 
 .tenon-library {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 350px;
 
   ul {
     margin: 0;
