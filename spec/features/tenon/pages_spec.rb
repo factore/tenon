@@ -54,7 +54,6 @@ describe 'An admin', js: true do
           fill_in 'page[title]', with: 'My Test Page'
           click_button 'Save'
         end
-        expect(page).to have_content('My Test Page')
         expect(page).to have_content('Page saved successfully.')
       end
     end
@@ -80,7 +79,6 @@ describe 'An admin', js: true do
           fill_in 'page[title]', with: 'My Test Page'
           click_button 'Save'
         end
-        expect(page).to have_content('My Test Page')
         expect(page).to have_content('Page saved successfully.')
       end
     end

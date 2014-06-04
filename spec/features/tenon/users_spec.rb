@@ -53,7 +53,6 @@ describe 'An admin', js: true do
           fill_in 'user[password_confirmation]', with: 'password123'
           click_button 'Save'
         end
-        expect(page).to have_content('test@user.com')
         expect(page).to have_content('User saved successfully.')
       end
     end
@@ -80,7 +79,6 @@ describe 'An admin', js: true do
           fill_in 'user[email]', with: 'test@user.com'
           click_button 'Save'
         end
-        expect(page).to have_content('test@user.com')
         expect(page).to have_content('User saved successfully.')
       end
     end

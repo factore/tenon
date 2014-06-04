@@ -58,7 +58,6 @@ describe 'An admin', js: true do
           fill_in 'tenon_callout[button_text]', with: 'Go!'
           click_button 'Save'
         end
-        expect(page).to have_content('My Test TenonCallout')
         expect(page).to have_content('Tenon Callout saved successfully.')
       end
     end
@@ -83,7 +82,6 @@ describe 'An admin', js: true do
           fill_in 'tenon_callout[title]', with: 'My Test TenonCallout'
           click_button 'Save'
         end
-        expect(page).to have_content('My Test TenonCallout')
         expect(page).to have_content('Tenon Callout saved successfully.')
       end
     end

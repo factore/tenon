@@ -7,7 +7,7 @@ require 'spec_helper'
 describe Tenon::GalleriesController do
   routes { Tenon::Engine.routes }
 
-  let(:gallery) { double.as_null_object }
+  let(:gallery) { mock_model(Tenon::Gallery).as_null_object }
 
   before do
     controller.stub(:current_user) { user }
@@ -158,7 +158,7 @@ describe Tenon::GalleriesController do
       context 'with a successful save' do
         it 'should redirect to index' do
           post :create, gallery: params
-          expect(response).to redirect_to('/tenon/galleries')
+          expect(response).to redirect_to("/tenon/galleries/#{assigns[:gallery].id}/edit")
         end
       end
     end
@@ -205,7 +205,7 @@ describe Tenon::GalleriesController do
       context 'with a successful save' do
         it 'should redirect to index' do
           patch :update, gallery: params, id: 1
-          expect(response).to redirect_to('/tenon/galleries')
+          expect(response).to redirect_to("/tenon/galleries/#{assigns[:gallery].id}/edit")
         end
 
         it 'should set the flash' do
@@ -216,6 +216,8 @@ describe Tenon::GalleriesController do
     end
 
     describe 'DELETE destroy' do
+      let(:gallery) { double.as_null_object }
+
       before do
         Tenon::Gallery.stub(:find) { gallery }
       end

@@ -35,7 +35,6 @@ describe 'An admin', js: true do
           fill_in 'gallery[title]', with: 'My Test Gallery'
           click_button 'Save'
         end
-        expect(page).to have_content('My Test Gallery')
         expect(page).to have_content('Gallery saved successfully.')
       end
     end
@@ -76,7 +75,6 @@ describe 'An admin', js: true do
           fill_in 'gallery[title]', with: 'My Test Gallery'
           click_button 'Save'
         end
-        expect(page).to have_content('My Test Gallery')
         expect(page).to have_content('Gallery saved successfully.')
       end
     end

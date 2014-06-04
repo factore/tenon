@@ -60,7 +60,6 @@ describe 'An admin', js: true do
 
         # Save it
         click_button 'Save'
-        expect(page).to have_content('My Test Event')
         expect(page).to have_content('Event saved successfully.')
       end
     end
@@ -87,7 +86,6 @@ describe 'An admin', js: true do
 
         # Save it
         click_button 'Save'
-        expect(page).to have_content('My Test Event')
         expect(page).to have_content('Event saved successfully.')
       end
     end

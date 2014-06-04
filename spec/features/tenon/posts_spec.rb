@@ -50,7 +50,6 @@ describe 'An admin', js: true do
           fill_in 'post[title]', with: 'My Test Post'
           click_button 'Save'
         end
-        expect(page).to have_content('My Test Post')
         expect(page).to have_content('Post saved successfully.')
       end
     end
@@ -75,7 +74,6 @@ describe 'An admin', js: true do
           fill_in 'post[title]', with: 'My Test Post'
           click_button 'Save'
         end
-        expect(page).to have_content('My Test Post')
         expect(page).to have_content('Post saved successfully.')
       end
     end

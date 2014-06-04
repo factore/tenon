@@ -22,6 +22,7 @@ module Tenon
   end
 
   class Configuration
-    attr_accessor :mobile_layout, :languages, :seo_callout, :front_end
+    attr_accessor :mobile_layout, :languages, :seo_callout, :front_end,
+                  :after_create_path, :after_update_path
   end
 end

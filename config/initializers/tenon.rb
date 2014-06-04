@@ -18,6 +18,11 @@ Tenon.configure do |config|
     }
   }
 
+  # Set the default after_update and after_create path
+  # :edit or :index
+  config.after_update_path = :edit
+  config.after_create_path = :edit
+
   # Set up languages for front-end internationalization
   # Currently Tenon is anglo-centric so you don't need to
   # specify English.

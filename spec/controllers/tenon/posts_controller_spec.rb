@@ -15,6 +15,7 @@ describe Tenon::PostsController do
   before do
     controller.stub(:current_user) { user }
     controller.stub(:polymorphic_index_path) { posts_path }
+    controller.stub(:after_update_path) { posts_path }
   end
 
   describe 'PATCH update' do

@@ -44,7 +44,7 @@ module Tenon
       end
 
       self.resource = resource.decorate
-      respond_with(resource.decorate, location: polymorphic_index_path)
+      respond_with(resource.decorate, location: after_update_path)
     end
 
     def create
@@ -54,7 +54,7 @@ module Tenon
         flash[:notice] = "#{human_name} saved successfully."
         save_item_version if resource.respond_to?(:versions)
       end
-      respond_with(resource.decorate, location: polymorphic_index_path, status: 201)
+      respond_with(resource.decorate, location: after_create_path, status: (201 if resource.valid?))
     end
 
     def destroy
@@ -118,6 +118,18 @@ module Tenon
 
     def human_name
       singular_name.titleize
+    end
+
+    def after_create_path
+      if Tenon.config.after_create_path == :edit && resource.valid?
+        polymorphic_path([:edit, resource])
+      else
+        polymorphic_index_path
+      end
+    end
+
+    def after_update_path
+      after_create_path
     end
 
     def polymorphic_index_path
