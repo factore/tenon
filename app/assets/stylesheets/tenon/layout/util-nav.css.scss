@@ -15,6 +15,25 @@ util-nav {
       text-decoration: none;
     }
   }
+
+  .site-title {
+    position: absolute;
+    left: 75px;
+    top: 15px;
+    font-size: 12px;
+    font-family: $tn-open-sans;
+    display: none;
+    text-transform: uppercase;
+
+    @include media($tablet_breakpoint) {
+      display: block;
+    }
+
+    a {
+      font-size: 12px;
+      color: $tn-white;
+    }
+  }
 }
 
 #logo {
@@ -29,3 +48,4 @@ util-nav {
     height: 50px;
   }
 }
+

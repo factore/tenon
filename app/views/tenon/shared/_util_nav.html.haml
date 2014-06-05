@@ -1,5 +1,12 @@
 %util-nav
   #logo= link_to image_tag('tenon/tenon_icon.png'), "/tenon"
+  - unless Tenon::MySettings.site_title.blank?
+    .site-title
+      - if Rails.application.routes.named_routes.helpers.include?(:root_path)
+        = link_to Tenon::MySettings.site_title, main_app.root_path
+      - else
+        = Tenon::MySettings.site_title
+
   .tools
     .header-button.hamburger.mobile= link_to fa_icon('fw bars'), '#'
 
