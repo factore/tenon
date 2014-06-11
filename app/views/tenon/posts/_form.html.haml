@@ -35,7 +35,7 @@
       .box
         .form-group.inline
           = f.super_label :post_categories, 'Categories'
-          = f.select :post_category_ids, @categories.map { |c| [c.title, c.id] }
+          = f.select :post_category_ids, @categories.map { |c| [c.title, c.id] }, {}, { multiple: true }
 
     %h4.box-label Publish Your Post
     .box
