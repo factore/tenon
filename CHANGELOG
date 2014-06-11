@@ -1,3 +1,6 @@
+1.0.18 2014-06-11
+  * Fix posts form to use a multi-select for categories
+
 1.0.17 2014-06-05
   * Add Tenon::MySettings.site_title to the util nav
 
