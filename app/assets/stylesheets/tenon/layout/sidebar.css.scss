@@ -97,16 +97,6 @@
     .notification {
       margin-bottom: 20px;
       font-size: 12px;
-      a {
-        display: inline-block;
-        margin-top: 3px;
-        padding: 5px 10px;
-        border-radius: 25px;
-        background: lighten($tn-sidebar, 10%);
-        color: $tn-primary-text;
-        text-align: left;
-        text-transform: uppercase;
-      }
     }
   }
 }

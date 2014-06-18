@@ -1,3 +1,11 @@
+1.0.19 2014-06-18
+  * Removed "text-transform: uppercase" from index view metadata
+  * Dashboard warnings use btn-comp style
+  * User menu at tablet+ uses down-caret, mobile collapses to just the user icon
+  * Renamed "Settings" to "Edit Info" on user menu
+  * Reduced comment thumbnails to 80x80 px
+  * Reduced index view margins at mobile to 10px from 16px
+
 1.0.18 2014-06-11
   * Fix posts form to use a multi-select for categories
 

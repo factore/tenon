@@ -27,6 +27,10 @@ body {
 .main-content {
   margin: 0 $tn-margin;
   padding-top: $tn-padding;
+  @include media($mobile-breakpoint) {
+    margin: 0 10px;
+    padding-top: 10px;
+  }
 }
 
 $tn-header-height: 50px;

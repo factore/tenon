@@ -24,7 +24,7 @@
 
   form {
     margin: 0 auto;
-    padding: 24px 0;
+    padding: 0;
     border: 1px solid $tn-dark-grey;
     border-radius: 5px;
     background: #fff;
@@ -52,7 +52,8 @@
     display: inline-block;
 
     img {
-      height: 64px;
+      // height: 135px;
+      width: 100%;
     }
   }
 
