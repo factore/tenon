@@ -5,8 +5,8 @@ class Tenon.features.tenonContent.StretchToFill
   stretchImage: (e) =>
     e.preventDefault()
     @$button = $(e.currentTarget)
-    @$piece = @_getPiece(e)
-    @$image = @_getImage(e)
+    @$piece = @_getPiece()
+    @$image = @_getImage()
     @_setState()
 
   _setState: () =>
@@ -38,12 +38,12 @@ class Tenon.features.tenonContent.StretchToFill
       @$button.removeClass('medium-editor-button-active')
       @$image.find('.stretch-to-fill').removeClass('medium-editor-button-active')
 
-  _getImage: (e) =>
+  _getImage: () =>
     @$button
       .closest('.image-controls')
       .data('image')
 
-  _getPiece: (e) =>
+  _getPiece: () =>
     @$button
       .closest('.image-controls')
       .data('image')
