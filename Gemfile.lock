@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tenon (1.0.18)
+    tenon (1.0.19)
       acts-as-taggable-on (= 2.4.1)
       awesome_nested_set (= 3.0.0.rc.5)
       aws-s3 (= 0.6.3)
@@ -155,7 +155,7 @@ GEM
       execjs
     eco-source (1.1.0.rc.1)
     erubis (2.7.0)
-    execjs (2.1.0)
+    execjs (2.2.0)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.4.1)
@@ -255,7 +255,7 @@ GEM
     redis (3.0.7)
     redis-namespace (1.4.1)
       redis (~> 3.0.4)
-    request_store (1.0.5)
+    request_store (1.0.6)
     resque (1.25.2)
       mono_logger (~> 1.0)
       multi_json (~> 1.0)

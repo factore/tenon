@@ -22,7 +22,6 @@
       %li
         %button{title: 'Crop', class: 'asset-crop medium-editor-action medium-editor-button-first', data: {'tooltip' => true, 'post-crop-handler' => 'Tenon.features.tenonContent.PostCropHandler', 'asset-id' => f.object.image_id}}
           %i.fa.fa-crop
-
       %li
         %button{title: 'Grow', class: 'grow-image medium-editor-action', data: {'column-resize-operation' => 'increase', 'tooltip' => true}}
           %i.fa.fa-plus
@@ -34,12 +33,13 @@
           %i.fa.fa-comment
       %li
         %button{title: 'Swap Sides', class: 'swap-sides medium-editor-action', data: {tooltip: true}}
-          %i.fa.fa-arrows-h
-
+          %i.fa.fa-exchange
+      %li
+        %button{title: 'Stretch to Fit', class: "resize-image medium-editor-action #{f.object.show_caption? ? 'medium-editor-button-active' : ''}", data: {tooltip: true}}
+          %i.fa.fa-arrows-alt
       %li
         %button.add-link.medium-editor-action{title: 'Add Link', class: ('medium-editor-button-active' unless f.object.link_url.blank?), data: {tooltip: true}}
           %i.fa.fa-link
-
       %li
         %button{href: new_item_asset_path, title: 'Replace Image', class: 'replace-image medium-editor-action  medium-editor-button-last', data: {'modal-remote' => 'true', 'modal-title' => "Select Image", 'modal-handler' => 'Tenon.features.tenonContent.AssetAttachment', 'tooltip' => true}}
           %i.fa.fa-picture-o

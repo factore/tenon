@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617214250) do
+ActiveRecord::Schema.define(version: 20140520161213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -169,16 +169,6 @@ ActiveRecord::Schema.define(version: 20140617214250) do
 
   add_index "tenon_assets", ["created_at"], name: "index_assets_on_created_at", using: :btree
   add_index "tenon_assets", ["job_id"], name: "index_assets_on_job_id", using: :btree
-
-  create_table "tenon_banners", force: true do |t|
-    t.string   "title"
-    t.integer  "list_order", default: 999
-    t.datetime "publish_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "tenon_banners", ["list_order"], name: "index_banners_on_list_order", using: :btree
 
   create_table "tenon_comment_subscribers", force: true do |t|
     t.integer  "commentable_id"

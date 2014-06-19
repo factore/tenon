@@ -6,6 +6,7 @@ class Tenon.features.tenonContent.Base
     new Tenon.features.tenonContent.CaptionToggler($container)
     new Tenon.features.tenonContent.ColumnSizing($container)
     new Tenon.features.tenonContent.ColumnSwap($container)
+    new Tenon.features.tenonContent.StretchToFit($container)
     new Tenon.features.tenonContent.Editor($container)
     new Tenon.features.tenonContent.ImageControls($container)
     new Tenon.features.tenonContent.LibraryFilter($container)
