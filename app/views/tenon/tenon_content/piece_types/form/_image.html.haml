@@ -36,7 +36,7 @@
         %button{title: 'Swap Sides', class: 'swap-sides medium-editor-action', data: {tooltip: true}}
           %i.fa.fa-exchange
       %li
-        %button{title: 'Stretch to Fill', class: "stretch-to-fill medium-editor-action #{f.object.show_caption? ? 'medium-editor-button-active' : ''}", data: {tooltip: true}}
+        %button{title: 'Stretch to Fill', class: "stretch-to-fill medium-editor-action #{f.object.stretch_to_fill? ? 'medium-editor-button-active' : ''}", data: {tooltip: true}}
           %i.fa.fa-arrows-alt
       %li
         %button.add-link.medium-editor-action{title: 'Add Link', class: ('medium-editor-button-active' unless f.object.link_url.blank?), data: {tooltip: true}}
