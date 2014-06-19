@@ -6,9 +6,9 @@ class Tenon.features.tenonContent.StretchToFill
     e.preventDefault()
     @$piece = @_getPiece(e)
     @$image = @_getImage(e)
-    @_applyClass()
+    @_setState()
 
-  _applyClass: () =>
+  _setState: () =>
     if @$image.hasClass('stretch')
       @$image.removeClass('stretch')
       @_saveState(false)
