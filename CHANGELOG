@@ -1,3 +1,7 @@
+1.0.20 2014-06-19
+  * Tenon content images can now be toggled between centered/inline and stretch to fill.
+  * Fix bug where clearing a multi-select wouldn't change the params sent to the back-end application on search and sort.
+
 1.0.19 2014-06-18
   * Removed "text-transform: uppercase" from index view metadata
   * Dashboard warnings use btn-comp style
