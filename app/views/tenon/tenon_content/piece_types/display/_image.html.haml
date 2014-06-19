@@ -1,4 +1,4 @@
-.tn-tc-image
+.tn-tc-image{class: piece.stretch_to_fill? ? 'stretch' : ''}
   - if piece.link_url.blank?
     = image_tag(piece.image.url(:_medium))
   - else

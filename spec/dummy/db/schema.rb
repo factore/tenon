@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520161213) do
+ActiveRecord::Schema.define(version: 20140619135927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -426,7 +426,6 @@ ActiveRecord::Schema.define(version: 20140520161213) do
     t.integer  "row_id"
     t.integer  "position"
     t.text     "content"
-    t.string   "dimenstions"
     t.string   "caption"
     t.string   "link_url"
     t.string   "embed_url"
@@ -434,8 +433,9 @@ ActiveRecord::Schema.define(version: 20140520161213) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "size"
-    t.boolean  "show_caption", default: false
+    t.boolean  "show_caption",    default: false
     t.text     "embed_code"
+    t.boolean  "stretch_to_fill", default: false
   end
 
   add_index "tenon_tenon_content_pieces", ["row_id"], name: "index_tenon_content_pieces_on_row_id", using: :btree
