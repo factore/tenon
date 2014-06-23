@@ -1,5 +1,10 @@
 require 'spec_helper'
 
 describe Tenon::Redirect do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '.active' do
+    it 'should find redirects that are active' do
+      expect(Tenon::Redirect).to receive(:where).with(active: true)
+      Tenon::Redirect.active
+    end
+  end
 end
