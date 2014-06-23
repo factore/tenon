@@ -41,9 +41,14 @@ Tenon::Engine.routes.draw do
     post    'reorder', :on => :collection
   end
 
+  resources :redirects do
+    post    'reorder', :on => :collection
+  end
+
   resources :users, :except => [:show] do
     get 'approve', :on => :member
   end
 
   root :to => 'index#index'
 end
+

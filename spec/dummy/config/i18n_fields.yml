@@ -1,5 +1,8 @@
 # list of the tables and columns that should have multiple languages generated
 tables:
+  redirects:
+    -
+
   post_categories:
     -
 

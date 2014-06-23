@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140619135927) do
+ActiveRecord::Schema.define(version: 20140623142634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -371,6 +371,15 @@ ActiveRecord::Schema.define(version: 20140619135927) do
   add_index "tenon_posts", ["creator_id"], name: "index_posts_on_creator_id", using: :btree
   add_index "tenon_posts", ["updater_id"], name: "index_posts_on_updater_id", using: :btree
   add_index "tenon_posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
+  create_table "tenon_redirects", force: true do |t|
+    t.string   "in"
+    t.string   "out"
+    t.integer  "list_order", default: 0
+    t.boolean  "active",     default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tenon_role_assignments", force: true do |t|
     t.integer "user_id"
