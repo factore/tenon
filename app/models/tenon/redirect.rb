@@ -8,5 +8,6 @@ class Tenon::Redirect < ActiveRecord::Base
 
   # Validations
   validates_presence_of :in, :out
+  validates_uniqueness_of :in
 
 end
