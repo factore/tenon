@@ -1,3 +1,16 @@
+1.0.21 2014-06-23
+  * Added the Tenon::Redirect module which catches 404 errors and redirects
+    the app if the path matches a Tenon::Redirect record.
+
+    To implement add the following to the application_controller.rb:
+
+      rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
+      private
+      def record_not_found
+        redirect_to Tenon::Redirector.redirect(request)
+      end
+
 1.0.20 2014-06-19
   * Tenon content images can now be toggled between centered/inline and stretch to fill.
   * Fix bug where clearing a multi-select wouldn't change the params sent to the back-end application on search and sort.
