@@ -1,3 +1,6 @@
+1.0.23 2014-06-24
+  * Use @import rather than require to include tenon_addons.css.scss
+
 1.0.22 2014-06-24
   * Added tenon_addons.css.scss which can be overwritten in the host app
     in order to allow more powerful and organized custom CSS within Tenon.
