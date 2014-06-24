@@ -4,7 +4,6 @@
 *= require medium-editor/medium-editor
 *= require medium-editor/themes/bootstrap
 *= require_self
-*= require tenon_addons
 */
 
 // third party things
@@ -66,3 +65,6 @@
 @import 'tenon/ui/tenon-content-popped-out';
 @import 'tenon/ui/thinking';
 @import 'tenon/ui/toolbox';
+
+// Grab tenon_addons for any host-app requirements
+@import 'tenon_addons';
