@@ -1,3 +1,11 @@
+1.0.22 2014-06-24
+  * Added tenon_addons.css.scss which can be overwritten in the host app
+    in order to allow more powerful and organized custom CSS within Tenon.
+
+    Override app/assets/stylesheets/tenon_addons.css.scss in your host app
+    and add styles, imports, or requires as you see fit.  Don't forget to
+    clear tmp/cache in development mode.
+
 1.0.21 2014-06-23
   * Added the Tenon::Redirect module which catches 404 errors and redirects
     the app if the path matches a Tenon::Redirect record.
