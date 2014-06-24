@@ -16,7 +16,7 @@
 
       private
       def record_not_found
-        redirect_to Tenon::Redirector.redirect(request)
+        redirect_to Redirector.new(request.env['PATH_INFO']).redirect
       end
 
 1.0.20 2014-06-19
