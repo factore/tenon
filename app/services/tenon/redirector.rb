@@ -4,7 +4,7 @@
 # rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 # private
 # def record_not_found
-#   redirect_to Redirector.new(request.env['PATH_INFO']).redirect
+#   redirect_to Tenon::Redirector.new(request.env['PATH_INFO']).redirect
 # end
 
 module Tenon
