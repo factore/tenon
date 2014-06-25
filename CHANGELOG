@@ -1,3 +1,6 @@
+1.0.26 2014-06-25
+  * Fixed modal header close button getting covered by the H4 title
+
 1.0.25 2014-06-25
   * Remove the requirement of an item on ItemAssets to allow them to be saved
   before the item is saved
