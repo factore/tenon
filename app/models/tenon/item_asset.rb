@@ -2,7 +2,6 @@ module Tenon
   class ItemAsset < ActiveRecord::Base
     # Validations
     validates_presence_of :asset
-    validates_presence_of :item
 
     # Relationships
     belongs_to :asset
