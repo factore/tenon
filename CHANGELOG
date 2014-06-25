@@ -1,3 +1,6 @@
+1.0.24 2014-06-25
+  * Reimplement the setting of an asset on has_asset to allow local file attachment
+
 1.0.23 2014-06-24
   * Use @import rather than require to include tenon_addons.css.scss
 
