@@ -1,3 +1,7 @@
+1.0.25 2014-06-25
+  * Remove the requirement of an item on ItemAssets to allow them to be saved
+  before the item is saved
+
 1.0.24 2014-06-25
   * Reimplement the setting of an asset on has_asset to allow local file attachment
 
