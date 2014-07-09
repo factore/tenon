@@ -7,8 +7,8 @@ json.records do
     json.updater page.updater.present? ? page.updater.email : 'Unknown User'
     json.edit_path edit_page_path(page)
 
-    if page.published? && route_exist?(page)
-      json.view_link action_link("View on Site", main_app.polymorphic_path(page), "laptop")
+    if page.published?
+      json.view_link action_link("View on Site", page.path, "laptop")
     end
 
     json.subpage_link action_link("Create a Sub-Page", new_page_path(:parent_id => page.id), "plus")
