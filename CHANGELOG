@@ -1,3 +1,8 @@
+1.0.27 2014-07-09
+  * Bug fix: 'View on site' link now works on Page#Index.
+  * Active toggle link added to Redirect#Index view.
+  * Removed superfluous /'s from Redirect#Index view.
+
 1.0.26 2014-06-25
   * Fixed modal header close button getting covered by the H4 title
 
