@@ -10,4 +10,8 @@ class Tenon::Redirect < ActiveRecord::Base
   validates_presence_of :in, :out
   validates_uniqueness_of :in
 
+  def toggle_active!
+    self.active = self.active? ? false : true
+    save
+  end
 end

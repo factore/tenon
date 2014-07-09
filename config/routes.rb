@@ -43,6 +43,7 @@ Tenon::Engine.routes.draw do
 
   resources :redirects do
     post    'reorder', :on => :collection
+    get 'toggle_active', :on => :member
   end
 
   resources :users, :except => [:show] do

@@ -3,9 +3,7 @@
     <div class="record-actions">
       <%- @redirect.delete_link %>
       <%- @redirect.edit_link %>
-      <% if @redirect.active == true: %>
-        <a data-tooltip="Active"><i class="fa fa-eye fa-fw"></i></span>
-      <% end %>
+      <%- @redirect.active_link %>
     </div>
 
     <div class="record-title">
