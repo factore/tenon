@@ -1,3 +1,64 @@
 = Tenon
 
-This project rocks and uses MIT-LICENSE.
+== License
+
+This project uses the MIT-LICENSE.  Do whatever you want with it as long as you
+don't violate the licenses of the various open source pieces on which it
+depends.
+
+== Installation
+
+In your Gemfile
+
+    gem 'tenon'
+
+and then bundle install.
+
+in config/application.rb:
+
+    require 'active_record/railtie'
+
+
+in config/routes.rb:
+
+    mount Tenon::Engine => '/tenon'
+
+
+Run command:
+
+    $ rake tenon:install:migrations
+    $ rake db:migrate
+
+
+You will need to have a database set up at this point.  Currently Tenon requires that you use postgres.
+
+Running rake db:migrate probably threw up a devise error.  Create config/initializers/devise.rb and paste:
+
+    Devise.setup do |config|
+      ## paste the secret key line from the error output ##
+    end
+
+
+Run that command again:
+
+    $ rake db:migrate
+
+
+Install the Tenon helpers in app/controllers/application_controller.rb:
+
+    helper Tenon::Engine.helpers
+
+Install the necessary files to run and customize Tenon (this is now required):
+
+    $ rails generate tenon:install
+
+To run seed data (such as creating an admin user) from Tenon, open console and run:
+
+    ENV['PASSWORD'] = 'password' # or something at least 8 chars long
+    Tenon::Engine.load_seed
+
+Restart your app and navigate to /tenon
+
+If you want to be able to use rspec, which would be good, you will also need to run:
+
+    bundle exec rails generate rspec:install
