@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'sass-rails-source-maps', '0.0.4'
   s.add_development_dependency 'spring', '1.1.3'
   s.add_development_dependency 'spring-commands-rspec', '1.0.2'
+  s.add_development_dependency 'quiet_assets'
 
   s.add_dependency 'rails', '>= 4.0.0'
 

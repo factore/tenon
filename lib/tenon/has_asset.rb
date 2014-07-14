@@ -86,6 +86,10 @@ module Tenon
             attachment = ProxyAttachment.new(asset.attachment, self.class, asset_name)
             instance_variable_set("@#{asset_name}_id", val)
             instance_variable_set("@#{asset_name}", attachment)
+          else
+            unless self.send("#{asset_name}_id").blank?
+              Tenon::ItemAsset.where(item_type: self.class.to_s, item_id: id, asset_name: asset_name).destroy_all
+            end
           end
         end
       end

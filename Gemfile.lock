@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tenon (1.0.27)
+    tenon (1.0.28)
       acts-as-taggable-on (= 2.4.1)
       awesome_nested_set (= 3.0.0.rc.5)
       aws-s3 (= 0.6.3)
@@ -225,6 +225,8 @@ GEM
     pg (0.17.0)
     polyglot (0.3.4)
     powerpack (0.0.9)
+    quiet_assets (1.0.3)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
@@ -358,6 +360,7 @@ DEPENDENCIES
   factory_girl_rails (= 4.4.1)
   overcommit (= 0.9.0)
   pg (= 0.17.0)
+  quiet_assets
   rspec-rails (= 2.14.2)
   rubocop (= 0.22.0)
   sass-rails-source-maps (= 0.0.4)

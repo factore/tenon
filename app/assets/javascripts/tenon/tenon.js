@@ -35,6 +35,7 @@ var Tenon = {
     new Tenon.features.i18n();
     new Tenon.features.Flash();
     new Tenon.features.AssetCropping();
+    new Tenon.features.AssetDetachment();
     new Tenon.features.MainMenu();
     new Tenon.features.Pagination();
     new Tenon.features.HamburgerNavigation();

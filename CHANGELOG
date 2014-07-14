@@ -1,3 +1,7 @@
+1.0.28 2014-07-14
+  * Added quiet_assets to development gems
+  * Added "or remove" link to item asset fields. Uses Javascript to reset fields to original "No asset selected." values. HasAsset checks if an Item had a previous ItemAsset and deletes it if passed a blank #{asset_name}_id value.
+
 1.0.27 2014-07-09
   * Bug fix: 'View on site' link now works on Page#Index.
   * Active toggle link added to Redirect#Index view.
