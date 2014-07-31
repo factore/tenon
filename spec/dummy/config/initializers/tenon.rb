@@ -22,11 +22,11 @@ Tenon.configure do |config|
   # Currently Tenon is anglo-centric so you don't need to
   # specify English.
   #
-  # config.languages = {
-  #   "French" => :fr,
-  #   "German" => :de
-  #   # etc.
-  # }
+  config.languages = {
+    'French' => :fr,
+    'German' => :de
+    # etc.
+  }
 
   # Print out support instructions for your client
   # in the bottom right-hand corner of Tenon

@@ -5,7 +5,11 @@ class AddI18nFields<%= file_hash.capitalize %> < ActiveRecord::Migration
 <% languages.each do |language| -%>
 <% klass = table.singularize.camelize.constantize -%>
 <% unless klass.column_names.include?("#{column}_#{language}") -%>
-    add_column :<%= table %>, :<%= column %>_<%= language %>, :<%= klass.columns_hash[column.to_s].type %>
+<% if klass.columns_hash[column.to_s] -%>
+    add_column :<%= table.gsub('/', '_') %>, :<%= column %>_<%= language %>, :<%= klass.columns_hash[column.to_s].type %>
+<% else -%>
+<% puts "Table #{table} has no column #{column}" -%>
+<% end -%>
 <% end -%>
 <% end -%>
 <% end -%>

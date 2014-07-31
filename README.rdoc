@@ -111,3 +111,23 @@ To add internationalized fields, follow these steps:
     end
 
 Once you've done this and restarted your app you will see a language selection nav in the sidebar of each form that has internationalized fields.
+
+If you want to add internationalization to the default Tenon models you should make your i18n_fields.yml look like this:
+
+    tables:
+      tenon/events:
+        - title
+        - location
+
+      tenon/pages:
+        - title
+        - seo_title
+        - seo_keywords
+        - seo_description
+
+      tenon/posts:
+        - title
+        - excerpt
+        - seo_title
+        - seo_keywords
+        - seo_description
