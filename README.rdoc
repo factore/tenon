@@ -74,7 +74,7 @@ TODO: Write this section
 
 == Internationalization
 
-Although Tenon is currently anglocentric it supports the addition of additional
+Although Tenon is currently anglocentric it supports the inclusion of additional
 languages and provides an interface for managing content in multiple languages.
 
 To add internationalized fields, follow these steps:
