@@ -32,7 +32,7 @@ var Tenon = {
 
     Tenon.features.forms.init();
     Tenon.features.fileSelectWidget.init();
-    new Tenon.features.i18n();
+    new Tenon.features.I18nFields();
     new Tenon.features.Flash();
     new Tenon.features.AssetCropping();
     new Tenon.features.AssetDetachment();

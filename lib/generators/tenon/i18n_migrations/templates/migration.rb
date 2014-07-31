@@ -1,4 +1,4 @@
-class AddI18nFields<%= file_hash %> < ActiveRecord::Migration
+class AddI18nFields<%= file_hash.capitalize %> < ActiveRecord::Migration
   def change
 <% tables.each do |table, columns| -%>
 <% columns.each do |column| -%>
@@ -10,5 +10,5 @@ class AddI18nFields<%= file_hash %> < ActiveRecord::Migration
 <% end -%>
 <% end -%>
 <% end -%>
-  end 
+  end
 end

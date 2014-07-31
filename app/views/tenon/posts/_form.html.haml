@@ -9,6 +9,8 @@
         %li.active= link_to 'Post Content', '#details', data: {toggle: 'tab'}
         %li= link_to "Search Optimization", '#seo', data: {toggle: 'tab'}
 
+    = i18n_language_nav(:posts)
+
     = render "tenon/shared/posts_nav"
 
 = autosaving_form_for @post do |f|

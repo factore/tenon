@@ -71,5 +71,11 @@ module Tenon
         content_tag(:div, content, class: 'form-group inline')
       end
     end
+
+    def i18n_language_nav(table)
+      if Tenon.config.languages && I18nLookup.fields[:tables][table]
+        render 'tenon/shared/i18n_language_nav'
+      end
+    end
   end
 end

@@ -12,7 +12,6 @@ class Tenon.features.RecordApproval
       .fail((data)-> console.log(data))
 
   _finishToggle:  =>
-    console.log('fired')
     @$link.toggleClass('unapprove approve')
     if @$link.hasClass('approve')
       @_setTooltip('Approve')

@@ -5,7 +5,7 @@ module Tenon
 
       def copy_files
         timestamp = Time.now.strftime('%Y%m%d%H%M%S')
-        template('migration.rb', File.join('db/migrate', "#{timestamp}_add_i18n_fields_#{file_hash.capitalize}.rb"))
+        template('migration.rb', File.join('db/migrate', "#{timestamp}_add_i18n_fields_#{file_hash.downcase}.rb"))
       end
 
       private

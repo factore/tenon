@@ -12,7 +12,7 @@ class Tenon.features.tenonContent.PopOut
     $wrap.find('.tn-tc-pop-out-close').data('place', $link)
     $wrap.appendTo($template.find('.tn-tc-sizer'))
     $template.appendTo('body')
-    $('.tn-tc-wrap a[data-size]:first').trigger('click')
+    $wrap.find('a[data-size]:first').trigger('click')
     $template.removeClass('hidden')
     $wrap.trigger('tenon.content.popped')
 

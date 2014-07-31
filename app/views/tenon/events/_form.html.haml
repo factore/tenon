@@ -4,6 +4,8 @@
       %h2 Events
       = link_to "New Event", new_event_path, class: 'btn btn-block btn-primary'
 
+    = i18n_language_nav(:events)
+
 = error_messages_for :event
 
 = autosaving_form_for @event do |f|

@@ -4,6 +4,8 @@
       %h2 <%= plural_name.titleize %>
       = link_to "New <%= singular_name.titleize %>", new_<%= singular_name %>_path, class: 'btn btn-block btn-primary'
 
+    = i18n_language_nav(:<%= plural_name %>)
+
 <% if has_seo? -%>
     %h4 Edit Options
     %nav

@@ -5,7 +5,7 @@ module Tenon
     scope :upcoming, -> { where(['ends_at > ?', Time.now]).order(:starts_at) }
     scope :past, -> { where(['ends_at < ?', Time.now]).order(:starts_at) }
     default_scope -> { order 'starts_at DESC' }
-    tenon_content :description
+    tenon_content :description, i18n: true
     has_history includes: [:description_tenon_content_rows]
 
     # Validations

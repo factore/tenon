@@ -1,0 +1,18 @@
+.i18n-holder, #form-header div.i18n-holder {
+  float: none; display: block;
+}
+
+.i18n-frame {
+  position: relative;
+  width: 100%;
+
+  .i18n {
+    position: absolute;
+    top: 0px;
+    left: -9999px;
+  }
+
+  .active {
+    position: static;
+  }
+}

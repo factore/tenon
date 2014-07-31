@@ -4,7 +4,7 @@ module Tenon
     default_scope { order('publish_at DESC') }
     scope :posted, -> { where('publish_at <= ?', Time.now) }
     scope :for_archive, ->(year, month) { where(Post.for_archive_conditions(year, month)) }
-    tenon_content :content
+    tenon_content :content, i18n: true
     has_history includes: [:content_tenon_content_rows]
 
     # Relationships

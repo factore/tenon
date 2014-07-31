@@ -1,0 +1,40 @@
+.tn-tc{class: field}
+  %label
+    - if defined?(lang)
+      = field.gsub("_#{lang}", '').to_s.titleize
+      (#{lang_title})
+    - else
+      = field.to_s.titleize
+
+  .explanation
+    Select rows from the library to build this section.
+    You can format your text by highlighting it and selecting options from the pop-up menu.
+
+  .tn-tc-main-actions
+    = link_to '#', class: 'tn-tc-pop-out btn btn-primary' do
+      = fa_icon('eye')
+      %span Edit in Preview Mode
+
+    = link_to '#', class: 'tn-tc-add-content btn btn-primary', 'data-modal-target' => ".#{field} .tenon-library", 'data-modal-clone' => 'true', 'data-modal-title' => 'Add Content', 'data-association-insertion-node' => "##{field}-tenon-content", 'data-association-insertion-method' => 'prepend', 'data-modal-handler' => 'Tenon.features.tenonContent.Library' do
+      = fa_icon('plus-circle')
+      %span Add Content
+
+  .tn-tc-wrap
+    .tn-tc-sizes
+      %h2 Preview Mode
+      %p
+        Use preview mode to see how your content will look on different devices.  You can still make edits when you're in preview mode, but the toolbars are hidden to give you a better picture of how your content will be laid out.
+      = tenon_content_sizes
+      = link_to 'Done', '#', class: 'tn-tc-pop-out-close btn btn-comp'
+    .tenon-content{id: "#{field}-tenon-content"}
+      = f.fields_for "#{field}_tenon_content_rows" do |row|
+        - if row.object
+          = render "tenon/tenon_content/row", f: row, row_partial: row.object.decorate.form_partial, field: field, title: row.object.row_type.titleize
+
+    .tenon-library-holder
+      .tenon-library
+        %ul
+          - Tenon::TenonContent::RowTypes::LIBRARY_ROW_TYPES.each do |title, row_type|
+            %li= row_link(title, row_type, field, f)
+        .spacer
+

@@ -4,7 +4,7 @@ module Tenon
     acts_as_nested_set
     has_history except: [:lft, :rgt, :parent_id, :depth],
                 includes: [:content_tenon_content_rows]
-    tenon_content :content
+    tenon_content :content, i18n: true
     default_scope { order('tenon_pages.lft, tenon_pages.list_order') }
     scope :published, -> { where('publish_at <= ?', Time.now) }
     scope :find_for_menu, -> { published.where('parent_id IS NULL AND show_in_menu = ?', true).includes(:subpages) }

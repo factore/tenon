@@ -81,7 +81,7 @@ module Tenon
 
     def internationalize_content(generator, method_name, content, options = {})
       if Tenon.config.languages
-        content = content_tag(:div, content, class: 'i18n en')
+        content = content_tag(:div, content, class: 'i18n en active')
         Tenon.config.languages.each do |lang_title, lang|
           content += content_tag(:div, send(generator, method_name, options, lang, lang_title), class: "i18n #{lang}")
         end
