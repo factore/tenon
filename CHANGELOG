@@ -1,3 +1,6 @@
+1.0.30 2014-07-31
+  * Update i18n support for nested models
+
 1.0.29 2014-07-31
   * Added i18n support, see README for details
 
