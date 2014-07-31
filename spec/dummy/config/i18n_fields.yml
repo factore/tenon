@@ -1,0 +1,18 @@
+# list of the tables and columns that should have multiple languages generated
+tables:
+  tenon/events:
+    - title
+    - location
+
+  tenon/pages:
+    - title
+    - seo_title
+    - seo_keywords
+    - seo_description
+
+  tenon/posts:
+    - title
+    - excerpt
+    - seo_title
+    - seo_keywords
+    - seo_description
