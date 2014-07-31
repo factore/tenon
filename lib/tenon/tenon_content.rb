@@ -9,7 +9,7 @@ module Tenon
         Tenon::TenonContentBuilder.add_assoc(self, content_field)
 
         define_method("#{content_field}_i18n?") { i18n }
-        if i18n
+        if i18n && Tenon.config.languages
           Tenon.config.languages.each do |title, lang|
             Tenon::TenonContentBuilder.add_assoc(self, "#{content_field}_#{lang}")
           end
