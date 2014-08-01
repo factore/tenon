@@ -4,7 +4,9 @@ module Tenon
       source_root File.expand_path('../templates', __FILE__)
 
       def copy_files
-        timestamp = Time.now.strftime('%Y%m%d%H%M%S')
+        ActiveRecord::Migration.check_pending!
+        fail 'You have not defined any languages in Tenon.config.languages' if languages.empty?
+        timestamp = Time.now.utc.strftime('%Y%m%d%H%M%S')
         template('migration.rb', File.join('db/migrate', "#{timestamp}_add_i18n_fields_#{file_hash.downcase}.rb"))
       end
 
@@ -15,7 +17,7 @@ module Tenon
       end
 
       def languages
-        Tenon.config.languages.values
+        Tenon.config.languages.try(:values) || []
       end
 
       def tables

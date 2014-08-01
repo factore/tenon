@@ -1,3 +1,7 @@
+1.0.32 2014-08-01
+  * Better title tags for devise pages
+  * Fix i18n migration generator to use UTC timestamps
+
 1.0.31 2014-08-01
   * Change the Protect Changes functionality so that users are
     not prompted to save their changes when there are no changes to save
