@@ -5,7 +5,10 @@
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }/
     %meta{ :content => 'initial-scale=1,width=device-width', :name => 'viewport' }
     %title
-      = raw @page_title + ": " if @page_title
+      - if controller_name == 'passwords'
+        Forgot Password:
+      - else
+        Sign In:
       = Tenon::MySettings.site_title if Tenon::MySettings.site_title
     = stylesheet_link_tag 'tenon/tenon', '//fonts.googleapis.com/css?family=Open+Sans:400,700'
 
