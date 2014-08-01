@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tenon (1.0.31)
+    tenon (1.0.32)
       acts-as-taggable-on (= 2.4.1)
       awesome_nested_set (= 3.0.0.rc.5)
       aws-s3 (= 0.6.3)

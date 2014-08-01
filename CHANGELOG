@@ -1,6 +1,8 @@
 1.0.32 2014-08-01
   * Better title tags for devise pages
   * Fix i18n migration generator to use UTC timestamps
+  * Check for pending migrations when running I18n migration generator
+  * Check that Tenon.config.languages are set when running I18n migration generator
 
 1.0.31 2014-08-01
   * Change the Protect Changes functionality so that users are
