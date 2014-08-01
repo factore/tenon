@@ -30,12 +30,12 @@ var Tenon = {
     // init select2
     $('select').select2();
 
-    Tenon.features.forms.init();
     Tenon.features.fileSelectWidget.init();
     new Tenon.features.I18nFields();
     new Tenon.features.Flash();
     new Tenon.features.AssetCropping();
     new Tenon.features.AssetDetachment();
+    new Tenon.features.FocusFirstField();
     new Tenon.features.MainMenu();
     new Tenon.features.Pagination();
     new Tenon.features.HamburgerNavigation();
@@ -46,6 +46,7 @@ var Tenon = {
     new Tenon.features.ItemVersionAutosave();
     new Tenon.features.ModalWindows();
     new Tenon.features.ModalForms();
+    new Tenon.features.ProtectChanges();
     new Tenon.features.RecordApproval();
     new Tenon.features.RecordBooleanToggle();
     new Tenon.features.RecordDeletion();
