@@ -33,11 +33,11 @@
     @include media($mobile-breakpoint) {
       padding-bottom: 50px;
     }
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
     margin: 0 10px 0 0;
     width: 250px;
     height: 100%;
+    padding-bottom: 50px;
     background: $tn-nav;
     text-transform: uppercase;
     font-weight: 300;
@@ -46,6 +46,9 @@
     ul {
       margin: 0;
       padding: 0;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
       li {
         padding: 0;
         background: $tn-primary;
