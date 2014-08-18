@@ -1,3 +1,6 @@
+1.0.33 2014-08-01
+  * Fix the main nav scrolling behaviour when it is taller than the window height
+
 1.0.32 2014-08-01
   * Better title tags for devise pages
   * Fix i18n migration generator to use UTC timestamps
