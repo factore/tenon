@@ -1,3 +1,8 @@
+1.0.34 2014-08-09
+  * Redirect to Tenon's root_path instead of "/tenon" when CanCan::AccessDenied
+    is raised.  This allows you to mount Tenon in other directories and adds
+    support for sites using relative_url_root.
+
 1.0.33 2014-08-01
   * Fix the main nav scrolling behaviour when it is taller than the window height
 
