@@ -51,7 +51,7 @@ module Tenon
         define_method("#{asset_name}_id") do
           if instance_variable_get("@#{asset_name}_id")
             instance_variable_get("@#{asset_name}_id")
-          else
+          elsif persisted?
             relation = Tenon::ItemAsset.where(item_type: self.class.to_s, item_id: id, asset_name: asset_name)
             relation.first.try(:asset_id)
           end
