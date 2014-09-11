@@ -34,7 +34,7 @@ module Tenon
         define_method(asset_name) do
           if instance_variable_get("@#{asset_name}")
             instance_variable_get("@#{asset_name}")
-          else
+          elsif persisted?
             relation = Tenon::ItemAsset.where(item_type: self.class.to_s, item_id: id, asset_name: asset_name)
             asset = relation.first.try(:asset).try(:attachment)
             if asset

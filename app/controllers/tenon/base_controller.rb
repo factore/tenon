@@ -7,7 +7,7 @@ module Tenon
 
     rescue_from CanCan::AccessDenied do |exception|
       flash[:warning] = 'You are not authorized to access that page.'
-      redirect_to '/tenon'
+      redirect_to root_path
     end
 
     private
