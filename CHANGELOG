@@ -1,3 +1,6 @@
+1.0.36 2014-09-11
+  * Expand on the changes in 1.0.35.
+
 1.0.35 2014-09-10
   * Check if the item that has_asset has been saved when looking up its
     attachments.
