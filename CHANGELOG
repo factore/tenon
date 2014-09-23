@@ -1,3 +1,6 @@
+1.0.40 2014-09-23
+  * Convert sign in form to input[type=email] for easier mobile sign in
+
 1.0.39 2014-09-23
   * Disable mobile device viewport scrolling
   * Fix Font Awesome Icon Sizes
