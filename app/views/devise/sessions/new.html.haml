@@ -7,7 +7,7 @@
     .flash= flash[:alert]
   .row.bordered
     = f.label :email, :label => "Email Address:"
-    = f.text_field :email, placeholder: 'user@example.com'
+    = f.email_field :email, placeholder: 'user@example.com'
 
   .row.bordered
     = f.label :password, :label => "Password:"
