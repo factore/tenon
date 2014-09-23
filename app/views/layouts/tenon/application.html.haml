@@ -3,7 +3,7 @@
   %head
     = csrf_meta_tag
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }/
-    %meta{ :content => 'initial-scale=1,width=device-width', :name => 'viewport' }
+    %meta{ :content => 'initial-scale=1,width=device-width,user-scalable=no', :name => 'viewport' }
     %title
       = raw @page_title + ": " if @page_title
       = Tenon::MySettings.site_title if Tenon::MySettings.site_title
