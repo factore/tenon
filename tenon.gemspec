@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Tenon::VERSION
   s.authors     = ['factor[e] design initiative']
   s.email       = ['info@factore.ca']
-  s.homepage    = 'http://factore.ca/tenon-cms'
+  s.homepage    = 'http://factore.ca/tenon'
   s.summary     = 'A highly flexible mountable Rails CMS built for rapid application development.'
   s.description = 'A highly flexible mountable Rails CMS built for rapid application development.'
 
