@@ -1,3 +1,6 @@
+1.0.41 2014-10-08
+  * Loosen the font-awesome version requirements
+
 1.0.40 2014-09-23
   * Convert sign in form to input[type=email] for easier mobile sign in
 
