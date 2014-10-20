@@ -18,7 +18,7 @@ class Ability
       end
       can :create, Tenon::User
     elsif u.is_contributor?
-      can([:update, :edit], Tenon::User) { |user| user == u }
+      can([:update, :edit, :publish], Tenon::User) { |user| user == u }
       can :read, :all
       can :create, Tenon::Page
       can([:update, :destroy, :edit], Tenon::Page) do |item|
