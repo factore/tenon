@@ -1,3 +1,10 @@
+1.0.42 2014-10-20
+  * remove "/tenon/" from the table names in i18n_fields.yml
+  * add js-routes gem so Rails routes are available in Javascript & Coffeescript
+  * move assets library to asset-library so it doesn't conflict with actual assets when Tenon is mounted at /
+  * gitignore .ruby-version
+  * let contributors publish Users
+
 1.0.41 2014-10-08
   * Loosen the font-awesome version requirements
 
