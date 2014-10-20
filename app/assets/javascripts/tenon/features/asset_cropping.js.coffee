@@ -13,7 +13,7 @@ class Tenon.features.AssetCropping
   _loadCrop: (e) =>
     e.preventDefault()
     @$link = $(e.currentTarget)
-    url = "/tenon/assets/#{@$link.data('asset-id')}/crop"
+    url = Routes.tenon_crop_asset_path(@$link.data('asset-id'))
     $.get(url, {format: 'html'}, @_startCrop, 'html')
 
   _cancelCrop: (e) ->

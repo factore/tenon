@@ -3,7 +3,7 @@ Tenon::Engine.routes.draw do
 
   resources :item_versions, only: [:create, :show, :new, :index]
 
-  resources :assets, except: [:show] do
+  resources :assets, path: 'asset-library', except: [:show] do
     post 'encode_notify', :on => :collection
     get :crop, :on => :member
   end

@@ -15,7 +15,7 @@ describe Tenon::AssetsController do
 
   before do
     controller.stub(:current_user) { user }
-    controller.stub(:polymorphic_index_path) { '/tenon/assets' }
+    controller.stub(:polymorphic_index_path) { '/tenon/asset-library' }
   end
 
   describe 'GET index.html' do
@@ -134,9 +134,9 @@ describe Tenon::AssetsController do
         expect(controller.flash[:notice]).not_to be_nil
       end
 
-      it "should redirect to '/tenon/assets'" do
+      it "should redirect to '/tenon/asset-library'" do
         post :create, asset: params
-        expect(response).to redirect_to '/tenon/assets'
+        expect(response).to redirect_to '/tenon/asset-library'
       end
     end
 

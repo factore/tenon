@@ -2,7 +2,7 @@
   <div class="thumbnail"><%- @asset.icon %></div>
   <div class="record-details">
     <div class="record-title">
-      <a href="/tenon/assets/<%= @asset.id %>/edit" data-modal-remote="true" data-modal-title="Edit Asset"><%= @asset.display_name %></a>
+      <a href="<%= Routes.tenon_edit_asset_path(@asset.id) %>" data-modal-remote="true" data-modal-title="Edit Asset"><%= @asset.display_name %></a>
     </div>
 
     <div class="record-fields">
