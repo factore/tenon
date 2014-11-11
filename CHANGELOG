@@ -1,3 +1,6 @@
+1.0.43 2014-11-11
+  * fix asset thumbnails when displayed as an attachment on an object
+
 1.0.42 2014-10-20
   * remove "/tenon/" from the table names in i18n_fields.yml
   * add js-routes gem so Rails routes are available in Javascript & Coffeescript
