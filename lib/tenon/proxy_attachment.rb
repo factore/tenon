@@ -1,9 +1,10 @@
 module Tenon
   class ProxyAttachment
-    attr_reader :attachment
+    attr_reader :attachment, :asset
 
     def initialize(attachment, klass, asset_name)
       @attachment = attachment.try(:attachment) || attachment
+      @asset = attachment if attachment.is_a?(Tenon::Asset)
       @style_prefix = "#{klass.to_s.underscore.gsub('/', '_')}_#{asset_name}"
     end
 

@@ -36,7 +36,7 @@ module Tenon
             instance_variable_get("@#{asset_name}")
           elsif persisted?
             relation = Tenon::ItemAsset.where(item_type: self.class.to_s, item_id: id, asset_name: asset_name)
-            asset = relation.first.try(:asset).try(:attachment)
+            asset = relation.first.try(:asset)
             if asset
               attach = ProxyAttachment.new(asset, self.class, asset_name)
             else
@@ -83,7 +83,7 @@ module Tenon
             join = send("#{asset_name}_join") || send("build_#{asset_name}_join")
             join.assign_attributes(attrs)
             join.save
-            attachment = ProxyAttachment.new(asset.attachment, self.class, asset_name)
+            attachment = ProxyAttachment.new(asset, self.class, asset_name)
             instance_variable_set("@#{asset_name}_id", val)
             instance_variable_set("@#{asset_name}", attachment)
           else
