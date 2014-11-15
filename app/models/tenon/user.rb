@@ -37,6 +37,10 @@ module Tenon
       is_super_admin? || is_admin? || is_contributor?
     end
 
+    def active_for_authentication?
+      super && approved?
+    end
+
     private
 
     def apply_member_role
