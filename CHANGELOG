@@ -1,3 +1,10 @@
+1.0.45 2014-11-15
+  * update scafold_small model template to new default_scope syntax
+  * render default file thumbnail on the front-end if Tenon content is saved without picking an image (rather than throw an exception)
+  * remove unused columns from tenon_photos
+  * update overcommit and rubocop
+  * only allow approved users to log in
+
 1.0.44 2014-11-11
   * fix asset thumbnails when displayed as an attachment on an object
 
