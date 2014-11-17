@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141115154243) do
+ActiveRecord::Schema.define(version: 20141117202434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 20141115154243) do
   end
 
   add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
+
+  create_table "small_tests", force: true do |t|
+    t.string   "title"
+    t.integer  "list_order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
@@ -109,40 +116,6 @@ ActiveRecord::Schema.define(version: 20141115154243) do
   end
 
   add_index "tenon_contacts", ["created_at"], name: "index_contacts_on_created_at", using: :btree
-
-  create_table "tenon_delayed_jobs", force: true do |t|
-    t.integer  "priority",   default: 0
-    t.integer  "attempts",   default: 0
-    t.text     "handler"
-    t.text     "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string   "locked_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "queue"
-  end
-
-  add_index "tenon_delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
-
-  create_table "tenon_dispatches", force: true do |t|
-    t.string   "subject"
-    t.text     "content"
-    t.datetime "sent_at"
-    t.integer  "creator_id"
-    t.integer  "updater_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "queued_message_count"
-    t.integer  "sent_message_count"
-    t.integer  "failed_message_count"
-    t.integer  "opened_message_count"
-    t.text     "display_content"
-  end
-
-  add_index "tenon_dispatches", ["creator_id"], name: "index_dispatches_on_creator_id", using: :btree
-  add_index "tenon_dispatches", ["updater_id"], name: "index_dispatches_on_updater_id", using: :btree
 
   create_table "tenon_events", force: true do |t|
     t.string   "title"
