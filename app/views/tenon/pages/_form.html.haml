@@ -9,7 +9,7 @@
         %li.active= link_to 'Page Content', '#details', data: {toggle: 'tab'}
         %li= link_to 'Search Optimization', '#seo', data: {toggle: 'tab'}
 
-    = i18n_language_nav(:pages)
+    = i18n_language_nav(:'tenon/pages')
 
 = autosaving_form_for @page do |f|
   = error_messages_for :page
