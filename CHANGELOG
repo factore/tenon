@@ -1,5 +1,8 @@
+1.0.47 2014-11-17
+  * remove unused tables (tenon_delayed_jobs, tenon_dispatches)
+
 1.0.46 2014-11-17
-	* fix the language switcher on pages, posts and events
+  * fix the language switcher on pages, posts and events
 
 1.0.45 2014-11-15
   * update scafold_small model template to new default_scope syntax
