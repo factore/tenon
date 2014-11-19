@@ -2,11 +2,11 @@ module Tenon
   module AssetHelper
     def asset_icon(asset)
       if asset.attachment.exists?(:thumbnail)
-        i = image_tag(asset.attachment.url(:thumbnail))
+        image = image_set_tag(asset.attachment.url(:thumbnail), responsive_styles_for(asset, :thumbnail))
       else
-        i = image_tag(default_asset_thumbnail(asset))
+        image = image_tag(default_asset_thumbnail(asset))
       end
-      asset_icon_link(asset, i)
+      asset_icon_link(asset, image)
     end
 
     def asset_icon_link(asset, icon)
@@ -23,6 +23,20 @@ module Tenon
       else
         'tenon/thumb-doc.png'
       end
+    end
+
+    def responsive_styles_for(asset, base_style)
+      responsive_styles = {}
+      Tenon.config.front_end[:breakpoints].each do |name, width|
+        url = asset.attachment.url("#{base_style}_#{name}".to_sym)
+        responsive_styles[url] = "#{width}w"
+      end
+      responsive_styles
+    end
+
+    def image_set_tag(source, srcset = {}, options = {})
+      srcset = srcset.map { |src, size| "#{src} #{size}" }.join(', ')
+      image_tag(source, options.merge(srcset: srcset))
     end
 
     private
