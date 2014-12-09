@@ -2,6 +2,8 @@
   position: absolute;
   z-index: 5;
   opacity: 0;
+  width: 100%;
+  cursor: pointer;
 
   & + label {
     display: inline;
@@ -25,15 +27,6 @@
     color: $checked-color;
     content: $checked;
   }
-
-  // &:hover + label:before {
-
-  //   @if $hover-color != inherit {
-  //     color: $hover-color;
-  //   }
-  //   content: $hover;
-  //   outline: 2px auto $checked-color;
-  // }
 
   &:focus + label:before {
     outline: 1px dotted $checked-color;
@@ -70,8 +63,5 @@
   &:nth-child(#{$number-of-columns}n + #{$number-of-columns}) {
     margin-right: 0;
   }
-  // &:nth-child(#{2 * $number-of-columns}n + 1):last-child, &:nth-child(#{2 * $number-of-columns}n + 2):last-child {
-  //   @include span-columns(12);
-  // }
 }
 
