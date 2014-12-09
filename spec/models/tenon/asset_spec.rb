@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Tenon::Asset do
   describe '.with_type' do
-    %w(images videos).each do |type|
+    %w(images).each do |type|
       context "when type is #{type}" do
         it 'should receive the proper args' do
           args = ['attachment_content_type LIKE ?', "%#{type.singularize}%"]
