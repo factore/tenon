@@ -1,6 +1,6 @@
 module Tenon
   class ProxyAttachment
-    attr_reader :attachment, :asset, :style_prefix
+    attr_reader :attachment, :asset
 
     def initialize(attachment, klass, asset_name)
       @attachment = attachment.try(:attachment) || attachment

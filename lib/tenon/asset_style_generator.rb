@@ -1,6 +1,6 @@
 module Tenon
   class AssetStyleGenerator
-    attr_reader :asset
+    attr_reader :asset, :style_prefix
 
     def self.generate(asset)
       new(asset).styles
