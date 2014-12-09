@@ -77,9 +77,15 @@
   .remember {
     display: inline-block;
     vertical-align: middle;
+    width: 50%;
+    position: relative;
 
     label {
       display: inline;
+      &:before {
+        position: relative;
+        top: 3px;
+      }
     }
   }
 
