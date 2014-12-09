@@ -1,3 +1,6 @@
+1.0.48 2014-12-02
+  * apply OS X font fix to <i> elements to fix FontAwesome icons
+
 1.0.47 2014-11-17
   * remove unused tables (tenon_delayed_jobs, tenon_dispatches)
 
