@@ -1,8 +1,14 @@
 module Tenon
   class User < ActiveRecord::Base
     # Include default devise modules. Others available are:
-    # :token_authenticatable, :confirmable, :lockable and :timeoutable
-    devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
+    # :token_authenticatable, :confirmable, :lockable and
+    devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable
+
+    # To use :timeoutable, extent the Tenon::User model and
+    # include the following method your preferred value:
+    # def timeout_in
+    #   30.days
+    # end
 
     # Roles
     has_many :role_assignments
