@@ -16,6 +16,9 @@ ActiveRecord::Schema.define(version: 20141117202434) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "dogs", force: true do |t|
+  end
+
   create_table "settings", force: true do |t|
     t.string   "var",                   null: false
     t.text     "value"
@@ -26,13 +29,6 @@ ActiveRecord::Schema.define(version: 20141117202434) do
   end
 
   add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
-
-  create_table "small_tests", force: true do |t|
-    t.string   "title"
-    t.integer  "list_order"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

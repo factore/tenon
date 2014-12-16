@@ -61,17 +61,6 @@ module Tenon
       end
     end
 
-    # form row helper for boolean published block
-    def publish_box(f, object)
-      if can?(:publish, object)
-        content = [
-          f.check_box(:published, class: 'tn-checkbox-right'),
-          f.super_label(:published, 'Published?')
-        ].join(' ').html_safe
-        content_tag(:div, content, class: 'form-group inline')
-      end
-    end
-
     def i18n_language_nav(table)
       if Tenon.config.languages && I18nLookup.fields[:tables][table]
         render 'tenon/shared/i18n_language_nav'

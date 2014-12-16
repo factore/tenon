@@ -9,6 +9,7 @@
 
   .form-group {
     clear: both;
+    position: relative;
     margin: $tn-margin 0;
 
     &:first-child {
@@ -56,15 +57,11 @@ input[type=text], input[type=password], input[type=email] {
   font-size: $tn-font-large;
 }
 
-.tn-checkbox {
-  @include styled-checkbox;
-  opacity: 0;
-}
-
 .tn-checkbox-right {
   @include styled-checkbox($float: right);
 }
 
+.tn-checkbox,
 .tn-checkbox-left {
   @include styled-checkbox($float: left);
 }

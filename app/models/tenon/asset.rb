@@ -23,7 +23,7 @@ module Tenon
     before_destroy :check_attached_items
 
     def self.with_type(type)
-      if %w(images videos).include?(type)
+      if %w(images).include?(type)
         where('attachment_content_type LIKE ?', "%#{type.singularize}%")
       else
         documents
@@ -32,7 +32,6 @@ module Tenon
 
     def self.documents
       where('attachment_content_type NOT LIKE ?', '%image%')
-      .where('attachment_content_type NOT LIKE ?', '%video%')
     end
 
     def is_image?
