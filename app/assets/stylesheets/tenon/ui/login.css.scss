@@ -75,18 +75,7 @@
   }
 
   .remember {
-    display: inline-block;
-    vertical-align: middle;
-    width: 50%;
     position: relative;
-
-    label {
-      display: inline;
-      &:before {
-        position: relative;
-        top: 3px;
-      }
-    }
   }
 
   input[type=text], input[type=password], input[type=email] {

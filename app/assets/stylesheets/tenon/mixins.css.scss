@@ -1,58 +1,73 @@
-@mixin styled-checkbox($unchecked: "\f10c", $checked: "\f058", $active: inherit, $hover: inherit, $font-family: "FontAwesome", $float: none, $unchecked-color: $tn-grey, $checked-color: $tn-primary, $active-color: inherit, $hover-color: inherit) {
+@mixin styled-checkbox($unchecked: '\f10c', $checked: '\f058', $font-family: 'FontAwesome', $float: none, $unchecked-color: $tn-grey, $checked-color: $tn-primary) {
   position: absolute;
-  z-index: 5;
+  z-index: 0;
   opacity: 0;
-  width: 100%;
+  float: none;
   cursor: pointer;
-
   & + label {
-    display: inline;
+    position: relative;
+    display: block;
     cursor: pointer;
-
+    padding: 2px;
+    @if $float == left {
+      padding-left: 30px;
+    }
     &:before {
-      float: $float;
-      padding: 0 2px;
-      color: $unchecked-color;
+      font-family: $font-family;
+      font-size: 20px;
+      position: absolute;
+      z-index: 10;
+      top: 2px;
+      display: block;
+      width: auto;
       content: $unchecked;
-      font: 22px $font-family;
       cursor: pointer;
-
-      @if $float == none {
-        padding: 6px;
+      color: $unchecked-color;
+      @if $float == right {
+        right: 2px;
+      }
+      @if $float == left {
+        left: 2px;
       }
     }
   }
-
   &:checked + label:before {
-    color: $checked-color;
     content: $checked;
+    color: $checked-color;
   }
-
-  &:focus + label:before {
-    outline: 1px dotted $checked-color;
-    content: $active;
-
-    @if $active-color != inherit {
-      color: $active-color;
+  &:hover + label:before {
+    color: lighten($checked-color, 10%);
+  }
+  &:focus + label {
+    border: 1px dotted lighten($unchecked-color, 10%);
+    padding: 1px;
+    @if $float == left {
+      padding-left: 29px;
     }
+    &:before {
+      top: 1px;
+      @if $float == right {
+        right: 1px;
+      }
+      @if $float == left {
+        left: 1px;
+      }
+    }
+
   }
 }
 
 @mixin button($border-color, $background-color, $color, $highlight-border-color, $highlight-background-color) {
-  @include transition(all 0.2s ease);
+  @include transition(all .2s ease);
+  color: $color;
   border-color: $border-color;
   background-color: $background-color;
-  color: $color;
   &:hover, &:focus, &:active, &.active {
+    color: $color;
     border-color: $highlight-border-color;
     background-color: $highlight-background-color;
-    color: $color;
   }
-  &.disabled,
-  &.disabled:hover,
-  &.disabled:focus,
-  &.disabled:active,
-  &.disabled.active {
+  &.disabled, &.disabled:hover, &.disabled:focus, &.disabled:active, &.disabled.active {
     border-color: $border-color;
     background-color: $background-color;
   }
@@ -64,4 +79,3 @@
     margin-right: 0;
   }
 }
-
