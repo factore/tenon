@@ -1,3 +1,6 @@
+1.0.50 2014-12-15
+  * fixed tenon checkboxes everywhere
+
 1.0.49 2014-12-15
   * added :timeoutable to tenon::user - activate this by extending the tenon::user model
   * fixed tenon checkboxes in firefox
