@@ -18,6 +18,9 @@ Tenon.configure do |config|
     }
   }
 
+  # Set Chrome on Android theme color
+  config.theme_color = '#9c0f17'
+
   # Set the default after_update and after_create path
   # :edit or :index
   config.after_update_path = :edit

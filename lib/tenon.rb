@@ -23,6 +23,6 @@ module Tenon
 
   class Configuration
     attr_accessor :mobile_layout, :languages, :seo_callout, :front_end,
-                  :after_create_path, :after_update_path
+                  :after_create_path, :after_update_path, :theme_color
   end
 end
