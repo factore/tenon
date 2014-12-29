@@ -18,6 +18,10 @@ Tenon.configure do |config|
     }
   }
 
+  # Set platform hints color(s)
+  config.client_color = '#9c0f17'
+  config.primary_color = '#df222A'
+
   # Set the default after_update and after_create path
   # :edit or :index
   config.after_update_path = :edit

@@ -4,14 +4,12 @@
     = csrf_meta_tag
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }/
     %meta{ :content => 'initial-scale=1,width=device-width', :name => 'viewport' }
-    %title
-      - if controller_name == 'passwords'
-        Forgot Password:
-      - else
-        Sign In:
-      = Tenon::MySettings.site_title if Tenon::MySettings.site_title
-    = stylesheet_link_tag 'tenon/tenon', '//fonts.googleapis.com/css?family=Open+Sans:400,700'
+    = platform_hints(Tenon.config.client_color) if Tenon.config.client_color.present?
 
+    %title
+      = Tenon::MySettings.site_title if Tenon::MySettings.site_title
+
+    = stylesheet_link_tag 'tenon/tenon', '//fonts.googleapis.com/css?family=Open+Sans:400,700'
     = javascript_include_tag 'tenon/tenon_manifest'
 
   %body{data: { controller: params[:controller], action: params[:action] }, class: ('menu-open' if content_for?(:sidebar))}

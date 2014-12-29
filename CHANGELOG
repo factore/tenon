@@ -1,3 +1,6 @@
+1.0.51 2014-12-29
+  * enable platform hints on iOS, Android, and Windows
+
 1.0.50 2014-12-16
   * fixed tenon checkboxes everywhere
 
