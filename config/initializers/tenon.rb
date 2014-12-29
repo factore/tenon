@@ -18,8 +18,9 @@ Tenon.configure do |config|
     }
   }
 
-  # Set Chrome on Android theme color
-  config.theme_color = '#9c0f17'
+  # Set platform hints color(s)
+  config.client_color = '#9c0f17'
+  config.primary_color = '#df222A'
 
   # Set the default after_update and after_create path
   # :edit or :index
