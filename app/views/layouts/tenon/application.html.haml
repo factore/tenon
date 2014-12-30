@@ -7,7 +7,7 @@
     = platform_hints(Tenon.config.primary_color) if Tenon.config.primary_color.present?
 
     %title
-      = Tenon::MySettings.site_title if Tenon::MySettings.site_title
+      = Tenon::MySettings.site_title.present? ? Tenon::MySettings.site_title : 'Tenon'
 
     = stylesheet_link_tag 'tenon/tenon', '//fonts.googleapis.com/css?family=Open+Sans:400,700'
     = javascript_include_tag 'tenon/tenon_manifest'
