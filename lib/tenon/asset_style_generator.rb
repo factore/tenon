@@ -21,11 +21,11 @@ module Tenon
     def default_styles
       {
         original: { processors: ['cropper'], geometry: '' },
-        medium: '1400>',
-        thumbnail: '200x200#',
-        thumbnail_desktop: '254x254#',
-        thumbnail_laptop: '205x205#',
-        thumbnail_tablet: '350x350#'
+        thumbnail: '100x100#',
+        tile: '350x350#',
+        tile_desktop: '254x254#',
+        tile_laptop: '205x205#',
+        tile_tablet: '350x350#',
       }
     end
 

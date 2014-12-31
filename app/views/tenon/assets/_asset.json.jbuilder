@@ -1,5 +1,5 @@
 json.extract!(asset,
-  :id, :display_name, :icon, :to_param, :human_size,
+  :id, :display_name, :icon, :tile, :to_param, :human_size,
   :attachment_content_type, :edit_link, :delete_link,
   :crop_link, :download_link
 )
