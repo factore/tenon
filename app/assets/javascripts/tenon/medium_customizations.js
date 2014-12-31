@@ -1,34 +1,42 @@
 MediumEditor.prototype.toolbarFormAnchor = function () {
   var anchor = document.createElement('div'),
-    input = document.createElement('input'),
-    a = document.createElement('a'),
-    button = document.createElement('a');
-    icon = document.createElement('i');
+      input = document.createElement('input'),
+      cancel = document.createElement('a'),
+      asset_button = document.createElement('a'),
+      target_wrap = document.createElement('div'),
+      target_label = document.createElement('label'),
+      target = document.createElement('input'),
+      icon = document.createElement('i');
 
-  a.setAttribute('href', '#');
-  a.innerHTML = '&times;';
-  a.className = 'medium-editor-cancel';
+  cancel.setAttribute('href', '#');
+  cancel.className = 'medium-editor-cancel';
 
-  button.id = 'medium-editor-link-to-asset';
-  button.setAttribute('href', '/tenon/item_assets/new?hide_upload=true');
-  button.setAttribute('data-modal-remote', 'true');
-  button.setAttribute('data-tooltip', 'true');
-  button.setAttribute('title', 'Link to an Asset');
-  button.setAttribute('data-modal-title', 'Link to Asset');
-  button.setAttribute('data-modal-handler', 'Tenon.features.tenonContent.AssetLink');
+  asset_button.id = 'medium-editor-link-to-asset';
+  asset_button.setAttribute('href', '/tenon/item_assets/new?hide_upload=true');
+  asset_button.setAttribute('data-modal-remote', 'true');
+  asset_button.setAttribute('data-tooltip', 'true');
+  asset_button.setAttribute('title', 'Link to an Asset');
+  asset_button.setAttribute('data-modal-title', 'Link to Asset');
+  asset_button.setAttribute('data-modal-handler', 'Tenon.features.tenonContent.AssetLink');
 
-  icon.className = 'fa fa-file-pdf-o';
-
-  button.appendChild(icon);
+  target.setAttribute('type', 'checkbox')
+  target.setAttribute('title', 'Open in New Window?')
+  target.setAttribute('data-tooltip', 'true');
+  target.className = 'medium-editor-toolbar-anchor-target';
+  target_label.className = 'medium-editor-toolbar-anchor-target-label';
+  target_wrap.className = 'medium-editor-toolbar-anchor-target-wrap';
+  target_wrap.insertBefore(target_label, target_wrap.firstChild);
+  target_wrap.insertBefore(target, target_wrap.firstChild);
 
   input.setAttribute('type', 'text');
   input.setAttribute('placeholder', this.options.anchorInputPlaceholder);
 
   anchor.className = 'medium-editor-toolbar-form-anchor';
   anchor.id = 'medium-editor-toolbar-form-anchor';
+  anchor.appendChild(asset_button);
   anchor.appendChild(input);
-  anchor.appendChild(button);
-  anchor.appendChild(a);
+  anchor.appendChild(target_wrap);
+  anchor.appendChild(cancel);
 
   return anchor;
 };

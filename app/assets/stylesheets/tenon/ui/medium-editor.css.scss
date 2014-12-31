@@ -1,3 +1,4 @@
+// Color updates:
 .medium-toolbar-arrow-under:after {
   border-color: $tn-primary transparent transparent;
 }
@@ -20,21 +21,46 @@
 
 .medium-editor-toolbar {
   background-color: $tn-primary;
-  border: 1px solid $medium-editor-toolbar-border;
+  border: 1px solid lighten($tn-primary, 10%);
 
   li .medium-editor-button-active {
-    background-color: $medium-editor-toolbar-active;
+    background-color: darken($tn-primary, 10%);
   }
 
   li button {
-    border-right: 1px solid $medium-editor-toolbar-border;
+    border-right: 1px solid lighten($tn-primary, 10%);
 
     &:hover {
-      background-color: $medium-editor-toolbar-hover;
+      background-color: lighten($tn-primary, 10%);
     }
   }
 }
 
 .medium-editor-placeholder:after {
-  color: $medium-editor-toolbar-border;
+  color: lighten($tn-primary, 10%);
 }
+
+// Asset and cancel buttons:
+.medium-editor-cancel, #medium-editor-link-to-asset {
+  &:hover {
+    text-decoration: none;
+    &:before {
+      color: lighten($tn-primary, 40%);
+    }
+  }
+  &:before {
+    position: relative;
+    top: 2px;
+    font-family: "FontAwesome";
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+  }
+}
+.medium-editor-cancel:before {
+  content: "\f057";
+}
+#medium-editor-link-to-asset:before {
+  content: "\f1c1";
+}
+
