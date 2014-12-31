@@ -5,7 +5,7 @@
       = responsive_image_tag(piece.image, piece.size.to_sym)
     - else
       =# link_to image_tag(piece.image.url(:_medium)), piece.link_url, target: '_'
-      = link_to responsive_image_tag(piece.image, piece.size.to_sym), piece.link_url, target: '_'
+      = link_to front_end_responsive_image_tag(piece.image, piece.size.to_sym), piece.link_url, target: '_'
   - else
     = image_tag('tenon/thumb-doc.png')
 - if piece.show_caption
