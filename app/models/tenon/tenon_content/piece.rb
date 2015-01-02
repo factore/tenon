@@ -2,13 +2,10 @@ module Tenon
   module TenonContent
     class Piece < ActiveRecord::Base
       self.table_name = 'tenon_tenon_content_pieces'
-      attr_reader :max_width, :sizes, :styles
-
-      def max_width
-        1200
-      end
+      attr_reader :sizes, :styles
 
       def sizes
+        # to translate between the stored piece size in words and a number for math
         {
           :one => 1.0,
           :two => 2.0,
@@ -26,23 +23,21 @@ module Tenon
       end
 
       def styles
-        Hash[(1..12).map{|n| [sizes.key(n), (max_width/12*n).to_s]}]
+        Hash[(1..10).map{|n| ["x#{n*200}", (n*200).to_s]}]
       end
 
       # Scopes, attachments, etc.
       has_asset :image, styles: {
-        twelve: '1920>',
-        eleven: '1760>',
-        ten: '1600>',
-        nine: '1440>',
-        eight: '1280>',
-        seven: '1120>',
-        six: '960>',
-        five: '800>',
-        four: '640>',
-        three: '480>',
-        two: '320>',
-        one: '160>'
+        x2000: '2000>',
+        x1800: '1800>',
+        x1600: '1600>',
+        x1400: '1400>',
+        x1200: '1200>',
+        x1000: '1000>',
+        x800: '800>',
+        x600: '600>',
+        x400: '400>',
+        x200: '200>'
       }
 
       # Relationships

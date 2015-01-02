@@ -1,7 +1,6 @@
 module Tenon
   class Asset < ActiveRecord::Base
     attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :duplicate
-    attr_reader :style_prefix
 
     # Scopes
     default_scope -> { order('created_at DESC').includes(:item_assets) }
@@ -48,10 +47,6 @@ module Tenon
 
     def cropping?
       crop_x.present?
-    end
-
-    def style_prefix
-
     end
 
     private

@@ -11,7 +11,7 @@ module Tenon
     def piece_image_tag(piece, options = {}, breakpoints)
       srcset = generate_srcset(piece)
       sizes = generate_sizes(piece, breakpoints)
-      image_tag(piece.image.url(:twelve), options.merge(srcset: srcset, sizes: sizes))
+      image_tag(piece.image.url(:original), options.merge(srcset: srcset, sizes: sizes))
     end
 
     private

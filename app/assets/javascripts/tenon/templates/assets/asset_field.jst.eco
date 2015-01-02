@@ -1,5 +1,5 @@
 <li class="asset hidden" data-record-id="<%= @asset.id %>">
-  <div class="thumbnail"><%- @asset.thumbnail %></div>
+  <div class="thumbnail"><%- @asset.icon %></div>
   <div class="record-details">
     <div class="record-title big">
       <strong>

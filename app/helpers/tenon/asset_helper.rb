@@ -2,7 +2,7 @@ module Tenon
   module AssetHelper
     def asset_icon(asset)
       if asset.attachment.exists?(:thumbnail)
-        image = responsive_image_tag(asset, :thumbnail)
+        image = image_tag(asset.attachment.url(:thumbnail))
       else
         image = image_tag(default_asset_thumbnail(asset))
       end
@@ -19,7 +19,7 @@ module Tenon
 
     def asset_tile(asset)
       if asset.attachment.exists?(:tile)
-        image = responsive_image_tag(asset, :tile)
+        image = image_tag(asset.attachment.url(:tile))
       else
         image = image_tag(default_asset_thumbnail(asset))
       end
@@ -42,45 +42,7 @@ module Tenon
       end
     end
 
-    def responsive_image_tag(asset, style)
-      image_src_set_tag(asset.attachment.url(style), responsive_styles_for(asset, style))
-    end
-
-    def front_end_responsive_image_tag(asset, style)
-      default_src = "#{asset.style_prefix}_#{style}"
-      image_src_set_tag(asset.attachment.url(default_src), front_end_responsive_styles_for(asset, style))
-    end
-
     private
-      def front_end_responsive_styles_for(asset, base_style)
-        responsive_styles = {}
-        Tenon.config.front_end[:breakpoints].each do |name, sizes|
-          computed_style = "#{asset.style_prefix}_#{base_style}_#{name}"
-          if asset.attachment.exists?(computed_style.to_sym)
-            url = asset.attachment.url(computed_style.to_sym)
-            responsive_styles[url] = "#{width}w"
-          end
-        end
-        responsive_styles
-      end
-
-      def responsive_styles_for(asset, base_style)
-        responsive_styles = {}
-        Tenon.config.front_end[:breakpoints].each do |name, width|
-          computed_style = "#{base_style}_#{name}"
-          if asset.attachment.exists?(computed_style.to_sym)
-            url = asset.attachment.url(computed_style.to_sym)
-            responsive_styles[url] = "#{width}w"
-          end
-        end
-        responsive_styles
-      end
-
-      def image_src_set_tag(source, srcset = {}, options = {})
-        srcset = srcset.map { |src, size| "#{src} #{size}" }.join(', ')
-        image_tag(source, options.merge(srcset: srcset))
-      end
-
       def crop_options(asset)
         {
           class: 'asset-crop',
