@@ -1,7 +1,7 @@
 .tn-tc-image{class: piece.stretch_to_fill? ? 'stretch' : ''}
   - if piece.image.present?
     - if piece.link_url.blank?
-      = frontend_piece_image_tag(f.object)
+      = frontend_piece_image_tag(piece)
     - else
       =# link_to image_tag(piece.image.url(:_medium)), piece.link_url, target: '_'
       = link_to front_end_responsive_image_tag(piece.image, piece.size.to_sym), piece.link_url, target: '_'
