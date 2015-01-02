@@ -54,7 +54,6 @@ module Tenon
 
     end
 
-
     private
 
     def check_attached_items

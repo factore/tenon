@@ -54,7 +54,7 @@ module Tenon
     private
       def front_end_responsive_styles_for(asset, base_style)
         responsive_styles = {}
-        Tenon.config.front_end[:breakpoints].each do |name, width|
+        Tenon.config.front_end[:breakpoints].each do |name, sizes|
           computed_style = "#{asset.style_prefix}_#{base_style}_#{name}"
           if asset.attachment.exists?(computed_style.to_sym)
             url = asset.attachment.url(computed_style.to_sym)

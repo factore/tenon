@@ -2,19 +2,29 @@
 # by the site developer.  There is a Settings module built into Tenon
 # where you can expose other settings to your client.
 Tenon.configure do |config|
-  # Set up grid config for the front end.  This is done here so that we can
-  # present accurate sizing
+  # Set up grid config for the front end.  This is done here so that we can present accurate sizing
   config.front_end = {
     breakpoints: {
-      desktop: 1400,
-      laptop: 960,
-      tablet: 768
+      full: { browser: 1920, content: 1920 },
+      desktop: { browser: 1400, content: 1400 },
+      laptop: { browser: 960, content: 960 },
+      tablet: { browser: 768, content: 768 }
     },
     columns: 24,
     gutter: 20,
 
     content_columns: {
       default: 18
+    }
+  }
+
+  # set up the back-end breakpoints and associated Tenon content widths
+  config.back_end = {
+    breakpoints: {
+      full: { browser: 1920, content: 1225 },
+      desktop: { browser: 1400, content: 740 },
+      laptop: { browser: 960, content: 680 },
+      tablet: { browser: 768, content: 750 }
     }
   }
 

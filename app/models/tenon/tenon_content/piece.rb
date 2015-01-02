@@ -2,73 +2,47 @@ module Tenon
   module TenonContent
     class Piece < ActiveRecord::Base
       self.table_name = 'tenon_tenon_content_pieces'
+      attr_reader :max_width, :sizes, :styles
+
+      def max_width
+        1200
+      end
+
+      def sizes
+        {
+          :one => 1.0,
+          :two => 2.0,
+          :three => 3.0,
+          :four => 4.0,
+          :five => 5.0,
+          :six => 6.0,
+          :seven => 7.0,
+          :eight => 8.0,
+          :nine => 9.0,
+          :ten => 10.0,
+          :eleven => 11.0,
+          :twelve => 12.0
+        }
+      end
+
+      def styles
+        Hash[(1..12).map{|n| [sizes.key(n), (max_width/12*n).to_s]}]
+      end
 
       # Scopes, attachments, etc.
       has_asset :image, styles: {
-        wrap: '400',
-        half: '600',
-        full: '1400',
-
-        twelve: '1205>',
-        twelve_desktop: '1205>',
-        twelve_laptop: '726>',
-        twelve_tablet: '662>',
-        twelve_mobile: '',
-
-        eleven: '1102>',
-        eleven_laptop: '664>',
-        eleven_tablet: '606>',
-        elevent_mobile: '',
-
-        ten: '999>',
-        ten_laptop: '602>',
-        ten_tablet: '549>',
-        ten_mobile: '',
-
-        nine: '896>',
-        nine_laptop: '540>',
-        nine_tablet: '493>',
-        nine_mobile: '',
-
-        eight: '794>',
-        eight_laptop: '478>',
-        eight_tablet: '436>',
-        eight_mobile: '',
-
-        seven: '691>',
-        seven_laptop: '416>',
-        seven_tablet: '380>',
-        seven_mobile: '',
-
-        six: '588>',
-        six_laptop: '354>',
-        six_tablet: '323>',
-        six_mobile: '',
-
-        five: '485>',
-        five_laptop: '293>',
-        five_tablet: '267>',
-        five_mobile: '',
-
-        four: '383>',
-        four_laptop: '231>',
-        four_tablet: '210>',
-        four_mobile: '',
-
-        three: '280>',
-        three_laptop: '169>',
-        three_tablet: '154>',
-        three_mobile: '',
-
-        two: '177>',
-        two_laptop: '107>',
-        two_tablet: '97>',
-        two_mobile: '',
-
-        one: '74>',
-        one_laptop: '45>',
-        one_tablet: '41>',
-        one_mobile: ''
+        twelve: '1920>',
+        eleven: '1760>',
+        ten: '1600>',
+        nine: '1440>',
+        eight: '1280>',
+        seven: '1120>',
+        six: '960>',
+        five: '800>',
+        four: '640>',
+        three: '480>',
+        two: '320>',
+        one: '160>'
       }
 
       # Relationships

@@ -3,7 +3,7 @@ class Tenon.features.tenonContent.AssetAttachment extends Tenon.features.AssetAt
     @$assetField.find('.asset-id-field').val($li.data('record-id'))
     @$assetField.find('.asset-crop').attr('data-asset-id', $li.data('record-id'))
     $img = $li.find('.thumbnail img').clone()
-    $img.attr('src', $li.data('style-urls')['medium'])
+    $img.attr('src', $li.data('style-urls')['twelve'])
     @$assetField.find('.image a.add-image, .image img').remove()
     @$assetField.find('.image').prepend($img)
 

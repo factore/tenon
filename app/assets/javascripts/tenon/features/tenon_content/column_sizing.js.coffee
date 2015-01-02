@@ -28,7 +28,7 @@ class Tenon.features.tenonContent.ColumnSizing
       @_setSizes(word, newClass, siblingClass, newSiblingClass)
 
   _decreaseFrom: (word, num) =>
-    unless num <= 2
+    unless num <= 1
       siblingClass = @_numberToWord(@_words.length - num)
       newSiblingClass = @_numberToWord(@_words.length - num + 1)
       newClass = @_numberToWord(num - 1)
