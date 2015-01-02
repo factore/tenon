@@ -19,7 +19,7 @@ module Tenon
     def generate_sizes(piece, breakpoints)
       piece_size = piece.size == '' ? 'twelve' : piece.size
       breakpoints.map do |name, sizes|
-        "(max-width: #{sizes[:browser]}) #{(piece.sizes[piece_size.to_sym]/12*100*sizes[:content]/sizes[:browser]).to_i}vw"
+        "(min-width: #{sizes[:browser]}px) #{(piece.sizes[piece_size.to_sym]/12*100*sizes[:content]/sizes[:browser]).to_i}vw"
       end.join(', ')
     end
 
