@@ -1,3 +1,6 @@
+- update config/initializers/tenon.rb
+
+
 = Tenon
 
 == License
