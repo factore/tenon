@@ -1,5 +1,5 @@
 // Anchor - asset and cancel buttons:
-.medium-editor-cancel, #medium-editor-link-to-asset {
+.medium-editor-cancel, .medium-editor-link-to-asset {
   &:hover {
     text-decoration: none;
     &:before {
@@ -18,7 +18,7 @@
 .medium-editor-cancel:before {
   content: '\f057';
 }
-#medium-editor-link-to-asset:before {
+.medium-editor-link-to-asset:before {
   content: '\f1c1';
 }
 

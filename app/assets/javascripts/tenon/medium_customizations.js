@@ -59,18 +59,6 @@ MediumEditor.prototype.initToolbar = function () {
 
 
 MediumEditor.prototype.createLink = function (input) {
-  function restoreSelection(savedSel) {
-    var i,
-      len,
-      sel = window.getSelection();
-    if (savedSel) {
-      sel.removeAllRanges();
-      for (i = 0, len = savedSel.length; i < len; i += 1) {
-        sel.addRange(savedSel[i]);
-      }
-    }
-  }
-
   restoreSelection(this.savedSelection);
 
   if (this.options.checkLinkFormat) {

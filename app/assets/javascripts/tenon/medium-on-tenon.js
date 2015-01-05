@@ -454,7 +454,7 @@ if (typeof module === 'object') {
           cancel.setAttribute('href', '#');
           cancel.className = 'medium-editor-cancel';
 
-          asset_button.id = 'medium-editor-link-to-asset';
+          asset_button.className = 'medium-editor-link-to-asset';
           asset_button.setAttribute('href', '/tenon/item_assets/new?hide_upload=true');
           asset_button.setAttribute('data-modal-remote', 'true');
           asset_button.setAttribute('data-tooltip', 'true');
@@ -833,11 +833,7 @@ if (typeof module === 'object') {
         bindAnchorForm: function () {
           var linkCancel = this.anchorForm.querySelector('a.medium-editor-cancel'),
               self = this;
-          this.anchorForm.addEventListener('click', function (e) {
-            if ( !$(e.target).is('#medium-editor-link-to-asset') ) {
-              e.stopPropagation();
-            }
-          });
+
           this.anchorInput.addEventListener('keyup', function (e) {
               if (e.keyCode === 13) {
                 e.preventDefault();
@@ -862,6 +858,7 @@ if (typeof module === 'object') {
               // self.keepToolbarAlive = false;
               self.checkSelection();
           });
+
           linkCancel.addEventListener('click', function (e) {
               e.preventDefault();
               self.showToolbarActions();
@@ -1071,13 +1068,17 @@ if (typeof module === 'object') {
         },
 
         createLink: function (input, target) {
+          console.log('create link:');
+          console.log(input);
+          console.log(target);
+          console.log('---');
+
           restoreSelection(this.savedSelection);
           if (this.options.checkLinkFormat) {
             input.value = this.checkLinkFormat(input.value);
           }
 
           document.execCommand('createLink', false, input.value);
-          this.triggerChange();
 
           if (target === "_blank") {
             this.setTargetBlank(input.value);
