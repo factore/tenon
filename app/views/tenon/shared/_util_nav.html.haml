@@ -1,5 +1,5 @@
 %util-nav
-  #logo= link_to image_tag('tenon/tenon_icon.png'), "/tenon"
+  #logo= link_to image_tag('tenon/tenon_icon.png'), tenon.root_path
   - unless Tenon::MySettings.site_title.blank?
     .site-title
       - if Rails.application.routes.named_routes.helpers.include?(:root_path)
