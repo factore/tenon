@@ -1,3 +1,4 @@
+// forked from medium v. 0.9.3
 function MediumEditor(elements, options) {
     'use strict';
     return this.init(elements, options);
@@ -229,6 +230,7 @@ if (typeof module === 'object') {
                     tagName = node.tagName.toLowerCase();
                     if (tagName === 'a') {
                         document.execCommand('unlink', false, null);
+                        this.triggerChange();
                     }
                 }
             });
@@ -238,6 +240,7 @@ if (typeof module === 'object') {
                     tagName;
                 if (node && node.getAttribute('data-medium-element') && node.children.length === 0 && !(self.options.disableReturn || node.getAttribute('data-disable-return'))) {
                     document.execCommand('formatBlock', false, 'p');
+                    this.triggerChange();
                 }
                 if (e.which === 13) {
                     node = getSelectionStart();
@@ -251,6 +254,7 @@ if (typeof module === 'object') {
                             document.execCommand('unlink', false, null);
                         }
                     }
+                  this.triggerChange();
                 }
             });
             return this;
@@ -298,6 +302,7 @@ if (typeof module === 'object') {
                     if (tag === 'pre') {
                         e.preventDefault();
                         document.execCommand('insertHtml', null, '    ');
+                        this.triggerChange();
                     }
                 }
             });
@@ -691,7 +696,7 @@ if (typeof module === 'object') {
             if (action.indexOf('append-') > -1) {
                 this.execFormatBlock(action.replace('append-', ''));
                 this.setToolbarPosition();
-                this.setToolbarButtonStates();
+                // this.setToolbarButtonStates();
             } else if (action === 'anchor') {
                 this.triggerAnchorAction(e);
             } else if (action === 'image') {
@@ -700,6 +705,7 @@ if (typeof module === 'object') {
                 document.execCommand(action, false, null);
                 this.setToolbarPosition();
             }
+            this.triggerChange();
         },
 
         // http://stackoverflow.com/questions/15867542/range-object-get-selection-parent-node-chrome-vs-firefox
@@ -728,6 +734,7 @@ if (typeof module === 'object') {
             if (selectedParentElement.tagName &&
                     selectedParentElement.tagName.toLowerCase() === 'a') {
                 document.execCommand('unlink', false, null);
+              this.triggerChange();
             } else {
                 if (this.anchorForm.style.display === 'block') {
                     this.showToolbarActions();
@@ -739,28 +746,28 @@ if (typeof module === 'object') {
         },
 
         execFormatBlock: function (el) {
-            var selectionData = this.getSelectionData(this.selection.anchorNode);
-            // FF handles blockquote differently on formatBlock
-            // allowing nesting, we need to use outdent
-            // https://developer.mozilla.org/en-US/docs/Rich-Text_Editing_in_Mozilla
-            if (el === 'blockquote' && selectionData.el &&
-                selectionData.el.parentNode.tagName.toLowerCase() === 'blockquote') {
-                return document.execCommand('outdent', false, null);
-            }
-            if (selectionData.tagName === el) {
-                el = 'p';
-            }
-            // When IE we need to add <> to heading elements and
-            //  blockquote needs to be called as indent
-            // http://stackoverflow.com/questions/10741831/execcommand-formatblock-headings-in-ie
-            // http://stackoverflow.com/questions/1816223/rich-text-editor-with-blockquote-function/1821777#1821777
-            if (this.isIE) {
-                if (el === 'blockquote') {
-                    return document.execCommand('indent', false, el);
-                }
-                el = '<' + el + '>';
-            }
-            return document.execCommand('formatBlock', false, el);
+          var selectionData = this.getSelectionData(this.selection.anchorNode);
+          // FF handles blockquote differently on formatBlock
+          // allowing nesting, we need to use outdent
+          // https://developer.mozilla.org/en-US/docs/Rich-Text_Editing_in_Mozilla
+          if (el === 'blockquote' && selectionData.el &&
+              selectionData.el.parentNode.tagName.toLowerCase() === 'blockquote') {
+              return document.execCommand('outdent', false, null);
+          }
+          if (selectionData.tagName === el) {
+              el = 'p';
+          }
+          // When IE we need to add <> to heading elements and
+          //  blockquote needs to be called as indent
+          // http://stackoverflow.com/questions/10741831/execcommand-formatblock-headings-in-ie
+          // http://stackoverflow.com/questions/1816223/rich-text-editor-with-blockquote-function/1821777#1821777
+          if (this.isIE) {
+              if (el === 'blockquote') {
+                  return document.execCommand('indent', false, el);
+              }
+              el = '<' + el + '>';
+          }
+          return document.execCommand('formatBlock', false, el);
         },
 
         getSelectionData: function (el) {
@@ -776,6 +783,8 @@ if (typeof module === 'object') {
                     tagName = el.tagName.toLowerCase();
                 }
             }
+
+            this.triggerChange();
 
             return {
                 el: el,
@@ -1068,10 +1077,13 @@ if (typeof module === 'object') {
           }
 
           document.execCommand('createLink', false, input.value);
+          this.triggerChange();
 
           if (target === "_blank") {
             this.setTargetBlank(input.value);
           }
+
+          this.triggerChange();
 
           this.checkSelection();
           this.showToolbarActions();
@@ -1166,14 +1178,19 @@ if (typeof module === 'object') {
                             }
                         }
                         document.execCommand('insertHTML', false, html);
+                        this.triggerChange();
                     } else {
                         document.execCommand('insertHTML', false, e.clipboardData.getData('text/plain'));
+                        this.triggerChange();
                     }
                 }
             };
             for (i = 0; i < this.elements.length; i += 1) {
                 this.elements[i].addEventListener('paste', this.pasteWrapper);
             }
+
+            this.triggerChange();
+
             return this;
         },
 
@@ -1250,6 +1267,7 @@ if (typeof module === 'object') {
 
                 this.pasteHTML('<p>' + elList.join('</p><p>') + '</p>');
                 document.execCommand('insertText', false, "\n");
+                this.triggerChange();
 
                 // block element cleanup
                 elList = el.querySelectorAll('p,div,br');
@@ -1304,6 +1322,7 @@ if (typeof module === 'object') {
 
             }
             document.execCommand('insertHTML', false, fragmentBody.innerHTML.replace(/&nbsp;/g, ' '));
+            this.triggerChange();
         },
         isCommonBlock: function (el) {
             return (el && (el.tagName.toLowerCase() === 'p' || el.tagName.toLowerCase() === 'div'));
@@ -1384,6 +1403,13 @@ if (typeof module === 'object') {
 
             }
 
+        },
+
+        triggerChange: function () {
+          // in IE all medium changes need to be triggered manually:
+          // http://stackoverflow.com/a/23930764
+          // Note: this will sometimes be triggered more than once per change
+          jQuery(document).find('.editable-text').trigger('change');
         }
 
     };
