@@ -834,7 +834,7 @@ if (typeof module === 'object') {
           var linkCancel = this.anchorForm.querySelector('a.medium-editor-cancel'),
               self = this;
           this.anchorForm.addEventListener('click', function (e) {
-            if ( !$(e.target).is('#medium-editor-link-to-asset *, #medium-editor-link-to-asset') ) {
+            if ( !$(e.target).is('#medium-editor-link-to-asset') ) {
               e.stopPropagation();
             }
           });
