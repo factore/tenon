@@ -1055,7 +1055,6 @@ if (typeof module === 'object') {
                 el = el.getElementsByTagName('a');
                 for (i = 0; i < el.length; i += 1) {
                   if ( el[i].getAttribute('href') === href) {
-                    console.log('hello');
                     el[i].target = '_blank';
                   }
                 }
