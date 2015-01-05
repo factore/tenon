@@ -21,8 +21,7 @@
 //= require jquery.twoLevelSort
 //= require jquery.ui.sortable
 //= require js-routes
-//= require medium-editor
-//= require ./medium_customizations
+//= require ./medium-on-tenon
 //= require select2
 //= require uri
 
