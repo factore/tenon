@@ -45,6 +45,7 @@ if (typeof module === 'object') {
         var i,
             len,
             sel = window.getSelection();
+
         if (savedSel) {
             sel.removeAllRanges();
             for (i = 0, len = savedSel.length; i < len; i += 1) {
@@ -224,39 +225,39 @@ if (typeof module === 'object') {
         bindParagraphCreation: function (index) {
             var self = this;
             this.elements[index].addEventListener('keypress', function (e) {
-                var node = getSelectionStart(),
-                    tagName;
-                if (e.which === 32) {
-                    tagName = node.tagName.toLowerCase();
-                    if (tagName === 'a') {
-                        document.execCommand('unlink', false, null);
-                        this.triggerChange();
-                    }
+              var node = getSelectionStart(),
+                  tagName;
+              if (e.which === 32) {
+                tagName = node.tagName.toLowerCase();
+                if (tagName === 'a') {
+                  document.execCommand('unlink', false, null);
                 }
+              }
+              self.triggerChange();
             });
 
             this.elements[index].addEventListener('keyup', function (e) {
-                var node = getSelectionStart(),
-                    tagName;
-                if (node && node.getAttribute('data-medium-element') && node.children.length === 0 && !(self.options.disableReturn || node.getAttribute('data-disable-return'))) {
+              var node = getSelectionStart(),
+                tagName;
+              if (node && node.getAttribute('data-medium-element') && node.children.length === 0 && !(self.options.disableReturn || node.getAttribute('data-disable-return'))) {
+                document.execCommand('formatBlock', false, 'p');
+              }
+              if (e.which === 13) {
+                node = getSelectionStart();
+                tagName = node.tagName.toLowerCase();
+                if (!(self.options.disableReturn || this.getAttribute('data-disable-return')) &&
+                  tagName !== 'li' && !self.isListItemChild(node)) {
+                  if (!e.shiftKey) {
                     document.execCommand('formatBlock', false, 'p');
-                    this.triggerChange();
+                  }
+                  if (tagName === 'a') {
+                    document.execCommand('unlink', false, null);
+                  }
                 }
-                if (e.which === 13) {
-                    node = getSelectionStart();
-                    tagName = node.tagName.toLowerCase();
-                    if (!(self.options.disableReturn || this.getAttribute('data-disable-return')) &&
-                        tagName !== 'li' && !self.isListItemChild(node)) {
-                        if (!e.shiftKey) {
-                            document.execCommand('formatBlock', false, 'p');
-                        }
-                        if (tagName === 'a') {
-                            document.execCommand('unlink', false, null);
-                        }
-                    }
-                  this.triggerChange();
-                }
+              }
+              self.triggerChange();
             });
+
             return this;
         },
 
@@ -1068,11 +1069,6 @@ if (typeof module === 'object') {
         },
 
         createLink: function (input, target) {
-          console.log('create link:');
-          console.log(input);
-          console.log(target);
-          console.log('---');
-
           restoreSelection(this.savedSelection);
           if (this.options.checkLinkFormat) {
             input.value = this.checkLinkFormat(input.value);
