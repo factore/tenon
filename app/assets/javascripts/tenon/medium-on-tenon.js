@@ -478,7 +478,7 @@ if (typeof module === 'object') {
 
           anchor.className = 'medium-editor-toolbar-form-anchor';
           anchor.id = 'medium-editor-toolbar-form-anchor';
-          anchor.appendChild(asset_button);
+          if (!this.isIE) { anchor.appendChild(asset_button); }
           anchor.appendChild(input);
           anchor.appendChild(target_wrap);
           anchor.appendChild(cancel);
