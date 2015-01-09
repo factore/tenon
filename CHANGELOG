@@ -1,3 +1,7 @@
+1.0.53 2015-01-09
+  * major medium-editor bug fixes and style tweaks.
+  * open in new window option added to medium-editor link creation.
+
 1.0.52 2014-12-30
   * fix some platform_hints bugs
   * improve site title & link handling (i.e., link to the path where Tenon is mounted, consistently set title to 'Tenon' if no site title is set)
