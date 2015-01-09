@@ -15,7 +15,8 @@ module Tenon
         'Image and Text (No Wrap)'    => 'LeftImageRightText',
         'Two Column Image and Text'   => 'TwoColumnImageAndText',
         'Three Column Image and Text' => 'ThreeColumnImageAndText',
-        'Four Column Image and Text'  => 'FourColumnImageAndText'
+        'Four Column Image and Text'  => 'FourColumnImageAndText',
+        'Six Column Image and Text'   => 'SixColumnImageAndText'
       }
     end
   end
