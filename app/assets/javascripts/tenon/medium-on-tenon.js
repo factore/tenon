@@ -453,13 +453,15 @@ if (typeof module === 'object') {
               icon = document.createElement('i');
 
           cancel.setAttribute('href', '#');
+          cancel.setAttribute('title', 'Cancel');
+          cancel.setAttribute('data-tooltip', 'true');
           cancel.className = 'medium-editor-cancel';
 
           asset_button.className = 'medium-editor-link-to-asset';
           asset_button.setAttribute('href', '/tenon/item_assets/new?hide_upload=true');
-          asset_button.setAttribute('data-modal-remote', 'true');
-          asset_button.setAttribute('data-tooltip', 'true');
           asset_button.setAttribute('title', 'Link to an Asset');
+          asset_button.setAttribute('data-tooltip', 'true');
+          asset_button.setAttribute('data-modal-remote', 'true');
           asset_button.setAttribute('data-modal-title', 'Link to Asset');
           asset_button.setAttribute('data-modal-handler', 'Tenon.features.tenonContent.AssetLink');
 
