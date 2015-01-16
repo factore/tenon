@@ -1,3 +1,13 @@
+1.0.55 2015-01-16
+  * update language of contact boolean tooltips
+  * fixed Tenon::Page#subpages_for_menu
+
+1.0.54 2015-01-09
+  * tenon-content: left-text-right-image/left-image-right-text class fix
+  * medium-editor: tooltip added to cancel button on anchor form
+  * added six-column-image-and-text tenon-content type
+  * added six-column-image tenon-content type
+
 1.0.53 2015-01-09
   * major medium-editor bug fixes and style tweaks.
   * open in new window option added to medium-editor link creation.
