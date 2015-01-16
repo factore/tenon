@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tenon (1.0.52)
+    tenon (1.0.53)
       acts-as-taggable-on (~> 3.4)
       awesome_nested_set (= 3.0.0.rc.5)
       aws-s3 (= 0.6.3)
@@ -81,7 +81,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    acts-as-taggable-on (3.4.2)
+    acts-as-taggable-on (3.4.3)
       activerecord (>= 3.2, < 5)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
@@ -106,7 +106,7 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bourbon (4.1.0)
+    bourbon (4.1.1)
       sass (~> 3.3)
       thor
     builder (3.2.2)
