@@ -7,8 +7,10 @@ module Tenon
     tenon_content :content, i18n: true
     default_scope { order('tenon_pages.lft, tenon_pages.list_order') }
     scope :published, -> { where('publish_at <= ?', Time.now) }
-    scope :find_for_menu, -> { published.where('parent_id IS NULL AND show_in_menu = ?', true).includes(:subpages) }
+    scope :for_menu, -> { published.where(show_in_menu: true) }
     scope :top, -> { where(parent_id: nil) }
+    scope :find_for_menu, -> { top.for_menu } # Backwards compatibility
+
 
     # Relationships
     belongs_to :parent, class_name: 'Page', foreign_key: 'parent_id'
@@ -30,12 +32,16 @@ module Tenon
       if subpages.blank?
         siblings_for_menu
       else
-        subpages.where(published: true, show_in_menu: true)
+        subpages.for_menu
       end
     end
 
     def siblings_for_menu
-      parent.subpages_for_menu if parent
+      if parent
+        parent.subpages_for_menu
+      else
+        []
+      end
     end
 
     def self.reorder!(list, parent_id)

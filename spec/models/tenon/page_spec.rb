@@ -23,8 +23,7 @@ describe Tenon::Page do
       end
 
       it 'should grab the subpages that are available for the menu' do
-        args = { published: true, show_in_menu: true }
-        expect(subpages).to receive(:where).with(args)
+        expect(subpages).to receive(:for_menu)
         page.subpages_for_menu
       end
     end
@@ -36,8 +35,8 @@ describe Tenon::Page do
         page.stub(:parent) { nil }
       end
 
-      it 'should return nil' do
-        expect(page.siblings_for_menu).to be_nil
+      it 'should return an empty array' do
+        expect(page.siblings_for_menu).to eq([])
       end
     end
 
