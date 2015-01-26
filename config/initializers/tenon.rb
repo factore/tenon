@@ -27,6 +27,9 @@ Tenon.configure do |config|
   config.after_update_path = :edit
   config.after_create_path = :edit
 
+  # Change the default root path for Tenon's back-end
+  # config.routing.root = 'index#index'
+
   # Set up languages for front-end internationalization
   # Currently Tenon is anglo-centric so you don't need to
   # specify English.
