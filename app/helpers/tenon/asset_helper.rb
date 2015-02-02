@@ -42,14 +42,6 @@ module Tenon
       end
     end
 
-    def responsive_image_tag(asset, size, options = {})
-      srcset = (1..10).map do |n|
-        "#{asset.attachment.url("x#{n*200}".to_sym)} #{(n*200).to_s}w"
-      end.join(', ')
-      sizes = "(min-width: 768px) #{size}vw, 100vw"
-      image_tag(asset.attachment.url(:x2000), options.merge(srcset: srcset, sizes: sizes))
-    end
-
     private
       def crop_options(asset)
         {
