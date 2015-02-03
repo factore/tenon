@@ -1,11 +1,11 @@
 module Tenon
   module PieceHelper
     def piece_image_tag(piece, options = {})
-      responsive_image_tag(piece, options, Tenon.config.front_end[:breakpoints])
+      responsive_image_tag(piece, options, Tenon.config.breakpoints.front_end)
     end
 
     def backend_piece_image_tag(piece, options = {})
-      responsive_image_tag(piece, options, Tenon.config.back_end[:breakpoints])
+      responsive_image_tag(piece, options, Tenon.config.breakpoints.back_end)
     end
 
     private

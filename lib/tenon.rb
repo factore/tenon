@@ -1,5 +1,7 @@
 require 'tenon/engine'
+require 'tenon/config/breakpoints.rb'
 require 'tenon/config/events.rb'
+require 'tenon/config/grid.rb'
 require 'tenon/can_be_foreign.rb'
 require 'tenon/can_have_comments.rb'
 require 'tenon/has_asset.rb'
@@ -22,7 +24,7 @@ module Tenon
   end
 
   class Configuration
-    attr_accessor :mobile_layout, :languages, :seo_callout, :front_end, :back_end,
+    attr_accessor :mobile_layout, :languages, :seo_callout, :front_end,
                   :after_create_path, :after_update_path, :client_color, :primary_color
   end
 end
