@@ -38,7 +38,7 @@ module Tenon
       end
 
       def content_size(sizes, piece)
-        sizes[piece.row.item_type.demodulize.downcase.to_sym] || sizes[:default]
+        sizes[piece.row.item_type.demodulize.downcase.to_sym] || sizes[:default] || sizes[:browser]
       end
   end
 end
