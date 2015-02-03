@@ -1,24 +1,19 @@
 module Tenon
   module PieceHelper
-    def backend_piece_image_tag(piece, options = {})
-      piece_image_tag(piece, options, Tenon.config.back_end[:breakpoints])
-    end
-
-    def frontend_piece_image_tag(piece, options = {})
-      piece_image_tag(piece, options, Tenon.config.front_end[:breakpoints])
+    def piece_image_tag(piece, options = {})
+      srcset = generate_srcset(piece)
+      sizes = generate_sizes(piece)
+      image_tag(piece.image.url(:x2000), options.merge(srcset: srcset, sizes: sizes))
     end
 
     private
-      def piece_image_tag(piece, options = {}, breakpoints)
-        srcset = generate_srcset(piece)
-        sizes = generate_sizes(piece, breakpoints)
-        image_tag(piece.image.url(:x2000), options.merge(srcset: srcset, sizes: sizes))
-      end
-
-      def generate_sizes(piece, breakpoints)
+      def generate_sizes(piece)
+        # handle 'twelve' pieces that have size set to '' in the db
         piece_size = piece.size == '' ? 'twelve' : piece.size
-        breakpoints.map do |name, sizes|
-          "(min-width: #{sizes[:browser]}px) #{(piece.sizes[piece_size.to_sym]/12*100*sizes[:content]/sizes[:browser]).to_i}vw"
+
+        # go through the defined breakpoints and lookup the tenon_content sizes for the type of item this piece's row belongs to. default to full browser width if not defined
+        Tenon.config.back_end[:breakpoints].map do |name, sizes|
+          "(min-width: #{sizes[:browser]}px) #{(piece.sizes[piece_size.to_sym] / 12 * 100 * content_size(sizes, piece) / sizes[:browser]).to_i}vw"
         end.join(', ')
       end
 
@@ -32,6 +27,10 @@ module Tenon
 
       def computed_style(piece, style)
         computed_style = "#{piece.image.style_prefix}_#{style}"
+      end
+
+      def content_size(sizes, piece)
+        sizes[piece.row.item_type.demodulize.downcase.to_sym] || sizes[:browser]
       end
   end
 end
