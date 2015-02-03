@@ -2,7 +2,11 @@
 # by the site developer.  There is a Settings module built into Tenon
 # where you can expose other settings to your client.
 Tenon.configure do |config|
-  # Define all your breakpoints and associated tenon_content widths. This is necessary because you may have multiple models with tenon_content with different maximum widths and therefore different widths at various breakpoints. By getting more precise with these widths we can serve the most efficient responsive images to the front end.
+  # Define all your breakpoints and associated tenon_content widths.
+  # This is necessary because you may have multiple models with tenon_content
+  # with different maximum widths and therefore different widths at various
+  # breakpoints. By getting more precise with these widths we can serve the
+  # most efficient responsive images to the front end.
   config.front_end = {
     breakpoints: {
       full: {
@@ -39,7 +43,8 @@ Tenon.configure do |config|
     }
   }
 
-  # set up the back-end breakpoints and associated tenon_content widths since we know what they always are
+  # set up the back-end breakpoints and associated tenon_content widths since
+  # we know what they always are
   config.back_end = {
     breakpoints: {
       full: {
