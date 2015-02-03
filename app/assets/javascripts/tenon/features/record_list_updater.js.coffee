@@ -41,7 +41,7 @@ class Tenon.features.RecordListUpdater
   # you have unselected items
   _removeEmptyMultiSelects: (query, form) =>
     form.find("select[multiple='multiple']").each ->
-      if (@.selectedOptions.length == 0)
+      if (@.selectedIndex == -1)
         delete query[@.name]
     query
 

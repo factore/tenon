@@ -1,9 +1,9 @@
 class Tenon.features.ModalWindows
   constructor: ->
     tags = '[data-modal-target], [data-modal-remote], [data-model-content], [data-keyboard]'
-    $(document).on('click', tags, @_setupAndLaunch)
+    $(document).on('click', tags, @setupAndLaunch)
 
-  _setupAndLaunch: (e) =>
+  setupAndLaunch: (e) =>
     e.preventDefault()
     @$link = $(e.currentTarget)
     @_chooseStrategy()
@@ -12,7 +12,6 @@ class Tenon.features.ModalWindows
     @_launchWithUrl() if @$link.data('modal-remote')
     @_launchWithTarget() if @$link.data('modal-target')
     @_launchWithContent() if @$link.data('modal-content')
-
 
   _launchWithUrl: (e) =>
     @remote = true

@@ -1,3 +1,24 @@
+1.0.56 2015-01-28
+  * use the more broadly supported selectedIndex instead of selectedOptions to determine empty selects in record_list_updater
+
+1.0.55 2015-01-16
+  * update language of contact boolean tooltips
+  * fixed Tenon::Page#subpages_for_menu
+
+1.0.54 2015-01-09
+  * tenon-content: left-text-right-image/left-image-right-text class fix
+  * medium-editor: tooltip added to cancel button on anchor form
+  * added six-column-image-and-text tenon-content type
+  * added six-column-image tenon-content type
+
+1.0.53 2015-01-09
+  * major medium-editor bug fixes and style tweaks.
+  * open in new window option added to medium-editor link creation.
+
+1.0.52 2014-12-30
+  * fix some platform_hints bugs
+  * improve site title & link handling (i.e., link to the path where Tenon is mounted, consistently set title to 'Tenon' if no site title is set)
+
 1.0.51 2014-12-29
   * enable platform hints on iOS, Android, and Windows
 

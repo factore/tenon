@@ -10,12 +10,14 @@ module Tenon
         'Three Images'                => 'ThreeColumnImage',
         'Four Columns of Text'        => 'FourColumnText',
         'Four Images'                 => 'FourColumnImage',
-        'Embedded Content'            => 'FullWidthEmbeddedContent',
         'Wrapped Image with Text'     => 'LeftWrappedImageWithText',
+        'Six Images'                  => 'SixColumnImage',
+        'Embedded Content'            => 'FullWidthEmbeddedContent',
         'Image and Text (No Wrap)'    => 'LeftImageRightText',
         'Two Column Image and Text'   => 'TwoColumnImageAndText',
         'Three Column Image and Text' => 'ThreeColumnImageAndText',
-        'Four Column Image and Text'  => 'FourColumnImageAndText'
+        'Four Column Image and Text'  => 'FourColumnImageAndText',
+        'Six Column Image and Text'   => 'SixColumnImageAndText'
       }
     end
   end

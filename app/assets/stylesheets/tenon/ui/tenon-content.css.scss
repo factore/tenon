@@ -3,9 +3,7 @@
     display: none;
   }
   &.mobile-breakpoint {
-    .one, .two, .three, .four, .five, .six,
-
-    .seven, .eight, .nine, .ten, .eleven, .twelve {
+    .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve {
       @include span-columns(12);
     }
     .wrapped-image {
@@ -19,15 +17,15 @@
 
 .tn-tc-main-actions {
   a {
-    @include transition(all 0.2s ease);
+    @include transition(all .2s ease);
+    font-size: $tn-font-large;
     margin: $tn-margin $tn-margin 0 0;
     text-transform: uppercase;
-    font-size: $tn-font-large;
     span {
+      font-size: $tn-font-small;
       position: relative;
       top: -2px;
       padding-left: 5px;
-      font-size: $tn-font-small;
     }
     &:hover {
       text-decoration: none;
@@ -41,16 +39,16 @@
   // @import "styleguides/styleguide";
   // @extend body;
   .tn-tc-row {
-    @include transition(box-shadow 0.2s ease-in);
-    @include transition(border 0.2s ease-in);
+    @include transition(box-shadow .2s ease-in);
+    @include transition(border .2s ease-in);
+    min-height: 50px;
     margin-bottom: 10px;
     padding: 0;
-    min-height: 50px;
     &.ui-sortable-helper {
       overflow: hidden;
       box-sizing: content-box;
-      padding: 5px 10px;
       max-height: 200px;
+      padding: 5px 10px;
       border: 1px solid $tn-dark-grey;
       background: $tn-light-grey;
       box-shadow: 1px 1px 5px $tn-dark-grey;
@@ -60,7 +58,9 @@
       max-height: 200px;
       border: 1px dashed $tn-dark-grey;
     }
-
+    i {
+      font-size: 1em;
+    }
     .tn-tc-bottombar {
       display: none;
     }
@@ -71,20 +71,19 @@
   .drag-anchor {
     float: left;
   }
-
   .tn-tc-topbar, .tn-tc-bottombar {
     padding: 0;
     // background-color: $tn-med-grey;
     .actions {
-      @include transition(all 0.2s ease);
-      color: $tn-dark-grey;
-      text-align: right;
+      @include transition(all .2s ease);
       position: relative;
+      text-align: right;
+      color: $tn-dark-grey;
       i {
-        @include transition(all 0.2s ease);
+        @include transition(all .2s ease);
       }
       a {
-        @include transition(all 0.2s ease);
+        @include transition(all .2s ease);
         display: inline-block;
         padding: 10px 0 5px;
         color: $tn-dark-grey;
@@ -138,25 +137,25 @@
     min-height: 100%;
   }
   .editable-text {
-    padding: 5px;
     min-height: 50px;
+    padding: 5px;
     outline: none;
     background: #fff;
-    p {
-      margin-top: 0;
+    h3, h4, p, ul, ol {
+      margin: 0 0 $tn-margin;
       padding-top: 0;
     }
   }
   a.add-image {
     span {
-      display: block;
-      height: 200px;
-      border: 4px dashed $tn-dark-grey;
-      background: $tn-med-grey;
-      color: $tn-dark-grey;
-      text-align: center;
       font-family: $tn-open-sans;
       line-height: 200px;
+      display: block;
+      height: 200px;
+      text-align: center;
+      color: $tn-dark-grey;
+      border: 4px dashed $tn-dark-grey;
+      background: $tn-med-grey;
     }
   }
   .wrapped-image {
@@ -166,7 +165,6 @@
         padding: 0;
       }
     }
-
     &.left {
       float: left;
       padding: 5px 10px 0 5px;
@@ -191,20 +189,22 @@
     overflow: hidden;
     img {
       display: block;
+      width: auto;
       max-width: 100%;
       margin: 0 auto;
-      width: auto;
     }
-    &.stretch img { width: 100%; }
+    &.stretch img {
+      width: 100%;
+    }
   }
   textarea.caption, div.tn-tc-caption {
+    font-size: $tn-font-small;
+    width: 100%;
     margin: 0;
     padding: 5px;
-    width: 100%;
-    background: $tn-dark-grey;
-    color: #fff;
-    font-size: $tn-font-small;
     resize: none;
+    color: #fff;
+    background: $tn-dark-grey;
   }
   textarea.caption:-moz-placeholder {
     color: #fff;
@@ -213,7 +213,7 @@
     color: $tn-light-grey;
   }
   .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve {
-    @include transition(width 0.2s ease);
+    @include transition(width .2s ease);
   }
 }
 
@@ -235,8 +235,7 @@
 
 .image-controls {
   @include transition(none);
-  &.full-width-image, &.three-column-image, &.four-column-image,
-  &.stacked-image-and-text {
+  &.full-width-image, &.three-column-image, &.four-column-image, &.stacked-image-and-text {
     .grow-image, .shrink-image, .swap-sides {
       display: none;
     }
@@ -245,24 +244,23 @@
     outline: none;
     background: lighten($tn-primary, 10%);
   }
-
   .link-form {
     z-index: $tn-z-medium-editor-controls;
   }
 }
 
 [contenteditable=true]:empty:not(:focus):before {
-  color: $tn-med-grey;
   content: attr(data-placeholder);
+  color: $tn-med-grey;
 }
 
 a.open-embed-modal {
-  @include transition(all 0.2s ease);
+  @include transition(all .2s ease);
+  font-size: $tn-font-small;
   display: block;
   padding: 5px 0;
-  color: $tn-dark-grey;
   text-transform: uppercase;
-  font-size: $tn-font-small;
+  color: $tn-dark-grey;
 }
 
 .tn-tc-row:hover a.open-embed-modal {

@@ -14,7 +14,7 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 FactoryGirl.definition_file_paths += %W(lib/tenon/factories)
 FactoryGirl.reload
 
-ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
+ActiveRecord::Migration.maintain_test_schema! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
   config.include Tenon::Engine.routes.url_helpers

@@ -3,7 +3,6 @@ class Tenon.features.QuickSearch
     @$content = $('.toolbox #quick-search-container')
     @$toggle = $('#quick-search-toggle')
     @openClass = 'open'
-    @$field = $('#quick-search')
 
     # listeners
     $(document).on('keyup', '#quick-search', $.debounce(500, @_submitSearch))
@@ -12,6 +11,10 @@ class Tenon.features.QuickSearch
     # $(document).on('click', '.nav-holder.mobile-open a', @_closeNav)
 
   _submitSearch: (e) =>
+    # Need to set this here so that if #quick-search is drawn after initial
+    # DOM-ready we still have access to it
+    @$field = $('#quick-search')
+
     @$list = $(@$field.data('record-list'))
     params = {q: @$field.val()}
     new Tenon.features.RecordList(@$list, params: params, clear: true)
@@ -25,7 +28,8 @@ class Tenon.features.QuickSearch
       @_openNav()
 
   _closeNav: () =>
-    @$field.val('').keyup() # clear quick search and submit it when closing the toolbox
+    if @$field
+      @$field.val('').keyup() # clear quick search and submit it when closing the toolbox
     @$toggle.removeClass(@openClass)
     $('header').css('border-bottom-width', '1px')
     @$content.removeClass(@openClass)

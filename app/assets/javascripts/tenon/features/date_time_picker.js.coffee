@@ -1,7 +1,7 @@
 class Tenon.features.DateTimePicker
   constructor: ->
     @$els = $("[data-behaviour~='datetime-picker']")
-    @format = "MMM. DD, YYYY [at] hh:mm A"
+    @format = "MMM. DD, YYYY [at] hh:mm A Z"
     $.each(@$els, @_formatDate)
     @_enableDateTimePicker()
     @_setupUnfocus()
