@@ -7,21 +7,25 @@ Tenon.configure do |config|
     breakpoints: {
       full: {
         browser: 1920, # the width of the browser for this breakpoint
+        default: 1920, # default tenon_content width for piece's without specific widths
         page: 1920, # the width of tenon_content for Pages
         post: 1920 # the width of tenon_content for Posts
       },
       desktop: {
         browser: 1400,
+        default: 1400,
         page: 1400,
         post: 1400
       },
       laptop: {
         browser: 960,
+        default: 960,
         page: 960,
         post: 960
       },
       tablet: {
         browser: 768,
+        default: 768,
         page: 768,
         post: 768
       }
@@ -38,10 +42,22 @@ Tenon.configure do |config|
   # set up the back-end breakpoints and associated tenon_content widths since we know what they always are
   config.back_end = {
     breakpoints: {
-      full: { browser: 1920, content: 1225 },
-      desktop: { browser: 1400, content: 740 },
-      laptop: { browser: 960, content: 680 },
-      tablet: { browser: 768, content: 750 }
+      full: {
+        browser: 1920,
+        default: 1225
+      },
+      desktop: {
+        browser: 1400,
+        default: 740
+      },
+      laptop: {
+        browser: 960,
+        default: 680
+      },
+      tablet: {
+        browser: 768,
+        default: 750
+      }
     }
   }
 

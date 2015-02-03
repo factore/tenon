@@ -1,18 +1,26 @@
 module Tenon
   module PieceHelper
     def piece_image_tag(piece, options = {})
-      srcset = generate_srcset(piece)
-      sizes = generate_sizes(piece)
-      image_tag(piece.image.url(:x2000), options.merge(srcset: srcset, sizes: sizes))
+      responsive_image_tag(piece, options, Tenon.config.front_end[:breakpoints])
+    end
+
+    def backend_piece_image_tag(piece, options = {})
+      responsive_image_tag(piece, options, Tenon.config.back_end[:breakpoints])
     end
 
     private
-      def generate_sizes(piece)
+      def responsive_image_tag(piece, options = {}, breakpoints)
+        srcset = generate_srcset(piece)
+        sizes = generate_sizes(piece, breakpoints)
+        image_tag(piece.image.url(:x2000), options.merge(srcset: srcset, sizes: sizes))
+      end
+
+      def generate_sizes(piece, breakpoints)
         # handle 'twelve' pieces that have size set to '' in the db
         piece_size = piece.size == '' ? 'twelve' : piece.size
 
-        # go through the defined breakpoints and lookup the tenon_content sizes for the type of item this piece's row belongs to. default to full browser width if not defined
-        Tenon.config.back_end[:breakpoints].map do |name, sizes|
+        # go through the defined breakpoints and lookup the tenon_content sizes for the type of item this piece's row belongs to. default to sizes[:default] width if not defined
+        breakpoints.map do |name, sizes|
           "(min-width: #{sizes[:browser]}px) #{(piece.sizes[piece_size.to_sym] / 12 * 100 * content_size(sizes, piece) / sizes[:browser]).to_i}vw"
         end.join(', ')
       end
@@ -30,7 +38,7 @@ module Tenon
       end
 
       def content_size(sizes, piece)
-        sizes[piece.row.item_type.demodulize.downcase.to_sym] || sizes[:browser]
+        sizes[piece.row.item_type.demodulize.downcase.to_sym] || sizes[:default]
       end
   end
 end

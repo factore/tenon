@@ -1,10 +1,8 @@
 .tn-tc-image{class: piece.stretch_to_fill? ? 'stretch' : ''}
   - if piece.image.present?
     - if piece.link_url.blank?
-      =# image_tag(piece.image.url(:_medium))
       = piece_image_tag(piece)
     - else
-      =# link_to image_tag(piece.image.url(:_medium)), piece.link_url, target: '_'
       = link_to piece_image_tag(piece), piece.link_url, target: '_'
   - else
     = image_tag('tenon/thumb-doc.png')
