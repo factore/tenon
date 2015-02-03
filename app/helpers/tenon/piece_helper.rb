@@ -29,7 +29,9 @@ module Tenon
         image_size = image_size.round(-2)
         image_size += 100 if (image_size / 100).odd?
 
-        "x#{image_size}".to_sym
+        default_style = computed_style(piece, "x#{image_size}").to_sym
+
+        piece.image.attachment.exists?(default_style) ? default_style : :original
       end
 
       # Iterate through the defined breakpoints and lookup the tenon_content
@@ -46,6 +48,8 @@ module Tenon
         piece.styles.map do |name, width|
           if piece.image.attachment.exists?(computed_style(piece, name).to_sym)
             "#{piece.image.attachment.url(computed_style(piece, name).to_sym)} #{width}w"
+          else
+            "#{piece.image.attachment.url(:original)} #{width}w"
           end
         end.join(', ')
       end
