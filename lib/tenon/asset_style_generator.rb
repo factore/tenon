@@ -21,7 +21,7 @@ module Tenon
     def default_styles
       {
         original: { processors: ['cropper'], geometry: '' },
-        thumbnail: '100x100#',
+        thumbnail: '200x200#',
         medium: '1400>', # DEPRECATED
         tile: '350x350#',
       }
