@@ -28,4 +28,16 @@ namespace :tenon do
     end
     puts 'Done!'
   end
+
+  desc "Regenerate all Asset styles"
+  task :regenerate_asset_styles  => :environment do
+    total_assets = Tenon::Asset.all.count
+
+    Tenon::Asset.all.each_with_index do |asset, i|
+      puts "(#{i+1}/#{total_assets}) #{asset.attachment_file_name} "
+      asset.attachment.reprocess!
+    end
+    puts 'Done!'
+  end
+
 end

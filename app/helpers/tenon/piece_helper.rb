@@ -13,7 +13,13 @@ module Tenon
       def responsive_image_tag(piece, options = {}, breakpoints)
         srcset = generate_srcset(piece)
         sizes = generate_sizes(piece, breakpoints)
-        image_tag(piece.image.url(default_style(piece, breakpoints)), options.merge(srcset: srcset, sizes: sizes))
+        # Let's just use an plain image_tag if responsive styles haven't been
+        # generated. We'll test for :x2000 to determine if that's the case
+        if piece.image.attachment.exists?(computed_style(piece, 'x2000'))
+          image_tag(piece.image.url(default_style(piece, breakpoints)), options.merge(srcset: srcset, sizes: sizes))
+        else
+          image_tag(piece.image.url(:_medium), options)
+        end
       end
 
       # Figure out the default style based on the largest size at the largest
@@ -31,7 +37,7 @@ module Tenon
 
         default_style = computed_style(piece, "x#{image_size}").to_sym
 
-        piece.image.attachment.exists?(default_style) ? default_style : :original
+        piece.image.attachment.exists?(default_style) ? default_style : :_medium
       end
 
       # Iterate through the defined breakpoints and lookup the tenon_content
