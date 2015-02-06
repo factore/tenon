@@ -1,3 +1,9 @@
+1.0.57 2015-02-04
+  * added responsive image support for tenon_content
+
+1.0.56 2015-01-28
+  * use the more broadly supported selectedIndex instead of selectedOptions to determine empty selects in record_list_updater
+
 1.0.55 2015-01-16
   * update language of contact boolean tooltips
   * fixed Tenon::Page#subpages_for_menu

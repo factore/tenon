@@ -12,16 +12,28 @@ class Tenon.features.tenonContent.Library
   _closeModal: => @$template.modal('hide')
 
   _setContext: =>
-    if @$link.hasClass('above') || @$link.hasClass('below')
-      @_setToInsertRelative(@$link)
+    if @$link.hasClass('initial-row')
+      @_setToInsertInitialRow()
+    else if @$link.hasClass('above') || @$link.hasClass('below')
+      @_setToInsertRelative()
     else
-      @_setToInsertByData(@$link)
+      @_setToInsertByData()
 
-  _setToInsertByData: (@$link) =>
-    for data in ['association-insertion-node', 'association-insertion-method']
+  _setToInsertInitialRow: =>
+    node = @$link.closest('.tn-tc').find('.tenon-content')
+    $('.tenon-library a').data('association-insertion-node', node)
+    $('.tenon-library a').data('association-insertion-method', 'prepend')
+
+  _setToInsertByData: =>
+    datas = [
+      'association-insertion-node',
+      'association-insertion-method',
+      'association-insertion-traversal'
+    ]
+    for data in datas
       $('.tenon-library a').data(data, @$link.data(data))
 
-  _setToInsertRelative: (@$link) =>
+  _setToInsertRelative: =>
     method = if @$link.hasClass('below') then 'after' else 'before'
     $('.tenon-library a').data('association-insertion-node', @$link.closest('.tn-tc-row'))
     $('.tenon-library a').data('association-insertion-method', method)

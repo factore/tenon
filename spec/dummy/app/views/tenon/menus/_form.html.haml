@@ -1,0 +1,39 @@
+- content_for :sidebar do
+  .sidebar
+    .content
+      %h2 Menus
+      = link_to "New Menu", new_menu_path, class: 'btn btn-block btn-primary'
+
+    = i18n_language_nav(:menus)
+
+= autosaving_form_for @menu do |f|
+  = error_messages_for :menu
+  .fields.large.tabs
+    .tab-pane.active#details
+      .form-group
+        = f.text_field :title
+
+      %h4 Items
+      = link_to_add_association 'Add Item', f, :menu_items, data: { association_insertion_node: '#menu-item-list', association_insertion_method: 'append' }
+
+      %ul.nested-field-list.sortable#menu-item-list
+        = f.fields_for :menu_items do |item|
+          = render 'menu_item_fields', f: item
+  .fields.small
+
+    %h4.box-label Actions
+    .box
+      .content
+        - if can?(:publish, @menu)
+          %button.btn.btn-block.btn-comp Save
+        - if can?(:create, Tenon::ItemVersion)
+          = save_draft_button(@menu)
+          .last-autosave
+
+      %hr
+      .content
+        = clear_draft_link if params[:version]
+        = load_draft_link(@menu)
+        - if @menu.persisted?
+          = link_to "Delete", @menu, data: {method: :delete, confirm: 'Are you sure you want to delete this?'}, :class => 'delete-link'
+    .spacer

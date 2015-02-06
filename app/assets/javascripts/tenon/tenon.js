@@ -35,6 +35,7 @@ var Tenon = {
     new Tenon.features.Flash();
     new Tenon.features.AssetCropping();
     new Tenon.features.AssetDetachment();
+    new Tenon.features.CocoonHooks();
     new Tenon.features.FocusFirstField();
     new Tenon.features.MainMenu();
     new Tenon.features.Pagination();

@@ -28,18 +28,18 @@ module Tenon
 
     def tenon_content_sizes
       links = []
-      Tenon.config.front_end[:breakpoints].each do |name, size|
-        links << link_to(name.to_s.titleize, '#', class: 'btn btn-white', data: { size: size_for_breakpoint(size) })
+      Tenon.config.breakpoints.front_end.each do |name, widths|
+        links << link_to(name.to_s.titleize, '#', class: 'btn btn-white', data: { size: size_for_breakpoint(widths[:default]) })
       end
-      last = Tenon.config.front_end[:breakpoints].values.last
+      last = Tenon.config.breakpoints.front_end.values.last
       links << link_to('Mobile', '#', class: 'btn btn-white', data: { size: 320, mobile: true })
       links.join('').html_safe
     end
 
     def size_for_breakpoint(breakpoint)
-      content_cols = Tenon.config.front_end[:content_columns][:default]
-      gutter_width = Tenon.config.front_end[:gutter]
-      columns = Tenon.config.front_end[:columns]
+      content_cols = Tenon.config.grid.content_columns[:default]
+      gutter_width = Tenon.config.grid.gutter
+      columns = Tenon.config.grid.columns
       (((breakpoint + gutter_width) / columns.to_f) * content_cols) - gutter_width
     end
   end

@@ -1,6 +1,7 @@
 module Tenon
   class Asset < ActiveRecord::Base
     attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :duplicate
+
     # Scopes
     default_scope -> { order('created_at DESC').includes(:item_assets) }
 

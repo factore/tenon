@@ -1,0 +1,13 @@
+<li data-record-id="<%= @menu.id %>">
+  <div class="record-details">
+    <div class="record-actions">
+      <%- @menu.delete_link %>
+      <%- @menu.edit_link %>
+    </div>
+
+    <div class="record-title">
+      <a href="<%= @menu.edit_path %>"><%= @menu.title %></a>
+    </div>
+
+  </div>
+</li>

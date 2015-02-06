@@ -4,6 +4,10 @@ module Tenon
       h.asset_icon(object)
     end
 
+    def tile
+      h.asset_tile(object)
+    end
+
     def human_size
       h.number_to_human_size(object.attachment_file_size)
     end

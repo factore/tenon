@@ -4,7 +4,7 @@
 = f.hidden_field :stretch_to_fill
 .image{class: f.object.stretch_to_fill? ? 'stretch' : ''}
   - if f.object.image
-    = image_tag(f.object.image.url(:_medium))
+    = backend_piece_image_tag(f.object)
   - else
     = link_to(new_item_asset_path, class: 'add-image', data: {'modal-remote' => true, 'modal-title' => "Select Image", 'modal-handler' => 'Tenon.features.tenonContent.AssetAttachment'}) do
       %span Add Image

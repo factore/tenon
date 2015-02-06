@@ -2,14 +2,31 @@ module Tenon
   module AssetHelper
     def asset_icon(asset)
       if asset.attachment.exists?(:thumbnail)
-        i = image_tag(asset.attachment.url(:thumbnail))
+        image = image_tag(asset.attachment.url(:thumbnail))
       else
-        i = image_tag(default_asset_thumbnail(asset))
+        image = image_tag(default_asset_thumbnail(asset))
       end
-      asset_icon_link(asset, i)
+      asset_icon_link(asset, image)
     end
 
     def asset_icon_link(asset, icon)
+      if asset.is_image?
+        link_to(icon, [:crop, asset], crop_options(asset))
+      else
+        link_to(icon, asset.attachment.url, target: '_')
+      end
+    end
+
+    def asset_tile(asset)
+      if asset.attachment.exists?(:tile)
+        image = image_tag(asset.attachment.url(:tile))
+      else
+        image = image_tag(default_asset_thumbnail(asset))
+      end
+      asset_tile_link(asset, image)
+    end
+
+    def asset_tile_link(asset, icon)
       if asset.is_image?
         link_to(icon, [:crop, asset], crop_options(asset))
       else
@@ -26,22 +43,21 @@ module Tenon
     end
 
     private
-
-    def crop_options(asset)
-      {
-        class: 'asset-crop',
-        data: {
-          'asset-id' => asset.id,
-          'post-crop-handler' => 'Tenon.features.AssetListPostCropHandler'
+      def crop_options(asset)
+        {
+          class: 'asset-crop',
+          data: {
+            'asset-id' => asset.id,
+            'post-crop-handler' => 'Tenon.features.AssetListPostCropHandler'
+          }
         }
-      }
-    end
+      end
 
-    def default_options
-      {
-        'data-modal-remote' => true,
-        'data-modal-title' => 'Edit Asset'
-      }
+      def default_options
+        {
+          'data-modal-remote' => true,
+          'data-modal-title' => 'Edit Asset'
+        }
+      end
     end
-  end
 end

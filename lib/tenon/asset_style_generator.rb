@@ -22,7 +22,8 @@ module Tenon
       {
         original: { processors: ['cropper'], geometry: '' },
         thumbnail: '200x200#',
-        medium: '1400>'
+        medium: '1400>', # DEPRECATED
+        tile: '350x350#',
       }
     end
 
