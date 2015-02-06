@@ -1,3 +1,8 @@
+1.0.58 2015-02-06
+  * You can now use Tenon Content within nested fields
+  * Supply a selector data-sortable-handle on your ul.sortable tags if you want to define specific sortable handles
+    (http://api.jqueryui.com/sortable/#option-handle)
+
 1.0.57 2015-02-04
   * added responsive image support for tenon_content
 
