@@ -1,3 +1,8 @@
+1.0.59 2015-02-07
+  * Add more modal options to Tenon.features.ModalWindows for targeting.
+  * Adjust TenonContent to use new ModalWindows options.
+  * Yank 1.0.58
+
 1.0.58 2015-02-06
   * You can now use Tenon Content within nested fields
   * Supply a selector data-sortable-handle on your ul.sortable tags if you want to define specific sortable handles
