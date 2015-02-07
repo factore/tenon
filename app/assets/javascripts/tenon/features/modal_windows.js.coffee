@@ -23,10 +23,15 @@ class Tenon.features.ModalWindows
       beforeSend: null
 
   _launchWithTarget: (e) =>
-    if @$link.data('modal-clone')
-      $el = $(@$link.data('modal-target') + ':first').clone()
+    if @$link.data('modal-closest')
+      $parentNode = @$link.closest(@$link.data('modal-closest'))
+      $el = $parentNode.find(@$link.data('modal-target'))
+    else if @$link.data('modal-parent')
+      $el = $(@$link.data('modal-parent')).find(@$link.data('modal-target'))
     else
       $el = $(@$link.data('modal-target'))
+    $el = $el.filter(':first').clone() if @$link.data('modal-clone')
+
     @_openInModal($el)
 
   _openInModal: (el) =>

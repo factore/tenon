@@ -15,7 +15,7 @@
       = fa_icon('eye')
       %span Edit in Preview Mode
 
-    = link_to '#', class: 'tn-tc-add-content btn btn-primary initial-row', data: { modal_target: ".#{field} .tenon-library", modal_clone: 'true', modal_title: 'Add Content', modal_handler: 'Tenon.features.tenonContent.Library' } do
+    = link_to '#', class: 'tn-tc-add-content btn btn-primary initial-row', data: { modal_target: ".tenon-library", modal_closest: '.tn-tc', modal_clone: 'true', modal_title: 'Add Content', modal_handler: 'Tenon.features.tenonContent.Library' } do
       = fa_icon('plus-circle')
       %span Add Content
 
