@@ -1,3 +1,7 @@
+1.0.58 2015-02-10
+  * fix for PieceHelper responsive images <img> src attribute
+  * add default :size to all pieces for all row types
+
 1.0.57 2015-02-04
   * added responsive image support for tenon_content
 
