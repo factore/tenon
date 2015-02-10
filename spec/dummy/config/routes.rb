@@ -3,3 +3,8 @@ Rails.application.routes.draw do
 
   mount Tenon::Engine => '/tenon'
 end
+
+
+Tenon::Engine.routes.draw do
+  resources :menus 
+end

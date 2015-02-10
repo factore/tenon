@@ -1,0 +1,24 @@
+- content_for :sidebar do
+  .sidebar
+    .content
+      %h2 Menus
+      = link_to "New Menu", new_menu_path, class: 'btn btn-block btn-primary'
+
+%header
+  %h1 Menus
+
+  .tools
+    = render "tenon/shared/section_header/sidebar_toggle"
+
+    .header-button
+      = link_to '#', id: 'quick-search-toggle' do
+        .header-icon= fa_icon('fw search')
+
+.toolbox
+  = render "tenon/shared/section_header/quick_search", record_list: '#menus'
+
+.main-content
+  = error_messages_for :menu
+  %ul#menus.record-list{data: {records: {url: menus_path(format: 'json'), template: 'tenon/templates/menus/menu_row', name: 'menu'}}}
+
+  = link_to "Load More Menus", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#menus'

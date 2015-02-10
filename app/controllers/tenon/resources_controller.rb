@@ -8,6 +8,7 @@ module Tenon
     end
 
     def index
+      authorize!(:index, klass)
       params[:page] = 1 if params[:page].to_i == 0
       respond_to do |format|
         format.html

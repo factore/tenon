@@ -50,6 +50,6 @@ Tenon::Engine.routes.draw do
     get 'approve', :on => :member
   end
 
-  root :to => 'index#index'
+  root :to => Tenon.config.routing.root
 end
 

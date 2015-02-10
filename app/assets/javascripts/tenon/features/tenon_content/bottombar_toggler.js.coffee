@@ -1,8 +1,8 @@
 class Tenon.features.tenonContent.BottombarToggler
   constructor: (@$container) ->
     @_toggleBottombars()
-    $('.tenon-content').on('cocoon:after-insert', @_toggleBottombars)
-    $('.tenon-content').on('cocoon:after-remove', @_toggleBottombars)
+    $(document).on('cocoon:after-insert', '.tenon-content', @_toggleBottombars)
+    $(document).on('cocoon:after-remove', '.tenon-content', @_toggleBottombars)
 
   _toggleBottombars: =>
     # Hide them all

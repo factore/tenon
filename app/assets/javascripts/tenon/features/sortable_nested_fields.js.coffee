@@ -1,9 +1,15 @@
 class Tenon.features.SortableNestedFields
   constructor: ->
     $lists = $('.nested-field-list.sortable')
-    $lists
-      .sortable(update: @_doUpdate)
-      .on('cocoon:after-insert', -> $(this).sortable('refresh'))
+    $.each $lists, (i, list) =>
+      $list = $(list)
+      $list
+        .sortable(
+          update: @_doUpdate
+          cancel: ':input,button,[contenteditable]'
+          handle: $list.data('sortable-handle')
+        )
+        .on('cocoon:after-insert', -> $(this).sortable('refresh'))
 
   _doUpdate: (event, ui) ->
     $list = $(ui.item).closest('ul')

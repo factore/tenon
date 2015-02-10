@@ -1,7 +1,7 @@
 class Tenon.features.tenonContent.Editor
   constructor: ->
-    $('.tenon-content').on('cocoon:after-insert', @_rowInserted)
-    $('.tenon-content').on('cocoon:after-remove', @_rowRemoved)
+    $(document).on('cocoon:after-insert', '.tenon-content', @_rowInserted)
+    $(document).on('cocoon:after-remove', '.tenon-content', @_rowRemoved)
     $(document).on('input keypress paste change', '.editable-text', @_contentUpdated)
     for div in $('.tn-tc')
       @_updateButtons($(div))

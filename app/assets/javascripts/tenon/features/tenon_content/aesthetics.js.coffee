@@ -3,7 +3,7 @@ class Tenon.features.tenonContent.Aesthetics
     @$wrap = @$container.closest('.tn-tc-wrap')
     @$container.imagesLoaded(@_applyAesthetics)
     $(window).on('resize', @_applyAesthetics)
-    $('.tenon-content').on('cocoon:after-insert', @_applyAesthetics)
+    $(document).on('cocoon:after-insert', '.tenon-content', @_applyAesthetics)
     @$container.on('tenon.asset_attached', '.asset-field', @_applyAesthetics)
     @$container.on('tenon.content.column_resized', 'div', @_applyAesthetics)
     @$wrap.on('tenon.content.popped', @_applyAesthetics)
