@@ -27,7 +27,8 @@ module Tenon
 
     def active_class(path, active)
       path = url_for(path).split('/')[0..2].join('/')[1..-1]
-      'active' if active || path == controller_path
+      tenon_path = tenon.root_path.gsub(/^\//,'') + controller_name
+      'active' if active || path == tenon_path
     end
   end
 end
