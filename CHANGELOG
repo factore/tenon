@@ -1,3 +1,6 @@
+1.0.61 2015-03-11
+  * fix main nav active highlight when Tenon is mounted at the root
+
 1.0.60 2015-02-10
   * fix for PieceHelper responsive images <img> src attribute
   * add default :size to all pieces for all row types
