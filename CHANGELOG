@@ -1,3 +1,7 @@
+1.0.62 2015-03-18
+  * fixed six-column-image tenon-content type (missing class)
+  * updated coffee-rails gem to 4.1.0 for react.js compatibility
+
 1.0.61 2015-03-11
   * fix main nav active highlight when Tenon is mounted at the root
 
