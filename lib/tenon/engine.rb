@@ -1,5 +1,4 @@
 require 'font-awesome-rails'
-require 'acts-as-taggable-on'
 require 'awesome_nested_set'
 require 'bourbon'
 require 'neat'

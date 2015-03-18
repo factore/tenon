@@ -1,3 +1,6 @@
+1.0.63 2015-03-18
+  * removed all reference to acts_as_taggable_on gem from Tenon
+
 1.0.62 2015-03-18
   * fixed six-column-image tenon-content type (missing class)
   * updated coffee-rails gem to 4.1.0 for react.js compatibility

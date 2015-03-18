@@ -32,7 +32,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '>= 4.0.0'
 
-  s.add_dependency 'acts-as-taggable-on', '~> 3.4'
   s.add_dependency 'awesome_nested_set', '3.0.0.rc.5'
   s.add_dependency 'aws-s3', '0.6.3'
   s.add_dependency 'aws-sdk', '1.8.1.3'

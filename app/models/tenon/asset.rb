@@ -17,9 +17,6 @@ module Tenon
     do_not_validate_attachment_file_type :attachment
     before_attachment_post_process :prevent_pdf_thumbnail
 
-    # Tags
-    acts_as_taggable
-
     # Filters
     before_destroy :check_attached_items
 
