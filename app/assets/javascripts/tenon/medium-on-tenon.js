@@ -397,7 +397,8 @@ if (typeof module === 'object') {
           this.keepToolbarAlive = false;
           this.anchorForm = this.toolbar.querySelector('.medium-editor-toolbar-form-anchor');
           this.anchorInput = this.anchorForm.querySelector('input.medium-editor-toolbar-anchor-input');
-          this.anchorTarget = this.anchorForm.querySelector('input.medium-editor-toolbar-anchor-target');
+          this.anchorTarget = this.anchorForm.querySelector('input.medium-editor-toolbar-anchor-target-input');
+          this.anchorBtn = this.anchorForm.querySelector('input.medium-editor-toolbar-anchor-btn-input');
           this.toolbarActions = this.toolbar.querySelector('.medium-editor-toolbar-actions');
           this.anchorPreview = this.createAnchorPreview();
 
@@ -457,6 +458,9 @@ if (typeof module === 'object') {
               target_wrap = document.createElement('div'),
               target_label = document.createElement('label'),
               target = document.createElement('input'),
+              btn_wrap = document.createElement('div'),
+              btn_label = document.createElement('label'),
+              btn = document.createElement('input'),
               icon = document.createElement('i');
 
           cancel.setAttribute('href', '#');
@@ -472,14 +476,23 @@ if (typeof module === 'object') {
           asset_button.setAttribute('data-modal-title', 'Link to Asset');
           asset_button.setAttribute('data-modal-handler', 'Tenon.features.tenonContent.AssetLink');
 
-          target.className = 'medium-editor-toolbar-anchor-target';
+          target.className = 'medium-editor-toolbar-anchor-checkbox medium-editor-toolbar-anchor-target-input';
           target.setAttribute('type', 'checkbox')
           target.setAttribute('title', 'Open in New Window?')
           target.setAttribute('data-tooltip', 'true');
-          target_label.className = 'medium-editor-toolbar-anchor-target-label';
-          target_wrap.className = 'medium-editor-toolbar-anchor-target-wrap';
+          target_label.className = 'medium-editor-toolbar-anchor-checkbox-label medium-editor-toolbar-anchor-target-label';
+          target_wrap.className = 'medium-editor-toolbar-anchor-checkbox-wrap medium-editor-toolbar-anchor-target';
           target_wrap.insertBefore(target_label, target_wrap.firstChild);
           target_wrap.insertBefore(target, target_wrap.firstChild);
+
+          btn.className = 'medium-editor-toolbar-anchor-checkbox medium-editor-toolbar-anchor-btn-input';
+          btn.setAttribute('type', 'checkbox')
+          btn.setAttribute('title', 'Style as a button?')
+          btn.setAttribute('data-tooltip', 'true');
+          btn_label.className = 'medium-editor-toolbar-anchor-checkbox-label medium-editor-toolbar-anchor-btn-label';
+          btn_wrap.className = 'medium-editor-toolbar-anchor-checkbox-wrap medium-editor-toolbar-anchor-btn';
+          btn_wrap.insertBefore(btn_label, btn_wrap.firstChild);
+          btn_wrap.insertBefore(btn, btn_wrap.firstChild);
 
           input.className = 'medium-editor-toolbar-anchor-input';
           input.setAttribute('type', 'text');
@@ -489,6 +502,7 @@ if (typeof module === 'object') {
           anchor.id = 'medium-editor-toolbar-form-anchor';
           if (!this.isIE) { anchor.appendChild(asset_button); }
           anchor.appendChild(input);
+          anchor.appendChild(btn_wrap);
           anchor.appendChild(target_wrap);
           anchor.appendChild(cancel);
 
@@ -856,7 +870,15 @@ if (typeof module === 'object') {
                   self.anchorTarget.checked = false;
                 }
 
-                self.createLink(this, target);
+                // set class for link and pass to createLink()
+                var btn = "";
+                if (self.anchorBtn.checked) {
+                  btn = "btn";
+                  // reset target state to false:
+                  self.anchorBtn.checked = false;
+                }
+
+                self.createLink(this, target, btn);
               }
           });
           this.anchorInput.addEventListener('click', function (e) {
@@ -1077,7 +1099,23 @@ if (typeof module === 'object') {
             }
         },
 
-        createLink: function (input, target) {
+        setBtnClass: function (href) {
+            var el = getSelectionStart(),
+                i;
+            if (el.tagName.toLowerCase() === 'a') {
+                el.className = 'btn';
+            } else {
+                el = el.getElementsByTagName('a');
+                for (i = 0; i < el.length; i += 1) {
+                  if ( el[i].getAttribute('href') === href) {
+                    el[i].className = 'btn';
+                  }
+                }
+            }
+            console.log(el);
+        },
+
+        createLink: function (input, target, btn) {
           restoreSelection(this.savedSelection);
           if (this.options.checkLinkFormat) {
             input.value = this.checkLinkFormat(input.value);
@@ -1087,6 +1125,10 @@ if (typeof module === 'object') {
 
           if (target === "_blank") {
             this.setTargetBlank(input.value);
+          }
+
+          if (btn === "btn") {
+            this.setBtnClass(input.value);
           }
 
           this.triggerChange();

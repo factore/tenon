@@ -1,5 +1,6 @@
 1.0.64 2015-03-20
   * added two more header options to medium-on-tenon
+  * added ability to add 'btn' class to a link in medium-on-tenon
 
 1.0.63 2015-03-18
   * removed all reference to acts_as_taggable_on gem from Tenon

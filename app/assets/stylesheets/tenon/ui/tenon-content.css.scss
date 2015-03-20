@@ -145,6 +145,11 @@
       margin: 0 0 $tn-margin;
       padding-top: 0;
     }
+    .btn {
+      background-color: $tn-primary;
+      color: white;
+      margin: 0 10px;
+    }
   }
   a.add-image {
     span {

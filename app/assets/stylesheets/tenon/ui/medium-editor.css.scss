@@ -31,7 +31,7 @@
 .medium-editor-toolbar-form-anchor {
   input {
     height: 56px;
-    &.medium-editor-toolbar-anchor-target {
+    &.medium-editor-toolbar-anchor-checkbox {
       position: absolute;
       z-index: 1;
       top: 0;
@@ -45,19 +45,21 @@
       cursor: pointer;
       opacity: 0;
       &:checked + .medium-editor-toolbar-anchor-target-label:before {
-        // content: '\f08e'; // external-light
-        content: '\f14c'; // external-dark
+        content: '\f14c';
+      }
+      &:checked + .medium-editor-toolbar-anchor-btn-label:before {
+        content: '\f14a';
       }
     }
   }
-  .medium-editor-toolbar-anchor-target-wrap {
+  .medium-editor-toolbar-anchor-checkbox-wrap {
     position: relative;
     top: 2px;
     display: inline-block;
     margin: 0;
     padding: 0;
   }
-  label.medium-editor-toolbar-anchor-target-label {
+  label.medium-editor-toolbar-anchor-checkbox-label {
     display: inline-block;
     width: auto;
     margin: 0 6px;
@@ -67,8 +69,7 @@
       font-size: 18px;
       line-height: 30px;
       display: block;
-      content: '\f0c8'; // square-dark
-      // content: '\f096'; // square-light
+      content: '\f0c8';
       color: white;
     }
   }
