@@ -97,7 +97,7 @@ if (typeof module === 'object') {
             allowMultiParagraphSelection: true,
             anchorInputPlaceholder: 'Paste or type a link',
             anchorPreviewHideDelay: 500,
-            buttons: ['bold', 'italic', 'underline', 'anchor', 'header1', 'header2', 'quote'],
+            buttons: ['bold', 'italic', 'underline', 'anchor', 'header1', 'header2', 'header3', 'header4', 'quote'],
             buttonLabels: false,
             checkLinkFormat: false,
             cleanPastedHTML: false,
@@ -110,9 +110,11 @@ if (typeof module === 'object') {
             disableEditing: false,
             elementsContainer: false,
             firstHeader: 'h3',
+            secondHeader: 'h4',
+            thirdHeader: 'h5',
+            fourthHeader: 'h6',
             forcePlainText: true,
             placeholder: 'Type your text',
-            secondHeader: 'h4',
             targetBlank: false,
             extensions: {}
         },
@@ -323,6 +325,8 @@ if (typeof module === 'object') {
                     'image': '<button class="medium-editor-action medium-editor-action-image" data-action="image" data-element="img">' + buttonLabels.image + '</button>',
                     'header1': '<button class="medium-editor-action medium-editor-action-header1" data-action="append-' + this.options.firstHeader + '" data-element="' + this.options.firstHeader + '">' + buttonLabels.header1 + '</button>',
                     'header2': '<button class="medium-editor-action medium-editor-action-header2" data-action="append-' + this.options.secondHeader + '" data-element="' + this.options.secondHeader + '">' + buttonLabels.header2 + '</button>',
+                    'header3': '<button class="medium-editor-action medium-editor-action-header3" data-action="append-' + this.options.thirdHeader + '" data-element="' + this.options.thirdHeader + '">' + buttonLabels.header3 + '</button>',
+                    'header4': '<button class="medium-editor-action medium-editor-action-header4" data-action="append-' + this.options.fourthHeader + '" data-element="' + this.options.fourthHeader + '">' + buttonLabels.header4 + '</button>',
                     'quote': '<button class="medium-editor-action medium-editor-action-quote" data-action="append-blockquote" data-element="blockquote">' + buttonLabels.quote + '</button>',
                     'orderedlist': '<button class="medium-editor-action medium-editor-action-orderedlist" data-action="insertorderedlist" data-element="ol">' + buttonLabels.orderedlist + '</button>',
                     'unorderedlist': '<button class="medium-editor-action medium-editor-action-unorderedlist" data-action="insertunorderedlist" data-element="ul">' + buttonLabels.unorderedlist + '</button>',
@@ -347,6 +351,8 @@ if (typeof module === 'object') {
                     'image': '<b>image</b>',
                     'header1': '<b>H1</b>',
                     'header2': '<b>H2</b>',
+                    'header3': '<b>H3</b>',
+                    'header4': '<b>H4</b>',
                     'quote': '<b>&ldquo;</b>',
                     'orderedlist': '<b>1.</b>',
                     'unorderedlist': '<b>&bull;</b>',
@@ -429,6 +435,7 @@ if (typeof module === 'object') {
                 }
 
                 if (btn) {
+
                     li = document.createElement('li');
                     if (isElement(btn)) {
                         li.appendChild(btn);
