@@ -79,7 +79,11 @@ languages and provides an interface for managing content in multiple languages.
 
 To add internationalized fields, follow these steps:
 
-1. Tell Tenon which languages you want to support in config/initializers/tenon.rb (You don't need to add English, Tenon always assumes its in use.)
+1. Add our 'translates' gem to your Gemfile and then bundle install
+
+    gem 'translates', git: 'https://github.com/factore/translates.git'
+
+2. Tell Tenon which languages you want to support in config/initializers/tenon.rb (You don't need to add English, Tenon always assumes its in use.)
 
     config.languages = {
       "French" => :fr,
@@ -87,7 +91,9 @@ To add internationalized fields, follow these steps:
       # etc.
     }
 
-2. Create or update config/i18n_fields.yml to tell Tenon which fields you would like to have internationalized.
+3. Add a language yml file in config/locales/ for each language defined above, or rails will have a fit, eg 'config/locales/fr.yml'
+
+4. Create or update config/i18n_fields.yml to tell Tenon which fields you would like to have internationalized.
 
     tables:
       cars:
@@ -98,21 +104,8 @@ To add internationalized fields, follow these steps:
         - title
         - location
         - description
-
-3. Generate and run the internationalization migration.  The generator will only try to create columns that don't already exist, so you can use this generator multiple times throughout the development of your application.
-
-    rails generate tenon:i18n_migrations
-    rake db:migrate
-
-4. Ensure that you have passed the i18n: true flag anywhere you are using tenon_content on a model.
-
-    class MyModel < ActiveRecord::Base
-      tenon_content :description, i18n: true
-    end
-
-Once you've done this and restarted your app you will see a language selection nav in the sidebar of each form that has internationalized fields.
-
-If you want to add internationalization to the default Tenon models you should make your i18n_fields.yml look like this:
+        
+    If you want to add internationalization to the default Tenon models you should make your i18n_fields.yml look like this:
 
     tables:
       tenon/events:
@@ -131,3 +124,33 @@ If you want to add internationalization to the default Tenon models you should m
         - seo_title
         - seo_keywords
         - seo_description
+        
+5. Generate and run the internationalization migration.  The generator will only try to create columns that don't already exist, so you can use this generator multiple times throughout the development of your application.
+
+    rails generate tenon:i18n_migrations
+    rake db:migrate
+
+6. Update your models to make sure your attributes are translated
+
+    class MyModel < ActiveRecord::Base
+        include Translates
+        # plain old rails attributes
+        translates :title
+        # tenon_content
+        tenon_content :description, i18n: true
+    end
+    
+7. Update your tenon views to add the language navigation helper, where needed:
+    # app/views/tenon/cars/_form.html.haml
+    - content_for :sidebar do
+        .sidebar
+            .content
+                ...
+            = i18n_language_nav(:cars)
+    ...
+    
+8. While there, make sure you are using 'autosaving_form_for' instead of 'form_for' to create your forms.  By doing this, Tenon will automatically update the labels when the different languages are selected.
+
+9. Make sure your routes are configured according to your needs and the I18n.locale is being set somehow (see Rails documentation for more info: http://guides.rubyonrails.org/i18n.html)
+
+Once you've done this and restarted your app you will see a language selection nav in the sidebar of each Tenon form that has internationalized fields.  On the front end, attributes on your Tenon models will be translated correctly, based on I18n.locale.
