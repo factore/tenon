@@ -1,3 +1,7 @@
+1.0.66 2015-06-10
+  * Fix ItemVersionHelper to not instruct saving drafts of Draper::Decorator
+    classes, rather using the underlying decorated object
+
 1.0.65 2015-05-28
   * Bump nokogiri to 1.5.11 to fix conflict with Fog
 
