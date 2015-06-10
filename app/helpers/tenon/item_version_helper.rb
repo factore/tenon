@@ -12,7 +12,7 @@ module Tenon
     end
 
     def save_draft_button(obj)
-      path = new_item_version_path(item_type: obj.class.to_s, item_id: obj.id)
+      path = new_item_version_path(item_type: class_for(obj), item_id: obj.id)
       css_class = 'btn btn-primary btn-block draft'
       data = {
         'modal-remote' => true,
@@ -39,9 +39,17 @@ module Tenon
 
     private
 
+    def class_for(obj)
+      if obj.class < Draper::Decorator
+        obj.object.class.to_s
+      else
+        obj.class.to_s
+      end
+    end
+
     def build_data(obj, opts)
       data = {
-        'item-type' => obj.class.to_s,
+        'item-type' => class_for(obj),
         'item-id' => obj.id,
         'autosave' => !params[:version],
         'version-create-path' => item_versions_path
