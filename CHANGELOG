@@ -1,3 +1,6 @@
+1.0.67 2015-06-16
+  * Fix Tenon devise password reset functionality.
+
 1.0.66 2015-06-10
   * Fix ItemVersionHelper to not instruct saving drafts of Draper::Decorator
     classes, rather using the underlying decorated object
