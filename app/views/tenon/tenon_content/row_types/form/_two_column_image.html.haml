@@ -3,6 +3,6 @@
   = f.hidden_field :list_order
   = f.fields_for :pieces do |piece|
     = piece.hidden_field :piece_type
-    .tn-tc-piece.asset-field{ class: [piece.object.size, cycle('', 'omega')] }
+    .tn-tc-piece.tn-tc-asset-field{ class: [piece.object.size, cycle('', 'omega')] }
       = render "tenon/tenon_content/piece_types/form/image", f: piece, style: 'half'
   .spacer

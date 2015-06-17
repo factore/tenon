@@ -40,10 +40,10 @@ class Tenon.features.tenonContent.ImageControls
     # Add some data for use in operations
     @$controls.data('image', @$image)
     @$controls.find('.replace-image')
-      .data('asset-field', @$image.closest('.asset-field'))
+      .data('asset-field', @$image.closest('.tn-tc-asset-field'))
 
     # Add some classes for targeting and styling
-    if @$image.closest('.wrapped-image-with-text').length > 0
+    if @$image.closest('.tn-tc-wrapped-image-with-text').length > 0
       @$controls.addClass('wrapped-image', true)
     else if @$image.closest('.full-width-image').length > 0
       @$controls.addClass('full-width-image')

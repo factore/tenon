@@ -5,7 +5,7 @@ class Tenon.features.AssetDetachment
   _removeAsset: (e) =>
     e.preventDefault()
     e.stopPropagation()
-    @$assetField = $(e.currentTarget).closest('.asset-field')
+    @$assetField = $(e.currentTarget).closest('.tn-tc-asset-field')
     @$assetField.find('.asset-id-field').removeAttr('value')
     @$assetField.find('.thumbnail img').attr('src', '/assets/tenon/thumb-doc.png')
     @$assetField.find('.asset-info').html('No asset selected.')

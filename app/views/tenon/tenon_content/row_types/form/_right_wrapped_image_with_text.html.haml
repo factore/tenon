@@ -1,11 +1,11 @@
-.right-wrapped-image-with-text.wrapped-image-with-text
+.tn-tc-right-wrapped-image-with-text.tn-tc-wrapped-image-with-text
   = f.hidden_field :row_type
   = f.hidden_field :list_order
   .twelve
     = f.fields_for :pieces do |piece|
       = piece.hidden_field :piece_type
       - if piece.object.piece_type == "Image"
-        .wrapped-image.right.asset-field.omega.tn-tc-piece{class: piece.object.size}
+        .wrapped-image.right.tn-tc-asset-field.omega.tn-tc-piece{class: piece.object.size}
           = render "tenon/tenon_content/piece_types/form/image", f: piece, style: 'wrap'
       - if piece.object.piece_type == "Text"
         = render "tenon/tenon_content/piece_types/form/text", f: piece

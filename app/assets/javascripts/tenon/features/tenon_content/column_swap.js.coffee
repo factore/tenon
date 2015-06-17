@@ -13,7 +13,7 @@ class Tenon.features.tenonContent.ColumnSwap
   _swapWrapped: (e) =>
     e.preventDefault()
     @$row = @_getRow(e)
-    @$row.find('.asset-field').toggleClass('left').toggleClass('right')
+    @$row.find('.tn-tc-asset-field').toggleClass('left').toggleClass('right')
     @_saveRowType()
 
   _swapDOM: =>

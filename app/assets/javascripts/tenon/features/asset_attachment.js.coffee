@@ -34,4 +34,4 @@ class Tenon.features.AssetAttachment
     if @$browseButton.data('asset-field')
       $(@$browseButton.data('asset-field'))
     else
-      @$browseButton.closest('.asset-field')
+      @$browseButton.closest('.tn-tc-asset-field')

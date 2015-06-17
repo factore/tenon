@@ -1,7 +1,7 @@
-.left-image-right-text.image-and-text
+.tn-tc-left-image-right-text.tn-tc-image-and-text
   - row.pieces.each do |piece|
     - if piece.piece_type == "Image"
-      .tn-tc-piece.asset-field{:class => piece.size}
+      .tn-tc-piece.tn-tc-asset-field{:class => piece.size}
         = render "tenon/tenon_content/piece_types/display/image", piece: piece
     - elsif piece.piece_type == "Text"
       .tn-tc-piece.omega{:class => piece.size}

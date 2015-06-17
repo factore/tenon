@@ -16,7 +16,7 @@
     = f.super_text_field :link_url, placeholder: 'Paste or type a link', style: 'display; inline; width: 316px;';
     = link_to new_item_asset_path(hide_upload: true), 'title' => 'Link to an Asset', 'data-modal-remote' => 'true', 'data-modal-handler' => 'Tenon.features.tenonContent.ImageAssetLink', 'data-modal-title' => 'Link to Asset', 'data-tooltip' => true do
       %i.fa.fa-file-pdf-o
-    = link_to '&times;'.html_safe, '#', class: 'medium-editor-cancel'
+    = link_to '', '#', class: 'medium-editor-cancel'
 
   .medium-editor-toolbar.medium-toolbar-arrow-under.medium-editor-toolbar-active.image-controls{style: "display: none; margin-top: -65px;"}
     %ul.medium-editor-toolbar-actions.clearfix

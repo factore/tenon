@@ -41,6 +41,8 @@
   .tn-tc-row {
     @include transition(box-shadow .2s ease-in);
     @include transition(border .2s ease-in);
+    position: relative;
+    overflow: hidden;
     min-height: 50px;
     margin-bottom: 10px;
     padding: 0;
@@ -64,9 +66,6 @@
     .tn-tc-bottombar {
       display: none;
     }
-  }
-  .tn-tc-row {
-    position: relative;
   }
   .drag-anchor {
     float: left;
@@ -146,9 +145,9 @@
       padding-top: 0;
     }
     .btn {
-      background-color: $tn-primary;
-      color: white;
       margin: 0 10px;
+      color: white;
+      background-color: $tn-primary;
     }
   }
   a.add-image {
@@ -186,7 +185,7 @@
     position: static;
     display: none;
   }
-  .asset-field img {
+  .tn-tc-asset-field img {
     width: 100%;
   }
   .image {
@@ -226,17 +225,40 @@
   display: none;
 }
 
-.wrapped-image-with-text {
+.tn-tc-wrapped-image-with-text {
   .editable-text {
     min-height: 200px;
   }
 }
 
-.image-and-text {
+.tn-tc-image-and-text {
   > div {
     height: 100%;
   }
 }
+
+.tn-tc-with-background-image {
+  padding: 60px 0 40px;
+  .tn-text-overlay {
+    position: relative;
+    z-index: 10;
+    float: left;
+    width: 46%;
+    margin: 0 2%;
+    .editable-text {
+      background-color: rgba(#fff, .8);
+    }
+  }
+  .tn-tc-background-image {
+    position: absolute;
+    top: 40px;
+    a.add-image span {
+      line-height: 60px;
+      height: 140px;
+    }
+  }
+}
+
 
 .image-controls {
   @include transition(none);
