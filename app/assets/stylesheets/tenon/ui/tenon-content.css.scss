@@ -308,3 +308,25 @@ a.open-embed-modal {
 .modal .edit-embed-code {
   display: block;
 }
+
+.tn-tc-with-background-image {
+  padding: 60px 0 40px;
+  .tn-text-overlay {
+    position: relative;
+    z-index: 10;
+    float: left;
+    width: 46%;
+    margin: 0 2%;
+    .editable-text {
+      background-color: rgba(#fff, .8);
+    }
+  }
+  .tn-tc-background-image {
+    position: absolute;
+    top: 40px;
+    a.add-image span {
+      line-height: 60px;
+      height: 140px;
+    }
+  }
+}

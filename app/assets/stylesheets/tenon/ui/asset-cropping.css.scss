@@ -1,50 +1,41 @@
 .asset-cropping {
-
   .preview {
     @include transform(translate(-50%, 0));
     position: fixed;
+    z-index: $tn-z-asset-cropping;
     top: $tn-margin;
     left: 50%;
-    z-index: $tn-z-asset-cropping;
     max-width: 90vw;
     max-height: 90vh;
     background-color: $tn-light-grey;
-
     .image-holder {
       padding: $tn-padding;
       background-color: $tn-light-grey;
     }
-
     .spinner {
       @include transform(translate(-50%, -50%));
       position: fixed;
+      z-index: $tn-z-asset-cropping-spinner;
       top: 50%;
       left: 50%;
-      z-index: $tn-z-asset-cropping-spinner;
       display: none;
-
       i {
-        color: #fff;
         font-size: 90px;
-        opacity: 0.5;
+        opacity: .5;
+        color: #fff;
       }
     }
-
     .crop_buttons {
-
       input {
         margin: 0;
       }
-
       label {
-        margin: 2px 10px 0 0;
-
+        margin: 2px 10px 0 20px;
         &:before {
-          margin-left: 5px;
+          left: 0;
         }
       }
     }
-
     .edit_asset {
       @include clearfix;
       margin: 0;
