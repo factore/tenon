@@ -1,3 +1,8 @@
+1.0.68 2015-06-17
+  * added a new content type: two columns of text with a background image.
+  * namespacing some more tn-tc classes
+  * reset devise config.mailer_sender to default
+
 1.0.67 2015-06-16
   * Fix Tenon devise password reset functionality.
 
