@@ -25,7 +25,7 @@ util-nav {
     display: none;
     text-transform: uppercase;
 
-    @include media($tablet_breakpoint) {
+    @include media($tn-bp-tablet) {
       display: block;
     }
 

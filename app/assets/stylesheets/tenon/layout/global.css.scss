@@ -15,7 +15,7 @@ body {
 
 .page-wrap {
 
-  @include media($mobile-breakpoint) {
+  @include media($tn-bp-mobile) {
     padding-top: 50px;
   }
 
@@ -27,7 +27,7 @@ body {
 .main-content {
   margin: 0 $tn-margin;
   padding-top: $tn-padding;
-  @include media($mobile-breakpoint) {
+  @include media($tn-bp-mobile) {
     margin: 0 10px;
     padding-top: 10px;
   }

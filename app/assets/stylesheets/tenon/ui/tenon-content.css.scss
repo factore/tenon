@@ -163,7 +163,7 @@
     }
   }
   .wrapped-image {
-    @include media($mobile-breakpoint) {
+    @include media($tn-bp-mobile) {
       &.left, &.right {
         float: none;
         padding: 0;

@@ -1,5 +1,5 @@
 .sidebar-container {
-  @include media($mobile-breakpoint) {
+  @include media($tn-bp-mobile) {
     @include transition(all 0.2s ease);
     left: -100%;
     right: 100%;
@@ -11,7 +11,7 @@
     }
   }
 
-  @include media($tablet-breakpoint) {
+  @include media($tn-bp-tablet) {
     left: 60px;
     width: 190px;
     float: left;
@@ -26,7 +26,7 @@
   background: $tn-sidebar;
   color: $tn-light-grey;
   .sidebar {
-    @include media($mobile-breakpoint) {
+    @include media($tn-bp-mobile) {
       padding-bottom: 50px;
     }
 

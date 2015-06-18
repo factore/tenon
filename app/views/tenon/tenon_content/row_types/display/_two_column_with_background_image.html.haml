@@ -1,4 +1,4 @@
-.two-column-with-background-image.tn-tc-background-image{style: "background-image: url(#{row.pieces.first.image.url})"}
+.tn-tc-row.tn-tc-two-column-with-background-image.tn-tc-background-image{style: "background-image: url(#{row.pieces.first.image.url})"}
   - row.pieces[1..-1].each do |piece|
     .tn-tc-piece.six{class: cycle('', 'omega')}
       = render "tenon/tenon_content/piece_types/display/text", piece: piece

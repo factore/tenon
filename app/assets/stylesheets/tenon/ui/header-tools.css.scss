@@ -7,11 +7,11 @@ $tn-tool-border: 0;
     float: right;
   }
   .header-label {
-    @include media($mobile-breakpoint) {
+    @include media($tn-bp-mobile) {
       display: none;
     }
 
-    @include media($tablet-breakpoint) {
+    @include media($tn-bp-tablet) {
       display: block;
     }
 

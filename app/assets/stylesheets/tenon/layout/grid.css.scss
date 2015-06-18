@@ -60,7 +60,7 @@
 .one, .two, .three, .four, .five, .six,
 
 .seven, .eight, .nine, .ten, .eleven, .twelve {
-  @include media($mobile-breakpoint) {
+  @include media($tn-bp-mobile) {
     @include span-columns(12);
   }
 }
@@ -69,73 +69,73 @@
 
 .full {
   @include span-columns(12);
-  @include media($laptop-breakpoint) {
+  @include media($tn-bp-laptop) {
     @include span-columns(12);
   }
 
-  @include media($mobile-breakpoint) {
+  @include media($tn-bp-mobile) {
     @include span-columns(12);
   }
 }
 
 .small {
-  @include media($tablet-breakpoint) {
+  @include media($tn-bp-tablet) {
     @include span-columns(12);
   }
 
-  @include media($laptop-breakpoint) {
+  @include media($tn-bp-laptop) {
     @include span-columns(4);
   }
 
-  @include media($desktop-breakpoint) {
+  @include media($tn-bp-desktop) {
     @include span-columns(3);
   }
 
-  @include media($mobile-breakpoint) {
+  @include media($tn-bp-mobile) {
     @include span-columns(12);
   }
 }
 
 .large {
-  @include media($tablet-breakpoint) {
+  @include media($tn-bp-tablet) {
     @include span-columns(12);
   }
 
-  @include media($laptop-breakpoint) {
+  @include media($tn-bp-laptop) {
     @include span-columns(8);
   }
 
-  @include media($desktop-breakpoint) {
+  @include media($tn-bp-desktop) {
     @include span-columns(9);
   }
 
-  @include media($mobile-breakpoint) {
+  @include media($tn-bp-mobile) {
     @include span-columns(12);
   }
 }
 
 .half {
   @include span-columns(6);
-  @include media($laptop-breakpoint) {
+  @include media($tn-bp-laptop) {
     @include span-columns(6);
   }
 
-  @include media($mobile-breakpoint) {
+  @include media($tn-bp-mobile) {
     @include span-columns(12);
   }
 }
 
 .third {
   @include span-columns(4);
-  @include media($laptop-breakpoint) {
+  @include media($tn-bp-laptop) {
     @include span-columns(4);
   }
 
-  @include media($tablet-breakpoint) {
+  @include media($tn-bp-tablet) {
     @include span-columns(4);
   }
 
-  @include media($mobile-breakpoint) {
+  @include media($tn-bp-mobile) {
     @include span-columns(12);
   }
 }

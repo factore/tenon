@@ -71,7 +71,7 @@
 
   li {
 
-    @include media($mobile-breakpoint) {
+    @include media($tn-bp-mobile) {
       width: 29%;
 
       &:nth-child(3n) {
@@ -79,7 +79,7 @@
       }
     }
 
-    @include media($tablet-breakpoint) {
+    @include media($tn-bp-tablet) {
       width: 22%;
 
       &:nth-child(4n) {

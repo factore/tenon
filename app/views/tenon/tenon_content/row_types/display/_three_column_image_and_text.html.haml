@@ -1,4 +1,4 @@
-.three-column-image-and-text.stacked-image-and-text
+.tn-tc-row.tn-tc-three-column-image-and-text.stacked-image-and-text
   -[[0,1], [2,3], [4,5]].each do |positions|
     .four{class: cycle('', '', 'omega')}
       - row.pieces.select { |p| positions.include?(p.position) }.each do |piece|

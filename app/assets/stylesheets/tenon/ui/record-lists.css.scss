@@ -55,14 +55,14 @@ ul.record-list {
       @include clearfix;
       color: $tn-black;
       font-size: $tn-font-small;
-      @include media($tablet-breakpoint) {
+      @include media($tn-bp-tablet) {
         opacity: 0.5;
       }
     }
     .record-actions {
       @include transition(opacity 0.2s ease);
       @include clearfix;
-      @include media($tablet-breakpoint) {
+      @include media($tn-bp-tablet) {
         opacity: 0.25;
       }
 

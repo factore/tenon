@@ -4,9 +4,9 @@
   = f.fields_for :pieces do |piece|
     - if piece.object.position == 0
       .tn-tc-piece.tn-tc-background-image.tn-tc-asset-field.twelve
-        = render "tenon/tenon_content/piece_types/form/background_image", f: piece, position: 0, style: 'full'
+        = render 'tenon/tenon_content/piece_types/form/background_image', f: piece, position: 0, style: 'full'
     - else
       .tn-tc-piece.tn-text-overlay{class: cycle('', 'omega')}
-        = render "tenon/tenon_content/piece_types/form/text", f: piece, position: piece.object.position
+        = render 'tenon/tenon_content/piece_types/form/text', f: piece, position: piece.object.position
 
   .spacer

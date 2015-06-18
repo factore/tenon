@@ -1,6 +1,6 @@
 .tenon-login {
 
-  @include media($mobile-breakpoint) {
+  @include media($tn-bp-mobile) {
     padding: 10px 0;
     min-height: 100%;
     height: auto;
@@ -10,7 +10,7 @@
     }
   }
 
-  @include media($tablet-breakpoint) {
+  @include media($tn-bp-tablet) {
     padding-top: 150px;
 
     form {

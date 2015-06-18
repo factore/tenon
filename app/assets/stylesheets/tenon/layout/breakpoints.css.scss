@@ -1,48 +1,48 @@
 // define breakpoints
-$desktop-breakpoint: new-breakpoint(min-width 1400px 12);
-$laptop-breakpoint: new-breakpoint(min-width 960px 12);
-$tablet-breakpoint: new-breakpoint(min-width 768px 12);
-$mobile-breakpoint: new-breakpoint(max-width 767px 12);
+$tn-bp-desktop: new-breakpoint(min-width 1400px 12);
+$tn-bp-laptop: new-breakpoint(min-width 960px 12);
+$tn-bp-tablet: new-breakpoint(min-width 768px 12);
+$tn-bp-mobile: new-breakpoint(max-width 767px 12);
 $max-width: 100%;
 
 .mobile {
-  @include media($tablet-breakpoint) {
+  @include media($tn-bp-tablet) {
     display: none !important;
   }
 }
 
 .tablet {
-  @include media($mobile-breakpoint) {
+  @include media($tn-bp-mobile) {
     display: none !important;
   }
-  @include media($tablet-breakpoint) {
+  @include media($tn-bp-tablet) {
     display: block !important;
   }
 }
 
 .laptop {
-  @include media($mobile-breakpoint) {
+  @include media($tn-bp-mobile) {
     display: none !important;
   }
-  @include media($tablet-breakpoint) {
+  @include media($tn-bp-tablet) {
     display: none !important;
   }
-  @include media($laptop-breakpoint) {
+  @include media($tn-bp-laptop) {
     display: block !important;
   }
 }
 
 .desktop {
-  @include media($mobile-breakpoint) {
+  @include media($tn-bp-mobile) {
     display: none !important;
   }
-  @include media($tablet-breakpoint) {
+  @include media($tn-bp-tablet) {
     display: none !important;
   }
-  @include media($laptop-breakpoint) {
+  @include media($tn-bp-laptop) {
     display: none !important;
   }
-  @include media($desktop-breakpoint) {
+  @include media($tn-bp-desktop) {
     display: block !important;
   }
 }
