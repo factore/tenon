@@ -1,3 +1,6 @@
+1.0.70 2015-06-18
+  * rollback some of the front end .tn-tc class namespacing for legacy stylesheets.
+
 1.0.69 2015-06-18
   * tenon content display partial namespacing (.tn-tc)
   * tenon breakpoint namespacing (.tn-bp)
