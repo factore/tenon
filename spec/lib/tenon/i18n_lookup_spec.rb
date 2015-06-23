@@ -57,7 +57,13 @@ describe Tenon::I18nLookup do
       end
 
       it 'should load the YAML' do
-        expect(YAML).to receive(:load) { {} }
+        # for the love of Christ, make sure that the loaded YAML is a real
+        # representative of the file when loaded!
+        # alternatively, reload this with real data when done!
+        # MLK spent a shit-ton of time trying to fix testing errors caused
+        # by this:
+        # expect(YAML).to receive(:load) { {} }
+        expect(YAML).to receive(:load) { { tables: {} } }
         Tenon::I18nLookup.fields
       end
 

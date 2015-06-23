@@ -32,6 +32,10 @@ describe 'An admin', js: true do
     let!(:post) { create(:post) }
 
     before(:all) do
+      # reset the Tenon:I18nLookup so that we use the thing defined in the
+      # spec/dummy app
+      Tenon::I18nLookup.class_variable_set :@@fields, nil
+
       # We need to set up Tenon to tell it what languages it supports.  We'll
       # reset it below in after(:all)
       @orig_languages = Tenon.config.languages
