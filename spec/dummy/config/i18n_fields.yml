@@ -1,21 +1,4 @@
 # list of the tables and columns that should have multiple languages generated
 tables:
-  menus:
-    -
-
-  events:
+  tenon/posts:
     - title
-    - location
-
-  pages:
-    - title
-    - seo_title
-    - seo_keywords
-    - seo_description
-
-  posts:
-    - title
-    - excerpt
-    - seo_title
-    - seo_keywords
-    - seo_description

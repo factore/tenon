@@ -2,9 +2,18 @@ require 'spec_helper'
 
 describe Tenon::I18nLookup do
   describe '.new' do
-    it 'should assign @klass' do
-      i = Tenon::I18nLookup.new(String)
-      expect(i.instance_variable_get('@klass')).to eq(String)
+    context "when the given class is a Decorator" do
+      it 'assigns the decorated class.to_s to @klass' do
+        i = Tenon::I18nLookup.new(Tenon::Post.new.decorate.class)
+        expect(i.instance_variable_get('@klass')).to eq(Tenon::Post.new.class.to_s)
+      end
+    end
+
+    context "when the given class is not a Decorator" do
+      it 'assigns class.to_s to @klass' do
+        i = Tenon::I18nLookup.new(String)
+        expect(i.instance_variable_get('@klass')).to eq(String.to_s)
+      end
     end
   end
 
