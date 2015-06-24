@@ -1,3 +1,7 @@
+1.0.71 2015-06-24
+  * Fix toggling of internationalized fields in Tenon forms
+  * Fix assorted tests broken when running specs with different seed values
+
 1.0.70 2015-06-18
   * rollback some of the front end .tn-tc class namespacing for legacy stylesheets.
 
