@@ -32,17 +32,17 @@ describe 'An admin viewing the comments index', js: true do
             expect(page).to have_selector("a.toggle.#{action}.true")
           end
         end
+      end
 
-        context "if #{action} is true" do
-          it "should be able to toggle #{action} to false" do
-            comment.update_attributes(action.to_sym => true)
-            visit comments_path
-            within('ul#comments') do
-              expect(page).to have_selector("a.toggle.#{action}.true")
-              page.find("a.toggle.#{action}").click
-              expect(comment.reload.send("toggle_#{action}!")).to be_true
-              expect(page).to have_selector("a.toggle.#{action}.false")
-            end
+      context "if #{action} is true" do
+        it "should be able to toggle #{action} to false" do
+          comment.update_attributes(action.to_sym => true)
+          visit comments_path
+          within('ul#comments') do
+            expect(page).to have_selector("a.toggle.#{action}.true")
+            page.find("a.toggle.#{action}").click
+            expect(comment.reload.send("toggle_#{action}!")).to be_true
+            expect(page).to have_selector("a.toggle.#{action}.false")
           end
         end
       end
