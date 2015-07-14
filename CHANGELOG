@@ -1,3 +1,6 @@
+1.0.72 2015-07-14
+  * Bump sass-rails to 5.0.3
+
 1.0.71 2015-06-24
   * Fix toggling of internationalized fields in Tenon forms
   * Fix assorted tests broken when running specs with different seed values

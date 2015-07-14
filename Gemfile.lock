@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tenon (1.0.71)
+    tenon (1.0.72)
       awesome_nested_set (= 3.0.0.rc.5)
       aws-s3 (= 0.6.3)
       aws-sdk (= 1.8.1.3)
