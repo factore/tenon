@@ -1,5 +1,5 @@
 .list-style-toggle-holder {
-  @include media($mobile-breakpoint) {
+  @include media($tn-bp-mobile) {
     display: none;
   }
 

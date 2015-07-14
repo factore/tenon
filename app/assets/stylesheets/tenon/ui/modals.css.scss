@@ -37,7 +37,7 @@
 
 .modal-content {
 
-  @include media($tablet-breakpoint) {
+  @include media($tn-bp-tablet) {
     @include transform(translate(-50%, 0));
     position: fixed;
     top: $tn-margin;
@@ -45,7 +45,7 @@
     width: 600px;
   }
 
-  @include media($mobile-breakpoint) {
+  @include media($tn-bp-mobile) {
     position: absolute;
     width: 100%;
   }

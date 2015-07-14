@@ -14,7 +14,7 @@
     .form-group
       %p
         = link_to_add_association "Add another photo", f, :photos, 'data-association-insertion-node' => '#photo-list', 'data-association-insertion-method' => 'append'
-        = link_to 'Add several', new_item_asset_path(multiple: true), class: 'btn btn-comp browse', data: {'modal-remote' => true, 'modal-title' => "Select file", 'modal-handler' => 'Tenon.features.MultipleAssetAttachment', target: '.asset-fields' }
+        = link_to 'Add several', new_item_asset_path(multiple: true), class: 'btn btn-comp browse', data: {'modal-remote' => true, 'modal-title' => "Select file", 'modal-handler' => 'Tenon.features.MultipleAssetAttachment', target: '.tn-tc-asset-fields' }
 
       %ul.nested-field-list.sortable#photo-list
         = f.nested_fields :photo

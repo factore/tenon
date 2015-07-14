@@ -1,0 +1,22 @@
+= f.hidden_field :image_id, class: 'asset-id-field'
+= f.hidden_field :position
+= f.hidden_field :size
+= f.hidden_field :stretch_to_fill
+.image{class: 'stretch'}
+  - if f.object.image
+    = backend_piece_image_tag(f.object)
+  - else
+    = link_to(new_item_asset_path, class: 'add-image', data: {'modal-remote' => true, 'modal-title' => 'Select Image', 'modal-handler' => 'Tenon.features.tenonContent.AssetAttachment'}) do
+      %span Add Image
+
+  .medium-editor-toolbar.medium-toolbar-arrow-under.medium-editor-toolbar-active.image-controls{style: 'display: none; margin-top: -65px;'}
+    %ul.medium-editor-toolbar-actions.clearfix
+      %li
+        %button{title: 'Crop', class: 'asset-crop medium-editor-action medium-editor-button-first', data: {'tooltip' => true, 'post-crop-handler' => 'Tenon.features.tenonContent.PostCropHandler', 'asset-id' => f.object.image_id}}
+          %i.fa.fa-crop
+      %li
+        %button{href: new_item_asset_path, title: 'Replace Image', class: 'replace-image medium-editor-action  medium-editor-button-last', data: {'modal-remote' => 'true', 'modal-title' => "Select Image", 'modal-handler' => 'Tenon.features.tenonContent.AssetAttachment', 'tooltip' => true}}
+          %i.fa.fa-picture-o
+
+    .medium-editor-toolbar-form-anchor
+

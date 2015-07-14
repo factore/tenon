@@ -1,9 +1,9 @@
-.three-column-image-and-text.stacked-image-and-text
+.tn-tc-row.three-column-image-and-text.stacked-image-and-text
   -[[0,1], [2,3], [4,5]].each do |positions|
     .four{class: cycle('', '', 'omega')}
       - row.pieces.select { |p| positions.include?(p.position) }.each do |piece|
         - if piece.piece_type == 'Image'
-          .tn-tc-piece.asset-field
+          .tn-tc-piece.tn-tc-asset-field
             = render "tenon/tenon_content/piece_types/display/image", piece: piece
         - else
           .tn-tc-piece

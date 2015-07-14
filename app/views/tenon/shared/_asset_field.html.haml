@@ -2,7 +2,7 @@
 - asset_name = asset
 - proxy_attachment = f.object.send(asset_name)
 %label.asset-label= asset_name.to_s.titleize
-.asset-field
+.tn-tc-asset-field
   = f.hidden_field "#{asset_name}_id", class: 'asset-id-field'
   .thumbnail
     - if proxy_attachment.try(:asset)

@@ -1,11 +1,11 @@
 header {
-  @include media($mobile-breakpoint) {
+  @include media($tn-bp-mobile) {
     position: static;
     top: 0;
     padding-left: 0;
   }
 
-  @include media($tablet-breakpoint) {
+  @include media($tn-bp-tablet) {
     position: fixed;
     top: 50px;
     padding: 0 0 0 250px;

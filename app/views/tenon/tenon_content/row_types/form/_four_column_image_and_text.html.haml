@@ -6,7 +6,7 @@
       = f.fields_for :pieces, f.object.pieces.select { |p| positions.include?(p.position) } do |piece|
         = piece.hidden_field :piece_type
         - if piece.object.piece_type == 'Image'
-          .tn-tc-piece.asset-field
+          .tn-tc-piece.tn-tc-asset-field
             = render "tenon/tenon_content/piece_types/form/image", f: piece, style: 'half'
         - else
           .tn-tc-piece

@@ -12,11 +12,11 @@
   = f.super_text_area :caption, class: 'caption', placeholder: 'Enter caption here...', style: ("display: none;" unless f.object.show_caption)
   = f.hidden_field :show_caption
 
-  .medium-editor-toolbar-form-anchor.link-form{style: 'position: absolute; z-index: 2000;'}
-    = f.super_text_field :link_url, placeholder: 'Paste or type a link', style: 'display; inline; width: 316px;';
+  .medium-editor-toolbar-form-anchor.link-form{style: 'position: absolute; z-index: 10;'}
     = link_to new_item_asset_path(hide_upload: true), 'title' => 'Link to an Asset', 'data-modal-remote' => 'true', 'data-modal-handler' => 'Tenon.features.tenonContent.ImageAssetLink', 'data-modal-title' => 'Link to Asset', 'data-tooltip' => true do
       %i.fa.fa-file-pdf-o
-    = link_to '&times;'.html_safe, '#', class: 'medium-editor-cancel'
+    = f.super_text_field :link_url, placeholder: 'Paste or type a link', style: 'display; inline; width: 316px;';
+    = link_to '', '#', class: 'medium-editor-cancel', title: 'Cancel', data: { tooltip: true }
 
   .medium-editor-toolbar.medium-toolbar-arrow-under.medium-editor-toolbar-active.image-controls{style: "display: none; margin-top: -65px;"}
     %ul.medium-editor-toolbar-actions.clearfix

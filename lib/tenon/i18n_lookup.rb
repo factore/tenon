@@ -1,11 +1,11 @@
 module Tenon
   class I18nLookup
     def initialize(klass)
-      @klass = klass
+      @klass = klass.to_s.sub /Decorator\z/, ''
     end
 
     def fields
-      self.class.fields[:tables][@klass.to_s.underscore.pluralize.to_sym] || []
+      self.class.fields[:tables][@klass.underscore.pluralize.to_sym] || []
     end
 
     def self.fields

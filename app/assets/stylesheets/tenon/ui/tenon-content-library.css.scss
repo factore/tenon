@@ -14,7 +14,7 @@
 
     li {
 
-      @include media($mobile-breakpoint) {
+      @include media($tn-bp-mobile) {
         width: 100%;
 
         img {
@@ -22,7 +22,7 @@
         }
       }
 
-      @include media($tablet-breakpoint) {
+      @include media($tn-bp-tablet) {
         width: 50%;
 
         img {
@@ -38,12 +38,12 @@
 
       p {
 
-        @include media($mobile-breakpoint) {
+        @include media($tn-bp-mobile) {
           left: 80px;
           padding-right: 100px;
         }
 
-        @include media($tablet-breakpoint) {
+        @include media($tn-bp-tablet) {
           left: 120px;
           padding-right: 140px;
         }

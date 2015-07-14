@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tenon (1.0.66)
+    tenon (1.0.71)
       awesome_nested_set (= 3.0.0.rc.5)
       aws-s3 (= 0.6.3)
       aws-sdk (= 1.8.1.3)
@@ -290,11 +290,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
-    sass-rails-source-maps (0.1.0)
-      rails
-      sass (~> 3.3)
-      sass-rails (~> 5.0.0.beta1)
-      sprockets (>= 2.3.0)
     selenium-webdriver (2.45.0)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
@@ -361,7 +356,6 @@ DEPENDENCIES
   quiet_assets
   rspec-rails (= 2.14.2)
   rubocop (= 0.27.1)
-  sass-rails-source-maps
   spring (= 1.1.3)
   spring-commands-rspec (= 1.0.2)
   tenon!

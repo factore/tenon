@@ -16,19 +16,19 @@ ul.record-grid {
   padding: 0;
   list-style: none;
   li {
-    @include media($mobile-breakpoint) {
+    @include media($tn-bp-mobile) {
       @include column(2);
     }
 
-    @include media($tablet-breakpoint) {
+    @include media($tn-bp-tablet) {
       @include column(3);
     }
 
-    @include media($laptop-breakpoint) {
+    @include media($tn-bp-laptop) {
       @include column(5);
     }
 
-    @include media($desktop-breakpoint) {
+    @include media($tn-bp-desktop) {
       @include column(6);
     }
 
@@ -72,7 +72,7 @@ ul.record-grid {
   .record-actions {
     @include clearfix;
     @include transition(all 0.2s ease);
-    @include media($tablet-breakpoint) {
+    @include media($tn-bp-tablet) {
       opacity: 0.25;
       &:hover {
         opacity: 1;

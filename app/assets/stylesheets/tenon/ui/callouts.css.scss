@@ -1,10 +1,10 @@
 #dashboard-callouts {
   .callout {
-    @include media($mobile-breakpoint) {
+    @include media($tn-bp-mobile) {
       @include tetris-grid(2);
     }
 
-    @include media($tablet-breakpoint) {
+    @include media($tn-bp-tablet) {
       @include tetris-grid(4);
     }
 

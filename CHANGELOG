@@ -1,3 +1,19 @@
+1.0.71 2015-06-24
+  * Fix toggling of internationalized fields in Tenon forms
+  * Fix assorted tests broken when running specs with different seed values
+
+1.0.70 2015-06-18
+  * rollback some of the front end .tn-tc class namespacing for legacy stylesheets.
+
+1.0.69 2015-06-18
+  * tenon content display partial namespacing (.tn-tc)
+  * tenon breakpoint namespacing (.tn-bp)
+
+1.0.68 2015-06-17
+  * added a new content type: two columns of text with a background image.
+  * namespacing some more tn-tc classes
+  * reset devise config.mailer_sender to default
+
 1.0.67 2015-06-16
   * Fix Tenon devise password reset functionality.
 

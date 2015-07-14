@@ -5,4 +5,4 @@ class Tenon.features.MultipleAssetAttachment extends Tenon.features.AssetAttachm
 
   _addAssociation: ->
     $('.add_fields').click()
-    @$assetField = $('.nested-fields .asset-field:last')
+    @$assetField = $('.nested-fields .tn-tc-asset-field:last')

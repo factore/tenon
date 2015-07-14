@@ -2,9 +2,18 @@ require 'spec_helper'
 
 describe Tenon::I18nLookup do
   describe '.new' do
-    it 'should assign @klass' do
-      i = Tenon::I18nLookup.new(String)
-      expect(i.instance_variable_get('@klass')).to eq(String)
+    context "when the given class is a Decorator" do
+      it 'assigns the decorated class.to_s to @klass' do
+        i = Tenon::I18nLookup.new(Tenon::Post.new.decorate.class)
+        expect(i.instance_variable_get('@klass')).to eq(Tenon::Post.new.class.to_s)
+      end
+    end
+
+    context "when the given class is not a Decorator" do
+      it 'assigns class.to_s to @klass' do
+        i = Tenon::I18nLookup.new(String)
+        expect(i.instance_variable_get('@klass')).to eq(String.to_s)
+      end
     end
   end
 
@@ -48,7 +57,13 @@ describe Tenon::I18nLookup do
       end
 
       it 'should load the YAML' do
-        expect(YAML).to receive(:load) { {} }
+        # for the love of Christ, make sure that the loaded YAML is a real
+        # representative of the file when loaded!
+        # alternatively, reload this with real data when done!
+        # MLK spent a shit-ton of time trying to fix testing errors caused
+        # by this:
+        # expect(YAML).to receive(:load) { {} }
+        expect(YAML).to receive(:load) { { tables: {} } }
         Tenon::I18nLookup.fields
       end
 

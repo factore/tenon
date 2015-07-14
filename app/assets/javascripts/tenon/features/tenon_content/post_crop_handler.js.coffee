@@ -14,7 +14,7 @@ class Tenon.features.tenonContent.PostCropHandler
     # let's kick it OLD SCHOOL
     img = new Image()
     img.onload = =>
-      @$piece.closest('.asset-field').trigger('tenon.asset_attached')
+      @$piece.closest('.tn-tc-asset-field').trigger('tenon.asset_attached')
     img.src = $img.attr('src')
 
   _updateFields: =>
