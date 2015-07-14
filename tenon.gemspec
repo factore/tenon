@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'spring', '1.1.3'
   s.add_development_dependency 'spring-commands-rspec', '1.0.2'
   s.add_development_dependency 'quiet_assets'
+  s.add_development_dependency 'sass-rails-source-maps'
 
   s.add_dependency 'rails', '>= 4.0.0'
 
@@ -70,7 +71,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails-settings-cached', '0.4.1'
   s.add_dependency 'rdiscount', '2.0.7.3'
   s.add_dependency 'resque', '1.25.2'
-  s.add_dependency 'sass-rails', '4.0.1'
+  s.add_dependency 'sass-rails', '5.0.3'
   s.add_dependency 'simple-rss', '1.2.3'
   s.add_dependency 'sprockets', '2.11.0'
   s.add_dependency 'uglifier', '2.5.0'
