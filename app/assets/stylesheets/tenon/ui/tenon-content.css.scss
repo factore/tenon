@@ -61,7 +61,7 @@
       border: 1px dashed $tn-dark-grey;
     }
     i {
-      font-size: 1em;
+      font-size: 20px;
     }
     .tn-tc-bottombar {
       display: none;
@@ -72,6 +72,7 @@
   }
   .tn-tc-topbar, .tn-tc-bottombar {
     padding: 0;
+    height: 36px;
     // background-color: $tn-med-grey;
     .actions {
       @include transition(all .2s ease);
