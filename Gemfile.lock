@@ -32,7 +32,7 @@ PATH
       medium-editor-rails (= 0.9.3)
       mime-types (= 1.25.1)
       neat (= 1.6.0)
-      nokogiri (= 1.5.11)
+      nokogiri (>= 1.5.11)
       non-stupid-digest-assets (= 1.0.4)
       normalize-rails (= 3.0.1)
       paperclip (= 4.1.1)
