@@ -62,7 +62,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'medium-editor-rails', '0.9.3'
   s.add_dependency 'mime-types', '1.25.1'
   s.add_dependency 'neat', '1.6.0'
-  s.add_dependency 'nokogiri', '1.5.11'
+  s.add_dependency 'nokogiri', '>=1.5.11'
   s.add_dependency 'non-stupid-digest-assets', '1.0.4'
   s.add_dependency 'normalize-rails', '3.0.1'
   s.add_dependency 'paperclip', '4.1.1'
