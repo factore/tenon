@@ -14,4 +14,4 @@
       .crop_buttons.right.full
         = f.check_box :duplicate, checked: true, class: 'tn-checkbox-right'
         = f.label :duplicate, "Create New Asset From Crop?", class: 'left'
-        .right= f.submit "Save", class: 'save btn btn-comp'
+        .right= f.submit "Save", class: 'save btn btn-comp', data: { disable_with: "Please wait..." }

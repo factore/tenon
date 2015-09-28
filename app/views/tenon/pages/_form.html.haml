@@ -44,7 +44,7 @@
 
       .row.content
         - if can?(:publish, @page)
-          %button.btn.btn-comp.btn-block.submit Save
+          %button.btn.btn-comp.btn-block.submit{ data: { disable_with: "Please wait..." } } Save
 
         - if can?(:create, Tenon::ItemVersion)
           = save_draft_button(@page)

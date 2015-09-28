@@ -42,7 +42,7 @@
         = f.super_label :approved, "Approved?"
 
       .content
-        = f.submit "Save", :class => 'btn btn-block btn-comp'
+        = f.submit "Save", :class => 'btn btn-block btn-comp', data: { disable_with: "Please wait..." }
 
       - if @user.persisted?
         %hr

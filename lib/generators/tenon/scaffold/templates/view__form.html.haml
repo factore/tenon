@@ -66,7 +66,7 @@
 <% end -%>
       .content
         - if can?(:publish, @<%= singular_name %>)
-          %button.btn.btn-block.btn-comp Save
+          %button.btn.btn-block.btn-comp{ data: { disable_with: "Please wait..." } } Save
         - if can?(:create, Tenon::ItemVersion)
           = save_draft_button(@<%= singular_name %>)
           .last-autosave

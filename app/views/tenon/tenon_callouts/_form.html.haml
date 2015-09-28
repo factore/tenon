@@ -35,8 +35,7 @@
         = f.super_label :published
 
       .content
-        %button.btn.btn-comp.submit.btn-block{:href => 'javascript:;'} Save
-
+        %button.btn.btn-comp.submit.btn-block{:href => 'javascript:;', data: { disable_with: "Please wait..." } } Save
 
       - if @tenon_callout.persisted?
         %hr

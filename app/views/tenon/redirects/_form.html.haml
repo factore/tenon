@@ -28,7 +28,7 @@
     .box
       .content
         - if can?(:publish, @redirect)
-          %button.btn.btn-block.btn-comp Save
+          %button.btn.btn-block.btn-comp{ data: { disable_with: "Please wait..." } } Save
         - if can?(:create, Tenon::ItemVersion)
           = save_draft_button(@redirect)
           .last-autosave
