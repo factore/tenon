@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318162013) do
+ActiveRecord::Schema.define(version: 20150928230951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,13 +26,6 @@ ActiveRecord::Schema.define(version: 20150318162013) do
   end
 
   add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
-
-  create_table "small_tests", force: true do |t|
-    t.string   "title"
-    t.integer  "list_order"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "tenon_assets", force: true do |t|
     t.string   "title"
@@ -147,7 +140,6 @@ ActiveRecord::Schema.define(version: 20150318162013) do
     t.string   "title"
     t.string   "slug"
     t.string   "path"
-    t.string   "unique_key"
     t.integer  "list_order",        default: 999
     t.boolean  "show_in_menu",      default: true
     t.integer  "creator_id"
