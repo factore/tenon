@@ -1,3 +1,11 @@
+1.0.75 2015-09-28
+  * fix password reset mailer link
+  * make Correct This links use Tenon mounted path
+  * prevent double-cliking on Save buttons by adding { data: { disable_with: } } to them, and the scaffold generators
+  * remove tenon_pages.unique_key
+  * add dependent_destroy to gallery has_many photos
+  * re-initialize select2 after new content added via cocoon
+
 1.0.74 2015-09-01
   * Loosen up nokogiri dependency
 
