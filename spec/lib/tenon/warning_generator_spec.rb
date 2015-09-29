@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Tenon::WarningGenerator do
   let(:settings) { double.as_null_object }
   let(:wg) { Tenon::WarningGenerator.new }
+  root_path = '/tenon/'
   before do
     stub_const('Tenon::MySettings', settings)
   end
@@ -13,8 +14,8 @@ describe Tenon::WarningGenerator do
     end
 
     it 'should include a warning about no site title' do
-      warning = "Your site needs a title.<br /><br /><a class='btn btn-comp btn-block' href='/tenon/settings'>OK</a>"
-      expect(wg.warnings).to include(warning)
+      warning = "Your site needs a title.<br /><br /><a class='btn btn-comp btn-block' href='#{root_path}settings'>OK</a>"
+      expect(wg.warnings(root_path)).to include(warning)
     end
   end
 
@@ -23,9 +24,9 @@ describe Tenon::WarningGenerator do
       settings.stub(:site_title) { 'test' }
     end
 
-    it 'should include a warning about no site title' do
-      warning = "Your site needs a title.<br /><br /><a class='btn btn-comp btn-block' href='/tenon/settings'>OK</a>"
-      expect(wg.warnings).not_to include(warning)
+    it 'should not include a warning about no site title' do
+      warning = "Your site needs a title.<br /><br /><a class='btn btn-comp btn-block' href='#{root_path}settings'>OK</a>"
+      expect(wg.warnings(root_path)).not_to include(warning)
     end
   end
 
@@ -34,9 +35,9 @@ describe Tenon::WarningGenerator do
       settings.stub(:site_url) { nil }
     end
 
-    it 'should not include a warning about no site domain' do
-      warning = "Your site needs an address.<br /><br /><a class='btn btn-comp btn-block' href='/tenon/settings'>OK</a>"
-      expect(wg.warnings).to include(warning)
+    it 'should include a warning about no site domain' do
+      warning = "Your site needs an address.<br /><br /><a class='btn btn-comp btn-block' href='#{root_path}settings'>OK</a>"
+      expect(wg.warnings(root_path)).to include(warning)
     end
   end
 
@@ -46,8 +47,8 @@ describe Tenon::WarningGenerator do
     end
 
     it 'should not include a warning about no site title' do
-      warning = "Your site needs an address.<br /><br /><a class='btn btn-comp btn-block' href='/tenon/settings'>OK</a>"
-      expect(wg.warnings).not_to include(warning)
+      warning = "Your site needs an address.<br /><br /><a class='btn btn-comp btn-block' href='#{root_path}settings'>OK</a>"
+      expect(wg.warnings(root_path)).not_to include(warning)
     end
   end
 
@@ -57,8 +58,8 @@ describe Tenon::WarningGenerator do
     end
 
     it 'should include a warning about no contact email' do
-      warning = "You haven't entered an email address to receive contact messages.<br /><br /><a class='btn btn-comp btn-block' href='/tenon/settings'>Correct This</a>"
-      expect(wg.warnings).to include(warning)
+      warning = "You haven't entered an email address to receive contact messages.<br /><br /><a class='btn btn-comp btn-block' href='#{root_path}settings'>Correct This</a>"
+      expect(wg.warnings(root_path)).to include(warning)
     end
   end
 
@@ -68,8 +69,8 @@ describe Tenon::WarningGenerator do
     end
 
     it 'should include a warning about no contact email' do
-      warning = "You haven't entered an email address to receive contact messages.<br /><br /><a class='btn btn-comp btn-block' href='/tenon/settings'>Correct This</a>"
-      expect(wg.warnings).not_to include(warning)
+      warning = "You haven't entered an email address to receive contact messages.<br /><br /><a class='btn btn-comp btn-block' href='#{root_path}settings'>Correct This</a>"
+      expect(wg.warnings(root_path)).not_to include(warning)
     end
   end
 
@@ -79,8 +80,8 @@ describe Tenon::WarningGenerator do
     end
 
     it 'should include a warning about no from email' do
-      warning = "You haven't entered an email address from which to send contact messages and other site notices.<br /><br /><a class='btn btn-comp btn-block' href='/tenon/settings'>Correct This</a>"
-      expect(wg.warnings).to include(warning)
+      warning = "You haven't entered an email address from which to send contact messages and other site notices.<br /><br /><a class='btn btn-comp btn-block' href='#{root_path}settings'>Correct This</a>"
+      expect(wg.warnings(root_path)).to include(warning)
     end
   end
 
@@ -89,9 +90,9 @@ describe Tenon::WarningGenerator do
       settings.stub(:from_email) { 'test' }
     end
 
-    it 'should include a warning about no from email' do
-      warning = "You haven't entered an email address from which to send contact messages and other site notices.<br /><br /><a class='btn btn-comp btn-block' href='/tenon/settings'>Correct This</a>"
-      expect(wg.warnings).not_to include(warning)
+    it 'should not include a warning about no from email' do
+      warning = "You haven't entered an email address from which to send contact messages and other site notices.<br /><br /><a class='btn btn-comp btn-block' href='#{root_path}settings'>Correct This</a>"
+      expect(wg.warnings(root_path)).not_to include(warning)
     end
   end
 
@@ -101,8 +102,8 @@ describe Tenon::WarningGenerator do
     end
 
     it 'should include a warning about no Google Analytics' do
-      warning = "You haven't entered the Google Analytics code.<br /><br /><a class='btn btn-comp btn-block' href='/tenon/settings'>Correct This</a>"
-      expect(wg.warnings).to include(warning)
+      warning = "You haven't entered the Google Analytics code.<br /><br /><a class='btn btn-comp btn-block' href='#{root_path}settings'>Correct This</a>"
+      expect(wg.warnings(root_path)).to include(warning)
     end
   end
 
@@ -111,9 +112,9 @@ describe Tenon::WarningGenerator do
       settings.stub(:google_analytics) { 'test' }
     end
 
-    it 'should include a warning about no Google Analytics' do
-      warning = "You haven't entered the Google Analytics code.<br /><br /><a class='btn btn-comp btn-block' href='/tenon/settings'>Correct This</a>"
-      expect(wg.warnings).not_to include(warning)
+    it 'should not include a warning about no Google Analytics' do
+      warning = "You haven't entered the Google Analytics code.<br /><br /><a class='btn btn-comp btn-block' href='#{root_path}settings'>Correct This</a>"
+      expect(wg.warnings(root_path)).not_to include(warning)
     end
   end
 
@@ -124,7 +125,7 @@ describe Tenon::WarningGenerator do
 
     it 'should include a warning about no favicon' do
       warning = 'You have not included a custom favicon.'
-      expect(wg.warnings).to include(warning)
+      expect(wg.warnings(root_path)).to include(warning)
     end
   end
 
@@ -135,7 +136,7 @@ describe Tenon::WarningGenerator do
 
     it 'should include a warning about no favicon' do
       warning = 'You have not included a custom favicon.'
-      expect(wg.warnings).to include(warning)
+      expect(wg.warnings(root_path)).to include(warning)
     end
   end
 
@@ -146,7 +147,7 @@ describe Tenon::WarningGenerator do
 
     it 'should not include a warning about no favicon' do
       warning = 'You have not included a custom favicon.'
-      expect(wg.warnings).not_to include(warning)
+      expect(wg.warnings(root_path)).not_to include(warning)
     end
   end
 end
