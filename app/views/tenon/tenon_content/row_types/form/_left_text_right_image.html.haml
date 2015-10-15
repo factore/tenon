@@ -7,6 +7,6 @@
       .tn-tc-piece{class: piece.object.size}
         = render "tenon/tenon_content/piece_types/form/text", f: piece
     - if piece.object.piece_type == "Image"
-      . tn-tc-piece.tn-tc-asset-field.omega{class: piece.object.size}
+      .tn-tc-piece.tn-tc-asset-field.omega{class: piece.object.size}
         = render "tenon/tenon_content/piece_types/form/image", f: piece, style: 'half'
   .spacer
