@@ -7,8 +7,7 @@ json.records do
       json.view_link action_link('View on Site', main_app.post_path(post), 'laptop')
     end
     json.categories post.post_categories.map{ |c| c.title }.join(', ')
-    json.edit_link edit_link(post)
-    json.delete_link delete_link(post)
+    json.destroy_path post_path(post)
     json.author post.user.email if post.user.present?
   end
 end

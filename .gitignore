@@ -12,5 +12,7 @@ spec/dummy/log/*.log
 spec/dummy/public/assets
 spec/dummy/public/system
 spec/dummy/tmp/
+spec/dummy/node_modules
+node_modules
 tags
 vendor/ruby

@@ -10,15 +10,13 @@
       = Tenon::MySettings.site_title.present? ? Tenon::MySettings.site_title : 'Tenon'
 
     = stylesheet_link_tag 'tenon/tenon', '//fonts.googleapis.com/css?family=Open+Sans:400,700'
+
     = javascript_include_tag 'tenon/tenon_manifest'
 
-  %body{data: { controller: params[:controller], action: params[:action] }, class: ('menu-open' if content_for?(:sidebar))}
+  %body.menu-open{data: { controller: params[:controller], action: params[:action] } }
     = render 'tenon/shared/util_nav'
     = render 'tenon/shared/main_nav'
-    - if content_for?(:sidebar)
-      .sidebar-container= yield :sidebar
-    .page-wrap
-      = yield
+    = yield
 
     .generic-loader
       %i.fa-gear.fa.fa-4x.fa.fa-spin

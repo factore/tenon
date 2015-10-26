@@ -1,5 +1,8 @@
 module Tenon
   class BaseController < ApplicationController
+    # Not worried about forgery here, you need to be logged in
+    skip_before_action :verify_authenticity_token
+
     layout :layout_for_resource
 
     before_filter :set_title

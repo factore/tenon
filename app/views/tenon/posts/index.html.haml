@@ -1,27 +1,3 @@
-- content_for :sidebar do
-  .sidebar
-    .content
-      %h2 Posts
-      = link_to "New Post", new_post_path, class: 'btn btn-block btn-primary'
-      #new-post-category{:style => "display: none;"}
-        =# render "form", category: PostCategory.new
-
-    = render "tenon/shared/posts_nav"
-
-%header
-  %h1 Posts
-
-  .tools
-    = render "tenon/shared/section_header/sidebar_toggle"
-
-    .header-button
-      = link_to '#', id: 'quick-search-toggle' do
-        .header-icon= fa_icon('fw search')
-
-.toolbox
-  = render "tenon/shared/section_header/quick_search", record_list: '#posts'
-
-.main-content
-  %ul#posts.record-list{data: {records: {url: posts_path(format: 'json'), template: 'tenon/templates/posts/post_row', name: 'post'}}}
-
-  = link_to "Load More Posts", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#posts'
+= react_component 'ResourceIndexRoot',
+    title: 'Posts',
+    recordsPath: posts_path(format: 'json')

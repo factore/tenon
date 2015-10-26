@@ -50,11 +50,11 @@ var Tenon = {
     new Tenon.features.ProtectChanges();
     new Tenon.features.RecordApproval();
     new Tenon.features.RecordBooleanToggle();
-    new Tenon.features.RecordDeletion();
-    $.each($('[data-records-url]'), function () {
-      new Tenon.features.RecordList($(this));
-    });
-    new Tenon.features.RecordListUpdater();
+    // new Tenon.features.RecordDeletion();
+    // $.each($('[data-records-url]'), function () {
+    //   new Tenon.features.RecordList($(this));
+    // });
+    // new Tenon.features.RecordListUpdater();
     new Tenon.features.SidebarActiveLinks();
     new Tenon.features.SidebarNavigation();
     new Tenon.features.SortableNestedFields();

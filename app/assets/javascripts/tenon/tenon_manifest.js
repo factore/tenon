@@ -22,6 +22,7 @@
 //= require jquery.ui.sortable
 //= require js-routes
 //= require ./medium-on-tenon
+//= require react_ujs
 //= require select2
 //= require uri
 
@@ -42,7 +43,7 @@
 //= require_tree ./features
 //= require tenon_addons
 //= require_self
-
+//= require ./components
 
 $(function() {
   Tenon.init();

@@ -1,5 +1,5 @@
 // forked from medium v. 0.9.3
-function MediumEditor(elements, options) {
+window.MediumEditor = function (elements, options) {
     'use strict';
     return this.init(elements, options);
 }
