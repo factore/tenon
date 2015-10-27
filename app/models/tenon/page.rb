@@ -71,6 +71,12 @@ module Tenon
       publish_at.present? ? publish_at <= Time.now : false
     end
 
+    # Update each subpage.path up the tree:
+    after_save :update_subpage_slugs
+    def update_subpage_slugs
+      subpages.each(&:save)
+    end
+
     protected
 
     def path_is_not_route
