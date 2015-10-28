@@ -1,24 +1,4 @@
-.sidebar-container
-  .sidebar
-    .content
-      %h2 Events
-      = link_to "New Event", new_event_path, class: 'btn btn-block btn-primary'
-
-.page-wrap
-  %header
-    %h1 Events
-
-    .tools
-      = render "tenon/shared/section_header/sidebar_toggle"
-
-      .header-button
-        = link_to '#', id: 'quick-search-toggle' do
-          .header-icon= fa_icon('fw search')
-
-  .toolbox
-    = render "tenon/shared/section_header/quick_search", record_list: '#events'
-
-  .main-content
-    %ul#events.record-list{data: {role: 'records-list', records: {url: events_path(format: 'json'), template: 'tenon/templates/events/event_row', name: 'event'}}}
-
-    = link_to "Load More Events", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#events'
+= react_component 'ResourceIndexRoot',
+    title: 'Events',
+    recordsPath: events_path(format: 'json'),
+    newPath: new_event_path
