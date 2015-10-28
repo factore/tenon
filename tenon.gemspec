@@ -75,6 +75,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'sass-rails', '5.0.3'
   s.add_dependency 'simple-rss', '1.2.3'
   s.add_dependency 'sprockets', '3.4.0'
+  s.add_dependency 'sprockets-es6'
   s.add_dependency 'uglifier', '2.5.0'
   s.add_dependency 'uuidtools', '2.1.4'
   s.add_dependency 'will_paginate', '3.0.5'

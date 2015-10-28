@@ -26,6 +26,8 @@
 //= require select2
 //= require uri
 
+
+
 // -- Plugins that need to be loaded in order
 //= require moment
 //= require bootstrap.datetimepicker
@@ -43,6 +45,9 @@
 //= require tenon_addons
 //= require_self
 //= require ./components
+
+// -- custom components
+//= require_tree ./components/resource-index/components/custom
 
 $(function() {
   Tenon.init();
