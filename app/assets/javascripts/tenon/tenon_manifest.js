@@ -32,7 +32,6 @@
 
 //= require lodash
 //= require underscore.string
-//= require underscore.inflection
 
 
 // -- Tenon things, don't mess with the order

@@ -15,7 +15,7 @@ module Tenon
         format.json do
           self.collection = klass.all
           self.collection = collection.where(search_args) if params[:q]
-          self.collection = collection.paginate(per_page: 20, page: params[:page])
+          self.collection = collection.paginate(per_page: 5, page: params[:page])
           self.collection = Tenon::PaginatingDecorator.decorate(collection)
         end
       end

@@ -15,9 +15,7 @@ class App extends Component {
   render() {
     return(
       <div>
-        <Sidebar
-          records={this.props.records}
-          title={this.props.title} />
+        <Sidebar {...this.props} />
 
         <div className="page-wrap">
           <Header

@@ -8,6 +8,7 @@ export const DELETE_RECORD = 'DELETE_RECORD';
 export const UPDATE_QUERY = 'UPDATE_QUERY';
 export const QUICK_SEARCH_RECORDS = 'QUICK_SEARCH_RECORDS';
 export const SET_BASE_URI = 'SET_BASE_URI';
+export const LOAD_NEXT_PAGE = 'LOAD_NEXT_PAGE';
 
 export function setBaseUri (baseUri) {
   return {
@@ -22,21 +23,23 @@ export function requestRecords () {
   }
 }
 
-export function receiveRecords (records) {
+export function receiveRecords (json, append) {
   return {
     type: RECEIVE_RECORDS,
-    records: records
+    records: json.records,
+    pagination: json.pagination,
+    append: append
   }
 }
 
-export function fetchRecords () {
+export function fetchRecords (append = false) {
   return function (dispatch, getState) {
     const state = getState();
     let query = _.toQueryString(state.query);
     dispatch(requestRecords);
     return fetch(state.baseUri + query, { credentials: 'same-origin'})
       .then( response => response.json() )
-      .then( json => dispatch(receiveRecords(json.records)) );
+      .then( json => dispatch(receiveRecords(json, append)) );
   };
 }
 
@@ -47,9 +50,17 @@ export function updateQuery (query) {
   }
 }
 
+export function loadNextPage () {
+  return function (dispatch, getState) {
+    let nextPage = getState().pagination.currentPage + 1;
+    dispatch(updateQuery({ page: nextPage }));
+    dispatch(fetchRecords(true));
+  }
+}
+
 export function quickSearchRecords (query) {
   return function (dispatch) {
-    dispatch(updateQuery({ q: query }))
+    dispatch(updateQuery({ q: query, page: 1 }))
     dispatch(fetchRecords())
   }
 }

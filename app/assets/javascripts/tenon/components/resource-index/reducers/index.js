@@ -5,6 +5,7 @@ import {
 
 const initialState = {
   records: [],
+  pagination: { currentPage: 1 },
   isFetching: false,
   query: { page: 1 }
 }
@@ -24,10 +25,17 @@ export default (state = initialState, action) => {
     state = { ...state, isFetching: true };
     return state;
   case RECEIVE_RECORDS:
+    let records;
+    if (action.append) {
+      records = state.records.concat(action.records)
+    } else {
+      records = action.records;
+    }
     state = {
       ...state,
       isFetching: false,
-      records: action.records
+      records: records,
+      pagination: action.pagination
     };
     return state;
   case DELETE_RECORD:

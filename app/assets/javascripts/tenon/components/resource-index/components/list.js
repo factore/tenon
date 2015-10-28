@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import addons from 'react/addons'
 import Record from '../components/record';
+import LoadMoreButton from '../components/load-more-button';
 
 const ReactCSSTransitionGroup = React.addons.CSSTransitionGroup
 
@@ -18,9 +19,10 @@ export default class List extends Component {
           </ReactCSSTransitionGroup>
         </ul>
 
-        <a href="" className='btn btn-comp infinite-loader'>
-          Load More Posts
-        </a>
+        <LoadMoreButton
+          title={this.props.title}
+          loadAction={(e) => this._loadNextPage(e)}
+          pagination={this.props.pagination} />
       </div>
     )
   }
@@ -30,5 +32,10 @@ export default class List extends Component {
     if (confirm('Are you sure?')) {
       this.props.actions.deleteRecord(record);
     }
+  }
+
+  _loadNextPage(e) {
+    e.preventDefault();
+    this.props.actions.loadNextPage();
   }
 }
