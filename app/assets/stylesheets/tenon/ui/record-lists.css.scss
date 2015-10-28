@@ -34,10 +34,28 @@ ul.record-list {
     &:hover > .record-actions, &:hover .record-fields {
       opacity: 1;
     }
+
+    &.record-enter {
+      opacity: 0.01;
+      &.record-enter-active {
+        opacity: 1;
+        transition: opacity 0.25s ease;
+      }
+    }
+
+    &.record-leave {
+      opacity: 1;
+      &.record-leave-active {
+        opacity: 0.01;
+        transition: opacity 0.25s ease;
+      }
+    }
   }
+
   a {
     color: $tn-black;
   }
+
   .record-details {
     padding: 0 0 10px 10px;
     background-color: #fff;

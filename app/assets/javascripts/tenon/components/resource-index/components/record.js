@@ -7,7 +7,7 @@ export default class Record extends React.Component {
       <li>
         <div className="record-details">
           <div className='record-actions'>
-            <a href="#" onClick={onDelete} data-tooltip='Delete' title='Delete'>
+            <a onClick={onDelete} data-tooltip='Delete' title='Delete'>
               <i className="fa fa-trash"></i>
             </a>
 
