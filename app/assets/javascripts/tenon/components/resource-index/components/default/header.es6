@@ -1,7 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-import QuickSearch from './quick-search';
-
-export default class Header extends Component {
+class DefaultHeader extends React.Component {
   constructor(props) {
     super(props)
     this.state = { searchOpen: false };
@@ -11,6 +8,7 @@ export default class Header extends Component {
     let searchClass = this.state.searchOpen ? 'open' : '';
     let searchIcon = this.state.searchOpen ? 'fa-times' : 'fa-search';
     let searchButton = this._renderSearchButton(searchClass, searchIcon)
+    const { QuickSearch } = this.props.childComponents;
 
     return(
       <div>
@@ -23,7 +21,7 @@ export default class Header extends Component {
 
         <div className="toolbox">
           <QuickSearch
-            searchAction={this.props.searchAction}
+            searchAction={this.props.actions.quickSearchRecords}
             searchClass={searchClass} />
         </div>
       </div>
@@ -33,7 +31,7 @@ export default class Header extends Component {
   _handleSearchToggle(e) {
     e.preventDefault();
     // Clear the query before closing
-    if (this.state.searchOpen) this.props.searchAction('');
+    if (this.state.searchOpen) this.props.actions.quickSearchRecords('');
     this.setState({ searchOpen: !this.state.searchOpen });
   }
 
@@ -49,3 +47,5 @@ export default class Header extends Component {
     )
   }
 }
+
+window.ResourceIndexComponents.DefaultHeader = DefaultHeader;

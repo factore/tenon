@@ -1,19 +1,20 @@
 = render "sidebar_index"
 
-%header
-  %h1 Contacts
+.page-wrap
+  %header
+    %h1 Contacts
 
-  .tools
-    = render "tenon/shared/section_header/sidebar_toggle"
+    .tools
+      = render "tenon/shared/section_header/sidebar_toggle"
 
-    .header-button
-      = link_to '#', id: 'quick-search-toggle' do
-        .header-icon= fa_icon('fw search')
+      .header-button
+        = link_to '#', id: 'quick-search-toggle' do
+          .header-icon= fa_icon('fw search')
 
-.toolbox
-  = render "tenon/shared/section_header/quick_search", record_list: '#contacts'
+  .toolbox
+    = render "tenon/shared/section_header/quick_search", record_list: '#contacts'
 
-.main-content
-  %ul#contacts.record-list{data: {records: {url: contacts_path(format: 'json'), template: 'tenon/templates/contacts/contact_row', name: 'contact'}}}
+  .main-content
+    %ul#contacts.record-list{data: {records: {url: contacts_path(format: 'json'), template: 'tenon/templates/contacts/contact_row', name: 'contact'}}}
 
-  = link_to "Load More Contacts", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#contacts'
+    = link_to "Load More Contacts", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#contacts'

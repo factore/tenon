@@ -47,6 +47,7 @@
 //= require ./components
 
 // -- custom components
+//= require_tree ./components/resource-index/components/default
 //= require_tree ./components/resource-index/components/custom
 
 $(function() {

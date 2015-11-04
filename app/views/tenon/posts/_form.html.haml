@@ -14,56 +14,63 @@
     = render "tenon/shared/posts_nav"
 
 .page-wrap
-  = autosaving_form_for @post do |f|
-    = error_messages_for :post
-    .fields.large.tabs
-      .tab-pane.active#details
-        .form-group
-          = f.text_field :title, :explanation => "Give your post a title."
+  %header
+    %h1= form_header_for(@post)
 
-        .form-group.tenon-content
-          %label Excerpt
-          .editable-text{contenteditable: true}
-            = raw @post.excerpt
-          = f.hidden_field :excerpt
+    .tools
+      = render "tenon/shared/section_header/sidebar_toggle"
 
-        .form-group
-          = f.tenon_content :content
+  .main-content
+    = autosaving_form_for @post do |f|
+      = error_messages_for :post
+      .fields.large.tabs
+        .tab-pane.active#details
+          .form-group
+            = f.text_field :title, :explanation => "Give your post a title."
 
-      .tab-pane#seo= render "tenon/shared/seo_fields", :f => f
+          .form-group.tenon-content
+            %label Excerpt
+            .editable-text{contenteditable: true}
+              = raw @post.excerpt
+            = f.hidden_field :excerpt
 
-    .fields.small
-      - unless @categories.blank?
-        %h4.box-label Categories
+          .form-group
+            = f.tenon_content :content
+
+        .tab-pane#seo= render "tenon/shared/seo_fields", :f => f
+
+      .fields.small
+        - unless @categories.blank?
+          %h4.box-label Categories
+          .box
+            .form-group.inline
+              = f.super_label :post_categories, 'Categories'
+              = f.select :post_category_ids, @categories.map { |c| [c.title, c.id] }, {}, { multiple: true }
+
+        %h4.box-label Publish Your Post
         .box
-          .form-group.inline
-            = f.super_label :post_categories, 'Categories'
-            = f.select :post_category_ids, @categories.map { |c| [c.title, c.id] }, {}, { multiple: true }
+          .form-group.bordered
+            = f.super_label :user_id, 'Author'
+            = f.collection_select :user_id, @users, :id, :email, {:include_blank => "(No Author)"}
 
-      %h4.box-label Publish Your Post
-      .box
-        .form-group.bordered
-          = f.super_label :user_id, 'Author'
-          = f.collection_select :user_id, @users, :id, :email, {:include_blank => "(No Author)"}
+          .form-group.inline.bordered
+            = f.check_box :allow_comments, class: 'tn-checkbox-right'
+            = f.super_label :allow_comments, "Allow Comments?"
 
-        .form-group.inline.bordered
-          = f.check_box :allow_comments, class: 'tn-checkbox-right'
-          = f.super_label :allow_comments, "Allow Comments?"
+          .form-group
+            = f.text_field :publish_at, label: "Publish Date", data: {behaviour: 'datetime-picker'}, placeholder: '--'
 
-        .form-group
-          = f.text_field :publish_at, label: "Publish Date", data: {behaviour: 'datetime-picker'}, placeholder: '--'
+          .row.content
+            - if can?(:publish, @post)
+              %button.btn.btn-comp.btn-block.submit{ data: { disable_with: "Please wait..." } } Save
 
-        .row.content
-          - if can?(:publish, @post)
-            %button.btn.btn-comp.btn-block.submit{ data: { disable_with: "Please wait..." } } Save
+            - if can?(:create, Tenon::ItemVersion)
+              = save_draft_button(@post)
+              .last-autosave
 
-          - if can?(:create, Tenon::ItemVersion)
-            = save_draft_button(@post)
-            .last-autosave
-
-        %hr
-        .content
-          = clear_draft_link if params[:version]
-          = load_draft_link(@post)
-          - if @post.persisted?
-            = link_to "Delete", @post, :data => {:method => :delete, :confirm => "Are you sure you want to delete this?"}, :class => 'delete-link'
+          %hr
+          .content
+            = clear_draft_link if params[:version]
+            = load_draft_link(@post)
+            - if @post.persisted?
+              = link_to "Delete", @post, :data => {:method => :delete, :confirm => "Are you sure you want to delete this?"}, :class => 'delete-link'

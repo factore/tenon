@@ -1,6 +1,9 @@
-class EventRecord extends React.Component {
+class UserRecord extends React.Component {
   render() {
-    const { edit_path, title, delete_path, onDelete } = this.props;
+    const {
+      edit_path, email, roles, last_login,
+      delete_path, onDelete
+    } = this.props;
     return (
       <li>
         <div className="record-details">
@@ -15,9 +18,17 @@ class EventRecord extends React.Component {
           </div>
 
           <div className="record-title">
-            <a href={edit_path}>{title}</a>
+            <a href={edit_path}>{email}</a>
             <br />
-            <small>{this.props.display_date}</small>
+          </div>
+
+          <div className="record-fields">
+            <div className="record-field">
+              Roles - {roles}
+            </div>
+            <div className="record-field">
+              Last Login - {last_login}
+            </div>
           </div>
         </div>
       </li>
@@ -25,4 +36,4 @@ class EventRecord extends React.Component {
   }
 }
 
-window.ResourceIndexComponents.EventRecord = EventRecord;
+window.UserRecord = UserRecord;

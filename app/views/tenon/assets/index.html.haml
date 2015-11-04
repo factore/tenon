@@ -1,19 +1,20 @@
 = render "sidebar_index"
 
-%header
-  %h1 Asset Library
+.page-wrap
+  %header
+    %h1 Asset Library
 
-  .tools
-    = render "tenon/shared/section_header/sidebar_toggle"
+    .tools
+      = render "tenon/shared/section_header/sidebar_toggle"
 
-    .header-button
-      = link_to '#', id: 'quick-search-toggle' do
-        .header-icon= fa_icon('fw search')
+      .header-button
+        = link_to '#', id: 'quick-search-toggle' do
+          .header-icon= fa_icon('fw search')
 
-.toolbox
-  = render "tenon/shared/section_header/quick_search", record_list: '#assets'
+  .toolbox
+    = render "tenon/shared/section_header/quick_search", record_list: '#assets'
 
-.main-content
-  %ul#assets.record-grid{data: {role: 'records-list', records: {url: assets_path(format: 'json'), template: 'tenon/templates/assets/asset_row', name: 'asset'}}}
+  .main-content
+    %ul#assets.record-grid{data: {role: 'records-list', records: {url: assets_path(format: 'json'), template: 'tenon/templates/assets/asset_row', name: 'asset'}}}
 
-  = link_to "Load More Assets", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#assets'
+    = link_to "Load More Assets", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#assets'

@@ -66,5 +66,15 @@ module Tenon
         render 'tenon/shared/i18n_language_nav'
       end
     end
+
+    def form_header_for(obj, opts = {})
+      label = opts.fetch(:label, obj.class.name.demodulize.titleize)
+      label = label.gsub(/\s+Decorator$/, '')
+      if obj.persisted?
+        "Edit #{label}"
+      else
+        "Create a New #{label}"
+      end
+    end
   end
 end

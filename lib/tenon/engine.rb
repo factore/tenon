@@ -52,6 +52,10 @@ module Tenon
       g.templates.unshift File.expand_path('../../templates', __FILE__)
     end
 
+    config.to_prepare do
+     ApplicationController.helper(Tenon::TenonHelper)
+    end
+
     initializer :assets do |config|
       Rails.application.config.assets.precompile += ['tenon/tenon_manifest.js', 'tenon/tenon.css']
       Rails.application.config.browserify_rails.commandline_options = '-t babelify'

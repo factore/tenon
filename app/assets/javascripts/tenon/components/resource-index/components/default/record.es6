@@ -1,6 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-
-export default class Record extends React.Component {
+class DefaultRecord extends React.Component {
   render() {
     const { edit_path, title, delete_path, onDelete } = this.props;
     return (
@@ -24,3 +22,5 @@ export default class Record extends React.Component {
     )
   }
 }
+
+window.ResourceIndexComponents.DefaultRecord = DefaultRecord;

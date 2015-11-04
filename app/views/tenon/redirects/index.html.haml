@@ -1,29 +1,6 @@
-- content_for :sidebar do
-  .sidebar
-    .content
-      %h2 Redirects
-      = link_to "New Redirect", new_redirect_path, class: 'btn btn-block btn-primary'
-      %p Drag and drop to set priority.
-
-%header
-  %h1 Redirects
-
-  .tools
-    = render "tenon/shared/section_header/sidebar_toggle"
-
-    .header-button
-      = link_to '#', id: 'quick-search-toggle' do
-        .header-icon= fa_icon('fw search')
-
-.toolbox
-  = render "tenon/shared/section_header/quick_search", record_list: '#redirects'
-
-.main-content
-  .flash.flash-alert{style: 'padding-right: 40px;'}
-    %i.fa.fa-exclamation-triangle
-    Redirects will be run when a page cannot be found. It will not redirect an existing page.
-
-  = error_messages_for :redirect
-  %ul#redirects.record-list.sortable{data: {records: {url: redirects_path(format: 'json'), template: 'tenon/templates/redirects/redirect_row', name: 'redirect'}, :'reorder-path' => reorder_redirects_path}}
-
-  = link_to "Load More Redirects", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#redirects'
+= react_component 'ResourceIndexRoot',
+    title: 'Redirects',
+    recordsPath: redirects_path(format: 'json'),
+    newPath: new_redirect_path,
+    childComponentNames: { List: 'RedirectList',
+                           Record: 'RedirectRecord' }

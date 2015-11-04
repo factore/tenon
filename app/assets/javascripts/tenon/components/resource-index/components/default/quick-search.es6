@@ -1,7 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-import _ from 'lodash';
-
-export default class QuickSearch extends Component {
+class DefaultQuickSearch extends React.Component {
   constructor(props) {
     super(props);
     this._delayedChange = _.debounce(function (event, action) {
@@ -39,3 +36,5 @@ export default class QuickSearch extends Component {
     this._delayedChange(e, this.props.searchAction);
   }
 }
+
+window.ResourceIndexComponents.DefaultQuickSearch = DefaultQuickSearch;

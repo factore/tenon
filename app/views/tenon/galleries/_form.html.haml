@@ -1,38 +1,46 @@
-- content_for :sidebar do
+.sidebar-container
   .sidebar
     .content
       %h2 Galleries
       = link_to "New Gallery", new_gallery_path, class: 'btn btn-block btn-primary'
 
-= error_messages_for :gallery
+.page-wrap
+  %header
+    %h1= form_header_for(@gallery)
 
-= autosaving_form_for @gallery do |f|
-  .fields.large
-    .form-group
-      = f.text_field :title
+    .tools
+      = render "tenon/shared/section_header/sidebar_toggle"
 
-    .form-group
-      %p
-        = link_to_add_association "Add another photo", f, :photos, 'data-association-insertion-node' => '#photo-list', 'data-association-insertion-method' => 'append'
-        = link_to 'Add several', new_item_asset_path(multiple: true), class: 'btn btn-comp browse', data: {'modal-remote' => true, 'modal-title' => "Select file", 'modal-handler' => 'Tenon.features.MultipleAssetAttachment', target: '.tn-tc-asset-fields' }
+  .main-content
+    = error_messages_for :gallery
 
-      %ul.nested-field-list.sortable#photo-list
-        = f.nested_fields :photo
+    = autosaving_form_for @gallery do |f|
+      .fields.large
+        .form-group
+          = f.text_field :title
 
-  .fields.small
-    %h4.box-label Publish
-    .box
-      .content
-        - if can?(:publish, @gallery)
-          = f.submit 'Save', class: 'btn btn-block btn-comp', data: { disable_with: "Please wait..." }
+        .form-group
+          %p
+            = link_to_add_association "Add another photo", f, :photos, 'data-association-insertion-node' => '#photo-list', 'data-association-insertion-method' => 'append'
+            = link_to 'Add several', new_item_asset_path(multiple: true), class: 'btn btn-comp browse', data: {'modal-remote' => true, 'modal-title' => "Select file", 'modal-handler' => 'Tenon.features.MultipleAssetAttachment', target: '.tn-tc-asset-fields' }
 
-        - if can?(:create, Tenon::ItemVersion)
-          = save_draft_button(@gallery)
-          .last-autosave
+          %ul.nested-field-list.sortable#photo-list
+            = f.nested_fields :photo
 
-      %hr
-      .content
-        = clear_draft_link if params[:version]
-        = load_draft_link(@gallery)
-        - if @gallery.persisted?
-          = link_to "Delete", @gallery, :data => {:method => :delete, :confirm => "Are you sure you want to delete this?"}, :class => 'delete-link'
+      .fields.small
+        %h4.box-label Publish
+        .box
+          .content
+            - if can?(:publish, @gallery)
+              = f.submit 'Save', class: 'btn btn-block btn-comp', data: { disable_with: "Please wait..." }
+
+            - if can?(:create, Tenon::ItemVersion)
+              = save_draft_button(@gallery)
+              .last-autosave
+
+          %hr
+          .content
+            = clear_draft_link if params[:version]
+            = load_draft_link(@gallery)
+            - if @gallery.persisted?
+              = link_to "Delete", @gallery, :data => {:method => :delete, :confirm => "Are you sure you want to delete this?"}, :class => 'delete-link'

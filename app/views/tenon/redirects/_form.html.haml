@@ -1,42 +1,52 @@
-- content_for :sidebar do
+.sidebar-container
   .sidebar
     .content
       %h2 Redirects
       = link_to "New Redirect", new_redirect_path, class: 'btn btn-block btn-primary'
 
-= autosaving_form_for @redirect do |f|
-  .flash.flash-alert{style: 'padding-right: 40px;'}
-    %i.fa.fa-exclamation-triangle
-    Redirects will be run when a page cannot be found. It will not redirect an existing page.
+.page-wrap
+  %header
+    %h1= form_header_for(@redirect)
 
-  = error_messages_for :redirect
-  .fields.large.tabs
-    .tab-pane.active#details
-      .form-group
-        = f.text_field :in, label: 'Route to match', explanation: 'String, can be written as a regular expression (without opening and closing /)', placeholder: '\/old-path\/(\d+)-(\.*)'
-      .form-group
-        = f.text_field :out, label: 'Destination', explanation: 'Zero-indexed captures can be returned in {x}', placeholder: '/new-path/{0}-{1}'
+    .tools
+      = render "tenon/shared/section_header/sidebar_toggle"
 
-  .fields.small
-    %h4.box-label Details
-    .box
-      .form-group.bordered.inline
-        = f.check_box :active, class: 'tn-checkbox-right'
-        = f.super_label :active
+  .main-content
+    = autosaving_form_for @redirect do |f|
+      .flash.flash-alert{style: 'padding-right: 40px;'}
+        %i.fa.fa-exclamation-triangle
+        Redirects will be run when a page cannot be found. It will not redirect an existing page.
 
-    %h4.box-label Actions
-    .box
-      .content
-        - if can?(:publish, @redirect)
-          %button.btn.btn-block.btn-comp{ data: { disable_with: "Please wait..." } } Save
-        - if can?(:create, Tenon::ItemVersion)
-          = save_draft_button(@redirect)
-          .last-autosave
+      = error_messages_for :redirect
+      .fields.large.tabs
+        .tab-pane.active#details
+          .form-group
+            = f.text_field :in, label: 'Route to match', explanation: 'String, can be written as a regular expression (without opening and closing /)', placeholder: '\/old-path\/(\d+)-(\.*)'
+          .form-group
+            = f.text_field :out, label: 'Destination', explanation: 'Zero-indexed captures can be returned in {x}', placeholder: '/new-path/{0}-{1}'
 
-      %hr
-      .content
-        = clear_draft_link if params[:version]
-        = load_draft_link(@redirect)
-        - if @redirect.persisted?
-          = link_to "Delete", @redirect, data: {method: :delete, confirm: 'Are you sure you want to delete this?'}, :class => 'delete-link'
-    .spacer
+      .fields.small
+        %h4.box-label Details
+        .box
+          .form-group.bordered.inline
+            = f.check_box :active, class: 'tn-checkbox-right'
+            = f.super_label :active
+
+        %h4.box-label Actions
+        .box
+          .content
+            - if can?(:publish, @redirect)
+              %button.btn.btn-block.btn-comp{ data: { disable_with: "Please wait..." } } Save
+            - if can?(:create, Tenon::ItemVersion)
+              = save_draft_button(@redirect)
+              .last-autosave
+
+          %hr
+          .content
+            = clear_draft_link if params[:version]
+            = load_draft_link(@redirect)
+            - if @redirect.persisted?
+              = link_to "Delete", @redirect, data: {method: :delete, confirm: 'Are you sure you want to delete this?'}, :class => 'delete-link'
+        .spacer
+
+  .spacer

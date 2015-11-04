@@ -1,4 +1,4 @@
-class EventRecord extends React.Component {
+class RedirectRecord extends React.Component {
   render() {
     const { edit_path, title, delete_path, onDelete } = this.props;
     return (
@@ -15,9 +15,12 @@ class EventRecord extends React.Component {
           </div>
 
           <div className="record-title">
-            <a href={edit_path}>{title}</a>
-            <br />
-            <small>{this.props.display_date}</small>
+            <a href={edit_path}>
+              {this.props.in}
+              <i className="fa fa-long-arrow-right"
+                style={{margin: '0 20px', opacity: 0.3}} />
+              {this.props.out}
+            </a>
           </div>
         </div>
       </li>
@@ -25,4 +28,4 @@ class EventRecord extends React.Component {
   }
 }
 
-window.ResourceIndexComponents.EventRecord = EventRecord;
+window.ResourceIndexComponents.RedirectRecord = RedirectRecord;

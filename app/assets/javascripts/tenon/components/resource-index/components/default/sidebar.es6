@@ -1,6 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-
-export default class Sidebar extends React.Component {
+class DefaultSidebar extends React.Component {
   render() {
     const singular = _.singularize(this.props.title)
     return(
@@ -17,3 +15,5 @@ export default class Sidebar extends React.Component {
     );
   }
 }
+
+window.ResourceIndexComponents.DefaultSidebar = DefaultSidebar;
