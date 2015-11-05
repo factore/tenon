@@ -40,8 +40,9 @@ class App extends Component {
   }
 
   _setupHandlers() {
-    this.props.handlers.deleteRecord = this._deleteRecord;
-    this.props.handlers.loadNextPage = this._loadNextPage;
+    this.props.handlers.deleteRecord = this._deleteRecord.bind(this);
+    this.props.handlers.loadNextPage = this._loadNextPage.bind(this);
+    this.props.handlers.updateRecord = this._updateRecord.bind(this);
   }
 
   _setupChildComponents() {
@@ -51,11 +52,17 @@ class App extends Component {
       this.props.childComponents[key] = window.ResourceIndexComponents[name];
     });
   }
+
   _deleteRecord(e, record) {
     e.preventDefault();
     if (confirm('Are you sure?')) {
       this.props.actions.deleteRecord(record);
     }
+  }
+
+  _updateRecord(e, record, payload) {
+    e.preventDefault();
+    this.props.actions.updateRecord(record, payload);
   }
 
   _loadNextPage(e) {

@@ -45,6 +45,15 @@ export default (state = initialState, action) => {
       records: newRecords
     };
     return state;
+  case START_UPDATE_RECORD:
+    let newRecords = state.records
+    index = newRecords.index(action.record);
+    newRecords[index].isUpdating = true;
+    state = {
+      ...state,
+      records: newRecords
+    }
+    return state;
   default:
     return state;
   };

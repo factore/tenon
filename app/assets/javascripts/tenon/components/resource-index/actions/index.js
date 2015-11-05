@@ -4,11 +4,14 @@ import _ from 'lodash'
 export const REQUEST_RECORDS = 'REQUEST_RECORDS';
 export const FETCH_RECORDS = 'FETCH_RECORDS';
 export const RECEIVE_RECORDS = 'RECEIVE_RECORDS';
-export const DELETE_RECORD = 'DELETE_RECORD';
 export const UPDATE_QUERY = 'UPDATE_QUERY';
 export const QUICK_SEARCH_RECORDS = 'QUICK_SEARCH_RECORDS';
 export const SET_BASE_URI = 'SET_BASE_URI';
 export const LOAD_NEXT_PAGE = 'LOAD_NEXT_PAGE';
+
+export const DELETE_RECORD = 'DELETE_RECORD';
+export const UPDATED_RECORD = 'UPDATED_RECORD';
+export const START_UPDATE_RECORD = 'START_UPDATE_RECORD';
 
 export function setBaseUri (baseUri) {
   return {
@@ -76,5 +79,32 @@ export function deleteRecord (record) {
   return {
     type: DELETE_RECORD,
     record: record
+  }
+}
+
+export function startUpdate(record) {
+  return {
+    type: START_UPDATE_RECORD,
+    record: record
+  }
+}
+
+export function updatedRecord(record) {
+  return {
+    type: UPDATED_RECORD,
+    record: record
+  }
+}
+
+export function updateRecord (record, payload) {
+  return function(dispatch) {
+    dispatch(startUpdate(record));
+    fetch(`${record.update_path}.json`, {
+      credentials: 'same-origin',
+      method: 'POST',
+      body: payload
+    })
+    .then( response => response.json() )
+    .then( json => dispatch(updatedRecord(json.record)))
   }
 }

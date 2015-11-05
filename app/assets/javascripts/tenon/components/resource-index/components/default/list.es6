@@ -1,6 +1,7 @@
 class DefaultList extends React.Component {
   render() {
     const { Record, LoadMoreButton }  = this.props.childComponents;
+    const { deleteRecord, updateRecord } = this.props.handlers;
     return(
       <div className="main-content">
         <ul className="record-list">
@@ -9,7 +10,8 @@ class DefaultList extends React.Component {
               <Record
                 {...record}
                 key={i}
-                onDelete={(e) => this.props.handlers.deleteRecord(e, record)} />
+                onDelete={(e) => deleteRecord(e, record)}
+                onUpdate={(e, payload) => updateRecord(e, record, payload)} />
             )}
           </ReactCSSTransitionGroup>
         </ul>

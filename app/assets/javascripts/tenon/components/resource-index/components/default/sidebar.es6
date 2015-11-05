@@ -6,13 +6,20 @@ class DefaultSidebar extends React.Component {
         <div className="sidebar">
           <div className="content">
             <h2>{this.props.title}</h2>
-            <a href={this.props.newPath} className="btn btn-primary btn-block">
-              New {singular}
-            </a>
+            {this.renderNewButton()}
           </div>
         </div>
       </div>
     );
+  }
+
+  renderNewButton() {
+    if (this.props.newPath) {
+      return(
+        <a href={this.props.newPath} className="btn btn-primary btn-block">
+          New {singular}
+        </a>);
+    }
   }
 }
 
