@@ -20,11 +20,8 @@
       .form-group
         = f.text_field :title, :explanation => "Give your post a title."
 
-      .form-group.tenon-content
-        %label Excerpt
-        .editable-text{contenteditable: true}
-          = raw @post.excerpt
-        = f.hidden_field :excerpt
+      .form-group
+        = f.rich_text :excerpt
 
       .form-group
         = f.tenon_content :content

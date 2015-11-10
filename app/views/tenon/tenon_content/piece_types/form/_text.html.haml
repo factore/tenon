@@ -1,4 +1,3 @@
-.editable-text{ 'data-placeholder' => "--" }= raw f.object.try(:content)
-= f.hidden_field :content
+= f.rich_text :content, label: false
 = f.hidden_field :position
 = f.hidden_field :size

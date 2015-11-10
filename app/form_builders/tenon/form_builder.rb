@@ -5,20 +5,40 @@ module Tenon
     alias_method :super_label, :label
 
     def tenon_content(method_name)
-      @template.render 'tenon/tenon_content/builder', f: self, field: method_name
+      @template.render 'tenon/tenon_content/builder',
+        f: self,
+        field: method_name
     end
 
-    def title_field(method_name, options = {})
-      options[:last] = true
-      content = build_content(:title_field_content, method_name, options)
+    def asset(method_name, opts = {})
+      defaults = {
+        label: nil,
+        # Remove button triggers cocoon's remove child event?
+        remove_association: false
+      }
+      opts = defaults.merge(opts)
+
+      @template.render 'tenon/fields/asset',
+        f: self,
+        label_tag: label(method_name, opts[:label]),
+        field: method_name,
+        proxy_attachment: object.send(method_name),
+        opts: opts
     end
 
-    def title_field_content(method_name, options = {}, language = nil, language_title = nil)
-      label = label(method_name, options[:label], language, language_title)
-      explanation = explanation(options[:explanation])
-      row_label = content_tag(:div, label + explanation, class: 'label')
-      row_label.html_safe + @template.text_field(@object_name, get_method(method_name, language), options.merge(class: 'title')) + content_tag(:div, '', class: 'spacer')
+    def rich_text(method_name, opts = {})
+      defaults = {
+        placeholder: '--',
+      }
+      opts = defaults.merge(opts)
+
+      @template.render 'tenon/fields/rich_text',
+        f: self,
+        field: method_name,
+        label_tag: label(method_name, opts[:label]),
+        opts: opts
     end
+    alias_method :me_text, :rich_text
 
     alias_method :super_text_field, :text_field
     def text_field(method_name, options = {})
@@ -73,6 +93,16 @@ module Tenon
 
     private
 
+    def label(method_name, label, language = nil, language_title = nil)
+      if label == false
+        ''.html_safe
+      else
+        label ||= method_name.to_s.titleize
+        label = language_title ? label + " (#{language_title.to_s.titleize})" : label
+        super(get_method(method_name, language), label.html_safe)
+      end
+    end
+
     def build_content(generator, method_name, options)
       content = send(generator, method_name, options)
       content = internationalize_content(generator, method_name, content, options) if Tenon::I18nLookup.new(@object.class).fields.include? method_name.to_s
@@ -93,16 +123,6 @@ module Tenon
 
     def explanation(explanation)
       explanation ? content_tag(:div, explanation.html_safe, class: 'explanation') : ''
-    end
-
-    def label(method_name, label, language = nil, language_title = nil)
-      if label == false
-        ''.html_safe
-      else
-        label ||= method_name.to_s.titleize
-        label = language_title ? label + " (#{language_title.to_s.titleize})" : label
-        super(get_method(method_name, language), label.html_safe)
-      end
     end
 
     def get_method(method, language = nil)

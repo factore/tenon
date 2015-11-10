@@ -1,37 +1,65 @@
 class Tenon.features.ModalWindows
   constructor: ->
     tags = '[data-modal-target], [data-modal-remote], [data-model-content], [data-keyboard]'
-    $(document).on('click', tags, @setupAndLaunch)
+    $(document).on('click', tags, @launchFromLink)
 
-  setupAndLaunch: (e) =>
+  # Opts:
+  #   $link: if launched by data tags, the link that was clicked
+  #   title: string -- Title for the modal window
+  #   remote: bool -- launch via a URL?
+  #   href: string -- remote URL to launch
+  #   target: string -- selector for the HTML element
+  #   parent: string -- selector to use for parent of target
+  #   handler: string -- string version of the class to instantiate on opening
+  #   closest: string -- selector for link's parent when finding target
+  #   clone: bool -- clone the target before putting it in the modal?
+  #   content: string -- content to output directly in the modal
+  #   keyboard: boolean -- legacy, not sure what it does
+  launchWithOpts: (@opts = {}) =>
+    @_chooseStrategy()
+
+  launchFromLink: (e) =>
     e.preventDefault()
-    @$link = $(e.currentTarget)
+    $link = $(e.currentTarget)
+    @opts =
+      $link: $link
+      href: $link.attr('href')
+      title: $link.data('modal-title')
+      remote: $link.data('modal-remote')
+      target: $link.data('modal-target')
+      handler: $link.data('modal-handler')
+      closest: $link.data('modal-closest')
+      parent: $link.data('modal-parent')
+      clone: $link.data('modal-clone')
+      content: $link.data('modal-content')
+      keyboard: $link.data('keyboard')
     @_chooseStrategy()
 
   _chooseStrategy: =>
-    @_launchWithUrl() if @$link.data('modal-remote')
-    @_launchWithTarget() if @$link.data('modal-target')
-    @_launchWithContent() if @$link.data('modal-content')
+    @_launchWithUrl() if @opts.remote
+    @_launchWithTarget() if @opts.target?.length
+    @_launchWithContent() if @opts.content?.length
 
   _launchWithUrl: (e) =>
+    console.debug("called _launchWithUrl")
     @remote = true
     Tenon.$genericLoader.show()
     $.ajax
-      url: @$link.attr('href')
+      url: @opts.href
       dataType: 'html'
       success: @_openInModal
       beforeSend: null
 
   _launchWithTarget: (e) =>
-    if @$link.data('modal-closest')
-      $parentNode = @$link.closest(@$link.data('modal-closest'))
-      $el = $parentNode.find(@$link.data('modal-target'))
-    else if @$link.data('modal-parent')
-      $el = $(@$link.data('modal-parent')).find(@$link.data('modal-target'))
+    console.debug("called _launchWithTarget")
+    if @opts.closest?.length && @opts.$link
+      $parentNode = @opts.$link.closest(@opts.closest)
+      $el = $parentNode.find(@opts.target)
+    else if @opts.parent?.length
+      $el = $(@opts.parent).find(@opts.target)
     else
-      $el = $(@$link.data('modal-target'))
-    $el = $el.filter(':first').clone() if @$link.data('modal-clone')
-
+      $el = $(@opts.target)
+    $el = $el.filter(':first').clone() if @opts.clone
     @_openInModal($el)
 
   _openInModal: (el) =>
@@ -40,14 +68,14 @@ class Tenon.features.ModalWindows
     @$template = $(@_setupTemplate())
     @_appendContent()
     @$el.show()
-    @modal = @$template.modal(keyboard: @$link.data('keyboard'))
+    @modal = @$template.modal(keyboard: @opts.keyboard)
     @modal
       .on('shown.bs.modal', @_runShownHandler)
       .on('hidden.bs.modal', @_runHiddenHandler)
 
   _setupTemplate: =>
     JST['tenon/templates/modal']
-      title: @$link.data('modal-title'),
+      title: @opts.title,
       bodyProvided: @_bodyProvided()
 
   _bodyProvided: =>
@@ -60,15 +88,14 @@ class Tenon.features.ModalWindows
 
 
   _runShownHandler: =>
-    if @$link.data('modal-handler')
-      parts = @$link.data('modal-handler').split('.')
+    if @opts.handler?.length
+      parts = @opts.handler.split('.')
       method = window
       $(parts).each (i, part) -> method = method[part]
-      new method(@$link, @$el, @$template)
+      new method(@opts.$link, @$el, @$template)
 
     # Default shown action
     $('select').select2()
-
     @_focusFirstField()
 
   _runHiddenHandler: =>

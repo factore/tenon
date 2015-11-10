@@ -8,6 +8,7 @@
 //= require bootstrap.modal
 //= require bootstrap.tabs
 //= require canvasjs.min
+//= require ckeditor/ckeditor
 //= require cocoon
 //= require imagesloaded
 //= require jquery-fileupload/basic
@@ -21,7 +22,6 @@
 //= require jquery.twoLevelSort
 //= require jquery.ui.sortable
 //= require js-routes
-//= require ./medium-on-tenon
 //= require select2
 //= require uri
 

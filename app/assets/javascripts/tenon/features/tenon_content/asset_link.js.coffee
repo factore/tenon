@@ -1,5 +1,11 @@
 class Tenon.features.tenonContent.AssetLink extends Tenon.features.tenonContent.AssetAttachment
   _setFields: ($li) =>
-    $input = @$browseButton.closest('div').find('input.medium-editor-toolbar-anchor-input')
-    $input[0].value = $li.data('style-urls')['original']
-    Tenon.mediumEditor.createLink($input[0], '')
+    $link = $('<a />').attr('href', $li.data('style-urls')['original'])
+    selected = @$browseButton.getSelection().getSelectedText()
+    text = if selected.length then selected else 'Asset Link'
+    $link.html(text)
+    @$browseButton.insertHtml($link[0].outerHTML)
+
+  # Create a virtual input to hold the data
+  _getAssetField: =>
+    $('<input />').attr('type', 'hidden')
