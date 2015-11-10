@@ -18,8 +18,8 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'better_errors', '1.1.0'
   s.add_development_dependency 'binding_of_caller', '0.7.2'
-  s.add_development_dependency 'capybara', '2.0.3'
-  s.add_development_dependency 'capybara-webkit', '1.1.1'
+  s.add_development_dependency 'capybara', '2.5.0'
+  s.add_development_dependency 'capybara-webkit', '1.7.1'
   s.add_development_dependency 'database_cleaner', '1.2.0'
   s.add_development_dependency 'factory_girl_rails', '4.4.1'
   s.add_development_dependency 'overcommit', '0.19.0'

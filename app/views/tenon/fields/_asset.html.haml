@@ -1,0 +1,32 @@
+= raw(label_tag)
+
+- if opts[:explanation].present?
+  .explanation= raw opts[:explanation]
+
+.tn-tc-asset-field
+  = f.hidden_field "#{field}_id", class: 'asset-id-field'
+
+  .thumbnail
+    - if proxy_attachment.try(:asset)
+      = asset_icon(proxy_attachment.asset)
+    - else
+      = image_tag default_asset_thumbnail(proxy_attachment)
+
+  .details
+    .asset-info
+      - if proxy_attachment
+        = proxy_attachment.display_name
+      - else
+        No asset selected.
+
+    .browse-button-holder{ class: ('with-remove' if opts[:remove_association]) }
+      .browse-button
+        = link_to 'Browse', new_item_asset_path, class: 'btn btn-comp browse', data: { modal_remote: true, modal_title: "Select #{field.to_s.titleize}", modal_handler: 'Tenon.features.AssetAttachment' }
+        - if opts[:remove_association]
+          %small
+            or
+            = link_to_remove_association "remove", f
+        - else
+          %small
+            or
+            = link_to "remove", '#', class: 'remove-asset', data: { confirm: 'Are you sure?' }

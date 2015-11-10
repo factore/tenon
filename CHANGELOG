@@ -1,3 +1,15 @@
+1.1.0 2015-11-09
+  * Medium Editor Replaced With CKEditor
+  * Removed Tenon::FormBuilder#title_field
+  * Added Tenon::FormBuilder#asset
+    - Be sure to replace all instances of
+      = render 'tenon/shared/asset_field', f: f, asset: :asset_name
+      with
+      = f.asset :asset_name
+  * Added Tenon::FormBuilder#rich_text
+    - Add a CKEditor-powered contenteditable field with
+      = f.rich_text :field_name
+
 1.0.75 2015-09-28
   * fix password reset mailer link
   * make Correct This links use Tenon mounted path

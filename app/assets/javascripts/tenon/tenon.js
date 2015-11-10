@@ -45,7 +45,7 @@ var Tenon = {
     new Tenon.features.QuickSearch();
     new Tenon.features.DateTimePicker();
     new Tenon.features.ItemVersionAutosave();
-    new Tenon.features.ModalWindows();
+    Tenon.modals = new Tenon.features.ModalWindows();
     new Tenon.features.ModalForms();
     new Tenon.features.ProtectChanges();
     new Tenon.features.RecordApproval();
@@ -60,7 +60,6 @@ var Tenon = {
     new Tenon.features.SortableNestedFields();
     new Tenon.features.videoFeeds();
     new Tenon.features.tenonContent.Base();
-    new Tenon.features.Medium();
 
 
     Tenon.dispatcher.initialize();

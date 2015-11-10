@@ -136,21 +136,6 @@
   > div {
     min-height: 100%;
   }
-  .editable-text {
-    min-height: 50px;
-    padding: 5px;
-    outline: none;
-    background: #fff;
-    h1, h2, h3, h4, h5, h6, p, ul, ol {
-      margin: 0 0 $tn-margin;
-      padding-top: 0;
-    }
-    .btn {
-      margin: 0 10px;
-      color: white;
-      background-color: $tn-primary;
-    }
-  }
   a.add-image {
     span {
       font-family: $tn-open-sans;
