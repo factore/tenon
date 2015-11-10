@@ -61,7 +61,7 @@ describe Tenon::PagesController do
     it "shouldn't render anything" do
       Tenon::Page.stub(:reorder!)
       post :reorder, item_list: [1, 2, 3], parent_id: 1
-      expect(response.body).to eq(' ')
+      expect(response.body).to eq('')
     end
   end
 end
