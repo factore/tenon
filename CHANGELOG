@@ -9,6 +9,8 @@
   * Added Tenon::FormBuilder#rich_text
     - Add a CKEditor-powered contenteditable field with
       = f.rich_text :field_name
+  * Increased minimum Rails requirement to 4.2.0
+  * Bumped devise to 3.5.2
 
 1.0.76 2015-10-27
   * remove .css from .css.scss files to avoid deprecation notice

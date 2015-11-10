@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'spring-commands-rspec', '1.0.2'
   s.add_development_dependency 'quiet_assets'
 
-  s.add_dependency 'rails', '>= 4.0.0'
+  s.add_dependency 'rails', '>= 4.2.0'
 
   s.add_dependency 'awesome_nested_set', '3.0.0.rc.5'
   s.add_dependency 'aws-s3', '0.6.3'
@@ -40,7 +40,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'coffee-rails', '4.1.0'
   s.add_dependency 'coffee-script-source', '1.9.1'
   s.add_dependency 'daemons', '1.1.9'
-  s.add_dependency 'devise', '3.1.2'
+  s.add_dependency 'devise', '3.5.2'
   s.add_dependency 'draper', '1.3.0'
   s.add_dependency 'dynamic_form', '1.1.4'
   s.add_dependency 'eco', '1.0.0'
