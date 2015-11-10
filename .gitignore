@@ -14,3 +14,5 @@ spec/dummy/public/system
 spec/dummy/tmp/
 tags
 vendor/ruby
+node_modules
+spec/dummy/node_modules
