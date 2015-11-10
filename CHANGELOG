@@ -1,4 +1,4 @@
-1.1.0 2015-11-09
+1.1.1 2015-11-09
   * Medium Editor Replaced With CKEditor
   * Removed Tenon::FormBuilder#title_field
   * Added Tenon::FormBuilder#asset
