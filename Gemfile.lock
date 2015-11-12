@@ -24,7 +24,6 @@ PATH
       jquery-fileupload-rails (= 0.4.1)
       jquery-rails (= 3.1.0)
       jquery-ui-rails (= 4.0.5)
-      js-routes (= 0.9.9)
       later_dude (= 0.3.3)
       launchy (= 2.4.2)
       lodash-rails (= 2.4.1)
@@ -194,9 +193,6 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (4.0.5)
       railties (>= 3.1.0)
-    js-routes (0.9.9)
-      railties (>= 3.2)
-      sprockets-rails
     json (1.8.3)
     later_dude (0.3.3)
     launchy (2.4.2)

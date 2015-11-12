@@ -3,15 +3,15 @@
   <div class="record-details">
     <div class="record-title big">
       <strong>
-        <a href="<%= Routes.tenon_edit_asset_path(@asset.id) %>"><%= @asset.display_name %></a>
+        <a href="<%= @asset.edit_path %>"><%= @asset.display_name %></a>
       </strong>
       <div class="explanation">
         <%= @asset.human_size %>
       </div>
     </div>
     <div class="record-actions">
-      <a data-tooltip="Edit" href="<%= Routes.tenon_edit_asset_path(@asset.id) %>" title="Edit"><i class="fa fa-pencil"></i></a>
-      <a data-confirm="Are you sure? There is no undo for this!" data-method="delete" data-tooltip="Delete" href="<%= Routes.tenon_asset_path(@asset.id) %>" rel="nofollow" title="Delete"><i class="fa fa-trash-o"></i></a>
+      <a data-tooltip="Edit" href="<%= @asset.edit_path %>" title="Edit"><i class="fa fa-pencil"></i></a>
+      <a data-confirm="Are you sure? There is no undo for this!" data-method="delete" data-tooltip="Delete" href="<%= @asset.path %>" rel="nofollow" title="Delete"><i class="fa fa-trash-o"></i></a>
     </div>
   </div>
 </li>

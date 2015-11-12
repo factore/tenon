@@ -54,7 +54,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'jquery-fileupload-rails', '0.4.1'
   s.add_dependency 'jquery-rails', '3.1.0'
   s.add_dependency 'jquery-ui-rails', '4.0.5'
-  s.add_dependency 'js-routes', '0.9.9'
   s.add_dependency 'later_dude', '0.3.3'
   s.add_dependency 'launchy', '2.4.2'
   s.add_dependency 'lodash-rails', '2.4.1'
