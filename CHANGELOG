@@ -1,3 +1,7 @@
+1.1.2 2015-11-12
+  * Remove reliance on js-routes
+  * Adjust asset JST files to pull routes from @asset object
+
 1.1.1 2015-11-09
   * Medium Editor Replaced With CKEditor
   * Removed Tenon::FormBuilder#title_field
