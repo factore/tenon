@@ -8,7 +8,6 @@
 //= require bootstrap.modal
 //= require bootstrap.tabs
 //= require canvasjs.min
-//= require ckeditor/ckeditor
 //= require cocoon
 //= require imagesloaded
 //= require jquery-fileupload/basic
