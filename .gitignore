@@ -10,6 +10,7 @@ spec/dummy/db/*.sqlite3-journal
 spec/dummy/db/migrate/
 spec/dummy/log/*.log
 spec/dummy/public/assets
+spec/dummy/public/ckeditor
 spec/dummy/public/system
 spec/dummy/tmp/
 spec/dummy/node_modules

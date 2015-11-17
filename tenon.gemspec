@@ -18,8 +18,8 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'better_errors', '1.1.0'
   s.add_development_dependency 'binding_of_caller', '0.7.2'
-  s.add_development_dependency 'capybara', '2.0.3'
-  s.add_development_dependency 'capybara-webkit', '1.1.1'
+  s.add_development_dependency 'capybara', '2.5.0'
+  s.add_development_dependency 'capybara-webkit', '1.7.1'
   s.add_development_dependency 'database_cleaner', '1.2.0'
   s.add_development_dependency 'factory_girl_rails', '4.4.1'
   s.add_development_dependency 'overcommit', '0.19.0'
@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'spring-commands-rspec', '1.0.2'
   s.add_development_dependency 'quiet_assets'
 
-  s.add_dependency 'rails', '>= 4.0.0'
+  s.add_dependency 'rails', '>= 4.2.0'
 
   s.add_dependency 'awesome_nested_set', '3.0.0.rc.5'
   s.add_dependency 'aws-s3', '0.6.3'
@@ -41,7 +41,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'coffee-rails', '4.1.0'
   s.add_dependency 'coffee-script-source', '1.9.1'
   s.add_dependency 'daemons', '1.1.9'
-  s.add_dependency 'devise', '3.1.2'
+  s.add_dependency 'devise', '3.5.2'
   s.add_dependency 'draper', '1.3.0'
   s.add_dependency 'dynamic_form', '1.1.4'
   s.add_dependency 'eco', '1.0.0'
@@ -55,7 +55,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'jquery-fileupload-rails', '0.4.1'
   s.add_dependency 'jquery-rails', '3.1.0'
   s.add_dependency 'jquery-ui-rails', '4.0.5'
-  s.add_dependency 'js-routes', '0.9.9'
   s.add_dependency 'later_dude', '0.3.3'
   s.add_dependency 'launchy', '2.4.2'
   s.add_dependency 'lodash-rails', '2.4.1'

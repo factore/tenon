@@ -1,0 +1,25 @@
+// Use American 'color' in variable names for consistency with CSS keywords.
+
+// Change these on a per-site basis
+$tn-client-color: #9c0f17;
+$tn-primary: #df222A;
+$tn-comp: #978fcc;
+$tn-highlight: $tn-med-grey;
+$tn-nav: #12111a;
+$tn-sidebar: #242133;
+$tn-sidebar-highlight: #3a3848;
+
+$tn-button-primary-bg: $tn-primary;
+$tn-button-primary-fg: #fff;
+
+$tn-button-comp-bg: $tn-comp;
+$tn-button-comp-fg: #fff;
+
+$tn-box-label: #04555d;
+$tn-label: #162433;
+$tn-sidebar-label: #504d5c;
+
+// Text colors
+$tn-primary-text: #1eb6c8;
+$tn-body-text-color: $tn-black;
+$tn-link-color: $tn-primary;

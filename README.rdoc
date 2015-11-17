@@ -63,6 +63,9 @@ If you want to be able to use rspec, which would be good, you will also need to 
 
     bundle exec rails generate rspec:install
 
+==== Note about CKEditor
+
+Currently options for serving CKEditor via the asset pipeline are limited.  For now, Tenon works around this by copying CKEditor's files into your app's public folder when you run the Tenon install task.  As such, you will need a web server that is capable of serving static files out of your public folder.  It is on the Tenon roadmap to find a better solution to this problem.
 
 == Scaffolding
 
