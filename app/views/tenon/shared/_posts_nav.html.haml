@@ -1,8 +1,0 @@
-%h4 Posts
-%nav
-  %ul
-    - if can?(:manage, Tenon::Post)
-      %li{class: ('active' if controller_name == 'posts')}= link_to "Posts", posts_path
-
-    - if can?(:manage, Tenon::PostCategory)
-      %li{class: ('active' if controller_name == 'post_categories')}= link_to "Post Categories", post_categories_path

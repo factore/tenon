@@ -39,17 +39,14 @@
 //= require_tree ./templates
 //= require_tree ./controllers
 //= require_tree ./features
-//= require tenon_addons
 //= require_self
 //= require ./components
+//= require tenon_addons
 
-<<<<<<< HEAD
 // -- custom components
 //= require_tree ./components/resource-index/components/default
 //= require_tree ./components/resource-index/components/custom
 
-=======
->>>>>>> master
 $(function() {
   Tenon.init();
 });

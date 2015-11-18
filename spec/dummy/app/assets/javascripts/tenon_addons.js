@@ -1,1 +1,2 @@
-//= require_tree ./tenon
+//= require_tree ./tenon/templates
+//= require_tree ./tenon/components

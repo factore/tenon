@@ -1,7 +1,6 @@
 class DefaultSidebar extends React.Component {
   render() {
-    const singular = _.singularize(this.props.title)
-    return(
+    return (
       <div className="sidebar-container">
         <div className="sidebar">
           <div className="content">
@@ -15,7 +14,9 @@ class DefaultSidebar extends React.Component {
 
   renderNewButton() {
     if (this.props.newPath) {
-      return(
+      const singular = _.singularize(this.props.title);
+
+      return (
         <a href={this.props.newPath} className="btn btn-primary btn-block">
           New {singular}
         </a>);

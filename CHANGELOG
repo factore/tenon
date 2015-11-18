@@ -1,3 +1,16 @@
+2.0.0 2016-04-01
+  * Removed standard resources from base Tenon.  They have been placed in the dummy amp:
+    - Tenon::Comment
+    - Tenon::Contact
+    - Tenon::Event
+    - Tenon::Gallery
+    - Tenon::Photo
+    - Tenon::Page
+    - Tenon::Post
+    - Tenon::PostCategory
+    - Tenon::Redirect
+
+
 1.1.4 2015-11-12
   * Remove CKEditor from asset pipeline
   * Copy CKEditor files to public/ckeditor on rails generate tenon:install
