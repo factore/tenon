@@ -54,6 +54,7 @@ var Tenon = {
     new Tenon.features.SortableNestedFields();
     new Tenon.features.videoFeeds();
     new Tenon.features.tenonContent.Base();
+    new Tenon.features.GenericClassToggler
 
 
     Tenon.dispatcher.initialize();

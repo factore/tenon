@@ -14,13 +14,12 @@
     = javascript_include_tag '/ckeditor/ckeditor'
     = javascript_include_tag 'tenon/tenon_manifest'
 
-  %body.menu-open{data: { controller: params[:controller], action: params[:action] } }
-    = render 'tenon/shared/util_nav'
-    = render 'tenon/shared/main_nav'
-    = yield
+  %body{data: { controller: params[:controller], action: params[:action] } }
+    .main-nav
+      = render 'tenon/shared/main_nav'
+    .nav-pusher.z-depth-2
+      = render 'tenon/shared/util_nav'
+      .container= yield
 
-    .generic-loader
-      %i.fa-gear.fa.fa-4x.fa.fa-spin
-
-    = flash_messages
-    = render 'tenon/shared/version_warning' if @item_version
+      = flash_messages
+      = render 'tenon/shared/version_warning' if @item_version

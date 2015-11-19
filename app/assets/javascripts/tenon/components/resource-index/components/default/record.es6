@@ -2,21 +2,19 @@ class DefaultRecord extends React.Component {
   render() {
     const { edit_path, title, delete_path, onDelete } = this.props;
     return (
-      <li>
-        <div className="record-details">
-          <div className='record-actions'>
-            <a onClick={onDelete} data-tooltip='Delete' title='Delete'>
-              <i className="fa fa-trash"></i>
-            </a>
+      <li className="collection-item">
+        <span class="title">
+          <a href={edit_path}>{title}</a>
+        </span>
 
-            <a href={edit_path} data-tooltip="Edit" title="Edit">
-              <i className="fa fa-pencil"></i>
-            </a>
-          </div>
+        <div className="secondary-content">
+          <a href={edit_path} title="Edit">
+            <i className="fa fa-pencil"></i> Edit
+          </a>
 
-          <div className="record-title">
-            <a href={edit_path}>{title}</a>
-          </div>
+          <a href="#" onClick={onDelete} title='Delete'>
+            <i className="fa fa-trash"></i> Delete
+          </a>
         </div>
       </li>
     )

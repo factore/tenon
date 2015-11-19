@@ -42,13 +42,13 @@ module Tenon
 
     alias_method :super_text_field, :text_field
     def text_field(method_name, options = {})
-      content = build_content(:text_field_content, method_name, options)
+      content = build_content(:text_field_content, method_name, options).html_safe
     end
 
     def text_field_content(method_name, options = {}, language = nil, language_title = nil)
       label = label(method_name, options[:label], language, language_title)
       explanation = explanation(options[:explanation])
-      label + explanation + super_text_field(get_method(method_name, language), options)
+      explanation + super_text_field(get_method(method_name, language), options) + label
     end
 
     alias_method :super_text_area, :text_area
@@ -105,7 +105,9 @@ module Tenon
 
     def build_content(generator, method_name, options)
       content = send(generator, method_name, options)
-      content = internationalize_content(generator, method_name, content, options) if Tenon::I18nLookup.new(@object.class).fields.include? method_name.to_s
+      if Tenon::I18nLookup.new(@object.class).fields.include? method_name.to_s
+        content = internationalize_content(generator, method_name, content, options)
+      end
       content
     end
 

@@ -23,6 +23,7 @@ require 'jquery-ui-rails'
 require 'later_dude'
 require 'launchy'
 require 'lodash-rails'
+require 'materialize-sass'
 require 'mediaelement_rails'
 require 'medium-editor-rails'
 require 'mime-types'
@@ -59,7 +60,7 @@ module Tenon
       Rails.application.config.assets.precompile += ['tenon/tenon_manifest.js', 'tenon/tenon.css']
       Rails.application.config.browserify_rails.commandline_options = '-t babelify'
       Rails.application.config.browserify_rails.paths << lambda { |p| p.start_with?(Engine.root.join("app").to_s) }
-      # Rails.application.config.browserify_rails.use_browserifyinc = false
+      Rails.application.config.browserify_rails.use_browserifyinc = true
     end
   end
 end

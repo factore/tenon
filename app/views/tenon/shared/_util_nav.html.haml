@@ -1,28 +1,11 @@
-%util-nav
-  #logo= link_to image_tag('tenon/tenon_icon.png'), tenon.root_path
-  - unless Tenon::MySettings.site_title.blank?
-    .site-title
-      - if Rails.application.routes.named_routes.helpers.include?(:root_path)
-        = link_to Tenon::MySettings.site_title, main_app.root_path
-      - else
-        = Tenon::MySettings.site_title
-
-  .tools
-    .header-button.hamburger.mobile= link_to fa_icon('fw bars'), '#'
-
-    .header-menu.hamburger-toggle
-      = link_to '#', class: 'user-menu', data: { icon: 'user' } do
-        .header-icon
-          .mobile= fa_icon('fw user')
-          .tablet= fa_icon('fw caret-down')
-        .header-label= current_user.email
-
-      %ul
+.navbar-fixed
+  %nav.util-nav
+    .nav-wrapper
+      %ul.left
         %li
-          = link_to edit_user_path(current_user) do
-            .header-icon= fa_icon('fw gear')
-            .header-label Edit Info
-        %li
-          = link_to destroy_user_session_path, method: :delete do
-            .header-icon= fa_icon('fw sign-out')
-            .header-label Sign Out
+          %a.toggle-nav.left{ href: '#', data: { toggler_class: 'nav-open', toggler_selector: 'body' } }
+            .burger
+
+      = link_to image_tag('tenon/tenon_icon.png'), tenon.root_path, class: 'brand-logo center'
+
+

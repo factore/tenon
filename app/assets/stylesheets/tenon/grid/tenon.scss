@@ -1,0 +1,144 @@
+@mixin tenon_init {
+  // Tenon rows and content
+  .tn-tc-row {
+    padding: 0px;
+    margin: 0px;
+
+    // Default pieces
+    .tn-tc-piece {
+      position: relative;
+      float: left;
+      margin-right: $gutter_width;
+      &.omega {
+        float: right;
+        margin-right: 0;
+      }
+    }
+
+    // Module specific styles:
+    .tn-tc-image{
+      margin-bottom: $universal_gutter_width/2;
+      &.stretch img {
+        width: 100%;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+    }
+
+    // Column margins:
+    .image-and-text {}
+
+    .two-column-image, .two-column-text {}
+
+    .three-column-image, .three-column-text {
+      .tn-tc-piece:nth-of-type(2) { margin-right: 0; }
+    }
+
+    .four-column-image, .four-column-text {
+      .tn-tc-piece:nth-of-type(3) { margin-right: 0; }
+    }
+
+    // Stacked columns:
+    .stacked-image-and-text {
+      .three, .four, .six {
+        float: left;
+        margin-right: $gutter_width;
+        &.omega {
+          float: right;
+          margin-right: 0;
+        }
+        .tn-tc-piece {
+          margin-right: 0;
+          width: 100%;
+          .tn-tc-image { margin-bottom: $universal_gutter_width; }
+        }
+      }
+
+      &.two-column-image-and-text {
+        .six:nth-of-type(2) { margin-right: 0; }
+      }
+      &.three-column-image-and-text {
+        .four:nth-of-type(2) { margin-right: 0; }
+      }
+      &.four-column-image-and-text {
+        .three:nth-of-type(3) { margin-right: 0; }
+      }
+    }
+
+    // Inline wrapped image row:
+    .tn-tc-wrapped-image {
+      .tn-tc-image {
+        margin-right: $gutter_width;
+        margin-bottom: $universal_gutter_width;
+        @include bp-sm {
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+
+  // START: Magic
+  // Set default widths:
+  .tn-tc-row {
+    height: $total_columns;
+    .one,
+    .two,
+    .three,
+    .four,
+    .five,
+    .six,
+    .seven,
+    .eight,
+    .nine,
+    .ten,
+    .eleven,
+    .twelve {
+      width: 100%;
+    }
+
+    // Set tenon default widths above sm:
+    @include bp-md {
+      .one    {
+        @include column(1);
+      }
+      .two    {
+        @include column(2);
+      }
+      .three  {
+        @include column(3);
+      }
+      .four   {
+        @include column(4);
+      }
+      .five   {
+        @include column(5);
+      }
+      .six    {
+        @include column(6);
+      }
+      .seven  {
+        @include column(7);
+      }
+      .eight  {
+        @include column(8);
+      }
+      .nine   {
+        @include column(9);
+      }
+      .ten    {
+        @include column(10);
+      }
+      .eleven {
+        @include column(11);
+      }
+      .twelve {
+        @include column(12);
+        margin-right: 0px;
+      }
+    }
+  }
+  // END: Magic
+}

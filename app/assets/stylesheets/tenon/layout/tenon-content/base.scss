@@ -4,7 +4,8 @@
   }
   &.mobile-breakpoint {
     .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve {
-      @include span-columns(12);
+      @extend .column;
+      @extend .width12;
     }
     .wrapped-image {
       &.left, &.right {
@@ -18,11 +19,9 @@
 .tn-tc-main-actions {
   a {
     @include transition(all .2s ease);
-    font-size: $tn-font-large;
-    margin: $tn-margin $tn-margin 0 0;
+    margin: 20px 20px 0 0;
     text-transform: uppercase;
     span {
-      font-size: $tn-font-small;
       position: relative;
       top: -2px;
       padding-left: 5px;
@@ -34,7 +33,7 @@
 }
 
 .tenon-content {
-  margin-top: $tn-margin;
+  margin-top: 20px;
   // @import "variables";
   // @import "styleguides/styleguide";
   // @extend body;
@@ -51,14 +50,14 @@
       box-sizing: content-box;
       max-height: 200px;
       padding: 5px 10px;
-      border: 1px solid $tn-dark-grey;
-      background: $tn-light-grey;
-      box-shadow: 1px 1px 5px $tn-dark-grey;
+      border: 1px solid map-get($grey, 'base');
+      background: map-get($grey, 'lighten-2');
+      box-shadow: 1px 1px 5px map-get($grey, 'base');
     }
     &.sortable-placeholder {
       min-height: 50px;
       max-height: 200px;
-      border: 1px dashed $tn-dark-grey;
+      border: 1px dashed map-get($grey, 'base');
     }
     i {
       font-size: 20px;
@@ -73,12 +72,11 @@
   .tn-tc-topbar, .tn-tc-bottombar {
     padding: 0;
     height: 36px;
-    // background-color: $tn-med-grey;
     .actions {
       @include transition(all .2s ease);
       position: relative;
       text-align: right;
-      color: $tn-dark-grey;
+      color: map-get($grey, 'base');
       i {
         @include transition(all .2s ease);
       }
@@ -86,22 +84,19 @@
         @include transition(all .2s ease);
         display: inline-block;
         padding: 10px 0 5px;
-        color: $tn-dark-grey;
+        color: map-get($grey, 'base');
         span {
           position: relative;
           top: -2px;
           display: inline-block;
         }
       }
-      a.tn-tc-open-library {
+      .tn-tc-open-library {
         @include transform(translate(-50%, 0));
         position: absolute;
         top: 0;
         left: 50%;
         text-transform: uppercase;
-        span {
-          font-size: $tn-font-small;
-        }
       }
       a:hover {
         text-decoration: none;
@@ -116,12 +111,12 @@
   .tn-tc-row:hover {
     &:hover {
       .tn-tc-topbar, .tn-tc-bottombar {
-        color: $tn-black;
+        @extend .black-text;
         a {
-          color: $tn-black;
+          @extend .black-text;
         }
         i {
-          color: $tn-black;
+          @extend .black-text;
         }
       }
     }
@@ -130,7 +125,6 @@
     }
   }
   .tn-tc-fields {
-    @include outer-container;
     min-height: 20px;
   }
   > div {
@@ -138,18 +132,17 @@
   }
   a.add-image {
     span {
-      font-family: $tn-open-sans;
+      @extend .grey;
       line-height: 200px;
       display: block;
       height: 200px;
       text-align: center;
-      color: $tn-dark-grey;
-      border: 4px dashed $tn-dark-grey;
-      background: $tn-med-grey;
+      color: map-get($grey, 'base');
+      border: 4px dashed map-get($grey, 'base');
     }
   }
   .wrapped-image {
-    @include media($tn-bp-mobile) {
+    @media #{$bp-sm} {
       &.left, &.right {
         float: none;
         padding: 0;
@@ -188,19 +181,19 @@
     }
   }
   textarea.caption, div.tn-tc-caption {
-    font-size: $tn-font-small;
+    font-size: 14px;
     width: 100%;
     margin: 0;
     padding: 5px;
     resize: none;
     color: #fff;
-    background: $tn-dark-grey;
+    background: map-get($grey, 'base');
   }
   textarea.caption:-moz-placeholder {
     color: #fff;
   }
   textarea.caption::-webkit-input-placeholder {
-    color: $tn-light-grey;
+    color: map-get($grey, 'lighten-2');
   }
   .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve {
     @include transition(width .2s ease);
@@ -255,29 +248,29 @@
   }
   button:active, button:focus {
     outline: none;
-    background: lighten($tn-primary, 10%);
+    background: lighten($primary-color, 10%);
   }
   .link-form {
-    z-index: $tn-z-medium-editor-controls;
+    z-index: 1000;
   }
 }
 
 [contenteditable=true]:empty:not(:focus):before {
+  @extend .grey-text;
   content: attr(data-placeholder);
-  color: $tn-med-grey;
 }
 
 a.open-embed-modal {
   @include transition(all .2s ease);
-  font-size: $tn-font-small;
+  font-size: 14px;
   display: block;
   padding: 5px 0;
   text-transform: uppercase;
-  color: $tn-dark-grey;
+  color: map-get($grey, 'base');
 }
 
 .tn-tc-row:hover a.open-embed-modal {
-  color: $tn-black;
+  @extend .black-text;
 }
 
 .embed {

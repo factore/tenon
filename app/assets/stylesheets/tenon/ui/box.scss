@@ -1,0 +1,6 @@
+.box {
+  @extend .white;
+  @extend .z-depth-2;
+  padding: 20px;
+  border: 1px solid map-get($grey, 'lighten-2');
+}

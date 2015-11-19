@@ -29,8 +29,6 @@ class App extends Component {
 
     return(
       <div>
-        <Sidebar {...this.props} />
-
         <div className="page-wrap">
           <Header {...this.props} />
           <List {...this.props} />

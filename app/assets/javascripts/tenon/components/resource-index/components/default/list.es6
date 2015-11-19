@@ -2,17 +2,20 @@ class DefaultList extends React.Component {
   render() {
     const { Record, LoadMoreButton }  = this.props.childComponents;
     const { deleteRecord, updateRecord } = this.props.handlers;
-    let noRecordsWarning = '';
+    let noRecordsWarning;
 
     if (this.props.records.length === 0) {
-      noRecordsWarning = <div className="no-records">No {this.props.title.toLowerCase()} found.</div>;
+      noRecordsWarning = <li className="collection-item">No {this.props.title.toLowerCase()} found.</li>;
     }
 
     return (
       <div className="main-content">
-        {noRecordsWarning}
-        <ul className="record-list">
+        <ul className="collection with-header z-depth-1">
+          <li className="collection-header">
+            <h4>{this.props.title}</h4>
+          </li>
           <ReactCSSTransitionGroup transitionName="record" transitionEnterTimeout={250} transitionLeaveTimeout={250} >
+            {noRecordsWarning}
             {this.props.records.map((record, i) =>
               <Record
                 {...record}

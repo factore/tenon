@@ -1,12 +1,12 @@
 //= require jquery
 //= require jquery_ujs
+//= require materialize
 
 // -- Plugins, in alphabetical order
 //= require backstretch
 //= require bootstrap
 //= require bootstrap.collapse
 //= require bootstrap.modal
-//= require bootstrap.tabs
 //= require canvasjs.min
 //= require cocoon
 //= require imagesloaded

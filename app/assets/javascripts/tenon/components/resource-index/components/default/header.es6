@@ -13,7 +13,6 @@ class DefaultHeader extends React.Component {
     return(
       <div>
         <header>
-          <h1>{this.props.title}</h1>
           <div className="tools">
             {searchButton}
           </div>
@@ -32,11 +31,11 @@ class DefaultHeader extends React.Component {
     e.preventDefault();
     // Clear the query before closing
     if (this.state.searchOpen) this.props.actions.quickSearchRecords('');
-    this.setState({ searchOpen: !this.state.searchOpen });
+    this.setState({searchOpen: !this.state.searchOpen});
   }
 
   _renderSearchButton(className, icon) {
-    return(
+    return (
       <div className="header-button">
         <a href="#" onClick={e => this._handleSearchToggle(e)} className={className}>
           <div className="header-icon">
@@ -44,7 +43,7 @@ class DefaultHeader extends React.Component {
           </div>
         </a>
       </div>
-    )
+    );
   }
 }
 

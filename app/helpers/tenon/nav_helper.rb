@@ -17,7 +17,7 @@ module Tenon
     end
 
     def link(text, path, icon_class, opts = {})
-      content = content_tag(:i, '', class: "fa fa-#{icon_class} fa-fw fa-2x")
+      content = content_tag(:i, '', class: "fa fa-#{icon_class} fa-fw")
       content += text
       opts[:class] ||= ''
       opts[:title] ||= text

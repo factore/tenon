@@ -4,48 +4,49 @@
       %h2 Posts
       = link_to 'New Post', new_post_path, class: 'btn btn-block btn-primary'
     %h4 Edit Options
-    %nav
-      %ul
-        %li.active= link_to 'Post Content', '#details', data: {toggle: 'tab'}
-        %li= link_to "Search Optimization", '#seo', data: {toggle: 'tab'}
+
+    %ul
+      %li.active= link_to 'Post Content', '#details', data: {toggle: 'tab'}
+      %li= link_to "Search Optimization", '#seo', data: {toggle: 'tab'}
 
     = i18n_language_nav(:'tenon/posts')
 
-    = render "tenon/shared/posts_nav"
-
 .page-wrap
   %header
-    %h1= form_header_for(@post)
+    %h4= form_header_for(@post)
 
     .tools
       = render "tenon/shared/section_header/sidebar_toggle"
 
-  .main-content
+  .row
     = autosaving_form_for @post do |f|
       = error_messages_for :post
-      .fields.large.tabs
-        .tab-pane.active#details
-          .form-group
-            = f.text_field :title, :explanation => "Give your post a title."
+      .column.width8.push0
+        %ul.tabs.z-depth-1
+          %li.tab= link_to 'Details', '#details'
+          %li.tab= link_to 'SEO', '#seo'
+        .card-panel
+          .tab-pane.active#details
+            .input-field
+              = f.text_field :title
 
-          .form-group
+
             = f.rich_text :excerpt
 
-          .form-group
             = f.tenon_content :content
 
-        .tab-pane#seo= render "tenon/shared/seo_fields", :f => f
+          .tab-pane#seo= render "tenon/shared/seo_fields", :f => f
 
-      .fields.small
+      .column.width4.push8
         - unless @categories.blank?
-          %h4.box-label Categories
-          .box
+          .card-panel
+            %h6.box-label Categories
             .form-group.inline
               = f.super_label :post_categories, 'Categories'
               = f.select :post_category_ids, @categories.map { |c| [c.title, c.id] }, {}, { multiple: true }
 
-        %h4.box-label Publish Your Post
-        .box
+        .card-panel
+          %h6.box-label Publish Your Post
           .form-group.bordered
             = f.super_label :user_id, 'Author'
             = f.collection_select :user_id, @users, :id, :email, {:include_blank => "(No Author)"}

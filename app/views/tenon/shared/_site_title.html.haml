@@ -1,0 +1,6 @@
+- unless Tenon::MySettings.site_title.blank?
+  .site-title.left
+    - if Rails.application.routes.named_routes.helpers.include?(:root_path)
+      = link_to Tenon::MySettings.site_title, main_app.root_path
+    - else
+      = Tenon::MySettings.site_title

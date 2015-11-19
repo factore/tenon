@@ -28,6 +28,7 @@ PATH
       later_dude (= 0.3.3)
       launchy (= 2.4.2)
       lodash-rails (= 2.4.1)
+      materialize-sass
       mediaelement_rails (= 0.4.0)
       medium-editor-rails (= 0.9.3)
       mime-types (= 1.25.1)
@@ -214,6 +215,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    materialize-sass (0.97.3)
+      sass (~> 3.3)
     mediaelement_rails (0.4.0)
       jquery-rails (>= 1.0)
       railties (>= 3.1)
