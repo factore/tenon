@@ -7,7 +7,6 @@ spec/dummy/.sass-cache
 spec/dummy/config/database.yml
 spec/dummy/db/*.sqlite3
 spec/dummy/db/*.sqlite3-journal
-spec/dummy/db/migrate/
 spec/dummy/log/*.log
 spec/dummy/public/assets
 spec/dummy/public/ckeditor
