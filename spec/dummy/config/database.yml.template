@@ -1,5 +1,5 @@
 oak:
   adapter: postgresql
   database: tenon_oak
-  user: tenon
-  password: q9nTJtm4prPsKv9k
+  username: tenon
+  password: VXyMasV1a18ZFIxk
