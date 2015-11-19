@@ -37,6 +37,7 @@ PATH
       non-stupid-digest-assets (= 1.0.4)
       normalize-rails (= 3.0.1)
       paperclip (= 4.1.1)
+      pg (>= 0.17.0)
       rails (>= 4.2.0)
       rails-observers (= 0.1.2)
       rails-settings-cached (= 0.4.1)
@@ -387,7 +388,6 @@ DEPENDENCIES
   database_cleaner (= 1.2.0)
   factory_girl_rails (= 4.4.1)
   overcommit (= 0.19.0)
-  pg (= 0.17.0)
   quiet_assets
   rspec-rails (= 2.14.2)
   rubocop (= 0.27.1)
