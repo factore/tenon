@@ -30,6 +30,11 @@ var Tenon = {
     // init select2
     $('select').select2();
 
+    $('.nav-pusher').on('click', function(e) {
+      if ($(e.target).is('.toggle-nav, .toggle-nav *')) return;
+      $('body').removeClass('nav-open');
+    });
+
     Tenon.features.fileSelectWidget.init();
     new Tenon.features.I18nFields();
     new Tenon.features.Flash();
