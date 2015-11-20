@@ -7,7 +7,7 @@ class DefaultRecord extends React.Component {
           <a href={edit_path}>{title}</a>
         </span>
 
-        <div className="secondary-content">
+        <div className="actions">
           <a href={edit_path} title="Edit">
             <i className="fa fa-pencil"></i> Edit
           </a>

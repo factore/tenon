@@ -1,0 +1,17 @@
+.record-list {
+  margin-bottom: $default-spacing / 3;
+  li {
+    width: 100%;
+    padding: $default-spacing / 3;
+    border-bottom: 1px solid $light-border-color;
+  }
+
+  .actions {
+    float: right;
+    a {
+      @include font(14, 20);
+      display: inline-block;
+      margin-right: $default-spacing / 3;
+    }
+  }
+}
