@@ -9,7 +9,7 @@ class DefaultList extends React.Component {
     }
 
     return (
-      <div>
+      <div className='panel'>
         <ul className="record-list">
           <ReactCSSTransitionGroup transitionName="record" transitionEnterTimeout={250} transitionLeaveTimeout={250} >
             {noRecordsWarning}

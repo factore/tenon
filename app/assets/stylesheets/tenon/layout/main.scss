@@ -1,10 +1,8 @@
 body {
   background-color: $body-bg-color;
+  overflow-x: hidden;
 }
 
 main, main.container {
-  @include z-depth-1;
-  background-color: $main-bg-color;
-  padding: $default-spacing;
   margin-top: $util-nav-height + $default-spacing;
 }

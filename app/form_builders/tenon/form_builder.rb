@@ -28,32 +28,69 @@ module Tenon
 
     def rich_text(method_name, opts = {})
       defaults = {
-        placeholder: '--',
+        placeholder: '--'
       }
       opts = defaults.merge(opts)
 
       @template.render 'tenon/fields/rich_text',
         f: self,
-        field: method_name,
+        method_name: method_name,
         label_tag: label(method_name, opts[:label]),
         opts: opts
     end
     alias_method :me_text, :rich_text
 
     alias_method :super_text_field, :text_field
-    def text_field(method_name, options = {})
-      content = build_content(:text_field_content, method_name, options).html_safe
-    end
-
-    def text_field_content(method_name, options = {}, language = nil, language_title = nil)
-      label = label(method_name, options[:label], language, language_title)
-      explanation = explanation(options[:explanation])
-      explanation + super_text_field(get_method(method_name, language), options) + label
+    def text_field(method_name, opts = {})
+      @template.render 'tenon/fields/text_field',
+        f: self,
+        method_name: method_name,
+        opts: opts
     end
 
     alias_method :super_text_area, :text_area
-    def text_area(method_name, options = {})
-      content = build_content(:text_area_content, method_name, options)
+    def text_area(method_name, opts = {})
+      @template.render 'tenon/fields/text_area',
+        f: self,
+        method_name: method_name,
+        opts: opts
+    end
+
+    alias_method :super_select, :select
+    def select(method_name, choices, opts = {}, html_opts = {})
+      @template.render 'tenon/fields/select',
+        f: self,
+        method_name: method_name,
+        choices: choices,
+        opts: opts,
+        html_opts: html_opts
+    end
+
+    alias_method :super_check_box, :check_box
+    def check_box(method_name, opts = {})
+      @template.render 'tenon/fields/check_box',
+        f: self,
+        method_name: method_name,
+        opts: opts
+    end
+
+    alias_method :super_collection_select, :collection_select
+    def collection_select(method_name, collection, value_method, text_method, opts = {}, html_opts = {})
+      @template.render 'tenon/fields/collection_select',
+        f: self,
+        method_name: method_name,
+        collection: collection,
+        value_method: value_method,
+        text_method: text_method,
+        opts: opts,
+        html_opts: html_opts
+    end
+
+    def date_time_picker(method_name, opts = {})
+      @template.render 'tenon/fields/date_time_picker',
+        f: self,
+        method_name: method_name,
+        opts: opts
     end
 
     def text_area_content(method_name, options = {}, language = nil, language_title = nil)
@@ -91,8 +128,6 @@ module Tenon
       end
     end
 
-    private
-
     def label(method_name, label, language = nil, language_title = nil)
       if label == false
         ''.html_safe
@@ -103,12 +138,14 @@ module Tenon
       end
     end
 
+    private
+
     def build_content(generator, method_name, options)
       content = send(generator, method_name, options)
       if Tenon::I18nLookup.new(@object.class).fields.include? method_name.to_s
         content = internationalize_content(generator, method_name, content, options)
       end
-      content
+      content_tag(:div, content, class: 'form-field')
     end
 
     def internationalize_content(generator, method_name, content, options = {})

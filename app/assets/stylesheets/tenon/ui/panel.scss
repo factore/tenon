@@ -1,0 +1,7 @@
+.panel {
+  @include z-depth-1;
+  border-radius: 4px;
+  background-color: $panel-bg-color;
+  padding: $default-spacing;
+  margin-bottom: $default-spacing;
+}

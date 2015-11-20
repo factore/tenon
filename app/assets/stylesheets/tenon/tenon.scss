@@ -1,6 +1,9 @@
 // VENDOR
 //= require normalize-rails
 //= require font-awesome
+//= require pickadate/default
+//= require pickadate/default.date
+//= require pickadate/default.time
 @import 'bourbon';
 @import './grid';
 
@@ -18,7 +21,9 @@
 // UI ELEMENTS
 @import './ui/burger';
 @import './ui/lists';
+@import './ui/panel';
 @import './ui/typography';
+@import './ui/form-inputs';
 
 // LAYOUT
 @import './layout/main';

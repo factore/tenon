@@ -1,32 +1,28 @@
-= raw(label_tag)
+= render layout: 'tenon/fields/base', locals: { f: f, method_name: method_name, opts: opts } do
+  .tn-tc-asset-field
+    = f.hidden_field "#{field}_id", class: 'asset-id-field'
 
-- if opts[:explanation].present?
-  .explanation= raw opts[:explanation]
-
-.tn-tc-asset-field
-  = f.hidden_field "#{field}_id", class: 'asset-id-field'
-
-  .thumbnail
-    - if proxy_attachment.try(:asset)
-      = asset_icon(proxy_attachment.asset)
-    - else
-      = image_tag default_asset_thumbnail(proxy_attachment)
-
-  .details
-    .asset-info
-      - if proxy_attachment
-        = proxy_attachment.display_name
+    .thumbnail
+      - if proxy_attachment.try(:asset)
+        = asset_icon(proxy_attachment.asset)
       - else
-        No asset selected.
+        = image_tag default_asset_thumbnail(proxy_attachment)
 
-    .browse-button-holder{ class: ('with-remove' if opts[:remove_association]) }
-      .browse-button
-        = link_to 'Browse', new_item_asset_path, class: 'btn btn-comp browse', data: { modal_remote: true, modal_title: "Select #{field.to_s.titleize}", modal_handler: 'Tenon.features.AssetAttachment' }
-        - if opts[:remove_association]
-          %small
-            or
-            = link_to_remove_association "remove", f
+    .details
+      .asset-info
+        - if proxy_attachment
+          = proxy_attachment.display_name
         - else
-          %small
-            or
-            = link_to "remove", '#', class: 'remove-asset', data: { confirm: 'Are you sure?' }
+          No asset selected.
+
+      .browse-button-holder{ class: ('with-remove' if opts[:remove_association]) }
+        .browse-button
+          = link_to 'Browse', new_item_asset_path, class: 'btn btn-comp browse', data: { modal_remote: true, modal_title: "Select #{field.to_s.titleize}", modal_handler: 'Tenon.features.AssetAttachment' }
+          - if opts[:remove_association]
+            %small
+              or
+              = link_to_remove_association "remove", f
+          - else
+            %small
+              or
+              = link_to "remove", '#', class: 'remove-asset', data: { confirm: 'Are you sure?' }

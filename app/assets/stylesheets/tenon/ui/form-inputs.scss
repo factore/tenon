@@ -1,0 +1,49 @@
+form {
+  .form-field {
+    margin-bottom: $default-spacing;
+  }
+
+  [type=text],
+  [type=email],
+  [type=password],
+  [type=number],
+  textarea,
+  .editable-text,
+  select {
+    @include default-transition;
+    @include appearance(none);
+    width: 100%;
+    display: block;
+    border: 1px solid $light-border-color;
+    padding: $default-spacing / 3;
+    height: 44px;
+    line-height: normal;
+    border-radius: 0;
+    background: transparent;
+
+    &:focus {
+      border-color: $primary-color;
+    }
+
+    &.stacked {
+      margin-bottom: $default-spacing / 4;
+    }
+  }
+
+  textarea,
+  .editable-text {
+    @include font-size-smaller;
+  }
+
+  label {
+    @include font-size-smaller;
+    text-transform: uppercase;
+    color: $label-color;
+  }
+
+  .explanation {
+    @include font-size-smaller;
+  }
+
+}
+

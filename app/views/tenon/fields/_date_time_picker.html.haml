@@ -1,0 +1,4 @@
+= render layout: 'tenon/fields/base', locals: { f: f, method_name: method_name, opts: opts } do
+  = f.super_text_field "#{method_name}_date", value: f.object.send(method_name).try(:strftime, '%d %B, %Y'), data: { behavior: 'datepicker' }, class: 'stacked'
+  = f.super_text_field "#{method_name}_time", value: f.object.send(method_name).try(:strftime, '%-l:%M %p %Z'), data: { behavior: 'timepicker' }
+

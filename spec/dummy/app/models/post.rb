@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   # Scopes, Attachments, etc.
-  default_scope { order('publish_at DESC') }
+  date_time_attribute :publish_at
+  default_scope { order(publish_at: :desc) }
   scope :posted, -> { where('publish_at <= ?', Time.now) }
   scope :for_archive, ->(year, month) { where(Post.for_archive_conditions(year, month)) }
   tenon_content :content, i18n: true

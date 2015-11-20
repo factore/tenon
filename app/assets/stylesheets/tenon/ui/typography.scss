@@ -32,43 +32,43 @@ p,
 .h5,
 .h6,
 .p {
-  margin: 0 0 $default-spacing;
+  margin: 0 0 $default-spacing / 2;
 }
 
 h1,
 .h1 {
   @include font-sans-n3;
-  @include font(56, 70);
+  @include font-size-h1;
 }
 
 h2,
 .h2 {
   @include font-sans-n3;
-  @include font(38, 40);
+  @include font-size-h2;
 }
 
 h3,
 .h3 {
   @include font-sans-n3;
-  @include font(24, 30);
+  @include font-size-h3;
 }
 
 h4,
 .h4 {
   @include font-sans-n4;
-  @include font(18, 24);
+  @include font-size-h4;
 }
 
 h5,
 .h5 {
   @include font-sans-n6;
-  @include font(16, 20);
+  @include font-size-h5;
 }
 
 h6,
 .h6 {
   @include font-sans-n6;
-  @include font(14, 20);
+  @include font-size-h6;
 }
 
 blockquote {
@@ -78,7 +78,7 @@ blockquote {
 }
 
 small {
-  @include font-size(12);
+  @include font-size-smallest;
 }
 
 strong {

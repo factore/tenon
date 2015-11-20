@@ -19,6 +19,9 @@
 //= require jquery.radioSlider
 //= require jquery.twoLevelSort
 //= require jquery.ui.sortable
+//= require pickadate/picker
+//= require pickadate/picker.date
+//= require pickadate/picker.time
 //= require react_ujs
 //= require select2
 //= require uri
@@ -27,7 +30,6 @@
 
 // -- Plugins that need to be loaded in order
 //= require moment
-//= require bootstrap.datetimepicker
 
 //= require lodash
 //= require underscore.string

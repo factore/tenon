@@ -16,19 +16,12 @@ var Tenon = {
     // setup generic loader
     Tenon.$genericLoader = $('.generic-loader');
 
-    // init tooltips
-    $(document).tooltip({
-      selector: '[data-tooltip]',
-      container: 'body'
-    });
-
-    // init popovers
-    $('[data-popover]').popover({
-      trigger: 'focus'
-    });
-
     // init select2
-    $('select').select2();
+    // $('select').select2();
+
+    // init pickadate
+    $('[data-behavior=datepicker]').pickadate();
+    $('[data-behavior=timepicker]').pickatime();
 
     $('.nav-pusher').on('click', function(e) {
       if ($(e.target).is('.toggle-nav, .toggle-nav *')) return;
@@ -47,7 +40,6 @@ var Tenon = {
     new Tenon.features.HamburgerNavigation();
     new Tenon.features.HeaderMenu();
     new Tenon.features.QuickSearch();
-    new Tenon.features.DateTimePicker();
     new Tenon.features.ItemVersionAutosave();
     Tenon.modals = new Tenon.features.ModalWindows();
     new Tenon.features.ModalForms();

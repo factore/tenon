@@ -4,70 +4,53 @@
       = link_to 'New Post', new_post_path, class: 'btn btn-block btn-primary'
     %h4 Edit Options
 
-    %ul
-      %li.active= link_to 'Post Content', '#details', data: {toggle: 'tab'}
-      %li= link_to "Search Optimization", '#seo', data: {toggle: 'tab'}
-
     = i18n_language_nav(:'tenon/posts')
 
 .page-wrap
   %header
     %h1= form_header_for(@post)
 
-    .tools
-      = render "tenon/shared/section_header/sidebar_toggle"
+  = autosaving_form_for @post do |f|
+    = error_messages_for :post
 
-  .row
-    = autosaving_form_for @post do |f|
-      = error_messages_for :post
-      .inner8
+    .inner8
+      .panel
         %ul.tabs.z-depth-1
           %li.tab= link_to 'Details', '#details'
           %li.tab= link_to 'SEO', '#seo'
 
         .tab-pane.active#details
-          .input-field
-            = f.text_field :title
-
-
+          = f.text_field :title
           = f.rich_text :excerpt
-
           = f.tenon_content :content
 
         .tab-pane#seo= render "tenon/shared/seo_fields", :f => f
 
-      .inner4.omega
+    .inner4.omega
+      .panel
+        %h3 Options
         - unless @categories.blank?
-          .card-panel
-            %h6.box-label Categories
-            .form-group.inline
-              = f.super_label :post_categories, 'Categories'
-              = f.select :post_category_ids, @categories.map { |c| [c.title, c.id] }, {}, { multiple: true }
+          = f.select :post_category_ids, @categories.map { |c| [c.title, c.id] }, { label: 'Categories' }, { multiple: true }
 
-        .card-panel
-          %h6.box-label Publish Your Post
-          .form-group.bordered
-            = f.super_label :user_id, 'Author'
-            = f.collection_select :user_id, @users, :id, :email, {:include_blank => "(No Author)"}
+        = f.collection_select :user_id, @users, :id, :email, include_blank: "(No Author)", label: 'Author'
 
-          .form-group.inline.bordered
-            = f.check_box :allow_comments, class: 'tn-checkbox-right'
-            = f.super_label :allow_comments, "Allow Comments?"
+        = f.check_box :allow_comments, label: 'Allow Comments?'
 
-          .form-group
-            = f.text_field :publish_at, label: "Publish Date", data: {behaviour: 'datetime-picker'}, placeholder: '--'
+        = f.date_time_picker :publish_at, label: 'Publish Date / Time'
 
-          .row.content
-            - if can?(:publish, @post)
-              %button.btn.btn-comp.btn-block.submit{ data: { disable_with: "Please wait..." } } Save
 
-            - if can?(:create, Tenon::ItemVersion)
-              = save_draft_button(@post)
-              .last-autosave
+      .panel
+        .content
+          - if can?(:publish, @post)
+            %button.btn.btn-comp.btn-block.submit{ data: { disable_with: "Please wait..." } } Save
 
-          %hr
-          .content
-            = clear_draft_link if params[:version]
-            = load_draft_link(@post)
-            - if @post.persisted?
-              = link_to "Delete", @post, :data => {:method => :delete, :confirm => "Are you sure you want to delete this?"}, :class => 'delete-link'
+          - if can?(:create, Tenon::ItemVersion)
+            = save_draft_button(@post)
+            .last-autosave
+
+        .content
+          = clear_draft_link if params[:version]
+          = load_draft_link(@post)
+          - if @post.persisted?
+            = link_to "Delete", @post, :data => {:method => :delete, :confirm => "Are you sure you want to delete this?"}, :class => 'delete-link'
+    .spacer

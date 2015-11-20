@@ -1,8 +1,5 @@
-= raw(label_tag)
+= render layout: 'tenon/fields/base', locals: { f: f, method_name: method_name, opts: opts } do
 
-- if opts[:explanation].present?
-  .explanation= raw opts[:explanation]
+  .editable-text{ contenteditable: 'true', data: { placeholder: opts[:placeholder] } }= raw f.object.try(method_name)
 
-.editable-text{ contenteditable: 'true', data: { placeholder: opts[:placeholder] } }= raw f.object.try(field)
-
-= f.hidden_field field
+  = f.hidden_field method_name
