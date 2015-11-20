@@ -13,6 +13,7 @@ class DefaultHeader extends React.Component {
     return(
       <div>
         <header>
+          <h1>{this.props.title}</h1>
           <div className="tools">
             {searchButton}
           </div>

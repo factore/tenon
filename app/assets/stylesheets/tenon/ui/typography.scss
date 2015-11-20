@@ -1,0 +1,91 @@
+// Default Text Styles
+// ------------------------------------
+html,
+body {
+  @include font-sans-n4;
+  color: $primary-text-color;
+  font-size: $default-font-size * 1px; // required for rem
+  line-height: 30px;
+}
+
+// Links
+// ------------------------------------
+a {
+  text-decoration: none;
+  color: $link-color;
+  &:hover { text-decoration: underline; }
+}
+
+// Default typography
+// ------------------------------------
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.p {
+  margin: 0 0 $default-spacing;
+}
+
+h1,
+.h1 {
+  @include font-sans-n3;
+  @include font(56, 70);
+}
+
+h2,
+.h2 {
+  @include font-sans-n3;
+  @include font(38, 40);
+}
+
+h3,
+.h3 {
+  @include font-sans-n3;
+  @include font(24, 30);
+}
+
+h4,
+.h4 {
+  @include font-sans-n4;
+  @include font(18, 24);
+}
+
+h5,
+.h5 {
+  @include font-sans-n6;
+  @include font(16, 20);
+}
+
+h6,
+.h6 {
+  @include font-sans-n6;
+  @include font(14, 20);
+}
+
+blockquote {
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+  padding: $default-spacing;
+}
+
+small {
+  @include font-size(12);
+}
+
+strong {
+  @include font-sans-n6;
+}
+
+em {
+  @include font-sans-i4;
+}
+

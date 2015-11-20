@@ -1,6 +1,5 @@
 //= require jquery
 //= require jquery_ujs
-//= require materialize
 
 // -- Plugins, in alphabetical order
 //= require backstretch

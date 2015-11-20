@@ -1,0 +1,33 @@
+.util-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: $util-nav-height;
+  background-color: $util-nav-bg-color;
+  color: $util-nav-fg-color;
+  text-align: center;
+
+  a {
+    color: $util-nav-fg-color;
+  }
+
+  .toggle-nav {
+    @include default-transition;
+    float: left;
+    height: $util-nav-height;
+    padding: 9px 13px;
+  }
+
+  .brand-logo {
+    display: inline-block;
+    margin: 0 auto;
+    padding-top: 9px;
+  }
+}
+
+.nav-open .util-nav .toggle-nav,
+.util-nav .toggle-nav:hover {
+  background-color: darken($util-nav-bg-color, 10%);
+}

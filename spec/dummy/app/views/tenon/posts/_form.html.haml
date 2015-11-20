@@ -1,7 +1,6 @@
 .sidebar-container
   .sidebar
     .content
-      %h2 Posts
       = link_to 'New Post', new_post_path, class: 'btn btn-block btn-primary'
     %h4 Edit Options
 
@@ -13,7 +12,7 @@
 
 .page-wrap
   %header
-    %h4= form_header_for(@post)
+    %h1= form_header_for(@post)
 
     .tools
       = render "tenon/shared/section_header/sidebar_toggle"
@@ -21,23 +20,23 @@
   .row
     = autosaving_form_for @post do |f|
       = error_messages_for :post
-      .column.width8.push0
+      .inner8
         %ul.tabs.z-depth-1
           %li.tab= link_to 'Details', '#details'
           %li.tab= link_to 'SEO', '#seo'
-        .card-panel
-          .tab-pane.active#details
-            .input-field
-              = f.text_field :title
+
+        .tab-pane.active#details
+          .input-field
+            = f.text_field :title
 
 
-            = f.rich_text :excerpt
+          = f.rich_text :excerpt
 
-            = f.tenon_content :content
+          = f.tenon_content :content
 
-          .tab-pane#seo= render "tenon/shared/seo_fields", :f => f
+        .tab-pane#seo= render "tenon/shared/seo_fields", :f => f
 
-      .column.width4.push8
+      .inner4.omega
         - unless @categories.blank?
           .card-panel
             %h6.box-label Categories

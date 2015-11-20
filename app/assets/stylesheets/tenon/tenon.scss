@@ -1,26 +1,36 @@
-
 // VENDOR
-// ------------------------------------
+//= require normalize-rails
 //= require font-awesome
-@import './materialize-includes';
-@import './grid/config';
+@import 'bourbon';
+@import './grid';
+
+// VARIABLES
+@import 'variables/colors';
+@import 'variables/sizes';
 
 // HELPERS
-// ------------------------------------
 @import './helpers/universal-variables';
+@import './helpers/font-size';
+@import './helpers/fonts';
+@import './helpers/transitions';
 
 // UI ELEMENTS
-// ------------------------------------
-@import './ui/box';
 @import './ui/burger';
+@import './ui/lists';
+@import './ui/typography';
 
 // LAYOUT
-// ------------------------------------
+@import './layout/main';
 @import './layout/main-nav';
-@import './layout/tenon-content/base';
-@import './layout/tenon-content/library';
+@import './layout/util-nav';
+//@import './layout/tenon-content/base';
+//@import './layout/tenon-content/library';
+//@import './layout/tenon-content/popped-out';
 
 body, html {
-  @extend .grey.darken-3;
   min-height: 100%;
+}
+
+* {
+  box-sizing: border-box;
 }

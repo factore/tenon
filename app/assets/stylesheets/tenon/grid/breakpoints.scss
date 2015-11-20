@@ -1,0 +1,37 @@
+//* BREAKPOINTS *
+$bp-max: "screen and (min-width: #{$max-width})";
+$bp-lg: "screen and (min-width: #{$lg-width})";
+$bp-md: "screen and (min-width: #{$md-width})";
+$bp-sm: "screen and (min-width: #{$sm-width})";
+$bp-min: "screen and (max-width: #{$sm-width - 1px})";
+
+//* MEDIA & BREAKPOINT HELPERS *
+@mixin media($media-query) {
+  @media #{$media-query} {
+    @content;
+  }
+}
+
+@mixin bp-max {
+  @include media($bp-max) {
+    @content;
+  }
+}
+
+@mixin bp-lg {
+  @include media($bp-lg) {
+    @content;
+  }
+}
+
+@mixin bp-md {
+  @include media($bp-md) {
+    @content;
+  }
+}
+
+@mixin bp-sm {
+  @include media($bp-sm) {
+    @content;
+  }
+}

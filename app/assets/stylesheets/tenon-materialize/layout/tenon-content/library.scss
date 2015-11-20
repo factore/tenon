@@ -14,7 +14,7 @@
 
     li {
 
-      @include media($tn-bp-mobile) {
+      @media #{$bp-sm} {
         width: 100%;
 
         img {
@@ -22,7 +22,7 @@
         }
       }
 
-      @include media($tn-bp-tablet) {
+      @media #{$bp-md} {
         width: 50%;
 
         img {
@@ -32,18 +32,18 @@
 
       display: inline-block;
       float: left;
-      border: 1px solid $tn-light-grey;
+      border: 1px solid map-get($grey, 'lighten-2');
       background-color: #fff;
       color: #fff;
 
       p {
 
-        @include media($tn-bp-mobile) {
+        @media #{$bp-sm} {
           left: 80px;
           padding-right: 100px;
         }
 
-        @include media($tn-bp-tablet) {
+        @media #{$bp-md} {
           left: 120px;
           padding-right: 140px;
         }
@@ -58,9 +58,8 @@
       a {
         position: relative;
         float: left;
-        padding: $tn-padding;
+        padding: 20px;
         width: 100%;
-        color: $tn-label;
         font-size: 18px;
 
         &:hover {
@@ -69,7 +68,7 @@
       }
 
       &:hover {
-        background-color: $tn-primary;
+        background-color: $primary-color;
 
         a {
           color: #fff;

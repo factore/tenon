@@ -1,11 +1,8 @@
-.navbar-fixed
-  %nav.util-nav
-    .nav-wrapper
-      %ul.left
-        %li
-          %a.toggle-nav.left{ href: '#', data: { toggler_class: 'nav-open', toggler_selector: 'body' } }
-            .burger
+%nav.util-nav
 
-      = link_to image_tag('tenon/tenon_icon.png'), tenon.root_path, class: 'brand-logo center'
+  %a.toggle-nav{ href: '#', data: { toggler_class: 'nav-open', toggler_selector: 'body' } }
+    .burger
+
+  = link_to image_tag('tenon/tenon_icon.png'), tenon.root_path, class: 'brand-logo center'
 
 

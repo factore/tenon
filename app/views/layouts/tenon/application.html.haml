@@ -10,16 +10,15 @@
       = @page_title + " | " if @page_title
       = Tenon::MySettings.site_title.present? ? Tenon::MySettings.site_title : 'Tenon'
 
-    = stylesheet_link_tag 'tenon/tenon', '//fonts.googleapis.com/css?family=Open+Sans:400,700'
+    = stylesheet_link_tag 'tenon/tenon'
     = javascript_include_tag '/ckeditor/ckeditor'
     = javascript_include_tag 'tenon/tenon_manifest'
 
   %body{data: { controller: params[:controller], action: params[:action] } }
-    .main-nav
-      = render 'tenon/shared/main_nav'
-    .nav-pusher.z-depth-2
-      = render 'tenon/shared/util_nav'
-      .container= yield
+    .main-nav= render 'tenon/shared/main_nav'
+    = render 'tenon/shared/util_nav'
+    .nav-pusher
+      %main.container= yield
 
       = flash_messages
       = render 'tenon/shared/version_warning' if @item_version

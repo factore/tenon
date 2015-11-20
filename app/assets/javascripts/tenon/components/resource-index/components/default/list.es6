@@ -9,11 +9,8 @@ class DefaultList extends React.Component {
     }
 
     return (
-      <div className="main-content">
-        <ul className="collection with-header z-depth-1">
-          <li className="collection-header">
-            <h4>{this.props.title}</h4>
-          </li>
+      <div>
+        <ul className="record-list">
           <ReactCSSTransitionGroup transitionName="record" transitionEnterTimeout={250} transitionLeaveTimeout={250} >
             {noRecordsWarning}
             {this.props.records.map((record, i) =>

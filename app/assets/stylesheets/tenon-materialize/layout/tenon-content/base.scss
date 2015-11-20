@@ -4,7 +4,8 @@
   }
   &.mobile-breakpoint {
     .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve {
-      @extend .column.width12;
+      @extend .column;
+      @extend .width12;
     }
     .wrapped-image {
       &.left, &.right {
@@ -18,11 +19,9 @@
 .tn-tc-main-actions {
   a {
     @include transition(all .2s ease);
-    font-size: $tn-font-large;
     margin: 20px 20px 0 0;
     text-transform: uppercase;
     span {
-      font-size: $tn-font-small;
       position: relative;
       top: -2px;
       padding-left: 5px;
@@ -73,7 +72,6 @@
   .tn-tc-topbar, .tn-tc-bottombar {
     padding: 0;
     height: 36px;
-    // background-color: $tn-med-grey;
     .actions {
       @include transition(all .2s ease);
       position: relative;
@@ -93,15 +91,12 @@
           display: inline-block;
         }
       }
-      a.tn-tc-open-library {
+      .tn-tc-open-library {
         @include transform(translate(-50%, 0));
         position: absolute;
         top: 0;
         left: 50%;
         text-transform: uppercase;
-        span {
-          font-size: $tn-font-small;
-        }
       }
       a:hover {
         text-decoration: none;
@@ -116,12 +111,12 @@
   .tn-tc-row:hover {
     &:hover {
       .tn-tc-topbar, .tn-tc-bottombar {
-        color: $tn-black;
+        @extend .black-text;
         a {
-          color: $tn-black;
+          @extend .black-text;
         }
         i {
-          color: $tn-black;
+          @extend .black-text;
         }
       }
     }
@@ -130,7 +125,6 @@
     }
   }
   .tn-tc-fields {
-    @include outer-container;
     min-height: 20px;
   }
   > div {
@@ -138,18 +132,17 @@
   }
   a.add-image {
     span {
-      font-family: $tn-open-sans;
+      @extend .grey;
       line-height: 200px;
       display: block;
       height: 200px;
       text-align: center;
       color: map-get($grey, 'base');
       border: 4px dashed map-get($grey, 'base');
-      background: $tn-med-grey;
     }
   }
   .wrapped-image {
-    @include media($tn-bp-mobile) {
+    @media #{$bp-sm} {
       &.left, &.right {
         float: none;
         padding: 0;
@@ -188,7 +181,7 @@
     }
   }
   textarea.caption, div.tn-tc-caption {
-    font-size: $tn-font-small;
+    font-size: 14px;
     width: 100%;
     margin: 0;
     padding: 5px;
@@ -255,21 +248,21 @@
   }
   button:active, button:focus {
     outline: none;
-    background: lighten($tn-primary, 10%);
+    background: lighten($primary-color, 10%);
   }
   .link-form {
-    z-index: $tn-z-medium-editor-controls;
+    z-index: 1000;
   }
 }
 
 [contenteditable=true]:empty:not(:focus):before {
+  @extend .grey-text;
   content: attr(data-placeholder);
-  color: $tn-med-grey;
 }
 
 a.open-embed-modal {
   @include transition(all .2s ease);
-  font-size: $tn-font-small;
+  font-size: 14px;
   display: block;
   padding: 5px 0;
   text-transform: uppercase;
@@ -277,7 +270,7 @@ a.open-embed-modal {
 }
 
 .tn-tc-row:hover a.open-embed-modal {
-  color: $tn-black;
+  @extend .black-text;
 }
 
 .embed {

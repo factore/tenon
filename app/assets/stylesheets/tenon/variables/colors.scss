@@ -1,0 +1,50 @@
+// Use American 'color' in variable names for consistency with CSS keywords.
+
+// Named colors
+$light-grey: #e2e2e2;
+$med-grey: #c2c2c2;
+$grey: #ababab;
+$dark-grey: #878787;
+$slate: #242133;
+$black: #333;
+$white: #fff;
+$off-white: #f9f9f9;
+$cobalt: #12111a;
+$orange: #df222a;
+$purple: #978fcc;
+$minty: #4E8865;
+
+// Reusable colors
+$client-color: $orange;
+$primary-color: $minty;
+$comp-color: $purple;
+$highlight-color: $med-grey;
+
+// Text colors
+$primary-text-color: $slate;
+$body-text-color: $black;
+$link-color: $primary-color;
+$label: #162433;
+$box-label: #04555d;
+
+// Misc.
+$body-bg-color: $off-white;
+$main-bg-color: $white;
+
+// Sidebar
+$sidebar-bg-color: #242133;
+$sidebar-highlight: #3a3848;
+
+// Buttons
+$button-primary-bg-color: $primary-color;
+$button-primary-fg-color: $white;
+$button-comp-bg: $comp-color;
+$button-comp-fg: $white;
+
+// Main Nav
+$main-nav-bg-color: $cobalt;
+$main-nav-fg-color: $white;
+
+// Util Nav
+$util-nav-bg-color: $primary-color;
+$util-nav-fg-color: $white;

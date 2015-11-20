@@ -2,8 +2,8 @@ class DefaultRecord extends React.Component {
   render() {
     const { edit_path, title, delete_path, onDelete } = this.props;
     return (
-      <li className="collection-item">
-        <span class="title">
+      <li className="record">
+        <span className="title">
           <a href={edit_path}>{title}</a>
         </span>
 

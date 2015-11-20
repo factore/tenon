@@ -1,0 +1,10 @@
+body {
+  background-color: $body-bg-color;
+}
+
+main, main.container {
+  background-color: $main-bg-color;
+  padding: $default-spacing;
+  margin-top: $util-nav-height + $default-spacing;
+  box-shadow: 2px 2px 8px $light-grey;
+}

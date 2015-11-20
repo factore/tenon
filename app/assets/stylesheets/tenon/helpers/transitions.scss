@@ -1,0 +1,3 @@
+@mixin default-transition {
+  @include transition(all .25s ease);
+}
