@@ -56,6 +56,7 @@ module Tenon
 
     config.to_prepare do
      ApplicationController.helper(Tenon::TenonHelper)
+     ApplicationController.helper(Tenon::BreadcrumbsHelper)
     end
 
     initializer :assets do |config|

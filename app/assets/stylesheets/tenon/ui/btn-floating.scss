@@ -1,6 +1,6 @@
 .btn-floating {
   @include default-transition;
-  @include animation(btn-floating-intro 0.5s forwards 0.5s);
+  @include animation(btn-floating-intro 0.3s forwards 0.5s);
   @include transform(scale(0) rotate(-45deg));
   @include z-depth-1;
   display: inline-block;

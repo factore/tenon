@@ -18,7 +18,9 @@
     .main-nav= render 'tenon/shared/main_nav'
     = render 'tenon/shared/util_nav'
     .nav-pusher
-      %main.container= yield
+      %main.container
+        = render 'tenon/shared/breadcrumbs'
+        = yield
 
       = flash_messages
       = render 'tenon/shared/version_warning' if @item_version
