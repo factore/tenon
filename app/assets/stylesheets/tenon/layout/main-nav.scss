@@ -1,15 +1,17 @@
 .main-nav {
   @include transform(translate(-$main-nav-width, 0));
+  @include font-size-smaller;
   position: fixed;
-  top: 0;
+  top: $util-nav-height;
   left: 0;
   z-index: 998;
   width: $main-nav-width;
   height: 100%;
   background-color: $main-nav-bg-color;
+  padding: $default-spacing $default-spacing / 2;
 
   li {
-    padding: 5px 10px;
+    padding: 0 0 $default-spacing / 3;
   }
 
   a {
@@ -35,7 +37,8 @@
     @include transform(translate(0, 0));
   }
 
-  .nav-pusher, .util-nav {
+  .nav-pusher {
     @include transform(translate($main-nav-width, 0));
+    opacity: .5;
   }
 }

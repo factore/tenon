@@ -1,0 +1,29 @@
+.btn {
+  @include default-transition;
+  @include z-depth-1;
+  display: inline-block;
+  border-radius: $default-border-radius;
+  border: 0;
+  padding: $default-spacing / 3 $default-spacing;
+  text-align: center;
+  position: relative;
+  color: $button-primary-fg-color;
+  background: $button-primary-bg-color;
+
+  &.btn-comp {
+    background: $button-comp-bg-color;
+    color: $button-comp-fg-color;
+  }
+
+  &.btn-block {
+    display: block;
+    width: 100%;
+    margin-bottom: $default-spacing / 3;
+  }
+
+  &:hover {
+    @include z-depth-0;
+    text-decoration: none;
+  }
+
+}

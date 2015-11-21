@@ -5,19 +5,18 @@ $light-grey: #d9d9d9;
 $med-grey: #c2c2c2;
 $grey: #ababab;
 $dark-grey: #878787;
-$slate: #242133;
+$slate: #333;
 $black: #333;
 $white: #fff;
 $off-white: #f9f9f9;
 $cobalt: #12111a;
-$orange: #df222a;
-$purple: #978fcc;
+$orange: #ff6f39;
 $blue: #199eff;
 
 // Reusable colors
 $client-color: $orange;
 $primary-color: $blue;
-$comp-color: $purple;
+$comp-color: $orange;
 $highlight-color: $med-grey;
 
 // Text colors
@@ -38,12 +37,14 @@ $sidebar-highlight: #3a3848;
 // Buttons
 $button-primary-bg-color: $primary-color;
 $button-primary-fg-color: $white;
-$button-comp-bg: $comp-color;
-$button-comp-fg: $white;
+$button-comp-bg-color: $comp-color;
+$button-comp-fg-color: $white;
+$btn-floating-bg-color: $orange;
+$btn-floating-fg-color: $white;
 
 // Main Nav
-$main-nav-bg-color: $cobalt;
-$main-nav-fg-color: $white;
+$main-nav-bg-color: $light-grey;
+$main-nav-fg-color: $primary-text-color;
 
 // Util Nav
 $util-nav-bg-color: $primary-color;

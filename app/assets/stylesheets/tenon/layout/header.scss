@@ -1,0 +1,12 @@
+header {
+
+  .toggles {
+    i {
+      @include font-size-h3;
+    }
+  }
+
+  .toolbox {
+    display: none;
+  }
+}

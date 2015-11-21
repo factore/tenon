@@ -267,34 +267,6 @@
   color: $tn-med-grey;
 }
 
-a.open-embed-modal {
-  @include transition(all .2s ease);
-  font-size: $tn-font-small;
-  display: block;
-  padding: 5px 0;
-  text-transform: uppercase;
-  color: map-get($grey, 'base');
-}
-
-.tn-tc-row:hover a.open-embed-modal {
-  color: $tn-black;
-}
-
-.embed {
-  clear: both;
-}
-
-.edit-embed-code {
-  display: none;
-  textarea {
-    width: 100%;
-  }
-}
-
-.modal .edit-embed-code {
-  display: block;
-}
-
 .tn-tc-with-background-image {
   padding: 60px 0 40px;
   .tn-text-overlay {

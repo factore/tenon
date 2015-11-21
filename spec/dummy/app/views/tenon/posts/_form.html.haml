@@ -1,11 +1,3 @@
-.sidebar-container
-  .sidebar
-    .content
-      = link_to 'New Post', new_post_path, class: 'btn btn-block btn-primary'
-    %h4 Edit Options
-
-    = i18n_language_nav(:'tenon/posts')
-
 .page-wrap
   %header
     %h1= form_header_for(@post)
@@ -39,18 +31,16 @@
         = f.date_time_picker :publish_at, label: 'Publish Date / Time'
 
 
-      .panel
-        .content
-          - if can?(:publish, @post)
-            %button.btn.btn-comp.btn-block.submit{ data: { disable_with: "Please wait..." } } Save
 
-          - if can?(:create, Tenon::ItemVersion)
-            = save_draft_button(@post)
-            .last-autosave
+      - if can?(:publish, @post)
+        %button.btn.btn-comp.btn-block.submit{ data: { disable_with: "Please wait..." } } Save
 
-        .content
-          = clear_draft_link if params[:version]
-          = load_draft_link(@post)
-          - if @post.persisted?
-            = link_to "Delete", @post, :data => {:method => :delete, :confirm => "Are you sure you want to delete this?"}, :class => 'delete-link'
+      - if can?(:create, Tenon::ItemVersion)
+        = save_draft_button(@post)
+        .last-autosave
+
+      = clear_draft_link if params[:version]
+      = load_draft_link(@post)
+      - if @post.persisted?
+        = link_to 'Delete', @post, data: { method: :delete, confirm: 'Are you sure you want to delete this?' }, class: 'delete-link'
     .spacer

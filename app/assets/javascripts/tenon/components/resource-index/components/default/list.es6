@@ -10,6 +10,9 @@ class DefaultList extends React.Component {
 
     return (
       <div className='panel'>
+        <a className="btn-floating" href={this.props.new_path}>
+          <i className="icon ion-android-add"></i>
+        </a>
         <ul className="record-list">
           <ReactCSSTransitionGroup transitionName="record" transitionEnterTimeout={250} transitionLeaveTimeout={250} >
             {noRecordsWarning}

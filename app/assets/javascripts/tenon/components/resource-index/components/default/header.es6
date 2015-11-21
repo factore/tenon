@@ -11,20 +11,20 @@ class DefaultHeader extends React.Component {
     const { QuickSearch } = this.props.childComponents;
 
     return(
-      <div>
-        <header>
-          <h1>{this.props.title}</h1>
-          <div className="tools">
-            {searchButton}
-          </div>
-        </header>
+      <header>
+        <div className='h1'>{this.props.title}</div>
+        <div className="toggles">
+          <i className="icon ion-android-more-vertical"></i>
+        </div>
+
+        <div className="spacer"></div>
 
         <div className="toolbox">
           <QuickSearch
             searchAction={this.props.actions.quickSearchRecords}
             searchClass={searchClass} />
         </div>
-      </div>
+      </header>
     )
   }
 

@@ -6,13 +6,14 @@
 //= require pickadate/default.time
 @import 'bourbon';
 @import './grid';
+@import 'ionicons';
 
 // VARIABLES
 @import 'variables/colors';
 @import 'variables/sizes';
 
 // HELPERS
-@import './helpers/universal-variables';
+@import './helpers/alignment';
 @import './helpers/font-size';
 @import './helpers/fonts';
 @import './helpers/transitions';
@@ -20,18 +21,22 @@
 
 // UI ELEMENTS
 @import './ui/burger';
+@import './ui/btn';
+@import './ui/btn-floating';
 @import './ui/lists';
 @import './ui/panel';
 @import './ui/typography';
 @import './ui/form-inputs';
 
 // LAYOUT
+@import './layout/header';
 @import './layout/main';
 @import './layout/main-nav';
 @import './layout/util-nav';
 @import './layout/record-list';
 //@import './layout/tenon-content/base';
-//@import './layout/tenon-content/library';
+@import './layout/tenon-content/library';
+@import './layout/tenon-content/embed-code';
 //@import './layout/tenon-content/popped-out';
 
 body, html {

@@ -33,6 +33,8 @@ form {
   textarea,
   .editable-text {
     @include font-size-smaller;
+    height: auto;
+    min-height: 44px;
   }
 
   label {

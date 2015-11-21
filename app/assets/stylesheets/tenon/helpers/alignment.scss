@@ -1,0 +1,36 @@
+// Alignment
+// ------------------------------------
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.spacer {
+  border: 0;
+  clear: both;
+  float: none;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  width: 0;
+}
+
+// Vertical align an element within its parent:
+// Note: The parent element will need preserve-3d
+// or the centered element will be blurry:
+//   @include transform-style(preserve-3d);
+
+@mixin vertical-align {
+  @include transform(translateY(-50%));
+  position: relative;
+  top: 50%;
+}
+
+// Read more: http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/

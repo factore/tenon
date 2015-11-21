@@ -51,6 +51,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'hpricot', '0.8.6'
   s.add_dependency 'httparty', '0.10.2'
   s.add_dependency 'humanizer', '2.6.0'
+  s.add_dependency 'ionicons-rails'
   s.add_dependency 'jbuilder', '2.0.7'
   s.add_dependency 'jquery-fileupload-rails', '0.4.1'
   s.add_dependency 'jquery-rails', '3.1.0'
