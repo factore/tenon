@@ -11,4 +11,8 @@
     right: $default-spacing;
     top: -$btn-floating-size / 2;
   }
+
+  &.with-btn-floating {
+    top: $btn-floating-size / 2;
+  }
 }

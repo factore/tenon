@@ -9,10 +9,26 @@ class DefaultList extends React.Component {
     }
 
     return (
-      <div className='panel'>
+      <div className="panel with-btn-floating">
         <a className="btn-floating" href={this.props.new_path}>
           <i className="icon ion-android-add"></i>
         </a>
+
+        <div className="tool-toggles">
+          <a href="#">
+            <i className="icon ion-android-search"></i>
+          </a>
+
+          <a href="#">
+            <i className="icon ion-android-more-vertical"></i>
+          </a>
+        </div>
+
+        <div className="spacer"></div>
+
+        <h2>{this.props.title}</h2>
+
+
         <ul className="record-list">
           <ReactCSSTransitionGroup transitionName="record" transitionEnterTimeout={250} transitionLeaveTimeout={250} >
             {noRecordsWarning}

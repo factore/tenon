@@ -1,0 +1,23 @@
+.tool-toggles {
+  position: absolute;
+  top: -$tool-toggle-size / 2;
+  left: $default-spacing;
+
+  a {
+    @include default-transition;
+    @include z-depth-1;
+    display: inline-block;
+    margin-right: $default-spacing / 4;
+    width: $tool-toggle-size;
+    height: $tool-toggle-size;
+    background-color: $tool-toggle-bg-color;
+    border-radius: 50%;
+    color: $tool-toggle-fg-color;
+    line-height: $tool-toggle-size;
+    text-align: center;
+
+    &:hover {
+      @include z-depth-1-half;
+    }
+  }
+}

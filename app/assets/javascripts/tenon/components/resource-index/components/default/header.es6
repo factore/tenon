@@ -12,11 +12,6 @@ class DefaultHeader extends React.Component {
 
     return(
       <header>
-        <div className='h1'>{this.props.title}</div>
-        <div className="toggles">
-          <i className="icon ion-android-more-vertical"></i>
-        </div>
-
         <div className="spacer"></div>
 
         <div className="toolbox">
