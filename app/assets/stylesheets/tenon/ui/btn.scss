@@ -22,7 +22,7 @@
   }
 
   &:hover {
-    @include z-depth-0;
+    @include z-depth-1-half;
     text-decoration: none;
   }
 
