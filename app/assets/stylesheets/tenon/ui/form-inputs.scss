@@ -38,8 +38,7 @@ form {
   }
 
   label {
-    @include font-size-smaller;
-    text-transform: uppercase;
+    @include font-size-smallest;
     color: $label-color;
   }
 

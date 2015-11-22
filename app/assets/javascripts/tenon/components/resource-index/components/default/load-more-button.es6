@@ -4,16 +4,16 @@ class DefaultLoadMoreButton extends React.Component {
     let className = this._getClassName()
     return (
       <a href="#" onClick={loadAction} className={className}>
-        Load More {title}
+        <i className='icon ion-loop'></i>
       </a>
     )
   }
 
   _getClassName() {
-    let classNames = ['btn btn-comp', 'infinite-loader'];
+    let classNames = ['infinite-loader'];
     if (this.props.pagination) {
       const { totalPages, currentPage } = this.props.pagination;
-      if (totalPages > currentPage) classNames.push('open');
+      if (totalPages > currentPage) classNames.push('visible');
     }
     return classNames.join(' ');
   }

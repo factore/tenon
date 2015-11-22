@@ -16,6 +16,9 @@
 
   a {
     color: $main-nav-fg-color;
+    &.active {
+      @include font-sans-n6;
+    }
   }
 
   i {
