@@ -1,31 +1,32 @@
 .tn-tc-wrap {
+
   .tn-tc-sizes {
     display: none;
   }
+
   &.mobile-breakpoint {
     .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve {
-      @extend .column.width12;
+      @extend .inner12;
     }
-    .wrapped-image {
-      &.left, &.right {
-        float: none;
-        padding: 0;
-      }
+
+    .wrapped-image.left,
+    .wrapped-image.right {
+      float: none;
+      padding: 0;
     }
   }
 }
 
 .tn-tc-main-actions {
   a {
-    @include transition(all .2s ease);
-    font-size: $tn-font-large;
-    margin: 20px 20px 0 0;
+    @include default-transition;
+    margin: $default-spacing $default-spacing 0 0;
     text-transform: uppercase;
     span {
-      font-size: $tn-font-small;
+      @include font-size-smaller;
       position: relative;
       top: -2px;
-      padding-left: 5px;
+      padding-left: $default-spacing / 4;
     }
     &:hover {
       text-decoration: none;
@@ -34,81 +35,89 @@
 }
 
 .tenon-content {
-  margin-top: 20px;
+  margin-top: $default-spacing;
   // @import "variables";
   // @import "styleguides/styleguide";
   // @extend body;
   .tn-tc-row {
-    @include transition(box-shadow .2s ease-in);
-    @include transition(border .2s ease-in);
+    @include default-transition;
     position: relative;
     overflow: hidden;
     min-height: 50px;
-    margin-bottom: 10px;
+    margin-bottom: $default-spacing / 3;
     padding: 0;
+
     &.ui-sortable-helper {
+      @include z-depth-2;
       overflow: hidden;
       box-sizing: content-box;
       max-height: 200px;
-      padding: 5px 10px;
-      border: 1px solid map-get($grey, 'base');
-      background: map-get($grey, 'lighten-2');
-      box-shadow: 1px 1px 5px map-get($grey, 'base');
+      padding: $default-spacing / 4 $default-spacing / 3;
+      border: 1px solid $light-border-color;
+      background: $white;
     }
+
     &.sortable-placeholder {
       min-height: 50px;
       max-height: 200px;
-      border: 1px dashed map-get($grey, 'base');
+      border: 1px dashed $light-border-color;
     }
+
     i {
-      font-size: 20px;
+      font-size: $default-spacing;
     }
+
     .tn-tc-bottombar {
       display: none;
     }
   }
+
   .drag-anchor {
     float: left;
   }
-  .tn-tc-topbar, .tn-tc-bottombar {
+
+  .tn-tc-topbar,
+  .tn-tc-bottombar {
     padding: 0;
-    height: 36px;
+    height: $default-spacing;
     // background-color: $tn-med-grey;
     .actions {
-      @include transition(all .2s ease);
+      @include default-transition;
       position: relative;
       text-align: right;
-      color: map-get($grey, 'base');
+      color: $primary-text-color;
+
       i {
-        @include transition(all .2s ease);
+        @include default-transition;
       }
+
       a {
-        @include transition(all .2s ease);
+        @include default-transition;
         display: inline-block;
-        padding: 10px 0 5px;
-        color: map-get($grey, 'base');
+        padding: $default-spacing / 3 0 $default-spacing / 4;
+        color: $primary-text-color;
         span {
           position: relative;
           top: -2px;
           display: inline-block;
         }
       }
-      a.tn-tc-open-library {
-        @include transform(translate(-50%, 0));
-        position: absolute;
-        top: 0;
-        left: 50%;
+
+      .tn-tc-open-library {
+        @include vertical-align;
         text-transform: uppercase;
         span {
-          font-size: $tn-font-small;
+          @include font-size-smaller;
         }
       }
+
       a:hover {
         text-decoration: none;
       }
+
       .drag-anchor {
         float: left;
-        padding: 10px 0 5px;
+        padding: $default-spacing / 3 0 $default-spacing / 4;
         cursor: move;
       }
     }
@@ -116,12 +125,12 @@
   .tn-tc-row:hover {
     &:hover {
       .tn-tc-topbar, .tn-tc-bottombar {
-        color: $tn-black;
+        color: $primary-text-color;
         a {
-          color: $tn-black;
+          color: $primary-text-color;
         }
         i {
-          color: $tn-black;
+          color: $primary-text-color;
         }
       }
     }
@@ -130,38 +139,41 @@
     }
   }
   .tn-tc-fields {
-    @include outer-container;
-    min-height: 20px;
+    min-height: $default-spacing;
   }
+
   > div {
     min-height: 100%;
   }
+
   a.add-image {
     span {
-      font-family: $tn-open-sans;
       line-height: 200px;
       display: block;
       height: 200px;
       text-align: center;
-      color: map-get($grey, 'base');
-      border: 4px dashed map-get($grey, 'base');
-      background: $tn-med-grey;
+      color: $primary-text-color;
+      border: 4px dashed $light-border-color;
+      background: $contrast-bg-color;
     }
   }
+
   .wrapped-image {
-    @include media($tn-bp-mobile) {
+    @include media($bp-sm) {
       &.left, &.right {
         float: none;
         padding: 0;
       }
     }
+
     &.left {
       float: left;
-      padding: 5px 10px 0 5px;
+      padding: $default-spacing / 4 $default-spacing / 3 0 $default-spacing / 4;
     }
+
     &.right {
       float: right;
-      padding: 5px 5px 0 10px;
+      padding: $default-spacing / 4 $default-spacing / 4 0 $default-spacing / 3;
     }
   }
   .medium-editor-placeholder {
@@ -188,22 +200,22 @@
     }
   }
   textarea.caption, div.tn-tc-caption {
-    font-size: $tn-font-small;
+    @include font-size-smaller;
     width: 100%;
     margin: 0;
-    padding: 5px;
+    padding: $default-spacing / 4;
     resize: none;
     color: #fff;
-    background: map-get($grey, 'base');
+    background: $contrast-bg-color;
   }
   textarea.caption:-moz-placeholder {
     color: #fff;
   }
   textarea.caption::-webkit-input-placeholder {
-    color: map-get($grey, 'lighten-2');
+    color: $white;
   }
   .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve {
-    @include transition(width .2s ease);
+    @include default-transition;
   }
 }
 
@@ -224,7 +236,7 @@
 }
 
 .tn-tc-with-background-image {
-  padding: 60px 0 40px;
+  padding: $default-spacing * 2 0 $default-spacing;
   .tn-text-overlay {
     position: relative;
     z-index: 10;
@@ -235,10 +247,12 @@
       background-color: rgba(#fff, .8);
     }
   }
+
   .tn-tc-background-image {
     position: absolute;
-    top: 40px;
-    a.add-image span {
+    top: $default-spacing;
+
+    .add-image span {
       line-height: 60px;
       height: 140px;
     }
@@ -253,38 +267,7 @@
       display: none;
     }
   }
-  button:active, button:focus {
-    outline: none;
-    background: lighten($tn-primary, 10%);
-  }
   .link-form {
-    z-index: $tn-z-medium-editor-controls;
-  }
-}
-
-[contenteditable=true]:empty:not(:focus):before {
-  content: attr(data-placeholder);
-  color: $tn-med-grey;
-}
-
-.tn-tc-with-background-image {
-  padding: 60px 0 40px;
-  .tn-text-overlay {
-    position: relative;
-    z-index: 10;
-    float: left;
-    width: 46%;
-    margin: 0 2%;
-    .editable-text {
-      background-color: rgba(#fff, .8);
-    }
-  }
-  .tn-tc-background-image {
-    position: absolute;
-    top: 40px;
-    a.add-image span {
-      line-height: 60px;
-      height: 140px;
-    }
+    z-index: 997;
   }
 }

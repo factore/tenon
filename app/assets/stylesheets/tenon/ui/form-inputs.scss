@@ -32,18 +32,19 @@ form {
 
   textarea,
   .editable-text {
-    @include font-size-smaller;
+    @include font-size-smallest;
     height: auto;
     min-height: 44px;
   }
 
   label {
-    @include font-size-smallest;
+    @include font-size-smaller;
     color: $label-color;
   }
 
   .explanation {
-    @include font-size-smaller;
+    @include font-size-smallest;
+    color: $light-text-color;
   }
 
 }
