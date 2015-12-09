@@ -22,7 +22,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'capybara-webkit', '1.7.1'
   s.add_development_dependency 'database_cleaner', '1.2.0'
   s.add_development_dependency 'factory_girl_rails', '4.4.1'
-  s.add_development_dependency 'overcommit', '0.19.0'
   s.add_development_dependency 'rspec-rails', '2.14.2'
   s.add_development_dependency 'rubocop', '0.27.1'
   s.add_development_dependency 'spring', '1.1.3'
