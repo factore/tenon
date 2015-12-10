@@ -22,5 +22,7 @@
 
   .actions {
     float: right;
+    height: $toolbar-height;
+    line-height: $toolbar-height;
   }
 }

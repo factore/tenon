@@ -57,7 +57,7 @@ form {
   }
   .explanation {
     @include font-size-smallest;
-    color: $light-text-color;
+    color: $light-fg-color;
     padding-top: $default-spacing / 4;
   }
 

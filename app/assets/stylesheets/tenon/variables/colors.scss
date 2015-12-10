@@ -6,7 +6,7 @@ $med-grey: #c2c2c2;
 $grey: #ababab;
 $dark-grey: #878787;
 $slate: #777;
-$black: #333;
+$black: #555;
 $white: #fff;
 $off-white: #efefef;
 $cobalt: #12111a;
@@ -23,9 +23,9 @@ $comp-color: $orange;
 $highlight-color: $med-grey;
 
 // Text colors
-$primary-text-color: $slate;
-$light-text-color: $dark-grey;
-$body-text-color: $black;
+$primary-fg-color: $slate;
+$light-fg-color: $dark-grey;
+$body-fg-color: $black;
 $link-color: $primary-color;
 $label-color: $slate;
 
@@ -52,7 +52,7 @@ $tool-toggle-fg-color: $white;
 
 // Main Nav
 $main-nav-bg-color: $light-grey;
-$main-nav-fg-color: $primary-text-color;
+$main-nav-fg-color: $black;
 
 // Util Nav
 $util-nav-bg-color: $primary-color;

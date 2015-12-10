@@ -3,7 +3,7 @@
 html,
 body {
   @include font-sans-n4;
-  color: $primary-text-color;
+  color: $primary-fg-color;
   font-size: $default-font-size * 1px; // required for rem
   line-height: 30px;
 }

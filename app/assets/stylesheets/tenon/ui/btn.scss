@@ -14,6 +14,11 @@
   color: $button-primary-fg-color;
   background: $button-primary-bg-color;
 
+  &.btn-flat,
+  &.btn-flat:hover {
+    @include z-depth-0;
+  }
+
   &.btn-comp {
     background: $button-comp-bg-color;
     color: $button-comp-fg-color;

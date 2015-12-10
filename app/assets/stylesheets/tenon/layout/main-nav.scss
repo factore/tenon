@@ -9,6 +9,7 @@
   box-shadow: inset -4px 1px 9px -6px rgba(0, 0, 0, 0.46);
   width: $main-nav-width;
   height: 100%;
+  color: $main-nav-fg-color;
 
   ul {
     padding: $default-spacing / 2 $default-spacing;
