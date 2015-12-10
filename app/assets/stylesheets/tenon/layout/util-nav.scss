@@ -7,13 +7,12 @@
   height: $util-nav-height;
   background-color: $util-nav-bg-color;
   color: $util-nav-fg-color;
-  text-align: center;
 
   a {
     color: $util-nav-fg-color;
   }
 
-  .toggle-nav {
+  .toggle-main-nav {
     @include default-transition;
     float: left;
     height: $util-nav-height;
@@ -27,7 +26,7 @@
   }
 }
 
-.nav-open .util-nav .toggle-nav,
-.util-nav .toggle-nav:hover {
+.main-nav-open .util-nav .toggle-main-nav,
+.util-nav .toggle-main-nav:hover {
   background-color: darken($util-nav-bg-color, 10%);
 }

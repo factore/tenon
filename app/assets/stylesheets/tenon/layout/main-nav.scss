@@ -43,7 +43,7 @@
 .nav-pusher,
 .util-nav,
 .toolbar {
-  @include default-transition;
+  // @include default-transition;
 }
 
 .nav-pusher {
@@ -53,7 +53,7 @@
   width: 100%;
 }
 
-.nav-open {
+.main-nav-open {
   .main-nav {
     @include transform(translate(0, 0));
   }
