@@ -5,13 +5,17 @@
   top: $util-nav-height;
   left: 0;
   z-index: 998;
+  border-right: 1px solid $light-border-color;
+  box-shadow: inset -4px 1px 9px -6px rgba(0, 0, 0, 0.46);
   width: $main-nav-width;
   height: 100%;
-  background-color: $main-nav-bg-color;
-  padding: $default-spacing $default-spacing / 2;
+
+  ul {
+    padding: $default-spacing / 2 $default-spacing;
+  }
 
   li {
-    padding: 0 0 $default-spacing / 3;
+    padding: 0 0 $default-spacing / 2;
   }
 
   a {
@@ -24,14 +28,26 @@
   i {
     margin-right: 5px;
   }
+
+  .current-user {
+    padding: 0 $default-spacing;
+    height: $toolbar-height;
+    line-height: $toolbar-height;
+    background: darken($body-bg-color, 5%);
+    box-shadow: inset -4px 1px 9px -6px rgba(0, 0, 0, 0.46);
+  }
 }
 
-.main-nav, .nav-pusher, .util-nav {
-  @include transition(all 0.25s ease);
+.main-nav,
+.nav-pusher,
+.util-nav,
+.toolbar {
+  @include default-transition;
 }
 
 .nav-pusher {
   position: relative;
+  left: 0;
   min-height: 100vh;
   width: 100%;
 }
@@ -41,8 +57,9 @@
     @include transform(translate(0, 0));
   }
 
-  .nav-pusher {
-    @include transform(translate($main-nav-width, 0));
+  .nav-pusher,
+  .toolbar {
+    left: $main-nav-width;
     width: calc(100% - #{$main-nav-width});
   }
 }

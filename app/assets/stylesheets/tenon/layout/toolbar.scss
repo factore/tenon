@@ -2,9 +2,9 @@
   position: fixed;
   top: $util-nav-height;
   left: 0;
-  right: 0;
-  z-index: 998;
+  z-index: 997;
   padding: 0 $default-spacing / 2;
+  width: 100%;
   height: $toolbar-height;
   border-bottom: 1px solid $light-border-color;
   background: $body-bg-color;

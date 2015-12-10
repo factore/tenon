@@ -23,11 +23,6 @@ var Tenon = {
     $('[data-behavior=datepicker]').pickadate();
     $('[data-behavior=timepicker]').pickatime();
 
-    $('.nav-pusher').on('click', function(e) {
-      if ($(e.target).is('.toggle-nav, .toggle-nav *')) return;
-      $('body').removeClass('nav-open');
-    });
-
     Tenon.features.fileSelectWidget.init();
     new Tenon.features.I18nFields();
     new Tenon.features.Flash();
