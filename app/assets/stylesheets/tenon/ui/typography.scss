@@ -89,3 +89,8 @@ em {
   @include font-sans-i4;
 }
 
+label, .label {
+  @include font-size-smallest;
+  margin-bottom: $default-spacing / 4;
+  color: $label-color;
+}

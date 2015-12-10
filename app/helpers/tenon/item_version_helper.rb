@@ -13,7 +13,7 @@ module Tenon
 
     def save_draft_button(obj)
       path = new_item_version_path(item_type: class_for(obj), item_id: obj.id)
-      css_class = 'btn btn-primary btn-block draft'
+      css_class = 'btn btn-primary draft'
       data = {
         'modal-remote' => true,
         'modal-handler' => 'Tenon.features.NewItemVersionHandler',

@@ -1,0 +1,26 @@
+.toolbar {
+  position: fixed;
+  top: $util-nav-height;
+  left: 0;
+  right: 0;
+  z-index: 998;
+  padding: 0 $default-spacing / 2;
+  height: $toolbar-height;
+  border-bottom: 1px solid $light-border-color;
+  background: $body-bg-color;
+  overflow: hidden;
+
+  .breadcrumbs {
+    float: left;
+    height: $toolbar-height;
+
+    li {
+      height: $toolbar-height;
+      line-height: $toolbar-height;
+    }
+  }
+
+  .actions {
+    float: right;
+  }
+}

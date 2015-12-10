@@ -42,6 +42,11 @@ module Tenon
 
     alias_method :super_text_field, :text_field
     def text_field(method_name, opts = {})
+      defaults = {
+        placeholder: '--'
+      }
+      opts = defaults.merge(opts)
+
       @template.render 'tenon/fields/text_field',
         f: self,
         method_name: method_name,
@@ -128,13 +133,13 @@ module Tenon
       end
     end
 
-    def label(method_name, label, language = nil, language_title = nil)
+    def label(method_name, label, required = false, language = nil, language_title = nil)
       if label == false
         ''.html_safe
       else
         label ||= method_name.to_s.titleize
         label = language_title ? label + " (#{language_title.to_s.titleize})" : label
-        super(get_method(method_name, language), label.html_safe)
+        super(get_method(method_name, language), label.html_safe, class: ('required' if required))
       end
     end
 

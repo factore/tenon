@@ -1,7 +1,6 @@
 .panel {
   @include z-depth-1;
   position: relative;
-  border-radius: $default-border-radius;
   background-color: $panel-bg-color;
   padding: $default-spacing;
   margin-bottom: $default-spacing;
@@ -14,5 +13,9 @@
 
   &.with-btn-floating {
     top: $btn-floating-size / 2;
+  }
+
+  label, .label {
+    color: $light-text-color;
   }
 }

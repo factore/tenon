@@ -33,6 +33,7 @@
 .nav-pusher {
   position: relative;
   min-height: 100vh;
+  width: 100%;
 }
 
 .nav-open {
@@ -42,6 +43,6 @@
 
   .nav-pusher {
     @include transform(translate($main-nav-width, 0));
-    opacity: .5;
+    width: calc(100% - #{$main-nav-width});
   }
 }

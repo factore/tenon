@@ -3,6 +3,9 @@ body {
   overflow-x: hidden;
 }
 
-main, main.container {
-  margin-top: $util-nav-height + $default-spacing;
+main {
+  padding-top: $util-nav-height + $toolbar-height + $default-spacing;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1170px;
 }

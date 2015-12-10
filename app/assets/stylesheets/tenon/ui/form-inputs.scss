@@ -1,4 +1,6 @@
 form {
+  position: relative;
+
   .form-field {
     margin-bottom: $default-spacing;
   }
@@ -11,12 +13,14 @@ form {
   .editable-text,
   select {
     @include default-transition;
+    @include font-size-smaller;
     @include appearance(none);
     width: 100%;
     display: block;
-    border: 1px solid $light-border-color;
-    padding: $default-spacing / 3;
-    height: 44px;
+    border: 0;
+    border-bottom: 1px solid $light-border-color;
+    padding: 0;
+    height: 34px;
     line-height: normal;
     border-radius: 0;
     background: transparent;
@@ -32,19 +36,29 @@ form {
 
   textarea,
   .editable-text {
-    @include font-size-smallest;
-    height: auto;
-    min-height: 44px;
-  }
-
-  label {
     @include font-size-smaller;
-    color: $label-color;
+    height: auto;
+    min-height: 34px;
+    border-left: 1px solid $light-border-color;
+    padding-left: $default-spacing / 2;
   }
 
+  .required {
+    &:after {
+      display: inline-block;
+      margin-left: 5px;
+      border-radius: 50%;
+      width: $dot-size;
+      height: $dot-size;
+      background: $required-color;
+      vertical-align: middle;
+      content: '';
+    }
+  }
   .explanation {
     @include font-size-smallest;
     color: $light-text-color;
+    padding-top: $default-spacing / 4;
   }
 
 }
