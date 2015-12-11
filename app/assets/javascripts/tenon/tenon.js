@@ -30,17 +30,12 @@ var Tenon = {
     new Tenon.features.AssetDetachment();
     new Tenon.features.CocoonHooks();
     new Tenon.features.FocusFirstField();
-    new Tenon.features.MainMenu();
     new Tenon.features.Pagination();
-    new Tenon.features.HamburgerNavigation();
     new Tenon.features.HeaderMenu();
-    new Tenon.features.QuickSearch();
     new Tenon.features.ItemVersionAutosave();
     Tenon.modals = new Tenon.features.ModalWindows();
     new Tenon.features.ModalForms();
     new Tenon.features.ProtectChanges();
-    new Tenon.features.RecordApproval();
-    new Tenon.features.RecordBooleanToggle();
     new Tenon.features.SidebarActiveLinks();
     new Tenon.features.SidebarNavigation();
     new Tenon.features.SortableNestedFields();
@@ -49,8 +44,6 @@ var Tenon = {
     new Tenon.features.GenericClassToggler();
     new Tenon.features.ToggleMainNav();
     new Tenon.features.NavItemToggle();
-
-    Tenon.dispatcher.initialize();
   }
 
 };
