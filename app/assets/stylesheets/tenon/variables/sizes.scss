@@ -1,13 +1,15 @@
 // Block-Level
-$default-spacing: 30px;
-$util-nav-height: 50px;
-$toolbar-height: 70px;
-$main-nav-width: 244px;
+$btn-floating-size: 55px;
 $btn-height: 44px;
 $default-border-radius: 4px;
-$btn-floating-size: 55px;
-$tool-toggle-size: 32px;
+$default-spacing: 30px;
 $dot-size: 6px;
+$dropdown-item-height: 40px;
+$icon-width: $default-spacing / 3 + 22px;
+$main-nav-width: 244px;
+$tool-toggle-size: 32px;
+$toolbar-height: 70px;
+$util-nav-height: 50px;
 
 // Typography
 $h1-size: 44;

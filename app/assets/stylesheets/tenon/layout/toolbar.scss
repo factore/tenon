@@ -8,7 +8,7 @@
   height: $toolbar-height;
   border-bottom: 1px solid $light-border-color;
   background: $body-bg-color;
-  overflow: hidden;
+  overflow: visible;
 
   .breadcrumbs {
     float: left;
@@ -23,14 +23,13 @@
   .actions {
     float: right;
     height: $toolbar-height;
-    // line-height: $toolbar-height;
+    line-height: $toolbar-height;
 
     .action {
       @include font-size($h3-size);
       display: inline-block;
       padding: 0 $default-spacing / 2;
       color: $primary-fg-color;
-      line-height: $toolbar-height;
     }
 
     .btn {
