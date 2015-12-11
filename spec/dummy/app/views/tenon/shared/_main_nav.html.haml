@@ -1,9 +1,8 @@
 %ul
-  = nav_item 'Home', root_path, 'dashboard'
   = nav_item 'Asset Library', assets_path, 'image'
   = nav_item 'Pages', pages_path, 'document'
   = nav_item 'Posts', posts_path, 'document-text', active: ['post_categories'].include?(controller_name) do
-    %li= link_to 'Post Categories', post_categories_path
+    %li= link_to 'Categories', post_categories_path
     %li= link_to 'Comments', comments_path
   = nav_item 'Users', users_path, 'person-stalker'
   = nav_item 'Events', events_path, 'calendar'

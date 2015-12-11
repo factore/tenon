@@ -24,6 +24,7 @@
 @import './ui/breadcrumbs';
 @import './ui/btn';
 @import './ui/btn-floating';
+@import './ui/current-user';
 @import './ui/lists';
 @import './ui/panel';
 @import './ui/typography';
@@ -33,7 +34,8 @@
 // LAYOUT
 @import './layout/header';
 @import './layout/main';
-@import './layout/main-nav';
+@import './layout/main-nav/structure';
+@import './layout/main-nav/links';
 @import './layout/util-nav';
 @import './layout/toolbar';
 @import './layout/record-list';

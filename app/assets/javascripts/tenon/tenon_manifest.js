@@ -45,6 +45,7 @@
 //= require tenon_addons
 
 // -- custom components
+//= require_tree ./components/shared
 //= require_tree ./components/resource-index/components/default
 //= require_tree ./components/resource-index/components/custom
 

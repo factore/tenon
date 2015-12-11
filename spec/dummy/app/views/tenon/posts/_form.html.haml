@@ -1,6 +1,6 @@
 = autosaving_form_for @post do |f|
   .toolbar
-    = render 'tenon/shared/breadcrumbs'
+    = react_component 'Breadcrumbs', breadcrumbs: breadcrumb_links
     .actions
       - if can?(:publish, @post)
         %button.btn.btn-primary.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
