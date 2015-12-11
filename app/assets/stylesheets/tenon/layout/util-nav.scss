@@ -4,6 +4,7 @@
   left: 0;
   right: 0;
   z-index: 998;
+  padding: 0 $default-spacing;
   height: $util-nav-height;
   background-color: $util-nav-bg-color;
   color: $util-nav-fg-color;
@@ -16,17 +17,12 @@
     @include default-transition;
     float: left;
     height: $util-nav-height;
-    padding: 9px 13px;
+    padding: 9px 0;
   }
 
   .brand-logo {
     display: inline-block;
-    margin: 0 auto;
+    margin-left: $default-spacing;
     padding-top: 9px;
   }
-}
-
-.main-nav-open .util-nav .toggle-main-nav,
-.util-nav .toggle-main-nav:hover {
-  background-color: darken($util-nav-bg-color, 10%);
 }

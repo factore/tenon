@@ -3,7 +3,7 @@
   top: $util-nav-height;
   left: 0;
   z-index: 997;
-  padding: 0 $default-spacing / 2;
+  padding: 0 $default-spacing;
   width: 100%;
   height: $toolbar-height;
   border-bottom: 1px solid $light-border-color;
@@ -25,4 +25,8 @@
     height: $toolbar-height;
     line-height: $toolbar-height;
   }
+}
+
+.main-nav-open .toolbar {
+  padding: 0 $default-spacing / 2;
 }

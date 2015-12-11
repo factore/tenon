@@ -48,7 +48,7 @@ var Tenon = {
     new Tenon.features.tenonContent.Base();
     new Tenon.features.GenericClassToggler();
     new Tenon.features.ToggleMainNav();
-
+    new Tenon.features.NavItemToggle();
 
     Tenon.dispatcher.initialize();
   }
