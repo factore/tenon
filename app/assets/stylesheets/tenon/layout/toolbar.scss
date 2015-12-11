@@ -23,9 +23,26 @@
   .actions {
     float: right;
     height: $toolbar-height;
-    line-height: $toolbar-height;
+    // line-height: $toolbar-height;
+
+    .action {
+      @include font-size($h3-size);
+      display: inline-block;
+      padding: 0 $default-spacing / 2;
+      color: $primary-fg-color;
+      line-height: $toolbar-height;
+    }
+
+    .btn {
+      vertical-align: top;
+      margin-top: ($toolbar-height - $btn-height) / 2;
+    }
   }
 }
+
+
+
+
 
 .main-nav-open .toolbar {
   padding: 0 $default-spacing / 2;

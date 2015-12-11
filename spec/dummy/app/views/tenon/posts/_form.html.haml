@@ -5,7 +5,8 @@
       - if can?(:publish, @post)
         %button.btn.btn-primary.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
 
-      %i.icon.ion-android-more-vertical
+      %a.action{ href: '#' }
+        %i.icon.ion-android-more-vertical
       /
         - if can?(:create, Tenon::ItemVersion)
           = save_draft_button(@post)
