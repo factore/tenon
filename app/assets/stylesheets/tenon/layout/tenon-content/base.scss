@@ -85,7 +85,7 @@
       @include default-transition;
       position: relative;
       text-align: right;
-      color: $primary-text-color;
+      color: $primary-fg-color;
 
       i {
         @include default-transition;
@@ -95,7 +95,7 @@
         @include default-transition;
         display: inline-block;
         padding: $default-spacing / 3 0 $default-spacing / 4;
-        color: $primary-text-color;
+        color: $primary-fg-color;
         span {
           position: relative;
           top: -2px;
@@ -125,12 +125,12 @@
   .tn-tc-row:hover {
     &:hover {
       .tn-tc-topbar, .tn-tc-bottombar {
-        color: $primary-text-color;
+        color: $primary-fg-color;
         a {
-          color: $primary-text-color;
+          color: $primary-fg-color;
         }
         i {
-          color: $primary-text-color;
+          color: $primary-fg-color;
         }
       }
     }
@@ -152,7 +152,7 @@
       display: block;
       height: 200px;
       text-align: center;
-      color: $primary-text-color;
+      color: $primary-fg-color;
       border: 4px dashed $light-border-color;
       background: $contrast-bg-color;
     }

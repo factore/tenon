@@ -11,15 +11,18 @@ module Tenon
       form_for(obj, default_opts.merge(opts), &blk)
     end
 
-    def save_draft_button(obj)
+    def save_draft_link(obj)
       path = new_item_version_path(item_type: class_for(obj), item_id: obj.id)
-      css_class = 'btn btn-primary btn-block draft'
+      css_class = 'draft'
       data = {
         'modal-remote' => true,
         'modal-handler' => 'Tenon.features.NewItemVersionHandler',
         'modal-title' => 'Save Draft'
       }
-      link_to 'Save Draft', path, class: css_class, data: data
+      link_to path, class: css_class, data: data do
+        content_tag(:i, '', class: 'icon ion-android-cloud-outline') +
+        'Save Draft'
+      end
     end
 
     def clear_draft_link

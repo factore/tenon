@@ -1,6 +1,5 @@
 // VENDOR
 //= require normalize-rails
-//= require font-awesome
 //= require pickadate/default
 //= require pickadate/default.date
 //= require pickadate/default.time
@@ -24,6 +23,8 @@
 @import './ui/breadcrumbs';
 @import './ui/btn';
 @import './ui/btn-floating';
+@import './ui/current-user';
+@import './ui/dropdown-content';
 @import './ui/lists';
 @import './ui/panel';
 @import './ui/typography';
@@ -33,8 +34,10 @@
 // LAYOUT
 @import './layout/header';
 @import './layout/main';
-@import './layout/main-nav';
+@import './layout/main-nav/structure';
+@import './layout/main-nav/links';
 @import './layout/util-nav';
+@import './layout/toolbar';
 @import './layout/record-list';
 @import './layout/tenon-content/base';
 @import './layout/tenon-content/library';

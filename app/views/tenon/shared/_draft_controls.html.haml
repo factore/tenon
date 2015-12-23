@@ -1,0 +1,18 @@
+%li.label.last-autosave Draft Versions
+%li
+  = link_to new_item_version_path(item_type: class_for(obj), item_id: obj.id), data: { modal_remote: true, modal_handler: 'Tenon.features.NewItemVersionHandler', modal_title: 'Save Draft' } do
+    %i.icon.ion-ios-cloud-upload
+    Safe Draft
+
+%li
+  = link_to item_versions_path(item_type: obj.class.to_s, item_id: obj.id), data: { modal_remote: true, modal_handler: 'Tenon.features.ItemVersionIndexHandler', modal_title: 'Load Draft' } do
+    %i.icon.ion-ios-cloud-download
+    Load Draft
+
+- if params[:version]
+  %li
+    %a{ href: url_for(version: nil) }
+      %i.icon.ion-ios-star
+      Load Active Version
+%li.divider
+

@@ -1,14 +1,23 @@
 .btn {
   @include default-transition;
   @include z-depth-1;
+  @include font-size-smaller;
   display: inline-block;
+  position: relative;
   border-radius: $default-border-radius;
   border: 0;
-  padding: $default-spacing / 3 $default-spacing;
+  padding: 0 $default-spacing;
+  height: $btn-height;
+  line-height: $btn-height;
   text-align: center;
-  position: relative;
+  text-transform: uppercase;
   color: $button-primary-fg-color;
   background: $button-primary-bg-color;
+
+  &.btn-flat,
+  &.btn-flat:hover {
+    @include z-depth-0;
+  }
 
   &.btn-comp {
     background: $button-comp-bg-color;

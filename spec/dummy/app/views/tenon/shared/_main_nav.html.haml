@@ -1,12 +1,12 @@
 %ul
-  = nav_item 'Home', root_path, 'dashboard'
-  = nav_item 'Asset Library', assets_path, 'picture-o'
-  = nav_item 'Comments', comments_path, 'comment'
-  = nav_item 'Pages', pages_path, 'file'
-  = nav_item 'Posts', posts_path, 'file-text', active: ['post_categories'].include?(controller_name)
-  = nav_item 'Users', users_path, 'user'
+  = nav_item 'Asset Library', assets_path, 'image'
+  = nav_item 'Pages', pages_path, 'ios-paper'
+  = nav_item 'Posts', posts_path, 'ios-paper-outline', active: ['post_categories'].include?(controller_name) do
+    %li= link_to 'Categories', post_categories_path
+    %li= link_to 'Comments', comments_path
+  = nav_item 'Users', users_path, 'person-stalker'
   = nav_item 'Events', events_path, 'calendar'
-  = nav_item 'Galleries', galleries_path, 'th'
-  = nav_item 'Contacts', contacts_path, 'envelope'
-  = nav_item 'Redirects', redirects_path, 'exchange'
-  = nav_item 'Settings', settings_path, 'gear'
+  = nav_item 'Galleries', galleries_path, 'images'
+  = nav_item 'Contacts', contacts_path, 'email'
+  = nav_item 'Redirects', redirects_path, 'arrow-swap'
+  = nav_item 'Settings', settings_path, 'gear-a'

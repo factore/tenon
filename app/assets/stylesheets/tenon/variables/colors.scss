@@ -5,15 +5,16 @@ $light-grey: #d9d9d9;
 $med-grey: #c2c2c2;
 $grey: #ababab;
 $dark-grey: #878787;
-$slate: #333;
-$black: #333;
+$slate: #777;
+$black: #555;
 $white: #fff;
-$off-white: #f9f9f9;
+$off-white: #efefef;
 $cobalt: #12111a;
 $orange: #ff6f39;
-$blue: #199eff;
+$blue: #36a0e0;
 $blue-alt: #0177ca;
 $green: #0aff90;
+$red: #d0021b;
 
 // Reusable colors
 $client-color: $orange;
@@ -22,17 +23,23 @@ $comp-color: $orange;
 $highlight-color: $med-grey;
 
 // Text colors
-$primary-text-color: $slate;
-$light-text-color: $dark-grey;
-$body-text-color: $black;
+$primary-fg-color: $slate;
+$light-fg-color: $dark-grey;
+$body-fg-color: $black;
 $link-color: $primary-color;
-$label-color: #162433;
+$label-color: $slate;
 
 // Misc.
-$body-bg-color: $light-grey;
+$body-bg-color: $off-white;
 $panel-bg-color: $white;
 $contrast-bg-color: $grey;
 $light-border-color: $med-grey;
+$required-color: $red;
+
+// Dropdown
+$dropdown-bg-color: $white;
+$dropdown-hover-bg-color: $off-white;
+$dropdown-fg-color: $light-fg-color;
 
 // Sidebar
 $sidebar-bg-color: #242133;
@@ -50,7 +57,7 @@ $tool-toggle-fg-color: $white;
 
 // Main Nav
 $main-nav-bg-color: $light-grey;
-$main-nav-fg-color: $primary-text-color;
+$main-nav-fg-color: $black;
 
 // Util Nav
 $util-nav-bg-color: $primary-color;

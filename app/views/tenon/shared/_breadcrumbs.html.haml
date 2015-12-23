@@ -1,5 +1,1 @@
-%ul.breadcrumbs
-  - breadcrumb_links.each do |link|
-    %li<
-      = link_to_if link != breadcrumb_links.last, link[:title], link[:path]
-  .spacer
+= react_component 'Breadcrumbs', breadcrumbs: breadcrumb_links

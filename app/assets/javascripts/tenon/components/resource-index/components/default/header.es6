@@ -11,7 +11,8 @@ class DefaultHeader extends React.Component {
     const { QuickSearch } = this.props.childComponents;
 
     return(
-      <header>
+      <div className='toolbar'>
+        <Breadcrumbs breadcrumbs={this.props.breadcrumbs} />
         <div className="spacer"></div>
 
         <div className="toolbox">
@@ -19,7 +20,7 @@ class DefaultHeader extends React.Component {
             searchAction={this.props.actions.quickSearchRecords}
             searchClass={searchClass} />
         </div>
-      </header>
+      </div>
     )
   }
 

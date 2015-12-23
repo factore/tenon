@@ -1,7 +1,7 @@
 .form-field
-  = f.label method_name, opts[:label]
+  = f.label method_name, opts[:label], opts[:required]
+
+  = yield
 
   - if opts[:explanation].present?
     .explanation= raw opts[:explanation]
-
-  = yield

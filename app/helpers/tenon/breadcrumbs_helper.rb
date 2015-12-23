@@ -1,7 +1,7 @@
 module Tenon
   module BreadcrumbsHelper
     def breadcrumb_links
-      links = [make_link('Tenon', root_path)]
+      links = []
       if controller_name != 'index'
         path = polymorphic_path(controller_name)
         links << make_link(controller_name.titleize, path)

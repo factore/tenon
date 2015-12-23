@@ -1,9 +1,5 @@
 .breadcrumbs {
-  width: 100%;
-  margin-bottom: $default-spacing / 2;
   li {
-    @include font-size-smallest;
-    text-transform: uppercase;
     display: block;
     float: left;
 
