@@ -1,15 +1,8 @@
 .panel {
   @include z-depth-1;
   position: relative;
+  overflow: hidden;
   background-color: $panel-bg-color;
-  padding: $default-spacing;
-  margin-bottom: $default-spacing;
-
-  .btn-floating {
-    position: absolute;
-    right: $default-spacing;
-    top: -$btn-floating-size / 2;
-  }
 
   &.with-btn-floating {
     top: $btn-floating-size / 2;
@@ -18,4 +11,19 @@
   label, .label {
     color: $light-fg-color;
   }
+
+  &.block {
+    margin-bottom: $default-spacing;
+    padding: $default-spacing/2 $default-spacing;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.btn-floating {
+  position: absolute;
+  right: $default-spacing;
+  bottom: $default-spacing;
 }

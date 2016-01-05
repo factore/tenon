@@ -4,12 +4,13 @@
     float: left;
 
     &:after {
-      display: inline-block;
+      @extend .ion;
       position: relative;
       top: -1px;
+      display: inline-block;
       padding: 0 $default-spacing / 3;
+      content: $ionicon-var-ios-arrow-forward;
       color: $dark-grey;
-      content: '>';
     }
 
     &:last-of-type:after {

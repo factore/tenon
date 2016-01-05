@@ -1,0 +1,62 @@
+.panel.record {
+  @include default-transition;
+  width: 100%;
+  margin-bottom: 1px;
+  padding: $default-spacing*1.2 $default-spacing $default-spacing/2;
+  opacity: .8;
+  &:hover {
+    @include z-depth-1;
+    opacity: 1;
+    .actions {
+      opacity: 1;
+    }
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  p {
+    margin: 0;
+    &.title a {
+      color: $body-fg-color;
+    }
+    &.detail {
+      @include font-size-smallest;
+    }
+  }
+
+  .actions {
+    @include default-transition;
+    position: absolute;
+    top: $default-spacing/6;
+    right: 0;
+    left: 0;
+    padding: 0 $default-spacing/3;
+    text-align: right;
+    background-color: $panel-bg-color;
+    a {
+      display: inline-block;
+      padding: 0 $default-spacing/3;
+      color: $primary-fg-color;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+@include bp-md {
+  .panel.record {
+    padding-top: $default-spacing/2;
+    .actions {
+      @include transform-style(preserve-3d);
+      bottom: 0;
+      left: auto;
+      opacity: 0;
+      a {
+        @include vertical-align;
+      }
+    }
+  }
+}

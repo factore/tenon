@@ -3,45 +3,46 @@
 //= require pickadate/default
 //= require pickadate/default.date
 //= require pickadate/default.time
-@import 'bourbon';
-@import './grid';
-@import 'ionicons';
+@import "bourbon";
+@import "./grid";
+@import "ionicons";
 
 // VARIABLES
-@import 'variables/colors';
-@import 'variables/sizes';
+@import "variables/colors";
+@import "variables/sizes";
 
 // HELPERS
-@import './helpers/alignment';
-@import './helpers/font-size';
-@import './helpers/fonts';
-@import './helpers/transitions';
-@import './helpers/z-depth';
+@import "./helpers/alignment";
+@import "./helpers/font-size";
+@import "./helpers/fonts";
+@import "./helpers/transitions";
+@import "./helpers/z-depth";
 
 // UI ELEMENTS
-@import './ui/burger';
-@import './ui/breadcrumbs';
-@import './ui/btn';
-@import './ui/btn-floating';
-@import './ui/current-user';
-@import './ui/dropdown-content';
-@import './ui/lists';
-@import './ui/panel';
-@import './ui/typography';
-@import './ui/tool-toggles';
-@import './ui/form-inputs';
+@import "./ui/burger";
+@import "./ui/breadcrumbs";
+@import "./ui/btn";
+@import "./ui/btn-floating";
+@import "./ui/current-user";
+@import "./ui/dropdown-content";
+@import "./ui/lists";
+@import "./ui/panel";
+@import "./ui/typography";
+@import "./ui/tool-toggles";
+@import "./ui/form-inputs";
 
 // LAYOUT
-@import './layout/header';
-@import './layout/main';
-@import './layout/main-nav/structure';
-@import './layout/main-nav/links';
-@import './layout/util-nav';
-@import './layout/toolbar';
-@import './layout/record-list';
-@import './layout/tenon-content/base';
-@import './layout/tenon-content/library';
-@import './layout/tenon-content/embed-code';
+@import "./layout/header";
+@import "./layout/main";
+@import "./layout/main-nav/structure";
+@import "./layout/main-nav/links";
+@import "./layout/util-nav";
+@import "./layout/toolbar";
+@import "./layout/record-list";
+@import "./layout/record-panel";
+@import "./layout/tenon-content/base";
+@import "./layout/tenon-content/library";
+@import "./layout/tenon-content/embed-code";
 //@import './layout/tenon-content/popped-out';
 
 body, html {

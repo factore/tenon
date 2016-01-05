@@ -22,13 +22,13 @@
     = error_messages_for :post
 
     .label Write This Post
-    .panel
+    .panel.block
       = f.text_field :title, required: true
       = f.rich_text :excerpt
       = f.tenon_content :content
 
     .label Publication Details
-    .panel
+    .panel.block
       - unless @categories.blank?
         = f.select :post_category_ids, @categories.map { |c| [c.title, c.id] }, { label: 'Categories' }, { multiple: true }
 
