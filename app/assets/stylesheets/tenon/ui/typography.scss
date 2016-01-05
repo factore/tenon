@@ -3,9 +3,9 @@
 html,
 body {
   @include font-sans-n4;
-  color: $primary-fg-color;
   font-size: $default-font-size * 1px; // required for rem
-  line-height: 30px;
+  line-height: $default-spacing;
+  color: $primary-fg-color;
 }
 
 // Links
@@ -13,7 +13,9 @@ body {
 a {
   text-decoration: none;
   color: $link-color;
-  &:hover { text-decoration: underline; }
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 // Default typography
@@ -72,9 +74,9 @@ h6,
 }
 
 blockquote {
-  border-bottom: 1px solid;
-  border-top: 1px solid;
   padding: $default-spacing;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
 }
 
 small {

@@ -5,14 +5,14 @@
   left: 0;
   overflow: visible;
   width: 100%;
-  height: $toolbar-height;
-  padding: 0 $default-spacing;
+  min-height: $toolbar-height;
   border-bottom: 1px solid $light-border-color;
-  background: $body-bg-color;
+  background-color: $body-bg-color;
 
   .breadcrumbs {
-    float: left;
+    display: block;
     height: $toolbar-height;
+    padding: 0 $default-spacing;
     li {
       line-height: $toolbar-height;
       overflow: hidden;
@@ -25,7 +25,9 @@
 
   .actions {
     line-height: $toolbar-height;
-    float: right;
+    position: absolute;
+    top: 0;
+    right: $default-spacing/3;
     height: $toolbar-height;
 
     .action {
@@ -40,12 +42,4 @@
       vertical-align: top;
     }
   }
-}
-
-
-
-
-
-.main-nav-open .toolbar {
-  padding: 0 $default-spacing / 2;
 }

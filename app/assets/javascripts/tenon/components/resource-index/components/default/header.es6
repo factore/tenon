@@ -13,14 +13,38 @@ class DefaultHeader extends React.Component {
     return(
       <div className='toolbar'>
         <Breadcrumbs breadcrumbs={this.props.breadcrumbs} />
-        <div className="spacer"></div>
 
-        <div className="toolbox">
+        <div className='actions'>
           <QuickSearch
-            searchAction={this.props.actions.quickSearchRecords}
-            searchClass={searchClass} />
+          searchAction={this.props.actions.quickSearchRecords}
+          searchClass={searchClass} />
+
+          <a className="action dropdown-button" href="#!" data-activates='toolbox-dropdown'>
+            <i className="icon ion-android-options"></i>
+          </a>
+
+          <a className="action dropdown-button" href="#!" data-activates='toolbar-dropdown'>
+            <i className="icon ion-android-more-vertical"></i>
+          </a>
+
+          <ul className="dropdown-content" id="toolbar-dropdown">
+            <li>
+              <a href="#!">
+              <i className="icon ion-ios-game-controller-a-outline"></i>
+              Click
+              </a>
+            </li>
+            <li>
+              <a href="#!">
+              <i className="icon ion-ios-analytics"></i>
+              Another link
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
+
+
     )
   }
 

@@ -10,9 +10,15 @@ class DefaultList extends React.Component {
 
     return (
       <main>
+        <div className="toolbox">
+          <p>Possible advanced search toolbox location?</p>
+        </div>
+        <div className="spacer"></div>
+
         <a className="btn-floating" href={this.props.newPath}>
           <i className="icon ion-android-add"></i>
         </a>
+
         <div className="record-list with-btn-floating">
           <ul className="">
             <ReactCSSTransitionGroup transitionName="record" transitionEnterTimeout={250} transitionLeaveTimeout={250} >

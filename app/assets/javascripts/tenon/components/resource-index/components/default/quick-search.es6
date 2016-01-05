@@ -17,16 +17,12 @@ class DefaultQuickSearch extends React.Component {
 
     return (
       <div id="quick-search-container" className={searchClass}>
-        <ul>
-          <li>
-            <input
-              type="text"
-              ref='searchInput'
-              onChange={(e) => this._handleChange(e)}
-              className="search"
-              placeholder="SEARCH" />
-          </li>
-        </ul>
+        <input
+          type="text"
+          ref='searchInput'
+          onChange={(e) => this._handleChange(e)}
+          className="search"
+          placeholder="Quick search" />
       </div>
     )
   }

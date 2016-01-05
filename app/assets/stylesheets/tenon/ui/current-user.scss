@@ -1,7 +1,6 @@
 .current-user {
-  padding: 0 $default-spacing;
-  height: $toolbar-height;
   line-height: $toolbar-height;
-  background: darken($body-bg-color, 5%);
-  box-shadow: inset -4px 1px 9px -6px rgba(0, 0, 0, 0.46);
+  height: $toolbar-height;
+  padding: 0 $default-spacing;
+  background: rgba(darken($body-bg-color, 10%), .6);
 }
