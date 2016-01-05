@@ -12,6 +12,8 @@ class DefaultList extends React.Component {
       <main>
         <div className="toolbox">
           <p>Possible advanced search toolbox location?</p>
+          <h6>Using margin-top you can slide this div up underneath the toolbar
+          and the content below will follow.</h6>
         </div>
         <div className="spacer"></div>
 

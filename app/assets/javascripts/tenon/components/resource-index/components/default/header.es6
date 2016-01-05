@@ -19,11 +19,11 @@ class DefaultHeader extends React.Component {
           searchAction={this.props.actions.quickSearchRecords}
           searchClass={searchClass} />
 
-          <a className="action dropdown-button" href="#!" data-activates='toolbox-dropdown'>
+          <a className="action dropdown-button" href="#!" data-activates='toolbox-dropdown' title="Toolbox toggle">
             <i className="icon ion-android-options"></i>
           </a>
 
-          <a className="action dropdown-button" href="#!" data-activates='toolbar-dropdown'>
+          <a className="action dropdown-button" href="#!" data-activates='toolbar-dropdown' title="Links!">
             <i className="icon ion-android-more-vertical"></i>
           </a>
 

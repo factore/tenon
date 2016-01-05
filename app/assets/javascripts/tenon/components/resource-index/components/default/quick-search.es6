@@ -22,7 +22,8 @@ class DefaultQuickSearch extends React.Component {
           ref='searchInput'
           onChange={(e) => this._handleChange(e)}
           className="search"
-          placeholder="Quick search" />
+          placeholder="Quick search"
+          title="Quick search" />
       </div>
     )
   }

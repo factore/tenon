@@ -12,6 +12,11 @@
     }
   }
 
+  &.is-selected {
+    width: 104%;
+    margin: 30px -2%;
+  }
+
   p {
     margin: 0;
     &.title a {
