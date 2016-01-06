@@ -44,6 +44,29 @@ var Tenon = {
     new Tenon.features.GenericClassToggler();
     new Tenon.features.ToggleMainNav();
     new Tenon.features.NavItemToggle();
+
+    // TODO: click hacked - should probably be moved.
+    $(document).on('click', '.panel.record', function (e) {
+      $target = $(e.currentTarget);
+
+      if ($target.hasClass('is-expanded')) {
+
+        $target
+          .removeClass('is-expanded')
+          .find('.record-expanded')
+            .slideUp(300);
+      } else {
+        $('.panel.record')
+          .removeClass('is-expanded')
+          .find('.record-expanded')
+            .slideUp(300);
+        $target
+          .addClass('is-expanded')
+          .find('.record-expanded')
+            .slideDown(300);
+      }
+    });
+
   }
 
 };

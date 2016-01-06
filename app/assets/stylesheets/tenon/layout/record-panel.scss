@@ -3,37 +3,45 @@
   width: 100%;
   margin-bottom: 1px;
   padding: $default-spacing*1.2 $default-spacing $default-spacing/2;
+  cursor: pointer;
   opacity: .8;
   &:hover {
     @include z-depth-1;
     opacity: 1;
-    .actions {
-      opacity: 1;
+    .record-details .actions {
+      opacity: .9;
     }
   }
-
-  &.is-selected {
+  &.is-expanded {
     width: 104%;
-    margin: 30px -2%;
+    margin: $default-spacing/3 -2%;
   }
+}
 
+.record-details {
+  position: relative;
   p {
     margin: 0;
-    &.title a {
-      color: $body-fg-color;
+    &.title {
+      overflow: hidden;
+      width: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      a {
+        color: $body-fg-color;
+      }
     }
     &.detail {
       @include font-size-smallest;
     }
   }
-
   .actions {
     @include default-transition;
     position: absolute;
     top: $default-spacing/6;
     right: 0;
     left: 0;
-    padding: 0 $default-spacing/3;
+    padding-left: $default-spacing/2;
     text-align: right;
     background-color: $panel-bg-color;
     a {
@@ -47,10 +55,33 @@
   }
 }
 
+.record-expanded {
+  display: none;
+  padding-top: $default-spacing/3;
+  p {
+    &.title {
+      margin-bottom: 0;
+      color: $primary-color;
+    }
+    &.notes {
+      @include font-size-smallest;
+    }
+  }
+  .actions {
+    border-top: 1px solid $off-white;
+    a {
+      @include font-size-smaller;
+      line-height: $default-spacing*2;
+      margin-right: $default-spacing;
+      text-transform: uppercase;
+    }
+  }
+}
+
 @include bp-md {
   .panel.record {
     padding-top: $default-spacing/2;
-    .actions {
+    .record-details .actions {
       @include transform-style(preserve-3d);
       bottom: 0;
       left: auto;
