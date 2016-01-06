@@ -21,6 +21,26 @@
       = render 'tenon/shared/main_nav'
     = render 'tenon/shared/util_nav'
     .nav-pusher
-      = yield
       = flash_messages
+      = yield
       = render 'tenon/shared/version_warning' if @item_version
+
+      -# %w( black white grey primary secondary accent).each do |color|
+        .row
+          .left #{color}:
+          .left{style: 'height:30px;width:100px;', class: "bgcolor-#{color}"}
+        .row
+          .left Lighten:
+          .left{style: 'height:30px; padding:0 10px;', class: "bgcolor-#{color}-lt10"} lt10
+          .left{style: 'height:30px; padding:0 10px;', class: "bgcolor-#{color}-lt20"} lt20
+          .left{style: 'height:30px; padding:0 10px;', class: "bgcolor-#{color}-lt30"} lt30
+          .left{style: 'height:30px; padding:0 10px;', class: "bgcolor-#{color}-lt40"} lt40
+          .left{style: 'height:30px; padding:0 10px;', class: "bgcolor-#{color}-lt50"} lt50
+        .row
+          .left Darken:
+          .left{style: 'height:30px; padding:0 10px;', class: "bgcolor-#{color}-dk10"} dk10
+          .left{style: 'height:30px; padding:0 10px;', class: "bgcolor-#{color}-dk20"} dk20
+          .left{style: 'height:30px; padding:0 10px;', class: "bgcolor-#{color}-dk30"} dk30
+          .left{style: 'height:30px; padding:0 10px;', class: "bgcolor-#{color}-dk40"} dk40
+          .left{style: 'height:30px; padding:0 10px;', class: "bgcolor-#{color}-dk50"} dk50
+        %br/

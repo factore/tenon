@@ -1,0 +1,19 @@
+// Named colors
+$black: #555555;
+$grey: #ababab;
+$white: #ffffff;
+$primary-color: #36a0e0;
+$secondary-color: #ff6f39;
+$accent-color: #0aff90;
+
+@include generate_color_helpers("black", $black);
+@include generate_color_helpers("grey", $grey);
+@include generate_color_helpers("white", $white);
+@include generate_color_helpers("primary", $primary-color);
+@include generate_color_helpers("secondary", $secondary-color);
+@include generate_color_helpers("accent", $accent-color);
+$required-color: #d0021b;
+$alert-color: #d0021b;
+$error-color: #d0021b;
+$success-color: #d0021b;
+$warning-color: #d0021b;

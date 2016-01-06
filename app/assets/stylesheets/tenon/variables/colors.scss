@@ -1,101 +1,53 @@
 // Use American 'color' in variable names for consistency with CSS keywords.
-
-// Helper class generator
-@mixin generate_color_helpers($name, $color) {
-  .color-#{$name} {
-    color: $color;
-  }
-  .bg-#{$name} {
-    color: $color;
-  }
-  @for $i from 1 through 10 {
-    .color-#{$name}-light#{$i*10} {
-      color: lighten($color, $i*10%);
-    }
-    .color-#{$name}-dark#{$i*10} {
-      color: darken($color, $i*10%);
-    }
-    .bg-#{$name}#{$i*10} {
-      background-color: rgba($color, $i/10) !important;
-    }
-  }
-}
-
-// Named colors
-$light-grey: #d9d9d9;
-$med-grey: #c2c2c2;
-$grey: #ababab;
-$dark-grey: #878787;
-$slate: #777777;
-$black: #555555;
-$white: #ffffff;
-$off-white: #efefef;
-$cobalt: #12111a;
-$orange: #ff6f39;
-$blue: #36a0e0;
-$blue-alt: #0177ca;
-$green: #0aff90;
-$red: #d0021b;
-
-// Reusable colors
-$client-color: $orange;
-$primary-color: $blue;
-$comp-color: $orange;
-$highlight-color: $med-grey;
-
-@include generate_color_helpers('client', $client-color);
-@include generate_color_helpers('primary', $primary-color);
-@include generate_color_helpers('comp', $comp-color);
-@include generate_color_helpers('highlight', $highlight-color);
+@import "./colors/generator";
+@import "./colors/named";
 
 // Text colors
-$primary-fg-color: $slate;
-$light-fg-color: $dark-grey;
+$primary-fg-color: darken($grey, 25);
+$light-fg-color: darken($grey, 20);
 $body-fg-color: $black;
 $link-color: $primary-color;
 
-@include generate_color_helpers('primary-fg', $primary-fg-color);
-@include generate_color_helpers('light-fg', $light-fg-color);
-@include generate_color_helpers('body-fg', $body-fg-color);
-@include generate_color_helpers('link', $link-color);
-
 // Form colors
-$label-color: $slate;
-$panel-label-color: $med-grey;
-$placeholder-color: $med-grey;
+$label-color: darken($grey, 40);
+$panel-label-color: lighten($grey, 10);
+$placeholder-color: darken($grey, 10);
 $explanation-color: $grey;
 
 // Misc.
-$body-bg-color: $off-white;
+$body-bg-color: lighten($grey, 25);
 $panel-bg-color: $white;
 $contrast-bg-color: $grey;
-$light-border-color: $med-grey;
-$required-color: $red;
+$light-border-color: lighten($grey, 10);
+$required-color: $required-color;
 
 // Dropdown
 $dropdown-bg-color: $white;
-$dropdown-hover-bg-color: $off-white;
-$dropdown-fg-color: $light-fg-color;
+$dropdown-hover-bg-color: lighten($grey, 30);
+$dropdown-fg-color: darken($grey, 20);
 
-// Sidebar
-$sidebar-bg-color: #242133;
-$sidebar-highlight: #3a3848;
+// // Sidebar
+// $sidebar-bg-color: #242133;
+// $sidebar-highlight: #3a3848;
 
 // Buttons
 $button-primary-bg-color: $primary-color;
 $button-primary-fg-color: $white;
-$button-comp-bg-color: $comp-color;
+$button-comp-bg-color: $secondary-color;
 $button-comp-fg-color: $white;
-$btn-floating-bg-color: $orange;
+$btn-floating-bg-color: $secondary-color;
 $btn-floating-fg-color: $white;
-$tool-toggle-bg-color: $blue-alt;
+$tool-toggle-bg-color: darken($primary-color, 10%);
 $tool-toggle-fg-color: $white;
 
 // Main Nav
-$main-nav-bg-color: $light-grey;
+$main-nav-bg-color: lighten($grey, 10);
 $main-nav-fg-color: $black;
 $main-nav-hover-color: $grey;
 
 // Util Nav
 $util-nav-bg-color: $primary-color;
 $util-nav-fg-color: $white;
+
+// Records
+$infinite-loader-color: darken($grey, 20%);

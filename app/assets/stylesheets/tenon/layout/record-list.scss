@@ -1,12 +1,11 @@
 .record-list {
 }
 
-
 .infinite-loader {
   @include font-size-h3;
   display: none;
   text-align: center;
-  color: $dark-grey;
+  color: $infinite-loader-color;
 
   &.visible {
     display: block;

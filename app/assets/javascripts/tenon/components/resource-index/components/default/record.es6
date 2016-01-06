@@ -4,12 +4,14 @@ class DefaultRecord extends React.Component {
     return (
       <li className="panel record">
         <div className="record-details">
-          <p className="title expand-record">
-            {title}
-          </p>
-          <p className="font-smallest expand-record">
-            Posted on a Monday
-          </p>
+          <div className="expand-record">
+            <p className="title expand-record">
+              {title}
+            </p>
+            <p className="font-smallest expand-record">
+              Posted on a Monday
+            </p>
+          </div>
 
           <div className="actions">
             <a href={edit_path} title="Edit">
