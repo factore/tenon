@@ -4,10 +4,10 @@ class DefaultRecord extends React.Component {
     return (
       <li className="panel record">
         <div className="record-details">
-          <p className="title">
+          <p className="title expand-record">
             {title}
           </p>
-          <p className="detail">
+          <p className="txt-smallest expand-record">
             Posted on a Monday
           </p>
 
@@ -40,11 +40,11 @@ class DefaultRecord extends React.Component {
           </div>
         </div>
         <div className="record-expanded">
-          <p className="title">
+          <p className="txt-primary">
             This is another title about things
           </p>
-          <p className="notes">
-            Notes:
+          <p className="font-smallest">
+            <label className="txt-light-fg">Notes:</label>
             <br/>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>

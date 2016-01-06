@@ -3,7 +3,6 @@
   width: 100%;
   margin-bottom: 1px;
   padding: $default-spacing*1.2 $default-spacing $default-spacing/2;
-  cursor: pointer;
   opacity: .8;
   &:hover {
     @include z-depth-1;
@@ -16,6 +15,10 @@
     width: 104%;
     margin: $default-spacing/3 -2%;
   }
+
+  .expand-record {
+    cursor: pointer;
+  }
 }
 
 .record-details {
@@ -23,21 +26,14 @@
   p {
     margin: 0;
     &.title {
-      overflow: hidden;
-      width: 100%;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      a {
-        color: $body-fg-color;
-      }
-    }
-    &.detail {
-      @include font-size-smallest;
+      @include truncate;
+      color: $body-fg-color;
     }
   }
   .actions {
     @include default-transition;
     position: absolute;
+    z-index: 10;
     top: $default-spacing/6;
     right: 0;
     left: 0;
@@ -58,15 +54,6 @@
 .record-expanded {
   display: none;
   padding-top: $default-spacing/3;
-  p {
-    &.title {
-      margin-bottom: 0;
-      color: $primary-color;
-    }
-    &.notes {
-      @include font-size-smallest;
-    }
-  }
   .actions {
     border-top: 1px solid $off-white;
     a {

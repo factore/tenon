@@ -46,8 +46,8 @@ var Tenon = {
     new Tenon.features.NavItemToggle();
 
     // TODO: click hacked - should probably be moved.
-    $(document).on('click', '.panel.record', function (e) {
-      $target = $(e.currentTarget);
+    $(document).on('click', '.panel.record .expand-record', function (e) {
+      $target = $(e.currentTarget).closest('.panel.record');
 
       if ($target.hasClass('is-expanded')) {
 

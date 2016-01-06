@@ -42,6 +42,9 @@ $default-font-size: 18;
 @mixin font-size-p {
   @include font($default-font-size, 30);
 }
+@mixin font-size-small {
+  @include font($small-size, $small-line-height);
+}
 @mixin font-size-smaller {
   @include font($smaller-size, $smaller-line-height);
 }

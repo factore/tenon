@@ -73,6 +73,18 @@ h6,
   @include font-size-h6;
 }
 
+.font-small {
+  @include font-size-small;
+}
+
+.font-smaller {
+  @include font-size-smaller;
+}
+
+.font-smallest {
+  @include font-size-smallest;
+}
+
 blockquote {
   padding: $default-spacing;
   border-top: 1px solid;

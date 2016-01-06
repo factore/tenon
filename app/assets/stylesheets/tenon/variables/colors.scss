@@ -1,13 +1,34 @@
 // Use American 'color' in variable names for consistency with CSS keywords.
 
+// Helper class generator
+@mixin generate_color_helpers($name, $color) {
+  .txt-#{$name} {
+    color: $color;
+  }
+  .bg-#{$name} {
+    color: $color;
+  }
+  @for $i from 1 through 10 {
+    .txt-#{$name}-light#{$i*10} {
+      color: lighten($color, $i*10%);
+    }
+    .txt-#{$name}-dark#{$i*10} {
+      color: darken($color, $i*10%);
+    }
+    .bg-#{$name}#{$i*10} {
+      background-color: rgba($color, $i/10) !important;
+    }
+  }
+}
+
 // Named colors
 $light-grey: #d9d9d9;
 $med-grey: #c2c2c2;
 $grey: #ababab;
 $dark-grey: #878787;
-$slate: #777;
-$black: #555;
-$white: #fff;
+$slate: #777777;
+$black: #555555;
+$white: #ffffff;
 $off-white: #efefef;
 $cobalt: #12111a;
 $orange: #ff6f39;
@@ -22,12 +43,23 @@ $primary-color: $blue;
 $comp-color: $orange;
 $highlight-color: $med-grey;
 
+@include generate_color_helpers('client', $client-color);
+@include generate_color_helpers('primary', $primary-color);
+@include generate_color_helpers('comp', $comp-color);
+@include generate_color_helpers('highlight', $highlight-color);
+
 // Text colors
 $primary-fg-color: $slate;
 $light-fg-color: $dark-grey;
 $body-fg-color: $black;
 $link-color: $primary-color;
 $label-color: $slate;
+
+@include generate_color_helpers('primary-fg', $primary-fg-color);
+@include generate_color_helpers('light-fg', $light-fg-color);
+@include generate_color_helpers('body-fg', $body-fg-color);
+@include generate_color_helpers('link', $link-color);
+@include generate_color_helpers('label', $label-color);
 
 // Misc.
 $body-bg-color: $off-white;
