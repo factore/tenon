@@ -2,7 +2,7 @@
   @include default-transition;
   width: 100%;
   margin-bottom: 1px;
-  padding: $default-spacing*1.2 $default-spacing $default-spacing/2;
+  padding: $default-spacing/2 $default-spacing;
   opacity: .8;
   &:hover {
     @include z-depth-1;
@@ -32,11 +32,6 @@
   }
   .actions {
     @include default-transition;
-    position: absolute;
-    z-index: 10;
-    top: $default-spacing/6;
-    right: 0;
-    left: 0;
     padding-left: $default-spacing/2;
     text-align: right;
     background-color: $panel-bg-color;
@@ -67,11 +62,13 @@
 
 @include bp-md {
   .panel.record {
-    padding-top: $default-spacing/2;
     .record-details .actions {
       @include transform-style(preserve-3d);
+      position: absolute;
+      z-index: 10;
+      top: $default-spacing/6;
+      right: 0;
       bottom: 0;
-      left: auto;
       opacity: 0;
       a {
         @include vertical-align;

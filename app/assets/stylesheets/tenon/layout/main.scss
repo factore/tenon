@@ -6,6 +6,12 @@ body {
 main {
   width: 90%;
   max-width: 1170px;
-  margin: 0 auto;
+  margin: 0 auto $default-spacing*2;
   padding-top: $util-nav-height + $toolbar-height;
+
+  .btn-floating {
+    position: fixed;
+    right: $default-spacing;
+    bottom: $default-spacing;
+  }
 }
