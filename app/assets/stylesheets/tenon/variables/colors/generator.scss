@@ -1,5 +1,11 @@
 // Helper class generator
 @mixin generate_color_helpers($name, $color) {
+  @include generate_base_color_helpers($name, $color);
+  @include generate_opacity_color_helpers($name, $color);
+  @include generate_gradient_color_helpers($name, $color);
+}
+
+@mixin generate_base_color_helpers($name, $color) {
   // base colors:
   .color-#{$name} {
     color: $color;
@@ -7,13 +13,9 @@
   .bgcolor-#{$name} {
     background-color: $color;
   }
-
-  // color helpers:
-  @include generate_opacity_helpers($name, $color);
-  @include generate_gradient_helpers($name, $color);
 }
 
-@mixin generate_opacity_helpers($name, $color) {
+@mixin generate_opacity_color_helpers($name, $color) {
   // opacities:
   @for $i from 1 through 10 {
     .color-#{$name}-o#{$i*10} {
@@ -25,7 +27,7 @@
   }
 }
 
-@mixin generate_gradient_helpers($name, $color) {
+@mixin generate_gradient_color_helpers($name, $color) {
   // lighten and darken:
   @for $i from 1 through 5 {
     .color-#{$name}-lt#{$i*10} {

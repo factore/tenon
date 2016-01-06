@@ -8,6 +8,11 @@ $light-fg-color: darken($grey, 20);
 $body-fg-color: $black;
 $link-color: $primary-color;
 
+@include generate_base_color_helpers("primary-fg", $primary-fg-color);
+@include generate_base_color_helpers("light-fg", $light-fg-color);
+@include generate_base_color_helpers("body-fg", $body-fg-color);
+@include generate_base_color_helpers("link", $link-color);
+
 // Form colors
 $label-color: darken($grey, 40);
 $panel-label-color: lighten($grey, 10);
@@ -25,10 +30,6 @@ $required-color: $required-color;
 $dropdown-bg-color: $white;
 $dropdown-hover-bg-color: lighten($grey, 30);
 $dropdown-fg-color: darken($grey, 20);
-
-// // Sidebar
-// $sidebar-bg-color: #242133;
-// $sidebar-highlight: #3a3848;
 
 // Buttons
 $button-primary-bg-color: $primary-color;
