@@ -2,17 +2,17 @@
 
 // Helper class generator
 @mixin generate_color_helpers($name, $color) {
-  .txt-#{$name} {
+  .color-#{$name} {
     color: $color;
   }
   .bg-#{$name} {
     color: $color;
   }
   @for $i from 1 through 10 {
-    .txt-#{$name}-light#{$i*10} {
+    .color-#{$name}-light#{$i*10} {
       color: lighten($color, $i*10%);
     }
-    .txt-#{$name}-dark#{$i*10} {
+    .color-#{$name}-dark#{$i*10} {
       color: darken($color, $i*10%);
     }
     .bg-#{$name}#{$i*10} {

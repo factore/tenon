@@ -7,7 +7,7 @@ class DefaultRecord extends React.Component {
           <p className="title expand-record">
             {title}
           </p>
-          <p className="txt-smallest expand-record">
+          <p className="font-smallest expand-record">
             Posted on a Monday
           </p>
 
@@ -40,11 +40,11 @@ class DefaultRecord extends React.Component {
           </div>
         </div>
         <div className="record-expanded">
-          <p className="txt-primary">
+          <p className="color-primary">
             This is another title about things
           </p>
           <p className="font-smallest">
-            <label className="txt-light-fg">Notes:</label>
+            <label className="color-light-fg">Notes:</label>
             <br/>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
