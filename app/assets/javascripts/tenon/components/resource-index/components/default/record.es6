@@ -5,10 +5,10 @@ class DefaultRecord extends React.Component {
       <li className="panel record">
         <div className="record-details">
           <div className="expand-record">
-            <p className="title expand-record">
+            <p className="title">
               {title}
             </p>
-            <p className="font-smallest expand-record">
+            <p className="font-smallest">
               Posted on a Monday
             </p>
           </div>
