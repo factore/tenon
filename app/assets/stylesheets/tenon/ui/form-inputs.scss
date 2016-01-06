@@ -1,8 +1,28 @@
 form {
   position: relative;
+  padding-top: $default-spacing/2;
 
   .form-field {
     margin-bottom: $default-spacing;
+  }
+
+  .form-label {
+    @extend .label;
+    display: block;
+    margin-bottom: $default-spacing/3;
+  }
+
+  .panel {
+    .form-field {
+      &:last-of-type {
+        margin-bottom: $default-spacing/2;
+      }
+    }
+    label {
+      display: block;
+      margin-bottom: $default-spacing/3;
+      color: $panel-label-color;
+    }
   }
 
   [type=text],
@@ -15,13 +35,13 @@ form {
     @include default-transition;
     @include font-size-smaller;
     @include appearance(none);
-    width: 100%;
+    line-height: normal;
     display: block;
+    width: 100%;
+    height: 34px;
+    padding: 0;
     border: 0;
     border-bottom: 1px solid $light-border-color;
-    padding: 0;
-    height: 34px;
-    line-height: normal;
     border-radius: 0;
     background: transparent;
 
@@ -39,27 +59,31 @@ form {
     @include font-size-smaller;
     height: auto;
     min-height: 34px;
-    border-left: 1px solid $light-border-color;
     padding-left: $default-spacing / 2;
+    border-left: 1px solid $light-border-color;
   }
 
   .required {
     &:after {
       display: inline-block;
-      margin-left: 5px;
-      border-radius: 50%;
       width: $dot-size;
       height: $dot-size;
-      background: $required-color;
+      margin-left: 5px;
+      content: "";
       vertical-align: middle;
-      content: '';
+      border-radius: 50%;
+      background: $required-color;
     }
   }
   .explanation {
     @include font-size-smallest;
-    color: $light-fg-color;
     padding-top: $default-spacing / 4;
+    color: $light-fg-color;
   }
 
+  .title {
+    @include font-sans-n4;
+    @include font-size-h3;
+    border: 0;
+  }
 }
-

@@ -21,19 +21,22 @@
   %main
     = error_messages_for :post
 
-    .label Write This Post
+    = f.text_field :title, required: true, class: 'title'
+
+    .form-label Content
     .panel.block
-      = f.text_field :title, required: true
-      = f.rich_text :excerpt
+      = f.rich_text :excerpt, label: ''
       = f.tenon_content :content
 
-    .label Publication Details
+    .form-label Publication Details
     .panel.block
       - unless @categories.blank?
         = f.select :post_category_ids, @categories.map { |c| [c.title, c.id] }, { label: 'Categories' }, { multiple: true }
-
-      = f.collection_select :user_id, @users, :id, :email, include_blank: "(No Author)", label: 'Author'
-      = f.date_time_picker :publish_at, label: 'Publish Date / Time'
+      .row
+        .inner6
+          = f.collection_select :user_id, @users, :id, :email, include_blank: "(No Author)", label: 'Author'
+        .inner6.omega
+          = f.date_time_picker :publish_at, label: 'Publish Date / Time'
 
     = render 'tenon/shared/seo_fields', f: f
 

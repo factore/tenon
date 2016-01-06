@@ -49,8 +49,8 @@ class DefaultRecord extends React.Component {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
           <div className="actions">
-            <a href="#" title='Action Link'>
-              Action Link
+            <a href={edit_path} title='Action Link'>
+              Edit Link
             </a>
             <a href="#" title='Another Link'>
               Another Link

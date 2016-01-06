@@ -54,6 +54,7 @@ $light-fg-color: $dark-grey;
 $body-fg-color: $black;
 $link-color: $primary-color;
 $label-color: $slate;
+$panel-label-color: $med-grey;
 
 @include generate_color_helpers('primary-fg', $primary-fg-color);
 @include generate_color_helpers('light-fg', $light-fg-color);

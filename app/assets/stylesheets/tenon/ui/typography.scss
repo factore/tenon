@@ -105,6 +105,5 @@ em {
 
 label, .label {
   @include font-size-smallest;
-  margin-bottom: $default-spacing / 4;
   color: $label-color;
 }
