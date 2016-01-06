@@ -1,5 +1,14 @@
-.tn-tc-wrap {
+.tn-tc {
+  position: relative;
+}
 
+.tn-tc-label {
+  display: block;
+  margin: 0;
+  color: $panel-label-color;
+}
+
+.tn-tc-wrap {
   .tn-tc-sizes {
     display: none;
   }
@@ -22,14 +31,20 @@
     @include default-transition;
     margin: $default-spacing $default-spacing 0 0;
     text-transform: uppercase;
+    &.btn-floating {
+      position: absolute;
+      right: -$default-spacing/2;
+      bottom: -$default-spacing;
+      margin: 0;
+    }
+    &:hover {
+      text-decoration: none;
+    }
     span {
       @include font-size-smaller;
       position: relative;
       top: -2px;
       padding-left: $default-spacing / 4;
-    }
-    &:hover {
-      text-decoration: none;
     }
   }
 }
@@ -78,8 +93,8 @@
 
   .tn-tc-topbar,
   .tn-tc-bottombar {
-    padding: 0;
     height: $default-spacing;
+    padding: 0;
     // background-color: $tn-med-grey;
     .actions {
       @include default-transition;
@@ -205,11 +220,11 @@
     margin: 0;
     padding: $default-spacing / 4;
     resize: none;
-    color: #fff;
+    color: #ffffff;
     background: $contrast-bg-color;
   }
   textarea.caption:-moz-placeholder {
-    color: #fff;
+    color: #ffffff;
   }
   textarea.caption::-webkit-input-placeholder {
     color: $white;
@@ -244,7 +259,7 @@
     width: 46%;
     margin: 0 2%;
     .editable-text {
-      background-color: rgba(#fff, .8);
+      background-color: rgba(#ffffff, .8);
     }
   }
 

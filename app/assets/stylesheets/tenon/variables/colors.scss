@@ -53,14 +53,17 @@ $primary-fg-color: $slate;
 $light-fg-color: $dark-grey;
 $body-fg-color: $black;
 $link-color: $primary-color;
-$label-color: $slate;
-$panel-label-color: $med-grey;
 
 @include generate_color_helpers('primary-fg', $primary-fg-color);
 @include generate_color_helpers('light-fg', $light-fg-color);
 @include generate_color_helpers('body-fg', $body-fg-color);
 @include generate_color_helpers('link', $link-color);
-@include generate_color_helpers('label', $label-color);
+
+// Form colors
+$label-color: $slate;
+$panel-label-color: $med-grey;
+$placeholder-color: $med-grey;
+$explanation-color: $grey;
 
 // Misc.
 $body-bg-color: $off-white;

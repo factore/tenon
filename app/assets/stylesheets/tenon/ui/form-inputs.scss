@@ -12,16 +12,17 @@ form {
     margin-bottom: $default-spacing/3;
   }
 
+  .field-label {
+    display: block;
+    margin-bottom: 0;
+    color: $panel-label-color;
+  }
+
   .panel {
     .form-field {
       &:last-of-type {
         margin-bottom: $default-spacing/2;
       }
-    }
-    label {
-      display: block;
-      margin-bottom: $default-spacing/3;
-      color: $panel-label-color;
     }
   }
 
@@ -32,6 +33,9 @@ form {
   textarea,
   .editable-text,
   select {
+    @include placeholder {
+      color: $placeholder-color;
+    }
     @include default-transition;
     @include font-size-smaller;
     @include appearance(none);
@@ -59,7 +63,8 @@ form {
     @include font-size-smaller;
     height: auto;
     min-height: 34px;
-    padding-left: $default-spacing / 2;
+    margin-top: $default-spacing/3;
+    padding-left: $default-spacing/2;
     border-left: 1px solid $light-border-color;
   }
 
@@ -78,7 +83,7 @@ form {
   .explanation {
     @include font-size-smallest;
     padding-top: $default-spacing / 4;
-    color: $light-fg-color;
+    color: $explanation-color;
   }
 
   .title {

@@ -1,30 +1,31 @@
 .btn-floating {
   @include default-transition;
-  @include animation(btn-floating-intro 0.3s forwards 0.5s);
+  @include animation(btn-floating-intro .3s forwards .5s);
   @include transform(scale(0) rotate(-45deg));
   @include z-depth-1;
-  display: inline-block;
-  color: $btn-floating-fg-color;
+  line-height: $btn-floating-size;
   position: relative;
-  overflow: hidden;
   z-index: 1;
+  display: inline-block;
+  overflow: hidden;
   width: $btn-floating-size;
   height: $btn-floating-size;
-  line-height: $btn-floating-size;
   padding: 0;
-  background-color: $btn-floating-bg-color;
-  border-radius: 50%;
-  transition: .3s;
   cursor: pointer;
+  transition: .3s;
   vertical-align: middle;
+  color: $btn-floating-fg-color;
+  border: none;
+  border-radius: 50%;
+  background-color: $btn-floating-bg-color;
 
   i {
     @include font-size($btn-floating-icon-size);
-    width: inherit;
+    line-height: $btn-floating-size;
     display: inline-block;
+    width: inherit;
     text-align: center;
     color: $btn-floating-fg-color;
-    line-height: $btn-floating-size;
   }
 
   &:hover {
@@ -42,11 +43,6 @@
       line-height: $btn-floating-size * 1.5;
     }
   }
-
-}
-// button fix
-button.btn-floating {
-  border: none;
 }
 
 @include keyframes(btn-floating-intro) {
