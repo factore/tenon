@@ -50,7 +50,6 @@ var Tenon = {
       $target = $(e.currentTarget).closest('.panel.record');
 
       if ($target.hasClass('is-expanded')) {
-
         $target
           .removeClass('is-expanded')
           .find('.record-expanded')

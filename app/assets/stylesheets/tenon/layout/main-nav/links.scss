@@ -64,9 +64,8 @@
 
   li li {
     $horz-padding: $icon-width + $default-spacing / 2;
-
-    a {
-      padding: 0 0 $default-spacing / 4 $horz-padding;
+    &.active a {
+      color: $main-nav-hover-color;
     }
     &:hover {
       background: transparent;
