@@ -4,12 +4,13 @@
 //= require pickadate/default.date
 //= require pickadate/default.time
 @import "bourbon";
-@import "./grid";
 @import "ionicons";
+@import "./grid";
 
 // VARIABLES
 @import "variables/colors";
 @import "variables/sizes";
+@import "variables/z-index";
 
 // HELPERS
 @import "./helpers/alignment";
@@ -23,9 +24,9 @@
 @import "./ui/burger";
 @import "./ui/breadcrumbs";
 @import "./ui/btn";
-@import "./ui/btn-floating";
 @import "./ui/current-user";
 @import "./ui/dropdown-content";
+@import "./ui/flash-message";
 @import "./ui/lists";
 @import "./ui/panel";
 @import "./ui/typography";

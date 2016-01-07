@@ -254,7 +254,7 @@
   padding: $default-spacing * 2 0 $default-spacing;
   .tn-text-overlay {
     position: relative;
-    z-index: 10;
+    // z-index: 10;
     float: left;
     width: 46%;
     margin: 0 2%;
@@ -283,6 +283,6 @@
     }
   }
   .link-form {
-    z-index: 997;
+    // z-index: 10;
   }
 }

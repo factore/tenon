@@ -1,30 +1,33 @@
 .dropdown-content {
   @include z-depth-1;
-  background-color: $dropdown-bg-color;
-  margin: 0;
+  position: absolute;
+  z-index: $z-kebab-dropdown;
   display: none;
+  overflow-y: auto;
   min-width: 200px;
   max-height: 650px;
-  overflow-y: auto;
+  margin: 0;
   opacity: 0;
-  position: absolute;
-  z-index: 999;
+  background-color: $dropdown-bg-color;
+
   will-change: width, height;
 
   li {
     clear: both;
-    color: $dropdown-fg-color;
-    cursor: pointer;
-    min-height: $dropdown-item-height;
     width: 100%;
+    min-height: $dropdown-item-height;
+    cursor: pointer;
     text-align: left;
     text-transform: none;
+    color: $dropdown-fg-color;
 
     &.label {
-      margin-bottom: 0;
       min-height: 0;
+      margin-bottom: 0;
       padding: $default-spacing / 4 $default-spacing / 2;
-      &:hover { background: none; }
+      &:hover {
+        background: none;
+      }
     }
 
     &:hover, &.active, &.selected {
@@ -36,17 +39,17 @@
     }
 
     &.divider {
-      min-height: 0;
       height: 1px;
+      min-height: 0;
       background: $light-border-color;
     }
 
     & > a, & > span {
       @include font-size-smaller;
       line-height: $dropdown-item-height;
-      color: $dropdown-fg-color;
       display: block;
       padding: 0 $default-spacing / 2;
+      color: $dropdown-fg-color;
     }
 
     a:hover {
@@ -63,9 +66,9 @@
     & > a > i {
       @include font-size($h4-size);
       display: inline-block;
-      margin-right: $default-spacing / 2;
-      width: 22px;
       overflow: hidden;
+      width: 22px;
+      margin-right: $default-spacing / 2;
       text-align: center;
       vertical-align: middle;
     }

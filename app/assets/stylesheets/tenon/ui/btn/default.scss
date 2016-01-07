@@ -1,0 +1,38 @@
+.btn {
+  @include default-transition;
+  @include z-depth-1;
+  @include font-size-smaller;
+  display: inline-block;
+  position: relative;
+  border-radius: $default-border-radius;
+  border: 0;
+  padding: 0 $default-spacing;
+  height: $btn-height;
+  line-height: $btn-height;
+  text-align: center;
+  text-transform: uppercase;
+  color: $btn-primary-fg-color;
+  background: $btn-primary-bg-color;
+
+  &.btn-flat,
+  &.btn-flat:hover {
+    @include z-depth-0;
+  }
+
+  &.btn-comp {
+    background: $btn-secondary-bg-color;
+    color: $btn-secondary-fg-color;
+  }
+
+  &.btn-block {
+    display: block;
+    width: 100%;
+    margin-bottom: $default-spacing / 3;
+  }
+
+  &:hover {
+    @include z-depth-1-half;
+    text-decoration: none;
+  }
+
+}

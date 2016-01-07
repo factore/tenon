@@ -50,14 +50,14 @@
       box-sizing: content-box;
       max-height: 200px;
       padding: 5px 10px;
-      border: 1px solid map-get($grey, 'base');
-      background: map-get($grey, 'lighten-2');
-      box-shadow: 1px 1px 5px map-get($grey, 'base');
+      border: 1px solid map-get($grey, "base");
+      background: map-get($grey, "lighten-2");
+      box-shadow: 1px 1px 5px map-get($grey, "base");
     }
     &.sortable-placeholder {
       min-height: 50px;
       max-height: 200px;
-      border: 1px dashed map-get($grey, 'base');
+      border: 1px dashed map-get($grey, "base");
     }
     i {
       font-size: 20px;
@@ -70,13 +70,13 @@
     float: left;
   }
   .tn-tc-topbar, .tn-tc-bottombar {
-    padding: 0;
     height: 36px;
+    padding: 0;
     .actions {
       @include transition(all .2s ease);
       position: relative;
       text-align: right;
-      color: map-get($grey, 'base');
+      color: map-get($grey, "base");
       i {
         @include transition(all .2s ease);
       }
@@ -84,7 +84,7 @@
         @include transition(all .2s ease);
         display: inline-block;
         padding: 10px 0 5px;
-        color: map-get($grey, 'base');
+        color: map-get($grey, "base");
         span {
           position: relative;
           top: -2px;
@@ -137,8 +137,8 @@
       display: block;
       height: 200px;
       text-align: center;
-      color: map-get($grey, 'base');
-      border: 4px dashed map-get($grey, 'base');
+      color: map-get($grey, "base");
+      border: 4px dashed map-get($grey, "base");
     }
   }
   .wrapped-image {
@@ -186,14 +186,14 @@
     margin: 0;
     padding: 5px;
     resize: none;
-    color: #fff;
-    background: map-get($grey, 'base');
+    color: #ffffff;
+    background: map-get($grey, "base");
   }
   textarea.caption:-moz-placeholder {
-    color: #fff;
+    color: #ffffff;
   }
   textarea.caption::-webkit-input-placeholder {
-    color: map-get($grey, 'lighten-2');
+    color: map-get($grey, "lighten-2");
   }
   .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve {
     @include transition(width .2s ease);
@@ -220,12 +220,12 @@
   padding: 60px 0 40px;
   .tn-text-overlay {
     position: relative;
-    z-index: 10;
+    // z-index: 10;
     float: left;
     width: 46%;
     margin: 0 2%;
     .editable-text {
-      background-color: rgba(#fff, .8);
+      background-color: rgba(#ffffff, .8);
     }
   }
   .tn-tc-background-image {
@@ -251,7 +251,7 @@
     background: lighten($primary-color, 10%);
   }
   .link-form {
-    z-index: 1000;
+    // z-index: 1000;
   }
 }
 
@@ -266,7 +266,7 @@ a.open-embed-modal {
   display: block;
   padding: 5px 0;
   text-transform: uppercase;
-  color: map-get($grey, 'base');
+  color: map-get($grey, "base");
 }
 
 .tn-tc-row:hover a.open-embed-modal {
@@ -292,12 +292,12 @@ a.open-embed-modal {
   padding: 60px 0 40px;
   .tn-text-overlay {
     position: relative;
-    z-index: 10;
+    // z-index: 10;
     float: left;
     width: 46%;
     margin: 0 2%;
     .editable-text {
-      background-color: rgba(#fff, .8);
+      background-color: rgba(#ffffff, .8);
     }
   }
   .tn-tc-background-image {

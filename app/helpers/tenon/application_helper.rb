@@ -1,17 +1,5 @@
 module Tenon
   module ApplicationHelper
-    def flash_messages
-      messages = []
-      %w(notice alert warning error).each do |msg|
-        unless flash[msg.to_sym].blank?
-          content = content_tag(:p, flash[msg.to_sym])
-          content += link_to fa_icon('times'), '#', id: 'flash-dismiss'
-          messages << content_tag(:div, content, class: "flash flash-#{msg}")
-        end
-      end
-      messages.join('').html_safe
-    end
-
     def menu_item(title, link, options = {})
       klass = ''
       # set the link class to active if it matches the current link or any of the alternate supplied links
@@ -133,7 +121,7 @@ module Tenon
       end
     end
 
-      # humanizing various things
+    # humanizing various things
     def human(object)
       if object.is_a?(Date)
         object.strftime('%B %d, %Y')

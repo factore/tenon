@@ -14,35 +14,35 @@ $link-color: $primary-color;
 @include generate_base_color_helpers("link", $link-color);
 
 // Form colors
-$label-color: darken($grey, 40);
-$panel-label-color: lighten($grey, 10);
-$placeholder-color: darken($grey, 10);
+$label-color: darken($grey, 40%);
+$panel-label-color: lighten($grey, 10%);
+$placeholder-color: darken($grey, 10%);
 $explanation-color: $grey;
 
 // Misc.
-$body-bg-color: lighten($grey, 25);
+$body-bg-color: lighten($grey, 25%);
 $panel-bg-color: $white;
 $contrast-bg-color: $grey;
-$light-border-color: lighten($grey, 10);
+$light-border-color: lighten($grey, 10%);
 $required-color: $required-color;
 
 // Dropdown
 $dropdown-bg-color: $white;
-$dropdown-hover-bg-color: lighten($grey, 30);
-$dropdown-fg-color: darken($grey, 20);
+$dropdown-hover-bg-color: lighten($grey, 30%);
+$dropdown-fg-color: darken($grey, 20%);
 
 // Buttons
-$button-primary-bg-color: $primary-color;
-$button-primary-fg-color: $white;
-$button-comp-bg-color: $secondary-color;
-$button-comp-fg-color: $white;
+$btn-primary-bg-color: $primary-color;
+$btn-primary-fg-color: $white;
+$btn-secondary-bg-color: $secondary-color;
+$btn-secondary-fg-color: $white;
 $btn-floating-bg-color: $secondary-color;
 $btn-floating-fg-color: $white;
 $tool-toggle-bg-color: darken($primary-color, 10%);
 $tool-toggle-fg-color: $white;
 
 // Main Nav
-$main-nav-bg-color: lighten($grey, 10);
+$main-nav-bg-color: lighten($grey, 10%);
 $main-nav-fg-color: $black;
 $main-nav-hover-color: $grey;
 
@@ -52,3 +52,14 @@ $util-nav-fg-color: $white;
 
 // Records
 $infinite-loader-color: darken($grey, 20%);
+
+// Flash messages
+$warning-background-color: $warning-color;
+$warning-border-color: darken($warning-color, 10%);
+$warning-text-color: $white;
+$error-background-color: $error-color;
+$error-border-color: darken($error-color, 10%);
+$error-text-color: $white;
+$success-background-color: $success-color;
+$success-border-color: darken($success-color, 10%);
+$success-text-color: $white;

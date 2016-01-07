@@ -2,7 +2,7 @@
   @include transform(translate(-$main-nav-width, 0));
   @include font-size-smaller;
   position: fixed;
-  z-index: 998;
+  z-index: $z-layout-main-nav;
   top: $util-nav-height;
   left: 0;
   width: $main-nav-width;

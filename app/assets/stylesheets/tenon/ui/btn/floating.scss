@@ -5,7 +5,7 @@
   @include z-depth-1;
   line-height: $btn-floating-size;
   position: relative;
-  z-index: 1;
+  z-index: $z-btn-floating;
   display: inline-block;
   overflow: hidden;
   width: $btn-floating-size;

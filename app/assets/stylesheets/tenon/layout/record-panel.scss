@@ -65,7 +65,7 @@
     .record-details .actions {
       @include transform-style(preserve-3d);
       position: absolute;
-      z-index: 10;
+      z-index: $z-panel-open;
       top: $default-spacing/6;
       right: 0;
       bottom: 0;

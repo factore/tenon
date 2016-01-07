@@ -1,13 +1,13 @@
 .util-nav {
   position: fixed;
+  z-index: $z-layout-util-nav;
   top: 0;
-  left: 0;
   right: 0;
-  z-index: 998;
-  padding: 0 $default-spacing;
+  left: 0;
   height: $util-nav-height;
-  background-color: $util-nav-bg-color;
+  padding: 0 $default-spacing;
   color: $util-nav-fg-color;
+  background-color: $util-nav-bg-color;
 
   a {
     color: $util-nav-fg-color;

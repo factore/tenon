@@ -1,6 +1,6 @@
 .toolbar {
   position: fixed;
-  z-index: 997;
+  z-index: $z-layout-toolbar;
   top: $util-nav-height;
   left: 0;
   overflow: visible;

@@ -1,0 +1,57 @@
+// Flash messages
+.flash {
+  position: relative;
+  z-index: $z-flash-message;
+  padding: $default-spacing/2 $default-spacing;
+  h2 {
+    display: none;
+  }
+  h4 {
+    margin-bottom: 0;
+  }
+  p {
+    @include font(14, 18);
+    margin-bottom: 0;
+  }
+  ul {
+    @include font(13, 18);
+    margin: 0 $default-spacing;
+    padding: $default-spacing/2 0;
+    li {
+    }
+  }
+  &.flash-flash {
+    color: $warning-text-color;
+    background: $warning-background-color;
+  }
+  &.flash-warning {
+    color: $warning-text-color;
+    background: $warning-background-color;
+  }
+  &.flash-error {
+    color: $error-text-color;
+    background: $error-background-color;
+  }
+  &.flash-notice {
+    color: $success-text-color;
+    background: $success-background-color;
+  }
+}
+
+.errorExplanation {
+  @extend .flash;
+  @extend .flash-warning;
+  margin-bottom: $default-spacing;
+}
+
+#flash-dismiss {
+  position: absolute;
+  top: 0;
+  right: $default-spacing;
+  padding: $default-spacing/2 0;
+  text-align: right;
+  a {
+    color: white;
+    border: 0;
+  }
+}

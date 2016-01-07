@@ -15,13 +15,13 @@
     = javascript_include_tag 'tenon/tenon_manifest'
 
   %body{data: { controller: params[:controller], action: params[:action] } }
+    = flash_messages
+    = render 'tenon/shared/util_nav'
     .main-nav
       .current-user
         = current_user.email
       = render 'tenon/shared/main_nav'
-    = render 'tenon/shared/util_nav'
     .nav-pusher
-      = flash_messages
       = yield
       = render 'tenon/shared/version_warning' if @item_version
 
