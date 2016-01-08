@@ -17,7 +17,7 @@
 
 .toggle-main-nav {
   @include default-transition;
-  position: absolute;
+  position: fixed;
   z-index: $z-nav-toggle;
   top: $default-spacing/2;
   left: $default-spacing;
@@ -39,23 +39,25 @@
   }
 }
 
-.util-nav-account {
-  position: absolute;
+.util-nav-content {
+  @include calc(width, "100% - #{$main-nav-width + $util-nav-height + $default-spacing}");
+  position: relative;
+  height: $util-nav-height;
+  margin-left: $main-nav-width;
+}
+
+
+.account {
+  position: fixed;
+  z-index: $z-account;
   top: 10px;
   right: $default-spacing;
 }
 
-.util-nav-avatar {
+.account-avatar {
   img {
     width: $util-nav-height - 20px;
     height: $util-nav-height - 20px;
     border-radius: 50%;
   }
-}
-
-.util-nav-content {
-  @include calc(width, "100% - #{$main-nav-width $util-nav-height + $default-spacing}");
-  position: relative;
-  height: $util-nav-height;
-  margin-left: $main-nav-width;
 }
