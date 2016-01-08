@@ -1,11 +1,11 @@
 = autosaving_form_for @post do |f|
-  .toolbar.bg-color-primary-dk20
+  .toolbar.bg-color-primary-dk10
     = render 'tenon/shared/breadcrumbs'
     .actions
       - if can?(:publish, @post)
-        %button.btn.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
+        %button.action-btn.btn.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
 
-      %a.action.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
+      %a.action-icon.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
         %i.icon.ion-android-more-vertical
 
       %ul.dropdown-content#form-dropdown

@@ -6,14 +6,14 @@
   overflow: visible;
   width: 100%;
   height: $util-nav-height;
-  padding: 0 $default-spacing*3 0 $main-nav-width;
+  padding: 0 $default-spacing*4.5 0 $main-nav-width;
   background-color: $toolbar-bg-color;
 
   .actions {
     line-height: $util-nav-height;
-    right: $default-spacing*3;
+    right: $default-spacing*4.5;
     height: $util-nav-height;
-    .action,
+    .action-icon,
     .action-text {
       color: $toolbar-fg-color;
     }

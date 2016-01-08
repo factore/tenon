@@ -1,6 +1,23 @@
 = render 'tenon/shared/burger'
 
 .account
+  = link_to '#!', class: 'account-notifications action-icon dropdown-button', data: { activates: 'notification-dropdown'} do
+    %i.icon.ion-android-notifications-none
+
+  %ul.dropdown-content#notification-dropdown
+    %li
+      = link_to '#' do
+        %i.icon.ion-android-notifications
+        Notifications!
+    %li
+      = link_to '#' do
+        %i.icon.ion-android-calendar
+        Event Alert
+    %li
+      = link_to '#' do
+        %i.icon.ion-android-alarm-clock
+        Alarm Alert
+
   = link_to '#!', class: 'account-avatar dropdown-button', data: { activates: 'current-user-dropdown'} do
     -# Users initial?
     A

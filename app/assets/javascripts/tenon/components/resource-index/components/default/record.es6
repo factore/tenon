@@ -14,15 +14,15 @@ class DefaultRecord extends React.Component {
           </div>
 
           <div className="actions">
-            <a className="action" href={edit_path} title="Edit">
-              <i className="icon ion-edit"></i>
+            <a className="action-icon" href={edit_path} title="Edit">
+              <i className="icon ion-android-create"></i>
             </a>
 
-            <a className="action" href="#" onClick={onDelete} title='Delete'>
-              <i className="icon ion-ios-trash"></i>
+            <a className="action-icon" href="#" onClick={onDelete} title='Delete'>
+              <i className="icon ion-android-delete"></i>
             </a>
 
-            <a className="action dropdown-button" href="#!" data-activates="record-dropdown">
+            <a className="action-icon dropdown-button" href="#!" data-activates="record-dropdown">
               <i className="icon ion-android-more-vertical"></i>
             </a>
 

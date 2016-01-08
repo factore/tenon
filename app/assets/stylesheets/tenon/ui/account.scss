@@ -1,7 +1,7 @@
 .account {
   position: fixed;
   z-index: $z-account;
-  top: 10px;
+  top: 0;
   right: $default-spacing;
 }
 
@@ -10,9 +10,11 @@
   line-height: $util-nav-height - 20px;
   position: relative;
   display: block;
+  float: left;
   overflow: hidden;
   width: $util-nav-height - 20px;
   height: $util-nav-height - 20px;
+  margin-top: 10px;
   text-align: center;
   color: $avatar-fg-color;
   border-radius: 50%;
@@ -27,4 +29,11 @@
     display: block;
     width: 100%;
   }
+}
+
+.account-notifications.action-icon {
+  line-height: $util-nav-height;
+  float: left;
+  padding: 0 $default-spacing 0 0;
+  color: $toolbar-fg-color;
 }
