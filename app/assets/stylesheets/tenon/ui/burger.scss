@@ -28,10 +28,11 @@
   }
 
   &.ex {
-    height: $height + 2px;
+    top: 2px;
+    height: $height + 4px;
     border-color: $burger-color;
     &:after {
-      top: ($height - $line-weight) / 2 - $line-weight + 1;
+      top: ($height - $line-weight)/2 - $line-weight + 2px;
       background-color: $burger-color;
     }
   }

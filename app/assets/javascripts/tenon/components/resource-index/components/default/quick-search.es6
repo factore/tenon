@@ -27,7 +27,7 @@ class DefaultQuickSearch extends React.Component {
         <div className="search-clear-overlay">
           <a href="#" className="search-clear">
             <i className="icon ion-android-arrow-back"></i>
-            Clear Search
+            Clear
           </a>
         </div>
         <div className="actions">

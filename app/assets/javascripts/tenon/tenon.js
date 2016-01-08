@@ -45,7 +45,7 @@ var Tenon = {
     new Tenon.features.ToggleMainNav();
     new Tenon.features.NavItemToggle();
 
-    // TODO: click hacked - should probably be part of the react app.
+    // TODO: click hacked - should be part of the react app
     $(document).on('click', '.panel.record .expand-record', function (e) {
       $target = $(e.currentTarget).closest('.panel.record');
 
@@ -66,12 +66,13 @@ var Tenon = {
       }
     });
 
-    // TODO: focus hacked - should probably be part of the react app.
+    // TODO: focus hacked - should be part of the react app
     $(document).on('focusin', '#quick-search-container input.search', function (e) {
       $target = $(e.currentTarget).closest('.toolbar');
       $target.addClass('quick-search-is-active');
     });
 
+    // TODO: should only remove class if search was cancelled/ input is empty and not in focus
     $(document).on('focusout', '#quick-search-container input.search', function (e) {
       $target = $(e.currentTarget).closest('.toolbar');
       $target.removeClass('quick-search-is-active');
