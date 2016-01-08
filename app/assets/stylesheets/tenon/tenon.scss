@@ -21,10 +21,10 @@
 @import "./helpers/z-depth";
 
 // UI ELEMENTS
+@import "./ui/actions";
 @import "./ui/burger";
 @import "./ui/breadcrumbs";
 @import "./ui/btn";
-@import "./ui/current-user";
 @import "./ui/dropdown-content";
 @import "./ui/flash-message";
 @import "./ui/lists";
@@ -32,12 +32,12 @@
 @import "./ui/typography";
 @import "./ui/tool-toggles";
 @import "./ui/form-inputs";
+@import "./ui/main-nav";
+
 
 // LAYOUT
 @import "./layout/header";
 @import "./layout/main";
-@import "./layout/main-nav/structure";
-@import "./layout/main-nav/links";
 @import "./layout/util-nav";
 @import "./layout/toolbar";
 @import "./layout/toolbox";

@@ -1,8 +1,21 @@
+= render 'tenon/shared/burger'
 %nav.util-nav
+  .util-nav-context
+    %p= @context_title
 
-  %a.toggle-main-nav{ href: '#' }
-    .burger
+  .util-nav-content
+    = yield :util_nav
 
-  = link_to image_tag('tenon/tenon_icon.png'), tenon.root_path, class: 'brand-logo center'
+  .util-nav-account
+    = link_to '#!', class: 'util-nav-avatar action dropdown-button', data: { activates: 'current-user-dropdown'} do
+      = image_tag('tenon/icon-57x57.png')
 
-
+    %ul.dropdown-content#current-user-dropdown
+      %li
+        = link_to '#' do
+          %i.icon.ion-person
+          Account
+      %li
+        = link_to '#' do
+          %i.icon.ion-ios-paw
+          Something

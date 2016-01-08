@@ -45,10 +45,19 @@ $tool-toggle-fg-color: $white;
 $main-nav-bg-color: lighten($grey, 10%);
 $main-nav-fg-color: $black;
 $main-nav-hover-color: $grey;
+$app-info-fg-color: $white;
+$app-info-bg-color: rgba(darken($main-nav-bg-color, 20%), .4);
+
 
 // Util Nav
 $util-nav-bg-color: $primary-color;
 $util-nav-fg-color: $white;
+
+// Toolbar
+$toolbar-bg-color: $primary-color;
+$toolbar-fg-color: $white;
+$quick-search-bg-color: rgba($white, .3);
+$quick-search-fg-color: $white;
 
 // Records
 $infinite-loader-color: darken($grey, 20%);

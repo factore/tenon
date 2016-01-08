@@ -2,26 +2,31 @@
   @include default-transition;
   @include z-depth-1;
   @include font-size-smaller;
-  display: inline-block;
-  position: relative;
-  border-radius: $default-border-radius;
-  border: 0;
-  padding: 0 $default-spacing;
-  height: $btn-height;
   line-height: $btn-height;
+  position: relative;
+  display: inline-block;
+  height: $btn-height;
+  padding: 0 $default-spacing;
   text-align: center;
   text-transform: uppercase;
   color: $btn-primary-fg-color;
-  background: $btn-primary-bg-color;
+  border: 0;
+  border-radius: $default-border-radius;
+  background-color: $btn-primary-bg-color;
 
   &.btn-flat,
   &.btn-flat:hover {
     @include z-depth-0;
   }
 
-  &.btn-comp {
-    background: $btn-secondary-bg-color;
+  &.btn-white {
+    color: $btn-primary-bg-color;
+    background-color: $btn-secondary-fg-color;
+  }
+
+  &.btn-secondary {
     color: $btn-secondary-fg-color;
+    background-color: $btn-secondary-bg-color;
   }
 
   &.btn-block {
@@ -34,5 +39,4 @@
     @include z-depth-1-half;
     text-decoration: none;
   }
-
 }

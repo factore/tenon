@@ -5,7 +5,7 @@ module Tenon
 
     layout :layout_for_resource
 
-    before_filter :set_title
+    before_filter :set_page_title, :set_default_context_title
     before_filter :require_admin, unless: :devise_controller?
 
     rescue_from CanCan::AccessDenied do |exception|
@@ -23,7 +23,7 @@ module Tenon
       end
     end
 
-    def set_title
+    def set_page_title
       case params[:action]
       when 'new', 'create'
         @page_title = "New #{params[:controller].gsub('tenon/', '').singularize.humanize}".titleize
@@ -33,6 +33,10 @@ module Tenon
         @page_title = params[:controller].gsub('tenon/', '').humanize.titleize
       end
       @page_title = 'Tenon' if params[:controller].gsub('tenon/', '') == 'index'
+    end
+
+    def set_default_context_title
+      @context_title = controller_name.humanize
     end
 
     def require_admin

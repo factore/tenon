@@ -1,3 +1,6 @@
+@import "./main-nav/app-info";
+@import "./main-nav/links";
+
 .main-nav {
   @include transform(translate(-$main-nav-width, 0));
   @include font-size-smaller;
@@ -24,8 +27,7 @@
     @include transform(translate(0, 0));
   }
 
-  .nav-pusher,
-  .toolbar {
+  .nav-pusher {
     left: $main-nav-width;
     width: calc(100% - #{$main-nav-width});
   }

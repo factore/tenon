@@ -14,11 +14,11 @@ class DefaultRecord extends React.Component {
           </div>
 
           <div className="actions">
-            <a href={edit_path} title="Edit">
+            <a className="action" href={edit_path} title="Edit">
               <i className="icon ion-edit"></i>
             </a>
 
-            <a href="#" onClick={onDelete} title='Delete'>
+            <a className="action" href="#" onClick={onDelete} title='Delete'>
               <i className="icon ion-ios-trash"></i>
             </a>
 

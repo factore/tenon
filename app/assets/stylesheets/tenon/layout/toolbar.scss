@@ -1,45 +1,20 @@
 .toolbar {
   position: fixed;
   z-index: $z-layout-toolbar;
-  top: $util-nav-height;
+  top: 0;
   left: 0;
   overflow: visible;
   width: 100%;
-  min-height: $toolbar-height;
-  border-bottom: 1px solid $light-border-color;
-  background-color: $body-bg-color;
-
-  .breadcrumbs {
-    display: block;
-    height: $toolbar-height;
-    padding: 0 $default-spacing;
-    li {
-      line-height: $toolbar-height;
-      overflow: hidden;
-      max-width: 120px;
-      height: $toolbar-height;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-  }
-
+  height: $util-nav-height;
+  padding: 0 $default-spacing 0 $main-nav-width;
+  background: $toolbar-bg-color;
   .actions {
-    line-height: $toolbar-height;
-    position: absolute;
-    top: 0;
-    right: $default-spacing/3;
-    height: $toolbar-height;
-
-    .action {
-      @include font-size($h3-size);
-      display: inline-block;
-      padding: 0 $default-spacing / 2;
-      color: $primary-fg-color;
-    }
-
-    .btn {
-      margin-top: ($toolbar-height - $btn-height) / 2;
-      vertical-align: top;
+    line-height: $util-nav-height;
+    right: $default-spacing;
+    height: $util-nav-height;
+    .action,
+    .action-text {
+      color: $toolbar-fg-color;
     }
   }
 }

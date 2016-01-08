@@ -1,32 +1,32 @@
 #quick-search-container {
+  position: relative;
   display: inline-block;
+  width: 100%;
   padding: 0;
   &:before {
     @extend .ion;
     @include font-size($h3-size);
     position: absolute;
-    top: 24px;
+    z-index: 1; // just above the input
+    top: 19px;
     left: $default-spacing/3;
     display: block;
     content: $ionicon-var-android-search;
+    color: $quick-search-fg-color;
   }
 }
 
 input.search {
   @include default-transition;
   @include font-size($h5-size);
-  line-height: $default-spacing;
+  line-height: $util-nav-height - $default-spacing*(2/3);
   position: relative;
-  top: -2px;
+  top: $default-spacing/3;
   display: inline-block;
-  width: $default-spacing;
-  padding-left: $default-spacing;
+  width: 100%;
+  padding: 0 $default-spacing/3 0 $default-spacing*1.5;
+  color: $quick-search-fg-color;
   border: 0;
   border-radius: $default-border-radius;
-  background-color: transparent;
-  &:focus {
-    width: 200px;
-    padding: 0 $default-spacing/3 0 $default-spacing*1.2;
-    background-color: rgba($white, .4);
-  }
+  background-color: $quick-search-bg-color;
 }

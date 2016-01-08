@@ -10,13 +10,6 @@ class DefaultList extends React.Component {
 
     return (
       <main>
-        <div className="toolbox">
-          <p>Possible advanced search toolbox location?</p>
-          <h6>Using margin-top you can slide this div up underneath the toolbar
-          and the content below will follow.</h6>
-        </div>
-        <div className="spacer"></div>
-
         <a className="btn-floating" href={this.props.newPath}>
           <i className="icon ion-android-add"></i>
         </a>

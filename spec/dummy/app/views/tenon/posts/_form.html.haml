@@ -3,7 +3,7 @@
     = render 'tenon/shared/breadcrumbs'
     .actions
       - if can?(:publish, @post)
-        %button.btn.btn-primary.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
+        %button.btn.btn-white.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
 
       %a.action.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
         %i.icon.ion-android-more-vertical

@@ -50,10 +50,12 @@
   display: none;
   padding-top: $default-spacing/3;
   .actions {
+    position: relative;
     border-top: 1px solid $light-border-color;
     a {
       @include font-size-smaller;
-      line-height: $default-spacing*2;
+      line-height: $default-spacing*1.5;
+      height: $default-spacing*1.5;
       margin-right: $default-spacing;
       text-transform: uppercase;
     }

@@ -1,20 +1,26 @@
 .breadcrumbs {
+  line-height: $util-nav-height;
+  position: absolute;
+  top: 0;
+  left: $default-spacing*2.5;
+  height: $util-nav-height;
   li {
     display: block;
     float: left;
-
+    color: $toolbar-fg-color;
     &:after {
       @extend .ion;
       position: relative;
-      // top: -1px;
       display: inline-block;
       padding: 0 $default-spacing/2;
       content: $ionicon-var-ios-arrow-forward;
       color: $light-border-color;
     }
-
     &:last-of-type:after {
       display: none;
+    }
+    a {
+      color: $util-nav-fg-color;
     }
   }
 }
