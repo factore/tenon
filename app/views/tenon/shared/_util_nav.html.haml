@@ -1,7 +1,9 @@
 = render 'tenon/shared/burger'
 
 .account
-  = link_to '#!', class: 'account-avatar action dropdown-button', data: { activates: 'current-user-dropdown'} do
+  = link_to '#!', class: 'account-avatar dropdown-button', data: { activates: 'current-user-dropdown'} do
+    -# Users initial?
+    A
     = image_tag('tenon/icon-57x57.png')
 
   %ul.dropdown-content#current-user-dropdown

@@ -8,10 +8,10 @@
 @mixin generate_base_color_helpers($name, $color) {
   // base colors:
   .color-#{$name} {
-    color: $color;
+    color: $color !important;
   }
-  .bgcolor-#{$name} {
-    background-color: $color;
+  .bg-color-#{$name} {
+    background-color: $color !important;
   }
 }
 
@@ -21,7 +21,7 @@
     .color-#{$name}-o#{$i*10} {
       color: rgba($color, $i/10) !important;
     }
-    .bgcolor-#{$name}-o#{$i*10} {
+    .bg-color-#{$name}-o#{$i*10} {
       background-color: rgba($color, $i/10) !important;
     }
   }
@@ -31,16 +31,16 @@
   // lighten and darken:
   @for $i from 1 through 5 {
     .color-#{$name}-lt#{$i*10} {
-      color: lighten($color, $i*10%);
+      color: lighten($color, $i*10%) !important;
     }
     .color-#{$name}-dk#{$i*10} {
-      color: darken($color, $i*10%);
+      color: darken($color, $i*10%) !important;
     }
-    .bgcolor-#{$name}-lt#{$i*10} {
-      background-color: lighten($color, $i*10%);
+    .bg-color-#{$name}-lt#{$i*10} {
+      background-color: lighten($color, $i*10%) !important;
     }
-    .bgcolor-#{$name}-dk#{$i*10} {
-      background-color: darken($color, $i*10%);
+    .bg-color-#{$name}-dk#{$i*10} {
+      background-color: darken($color, $i*10%) !important;
     }
   }
 }

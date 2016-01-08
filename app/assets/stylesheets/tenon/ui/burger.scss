@@ -1,44 +1,38 @@
 .burger {
-  $height:14px;
-  $width: 28px;
-  $color: white;
+  $height: 14px;
+  $width: 24px;
   $line-weight: 2px;
   $transition-speed: .4s;
   $transition-delay: 0s;
   $transition-function: ease;
-
-  display: inline-block;
   position: relative;
   left: 0;
-  transition: all $transition-speed $transition-function $transition-delay;
-  border-top: $line-weight solid $color;
-  border-bottom: $line-weight solid $color;
+  display: inline-block;
+  box-sizing: border-box;
   width: $width;
   height: $height;
-  box-sizing: border-box;
+  transition: all $transition-speed $transition-function $transition-delay;
+  border-top: $line-weight solid rgba($burger-color, .8);
+  border-bottom: $line-weight solid rgba($burger-color, .8);
 
   &:after {
     position: absolute;
     top: ($height - $line-weight) / 2 - $line-weight;
     left: 0;
-    transition: all $transition-speed $transition-function $transition-delay;
-    background-color: $color;
+    box-sizing: border-box;
     width: $width;
     height: $line-weight;
-    content: '';
-    box-sizing: border-box;
+    content: "";
+    transition: all $transition-speed $transition-function $transition-delay;
+    background-color: rgba($burger-color, .8);
   }
 
   &.ex {
-    top: 4px;
-    left: -4px;
-    transform: rotate(45deg);
-    border-bottom: $line-weight solid transparent;
-
+    height: $height + 2px;
+    border-color: $burger-color;
     &:after {
-      top: -$line-weight;
-      transform: rotate(-90deg);
-      width: $width;
+      top: ($height - $line-weight) / 2 - $line-weight + 1;
+      background-color: $burger-color;
     }
   }
 }

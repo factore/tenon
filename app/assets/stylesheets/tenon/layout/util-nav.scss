@@ -1,5 +1,4 @@
 .util-nav {
-  @include z-depth-1;
   line-height: $util-nav-height;
   position: fixed;
   z-index: $z-layout-util-nav;
@@ -9,7 +8,6 @@
   height: $util-nav-height;
   color: $util-nav-fg-color;
   background-color: $util-nav-bg-color;
-
   a {
     color: $util-nav-fg-color;
   }
@@ -44,20 +42,4 @@
   position: relative;
   height: $util-nav-height;
   margin-left: $main-nav-width;
-}
-
-
-.account {
-  position: fixed;
-  z-index: $z-account;
-  top: 10px;
-  right: $default-spacing;
-}
-
-.account-avatar {
-  img {
-    width: $util-nav-height - 20px;
-    height: $util-nav-height - 20px;
-    border-radius: 50%;
-  }
 }

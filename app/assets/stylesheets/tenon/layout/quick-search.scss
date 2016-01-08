@@ -1,43 +1,22 @@
 #quick-search-container {
   position: relative;
   display: inline-block;
-  width: 100%;
+  width: 80%;
   padding: 0;
   &:before {
     @extend .ion;
     @include font-size($h3-size);
     position: absolute;
-    z-index: 1; // just above the input
+    z-index: $z-quick-search-actions;
     top: 19px;
     left: $default-spacing/3;
     display: block;
     content: $ionicon-var-android-search;
     color: $quick-search-fg-color;
   }
-}
-
-.search-clear-overlay {
-  @include default-transition;
-  line-height: $util-nav-height;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 0;
-  padding: 0 $default-spacing;
-  content: 0;
-  opacity: 0;
-  background-color: darken($white, 10%);
-  a.search-clear {
-    color: $primary-fg-color;
-    &:hover {
-      text-decoration: none;
-      color: $link-color;
-    }
-    i {
-      @include font-size($h3-size);
-      margin-right: $default-spacing;
-    }
+  .actions {
+    z-index: $z-quick-search-actions;
+    right: $default-spacing/2;
   }
 }
 
@@ -46,7 +25,7 @@ input.search {
   @include font-size($h5-size);
   line-height: $util-nav-height - $default-spacing*(2/3);
   position: relative;
-  z-index: $z-quick-search;
+  z-index: $z-quick-search-input;
   top: $default-spacing/3;
   display: inline-block;
   width: 100%;
@@ -66,16 +45,61 @@ input.search {
   }
 }
 
+.search-clear-overlay {
+  @include default-transition;
+  line-height: $util-nav-height;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 0;
+  padding: 0 $default-spacing;
+  content: 0;
+  opacity: 0;
+  background-color: darken($white, 10%);
+  a.search-clear {
+    padding-left: $default-spacing*1.5;
+    color: $primary-fg-color;
+    &:hover {
+      text-decoration: none;
+      color: $link-color;
+    }
+    i {
+      @include font-size($h3-size);
+      position: absolute;
+      top: 0;
+      left: $default-spacing;
+      margin-right: $default-spacing;
+    }
+  }
+}
+
+.action-text.search-advanced-toggle {
+  top: -2px;
+  padding: 2px 8px;
+  &:hover {
+    text-decoration: none;
+    color: $white;
+    border-radius: $default-border-radius;
+    background-color: $link-color;
+  }
+}
+
 .toolbar.quick-search-is-active {
   z-index: $z-quick-search-active;
-  #quick-search-container:before {
-    z-index: $z-quick-search-active;
-    color: $primary-fg-color;
-  }
-  .actions {
-    z-index: $z-quick-search-active;
-    a {
-      color: $link-color;
+  #quick-search-container {
+    &:before {
+      z-index: $z-quick-search-active;
+      color: $primary-fg-color;
+    }
+    .actions {
+      z-index: $z-quick-search-active;
+      .search-advanced-toggle {
+        color: $link-color;
+        &:hover {
+          color: $white;
+        }
+      }
     }
   }
 }

@@ -52,6 +52,12 @@ $app-info-bg-color: rgba(darken($main-nav-bg-color, 20%), .4);
 // Util Nav
 $util-nav-bg-color: $primary-color;
 $util-nav-fg-color: $white;
+$burger-color: $white;
+
+
+// Account Avatar
+$avatar-bg-color: lighten($grey, 20%);
+$avatar-fg-color: $primary-fg-color;
 
 // Toolbar
 $toolbar-bg-color: $primary-color;

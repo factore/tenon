@@ -1,12 +1,18 @@
 .breadcrumbs {
+  @include truncate;
   line-height: $util-nav-height;
   position: absolute;
   top: 0;
-  left: $default-spacing*2.5;
+  left: 0;
+  width: $main-nav-width;
   height: $util-nav-height;
+  padding-left: $default-spacing*2.5;
   li {
+    @include truncate;
     display: block;
     float: left;
+    width: auto;
+    max-width: 50%;
     color: $toolbar-fg-color;
     &:after {
       @extend .ion;

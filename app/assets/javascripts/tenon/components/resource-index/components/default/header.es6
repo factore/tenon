@@ -19,10 +19,6 @@ class DefaultHeader extends React.Component {
         searchClass={searchClass} />
 
         <div className="actions">
-          <a className="action-text dropdown-button" href="#!" data-activates='toolbox-dropdown' title="Toolbox toggle">
-            Advanced Search
-          </a>
-
           <a className="action dropdown-button" href="#!" data-activates='dropdown' title="Links!">
             <i className="icon ion-android-more-vertical"></i>
           </a>

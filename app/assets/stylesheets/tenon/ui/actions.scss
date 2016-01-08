@@ -2,22 +2,24 @@
   position: absolute;
   top: 0;
   right: 0;
+
   .btn {
     margin-top: ($util-nav-height - $btn-height) / 2;
     vertical-align: top;
   }
-  .action {
-    @include font-size($h3-size);
-    display: inline-block;
-    padding: 0 $default-spacing/2;
-    color: $primary-fg-color;
-  }
+}
 
-  .action-text {
-    @include font-size(14);
-    position: relative;
-    top: -3px;
-    text-transform: uppercase;
-    color: $primary-color;
-  }
+.action {
+  @include font-size($h3-size);
+  display: inline-block;
+  padding: 0 $default-spacing/2;
+  color: $primary-fg-color;
+}
+
+.action-text {
+  @include font-size(14);
+  position: relative;
+  top: -3px;
+  text-transform: uppercase;
+  color: $primary-color;
 }

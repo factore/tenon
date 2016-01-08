@@ -22,12 +22,17 @@ class DefaultQuickSearch extends React.Component {
           ref='searchInput'
           onChange={(e) => this._handleChange(e)}
           className="search"
-          placeholder="Quick search"
+          placeholder="Search..."
           title="Quick search" />
         <div className="search-clear-overlay">
           <a href="#" className="search-clear">
             <i className="icon ion-android-arrow-back"></i>
-            Clear
+            Clear Search
+          </a>
+        </div>
+        <div className="actions">
+          <a className="search-advanced-toggle action-text" href="#!" title="Advanced search">
+            Advanced
           </a>
         </div>
       </div>
