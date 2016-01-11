@@ -2,7 +2,7 @@
 }
 
 .infinite-loader {
-  @include font-size-h3;
+  @include font-h3;
   display: none;
   text-align: center;
   color: $infinite-loader-color;

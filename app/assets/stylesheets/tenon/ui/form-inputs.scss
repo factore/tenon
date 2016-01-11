@@ -13,6 +13,7 @@ form {
   }
 
   .field-label {
+    @include font-size-smallest;
     display: block;
     margin-bottom: 0;
     color: $panel-label-color;
@@ -71,8 +72,8 @@ form {
   .required {
     &:after {
       display: inline-block;
-      width: $dot-size;
-      height: $dot-size;
+      width: $required-dot-size;
+      height: $required-dot-size;
       margin-left: 5px;
       content: "";
       vertical-align: middle;
@@ -87,8 +88,7 @@ form {
   }
 
   .title {
-    @include font-sans-n4;
-    @include font-size-h3;
+    @include font-h3;
     border: 0;
   }
 }

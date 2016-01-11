@@ -2,7 +2,7 @@
 // ------------------------------------
 html,
 body {
-  @include font-sans-n4;
+  @include font-body;
   font-size: $default-font-size * 1px; // required for rem
   line-height: $default-spacing;
   color: $primary-fg-color;
@@ -20,57 +20,33 @@ a {
 
 // Default typography
 // ------------------------------------
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6,
-.p {
+h1, h2, h3, h4, h5, h6, p,
+.h1, .h2, .h3, .h4, .h5, .h6, .p {
   margin: 0 0 $default-spacing / 2;
 }
 
-h1,
-.h1 {
-  @include font-sans-n3;
-  @include font-size-h1;
+h1, .h1 {
+  @include font-h1;
 }
 
-h2,
-.h2 {
-  @include font-sans-n3;
-  @include font-size-h2;
+h2, .h2 {
+  @include font-h2;
 }
 
-h3,
-.h3 {
-  @include font-sans-n3;
-  @include font-size-h3;
+h3, .h3 {
+  @include font-h3;
 }
 
-h4,
-.h4 {
-  @include font-sans-n4;
-  @include font-size-h4;
+h4, .h4 {
+  @include font-h4;
 }
 
-h5,
-.h5 {
-  @include font-sans-n6;
-  @include font-size-h5;
+h5, .h5 {
+  @include font-h5;
 }
 
-h6,
-.h6 {
-  @include font-sans-n6;
-  @include font-size-h6;
+h6, .h6 {
+  @include font-h6;
 }
 
 .font-small {
@@ -96,14 +72,13 @@ small {
 }
 
 strong {
-  @include font-sans-n6;
+  @extend .font-n6;
 }
 
 em {
-  @include font-sans-i4;
+  @extend .font-i4;
 }
 
 label, .label {
-  @include font-size-smallest;
   color: $label-color;
 }

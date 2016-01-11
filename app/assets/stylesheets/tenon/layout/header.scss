@@ -1,8 +1,7 @@
 header {
-
   .toggles {
     i {
-      @include font-size-h3;
+      @include font-h3;
     }
   }
 

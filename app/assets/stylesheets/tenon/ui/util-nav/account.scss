@@ -11,7 +11,7 @@
   float: left;
   i {
     @include default-transition;
-    @include font-size-h3;
+    @include font-h3;
     line-height: $util-nav-height - $default-spacing*(2/3);
     position: relative;
     display: block;

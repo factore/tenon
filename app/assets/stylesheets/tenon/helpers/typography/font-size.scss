@@ -1,0 +1,19 @@
+// The font-size mixin
+@mixin font-size($size) {
+  // Usage: @include font-size(16);
+  font-size: unquote(0 + $size + "px");
+  font-size: unquote(0 + ($size / $default-font-size) + "rem");
+}
+
+@mixin line-height($line-height, $font-size: $default-font-size) {
+  // Usage: @include line-height(24); => uses $default-font-size
+  // Usage: @include line-height(40, 24);
+  line-height: $line-height / $font-size;
+}
+
+@mixin font($font-size, $line-height, $letter-spacing: 0) {
+  // Usage: @include font(24, 40);
+  @include font-size($font-size);
+  @include line-height($line-height, $font-size);
+  letter-spacing: $letter-spacing;
+}

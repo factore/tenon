@@ -7,20 +7,41 @@
 @import "ionicons";
 @import "./grid";
 
-// VARIABLES
+// VARIABLES: Colors
 @import "./helpers/color-generator";
 @import "./variables/colors/named";
 @import "client/color-names";
 @import "./variables/colors";
 @import "client/color-variables";
 
-@import "./variables/sizes";
+// VARIBALES: Sizes
+// @import "./variables/sizes/typography";
+// @import "client/typography-sizes";
+// @import "./variables/typography/font";
+// @import "client/typography-font";
+
+// VARIBALES: Layout
+@import "./variables/layout/sizes";
+@import "client/layout-sizes";
+
+// VARIBALES: z-index
 @import "./variables/z-index";
+
+// VARIBALES: Typography
+@import "./helpers/typography/font-size";
+@import "./helpers/typography/font-style";
+@import "./variables/typography/fonts";
+@import "./variables/typography/sizes";
+@import "./helpers/typography/defaults";
+@import "./variables/typography";
+
+// VARIBALES: Buttons
+@import "./variables/buttons/sizes";
 
 // HELPERS
 @import "./helpers/alignment";
-@import "./helpers/font-size";
-@import "./helpers/fonts";
+// @import "./helpers/font-size";
+// @import "./helpers/fonts";
 @import "./helpers/transitions";
 @import "./helpers/truncate";
 @import "./helpers/z-depth";
@@ -32,7 +53,7 @@
 @import "./ui/flash-message";
 @import "./ui/lists";
 @import "./ui/panel";
-@import "./ui/typography";
+// @import "./ui/typography";
 // @import "./ui/tool-toggles"; I'm not sure this is used -jamie
 @import "./ui/form-inputs";
 
