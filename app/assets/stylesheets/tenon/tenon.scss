@@ -7,54 +7,47 @@
 @import "ionicons";
 @import "./grid";
 
-// VARIABLES: Colors
-@import "./helpers/color-generator";
-@import "./variables/colors/named";
-@import "client/color-names";
-@import "./variables/colors";
-@import "client/color-variables";
+// ATOMS: Misc
+@import "./atoms/alignment";
+@import "./atoms/lists";
+@import "./atoms/transitions";
+@import "./atoms/truncate";
+@import "./atoms/z-depth";
+@import "./atoms/z-index";
 
-// VARIBALES: Sizes
-// @import "./variables/sizes/typography";
-// @import "client/typography-sizes";
-// @import "./variables/typography/font";
-// @import "client/typography-font";
-
-// VARIBALES: Layout
-@import "./variables/layout/sizes";
+// ATOMS: Layout
+@import "./atoms/layout/variables";
 @import "client/layout-sizes";
 
-// VARIBALES: z-index
-@import "./variables/z-index";
+// ATOMS: Colors
+@import "./atoms/colors/mixins";
+@import "./atoms/colors/named";
+@import "client/color-names";
+@import "./atoms/colors/variables";
+@import "client/color-variables";
 
-// VARIBALES: Typography
-@import "./helpers/typography/font-size";
-@import "./helpers/typography/font-style";
-@import "./variables/typography/fonts";
-@import "./variables/typography/sizes";
-@import "./helpers/typography/defaults";
-@import "./variables/typography";
+// ATOMS: Typography
+@import "./atoms/typography/font-size-mixins";
+@import "./atoms/typography/font-style-mixins";
+@import "./atoms/typography/font-variables";
+@import "client/typography-fonts";
+@import "./atoms/typography/size-variables";
+@import "client/typography-sizes";
+@import "./atoms/typography/default-mixins";
+@import "./atoms/typography/defaults";
 
-// VARIBALES: Buttons
-@import "./variables/buttons/sizes";
-
-// HELPERS
-@import "./helpers/alignment";
-// @import "./helpers/font-size";
-// @import "./helpers/fonts";
-@import "./helpers/transitions";
-@import "./helpers/truncate";
-@import "./helpers/z-depth";
+// ATOMS: Buttons
+@import "./atoms/buttons/sizes";
+@import "client/button-sizes";
+@import "./atoms/buttons/standard";
+@import "./atoms/buttons/floating";
 
 // UI ELEMENTS
 @import "./ui/actions";
-@import "./ui/btn";
 @import "./ui/dropdown-content";
 @import "./ui/flash-message";
 @import "./ui/lists";
 @import "./ui/panel";
-// @import "./ui/typography";
-// @import "./ui/tool-toggles"; I'm not sure this is used -jamie
 @import "./ui/form-inputs";
 
 @import "./ui/main-nav";

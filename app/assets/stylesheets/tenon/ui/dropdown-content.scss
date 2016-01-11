@@ -21,7 +21,8 @@
     text-transform: none;
     color: $dropdown-fg-color;
 
-    &.label {
+    &.dropdown-label {
+      @include font-size-smaller;
       min-height: 0;
       margin-bottom: 0;
       padding: $default-spacing / 4 $default-spacing / 2;
