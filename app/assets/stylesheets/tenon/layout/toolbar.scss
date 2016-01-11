@@ -15,7 +15,14 @@
     height: $util-nav-height;
     .action-icon,
     .action-text {
-      color: $toolbar-fg-color;
+      color: rgba($toolbar-fg-color, .8);
+      &:hover {
+        color: $toolbar-fg-color;
+      }
+      i {
+        line-height: $util-nav-height;
+        height: $util-nav-height;
+      }
     }
   }
 }

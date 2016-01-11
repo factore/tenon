@@ -2,18 +2,6 @@
   position: absolute;
   top: 0;
   right: 0;
-
-  .btn {
-    margin-top: ($util-nav-height - $btn-height) / 2;
-    vertical-align: top;
-  }
-}
-
-.action-icon {
-  @include font-size($h3-size);
-  display: inline-block;
-  padding: 0 $default-spacing/2;
-  color: $primary-fg-color;
 }
 
 .action-text {

@@ -35,9 +35,7 @@
     padding-left: $default-spacing/2;
     text-align: right;
     background-color: $panel-bg-color;
-    a {
-      display: inline-block;
-      padding: 0 $default-spacing/3;
+    .action-icon {
       color: $primary-fg-color;
       &:hover {
         color: $primary-color;

@@ -7,17 +7,15 @@
 @import "ionicons";
 @import "./grid";
 
-// ATOMS: Misc
+// ATOMS: Universal
+@import "./atoms/layout/variables";
+@import "client/layout-sizes";
 @import "./atoms/alignment";
 @import "./atoms/lists";
 @import "./atoms/transitions";
 @import "./atoms/truncate";
 @import "./atoms/z-depth";
 @import "./atoms/z-index";
-
-// ATOMS: Layout
-@import "./atoms/layout/variables";
-@import "client/layout-sizes";
 
 // ATOMS: Colors
 @import "./atoms/colors/mixins";
@@ -42,19 +40,23 @@
 @import "./atoms/buttons/standard";
 @import "./atoms/buttons/floating";
 
+// ATOMS: Action icons
+@import "./atoms/action-icons";
+
+// ATOMS: Misc
+@import "./atoms/burger";
+@import "./atoms/breadcrumbs";
+
 // UI ELEMENTS
 @import "./ui/actions";
 @import "./ui/dropdown-content";
 @import "./ui/flash-message";
-@import "./ui/lists";
 @import "./ui/panel";
 @import "./ui/form-inputs";
 
 @import "./ui/main-nav";
 
 @import "./ui/util-nav/account";
-@import "./ui/util-nav/burger";
-@import "./ui/util-nav/breadcrumbs";
 
 // LAYOUT
 @import "./layout/header";

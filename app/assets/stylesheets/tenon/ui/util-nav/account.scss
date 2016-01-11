@@ -3,32 +3,23 @@
   z-index: $z-account;
   top: 0;
   right: $default-spacing;
-}
-
-.account-icon {
-  line-height: $util-nav-height;
-  display: block;
-  float: left;
-  i {
-    @include default-transition;
-    @include font-h3;
-    line-height: $util-nav-height - $default-spacing*(2/3);
-    position: relative;
-    display: block;
-    overflow: hidden;
-    width: $util-nav-height - 20px;
-    height: $util-nav-height - 20px;
-    margin: $default-spacing/3 0;
-    text-align: center;
-    color: $avatar-fg-color;
-    border-radius: 50%;
-    background-color: $avatar-bg-color;
-    &:hover {
-      color: $avatar-fg-hover-color;
-      background-color: $avatar-bg-hover-color;
+  .action-icon {
+    line-height: $util-nav-height;
+    i {
+      line-height: $util-nav-height - $default-spacing*(2/3);
+      width: $util-nav-height - 20px;
+      height: $util-nav-height - 20px;
+      margin: $default-spacing/3 0;
+      color: $avatar-fg-color;
+      background-color: $avatar-bg-color;
+      &:hover {
+        color: $avatar-fg-hover-color;
+        background-color: $avatar-bg-hover-color;
+      }
     }
   }
 }
+
 
 .account-avatar {
   .account-avatar-image {
@@ -38,7 +29,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    display: none;
+    display: none; // temporary
     width: 100%;
   }
 }

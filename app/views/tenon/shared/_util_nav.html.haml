@@ -3,7 +3,7 @@
 .account
   -# TODO: If there are notifications, add the class `has-notifications`
         -# to the link_to .. CSS will change the icon
-  = link_to '#!', class: 'account-notifications account-icon dropdown-button', data: { activates: 'notification-dropdown'} do
+  = link_to '#!', class: 'account-notifications action-icon dropdown-button', data: { activates: 'notification-dropdown'} do
     %i.icon.ion-android-notifications-none
 
   %ul.dropdown-content#notification-dropdown
@@ -20,7 +20,7 @@
         %i.icon.ion-android-alarm-clock
         Alarm Alert
 
-  = link_to '#!', class: 'account-avatar account-icon dropdown-button', data: { activates: 'current-user-dropdown'} do
+  = link_to '#!', class: 'account-avatar action-icon dropdown-button', data: { activates: 'current-user-dropdown'} do
     %i.icon.ion-android-person
     =# image_tag('', class: 'account-avatar-image')
 
