@@ -11,13 +11,13 @@
   float: left;
   i {
     @include font-size-h3;
-    line-height: $util-nav-height - 20px;
+    line-height: $util-nav-height - $default-spacing*(2/3);
     position: relative;
     display: block;
     overflow: hidden;
     width: $util-nav-height - 20px;
     height: $util-nav-height - 20px;
-    margin-top: 10px;
+    margin: $default-spacing/3 0;
     text-align: center;
     color: $avatar-fg-color;
     border-radius: 50%;
