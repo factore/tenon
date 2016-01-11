@@ -1,6 +1,10 @@
 // Use American 'color' in variable names for consistency with CSS keywords.
-@import "./colors/generator";
-@import "./colors/named";
+
+// Generate color helpers based on base colors
+@include generate_color_helpers("grey", $grey);
+@include generate_color_helpers("primary", $primary-color);
+@include generate_color_helpers("secondary", $secondary-color);
+@include generate_color_helpers("accent", $accent-color);
 
 // Text colors
 $primary-fg-color: darken($grey, 25);
@@ -58,6 +62,8 @@ $burger-color: $white;
 // Account Avatar
 $avatar-bg-color: lighten($grey, 20%);
 $avatar-fg-color: $primary-fg-color;
+$avatar-bg-hover-color: $white;
+$avatar-fg-hover-color: $primary-color;
 
 // Toolbar
 $toolbar-bg-color: $primary-color;

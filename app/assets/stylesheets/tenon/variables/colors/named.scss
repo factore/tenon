@@ -2,15 +2,10 @@
 $black: #555555;
 $white: #ffffff;
 $grey: #ababab;
-$primary-color: #36a0e0;
+$primary-color: purple;
 $secondary-color: #ff6f39;
 $accent-color: #0aff90;
 $required-color: #d0021b;
-
-@include generate_color_helpers("grey", $grey);
-@include generate_color_helpers("primary", $primary-color);
-@include generate_color_helpers("secondary", $secondary-color);
-@include generate_color_helpers("accent", $accent-color);
 
 // Notification colors
 $error-color: #d2322d;

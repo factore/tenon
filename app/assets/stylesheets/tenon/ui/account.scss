@@ -5,21 +5,32 @@
   right: $default-spacing;
 }
 
-.account-avatar {
-  @include font-size-h3;
-  line-height: $util-nav-height - 20px;
-  position: relative;
+.account-icon {
+  line-height: $util-nav-height;
   display: block;
   float: left;
-  overflow: hidden;
-  width: $util-nav-height - 20px;
-  height: $util-nav-height - 20px;
-  margin-top: 10px;
-  text-align: center;
-  color: $avatar-fg-color;
-  border-radius: 50%;
-  background-color: $avatar-bg-color;
-  img {
+  i {
+    @include font-size-h3;
+    line-height: $util-nav-height - 20px;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: $util-nav-height - 20px;
+    height: $util-nav-height - 20px;
+    margin-top: 10px;
+    text-align: center;
+    color: $avatar-fg-color;
+    border-radius: 50%;
+    background-color: $avatar-bg-color;
+    &:hover {
+      color: $avatar-fg-hover-color;
+      background-color: $avatar-bg-hover-color;
+    }
+  }
+}
+
+.account-avatar {
+  .account-avatar-image {
     position: absolute;
     z-index: 10;
     top: 0;
@@ -31,9 +42,6 @@
   }
 }
 
-.account-notifications.action-icon {
-  line-height: $util-nav-height;
-  float: left;
-  padding: 0 $default-spacing 0 0;
-  color: $toolbar-fg-color;
+.account-notifications {
+  margin-right: $default-spacing/3;
 }

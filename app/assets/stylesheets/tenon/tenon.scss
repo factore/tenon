@@ -8,9 +8,14 @@
 @import "./grid";
 
 // VARIABLES
-@import "variables/colors";
-@import "variables/sizes";
-@import "variables/z-index";
+@import "./helpers/color-generator";
+@import "./variables/colors/named";
+@import "client/color-names";
+@import "./variables/colors";
+@import "client/color-variables";
+
+@import "./variables/sizes";
+@import "./variables/z-index";
 
 // HELPERS
 @import "./helpers/alignment";
