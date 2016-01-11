@@ -16,7 +16,21 @@ ActiveRecord::Schema.define(version: 20150928230951) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "settings", force: true do |t|
+  create_table "menu_items", force: :cascade do |t|
+    t.integer  "menu_id"
+    t.string   "title"
+    t.integer  "list_order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "settings", force: :cascade do |t|
     t.string   "var",                   null: false
     t.text     "value"
     t.integer  "thing_id"
@@ -27,7 +41,7 @@ ActiveRecord::Schema.define(version: 20150928230951) do
 
   add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
 
-  create_table "tenon_assets", force: true do |t|
+  create_table "tenon_assets", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -44,7 +58,7 @@ ActiveRecord::Schema.define(version: 20150928230951) do
   add_index "tenon_assets", ["created_at"], name: "index_assets_on_created_at", using: :btree
   add_index "tenon_assets", ["job_id"], name: "index_assets_on_job_id", using: :btree
 
-  create_table "tenon_comment_subscribers", force: true do |t|
+  create_table "tenon_comment_subscribers", force: :cascade do |t|
     t.integer  "commentable_id"
     t.string   "commentable_type"
     t.string   "email"
@@ -55,7 +69,7 @@ ActiveRecord::Schema.define(version: 20150928230951) do
   add_index "tenon_comment_subscribers", ["commentable_id"], name: "index_comment_subscribers_on_commentable_id", using: :btree
   add_index "tenon_comment_subscribers", ["commentable_type"], name: "index_comment_subscribers_on_commentable_type", using: :btree
 
-  create_table "tenon_comments", force: true do |t|
+  create_table "tenon_comments", force: :cascade do |t|
     t.string   "author"
     t.string   "author_url"
     t.string   "author_email"
@@ -76,7 +90,7 @@ ActiveRecord::Schema.define(version: 20150928230951) do
   add_index "tenon_comments", ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
   add_index "tenon_comments", ["created_at"], name: "index_comments_on_created_at", using: :btree
 
-  create_table "tenon_contacts", force: true do |t|
+  create_table "tenon_contacts", force: :cascade do |t|
     t.string   "name"
     t.string   "phone"
     t.string   "email"
@@ -92,7 +106,7 @@ ActiveRecord::Schema.define(version: 20150928230951) do
 
   add_index "tenon_contacts", ["created_at"], name: "index_contacts_on_created_at", using: :btree
 
-  create_table "tenon_events", force: true do |t|
+  create_table "tenon_events", force: :cascade do |t|
     t.string   "title"
     t.string   "location"
     t.text     "description"
@@ -103,14 +117,14 @@ ActiveRecord::Schema.define(version: 20150928230951) do
     t.datetime "updated_at"
   end
 
-  create_table "tenon_galleries", force: true do |t|
+  create_table "tenon_galleries", force: :cascade do |t|
     t.string   "title"
     t.integer  "list_order"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "tenon_item_assets", force: true do |t|
+  create_table "tenon_item_assets", force: :cascade do |t|
     t.integer  "asset_id"
     t.integer  "item_id"
     t.string   "item_type"
@@ -122,7 +136,7 @@ ActiveRecord::Schema.define(version: 20150928230951) do
   add_index "tenon_item_assets", ["asset_id"], name: "index_item_assets_on_asset_id", using: :btree
   add_index "tenon_item_assets", ["item_id", "item_type"], name: "index_item_assets_on_item_id_and_item_type", using: :btree
 
-  create_table "tenon_item_versions", force: true do |t|
+  create_table "tenon_item_versions", force: :cascade do |t|
     t.integer  "item_id"
     t.string   "item_type"
     t.binary   "attrs"
@@ -135,7 +149,7 @@ ActiveRecord::Schema.define(version: 20150928230951) do
 
   add_index "tenon_item_versions", ["item_id", "item_type"], name: "index_tenon_item_versions_on_item_id_and_item_type", using: :btree
 
-  create_table "tenon_pages", force: true do |t|
+  create_table "tenon_pages", force: :cascade do |t|
     t.integer  "parent_id"
     t.string   "title"
     t.string   "slug"
@@ -162,7 +176,7 @@ ActiveRecord::Schema.define(version: 20150928230951) do
   add_index "tenon_pages", ["slug"], name: "index_pages_on_slug", using: :btree
   add_index "tenon_pages", ["updater_id"], name: "index_pages_on_updater_id", using: :btree
 
-  create_table "tenon_photos", force: true do |t|
+  create_table "tenon_photos", force: :cascade do |t|
     t.integer  "gallery_id"
     t.integer  "list_order"
     t.string   "title"
@@ -173,14 +187,14 @@ ActiveRecord::Schema.define(version: 20150928230951) do
   add_index "tenon_photos", ["gallery_id"], name: "index_photos_on_gallery_id", using: :btree
   add_index "tenon_photos", ["list_order"], name: "index_photos_on_list_order", using: :btree
 
-  create_table "tenon_post_categories", force: true do |t|
+  create_table "tenon_post_categories", force: :cascade do |t|
     t.string   "title"
     t.integer  "list_order", default: 999
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "tenon_post_categories_posts", id: false, force: true do |t|
+  create_table "tenon_post_categories_posts", id: false, force: :cascade do |t|
     t.integer "post_category_id"
     t.integer "post_id"
   end
@@ -188,7 +202,7 @@ ActiveRecord::Schema.define(version: 20150928230951) do
   add_index "tenon_post_categories_posts", ["post_category_id", "post_id"], name: "index_post_categories_posts_on_post_category_id_and_post_id", using: :btree
   add_index "tenon_post_categories_posts", ["post_id", "post_category_id"], name: "index_post_categories_posts_on_post_id_and_post_category_id", using: :btree
 
-  create_table "tenon_posts", force: true do |t|
+  create_table "tenon_posts", force: :cascade do |t|
     t.string   "title"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -208,7 +222,7 @@ ActiveRecord::Schema.define(version: 20150928230951) do
   add_index "tenon_posts", ["updater_id"], name: "index_posts_on_updater_id", using: :btree
   add_index "tenon_posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
-  create_table "tenon_redirects", force: true do |t|
+  create_table "tenon_redirects", force: :cascade do |t|
     t.string   "in"
     t.string   "out"
     t.integer  "list_order", default: 0
@@ -217,7 +231,7 @@ ActiveRecord::Schema.define(version: 20150928230951) do
     t.datetime "updated_at"
   end
 
-  create_table "tenon_role_assignments", force: true do |t|
+  create_table "tenon_role_assignments", force: :cascade do |t|
     t.integer "user_id"
     t.integer "role_id"
   end
@@ -225,13 +239,13 @@ ActiveRecord::Schema.define(version: 20150928230951) do
   add_index "tenon_role_assignments", ["role_id"], name: "index_tenon_role_assignments_on_role_id", using: :btree
   add_index "tenon_role_assignments", ["user_id"], name: "index_tenon_role_assignments_on_user_id", using: :btree
 
-  create_table "tenon_roles", force: true do |t|
+  create_table "tenon_roles", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "tenon_subscriber_group_members", force: true do |t|
+  create_table "tenon_subscriber_group_members", force: :cascade do |t|
     t.integer  "subscriber_id"
     t.integer  "group_id"
     t.datetime "created_at"
@@ -241,20 +255,20 @@ ActiveRecord::Schema.define(version: 20150928230951) do
   add_index "tenon_subscriber_group_members", ["group_id"], name: "index_subscriber_group_members_on_group_id", using: :btree
   add_index "tenon_subscriber_group_members", ["subscriber_id"], name: "index_subscriber_group_members_on_subscriber_id", using: :btree
 
-  create_table "tenon_subscriber_groups", force: true do |t|
+  create_table "tenon_subscriber_groups", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "tenon_subscribers", force: true do |t|
+  create_table "tenon_subscribers", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "tenon_tenon_callouts", force: true do |t|
+  create_table "tenon_tenon_callouts", force: :cascade do |t|
     t.string   "title"
     t.string   "icon"
     t.text     "content"
@@ -267,7 +281,7 @@ ActiveRecord::Schema.define(version: 20150928230951) do
     t.datetime "updated_at"
   end
 
-  create_table "tenon_tenon_content_pieces", force: true do |t|
+  create_table "tenon_tenon_content_pieces", force: :cascade do |t|
     t.integer  "row_id"
     t.integer  "position"
     t.text     "content"
@@ -285,7 +299,7 @@ ActiveRecord::Schema.define(version: 20150928230951) do
 
   add_index "tenon_tenon_content_pieces", ["row_id"], name: "index_tenon_content_pieces_on_row_id", using: :btree
 
-  create_table "tenon_tenon_content_rows", force: true do |t|
+  create_table "tenon_tenon_content_rows", force: :cascade do |t|
     t.integer  "item_id"
     t.string   "item_type"
     t.string   "item_method"
@@ -297,7 +311,7 @@ ActiveRecord::Schema.define(version: 20150928230951) do
 
   add_index "tenon_tenon_content_rows", ["item_id"], name: "index_tenon_content_rows_on_item_id", using: :btree
 
-  create_table "tenon_users", force: true do |t|
+  create_table "tenon_users", force: :cascade do |t|
     t.string   "email",                              default: "",    null: false
     t.string   "encrypted_password",     limit: 128, default: "",    null: false
     t.string   "reset_password_token"

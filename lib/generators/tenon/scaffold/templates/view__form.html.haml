@@ -23,7 +23,7 @@
 <% end -%>
 <% assets.each do |field| -%>
       .form-group
-        = render "tenon/shared/asset_field", f: f, asset: :<%= field.name %>
+        = f.asset :<%= field.name %>
 <% end -%>
 <% text_areas.each do |field| -%>
       .form-group

@@ -20,8 +20,6 @@
 //= require jquery.radioSlider
 //= require jquery.twoLevelSort
 //= require jquery.ui.sortable
-//= require js-routes
-//= require ./medium-on-tenon
 //= require select2
 //= require uri
 
@@ -33,7 +31,6 @@
 //= require underscore.string
 //= require underscore.inflection
 
-
 // -- Tenon things, don't mess with the order
 //= require ./tenon
 //= require ./tenon_dispatcher
@@ -42,7 +39,6 @@
 //= require_tree ./features
 //= require tenon_addons
 //= require_self
-
 
 $(function() {
   Tenon.init();
