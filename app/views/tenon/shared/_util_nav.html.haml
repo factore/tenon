@@ -1,6 +1,8 @@
 = render 'tenon/shared/burger'
 
 .account
+  -# TODO: If there are notifications, add the class `has-notifications`
+        -# to the link_to .. CSS will change the icon
   = link_to '#!', class: 'account-notifications account-icon dropdown-button', data: { activates: 'notification-dropdown'} do
     %i.icon.ion-android-notifications-none
 
