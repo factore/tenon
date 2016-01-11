@@ -10,6 +10,7 @@
   display: block;
   float: left;
   i {
+    @include default-transition;
     @include font-size-h3;
     line-height: $util-nav-height - $default-spacing*(2/3);
     position: relative;
@@ -47,7 +48,7 @@
   &.has-notifications {
     i {
       &:before {
-        content: "\f39b";
+        content: $ionicon-var-android-notifications;
       }
     }
   }
