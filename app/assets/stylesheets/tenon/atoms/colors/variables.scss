@@ -19,7 +19,7 @@ $link-hover-color: darken($primary-color, 20%);
 @include generate_base_color_helpers("link", $link-color);
 
 // Form colors
-$label-color: darken($grey, 40%);
+$label-color: darken($grey, 10%);
 $panel-label-color: lighten($grey, 10%);
 $placeholder-color: darken($grey, 10%);
 $explanation-color: $grey;

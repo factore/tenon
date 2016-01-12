@@ -49,15 +49,21 @@
 @import "./atoms/burger";
 @import "./atoms/breadcrumbs";
 
-// MOLECULES
-@import "./molecules/flash-message";
+// ATOMS: Forms
+@import "./atoms/form/explanation";
+@import "./atoms/form/labels";
+@import "./atoms/form/inputs";
+
+// MOLECULES: Forms
+@import "./molecules/forms";
+
+// MOLECULES: Misc
 @import "./molecules/actions";
+@import "./molecules/dropdown-content";
+@import "./molecules/flash-message";
+@import "./molecules/panel";
 
 // UI ELEMENTS
-@import "./ui/dropdown-content";
-@import "./ui/panel";
-@import "./ui/form-inputs";
-
 @import "./ui/main-nav";
 
 @import "./ui/util-nav/account";

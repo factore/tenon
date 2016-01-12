@@ -80,5 +80,6 @@ em {
 }
 
 label, .label {
+  @include font-size-smallest;
   color: $label-color;
 }
