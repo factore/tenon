@@ -1,5 +1,6 @@
 .action-icon {
   line-height: $default-spacing*1.5;
+  position: relative;
   display: inline-block;
   color: $primary-fg-color;
   i {

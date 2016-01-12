@@ -50,12 +50,8 @@
   .actions {
     position: relative;
     border-top: 1px solid $light-border-color;
-    a {
-      @include font-size-smaller;
-      line-height: $default-spacing*1.5;
-      height: $default-spacing*1.5;
+    .action-text {
       margin-right: $default-spacing;
-      text-transform: uppercase;
     }
   }
 }

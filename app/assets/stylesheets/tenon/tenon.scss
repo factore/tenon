@@ -42,6 +42,8 @@
 
 // ATOMS: Action icons
 @import "./atoms/action-icons";
+@import "./atoms/action-text";
+@import "./atoms/action-button";
 
 // ATOMS: Misc
 @import "./atoms/burger";
@@ -49,9 +51,9 @@
 
 // MOLECULES
 @import "./molecules/flash-message";
+@import "./molecules/actions";
 
 // UI ELEMENTS
-@import "./ui/actions";
 @import "./ui/dropdown-content";
 @import "./ui/panel";
 @import "./ui/form-inputs";
