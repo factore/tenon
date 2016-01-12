@@ -19,6 +19,15 @@ class DefaultList extends React.Component {
           This is the filter pane.
           </p>
         </section>
+        <div className="toolbar-overlay">
+          <a href="#" className="toolbar-action toggle-drawer" data-target="filters">
+            <i className="icon ion-android-close"></i>
+            Close
+          </a>
+          <div className="util-nav-content">
+            123 Million Results!
+          </div>
+        </div>
 
         <div className="record-list with-btn-floating">
           <ul className="">

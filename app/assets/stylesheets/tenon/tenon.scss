@@ -56,14 +56,14 @@
 @import "./molecules/forms";
 
 // Quick search
-@import "./atoms/search/clear";
-@import "./atoms/search/overlay";
 @import "./atoms/search/input";
 @import "./atoms/search/filter-toggle";
 @import "./molecules/search";
 
 // Util nav/ toolbar
 @import "./atoms/main-nav-toggle";
+@import "./atoms/toolbar/action";
+@import "./atoms/toolbar/overlay";
 @import "./organisms/account";
 @import "./organisms/toolbar";
 @import "./organisms/util-nav";

@@ -24,7 +24,7 @@ input.search-field {
     color: $primary-fg-color;
     background-color: $white;
 
-    + .search-overlay {
+    + .toolbar-overlay {
       height: $util-nav-height;
       opacity: 1;
     }

@@ -1,5 +1,5 @@
 main {
-  width: 90%;
+  width: calc(100% - #{$default-spacing*2});
   max-width: 1170px;
   margin: 0 auto $default-spacing*2;
   padding-top: $util-nav-height + $default-spacing;

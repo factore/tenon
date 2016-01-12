@@ -24,8 +24,8 @@ class DefaultQuickSearch extends React.Component {
           className="search-field"
           placeholder="Search..."
           title="Search" />
-        <div className="search-overlay">
-          <a href="#" className="search-clear">
+        <div className="toolbar-overlay">
+          <a href="#" className="toolbar-action">
             <i className="icon ion-android-arrow-back"></i>
             Clear
           </a>

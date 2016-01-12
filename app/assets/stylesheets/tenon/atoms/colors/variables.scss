@@ -54,12 +54,10 @@ $app-info-fg-color: $white;
 $app-info-hover-color: rgba($primary-color, .4);
 $app-info-bg-color: rgba(darken($main-nav-bg-color, 20%), .4);
 
-
 // Util Nav
 $util-nav-bg-color: $primary-color;
 $util-nav-fg-color: $white;
 $burger-color: $white;
-
 
 // Account Avatar
 $avatar-bg-color: lighten($grey, 20%);
@@ -72,6 +70,9 @@ $toolbar-bg-color: $primary-color;
 $toolbar-fg-color: $white;
 $quick-search-bg-color: rgba($white, .3);
 $quick-search-fg-color: $white;
+$quick-search-overlay-bg-color: darken($white, 10%);
+$filter-overlay-bg-color: darken($white, 20%);
+
 
 // Records
 $infinite-loader-color: darken($grey, 20%);

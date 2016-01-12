@@ -31,7 +31,9 @@
 
 .util-nav-content {
   @include calc(width, "100% - #{$main-nav-width + $util-nav-height + $default-spacing}");
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   height: $util-nav-height;
-  margin-left: $main-nav-width;
+  margin-left: $main-nav-width + $default-spacing;
 }
