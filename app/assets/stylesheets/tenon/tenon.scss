@@ -40,14 +40,13 @@
 @import "./atoms/buttons/standard";
 @import "./atoms/buttons/floating";
 
-// ATOMS: Action icons
+// ATOMS: Actions
 @import "./atoms/action-icons";
 @import "./atoms/action-text";
 @import "./atoms/action-button";
 
-// ATOMS: Misc
-@import "./atoms/burger";
-@import "./atoms/breadcrumbs";
+// MOLECULES: Actions
+@import "./molecules/actions";
 
 // ATOMS: Forms
 @import "./atoms/form/explanation";
@@ -57,8 +56,18 @@
 // MOLECULES: Forms
 @import "./molecules/forms";
 
+// ATOMS: Search
+@import "./atoms/search/clear";
+@import "./atoms/search/input";
+
+// MOLECULES: Search
+@import "./molecules/search";
+
+// ATOMS: Misc
+@import "./atoms/burger";
+@import "./atoms/breadcrumbs";
+
 // MOLECULES: Misc
-@import "./molecules/actions";
 @import "./molecules/dropdown-content";
 @import "./molecules/flash-message";
 @import "./molecules/panel";
@@ -66,21 +75,20 @@
 // UI ELEMENTS
 @import "./ui/main-nav";
 
+@import "./layout/util-nav";
 @import "./ui/util-nav/account";
+
+@import "./layout/record-list";
+@import "./layout/record-panel";
 
 // LAYOUT
 @import "./layout/header";
 @import "./layout/main";
-@import "./layout/util-nav";
 @import "./layout/toolbar";
 @import "./layout/toolbox";
-@import "./layout/quick-search";
-@import "./layout/record-list";
-@import "./layout/record-panel";
 @import "./layout/tenon-content/base";
 @import "./layout/tenon-content/library";
 @import "./layout/tenon-content/embed-code";
-//@import './layout/tenon-content/popped-out';
 
 body, html {
   min-height: 100%;

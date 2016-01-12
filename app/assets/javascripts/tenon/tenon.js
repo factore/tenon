@@ -67,13 +67,13 @@ var Tenon = {
     });
 
     // TODO: focus hacked - should be part of the react app
-    $(document).on('focusin', '#quick-search-container input.search', function (e) {
+    $(document).on('focusin', '#quick-search input.search', function (e) {
       $target = $(e.currentTarget).closest('.toolbar');
       $target.addClass('quick-search-is-active');
     });
 
     // TODO: should only remove class if search was cancelled/ input is empty and not in focus
-    $(document).on('focusout', '#quick-search-container input.search', function (e) {
+    $(document).on('focusout', '#quick-search input.search', function (e) {
       $target = $(e.currentTarget).closest('.toolbar');
       $target.removeClass('quick-search-is-active');
     });

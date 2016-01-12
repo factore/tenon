@@ -16,7 +16,7 @@ class DefaultQuickSearch extends React.Component {
     const { searchClass } = this.props;
 
     return (
-      <div id="quick-search-container" className={searchClass}>
+      <div id="quick-search" className={searchClass}>
         <input
           type="text"
           ref='searchInput'

@@ -1,0 +1,28 @@
+.search-clear-overlay {
+  @include default-transition;
+  line-height: $util-nav-height;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 0;
+  padding: 0 $default-spacing;
+  content: 0;
+  opacity: 0;
+  background-color: darken($white, 10%);
+  a.search-clear {
+    padding-left: $default-spacing*1.5;
+    color: $primary-fg-color;
+    &:hover {
+      text-decoration: none;
+      color: $link-color;
+    }
+    i {
+      @include font-size($h3-size);
+      position: absolute;
+      top: 0;
+      left: $default-spacing;
+      margin-right: $default-spacing;
+    }
+  }
+}
