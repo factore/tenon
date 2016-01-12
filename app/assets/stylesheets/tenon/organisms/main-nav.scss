@@ -1,32 +1,11 @@
-.main-nav {
-  @include main-nav-transition;
+#main-nav {
   @include font-size-smaller;
-  position: fixed;
   z-index: $z-layout-main-nav;
-  top: $util-nav-height;
-  left: -$main-nav-width;
-  width: $main-nav-width;
-  height: 100%;
   color: $main-nav-fg-color;
-  border-right: 1px solid $light-border-color;
-  box-shadow: inset -4px 1px 9px -6px rgba(0, 0, 0, .46);
-}
-
-.nav-pusher {
-  @include main-nav-transition;
-  position: relative;
-  left: 0;
-  width: 100%;
-  min-height: 100vh;
 }
 
 .main-nav-open {
-  .main-nav {
+  #main-nav.drawer {
     left: 0;
-  }
-
-  .nav-pusher {
-    left: $main-nav-width;
-    width: calc(100% - #{$main-nav-width});
   }
 }

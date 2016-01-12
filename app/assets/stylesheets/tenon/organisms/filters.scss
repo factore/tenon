@@ -1,0 +1,10 @@
+#filters {
+  z-index: $z-layout-filter;
+  padding: $default-spacing;
+}
+
+.filters-open {
+  #filters.drawer {
+    left: 0;
+  }
+}

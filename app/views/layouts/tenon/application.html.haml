@@ -18,13 +18,13 @@
     = flash_messages
     = render 'tenon/shared/util_nav'
 
-    .main-nav
+    #main-nav.drawer
       %p.app-info
         = link_to '/tenon' do
           = image_tag('tenon/tenon_icon.png')
           = Tenon::MySettings.site_title
       = render 'tenon/shared/main_nav'
 
-    .nav-pusher
+    .drawer-pusher
       = yield
       = render 'tenon/shared/version_warning' if @item_version

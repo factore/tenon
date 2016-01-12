@@ -31,7 +31,7 @@ class DefaultQuickSearch extends React.Component {
           </a>
         </div>
         <div className="actions">
-          <a className="filter-toggle action-text" href="#!" title="Filter">
+          <a className="toggle-drawer filter-toggle action-text" href="#!" title="Filter" data-target="filters">
             Advanced
           </a>
         </div>

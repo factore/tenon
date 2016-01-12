@@ -1,0 +1,28 @@
+.drawer {
+  @include drawer-transition;
+  position: fixed;
+  top: $util-nav-height;
+  left: -$main-nav-width;
+  overflow: auto;
+  width: $main-nav-width;
+  height: 100%;
+  border-right: 1px solid $light-border-color;
+  background-color: $body-bg-color;
+  box-shadow: inset -4px 1px 9px -6px rgba(0, 0, 0, .46);
+}
+
+.drawer-pusher {
+  @include drawer-transition;
+  position: relative;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.filters-open,
+.main-nav-open {
+  .drawer-pusher {
+    left: $main-nav-width;
+    width: calc(100% - #{$main-nav-width});
+  }
+}

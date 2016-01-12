@@ -14,6 +14,12 @@ class DefaultList extends React.Component {
           <i className="icon ion-android-add"></i>
         </a>
 
+        <section id="filters" className="drawer">
+          <p>
+          This is the filter pane.
+          </p>
+        </section>
+
         <div className="record-list with-btn-floating">
           <ul className="">
             <ReactCSSTransitionGroup transitionName="record" transitionEnterTimeout={250} transitionLeaveTimeout={250} >

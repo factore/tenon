@@ -36,7 +36,7 @@
     }
     .actions {
       z-index: $z-quick-search-active;
-      .filter-toggle {
+      .action-text.toggle-drawer {
         color: $link-color;
         &:hover {
           color: $white;
