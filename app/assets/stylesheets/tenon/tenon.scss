@@ -7,7 +7,8 @@
 @import "ionicons";
 @import "./grid";
 
-// ATOMS: Universal
+// universal
+@import "./organisms/body";
 @import "./atoms/layout/variables";
 @import "client/layout-sizes";
 @import "./atoms/alignment";
@@ -17,14 +18,14 @@
 @import "./atoms/z-depth";
 @import "./atoms/z-index";
 
-// ATOMS: Colors
+// colors
 @import "./atoms/colors/mixins";
 @import "./atoms/colors/named";
 @import "client/color-names";
 @import "./atoms/colors/variables";
 @import "client/color-variables";
 
-// ATOMS: Typography
+// typography
 @import "./atoms/typography/font-size-mixins";
 @import "./atoms/typography/font-style-mixins";
 @import "./atoms/typography/font-variables";
@@ -34,72 +35,58 @@
 @import "./atoms/typography/default-mixins";
 @import "./atoms/typography/defaults";
 
-// ATOMS: Buttons
+// buttons
 @import "./atoms/buttons/sizes";
 @import "client/button-sizes";
 @import "./atoms/buttons/standard";
 @import "./atoms/buttons/floating";
 
-// ATOMS: Actions
+// actions
 @import "./atoms/action-icons";
 @import "./atoms/action-text";
 @import "./atoms/action-button";
-
-// MOLECULES: Actions
 @import "./molecules/actions";
 
-// ATOMS: Forms
+// forms
 @import "./atoms/form/explanation";
 @import "./atoms/form/labels";
 @import "./atoms/form/inputs";
-
-// MOLECULES: Forms
 @import "./molecules/forms";
 
-// ATOMS: Search
+// quick-search
 @import "./atoms/search/clear";
 @import "./atoms/search/overlay";
 @import "./atoms/search/input";
 @import "./atoms/search/filter-toggle";
-
-// MOLECULES: Search
 @import "./molecules/search";
 
-// MOLECULES: Util nav
+// util-nav
 @import "./molecules/util-nav";
 @import "./molecules/util-nav/account";
 @import "./molecules/util-nav/toolbar";
 
-// MOLECULES: Records
+// records
 @import "./molecules/record/list";
 @import "./molecules/record/panel";
 @import "./molecules/record/details";
 @import "./molecules/record/expanded";
 
-// ATOMS: Misc
+// main-nav & nav-pusher
+@import "./molecules/main-nav/app-info";
+@import "./molecules/main-nav/list";
+@import "./organisms/main-nav";
+
+// misc
 @import "./atoms/burger";
 @import "./atoms/breadcrumbs";
-
-// MOLECULES: Misc
 @import "./molecules/dropdown-content";
 @import "./molecules/flash-message";
 @import "./molecules/panel";
 
-// UI ELEMENTS
-@import "./ui/main-nav";
+// main
+@import "./organisms/main";
 
-
-// LAYOUT
-@import "./layout/header";
-@import "./layout/main";
+// tenon-content
 @import "./layout/tenon-content/base";
 @import "./layout/tenon-content/library";
 @import "./layout/tenon-content/embed-code";
-
-body, html {
-  min-height: 100%;
-}
-
-* {
-  box-sizing: border-box;
-}

@@ -1,6 +1,3 @@
-@import "./main-nav/app-info";
-@import "./main-nav/links";
-
 .main-nav {
   @include transform(translate(-$main-nav-width, 0));
   @include font-size-smaller;

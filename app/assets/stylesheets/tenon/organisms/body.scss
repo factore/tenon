@@ -1,0 +1,12 @@
+body, html {
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: $body-bg-color;
+}
+
+* {
+  box-sizing: border-box;
+}
