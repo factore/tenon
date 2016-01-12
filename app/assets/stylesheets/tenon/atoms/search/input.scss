@@ -1,4 +1,4 @@
-input.search {
+input.search-field {
   @include placeholder {
     @include default-transition;
     color: white;
@@ -24,7 +24,7 @@ input.search {
     color: $primary-fg-color;
     background-color: $white;
 
-    + .search-clear-overlay {
+    + .search-overlay {
       height: $util-nav-height;
       opacity: 1;
     }

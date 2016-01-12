@@ -20,19 +20,15 @@
   }
 }
 
-.search-advanced-toggle.action-text {
-  top: -1px;
-  padding: 2px 8px;
-  &:hover {
-    text-decoration: none;
-    color: $white;
-    border-radius: $default-border-radius;
-    background-color: $link-color;
-  }
-}
-
 .toolbar.quick-search-is-active {
   z-index: $z-quick-search-active;
+  .actions .action-icon {
+    color: $primary-fg-color;
+    &:hover {
+      color: $link-color;
+    }
+  }
+
   #quick-search {
     &:before {
       z-index: $z-quick-search-active;
@@ -40,7 +36,7 @@
     }
     .actions {
       z-index: $z-quick-search-active;
-      .search-advanced-toggle {
+      .filter-toggle {
         color: $link-color;
         &:hover {
           color: $white;
