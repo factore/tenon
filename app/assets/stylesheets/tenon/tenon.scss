@@ -70,6 +70,12 @@
 @import "./molecules/util-nav/account";
 @import "./molecules/util-nav/toolbar";
 
+// MOLECULES: Records
+@import "./molecules/record/list";
+@import "./molecules/record/panel";
+@import "./molecules/record/details";
+@import "./molecules/record/expanded";
+
 // ATOMS: Misc
 @import "./atoms/burger";
 @import "./atoms/breadcrumbs";
@@ -82,8 +88,6 @@
 // UI ELEMENTS
 @import "./ui/main-nav";
 
-@import "./layout/record-list";
-@import "./layout/record-panel";
 
 // LAYOUT
 @import "./layout/header";

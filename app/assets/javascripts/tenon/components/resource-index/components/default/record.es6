@@ -5,7 +5,7 @@ class DefaultRecord extends React.Component {
       <li className="panel record">
         <div className="record-details">
           <div className="expand-record">
-            <p className="title">
+            <p className="record-title">
               {title}
             </p>
             <p className="font-smallest">
