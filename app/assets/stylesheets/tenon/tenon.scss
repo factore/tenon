@@ -47,10 +47,12 @@
 @import "./atoms/burger";
 @import "./atoms/breadcrumbs";
 
+// MOLECULES
+@import "./molecules/flash-message";
+
 // UI ELEMENTS
 @import "./ui/actions";
 @import "./ui/dropdown-content";
-@import "./ui/flash-message";
 @import "./ui/panel";
 @import "./ui/form-inputs";
 

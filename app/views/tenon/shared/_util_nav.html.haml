@@ -34,7 +34,7 @@
         %i.icon.ion-ios-paw
         Something
     %li
-      = link_to '#' do
+      = link_to destroy_user_session_path, method: :delete do
         %i.icon.ion-android-exit
         Logout
 

@@ -1,7 +1,7 @@
 // Flash messages
 .flash {
   position: relative;
-  z-index: $z-flash-message;
+  // z-index: $z-flash-message;
   padding: $default-spacing/2 $default-spacing;
   h2 {
     display: none;
@@ -10,11 +10,10 @@
     margin-bottom: 0;
   }
   p {
-    @include font(14, 18);
     margin-bottom: 0;
   }
   ul {
-    @include font(13, 18);
+    @include font-size-small;
     margin: 0 $default-spacing;
     padding: $default-spacing/2 0;
     li {
@@ -50,8 +49,8 @@
   right: $default-spacing;
   padding: $default-spacing/2 0;
   text-align: right;
-  a {
-    color: white;
-    border: 0;
+  color: white;
+  i {
+    @include font-h3;
   }
 }
