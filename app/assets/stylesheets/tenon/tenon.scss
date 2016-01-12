@@ -7,8 +7,7 @@
 @import "ionicons";
 @import "./grid";
 
-// universal
-@import "./organisms/body";
+// Universal
 @import "./atoms/layout/variables";
 @import "client/layout-sizes";
 @import "./atoms/alignment";
@@ -18,14 +17,17 @@
 @import "./atoms/z-depth";
 @import "./atoms/z-index";
 
-// colors
+// Colors
 @import "./atoms/colors/mixins";
 @import "./atoms/colors/named";
 @import "client/color-names";
 @import "./atoms/colors/variables";
 @import "client/color-variables";
 
-// typography
+// Body
+@import "./organisms/body";
+
+// Typography
 @import "./atoms/typography/font-size-mixins";
 @import "./atoms/typography/font-style-mixins";
 @import "./atoms/typography/font-variables";
@@ -35,58 +37,58 @@
 @import "./atoms/typography/default-mixins";
 @import "./atoms/typography/defaults";
 
-// buttons
+// Buttons
 @import "./atoms/buttons/sizes";
 @import "client/button-sizes";
 @import "./atoms/buttons/standard";
 @import "./atoms/buttons/floating";
 
-// actions
+// Actions
 @import "./atoms/action-icons";
 @import "./atoms/action-text";
 @import "./atoms/action-button";
 @import "./molecules/actions";
 
-// forms
+// Forms
 @import "./atoms/form/explanation";
 @import "./atoms/form/labels";
 @import "./atoms/form/inputs";
 @import "./molecules/forms";
 
-// quick-search
+// Quick search
 @import "./atoms/search/clear";
 @import "./atoms/search/overlay";
 @import "./atoms/search/input";
 @import "./atoms/search/filter-toggle";
 @import "./molecules/search";
 
-// util-nav
+// Util nav
 @import "./molecules/util-nav";
 @import "./molecules/util-nav/account";
 @import "./molecules/util-nav/toolbar";
 
-// records
+// Records
 @import "./molecules/record/list";
 @import "./molecules/record/panel";
 @import "./molecules/record/details";
 @import "./molecules/record/expanded";
 
-// main-nav & nav-pusher
+// Main nav & Nav pusher
 @import "./molecules/main-nav/app-info";
 @import "./molecules/main-nav/list";
 @import "./organisms/main-nav";
 
-// misc
+// Misc
 @import "./atoms/burger";
 @import "./atoms/breadcrumbs";
 @import "./molecules/dropdown-content";
 @import "./molecules/flash-message";
 @import "./molecules/panel";
 
-// main
+// Main
 @import "./organisms/main";
 
-// tenon-content
+// Tenon content
 @import "./layout/tenon-content/base";
 @import "./layout/tenon-content/library";
 @import "./layout/tenon-content/embed-code";

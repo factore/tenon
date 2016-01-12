@@ -24,11 +24,13 @@
 }
 
 .util-nav-context {
+  line-height: $util-nav-height;
   display: block;
   float: left;
   overflow: hidden;
   box-sizing: border-box;
   width: $main-nav-width;
+  height: $util-nav-height;
   margin: 0 0 0 $default-spacing*2.5;
   p {
     @include truncate;

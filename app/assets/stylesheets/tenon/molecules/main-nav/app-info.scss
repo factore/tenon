@@ -1,14 +1,19 @@
 .app-info {
-  @include truncate;
-  @include font-body;
-  line-height: $toolbar-height;
-  height: $toolbar-height;
-  margin: 0;
-  padding: 0 $default-spacing;
-  color: $app-info-fg-color;
-  background: $app-info-bg-color;
   a {
+    @include default-transition;
+    @include truncate;
+    @include font-body;
+    line-height: $toolbar-height;
+    display: block;
+    height: $toolbar-height;
+    margin: 0;
+    padding: 0 $default-spacing;
     color: $app-info-fg-color;
+    background: $app-info-bg-color;
+    &:hover {
+      text-decoration: none;
+      background-color: $app-info-hover-color;
+    }
   }
   img {
     position: relative;
