@@ -65,6 +65,11 @@
 // MOLECULES: Search
 @import "./molecules/search";
 
+// MOLECULES: Util nav
+@import "./molecules/util-nav";
+@import "./molecules/util-nav/account";
+@import "./molecules/util-nav/toolbar";
+
 // ATOMS: Misc
 @import "./atoms/burger";
 @import "./atoms/breadcrumbs";
@@ -77,17 +82,12 @@
 // UI ELEMENTS
 @import "./ui/main-nav";
 
-@import "./layout/util-nav";
-@import "./ui/util-nav/account";
-
 @import "./layout/record-list";
 @import "./layout/record-panel";
 
 // LAYOUT
 @import "./layout/header";
 @import "./layout/main";
-@import "./layout/toolbar";
-@import "./layout/toolbox";
 @import "./layout/tenon-content/base";
 @import "./layout/tenon-content/library";
 @import "./layout/tenon-content/embed-code";
