@@ -52,3 +52,8 @@ textarea,
     background: $required-color;
   }
 }
+
+input.form-title-field {
+  @include font-h3;
+  border: 0;
+}

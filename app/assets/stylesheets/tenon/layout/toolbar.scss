@@ -13,8 +13,14 @@
     line-height: $util-nav-height;
     right: $default-spacing*4.5;
     height: $util-nav-height;
+    .action-btn {
+      line-height: $util-nav-height - $default-spacing*(2/3);
+      top: -($util-nav-height - $default-spacing/3)/2; // I can't figure out why this is needed -jamie
+      height: $util-nav-height - $default-spacing*(2/3);
+    }
     .action-icon,
     .action-text {
+      line-height: $util-nav-height;
       color: rgba($toolbar-fg-color, .8);
       &:hover {
         color: $toolbar-fg-color;

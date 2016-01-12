@@ -16,9 +16,4 @@ form {
   .form-field {
     margin-bottom: $default-spacing;
   }
-
-  .form-title-field {
-    @include font-h3;
-    border: 0;
-  }
 }
