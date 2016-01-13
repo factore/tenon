@@ -1,0 +1,22 @@
+.panel.record {
+  @include default-transition;
+  width: 100%;
+  margin-bottom: 1px;
+  padding: $default-spacing/2 $default-spacing;
+  opacity: .7;
+  &:hover {
+    @include z-depth-1;
+    opacity: 1;
+    .record-details .actions {
+      opacity: .9;
+    }
+  }
+  &.is-expanded {
+    width: 104%;
+    margin: 1px -2%;
+  }
+
+  .expand-record {
+    cursor: pointer;
+  }
+}

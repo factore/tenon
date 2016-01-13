@@ -30,11 +30,11 @@ module Tenon
       title = action_name.titleize + ' '
       singular = controller_name.singularize
       instance = instance_variable_get("@#{singular}")
-      if instance && instance.try(:title).present?
-        title += instance.title.titleize
-      else
-        title += singular.titleize
-      end
+      # if instance && instance.try(:title).present?
+      #   title += instance.title.titleize
+      # else
+      #   title += singular.titleize
+      # end
       title
     end
   end

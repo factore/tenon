@@ -1,0 +1,89 @@
+// Use American 'color' in variable names for consistency with CSS keywords.
+
+// Generate color helpers based on base colors
+@include generate_color_helpers("grey", $grey);
+@include generate_color_helpers("primary", $primary-color);
+@include generate_color_helpers("secondary", $secondary-color);
+@include generate_color_helpers("accent", $accent-color);
+
+// Text colors
+$primary-fg-color: darken($grey, 25);
+$light-fg-color: darken($grey, 20);
+$body-fg-color: $black;
+$link-color: $primary-color;
+$link-hover-color: darken($primary-color, 20%);
+
+@include generate_base_color_helpers("primary-fg", $primary-fg-color);
+@include generate_base_color_helpers("light-fg", $light-fg-color);
+@include generate_base_color_helpers("body-fg", $body-fg-color);
+@include generate_base_color_helpers("link", $link-color);
+
+// Form colors
+$label-color: darken($grey, 10%);
+$panel-label-color: lighten($grey, 10%);
+$placeholder-color: darken($grey, 10%);
+$explanation-color: $grey;
+
+// Misc.
+$body-bg-color: lighten($grey, 25%);
+$panel-bg-color: $white;
+$contrast-bg-color: $grey;
+$light-border-color: lighten($grey, 10%);
+$required-color: $required-color;
+
+// Dropdown
+$dropdown-bg-color: $white;
+$dropdown-hover-bg-color: lighten($grey, 30%);
+$dropdown-fg-color: darken($grey, 20%);
+
+// Buttons
+$btn-primary-bg-color: $primary-color;
+$btn-primary-fg-color: $white;
+$btn-secondary-bg-color: $secondary-color;
+$btn-secondary-fg-color: $white;
+$btn-floating-bg-color: $secondary-color;
+$btn-floating-fg-color: $white;
+$tool-toggle-bg-color: darken($primary-color, 10%);
+$tool-toggle-fg-color: $white;
+
+// Main Nav
+$main-nav-bg-color: lighten($grey, 10%);
+$main-nav-fg-color: $black;
+$main-nav-hover-color: $grey;
+$app-info-fg-color: $white;
+$app-info-hover-color: rgba($primary-color, .4);
+$app-info-bg-color: rgba(darken($main-nav-bg-color, 20%), .4);
+
+// Util Nav
+$util-nav-bg-color: $primary-color;
+$util-nav-fg-color: $white;
+$burger-color: $white;
+
+// Account Avatar
+$avatar-bg-color: lighten($grey, 20%);
+$avatar-fg-color: $primary-fg-color;
+$avatar-bg-hover-color: $white;
+$avatar-fg-hover-color: $primary-color;
+
+// Toolbar
+$toolbar-bg-color: $primary-color;
+$toolbar-fg-color: $white;
+$quick-search-bg-color: rgba($white, .3);
+$quick-search-fg-color: $white;
+$quick-search-overlay-bg-color: darken($white, 10%);
+$filter-overlay-bg-color: darken($white, 20%);
+
+
+// Records
+$infinite-loader-color: darken($grey, 20%);
+
+// Flash messages
+$warning-background-color: $warning-color;
+$warning-border-color: darken($warning-color, 10%);
+$warning-text-color: $white;
+$error-background-color: $error-color;
+$error-border-color: darken($error-color, 10%);
+$error-text-color: $white;
+$success-background-color: $success-color;
+$success-border-color: darken($success-color, 10%);
+$success-text-color: $white;

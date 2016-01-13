@@ -1,0 +1,18 @@
+.action-icon {
+  line-height: $default-spacing*1.5;
+  position: relative;
+  display: inline-block;
+  color: $primary-fg-color;
+  i {
+    @include default-transition;
+    @include font-h3;
+    line-height: $default-spacing*1.5;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: $default-spacing*1.5;
+    height: $default-spacing*1.5;
+    text-align: center;
+    border-radius: 50%;
+  }
+}

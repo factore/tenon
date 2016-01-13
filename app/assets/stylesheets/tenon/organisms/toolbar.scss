@@ -1,0 +1,34 @@
+.toolbar {
+  position: fixed;
+  z-index: $z-layout-toolbar;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  width: 100%;
+  height: $util-nav-height;
+  padding: 0 $default-spacing*4.5 0 $main-nav-width;
+  background-color: $toolbar-bg-color;
+
+  .actions {
+    line-height: $util-nav-height;
+    right: $default-spacing*4.5;
+    height: $util-nav-height;
+    .action-btn {
+      line-height: $util-nav-height - $default-spacing*(2/3);
+      top: -($util-nav-height - $default-spacing/3)/2; // I can't figure out why this is needed -jamie
+      height: $util-nav-height - $default-spacing*(2/3);
+    }
+    .action-icon,
+    .action-text {
+      line-height: $util-nav-height;
+      color: rgba($toolbar-fg-color, .8);
+      &:hover {
+        color: $toolbar-fg-color;
+      }
+      i {
+        line-height: $util-nav-height;
+        height: $util-nav-height;
+      }
+    }
+  }
+}

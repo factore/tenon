@@ -1,0 +1,24 @@
+#filters {
+  z-index: $z-layout-filter;
+  padding: $default-spacing;
+  + .toolbar-overlay {
+    z-index: $z-filters-active;
+    background-color: $filter-overlay-bg-color;
+    .util-nav-content {
+      display: none;
+    }
+  }
+}
+
+.filters-open {
+  #filters.drawer {
+    left: 0;
+    + .toolbar-overlay {
+      height: $util-nav-height;
+      opacity: 1;
+      .util-nav-content {
+        display: block;
+      }
+    }
+  }
+}

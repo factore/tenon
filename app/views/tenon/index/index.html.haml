@@ -1,18 +1,5 @@
-- content_for :sidebar do
-  .sidebar
-    .content
-      %h2 Notifications
-      - unless @warnings.empty?
-        %h3 Some items need your attention!
+- content_for :util_nav_content do
+  `content_for :util_nav_content do`
 
-        - @warnings.each do |warning|
-          .notification= warning
-
-%header
-  %h1 Welcome to Tenon
-
-  .tools
-    = render "tenon/shared/section_header/sidebar_toggle"
-
-.main-content
-  #dashboard-callouts.container
+%main
+  %h1 Index#Index

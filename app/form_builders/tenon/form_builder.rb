@@ -139,7 +139,8 @@ module Tenon
       else
         label ||= method_name.to_s.titleize
         label = language_title ? label + " (#{language_title.to_s.titleize})" : label
-        super(get_method(method_name, language), label.html_safe, class: ('required' if required))
+        label_class = "field-label#{' required' if required}"
+        super(get_method(method_name, language), label.html_safe, class: label_class)
       end
     end
 

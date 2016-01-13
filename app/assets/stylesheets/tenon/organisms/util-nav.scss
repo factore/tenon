@@ -1,0 +1,39 @@
+.util-nav {
+  line-height: $util-nav-height;
+  position: fixed;
+  z-index: $z-layout-util-nav;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: $util-nav-height;
+  color: $util-nav-fg-color;
+  background-color: $util-nav-bg-color;
+  a {
+    color: $util-nav-fg-color;
+  }
+}
+
+.util-nav-context {
+  line-height: $util-nav-height;
+  display: block;
+  float: left;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: $main-nav-width;
+  height: $util-nav-height;
+  margin: 0 0 0 $default-spacing*2.5;
+  p {
+    @include truncate;
+    display: inline-block;
+    width: $main-nav-width - $default-spacing*2;
+  }
+}
+
+.util-nav-content {
+  @include calc(width, "100% - #{$main-nav-width + $util-nav-height + $default-spacing}");
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: $util-nav-height;
+  margin-left: $main-nav-width + $default-spacing;
+}

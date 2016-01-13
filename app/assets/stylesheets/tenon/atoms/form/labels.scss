@@ -1,0 +1,11 @@
+.form-label {
+  @extend .label;
+  display: block;
+  margin-bottom: $default-spacing/3;
+}
+
+.field-label {
+  @extend .label;
+  display: block;
+  margin-bottom: 0;
+}

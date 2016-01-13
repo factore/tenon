@@ -44,6 +44,40 @@ var Tenon = {
     new Tenon.features.GenericClassToggler();
     new Tenon.features.ToggleMainNav();
     new Tenon.features.NavItemToggle();
+
+    // TODO: click hacked - should be part of the react app
+    $(document).on('click', '.panel.record .expand-record', function (e) {
+      $target = $(e.currentTarget).closest('.panel.record');
+
+      if ($target.hasClass('is-expanded')) {
+        $target
+          .removeClass('is-expanded')
+          .find('.record-expanded')
+            .slideUp(300);
+      } else {
+        $('.panel.record')
+          .removeClass('is-expanded')
+          .find('.record-expanded')
+            .slideUp(300);
+        $target
+          .addClass('is-expanded')
+          .find('.record-expanded')
+            .slideDown(300);
+      }
+    });
+
+    // TODO: focus hacked - should be part of the react app
+    $(document).on('focusin', '#quick-search input.search-field', function (e) {
+      $target = $(e.currentTarget).closest('.toolbar');
+      $target.addClass('quick-search-is-active');
+    });
+
+    // TODO: should only remove class if search was cancelled/ input is empty and not in focus
+    $(document).on('focusout', '#quick-search input.search-field', function (e) {
+      $target = $(e.currentTarget).closest('.toolbar');
+      $target.removeClass('quick-search-is-active');
+    });
+
   }
 
 };

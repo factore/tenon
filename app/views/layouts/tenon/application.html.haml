@@ -15,12 +15,16 @@
     = javascript_include_tag 'tenon/tenon_manifest'
 
   %body{data: { controller: params[:controller], action: params[:action] } }
-    .main-nav
-      .current-user
-        = current_user.email
-      = render 'tenon/shared/main_nav'
+    = flash_messages
     = render 'tenon/shared/util_nav'
-    .nav-pusher
+
+    #main-nav.drawer
+      %p.app-info
+        = link_to '/tenon' do
+          = image_tag('tenon/tenon_icon.png')
+          = Tenon::MySettings.site_title
+      = render 'tenon/shared/main_nav'
+
+    .drawer-pusher
       = yield
-      = flash_messages
       = render 'tenon/shared/version_warning' if @item_version

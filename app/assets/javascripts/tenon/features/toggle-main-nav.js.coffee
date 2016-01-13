@@ -1,19 +1,27 @@
 class Tenon.features.ToggleMainNav
   constructor: ->
     @hasStorage = typeof(Storage) != "undefined"
-    if @hasStorage
-      isOpen = localStorage.getItem('main-nav-open')
-      $('body').addClass('main-nav-open') if isOpen
+    @_checkStorage() if @hasStorage
 
-    $('.toggle-main-nav').on('click', @_toggle)
+    $('.toggle-drawer').on('click', @_toggle)
 
-  _toggle: =>
-    $('body').toggleClass('main-nav-open')
+  _toggle: (e) =>
+    e.preventDefault()
+    target = $(e.currentTarget).data('target')
+
+    $('body').toggleClass("#{target}-open")
     console.log @hasStorage
-    @_storeChange() if @hasStorage
+    @_storeChange(target) if @hasStorage
 
-  _storeChange: ->
-    if $('body').hasClass('main-nav-open')
-      localStorage.setItem('main-nav-open', true)
+  _storeChange: (target) ->
+    if $('body').hasClass("#{target}-open")
+      localStorage.setItem("#{target}-open", true)
     else
-      localStorage.removeItem('main-nav-open')
+      localStorage.removeItem("#{target}-open")
+
+  _checkStorage: ->
+    navIsOpen = localStorage.getItem('main-nav-open')
+    $('body').addClass('main-nav-open') if navIsOpen
+
+    filterIsOpen = localStorage.getItem('filters-open')
+    $('body').addClass('filters-open') if filterIsOpen

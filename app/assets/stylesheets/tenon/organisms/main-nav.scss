@@ -1,0 +1,11 @@
+#main-nav {
+  @include font-size-smaller;
+  z-index: $z-layout-main-nav;
+  color: $main-nav-fg-color;
+}
+
+.main-nav-open {
+  #main-nav.drawer {
+    left: 0;
+  }
+}

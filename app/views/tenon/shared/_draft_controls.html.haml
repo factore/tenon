@@ -1,4 +1,4 @@
-%li.label.last-autosave Draft Versions
+%li.dropdown-label.last-autosave Draft Versions
 %li
   = link_to new_item_version_path(item_type: class_for(obj), item_id: obj.id), data: { modal_remote: true, modal_handler: 'Tenon.features.NewItemVersionHandler', modal_title: 'Save Draft' } do
     %i.icon.ion-ios-cloud-upload
@@ -15,4 +15,3 @@
       %i.icon.ion-ios-star
       Load Active Version
 %li.divider
-

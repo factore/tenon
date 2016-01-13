@@ -1,0 +1,13 @@
+.toolbar-overlay {
+  @include default-transition;
+  line-height: $util-nav-height;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  height: 0;
+  padding: 0 $default-spacing;
+  content: 0;
+  opacity: 0;
+}

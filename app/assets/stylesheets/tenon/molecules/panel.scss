@@ -1,0 +1,19 @@
+.panel {
+  @include z-depth-1;
+  position: relative;
+  overflow: hidden;
+  background-color: $panel-bg-color;
+
+  &.with-btn-floating {
+    top: $btn-floating-size / 2;
+  }
+
+  &.block {
+    margin-bottom: $default-spacing;
+    padding: $default-spacing/2 $default-spacing;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}

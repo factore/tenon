@@ -1,0 +1,13 @@
+.record-list {
+}
+
+.infinite-loader {
+  @include font-h3;
+  display: none;
+  text-align: center;
+  color: $infinite-loader-color;
+
+  &.visible {
+    display: block;
+  }
+}

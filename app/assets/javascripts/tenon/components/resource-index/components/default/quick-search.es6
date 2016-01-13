@@ -16,17 +16,25 @@ class DefaultQuickSearch extends React.Component {
     const { searchClass } = this.props;
 
     return (
-      <div id="quick-search-container" className={searchClass}>
-        <ul>
-          <li>
-            <input
-              type="text"
-              ref='searchInput'
-              onChange={(e) => this._handleChange(e)}
-              className="search"
-              placeholder="SEARCH" />
-          </li>
-        </ul>
+      <div id="quick-search" className={searchClass}>
+        <input
+          type="text"
+          ref='searchInput'
+          onChange={(e) => this._handleChange(e)}
+          className="search-field"
+          placeholder="Search..."
+          title="Search" />
+        <div className="toolbar-overlay">
+          <a href="#" className="toolbar-action">
+            <i className="icon ion-android-arrow-back"></i>
+            Clear
+          </a>
+        </div>
+        <div className="actions">
+          <a className="toggle-drawer filter-toggle action-text" href="#!" title="Filter" data-target="filters">
+            Advanced
+          </a>
+        </div>
       </div>
     )
   }

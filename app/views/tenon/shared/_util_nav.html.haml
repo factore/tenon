@@ -1,8 +1,46 @@
+= render 'tenon/shared/burger'
+
+.account
+  -# TODO: If there are notifications, add the class `has-notifications`
+        -# to the link_to .. CSS will change the icon
+  = link_to '#!', class: 'account-notifications action-icon dropdown-button', data: { activates: 'notification-dropdown'} do
+    %i.icon.ion-android-notifications-none
+
+  %ul.dropdown-content#notification-dropdown
+    %li
+      = link_to '#' do
+        %i.icon.ion-android-notifications
+        Notifications!
+    %li
+      = link_to '#' do
+        %i.icon.ion-android-calendar
+        Event Alert
+    %li
+      = link_to '#' do
+        %i.icon.ion-android-alarm-clock
+        Alarm Alert
+
+  = link_to '#!', class: 'account-avatar action-icon dropdown-button', data: { activates: 'current-user-dropdown'} do
+    %i.icon.ion-android-person
+    =# image_tag('', class: 'account-avatar-image')
+
+  %ul.dropdown-content#current-user-dropdown
+    %li
+      = link_to '#' do
+        %i.icon.ion-person
+        Account
+    %li
+      = link_to '#' do
+        %i.icon.ion-ios-paw
+        Something
+    %li
+      = link_to destroy_user_session_path, method: :delete do
+        %i.icon.ion-android-exit
+        Logout
+
 %nav.util-nav
+  .util-nav-context
+    %p= @context_title
 
-  %a.toggle-main-nav{ href: '#' }
-    .burger
-
-  = link_to image_tag('tenon/tenon_icon.png'), tenon.root_path, class: 'brand-logo center'
-
-
+  .util-nav-content
+    = yield :util_nav_content

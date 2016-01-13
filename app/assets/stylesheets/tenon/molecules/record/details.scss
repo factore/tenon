@@ -1,0 +1,32 @@
+.record-details {
+  position: relative;
+  p {
+    margin: 0;
+    &.record-title {
+      @include truncate;
+      color: $body-fg-color;
+    }
+  }
+  .actions {
+    @include bp-md {
+      @include transform-style(preserve-3d);
+      position: absolute;
+      z-index: $z-panel-open;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      .action-icon {
+        @include vertical-align;
+      }
+    }
+    padding-left: $default-spacing/2;
+    text-align: right;
+    background-color: $panel-bg-color;
+    .action-icon {
+      color: $primary-fg-color;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}

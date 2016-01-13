@@ -1,0 +1,32 @@
+input.search-field {
+  @include placeholder {
+    @include default-transition;
+    color: white;
+  }
+  @include default-transition;
+  @include font-size($h5-size);
+  line-height: $util-nav-height - $default-spacing*(2/3);
+  position: relative;
+  z-index: $z-quick-search-input;
+  display: inline-block;
+  width: 100%;
+  height: $util-nav-height - $default-spacing*(2/3);
+  margin-top: $default-spacing/3;
+  padding: 0 $default-spacing/3 0 $default-spacing*1.5;
+  color: $quick-search-fg-color;
+  border: 0;
+  border-radius: $default-border-radius;
+  background-color: $quick-search-bg-color;
+  &:focus {
+    @include placeholder {
+      color: lighten($primary-fg-color, 20%);
+    }
+    color: $primary-fg-color;
+    background-color: $white;
+
+    + .toolbar-overlay {
+      height: $util-nav-height;
+      opacity: 1;
+    }
+  }
+}

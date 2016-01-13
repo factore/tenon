@@ -1,0 +1,45 @@
+.account {
+  position: fixed;
+  z-index: $z-account;
+  top: 0;
+  right: $default-spacing;
+  .action-icon {
+    line-height: $util-nav-height;
+    i {
+      line-height: $util-nav-height - $default-spacing*(2/3);
+      width: $util-nav-height - 20px;
+      height: $util-nav-height - 20px;
+      margin: $default-spacing/3 0;
+      color: $avatar-fg-color;
+      background-color: $avatar-bg-color;
+      &:hover {
+        color: $avatar-fg-hover-color;
+        background-color: $avatar-bg-hover-color;
+      }
+    }
+  }
+}
+
+.account-avatar {
+  .account-avatar-image {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none; // temporary
+    width: 100%;
+  }
+}
+
+.account-notifications {
+  margin-right: $default-spacing/3;
+  &.has-notifications {
+    i {
+      &:before {
+        content: $ionicon-var-android-notifications;
+      }
+    }
+  }
+}

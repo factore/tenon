@@ -1,0 +1,77 @@
+#main-nav > ul {
+  padding: $default-spacing/2;
+  > li {
+    position: relative;
+    margin-bottom: 1px;
+    padding: $default-spacing/5 0;
+    border-radius: $default-border-radius;
+  }
+  > :hover {
+    background-color: rgba($white, .45);
+    i {
+      color: $primary-color;
+    }
+  }
+  > .active {
+    background-color: $white;
+    i {
+      color: $primary-color;
+    }
+  }
+
+  a {
+    line-height: $default-spacing;
+    display: block;
+    padding: 0 $default-spacing/2;
+    color: $main-nav-fg-color;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  i {
+    @include font-size($h4-size);
+    line-height: $default-spacing;
+    display: inline-block;
+    width: $icon-width;
+    vertical-align: middle;
+    color: $light-fg-color;
+  }
+
+  // Subnav
+  .nav-item-toggle {
+    position: absolute;
+    top: $default-spacing/5;
+    right: 0;
+    i {
+      text-align: center;
+      color: $primary-fg-color;
+    }
+  }
+
+  .open .nav-item-toggle i::before {
+    content: "\f2f4";
+  }
+
+  li ul {
+    display: none;
+    padding-top: 0;
+  }
+
+  .open ul {
+    display: block;
+  }
+
+  li li {
+    $horz-padding: $icon-width + $default-spacing / 2;
+    &.active a {
+      color: $main-nav-hover-color;
+    }
+    &:hover {
+      background: transparent;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

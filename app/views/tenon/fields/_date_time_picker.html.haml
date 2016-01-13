@@ -1,8 +1,5 @@
-= render layout: 'tenon/fields/base', locals: { f: f, method_name: method_name, opts: opts } do
-  .spacer
-
+= render layout: 'tenon/fields/base', locals: { f: f, method_name: method_name, opts: opts }, class: 'row' do
   .inner8
-    = f.super_text_field "#{method_name}_date", value: f.object.send(method_name).try(:strftime, '%d %B, %Y'), data: { behavior: 'datepicker' }, class: 'stacked'
+    = f.super_text_field "#{method_name}_date", value: f.object.send(method_name).try(:strftime, '%d %B, %Y'), data: { behavior: 'datepicker' }, class: 'stacked', placeholder: 'Day Month, Year'
   .inner4.omega
-    = f.super_text_field "#{method_name}_time", value: f.object.send(method_name).try(:strftime, '%-l:%M %p %Z'), data: { behavior: 'timepicker' }
-  .spacer
+    = f.super_text_field "#{method_name}_time", value: f.object.send(method_name).try(:strftime, '%-l:%M %p %Z'), data: { behavior: 'timepicker' }, placeholder: '00:00 AM'

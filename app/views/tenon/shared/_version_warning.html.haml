@@ -11,4 +11,4 @@
         %strong "#{@item_version.title}"
       was created on #{@item_version.created_at.strftime('%m/%d/%Y at %l:%M %p')}
       by #{@item_version.user.try(:email)}
-  =link_to fa_icon('times'), '#', id: 'flash-dismiss'
+  = link_to content_tag(:i, '', class: 'icon ion-android-close'), '#', id: 'flash-dismiss'
