@@ -1,10 +1,13 @@
-.form-group
-  %label META Keywords
-  .explanation These META keywords will be used by some search engines when crawling your site.  Separate keywords with a comma.  Note: Google does not factor in keywords when calculating your rank.  Other search engines may or may not.
-  = text_area_tag "settings[seo_keywords]", Tenon::MySettings.seo_keywords
+.form-label SEO
+.panel.block
+  .row
+    .form-field.inner6
+      %label.field-label META Keywords
+      = text_area_tag "settings[seo_keywords]", Tenon::MySettings.seo_keywords
+      .explanation These META keywords will be used by some search engines when crawling your site.  Separate keywords with a comma.  Note: Google does not factor in keywords when calculating your rank.  Other search engines may or may not.
 
-.form-group
-  %label META Description
-  .explanation This description will show up on search engines and in some cases will affect your rank.  It should be no longer than 150-160 characters (about the length of a tweet.)
-  = text_area_tag "settings[seo_description]", Tenon::MySettings.seo_description
 
+    .form-field.inner6.omega
+      %label.field-label META Description
+      = text_area_tag "settings[seo_description]", Tenon::MySettings.seo_description
+      .explanation This description will show up on search engines and in some cases will affect your rank.  It should be no longer than 150-160 characters (about the length of a tweet.)
