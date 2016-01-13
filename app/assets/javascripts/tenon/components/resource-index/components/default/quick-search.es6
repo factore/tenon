@@ -16,25 +16,49 @@ class DefaultQuickSearch extends React.Component {
     const { searchClass } = this.props;
 
     return (
-      <div id="quick-search" className={searchClass}>
-        <input
-          type="text"
-          ref='searchInput'
-          onChange={(e) => this._handleChange(e)}
-          className="search-field"
-          placeholder="Search..."
-          title="Search" />
-        <div className="toolbar-overlay">
-          <a href="#" className="toolbar-action">
-            <i className="icon ion-android-arrow-back"></i>
-            Clear
-          </a>
+      <div id="search-container" className={searchClass}>
+        <section id="search" className="search-content">
+          <input
+            type="text"
+            ref='searchInput'
+            onChange={(e) => this._handleChange(e)}
+            className="search-field"
+            placeholder="Search..."
+            title="Search" />
+
+          <div className="actions">
+            <a className="action-icon toggle-drawer filter-toggle" href="#!" title="Filter" data-target="filters">
+              <i className="icon ion-android-options"></i>
+            </a>
+          </div>
+        </section>
+
+        <section id="filters" className="drawer">
+          <p>
+          This is the filter pane.
+          </p>
+        </section>
+
+        <div id="search-overlay" className="toolbar-overlay">
+          <div className="search-content">
+            <a href="#" className="toolbar-action ">
+              <i className="icon ion-android-arrow-back"></i>
+              Clear
+            </a>
+          </div>
+
+          <div className="filter-content">
+            <a href="#" className="toolbar-action toggle-drawer" data-target="filters">
+              <i className="icon ion-android-close"></i>
+              Close
+            </a>
+            <div className="util-nav-content">
+              123 Million Results!
+            </div>
+          </div>
         </div>
-        <div className="actions">
-          <a className="toggle-drawer filter-toggle action-text" href="#!" title="Filter" data-target="filters">
-            Advanced
-          </a>
-        </div>
+
+
       </div>
     )
   }

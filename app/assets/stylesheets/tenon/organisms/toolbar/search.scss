@@ -1,0 +1,28 @@
+#search-container {
+  position: relative;
+  display: inline-block;
+  width: calc(100% - #{$default-spacing*6});
+  padding: 0 0 0 $default-spacing;
+}
+
+#search-overlay.toolbar-overlay {
+  background-color: $quick-search-overlay-bg-color;
+}
+
+#search {
+  &:before {
+    @extend .ion;
+    @include font-size($h3-size);
+    position: absolute;
+    z-index: $z-quick-search-actions;
+    top: 19px;
+    left: $default-spacing*1.5;
+    display: block;
+    content: $ionicon-var-android-search;
+    color: $quick-search-fg-color;
+  }
+  .actions {
+    z-index: $z-quick-search-actions;
+    right: -$default-spacing*1.5;
+  }
+}

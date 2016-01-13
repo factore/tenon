@@ -55,11 +55,6 @@
 @import "./atoms/form/inputs";
 @import "./molecules/forms";
 
-// Quick search
-@import "./atoms/search/input";
-@import "./atoms/search/filter-toggle";
-@import "./molecules/search";
-
 // Util nav/ toolbar
 @import "./atoms/main-nav-toggle";
 @import "./atoms/toolbar/action";
@@ -74,12 +69,18 @@
 @import "./molecules/record/details";
 @import "./molecules/record/expanded";
 
+// Search/ Filters
+@import "./atoms/search/input";
+@import "./atoms/search/filter-toggle";
+@import "./organisms/toolbar/search";
+@import "./organisms/toolbar/filters";
+@import "./organisms/toolbar/open";
+
 // Drawers
 @import "./molecules/drawer";
 @import "./molecules/main-nav/app-info";
 @import "./molecules/main-nav/list";
 @import "./organisms/main-nav";
-@import "./organisms/filters";
 
 // Misc
 @import "./atoms/burger";

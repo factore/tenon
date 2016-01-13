@@ -19,15 +19,26 @@ class DefaultHeader extends React.Component {
         searchClass={searchClass} />
 
         <div className="actions">
-          <a className="action-icon" href="#!" title="Sort or options?">
-            <i className="icon ion-android-options"></i>
+          <a className="action-icon dropdown-button" href="#!" data-activates="sort-dropdown" title="Sort or options?">
+            <i className="icon ion-android-funnel"></i>
           </a>
+          <ul className="dropdown-content" id="sort-dropdown">
+            <li>
+              <a href="#!">
+              A to Z
+              </a>
+            </li>
+            <li>
+              <a href="#!">
+              Z to A
+              </a>
+            </li>
+          </ul>
 
-          <a className="action-icon dropdown-button" href="#!" data-activates="index-dropdown" title="Links!">
+          <a className="action-icon dropdown-button" href="#!" data-activates="list-dropdown" title="Links!">
             <i className="icon ion-android-more-vertical"></i>
           </a>
-
-          <ul className="dropdown-content" id="index-dropdown">
+          <ul className="dropdown-content" id="list-dropdown">
             <li>
               <a href="#!">
               <i className="icon ion-android-apps"></i>
