@@ -11,7 +11,7 @@ class DefaultList extends React.Component {
     return (
       <main>
         <a className="btn-floating" href={this.props.newPath}>
-          <i className="icon ion-android-add"></i>
+          <i className="material-icons">add</i>
         </a>
 
         <div className="record-list with-btn-floating">

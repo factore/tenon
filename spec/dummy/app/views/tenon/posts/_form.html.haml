@@ -6,7 +6,7 @@
         %button.action-btn.btn.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
 
       %a.action-icon.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
-        %i.icon.ion-android-more-vertical
+        = i('more_vert')
 
       %ul.dropdown-content#form-dropdown
         - if can?(:create, Tenon::ItemVersion)
@@ -15,8 +15,7 @@
         - if @post.persisted?
           %li
             = link_to @post, data: { method: :delete, confirm: 'Are you sure you want to delete this?' }, class: 'delete-link' do
-              %i.icon.ion-trash-a
-              Delete
+              = i('delete')
 
   %main
     = error_messages_for :post

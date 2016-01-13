@@ -18,6 +18,7 @@ class DefaultQuickSearch extends React.Component {
     return (
       <div id="search-container" className={searchClass}>
         <section id="search" className="search-content">
+          <i className="search-icon material-icons">search</i>
           <input
             type="text"
             ref='searchInput'
@@ -28,7 +29,7 @@ class DefaultQuickSearch extends React.Component {
 
           <div className="actions">
             <a className="action-icon toggle-drawer filter-toggle" href="#!" title="Filter" data-target="filters">
-              <i className="icon ion-android-options"></i>
+              <i className="material-icons">tune</i>
             </a>
           </div>
         </section>
@@ -42,14 +43,14 @@ class DefaultQuickSearch extends React.Component {
         <div id="search-overlay" className="toolbar-overlay">
           <div className="search-content">
             <a href="#" className="toolbar-action ">
-              <i className="icon ion-android-arrow-back"></i>
+              <i className="material-icons">arrow_back</i>
               Clear
             </a>
           </div>
 
           <div className="filter-content">
             <a href="#" className="toolbar-action toggle-drawer" data-target="filters">
-              <i className="icon ion-android-close"></i>
+              <i className="material-icons">close</i>
               Close
             </a>
             <div className="util-nav-content">

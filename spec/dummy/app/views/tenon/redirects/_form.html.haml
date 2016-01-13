@@ -14,7 +14,7 @@
   .main-content
     = autosaving_form_for @redirect do |f|
       .flash.flash-alert{style: 'padding-right: 40px;'}
-        %i.fa.fa-exclamation-triangle
+        = i('warning')
         Redirects will be run when a page cannot be found. It will not redirect an existing page.
 
       = error_messages_for :redirect

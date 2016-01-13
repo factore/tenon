@@ -30,10 +30,11 @@
   }
 
   i {
-    @include font-size($h4-size);
+    @include font-size($main-nav-icon-size);
     line-height: $default-spacing;
     display: inline-block;
-    width: $icon-width;
+    height: $default-spacing;
+    margin-right: $default-spacing/3;
     vertical-align: middle;
     color: $light-fg-color;
   }
@@ -44,13 +45,23 @@
     top: $default-spacing/5;
     right: 0;
     i {
-      text-align: center;
       color: $primary-fg-color;
+      &.nav-open {
+        display: inline;
+      }
+      &.nav-close {
+        display: none;
+      }
     }
   }
 
-  .open .nav-item-toggle i::before {
-    content: "\f2f4";
+  .open .nav-item-toggle {
+    .nav-open {
+      display: none;
+    }
+    .nav-close {
+      display: inline;
+    }
   }
 
   li ul {
@@ -63,7 +74,6 @@
   }
 
   li li {
-    $horz-padding: $icon-width + $default-spacing / 2;
     &.active a {
       color: $main-nav-hover-color;
     }

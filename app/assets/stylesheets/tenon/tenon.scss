@@ -4,7 +4,6 @@
 //= require pickadate/default.date
 //= require pickadate/default.time
 @import "bourbon";
-@import "ionicons";
 @import "./grid";
 
 // Universal
@@ -12,6 +11,7 @@
 @import "client/layout-variables";
 @import "./atoms/alignment";
 @import "./atoms/lists";
+@import "./atoms/transforms";
 @import "./atoms/transitions";
 @import "./atoms/truncate";
 @import "./atoms/z-depth";
@@ -28,14 +28,17 @@
 @import "./organisms/body";
 
 // Typography
-@import "./atoms/typography/font-size-mixins";
 @import "./atoms/typography/font-style-mixins";
 @import "./atoms/typography/font-variables";
 @import "client/typography-fonts";
+@import "./atoms/typography/font-size-mixins";
 @import "./atoms/typography/size-variables";
 @import "client/typography-sizes";
 @import "./atoms/typography/default-mixins";
 @import "./atoms/typography/defaults";
+
+// Icons
+@import "./atoms/typography/material-icons";
 
 // Buttons
 @import "./atoms/buttons/sizes";
@@ -44,9 +47,9 @@
 @import "./atoms/buttons/floating";
 
 // Actions
-@import "./atoms/action-icons";
-@import "./atoms/action-text";
-@import "./atoms/action-button";
+@import "./atoms/actions/icons";
+@import "./atoms/actions/text";
+@import "./atoms/actions/button";
 @import "./molecules/actions";
 
 // Forms

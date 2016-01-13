@@ -10,15 +10,13 @@
 }
 
 #search {
-  &:before {
-    @extend .ion;
-    @include font-size($h3-size);
+  .search-icon {
+    line-height: $util-nav-height;
     position: absolute;
     z-index: $z-quick-search-actions;
-    top: 19px;
-    left: $default-spacing*1.5;
+    top: 0;
+    left: $default-spacing*(4/3);
     display: block;
-    content: $ionicon-var-android-search;
     color: $quick-search-fg-color;
   }
   .actions {

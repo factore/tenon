@@ -16,7 +16,7 @@
   }
 
   #search {
-    &:before {
+    .search-icon {
       z-index: $z-quick-search-active;
       color: $primary-fg-color;
     }

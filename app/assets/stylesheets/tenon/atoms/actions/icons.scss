@@ -3,9 +3,12 @@
   position: relative;
   display: inline-block;
   color: $primary-fg-color;
+  &:hover {
+    text-decoration: none;
+  }
   i {
     @include default-transition;
-    @include font-h3;
+    @include font($h3-size, $h3-line-height);
     line-height: $default-spacing*1.5;
     position: relative;
     display: block;

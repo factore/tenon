@@ -4,7 +4,7 @@ class DefaultLoadMoreButton extends React.Component {
     let className = this._getClassName()
     return (
       <a href="#" onClick={loadAction} className={className}>
-        <i className='icon ion-loop'></i>
+        <i className='material-icons'>loop</i>
       </a>
     )
   }
