@@ -1,6 +1,9 @@
 // Use American 'color' in variable names for consistency with CSS keywords.
 
 // Generate color helpers based on base colors
+@include generate_base_color_helpers("black", $black);
+@include generate_base_color_helpers("white", $white);
+@include generate_base_color_helpers("required", $required-color);
 @include generate_color_helpers("grey", $grey);
 @include generate_color_helpers("primary", $primary-color);
 @include generate_color_helpers("secondary", $secondary-color);
@@ -29,7 +32,7 @@ $body-bg-color: lighten($grey, 25%);
 $panel-bg-color: $white;
 $contrast-bg-color: $grey;
 $light-border-color: lighten($grey, 10%);
-$required-color: $required-color;
+$hr-bg-color: $grey;
 
 // Dropdown
 $dropdown-bg-color: $white;
@@ -81,9 +84,12 @@ $infinite-loader-color: darken($grey, 20%);
 $warning-background-color: $warning-color;
 $warning-border-color: darken($warning-color, 10%);
 $warning-text-color: $white;
+@include generate_base_color_helpers("warning", $warning-color);
 $error-background-color: $error-color;
 $error-border-color: darken($error-color, 10%);
 $error-text-color: $white;
+@include generate_base_color_helpers("error", $error-color);
 $success-background-color: $success-color;
 $success-border-color: darken($success-color, 10%);
 $success-text-color: $white;
+@include generate_base_color_helpers("success", $success-color);

@@ -27,6 +27,9 @@
 // Body
 @import "./organisms/body";
 
+// Horizontal rule
+@import "./atoms/horizontal-rule";
+
 // Typography
 @import "./atoms/typography/font-style-mixins";
 @import "./atoms/typography/font-variables";
@@ -99,3 +102,6 @@
 @import "./molecules/tenon-content/base";
 @import "./molecules/tenon-content/library";
 @import "./molecules/tenon-content/embed-code";
+
+// Styleguide
+@import "./styleguide";

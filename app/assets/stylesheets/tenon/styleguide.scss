@@ -1,0 +1,25 @@
+#styleguide {
+  section {
+    position: relative;
+    padding: $util-nav-height 0 $default-spacing;
+    &.styleguide-index {
+      padding-top: 0;
+    }
+  }
+  .scroll-target {
+    position: absolute;
+    top: 0;
+  }
+}
+
+.styleguide-colors {
+  margin-bottom: $default-spacing;
+}
+.styleguide-color-block {
+  float: left;
+  width: 25%;
+  .styleguide-color {
+    height: $default-spacing*2;
+    margin: 0;
+  }
+}
