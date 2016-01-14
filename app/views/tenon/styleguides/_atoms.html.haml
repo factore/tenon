@@ -18,8 +18,15 @@
         %li= link_to 'Inline', '#atom-typography-inline'
         %li= link_to 'Style class helpers', '#atom-typography-styles'
     %li= link_to 'Icons', '#atom-icons'
+    %li
+      = link_to 'Forms', '#atom-forms'
+      %ul
+        %li= link_to 'Text Fields', '#atom-forms-text-field'
+        %li= link_to 'Text Fields', '#atom-forms-text-area'
+
 
 = render 'tenon/styleguides/atoms/colors'
 = render 'tenon/styleguides/atoms/color_helpers'
 = render 'tenon/styleguides/atoms/typography'
 = render 'tenon/styleguides/atoms/icons'
+= render 'tenon/styleguides/atoms/forms'
