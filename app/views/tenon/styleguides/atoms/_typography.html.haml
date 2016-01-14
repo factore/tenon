@@ -1,7 +1,7 @@
 %section
   %a.scroll-target{name: 'atom-typography'}
   %a.scroll-target{name: 'atom-typography-headings'}
-  %h3.color-black Headings
+  %h3.color-black Headers
   %p Includes mixins, variables and a class helpers for each.
 
   .panel.block
@@ -45,3 +45,42 @@
         %p= "Mixin: @include font-#{s};"
         %p= "Variables: $#{s}-size, $#{s}-line-height"
         %p= "Class: .font-#{s}"
+
+%section
+  %a.scroll-target{name: 'atom-typography-blockquote'}
+  %h3.color-black Blockquote
+
+  .panel.block
+    %blockquote The quick brown fox jumps over the lazy dog.
+    %code= "<blockquote>The quick brown fox jumps over the lazy dog.</blockquote>"
+
+
+%section
+  %a.scroll-target{name: 'atom-typography-inline'}
+  %h3.color-black Inline
+
+  .panel.block
+    - ['em', 'strong', 'a href="#"'].each do |i|
+      %p= "The <#{i}>quick brown fox</#{i}> jumps over the <#{i}>lazy dog.</#{i}>".html_safe
+      %code= "The <#{i}>quick brown fox</#{i}> jumps over the <#{i}>lazy dog.</#{i}>"
+
+%section
+  %a.scroll-target{name: 'atom-typography-styles'}
+  %h3.color-black Style class helpers
+  %p Class helpers that can also @extend it in a Sass file.
+
+  .panel.block
+    - [3, 4, 7].each do |s|
+      %p{class: "font-n#{s}"} The quick brown fox jumps over the lazy dog.
+      %code.expandable
+        = expandable_toggle
+        %p= "<p class: 'font-n#{s}'>The quick brown fox jumps over the lazy dog.</p>"
+        %br/
+        %p= "Sass @extend: @extend .font-n#{s};"
+
+      %p{class: "font-i#{s}"} The quick brown fox jumps over the lazy dog.
+      %code.expandable
+        = expandable_toggle
+        %p= "<p class: 'font-i#{s}'>The quick brown fox jumps over the lazy dog.</p>"
+        %br/
+        %p= "Sass @extend: @extend .font-i#{s};"

@@ -1,5 +1,4 @@
 // Default Text Styles
-// ------------------------------------
 html,
 body {
   @include font-body;
@@ -9,19 +8,18 @@ body {
 }
 
 // Links
-// ------------------------------------
 a {
   text-decoration: none;
   color: $link-color;
   &:hover {
     text-decoration: underline;
+    color: $link-hover-color;
   }
 }
 
 // Default typography
-// ------------------------------------
 h1, h2, h3, h4, h5, h6, p {
-  margin: 0 0 $default-spacing/2;
+  margin: 0 0 $default-margin;
 }
 
 h1, .font-h1 {
@@ -65,9 +63,10 @@ h6, .font-h6 {
 }
 
 blockquote {
+  margin: 0 0 $default-margin;
   padding: $default-spacing;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
+  border-top: 1px solid $grey;
+  border-bottom: 1px solid $grey;
 }
 
 small {
@@ -75,14 +74,9 @@ small {
 }
 
 strong {
-  @extend .font-n6;
+  @extend .font-n7;
 }
 
 em {
   @extend .font-i4;
-}
-
-label, .label {
-  @include font-smallest;
-  color: $label-color;
 }

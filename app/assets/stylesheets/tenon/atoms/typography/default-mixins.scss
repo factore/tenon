@@ -23,13 +23,13 @@
 }
 
 @mixin font-h5 {
-  @extend .font-n6;
+  @extend .font-n7;
   @include font($h5-size, $h5-line-height);
   font-family: $font-family-h5;
 }
 
 @mixin font-h6 {
-  @extend .font-n6;
+  @extend .font-n7;
   @include font($h6-size, $h6-line-height);
   font-family: $font-family-h6;
 }

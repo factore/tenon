@@ -4,15 +4,22 @@
 %h2 Atoms
 %nav
   %ul
-    %li= link_to 'Colors', '#atom-colors'
-    %li= link_to 'Color class helpers', '#atom-color-class-helpers'
+    %li
+      = link_to 'Colors', '#atom-colors'
+      %ul
+        %li= link_to 'Class helpers', '#atom-color-class-helpers'
     %li
       = link_to 'Typography', '#atom-typography'
       %ul
-        %li= link_to 'Headings', '#atom-typography-headings'
+        %li= link_to 'Headers', '#atom-typography-headings'
         %li= link_to 'Paragraph', '#atom-typography-paragraph'
         %li= link_to 'Small', '#atom-typography-small'
+        %li= link_to 'Blockquote', '#atom-typography-blockquote'
+        %li= link_to 'Inline', '#atom-typography-inline'
+        %li= link_to 'Style class helpers', '#atom-typography-styles'
+    %li= link_to 'Icons', '#atom-icons'
 
 = render 'tenon/styleguides/atoms/colors'
 = render 'tenon/styleguides/atoms/color_helpers'
 = render 'tenon/styleguides/atoms/typography'
+= render 'tenon/styleguides/atoms/icons'

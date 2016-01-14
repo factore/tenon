@@ -14,7 +14,7 @@ $primary-fg-color: darken($grey, 25);
 $light-fg-color: darken($grey, 20);
 $body-fg-color: $black;
 $link-color: $primary-color;
-$link-hover-color: darken($primary-color, 20%);
+$link-hover-color: darken($primary-color, 10%);
 
 @include generate_base_color_helpers("primary-fg", $primary-fg-color);
 @include generate_base_color_helpers("light-fg", $light-fg-color);
