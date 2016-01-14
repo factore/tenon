@@ -9,7 +9,7 @@ select {
     color: $placeholder-color;
   }
   @include default-transition;
-  @include font-size-smaller;
+  @include font-smaller;
   @include appearance(none);
   line-height: normal;
   display: block;
@@ -32,7 +32,7 @@ select {
 
 textarea,
 .editable-text {
-  @include font-size-smaller;
+  @include font-smaller;
   height: auto;
   min-height: 34px;
   margin-top: $default-spacing/3;

@@ -1,0 +1,31 @@
+// Styleguide
+#styleguide {
+  section {
+    position: relative;
+    padding: $util-nav-height 0 0;
+    &.styleguide-index {
+      padding-top: 0;
+    }
+  }
+  .scroll-target {
+    position: absolute;
+    top: -$default-spacing;
+  }
+  nav {
+    > ul {
+      li ul {
+        @include font-size($small-size);
+        padding-left: $default-spacing;
+      }
+    }
+  }
+  code {
+    p {
+      margin: 0;
+    }
+  }
+}
+
+// Sections
+@import "./colors"
+

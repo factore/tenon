@@ -18,7 +18,7 @@
     %code
       = color_spans(%w(primary secondary accent grey))
     %code.expandable
-      = link_to i('keyboard_arrow_down'), '#', class: 'styleguide-code-expand'
+      = expandable_toggle
       - (1..10).each do |i|
         %p
           = ".color-<color-name>-o#{i*10}"
@@ -34,7 +34,7 @@
     %code
       = color_spans(%w(primary secondary accent grey))
     %code.expandable
-      = link_to i('keyboard_arrow_down'), '#', class: 'styleguide-code-expand'
+      = expandable_toggle
       - (1..5).each do |i|
         %p= ".color-<color-name>-l#{i} => color: lighten(<color-name>, #{i}0%);"
       %br/

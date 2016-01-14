@@ -1,0 +1,47 @@
+%section
+  %a.scroll-target{name: 'atom-typography'}
+  %a.scroll-target{name: 'atom-typography-headings'}
+  %h3.color-black Headings
+  %p Includes mixins, variables and a class helpers for each.
+
+  .panel.block
+    - (1..6).each do |h|
+      %p{class: "font-h#{h}"} The quick brown fox jumps over the lazy dog.
+      %code.expandable
+        = expandable_toggle
+        %p= "<h#{h}>The quick brown fox jumps over the lazy dog.</h#{h}>"
+        %br/
+        %p= "Mixin: @include font-h#{h};"
+        %p= "Variables: $h#{h}-size, $h#{h}-line-height"
+        %p= "Class: .font-h#{h}"
+
+%section
+  %a.scroll-target{name: 'atom-typography-paragraph'}
+  %h3.color-black Paragraph
+  %p Includes a mixin, a variable and a class helper.
+
+  .panel.block
+    %p The quick brown fox jumps over the lazy dog.
+    %code.expandable
+      = expandable_toggle
+      %p= "<p>The quick brown fox jumps over the lazy dog.</p>"
+      %br/
+      %p= "Mixin: @include font-body;"
+      %p= "Variables: $body-size, $body-line-height"
+      %p= "Class: .font-body"
+
+%section
+  %a.scroll-target{name: 'atom-typography-small'}
+  %h3.color-black Smaller sizes
+  %p Includes a mixin, a variable and a class helper for each.
+
+  .panel.block
+    - ['small', 'smaller', 'smallest'].each do |s|
+      %p{class: "font-#{s}"} The quick brown fox jumps over the lazy dog.
+      %code.expandable
+        = expandable_toggle
+        %p= "<p class: 'font-#{s}'>The quick brown fox jumps over the lazy dog.</p>"
+        %br/
+        %p= "Mixin: @include font-#{s};"
+        %p= "Variables: $#{s}-size, $#{s}-line-height"
+        %p= "Class: .font-#{s}"

@@ -16,7 +16,7 @@
     margin-bottom: 0;
   }
   ul {
-    @include font-size-small;
+    @include font-small;
     margin: 0 $default-spacing;
     padding: $default-spacing/2 0;
     li {

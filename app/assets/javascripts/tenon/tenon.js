@@ -44,7 +44,7 @@ var Tenon = {
     new Tenon.features.GenericClassToggler();
     new Tenon.features.ToggleMainNav();
     new Tenon.features.NavItemToggle();
-    new Tenon.features.Styleguide();
+    new Tenon.features.Expandable();
 
     // TODO: click hacked - should be part of the react app
     $(document).on('click', '.panel.record .expand-record', function (e) {

@@ -7,5 +7,9 @@ module Tenon
     def color_span(color)
       content_tag(:span, color, class: "color-#{color}")
     end
+
+    def expandable_toggle
+      link_to i('keyboard_arrow_down'), '#', class: 'expand'
+    end
   end
 end
