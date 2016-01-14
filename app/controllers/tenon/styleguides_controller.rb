@@ -3,6 +3,7 @@ module Tenon
     respond_to :html
 
     def index
+      @context_title = 'Styleguide'
     end
   end
 end

@@ -2,48 +2,10 @@
 %a.scroll-target{name: 'atoms'}
 
 %h2 Atoms
-%ul
-  %li= link_to 'Colors', '#atom-colors'
+%nav
+  %ul
+    %li= link_to 'Colors', '#atom-colors'
+    %li= link_to 'Color class helpers', '#atom-color-class-helpers'
 
-%section
-  %a.scroll-target{name: 'atom-colors'}
-  %h3.color-black Colors
-
-  .styleguide-colors.panel.block
-    %h4 Neutral colors
-    .styleguide-color-block
-      %label Black
-      %p.styleguide-color.bg-color-black
-    .styleguide-color-block
-      %label White
-      %p.styleguide-color.bg-color-white
-    .styleguide-color-block
-      %label Grey
-      %p.styleguide-color.bg-color-grey
-
-  .styleguide-colors.panel.block
-    %h4 Base colors
-    .styleguide-color-block
-      %label Primary
-      %p.styleguide-color.bg-color-primary
-    .styleguide-color-block
-      %label Secondary
-      %p.styleguide-color.bg-color-secondary
-    .styleguide-color-block
-      %label Accent
-      %p.styleguide-color.bg-color-accent
-
-  .styleguide-colors.panel.block
-    %h4 Notification colors
-    .styleguide-color-block
-      %label Required
-      %p.styleguide-color.bg-color-required
-    .styleguide-color-block
-      %label Error
-      %p.styleguide-color.bg-color-error
-    .styleguide-color-block
-      %label Success
-      %p.styleguide-color.bg-color-success
-    .styleguide-color-block
-      %label Warning
-      %p.styleguide-color.bg-color-warning
+= render 'tenon/styleguides/atoms/colors'
+= render 'tenon/styleguides/atoms/color_helpers'
