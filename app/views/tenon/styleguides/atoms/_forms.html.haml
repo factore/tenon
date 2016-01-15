@@ -1,14 +1,5 @@
 = form_for @mock, url: styleguides_path, builder: Tenon::FormBuilder do |f|
-  %section
-    %a.scroll-target{name: 'atom-forms'}
-    %a.scroll-target{name: 'atom-forms-text-field'}
-    %h3.color-black Text fields
-
-    .panel.block
-      = f.text_field :title
-      = f.text_field :title, required: true
-      = f.text_field :title, class: 'form-title-field'
-
-
-  %section
-    %a.scroll-target{name: 'atom-forms-text-area'}
+  = render partial: 'tenon/styleguides/atoms/forms/default', locals: {f: f}
+  = render partial: 'tenon/styleguides/atoms/forms/outside', locals: {f: f}
+  = render partial: 'tenon/styleguides/atoms/forms/html5', locals: {f: f}
+  =# render partial: 'tenon/styleguides/atoms/forms/tenon_content', locals: {f: f}

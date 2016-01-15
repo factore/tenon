@@ -8,5 +8,12 @@ code {
   padding: $default-spacing/2 $default-spacing;
   white-space: nowrap;
   border-left: 4px solid $grey;
-  background-color: $body-bg-color;
+  background-color: $white;
+}
+
+.panel {
+  pre,
+  code {
+    background-color: $body-bg-color;
+  }
 }

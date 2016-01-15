@@ -4,7 +4,7 @@ module Tenon
 
     def index
       @context_title = 'Styleguide'
-      @mock = Tenon::StyleguideMock.new
+      @mock = Tenon::Styleguide.new
     end
   end
 end

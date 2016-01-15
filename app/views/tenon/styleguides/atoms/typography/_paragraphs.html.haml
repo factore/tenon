@@ -1,0 +1,20 @@
+%section
+  %a.scroll-target{name: 'atom-typography-paragraph'}
+  %h3.color-black Paragraph
+  %p Includes a mixin, a variable and a class helper.
+
+  .panel.block
+    %p The quick brown fox jumps over the lazy dog.
+    %code.expandable
+      = expandable_toggle
+      %p= "<p>The quick brown fox jumps over the lazy dog.</p>"
+      %br/
+      %p
+        %span.color-primary Mixin:
+        = "@include font-body;"
+      %p
+        %span.color-primary Variables:
+        = "$body-size, $body-line-height"
+      %p
+        %span.color-primary Class:
+        = ".font-body"

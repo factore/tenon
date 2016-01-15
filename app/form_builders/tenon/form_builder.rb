@@ -53,6 +53,84 @@ module Tenon
         opts: opts
     end
 
+    alias_method :super_email_field, :email_field
+    def email_field(method_name, opts = {})
+      defaults = {
+        placeholder: '--'
+      }
+      opts = defaults.merge(opts)
+
+      @template.render 'tenon/fields/email_field',
+        f: self,
+        method_name: method_name,
+        opts: opts
+    end
+
+    alias_method :super_password_field, :password_field
+    def password_field(method_name, opts = {})
+      defaults = {
+        placeholder: '--'
+      }
+      opts = defaults.merge(opts)
+
+      @template.render 'tenon/fields/password_field',
+        f: self,
+        method_name: method_name,
+        opts: opts
+    end
+
+    alias_method :super_number_field, :number_field
+    def number_field(method_name, opts = {})
+      defaults = {
+        placeholder: '--'
+      }
+      opts = defaults.merge(opts)
+
+      @template.render 'tenon/fields/number_field',
+        f: self,
+        method_name: method_name,
+        opts: opts
+    end
+
+    alias_method :super_phone_field, :phone_field
+    def phone_field(method_name, opts = {})
+      defaults = {
+        placeholder: '--'
+      }
+      opts = defaults.merge(opts)
+
+      @template.render 'tenon/fields/phone_field',
+        f: self,
+        method_name: method_name,
+        opts: opts
+    end
+
+    alias_method :super_url_field, :url_field
+    def url_field(method_name, opts = {})
+      defaults = {
+        placeholder: '--'
+      }
+      opts = defaults.merge(opts)
+
+      @template.render 'tenon/fields/url_field',
+        f: self,
+        method_name: method_name,
+        opts: opts
+    end
+
+    alias_method :super_color_field, :color_field
+    def color_field(method_name, opts = {})
+      defaults = {
+        placeholder: '--'
+      }
+      opts = defaults.merge(opts)
+
+      @template.render 'tenon/fields/color_field',
+        f: self,
+        method_name: method_name,
+        opts: opts
+    end
+
     alias_method :super_text_area, :text_area
     def text_area(method_name, opts = {})
       @template.render 'tenon/fields/text_area',
@@ -74,6 +152,14 @@ module Tenon
     alias_method :super_check_box, :check_box
     def check_box(method_name, opts = {})
       @template.render 'tenon/fields/check_box',
+        f: self,
+        method_name: method_name,
+        opts: opts
+    end
+
+    alias_method :super_radio_button, :radio_button
+    def radio_button(method_name, opts = {})
+      @template.render 'tenon/fields/radio_button',
         f: self,
         method_name: method_name,
         opts: opts

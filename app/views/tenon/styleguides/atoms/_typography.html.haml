@@ -20,89 +20,10 @@
         %p
           %span.color-primary Class:
           = ".font-h#{h}"
-
-%section
-  %a.scroll-target{name: 'atom-typography-paragraph'}
-  %h3.color-black Paragraph
-  %p Includes a mixin, a variable and a class helper.
-
-  .panel.block
-    %p The quick brown fox jumps over the lazy dog.
-    %code.expandable
-      = expandable_toggle
-      %p= "<p>The quick brown fox jumps over the lazy dog.</p>"
-      %br/
-      %p
-        %span.color-primary Mixin:
-        = "@include font-body;"
-      %p
-        %span.color-primary Variables:
-        = "$body-size, $body-line-height"
-      %p
-        %span.color-primary Class:
-        = ".font-body"
-
-%section
-  %a.scroll-target{name: 'atom-typography-small'}
-  %h3.color-black Smaller sizes
-  %p Includes a mixin, a variable and a class helper for each.
-
-  .panel.block
-    - ['small', 'smaller', 'smallest'].each do |s|
-      %p{class: "font-#{s}"} The quick brown fox jumps over the lazy dog.
-      %code.expandable
-        = expandable_toggle
-        %p= "<p class: 'font-#{s}'>The quick brown fox jumps over the lazy dog.</p>"
-        %br/
-        %p
-          %span.color-primary Mixin:
-          = "@include font-#{s};"
-        %p
-          %span.color-primary Variables:
-          = "$#{s}-size, $#{s}-line-height"
-        %p
-          %span.color-primary Class:
-          = ".font-#{s}"
-
-%section
-  %a.scroll-target{name: 'atom-typography-blockquote'}
-  %h3.color-black Blockquote
-
-  .panel.block
-    %blockquote The quick brown fox jumps over the lazy dog.
-    %code= "<blockquote>The quick brown fox jumps over the lazy dog.</blockquote>"
-
-
-%section
-  %a.scroll-target{name: 'atom-typography-inline'}
-  %h3.color-black Inline
-
-  .panel.block
-    - ['em', 'strong', 'a href="#"'].each do |i|
-      %p= "The <#{i}>quick brown fox</#{i}> jumps over the <#{i}>lazy dog.</#{i}>".html_safe
-      %code= "The <#{i}>quick brown fox</#{i}> jumps over the <#{i}>lazy dog.</#{i}>"
-
-%section
-  %a.scroll-target{name: 'atom-typography-styles'}
-  %h3.color-black Style class helpers
-  %p Class helpers that can also @extend it in a Sass file.
-
-  .panel.block
-    - [3, 4, 7].each do |s|
-      %p{class: "font-n#{s}"} The quick brown fox jumps over the lazy dog.
-      %code.expandable
-        = expandable_toggle
-        %p= "<p class: 'font-n#{s}'>The quick brown fox jumps over the lazy dog.</p>"
-        %br/
-        %p
-          %span.color-primary Sass @extend: 
-          = "@extend .font-n#{s};"
-
-      %p{class: "font-i#{s}"} The quick brown fox jumps over the lazy dog.
-      %code.expandable
-        = expandable_toggle
-        %p= "<p class: 'font-i#{s}'>The quick brown fox jumps over the lazy dog.</p>"
-        %br/
-        %p
-          %span.color-primary Sass @extend: 
-          = "@extend .font-i#{s};"
+          
+= render 'tenon/styleguides/atoms/typography/paragraphs'
+= render 'tenon/styleguides/atoms/typography/small'
+= render 'tenon/styleguides/atoms/typography/blockquote'
+= render 'tenon/styleguides/atoms/typography/inline'
+= render 'tenon/styleguides/atoms/typography/styles'
+= render 'tenon/styleguides/atoms/typography/variables'
