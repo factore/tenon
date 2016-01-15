@@ -11,9 +11,15 @@
         = expandable_toggle
         %p= "<h#{h}>The quick brown fox jumps over the lazy dog.</h#{h}>"
         %br/
-        %p= "Mixin: @include font-h#{h};"
-        %p= "Variables: $h#{h}-size, $h#{h}-line-height"
-        %p= "Class: .font-h#{h}"
+        %p
+          %span.color-primary Mixin:
+          = "@include font-h#{h};"
+        %p
+          %span.color-primary Variables:
+          = "$h#{h}-size, $h#{h}-line-height"
+        %p
+          %span.color-primary Class:
+          = ".font-h#{h}"
 
 %section
   %a.scroll-target{name: 'atom-typography-paragraph'}
@@ -26,9 +32,15 @@
       = expandable_toggle
       %p= "<p>The quick brown fox jumps over the lazy dog.</p>"
       %br/
-      %p= "Mixin: @include font-body;"
-      %p= "Variables: $body-size, $body-line-height"
-      %p= "Class: .font-body"
+      %p
+        %span.color-primary Mixin:
+        = "@include font-body;"
+      %p
+        %span.color-primary Variables:
+        = "$body-size, $body-line-height"
+      %p
+        %span.color-primary Class:
+        = ".font-body"
 
 %section
   %a.scroll-target{name: 'atom-typography-small'}
@@ -42,9 +54,15 @@
         = expandable_toggle
         %p= "<p class: 'font-#{s}'>The quick brown fox jumps over the lazy dog.</p>"
         %br/
-        %p= "Mixin: @include font-#{s};"
-        %p= "Variables: $#{s}-size, $#{s}-line-height"
-        %p= "Class: .font-#{s}"
+        %p
+          %span.color-primary Mixin:
+          = "@include font-#{s};"
+        %p
+          %span.color-primary Variables:
+          = "$#{s}-size, $#{s}-line-height"
+        %p
+          %span.color-primary Class:
+          = ".font-#{s}"
 
 %section
   %a.scroll-target{name: 'atom-typography-blockquote'}
@@ -76,11 +94,15 @@
         = expandable_toggle
         %p= "<p class: 'font-n#{s}'>The quick brown fox jumps over the lazy dog.</p>"
         %br/
-        %p= "Sass @extend: @extend .font-n#{s};"
+        %p
+          %span.color-primary Sass @extend: 
+          = "@extend .font-n#{s};"
 
       %p{class: "font-i#{s}"} The quick brown fox jumps over the lazy dog.
       %code.expandable
         = expandable_toggle
         %p= "<p class: 'font-i#{s}'>The quick brown fox jumps over the lazy dog.</p>"
         %br/
-        %p= "Sass @extend: @extend .font-i#{s};"
+        %p
+          %span.color-primary Sass @extend: 
+          = "@extend .font-i#{s};"

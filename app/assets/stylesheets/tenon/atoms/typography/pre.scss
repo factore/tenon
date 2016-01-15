@@ -3,9 +3,10 @@ code {
   @include font-small;
   position: relative;
   display: block;
-  overflow: hidden;
+  overflow: auto;
   margin-bottom: $default-spacing;
   padding: $default-spacing/2 $default-spacing;
+  white-space: nowrap;
   border-left: 4px solid $grey;
   background-color: $body-bg-color;
 }
