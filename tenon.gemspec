@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'spring-commands-rspec'#, '1.0.2'
   s.add_development_dependency 'quiet_assets'
 
-  s.add_dependency 'rails', '>= 4.2.0'
+  s.add_dependency 'rails', '5.0.0.beta1'
 
   s.add_dependency 'awesome_nested_set'#, '3.0.0.rc.5'
   s.add_dependency 'aws-s3'#, '0.6.3'
@@ -39,8 +39,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'coffee-script-source'#, '1.9.1'
   s.add_dependency 'daemons'#, '1.1.9'
   s.add_dependency 'date_time_attribute'
-  s.add_dependency 'devise'#, '3.5.2'
-  s.add_dependency 'draper'#, '1.3.0'
   s.add_dependency 'dynamic_form'#, '1.1.4'
   s.add_dependency 'eco'#, '1.0.0'
   s.add_dependency 'font-awesome-rails'#, '>=4.0.3.1'
@@ -58,7 +56,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'launchy'#, '2.4.2'
   s.add_dependency 'lodash-rails'#, '2.4.1'
   s.add_dependency 'mediaelement_rails'#, '0.4.0'
-  s.add_dependency 'medium-editor-rails', '0.9.3'
   s.add_dependency 'mime-types'#, '1.25.1'
   s.add_dependency 'neat'#, '1.6.0'
   s.add_dependency 'nokogiri'#, '>=1.5.11'
@@ -67,10 +64,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'paperclip'#, '4.1.1'
   s.add_dependency 'pickadate-rails'
   s.add_dependency 'pg'#, '>= 0.17.0'
-  s.add_dependency 'rails-observers'#, '0.1.2'
   s.add_dependency 'rails-settings-cached'#, '0.4.1'
   s.add_dependency 'rdiscount'#, '2.0.7.3'
-  s.add_dependency 'resque'#, '1.25.2'
   s.add_dependency 'react-rails'
   s.add_dependency 'sass-rails'#, '5.0.3'
   s.add_dependency 'simple-rss'#, '1.2.3'
@@ -80,6 +75,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'uuidtools'#, '2.1.4'
   s.add_dependency 'will_paginate'#, '3.0.5'
   s.add_dependency 'yaml_db'#, '0.2.3'
-  s.add_dependency 'zencoder'#, '2.4.6'
-  s.add_dependency 'zencoder-fetcher'#, '0.2.8'
+
+  # using a Rails 5 compatible versions of the following for now. See Gemfile
+  # s.add_dependency 'devise'#, '3.5.2'
+  # s.add_dependency 'draper'#, '1.3.0'
 end

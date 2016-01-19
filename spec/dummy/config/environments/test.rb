@@ -1,4 +1,4 @@
-Dummy::Application.configure do
+Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # The test environment is used exclusively to run your application's
@@ -12,9 +12,11 @@ Dummy::Application.configure do
   # preloads Rails for running tests, you may have to set it to true.
   config.eager_load = false
 
-  # Configure static asset server for tests with Cache-Control for performance.
-  config.serve_static_files  = true
-  config.static_cache_control = 'public, max-age=3600'
+  # Configure public file server for tests with Cache-Control for performance.
+  config.public_file_server.enabled = true
+  config.public_file_server.headers = {
+    'Cache-Control' => 'public, max-age=3600'
+  }
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
@@ -31,8 +33,14 @@ Dummy::Application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
+  # Randomize the order test cases are executed.
+  config.active_support.test_order = :random
+
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Raises error for missing translations
+  # config.action_view.raise_on_missing_translations = true
 
   # DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
   # You can opt into the new behavior and remove this warning by setting:

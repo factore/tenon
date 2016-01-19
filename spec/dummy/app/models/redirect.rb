@@ -1,4 +1,4 @@
-class Redirect < ActiveRecord::Base
+class Redirect < ApplicationRecord
   # Scopes, attachments, etc.
   has_history
   include Tenon::Reorderable

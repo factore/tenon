@@ -1,4 +1,4 @@
-class Contact < ActiveRecord::Base
+class Contact < ApplicationRecord
   include Humanizer
   require_human_on :create, unless: :bypass_humanizer
 

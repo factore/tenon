@@ -1,4 +1,4 @@
-class Photo < ActiveRecord::Base
+class Photo < ApplicationRecord
   belongs_to :gallery, class_name: 'Gallery', foreign_key: 'gallery_id', inverse_of: :photos
   has_asset :file, styles: {
     original: '800x800>',

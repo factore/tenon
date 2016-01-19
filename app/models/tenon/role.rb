@@ -1,5 +1,5 @@
 module Tenon
-  class Role < ActiveRecord::Base
+  class Role < Tenon::ApplicationRecord
     has_many :role_assignments
     has_many :users, through: :role_assignments
 

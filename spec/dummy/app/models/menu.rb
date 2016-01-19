@@ -1,4 +1,4 @@
-class Menu < ActiveRecord::Base
+class Menu < ApplicationRecord
   # Scopes, attachments, etc.
   has_history
 

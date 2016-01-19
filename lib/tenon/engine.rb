@@ -25,18 +25,16 @@ require 'later_dude'
 require 'launchy'
 require 'lodash-rails'
 require 'mediaelement_rails'
-require 'medium-editor-rails'
 require 'mime-types'
 require 'nokogiri'
 require 'non-stupid-digest-assets'
 require 'normalize-rails'
 require 'paperclip'
 require 'pickadate-rails'
-require 'rails-observers'
 require 'rails-settings-cached'
 require 'rdiscount'
 require 'react-rails'
-require 'resque/server'
+# require 'resque/server'
 require 'sass-rails'
 require 'simple-rss'
 require 'sprockets/es6'
@@ -59,7 +57,7 @@ module Tenon
     end
 
     initializer :assets do |config|
-      Rails.application.config.assets.precompile += ['tenon/tenon_manifest.js', 'tenon/tenon.css']
+      Rails.application.config.assets.precompile += ['tenon/tenon_manifest.js', 'tenon/tenon.scss', 'tenon/*.png']
       Rails.application.config.browserify_rails.commandline_options = '-t babelify'
       Rails.application.config.browserify_rails.paths << lambda { |p| p.start_with?(Engine.root.join("app").to_s) }
       Rails.application.config.browserify_rails.use_browserifyinc = true

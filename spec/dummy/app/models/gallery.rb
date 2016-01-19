@@ -1,4 +1,4 @@
-class Gallery < ActiveRecord::Base
+class Gallery < ApplicationRecord
   include Tenon::Reorderable
   has_many :photos, inverse_of: :gallery, dependent: :destroy
   accepts_nested_attributes_for :photos, allow_destroy: true, reject_if: ->(p) { p[:file_id].blank? }

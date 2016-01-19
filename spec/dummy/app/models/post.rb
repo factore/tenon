@@ -1,4 +1,4 @@
-class Post < ActiveRecord::Base
+class Post < ApplicationRecord
   # Scopes, Attachments, etc.
   date_time_attribute :publish_at
   default_scope { order(publish_at: :desc) }

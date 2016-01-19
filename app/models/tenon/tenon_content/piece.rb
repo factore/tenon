@@ -1,6 +1,6 @@
 module Tenon
   module TenonContent
-    class Piece < ActiveRecord::Base
+    class Piece < Tenon::ApplicationRecord
       self.table_name = 'tenon_tenon_content_pieces'
       attr_reader :sizes, :styles
 

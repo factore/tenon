@@ -1,5 +1,5 @@
 module Tenon
-  class User < ActiveRecord::Base
+  class User < Tenon::ApplicationRecord
     # Include default devise modules. Others available are:
     # :token_authenticatable, :confirmable, :lockable and
     devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable

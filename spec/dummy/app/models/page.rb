@@ -1,4 +1,4 @@
-class Page < ActiveRecord::Base
+class Page < ApplicationRecord
   # Scopes, Attrs, Etc.
   acts_as_nested_set
   has_history except: [:lft, :rgt, :parent_id, :depth],

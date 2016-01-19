@@ -1,4 +1,4 @@
-class Event < ActiveRecord::Base
+class Event < ApplicationRecord
   # Scopes, attachments, etc.
   scope :published, -> { where('publish_at <= ?', Time.now) }
   scope :upcoming, -> { where(['ends_at > ?', Time.now]).order(:starts_at) }

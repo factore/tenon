@@ -1,6 +1,6 @@
 module Tenon
   module TenonContent
-    class Row < ActiveRecord::Base
+    class Row < Tenon::ApplicationRecord
       self.table_name = 'tenon_tenon_content_rows'
 
       # Scopes, attachments, etc.

@@ -1,4 +1,4 @@
-class Comment < ActiveRecord::Base
+class Comment < ApplicationRecord
   include Humanizer
   require_human_on :create, unless: :bypass_humanizer
 

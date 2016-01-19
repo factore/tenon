@@ -1,4 +1,4 @@
-class MenuItem < ActiveRecord::Base
+class MenuItem < ApplicationRecord
   # Scopes, attachments, etc.
   has_history
   include Tenon::Reorderable

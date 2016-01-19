@@ -1,5 +1,5 @@
 module Tenon
-  class ItemVersion < ActiveRecord::Base
+  class ItemVersion < Tenon::ApplicationRecord
     default_scope -> { order('created_at DESC') }
     scope :autosave, -> { where('save_type = ?', 'autosave') }
 

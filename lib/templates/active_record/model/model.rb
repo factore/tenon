@@ -1,4 +1,4 @@
-class <%= class_name %> < ActiveRecord::Base
+class <%= class_name %> < ApplicationRecord
   # Scopes, attachments, etc.
   has_history
 <% unless attributes.select{|a| a.name == 'list_order' }.empty? -%>

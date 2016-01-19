@@ -1,5 +1,5 @@
 module Tenon
-  class ItemAsset < ActiveRecord::Base
+  class ItemAsset < Tenon::ApplicationRecord
     # Validations
     validates_presence_of :asset
 

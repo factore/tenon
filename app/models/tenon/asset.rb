@@ -1,5 +1,5 @@
 module Tenon
-  class Asset < ActiveRecord::Base
+  class Asset < Tenon::ApplicationRecord
     attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :duplicate
 
     # Scopes

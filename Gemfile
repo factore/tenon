@@ -12,3 +12,13 @@ gemspec
 
 # To use debugger
 # gem 'debugger'
+
+# Everything below is to get Rails 5.0.0.beta1 working
+
+# activemodel-serializers-xml is needed for draper to work with Rails 5 for now
+gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
+
+# need to use these edge versions for Rails 5 for now
+gem 'rack', github: 'rack/rack'
+gem 'draper', github: 'audionerd/draper', branch: 'rails5'
+gem 'devise', github: 'plataformatec/devise'
