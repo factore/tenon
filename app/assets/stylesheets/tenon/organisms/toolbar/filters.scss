@@ -1,0 +1,20 @@
+#filters {
+  z-index: $z-layout-filter;
+  padding: $default-spacing;
+}
+
+.filter-content {
+  display: none;
+}
+
+.filters-open {
+  #filters.drawer {
+    left: 0;
+  }
+  .search-content {
+    display: none;
+  }
+  .filter-content {
+    display: block;
+  }
+}

@@ -1,0 +1,8 @@
+%section
+  %a.scroll-target{name: 'atom-typography-inline'}
+  %h3.color-black Inline
+
+  .panel.block
+    - ['em', 'strong', 'a href="#"'].each do |i|
+      %p= "The <#{i}>quick brown fox</#{i}> jumps over the <#{i}>lazy dog.</#{i}>".html_safe
+      %code= "The <#{i}>quick brown fox</#{i}> jumps over the <#{i}>lazy dog.</#{i}>"

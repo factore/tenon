@@ -1,0 +1,27 @@
+.filters-open,
+.quick-search-open {
+  #search-overlay.toolbar-overlay {
+    height: $util-nav-height;
+    opacity: 1;
+  }
+
+  .toolbar {
+    z-index: $z-quick-search-active;
+    .actions .action-icon {
+      color: $primary-fg-color;
+      &:hover {
+        color: $link-color;
+      }
+    }
+  }
+
+  #search {
+    .search-icon {
+      z-index: $z-quick-search-active;
+      color: $primary-fg-color;
+    }
+    .actions {
+      z-index: $z-quick-search-active;
+    }
+  }
+}

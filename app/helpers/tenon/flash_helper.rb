@@ -1,7 +1,7 @@
 module Tenon
   module FlashHelper
     def flash_messages
-      close_icon = content_tag(:i, '', class: 'icon ion-android-close')
+      close_icon = content_tag(:i, 'close', class: 'material-icons')
       messages = []
       %w(notice alert warning error).each do |msg|
         unless flash[msg.to_sym].blank?

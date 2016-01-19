@@ -6,15 +6,15 @@
     }
     .font-i#{$i} {
       font-weight: #{$i*100};
-      font-style: normal;
+      font-style: italic;
     }
   }
 }
 
 @include font-style-generators;
 
-// Example usage: 
-// @extend font-n4;
-// @extend font-n2;
-// @extend font-n6;
-// @extend font-i4;
+// Example usage:
+// @extend .font-n4;
+// @extend .font-n2;
+// @extend .font-n6;
+// @extend .font-i4;

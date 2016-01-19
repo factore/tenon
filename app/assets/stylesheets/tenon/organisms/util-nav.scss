@@ -1,4 +1,5 @@
 .util-nav {
+  @include z-depth-1;
   line-height: $util-nav-height;
   position: fixed;
   z-index: $z-layout-util-nav;

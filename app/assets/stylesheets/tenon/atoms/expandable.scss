@@ -1,0 +1,30 @@
+.expandable {
+  height: 74px; // default one line of code height
+  padding-bottom: $default-spacing*1.5;
+  &.is-expanded {
+    height: auto;
+    .expand i {
+      @include transform(rotate(180deg));
+    }
+  }
+  .expand {
+    @include default-transition;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: $grey;
+    &:hover {
+      text-decoration: none;
+      background-color: $primary-color;
+    }
+    i {
+      @include font-size($standard-icon-size);
+      display: block;
+      margin: 0 auto;
+      color: $white;
+    }
+  }
+}

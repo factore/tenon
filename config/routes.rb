@@ -14,6 +14,7 @@ Tenon::Engine.routes.draw do
     get 'approve', :on => :member
   end
 
+  resources :styleguides, :only => [:index]
+
   root :to => Tenon.config.routing.root
 end
-

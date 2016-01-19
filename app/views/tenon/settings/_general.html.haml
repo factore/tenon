@@ -1,12 +1,16 @@
-.form-group
-  %label Site Name
-  = text_field_tag 'settings[site_title]', Tenon::MySettings.site_title
+.fields.large.tabs
+  .form-label General
+  .panel.block
+    .row
+      .form-field.inner6
+        %label.field-label Site Name
+        = text_field_tag 'settings[site_title]', Tenon::MySettings.site_title
 
-.form-group
-  %label Site Domain
-  = text_field_tag 'settings[site_url]', Tenon::MySettings.site_url
+      .form-field.inner6.omega
+        %label.field-label Site Domain
+        = text_field_tag 'settings[site_url]', Tenon::MySettings.site_url
 
-.form-group
-  %label Google Analytics Code
-  .explanation= link_to 'Create a New Profile Here', 'https://www.google.com/analytics/settings/add_profile?scid=16153080', target: '_'
-  = text_area_tag 'settings[google_analytics]', Tenon::MySettings.google_analytics, style: 'height: 180px;'
+    .form-field
+      %label.field-label Google Analytics Code
+      = text_area_tag 'settings[google_analytics]', Tenon::MySettings.google_analytics
+      .explanation= link_to 'Create a New Profile Here', 'https://www.google.com/analytics/settings/add_profile?scid=16153080', target: '_'

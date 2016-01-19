@@ -1,0 +1,48 @@
+%section
+  %a.scroll-target{name: 'atom-color-class-helpers'}
+  %h3.color-black Color class helpers
+  %p To ease the styling of on-the-fly color changes in generated layouts.
+
+  .panel.block
+    %h4 Base
+    %p
+      Available for the following color names:
+    %code
+      = color_spans(%w(primary secondary accent black white grey required error warning success))
+    %code
+      %p= '.color-<color-name>'
+      %p= '.bg-color-<color-name>'
+
+    %h4 Opacity
+    %p Available for the following color names:
+    %code
+      = color_spans(%w(primary secondary accent grey))
+    %code.expandable
+      = expandable_toggle
+      - (1..10).each do |i|
+        %p
+          = ".color-<color-name>-o#{i*10}"
+          = "=> color: rgba(<color-name>, #{(i*0.1).round(1)});"
+      %br/
+      - (1..10).each do |i|
+        %p
+          = ".bg-color-<color-name>-o#{i*10}"
+          = "=> background-color: rgba(<color-name>,#{(i*0.1).round(1)});"
+
+    %h4 Lighten & Darken
+    %p Available for the following color names:
+    %code
+      = color_spans(%w(primary secondary accent grey))
+    %code.expandable
+      = expandable_toggle
+      - (1..5).each do |i|
+        %p= ".color-<color-name>-l#{i} => color: lighten(<color-name>, #{i}0%);"
+      %br/
+      - (1..5).each do |i|
+        %p= ".bg-color-<color-name>-l#{i} => background-color: lighten(<color-name>, #{i}0%);"
+      %br/
+      - (1..5).each do |i|
+        %p= ".color-<color-name>-d#{i} => color: darken(<color-name>, #{i}0%);"
+      %br/
+      - (1..5).each do |i|
+        %p= ".bg-color-<color-name>-d#{i} => background-color: darken(<color-name>, #{i}0%);"

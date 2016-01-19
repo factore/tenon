@@ -1,0 +1,18 @@
+.styleguide-colors {
+  width: 100%;
+  margin-bottom: $default-spacing;
+}
+.styleguide-color-block {
+  @include z-depth-1;
+  float: left;
+  margin-right: $default-spacing/3;
+  padding: $default-spacing/3;
+  border: 1px solid $grey;
+
+  .styleguide-color {
+    @include z-depth-1;
+    display: block;
+    width: $default-spacing*2;
+    height: $default-spacing*2;
+  }
+}

@@ -35,11 +35,4 @@
 
 .account-notifications {
   margin-right: $default-spacing/3;
-  &.has-notifications {
-    i {
-      &:before {
-        content: $ionicon-var-android-notifications;
-      }
-    }
-  }
 }

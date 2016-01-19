@@ -10,4 +10,4 @@ class Tenon.features.Flash
 
   _dismissFlash: (e) =>
     e.preventDefault()
-    @$flash.fadeOut()
+    @$flash.slideUp(250)

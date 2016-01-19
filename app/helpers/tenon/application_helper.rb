@@ -1,5 +1,9 @@
 module Tenon
   module ApplicationHelper
+    def thisicon(icon)
+      content_tag(:i, icon, class: 'material-icons')
+    end
+
     def menu_item(title, link, options = {})
       klass = ''
       # set the link class to active if it matches the current link or any of the alternate supplied links

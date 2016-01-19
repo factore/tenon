@@ -1,14 +1,21 @@
+// Import icons font(s):
+$font-icon: "Material Icons";
+
 // Import font(s):
-@import "//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic";
+@import "//fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,700,700italic";
 
 // Font family:
-$font-sans: "OpenSans", "Helvetica Neue", Helvetica, sans-serif;
+$font-primary: "Roboto", "Helvetica Neue", Helvetica, sans-serif;
+$font-secondary: "Roboto", "Helvetica Neue", Helvetica, sans-serif;
 
 // Font family:
-$font-family-body: $font-sans;
-$font-family-h1: $font-sans;
-$font-family-h2: $font-sans;
-$font-family-h3: $font-sans;
-$font-family-h4: $font-sans;
-$font-family-h5: $font-sans;
-$font-family-h6: $font-sans;
+$font-family-body: $font-primary;
+$font-family-h1: $font-primary;
+$font-family-h2: $font-primary;
+$font-family-h3: $font-primary;
+$font-family-h4: $font-primary;
+$font-family-h5: $font-primary;
+$font-family-h6: $font-primary;
+
+// Margin bottom:
+$default-margin: $default-spacing/2;

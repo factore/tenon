@@ -1,5 +1,6 @@
 .toolbar-action {
-  padding-left: $default-spacing*1.5;
+  line-height: $util-nav-height;
+  display: block;
   color: $primary-fg-color;
   &:hover {
     text-decoration: none;
@@ -7,9 +8,9 @@
   }
   i {
     @include font-size($h3-size);
-    position: absolute;
-    top: 0;
-    left: $default-spacing;
-    margin-right: $default-spacing;
+    line-height: $util-nav-height;
+    display: inline-block;
+    float: left;
+    margin-right: $default-spacing/2;
   }
 }

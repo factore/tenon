@@ -1,0 +1,17 @@
+%main#styleguide
+  %section.styleguide-index
+    %h1 Tenon Styleguide
+    %p A general summary and guideline for Tenon styles. Variables and styles you change will be reflected here.
+
+    %nav
+      %ul
+        %li= link_to 'Atoms', '#atoms'
+        %li= link_to 'Molecules', '#molecules'
+        %li= link_to 'Organisms', '#organisms'
+
+  %section
+    = render 'atoms'
+  %section
+    = render 'molecules'
+  %section
+    = render 'organisms'

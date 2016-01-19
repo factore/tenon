@@ -1,0 +1,21 @@
+%section
+  %a.scroll-target{name: 'atom-typography-small'}
+  %h3.color-black Smaller sizes
+  %p Includes a mixin, a variable and a class helper for each.
+
+  .panel.block
+    - ['small', 'smaller', 'smallest'].each do |s|
+      %p{class: "font-#{s}"} The quick brown fox jumps over the lazy dog.
+      %code.expandable
+        = expandable_toggle
+        %p= "<p class: 'font-#{s}'>The quick brown fox jumps over the lazy dog.</p>"
+        %br/
+        %p
+          %span.color-primary Mixin:
+          = "@include font-#{s};"
+        %p
+          %span.color-primary Variables:
+          = "$#{s}-size, $#{s}-line-height"
+        %p
+          %span.color-primary Class:
+          = ".font-#{s}"

@@ -1,0 +1,15 @@
+%section
+  %a.scroll-target{name: 'atom-forms-tenon'}
+  %h3.color-black Tenon content
+
+  .panel.block
+    = f.tenon_content :content
+    %code
+      %p f.tenon_content :content
+    %p Requires setup in the model
+    %code
+      class Sample < ActiveRecord::Base
+      %br/
+      &nbsp;&nbsp;tenon_content :content, i18n: true
+      %br/
+      end

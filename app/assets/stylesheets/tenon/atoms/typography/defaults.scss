@@ -1,85 +1,82 @@
 // Default Text Styles
-// ------------------------------------
 html,
 body {
   @include font-body;
-  font-size: $default-font-size * 1px; // required for rem
-  line-height: $default-spacing;
+  font-size: $body-size * 1px; // required for rem
+  line-height: $body-line-height;
   color: $primary-fg-color;
 }
 
 // Links
-// ------------------------------------
 a {
   text-decoration: none;
   color: $link-color;
   &:hover {
     text-decoration: underline;
+    color: $link-hover-color;
   }
 }
 
 // Default typography
-// ------------------------------------
-h1, h2, h3, h4, h5, h6, p,
-.h1, .h2, .h3, .h4, .h5, .h6, .p {
-  margin: 0 0 $default-spacing / 2;
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0 0 $default-margin;
 }
 
-h1, .h1 {
+h1, .font-h1 {
   @include font-h1;
 }
 
-h2, .h2 {
+h2, .font-h2 {
   @include font-h2;
 }
 
-h3, .h3 {
+h3, .font-h3 {
   @include font-h3;
 }
 
-h4, .h4 {
+h4, .font-h4 {
   @include font-h4;
 }
 
-h5, .h5 {
+h5, .font-h5 {
   @include font-h5;
 }
 
-h6, .h6 {
+h6, .font-h6 {
   @include font-h6;
 }
 
+.font-body {
+  @include font-body;
+}
+
 .font-small {
-  @include font-size-small;
+  @include font-small;
 }
 
 .font-smaller {
-  @include font-size-smaller;
+  @include font-smaller;
 }
 
 .font-smallest {
-  @include font-size-smallest;
+  @include font-smallest;
 }
 
 blockquote {
+  margin: 0 0 $default-margin;
   padding: $default-spacing;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
+  border-top: 1px solid $grey;
+  border-bottom: 1px solid $grey;
 }
 
 small {
-  @include font-size-smallest;
+  @include font-smallest;
 }
 
 strong {
-  @extend .font-n6;
+  @extend .font-n7;
 }
 
 em {
   @extend .font-i4;
-}
-
-label, .label {
-  @include font-size-smallest;
-  color: $label-color;
 }

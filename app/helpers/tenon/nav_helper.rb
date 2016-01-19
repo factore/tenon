@@ -1,7 +1,7 @@
 module Tenon
   module NavHelper
-    def nav_item(text, path, icon_class, link_opts = {}, &blk)
-      content = link(text, path, icon_class, link_opts)
+    def nav_item(text, path, icon, link_opts = {}, &blk)
+      content = link(text, path, icon, link_opts)
       content += subnav(&blk) if block_given?
       content_tag(:li, content, class: active_class(path, link_opts[:active]))
     end
@@ -9,14 +9,15 @@ module Tenon
     private
 
     def subnav(&blk)
-      icon = content_tag(:i, nil, class: 'icon ion-android-add')
-      content = link_to(icon, '#', class: 'nav-item-toggle')
+      icons = content_tag(:i, 'add', class: 'material-icons nav-open')
+      icons += content_tag(:i, 'remove', class: 'material-icons nav-close')
+      content = link_to(icons, '#', class: 'nav-item-toggle')
       content += content_tag(:ul, capture(&blk))
       content
     end
 
-    def link(text, path, icon_class, opts = {})
-      content = content_tag(:i, '', class: "icon ion-#{icon_class}")
+    def link(text, path, icon, opts = {})
+      content = content_tag(:i, icon, class: "material-icons")
       content += text
       opts[:class] ||= ''
       opts[:title] ||= text

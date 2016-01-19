@@ -1,5 +1,5 @@
 .action-text {
-  @include font-size-smaller;
+  @include font-smaller;
   line-height: $default-spacing*1.5;
   position: relative;
   height: $default-spacing*1.5;

@@ -1,0 +1,30 @@
+%section
+  %a.scroll-target{name: 'atom-typography'}
+  %a.scroll-target{name: 'atom-typography-headings'}
+  %h3.color-black Headers
+  %p Includes mixins, variables and a class helpers for each.
+
+  .panel.block
+    - (1..6).each do |h|
+      %p{class: "font-h#{h}"} The quick brown fox jumps over the lazy dog.
+      %code.expandable
+        = expandable_toggle
+        %p= "<h#{h}>The quick brown fox jumps over the lazy dog.</h#{h}>"
+        %br/
+        %p
+          %span.color-primary Mixin:
+          = "@include font-h#{h};"
+        %p
+          %span.color-primary Variables:
+          = "$h#{h}-size, $h#{h}-line-height"
+        %p
+          %span.color-primary Class:
+          = ".font-h#{h}"
+
+= render 'tenon/styleguides/atoms/typography/paragraphs'
+= render 'tenon/styleguides/atoms/typography/small'
+= render 'tenon/styleguides/atoms/typography/blockquote'
+= render 'tenon/styleguides/atoms/typography/lists'
+= render 'tenon/styleguides/atoms/typography/inline'
+= render 'tenon/styleguides/atoms/typography/styles'
+= render 'tenon/styleguides/atoms/typography/variables'

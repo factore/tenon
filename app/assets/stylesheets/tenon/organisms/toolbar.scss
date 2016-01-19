@@ -13,9 +13,13 @@
     line-height: $util-nav-height;
     right: $default-spacing*4.5;
     height: $util-nav-height;
+    .action-icon,
+    .action-btn {
+      float: left;
+    }
     .action-btn {
       line-height: $util-nav-height - $default-spacing*(2/3);
-      top: -($util-nav-height - $default-spacing/3)/2; // I can't figure out why this is needed -jamie
+      top: $default-spacing/3;
       height: $util-nav-height - $default-spacing*(2/3);
     }
     .action-icon,

@@ -1,3 +1,8 @@
+label, .label {
+  @include font-smallest;
+  color: $label-color;
+}
+
 .form-label {
   @extend .label;
   display: block;

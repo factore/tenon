@@ -1,19 +1,17 @@
-%h4.box-label Contact Details
-.box
-  .form-group.bordered
-    %label Contact Email
-    .explanation Destination email address for alerts.  Separate multiple email addresses with commas.
-    = text_field_tag "settings[contact_email]", Tenon::MySettings.contact_email, :placeholder => "--"
+.form-label Contact
+.panel.block
+  .row
+    .form-field.inner4
+      %label Contact Email
+      = text_field_tag "settings[contact_email]", Tenon::MySettings.contact_email, :placeholder => "--"
+      .explanation Destination email address for alerts.  Separate multiple email addresses with commas.
 
-  .form-group.bordered
-    %label Sender Email
-    .explanation "From" email address for alerts.
-    = text_field_tag "settings[from_email]", Tenon::MySettings.from_email, :placeholder => "--"
+    .form-field.inner4
+      %label Sender Email
+      = text_field_tag "settings[from_email]", Tenon::MySettings.from_email, :placeholder => "--"
+      .explanation "From" email address for alerts.
 
-%h4.box-label Comment Notifications
-.box
-  .form-group.inline.bordered
-    = check_box_tag "settings[comment_email]", 1, Tenon::MySettings.comment_email, class: 'tn-checkbox-right'
-    %label{for: 'settings_comment_email'} Comment Email
-    .explanation Do you want to receive an email when someone posts a comment?
-
+    .form-field.inner4.omega
+      = check_box_tag "settings[comment_email]", 1, Tenon::MySettings.comment_email
+      %label{for: 'settings_comment_email'} Comment Email
+      .explanation Do you want to receive an email when someone posts a comment?

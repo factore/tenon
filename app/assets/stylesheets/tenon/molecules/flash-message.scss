@@ -1,7 +1,11 @@
 // Flash messages
 .flash {
-  position: relative;
-  padding: $default-spacing/2 $default-spacing;
+  @include z-depth-1;
+  position: absolute;
+  z-index: $z-flash-message;
+  top: $util-nav-height;
+  width: 100%;
+  padding: $default-spacing/3 $default-spacing;
   h2 {
     display: none;
   }
@@ -12,13 +16,13 @@
     margin-bottom: 0;
   }
   ul {
-    @include font-size-small;
+    @include font-small;
     margin: 0 $default-spacing;
     padding: $default-spacing/2 0;
     li {
     }
   }
-  &.flash-flash {
+  &.flash {
     color: $warning-text-color;
     background: $warning-background-color;
   }
@@ -46,10 +50,10 @@
   position: absolute;
   top: 0;
   right: $default-spacing;
-  padding: $default-spacing/2 0;
+  padding: $default-spacing/3 0;
   text-align: right;
   color: white;
   i {
-    @include font-h3;
+    line-height: $default-spacing;
   }
 }

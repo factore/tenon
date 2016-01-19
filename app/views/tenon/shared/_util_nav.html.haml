@@ -1,41 +1,40 @@
 = render 'tenon/shared/burger'
 
 .account
-  -# TODO: If there are notifications, add the class `has-notifications`
-        -# to the link_to .. CSS will change the icon
   = link_to '#!', class: 'account-notifications action-icon dropdown-button', data: { activates: 'notification-dropdown'} do
-    %i.icon.ion-android-notifications-none
+    = i('notifications_none')
 
   %ul.dropdown-content#notification-dropdown
+    %li.dropdown-label Notifications
+    %li.divider
     %li
       = link_to '#' do
-        %i.icon.ion-android-notifications
-        Notifications!
+        = i('notifications_active')
+        Active Icon
     %li
       = link_to '#' do
-        %i.icon.ion-android-calendar
-        Event Alert
+        = i('notifications')
+        Inactive Icon
     %li
       = link_to '#' do
-        %i.icon.ion-android-alarm-clock
-        Alarm Alert
+        = i('notifications_none')
+        None Icon
 
   = link_to '#!', class: 'account-avatar action-icon dropdown-button', data: { activates: 'current-user-dropdown'} do
-    %i.icon.ion-android-person
-    =# image_tag('', class: 'account-avatar-image')
+    = i('face')
 
   %ul.dropdown-content#current-user-dropdown
     %li
       = link_to '#' do
-        %i.icon.ion-person
+        = i('person_outline')
         Account
     %li
       = link_to '#' do
-        %i.icon.ion-ios-paw
-        Something
+        = i('accessible')
+        Accessibility
     %li
       = link_to destroy_user_session_path, method: :delete do
-        %i.icon.ion-android-exit
+        = i('exit_to_app')
         Logout
 
 %nav.util-nav

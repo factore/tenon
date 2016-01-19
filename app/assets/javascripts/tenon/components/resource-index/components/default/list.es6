@@ -11,23 +11,8 @@ class DefaultList extends React.Component {
     return (
       <main>
         <a className="btn-floating" href={this.props.newPath}>
-          <i className="icon ion-android-add"></i>
+          <i className="material-icons">add</i>
         </a>
-
-        <section id="filters" className="drawer">
-          <p>
-          This is the filter pane.
-          </p>
-        </section>
-        <div className="toolbar-overlay">
-          <a href="#" className="toolbar-action toggle-drawer" data-target="filters">
-            <i className="icon ion-android-close"></i>
-            Close
-          </a>
-          <div className="util-nav-content">
-            123 Million Results!
-          </div>
-        </div>
 
         <div className="record-list with-btn-floating">
           <ul className="">
