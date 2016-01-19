@@ -77,6 +77,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'yaml_db'#, '0.2.3'
 
   # using a Rails 5 compatible versions of the following for now. See Gemfile
-  # s.add_dependency 'devise'#, '3.5.2'
   # s.add_dependency 'draper'#, '1.3.0'
 end

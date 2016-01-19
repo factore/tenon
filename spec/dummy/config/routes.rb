@@ -1,10 +1,17 @@
+# Front End
 Rails.application.routes.draw do
   resources :pages, only: [:show]
 
   mount Tenon::Engine => '/tenon'
 end
 
+# Back End, i.e. the Tenon UI
 Tenon::Engine.routes.draw do
+  devise_for :users, controllers: { sessions: 'devise/sessions' }
+  resources :users, :except => [:show] do
+    get 'approve', :on => :member
+  end
+
   resources :menus
 
   resources :comments, :only => [:index, :destroy] do

@@ -19,8 +19,8 @@ module Tenon
       private
 
       def filtered_attrs
-        @attrs.deep_reject_key!(:id)
-        @attrs.deep_reject_key!('id')
+        @attrs.to_h.deep_reject_key!(:id)
+        @attrs.to_h.deep_reject_key!('id')
         require_only_attrs! unless only.empty?
         remove_except_attrs! unless except.empty?
         remove_children!
