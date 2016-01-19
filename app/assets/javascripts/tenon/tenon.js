@@ -16,9 +16,6 @@ var Tenon = {
     // setup generic loader
     Tenon.$genericLoader = $('.generic-loader');
 
-    // init select2
-    // $('select').select2();
-
     // init pickadate
     $('[data-behavior=datepicker]').pickadate();
     $('[data-behavior=timepicker]').pickatime();

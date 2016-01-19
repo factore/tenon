@@ -95,7 +95,6 @@ class Tenon.features.ModalWindows
       new method(@opts.$link, @$el, @$template)
 
     # Default shown action
-    $('select').select2()
     @_focusFirstField()
 
   _runHiddenHandler: =>

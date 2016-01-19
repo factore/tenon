@@ -17,7 +17,6 @@
 //= require pickadate/picker.date
 //= require pickadate/picker.time
 //= require react_ujs
-//= require select2
 //= require uri
 
 // -- Plugins that need to be loaded in order
