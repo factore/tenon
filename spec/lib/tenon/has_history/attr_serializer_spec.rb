@@ -34,7 +34,7 @@ describe Tenon::HasHistory::AttrSerializer do
       let(:attrs) { predefined_attrs[:included_children] }
 
       it 'should keep them' do
-        expected = Marshal.dump(attrs.deep_reject_key!(:id))
+        expected = Marshal.dump(attrs.to_h.deep_reject_key!(:id))
         expect(serializer.serialize).to eq(expected)
       end
     end

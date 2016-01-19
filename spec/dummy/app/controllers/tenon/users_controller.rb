@@ -7,9 +7,9 @@ module Tenon
         format.html
         format.json do
           if current_user.is_super_admin?
-            @users = Tenon::User.all
+            @users = User.all
           elsif current_user.is_admin?
-            @users = Tenon::User.exclude_super_admins
+            @users = User.exclude_super_admins
           end
 
           @users = @users.where(search_args) unless params[:q].blank?
@@ -30,7 +30,7 @@ module Tenon
     private
 
     def get_roles
-      @roles = Tenon::Role.all
+      @roles = Role.all
     end
 
     def search_args
@@ -46,7 +46,7 @@ module Tenon
     end
 
     def cleaned_role_ids(rp)
-      sa_role = Tenon::Role.find_by_title('Super Admin')
+      sa_role = Role.find_by_title('Super Admin')
       if sa_role && rp[:role_ids] && !current_user.is_super_admin?
         rp[:role_ids].delete(sa_role.id.to_s)
       end

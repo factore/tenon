@@ -7,7 +7,7 @@ end
 
 # Back End, i.e. the Tenon UI
 Tenon::Engine.routes.draw do
-  devise_for :users, module: :devise
+  devise_for :users, controllers: { sessions: 'devise/sessions' }
   resources :users, :except => [:show] do
     get 'approve', :on => :member
   end

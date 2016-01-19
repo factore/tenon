@@ -1,14 +1,14 @@
 require 'spec_helper'
 
-describe Tenon::User do
-  let(:user) { Tenon::User.new }
+describe User do
+  let(:user) { User.new }
 
   ['Admin', 'Super Admin', 'Contributor', 'Member'].each do |role|
     describe "is_#{role.dehumanize}?" do
       context "when the user has the role of #{role}" do
         let(:role) { double }
         before do
-          Tenon::Role.stub(:find_by_title) { role }
+          Role.stub(:find_by_title) { role }
           user.stub(:roles) { [role] }
         end
 
@@ -20,7 +20,7 @@ describe Tenon::User do
       context "when the user has the role of #{role}" do
         let(:role) { double }
         before do
-          Tenon::Role.stub(:find_by_title) { role }
+          Role.stub(:find_by_title) { role }
           user.stub(:roles) { [] }
         end
 
@@ -33,7 +33,7 @@ describe Tenon::User do
 
   describe '#as_json' do
     it 'should include the is_admin? method' do
-      expect(Tenon::User.new.as_json.keys).to include('is_admin?')
+      expect(User.new.as_json.keys).to include('is_admin?')
     end
   end
 

@@ -5,21 +5,21 @@ class Ability
     if u.is_super_admin?
       can :manage, :all
       can :publish, :all
-      can :assign_roles, Tenon::User
+      can :assign_roles, User
     elsif u.is_admin?
       can :manage, :all
       can :publish, :all
-      can :assign_roles, Tenon::User
+      can :assign_roles, User
 
-      cannot :update, Tenon::User
-      can([:update], Tenon::User) do |user|
+      cannot :update, User
+      can([:update], User) do |user|
         !user.is_super_admin?
       end
-      can :create, Tenon::User
+      can :create, User
     elsif u.is_contributor?
-      can([:update, :edit, :publish], Tenon::User) { |user| user == u }
+      can([:update, :edit, :publish], User) { |user| user == u }
       can :read, :all
-      can :create, Tenon::Page
+      can :create, Page
     else
       can :read, :all
     end
