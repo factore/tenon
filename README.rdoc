@@ -1,5 +1,7 @@
 = Tenon
 
+Tenon 2.0 runs on Rails 5 and you should probably use at least Ruby 2.3.0. Stay fresh.
+
 == License
 
 This project uses the MIT-LICENSE.  Do whatever you want with it as long as you
