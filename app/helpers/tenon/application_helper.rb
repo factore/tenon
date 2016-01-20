@@ -13,11 +13,6 @@ module Tenon
       link_to(title, link, class: klass)
     end
 
-    # now uses http://github.com/mdeering/gravatar_image_tag
-    def gravatar_for(object)
-      gravatar_image_tag(object.email)
-    end
-
     def table_row(*args)
       html = '<tr>'
       args.each_with_index do |cell, i|

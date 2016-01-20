@@ -6,6 +6,7 @@ require 'rspec/autorun'
 require 'factory_girl_rails'
 require 'capybara-webkit'
 require 'database_cleaner'
+require 'launchy'
 
 # Load support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
