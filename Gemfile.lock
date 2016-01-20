@@ -50,6 +50,7 @@ PATH
       eco
       font-awesome-rails
       haml
+      humanizer
       ionicons-rails
       jbuilder
       jquery-fileupload-rails
@@ -382,7 +383,6 @@ DEPENDENCIES
   draper!
   factory_girl_rails
   gravatar_image_tag
-  humanizer
   launchy
   quiet_assets
   rack!

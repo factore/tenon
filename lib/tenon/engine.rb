@@ -1,4 +1,3 @@
-require 'bourbon'
 require 'browserify-rails'
 require 'cancan'
 require 'cocoon'
