@@ -30,6 +30,9 @@ require 'will_paginate'
 
 # Dummy app gems
 require 'humanizer'
+require 'awesome_nested_set'
+require 'gravatar_image_tag'
+require 'uglifier'
 
 module Tenon
   class Engine < ::Rails::Engine

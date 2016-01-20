@@ -40,6 +40,7 @@ PATH
   remote: .
   specs:
     tenon (1.1.4)
+      awesome_nested_set
       browserify-rails
       cancan
       cocoon
@@ -49,6 +50,7 @@ PATH
       dynamic_form
       eco
       font-awesome-rails
+      gravatar_image_tag
       haml
       humanizer
       ionicons-rails
@@ -71,6 +73,7 @@ PATH
       sass-rails
       sprockets
       sprockets-es6
+      uglifier
       uuidtools
       will_paginate
 
@@ -373,7 +376,6 @@ PLATFORMS
 
 DEPENDENCIES
   activemodel-serializers-xml!
-  awesome_nested_set
   better_errors
   binding_of_caller
   capybara
@@ -382,7 +384,6 @@ DEPENDENCIES
   devise!
   draper!
   factory_girl_rails
-  gravatar_image_tag
   launchy
   quiet_assets
   rack!
@@ -390,7 +391,6 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   tenon!
-  uglifier
 
 BUNDLED WITH
    1.11.2
