@@ -28,6 +28,9 @@ require 'sprockets/es6'
 require 'uuidtools'
 require 'will_paginate'
 
+# Dummy app gems
+require 'humanizer'
+
 module Tenon
   class Engine < ::Rails::Engine
     isolate_namespace Tenon
