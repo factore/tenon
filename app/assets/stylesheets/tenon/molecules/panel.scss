@@ -4,8 +4,8 @@
   overflow: hidden;
   background-color: $panel-bg-color;
 
-  &.with-btn-floating {
-    top: $btn-floating-size / 2;
+  &.with-btn-fab {
+    top: $btn-fab-size / 2;
   }
 
   &.block {

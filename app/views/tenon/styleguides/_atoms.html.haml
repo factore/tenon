@@ -23,6 +23,14 @@
         %li= link_to 'Variables', '#atom-typography-variables'
     %li= link_to 'Icons', '#atom-icons'
     %li
+      = link_to 'Buttons', '#atom-buttons'
+      %ul
+        %li= link_to 'Standard', '#atom-buttons-standard'
+        %li= link_to 'Flat', '#atom-buttons-flat'
+        %li= link_to 'Block', '#atom-buttons-block'
+        %li= link_to 'Floating Action', '#atom-buttons-fab'
+
+    %li
       = link_to 'Forms', '#atom-forms'
       %ul
         %li= link_to 'Default', '#atom-forms-default'
@@ -32,5 +40,6 @@
 
 = render 'tenon/styleguides/atoms/colors'
 = render 'tenon/styleguides/atoms/typography'
+= render 'tenon/styleguides/atoms/buttons'
 = render 'tenon/styleguides/atoms/icons'
 = render 'tenon/styleguides/atoms/forms'

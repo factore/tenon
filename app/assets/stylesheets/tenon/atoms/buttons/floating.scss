@@ -1,55 +1,69 @@
-.btn-floating {
+.btn-fab {
   @include default-transition;
-  @include animation(btn-floating-intro .3s forwards .5s);
+  @include animation(btn-fab-intro .3s forwards .5s);
   @include transform(scale(0) rotate(-45deg));
   @include z-depth-1;
-  line-height: $btn-floating-size;
+  line-height: $btn-fab-size;
   position: relative;
-  z-index: $z-btn-floating;
+  z-index: $z-btn-fab;
   display: inline-block;
   overflow: hidden;
-  width: $btn-floating-size;
-  height: $btn-floating-size;
+  width: $btn-fab-size;
+  height: $btn-fab-size;
   padding: 0;
   cursor: pointer;
   transition: .3s;
   vertical-align: middle;
-  color: $btn-floating-fg-color;
+  color: $btn-fab-fg-color;
   border: none;
   border-radius: 50%;
-  background-color: $btn-floating-bg-color;
-
+  background-color: $btn-fab-bg-color;
   i {
-    @include font-size($btn-floating-icon-size);
-    line-height: $btn-floating-size;
+    @include font-size($btn-fab-icon-size);
+    line-height: $btn-fab-size;
     display: inline-block;
     width: inherit;
     text-align: center;
-    color: $btn-floating-fg-color;
+    color: $btn-fab-fg-color;
   }
-
   &:hover {
     @include z-depth-1-half;
   }
-
   &:before {
     border-radius: 0;
   }
   &.btn-large {
-    width: $btn-floating-size * 1.5;
-    height: $btn-floating-size * 1.5;
+    width: $btn-fab-size * 1.5;
+    height: $btn-fab-size * 1.5;
 
     i {
-      line-height: $btn-floating-size * 1.5;
+      line-height: $btn-fab-size * 1.5;
     }
   }
 }
 
-@include keyframes(btn-floating-intro) {
+// alt color:
+.btn-fab-reverse {
+  @extend .btn-fab;
+  color: $btn-fab-bg-color;
+  background-color: $btn-fab-fg-color;
+  i {
+    color: $btn-fab-bg-color;
+  }
+}
+
+// positions
+.btn-fab-bottom-right {
+  position: fixed;
+  right: $default-spacing;
+  bottom: $default-spacing;
+}
+
+// animation
+@include keyframes(btn-fab-intro) {
   0% {
     @include transform(scale(0) rotate(-45deg));
   }
-
   100% {
     @include transform(scale(1) rotate(0deg));
   }

@@ -10,11 +10,11 @@ class DefaultList extends React.Component {
 
     return (
       <main>
-        <a className="btn-floating" href={this.props.newPath}>
+        <a className="btn-fab btn-fab-bottom-right" href={this.props.newPath}>
           <i className="material-icons">add</i>
         </a>
 
-        <div className="record-list with-btn-floating">
+        <div className="record-list with-btn-fab">
           <ul className="">
             <ReactCSSTransitionGroup transitionName="record" transitionEnterTimeout={250} transitionLeaveTimeout={250} >
               {noRecordsWarning}
