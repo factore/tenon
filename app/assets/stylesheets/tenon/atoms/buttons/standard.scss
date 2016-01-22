@@ -13,30 +13,39 @@
   border: 0;
   border-radius: $default-border-radius;
   background-color: $btn-primary-bg-color;
-
-  &.btn-flat,
-  &.btn-flat:hover {
-    @include z-depth-0;
-  }
-
-  &.btn-white {
-    color: $btn-primary-bg-color;
-    background-color: $btn-secondary-fg-color;
-  }
-
-  &.btn-secondary {
-    color: $btn-secondary-fg-color;
-    background-color: $btn-secondary-bg-color;
-  }
-
-  &.btn-block {
-    display: block;
-    width: 100%;
-    margin-bottom: $default-spacing / 3;
-  }
-
   &:hover {
     @include z-depth-1-half;
     text-decoration: none;
+    color: white;
   }
+}
+
+.btn-reverse {
+  @extend .btn;
+  color: $btn-primary-bg-color;
+  background-color: $btn-primary-fg-color;
+  &:hover {
+    color: $btn-primary-bg-color;
+  }
+}
+
+.btn-secondary {
+  @extend .btn;
+  color: $btn-secondary-fg-color;
+  background-color: $btn-secondary-bg-color;
+}
+
+.btn-secondary-reverse {
+  @extend .btn;
+  color: $btn-secondary-bg-color;
+  background-color: $btn-secondary-fg-color;
+  &:hover {
+    color: $btn-secondary-bg-color;
+  }
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  margin-bottom: $default-spacing / 3;
 }

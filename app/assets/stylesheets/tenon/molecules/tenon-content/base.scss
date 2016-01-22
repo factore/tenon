@@ -31,7 +31,7 @@
     @include default-transition;
     margin: $default-spacing $default-spacing 0 0;
     text-transform: uppercase;
-    &.btn-floating {
+    &.btn-fab {
       position: absolute;
       right: -$default-spacing/2;
       bottom: -$default-spacing;
