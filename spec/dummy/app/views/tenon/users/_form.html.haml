@@ -1,9 +1,3 @@
-- content_for :sidebar do
-  .sidebar
-    .content
-      %h2 Users
-      = link_to "New User", new_user_path, class: 'btn btn-block btn-primary'
-
 = form_for @user, :builder => Tenon::FormBuilder do |f|
   = error_messages_for :user
 

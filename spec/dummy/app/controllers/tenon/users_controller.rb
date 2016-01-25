@@ -14,7 +14,7 @@ module Tenon
 
           @users = @users.where(search_args) unless params[:q].blank?
           @users = @users.paginate(per_page: 20, page: params[:page])
-          @users = Tenon::PaginatingDecorator.new(@users)
+          # @users = Tenon::PaginatingDecorator.new(@users)
         end
       end
     end
