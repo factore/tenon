@@ -16,11 +16,11 @@ describe Tenon::AssetStyleGenerator do
       end
 
       let(:item_assets) do
-        [double(item: page, asset_name: 'banner', item_type: 'Tenon::Page')]
+        [double(item: page, asset_name: 'banner', item_type: 'Page')]
       end
 
       before do
-        Tenon::Page.stub(:new) { page }
+        Page.stub(:new) { page }
       end
 
       it 'should return a combination of the default styles and the banner styles' do
@@ -37,13 +37,13 @@ describe Tenon::AssetStyleGenerator do
 
         let(:item_assets) do
           [
-            double(item: page, asset_name: 'banner', item_type: 'Tenon::Page'),
-            double(item: post, asset_name: 'header', item_type: 'Tenon::Post')
+            double(item: page, asset_name: 'banner', item_type: 'Page'),
+            double(item: post, asset_name: 'header', item_type: 'Post')
           ]
         end
 
         before do
-          Tenon::Post.stub(:new) { post }
+          Post.stub(:new) { post }
         end
 
         it 'should return a combination of the default styles, the page banner styles, and the post header styles' do
@@ -62,13 +62,13 @@ describe Tenon::AssetStyleGenerator do
 
         let(:item_assets) do
           [
-            double(item: page, asset_name: 'banner', item_type: 'Tenon::Page'),
-            double(item: other_page, asset_name: 'banner', item_type: 'Tenon::Page')
+            double(item: page, asset_name: 'banner', item_type: 'Page'),
+            double(item: other_page, asset_name: 'banner', item_type: 'Page')
           ]
         end
 
         before do
-          Tenon::Page.stub(:new) { page }
+          Page.stub(:new) { page }
         end
 
         it 'should return a combination of the default styles and the banner styles without duplicating' do

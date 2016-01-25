@@ -4,7 +4,7 @@ class Page < ApplicationRecord
   has_history except: [:lft, :rgt, :parent_id, :depth],
               includes: [:content_tenon_content_rows]
   tenon_content :content, i18n: true
-  default_scope { order('tenon_pages.lft, tenon_pages.list_order') }
+  default_scope { order('pages.lft, pages.list_order') }
   scope :published, -> { where('publish_at <= ?', Time.now) }
   scope :for_menu, -> { published.where(show_in_menu: true) }
   scope :top, -> { where(parent_id: nil) }

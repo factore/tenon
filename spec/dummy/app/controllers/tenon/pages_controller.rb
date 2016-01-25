@@ -7,9 +7,9 @@ module Tenon
         format.html
         format.json do
           if params[:q].blank?
-            @pages = Tenon::Page.order(:lft)
+            @pages = Page.order(:lft)
           else
-            pages = Tenon::Page.where(search_args).map { |p| [p.ancestors, p] }
+            pages = Page.where(search_args).map { |p| [p.ancestors, p] }
             @pages = pages.flatten.uniq.sort_by(&:lft)
           end
         end
@@ -33,7 +33,7 @@ module Tenon
     end
 
     def reorder
-      @pages = Tenon::Page.reorder!(params[:item_list], params[:parent_id])
+      @pages = Page.reorder!(params[:item_list], params[:parent_id])
       render nothing: true
     end
 
@@ -41,7 +41,7 @@ module Tenon
 
     def get_potential_parents
       id = params[:id] || 0
-      @potential_parents = Tenon::Page.order(:lft).decorate
+      @potential_parents = Page.order(:lft).decorate
     end
 
     def resource_params

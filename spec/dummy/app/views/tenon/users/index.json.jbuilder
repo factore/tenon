@@ -1,9 +1,11 @@
 json.records do
   json.array!(@users) do |user|
     unless user.is_super_admin? && !current_user.is_super_admin?
-      json.extract!(user, :id, :email)
-      json.roles user.roles.map(&:title).to_sentence
+      json.extract!(user, :id)
+      json.title user.email
       json.created_at user.created_at.strftime('%B %e, %Y')
+
+      json.roles user.roles.map(&:title).to_sentence
       if user.last_sign_in_at
         json.last_login user.last_sign_in_at.strftime('%B %e, %Y')
       else
