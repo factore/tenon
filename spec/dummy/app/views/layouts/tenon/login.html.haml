@@ -1,16 +1,22 @@
 !!! Strict
 %html{ :lang => "en" }
   %head
+    %meta{ content: "text/html; charset=utf-8", "http-equiv" => "Content-Type" }/
+    %meta{name: "viewport", content: "width=device-width,width=100,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"}
     = csrf_meta_tag
-    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }/
-    %meta{ :content => 'initial-scale=1,width=device-width', :name => 'viewport' }
     = platform_hints(Tenon.config.client_color) if Tenon.config.client_color.present?
 
     %title
       = Tenon::MySettings.site_title.present? ? Tenon::MySettings.site_title : 'Tenon'
 
-    = stylesheet_link_tag 'tenon/tenon', '//fonts.googleapis.com/css?family=Open+Sans:400,700'
+    = stylesheet_link_tag '//fonts.googleapis.com/icon?family=Material+Icons'
+    = stylesheet_link_tag 'tenon/tenon'
     = javascript_include_tag 'tenon/tenon_manifest'
+    = yield :scripts
 
-  %body{data: { controller: params[:controller], action: params[:action] }, class: ('menu-open' if content_for?(:sidebar))}
-    .tenon-login= yield
+  %body{ data: {controller: controller_name, action: action_name} }
+    = flash_messages
+    = yield
+
+    - if Tenon::MySettings.google_analytics.present?
+      = raw Tenon::MySettings.google_analytics

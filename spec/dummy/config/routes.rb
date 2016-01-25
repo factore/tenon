@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   resources :pages, only: [:show]
 
   mount Tenon::Engine => '/tenon'
+
 end
 
 # Back End, i.e. the Tenon UI
 Tenon::Engine.routes.draw do
-  devise_for :users, controllers: { sessions: 'devise/sessions' }
+  devise_for :users, controllers: { sessions: 'devise/sessions', passwords: 'devise/passwords' }
   resources :users, :except => [:show] do
     get 'approve', :on => :member
   end

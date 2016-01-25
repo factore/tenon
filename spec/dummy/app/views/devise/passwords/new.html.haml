@@ -1,17 +1,12 @@
-= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
-  .row
-    %h4 Forgot your password?
-
-  - unless resource.errors.empty?
-    .flash= resource.errors.full_messages.join('<br>').html_safe
-  .row.bordered
-    = f.label :email, :class => "font"
-    = f.text_field :email, placeholder: 'user@example.com', :autofocus => true
-
-  .row.bordered
-    = f.submit "Send reset instructions", class: 'btn btn-info'
-
-  .row.bordered
-    %p{:style => "text-align: right; margin-top: 10px; font-size: 12px;"}
-      = link_to "Sign In", new_user_session_path
-
+%main
+  .inner9
+    .panel.block
+      %h1 Forgot your password?
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        = devise_error_messages!
+        = f.label :email
+        = f.email_field :email, autofocus: true
+        %br/
+        = f.submit "Send me reset password instructions", class: 'btn'
+      %br/
+      = render "devise/shared/links"

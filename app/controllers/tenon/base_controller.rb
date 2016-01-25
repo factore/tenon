@@ -16,11 +16,7 @@ module Tenon
     private
 
     def layout_for_resource
-      if devise_controller?
-        'tenon/login'
-      else
-        'tenon/application'
-      end
+      'tenon/application'
     end
 
     def set_page_title
