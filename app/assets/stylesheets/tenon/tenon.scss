@@ -5,6 +5,7 @@
 //= require pickadate/default.time
 @import "bourbon";
 @import "./grid";
+@import 'bootstrap';
 
 // Universal
 @import "./atoms/layout-variables";
@@ -106,3 +107,8 @@
 
 // Styleguide
 @import "./styleguide/init";
+
+// Backwards Compatibility (should be temporary)
+@import "./backwards_compatibility/variables";
+@import "./backwards_compatibility/modals";
+@import "./backwards_compatibility/tenon-content-library";

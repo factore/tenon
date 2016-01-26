@@ -2,6 +2,8 @@
 //= require jquery_ujs
 
 // -- Plugins, in alphabetical order
+//= require bootstrap
+//= require bootstrap.modal
 //= require canvasjs.min
 //= require cocoon
 //= require imagesloaded

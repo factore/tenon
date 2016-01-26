@@ -2,7 +2,7 @@
   = f.hidden_field :row_type
   = f.hidden_field :list_order
   -[[0,1], [2,3], [4,5], [6,7]].each do |positions|
-    .three{class: cycle('', '', '', 'omega')}
+    .inner3{class: cycle('', '', '', 'omega')}
       = f.fields_for :pieces, f.object.pieces.select { |p| positions.include?(p.position) } do |piece|
         = piece.hidden_field :piece_type
         - if piece.object.piece_type == 'Image'

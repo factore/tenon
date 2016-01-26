@@ -2,9 +2,9 @@
   = f.hidden_field :list_order
   = f.hidden_field :row_type
   - [ [0, 1], [2, 3], [4, 5] ].each_with_index do |columns, i|
-    .four{class: i == 2 ? 'omega' : ''}
+    .inner4{class: i == 2 ? 'omega' : ''}
       - columns.each do |position|
-        .tn-tc-piece.tn-tc-asset-field.six{class: cycle('', 'omega')}
+        .tn-tc-piece.tn-tc-asset-field.inner6{class: cycle('', 'omega')}
           = f.fields_for :pieces, f.object.pieces.select{ |p| p.position == position } do |piece|
             = render 'tenon/tenon_content/piece_types/form/image', f: piece, position: piece.object.position
   .spacer
