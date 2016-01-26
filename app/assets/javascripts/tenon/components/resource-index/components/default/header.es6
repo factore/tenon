@@ -79,7 +79,7 @@ class DefaultHeader extends React.Component {
       <div className="header-button">
         <a href="#" onClick={e => this._handleSearchToggle(e)} className={className}>
           <div className="header-icon">
-            <i className={'fa fa-fw ' + icon}></i>
+            <i className="material-icons">{icon}></i>
           </div>
         </a>
       </div>

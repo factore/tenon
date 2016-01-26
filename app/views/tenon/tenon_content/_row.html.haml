@@ -2,12 +2,13 @@
   = f.hidden_field :item_method, value: field
   .tn-tc-topbar
     .actions
-      %i.fa.fa-arrows.drag-anchor
+      %i.material-icons.reorder reorder
 
       = link_to '#', class: 'tn-tc-open-library above', data: { modal_target: ".tenon-library", modal_closest: '.tn-tc', modal_title: "Insert Content", modal_handler: 'Tenon.features.tenonContent.Library', modal_clone: 'true', tooltip: '' }, title: 'Insert Content' do
-        %i.fa.fa-fw.fa-plus-circle
+        %i.material-icons playlist_add
 
-      = link_to_remove_association(fa_icon('trash-o'), f, {'data-confirm' => 'Are you sure?', 'data-wrapper-class' => 'tn-tc-row'})
+      = link_to_remove_association f, {'data-confirm' => 'Are you sure?', 'data-wrapper-class' => 'tn-tc-row'} do
+        %i.material-icons.delete delete
 
     .spacer
 
@@ -16,4 +17,4 @@
   .tn-tc-bottombar
     .actions
       = link_to '#', class: 'tn-tc-open-library below', data: { modal_target: ".tenon-library", modal_closest: '.tn-tc', modal_title: "Insert Content", modal_handler: 'Tenon.features.tenonContent.Library', modal_clone: 'true', modal_closest: '.tn-tc', tooltip: ''}, title: 'Insert Content' do
-        %i.fa.fa-fw.fa-plus-circle
+        %i.material-icons playlist_add
