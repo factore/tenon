@@ -1,16 +1,29 @@
-#asset-uploader
-  #progress
-  = form_for Tenon::Asset.new, format: 'json', builder: Tenon::FormBuilder do |f|
-    = error_messages_for :asset
-    .fields.full
-      .form-group.full
-        = f.text_field :title, placeholder: '--', explanation: "Enter a title for your asset.  You can leave this blank to just use the file name as the title. #{defined?(multiple) ? 'If you upload multiple assets a numerical series will be created.' : '' }"
+= form_for Tenon::Asset.new, format: 'json', builder: Tenon::FormBuilder do |f|
+  .toolbar.bg-color-primary-dk10
+    = render 'tenon/shared/breadcrumbs'
+    .actions
+      - if can?(:publish, @asset)
+        %button.action-btn.btn.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
 
-      .form-group
-        .browse-button-holder
-          .fileupload.btn.btn-secondary.browse
-            %span#choose-files= defined?(multiple) ? 'Choose Files' : 'Choose File'
-            %input{ :type => 'file', :class => 'upload', multiple: defined?(multiple) && multiple, style: 'width: 100%;', name: 'asset[attachment]' }
+      %a.action-icon.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
+        = i('more_vert')
+
+      %ul.dropdown-content#form-dropdown
+        - if @asset.persisted?
+          %li
+            = link_to @asset, data: { method: :delete, confirm: 'Are you sure you want to delete this?' }, class: 'delete-link' do
+              = i('delete')
+
+  %main
+    = error_messages_for :asset
+
+    = f.text_field :title, class: 'form-title-field', explanation: "Enter a title for your asset.  You can leave this blank to just use the file name as the title. #{defined?(multiple) ? 'If you upload multiple assets a numerical series will be created.' : '' }"
+
+    .panel.block
+      .browse-button-holder
+        .fileupload.btn.btn-secondary.browse
+          %span#choose-files= defined?(multiple) ? 'Choose Files' : 'Choose File'
+          %input{ :type => 'file', :class => 'upload', multiple: defined?(multiple) && multiple, style: 'width: 100%;', name: 'asset[attachment]' }
 
     .spacer
 
