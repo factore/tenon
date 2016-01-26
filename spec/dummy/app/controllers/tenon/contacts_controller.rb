@@ -6,15 +6,15 @@ module Tenon
       respond_to do |format|
         format.html do
           @counts = {
-            all: Tenon::Contact.count,
-            read: Tenon::Contact.read.count,
-            unread: Tenon::Contact.unread.count,
-            replied: Tenon::Contact.replied.count,
-            unreplied: Tenon::Contact.unreplied.count
+            all: Contact.count,
+            read: Contact.read.count,
+            unread: Contact.unread.count,
+            replied: Contact.replied.count,
+            unreplied: Contact.unreplied.count
           }
         end
         format.json do
-          @contacts = Tenon::Contact.all
+          @contacts = Contact.all
           @contacts = @contacts.where(search_args) if params[:q]
           if %w(read unread replied unreplied).include?(params[:type])
             @contacts = @contacts.send(params[:type])
@@ -52,7 +52,7 @@ module Tenon
     private
 
     def get_contact
-      @contact = Tenon::Contact.find(params[:id])
+      @contact = Contact.find(params[:id])
     end
 
     def search_args

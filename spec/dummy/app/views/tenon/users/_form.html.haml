@@ -1,44 +1,51 @@
-= form_for @user, :builder => Tenon::FormBuilder do |f|
-  = error_messages_for :user
+= form_for @user, builder: Tenon::FormBuilder do |f|
+  .toolbar.bg-color-primary-dk10
+    = render 'tenon/shared/breadcrumbs'
+    .actions
+      - if can?(:publish, @user)
+        %button.action-btn.btn.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
 
-  .fields.large
-    .form-group
-      = f.text_field :email, :autocomplete => "off"
+      %a.action-icon.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
+        = i('more_vert')
 
-    .form-group.bordered
+      %ul.dropdown-content#form-dropdown
+        - if can?(:create, Tenon::ItemVersion)
+          = render 'tenon/shared/draft_controls', obj: @user
+
+        - if @user.persisted?
+          %li
+            = link_to @user, data: { method: :delete, confirm: 'Are you sure you want to delete this?' }, class: 'delete-link' do
+              = i('delete')
+
+  %main
+    = error_messages_for :user
+
+    = f.text_field :email, required: true, class: 'form-title-field', autofocus: true, autocomplete: 'off'
+
+    .form-label Password
+    .panel.block
       - if @user.persisted?
         = f.super_label :password, "New Password"
       - else
         = f.super_label :password
-      = f.password_field :password, :autocomplete => "off"
-    .form-group
+      = f.password_field :password, autocomplete: 'off'
+
       - if @user.persisted?
         = f.super_label :password_confirmation, "Confirm New Password"
       - else
         = f.super_label :password_confirmation, "Confirm Password"
       = f.password_field :password_confirmation
 
-  .fields.small
-    %h4.box-label Roles
-    .explanation Roles define a user's abilities throughout the site.
-    .box
-      .form-group.inline
-        - @roles.each do |role|
-          - unless (role.title == "Super Admin" && !current_user.is_super_admin?) || (role.title == "Admin" && !current_user.is_admin?)
-            = check_box_tag('user[role_ids][]', role.id, @user.role_ids.include?(role.id), class: 'tn-checkbox-right', id: "role_id_#{role.id}")
-            %label{ for: "role_id_#{role.id}" }= role.title
-            .spacer
+    .form_label Roles
+    .panel.block
+      .explanation Roles define a user's abilities throughout the site.
+      - @roles.each do |role|
+        - unless (role.title == "Super Admin" && !current_user.is_super_admin?) || (role.title == "Admin" && !current_user.is_admin?)
+          = check_box_tag('user[role_ids][]', role.id, @user.role_ids.include?(role.id), class: 'tn-checkbox-right', id: "role_id_#{role.id}")
+          %label{ for: "role_id_#{role.id}" }= role.title
+          .spacer
 
-    %h4.box-label Actions
-    .box
-      .content
-        = f.check_box :approved, class: 'tn-checkbox-right'
-        = f.super_label :approved, "Approved?"
+    .form_label Actions
+    .panel.block
+      = f.check_box :approved
 
-      .content
-        = f.submit "Save", :class => 'btn btn-block btn-comp', data: { disable_with: "Please wait..." }
-
-      - if @user.persisted?
-        %hr
-        .content
-          = link_to "Delete", @user, :data => {:method => :delete, :confirm => "Are you sure you want to delete this?"}, :class => 'delete-link'

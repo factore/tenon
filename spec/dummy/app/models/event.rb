@@ -1,10 +1,17 @@
 class Event < ApplicationRecord
   # Scopes, attachments, etc.
+  date_time_attribute :starts_at
+  date_time_attribute :ends_at
+  date_time_attribute :publish_at
+
+  default_scope -> { order 'starts_at DESC' }
+
   scope :published, -> { where('publish_at <= ?', Time.now) }
   scope :upcoming, -> { where(['ends_at > ?', Time.now]).order(:starts_at) }
   scope :past, -> { where(['ends_at < ?', Time.now]).order(:starts_at) }
-  default_scope -> { order 'starts_at DESC' }
+
   tenon_content :description, i18n: true
+
   has_history includes: [:description_tenon_content_rows]
 
   # Validations
