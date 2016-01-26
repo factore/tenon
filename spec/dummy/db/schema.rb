@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119185706) do
+ActiveRecord::Schema.define(version: 20160126123154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,14 +81,14 @@ ActiveRecord::Schema.define(version: 20160119185706) do
 
   create_table "menu_items", force: :cascade do |t|
     t.integer  "menu_id"
-    t.string   "title",      limit: 255
+    t.string   "title"
     t.integer  "list_order"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "menus", force: :cascade do |t|
-    t.string   "title",      limit: 255
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -185,7 +185,7 @@ ActiveRecord::Schema.define(version: 20160119185706) do
   end
 
   create_table "settings", force: :cascade do |t|
-    t.string   "var",        limit: 255, null: false
+    t.string   "var",                   null: false
     t.text     "value"
     t.integer  "thing_id"
     t.string   "thing_type", limit: 30
@@ -195,17 +195,17 @@ ActiveRecord::Schema.define(version: 20160119185706) do
   end
 
   create_table "tenon_assets", force: :cascade do |t|
-    t.string   "title",                   limit: 255
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "encoded_state",           limit: 255
-    t.string   "output_url",              limit: 255
-    t.string   "aspect_ratio",            limit: 255
+    t.string   "encoded_state"
+    t.string   "output_url"
+    t.string   "aspect_ratio"
     t.integer  "duration_in_ms"
     t.integer  "job_id"
-    t.string   "attachment_content_type", limit: 255
+    t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
-    t.string   "attachment_file_name",    limit: 255
+    t.string   "attachment_file_name"
     t.index ["created_at"], name: "index_assets_on_created_at", using: :btree
     t.index ["job_id"], name: "index_assets_on_job_id", using: :btree
   end
@@ -213,8 +213,8 @@ ActiveRecord::Schema.define(version: 20160119185706) do
   create_table "tenon_item_assets", force: :cascade do |t|
     t.integer  "asset_id"
     t.integer  "item_id"
-    t.string   "item_type",  limit: 255
-    t.string   "asset_name", limit: 255
+    t.string   "item_type"
+    t.string   "asset_name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["asset_id"], name: "index_item_assets_on_asset_id", using: :btree
@@ -223,74 +223,39 @@ ActiveRecord::Schema.define(version: 20160119185706) do
 
   create_table "tenon_item_versions", force: :cascade do |t|
     t.integer  "item_id"
-    t.string   "item_type",  limit: 255
+    t.string   "item_type"
     t.binary   "attrs"
-    t.string   "title",      limit: 255
-    t.string   "save_type",  limit: 255
+    t.string   "title"
+    t.string   "save_type"
     t.integer  "creator_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["item_id", "item_type"], name: "index_tenon_item_versions_on_item_id_and_item_type", using: :btree
   end
 
-  create_table "tenon_subscriber_group_members", force: :cascade do |t|
-    t.integer  "subscriber_id"
-    t.integer  "group_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["group_id"], name: "index_subscriber_group_members_on_group_id", using: :btree
-    t.index ["subscriber_id"], name: "index_subscriber_group_members_on_subscriber_id", using: :btree
-  end
-
-  create_table "tenon_subscriber_groups", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tenon_subscribers", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "email",      limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tenon_tenon_callouts", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.string   "icon",        limit: 255
-    t.text     "content"
-    t.string   "uri",         limit: 255
-    t.string   "button_text", limit: 255
-    t.integer  "list_order"
-    t.boolean  "published"
-    t.boolean  "new_window"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "tenon_tenon_content_pieces", force: :cascade do |t|
     t.integer  "row_id"
     t.integer  "position"
     t.text     "content"
-    t.string   "caption",         limit: 255
-    t.string   "link_url",        limit: 255
-    t.string   "embed_url",       limit: 255
-    t.string   "piece_type",      limit: 255
+    t.string   "caption"
+    t.string   "link_url"
+    t.string   "embed_url"
+    t.string   "piece_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "size",            limit: 255
-    t.boolean  "show_caption",                default: false
+    t.string   "size"
+    t.boolean  "show_caption",    default: false
     t.text     "embed_code"
-    t.boolean  "stretch_to_fill",             default: false
+    t.boolean  "stretch_to_fill", default: false
     t.index ["row_id"], name: "index_tenon_content_pieces_on_row_id", using: :btree
   end
 
   create_table "tenon_tenon_content_rows", force: :cascade do |t|
     t.integer  "item_id"
-    t.string   "item_type",   limit: 255
-    t.string   "item_method", limit: 255
+    t.string   "item_type"
+    t.string   "item_method"
     t.integer  "list_order"
-    t.string   "row_type",    limit: 255
+    t.string   "row_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["item_id"], name: "index_tenon_content_rows_on_item_id", using: :btree
