@@ -21,7 +21,6 @@
 
 // -- Plugins that need to be loaded in order
 //= require moment
-
 //= require lodash
 //= require underscore.string
 
@@ -33,7 +32,7 @@
 //= require ./components
 //= require tenon_addons
 
-// -- custom components
+// -- custom react components
 //= require_tree ./components/shared
 //= require_tree ./components/resource-index/components/default
 //= require_tree ./components/resource-index/components/custom
