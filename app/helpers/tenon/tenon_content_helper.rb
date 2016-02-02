@@ -5,15 +5,15 @@ module Tenon
         'data-association-insertion-node' => "##{field}-tenon-content",
         'data-association-insertion-method' => 'append',
         'data-searchable-title' => title.downcase,
-        :partial => 'tenon/tenon_content/row',
-        :render_options => {
+        partial: 'tenon/tenon_content/row',
+        render_options: {
           locals: {
             row_partial: "tenon/tenon_content/row_types/form/#{row_type.to_s.underscore}",
             field: field,
             title: title
           }
         },
-        :wrap_object => proc do |row|
+        wrap_object: proc do |row|
           row.set_row_type(row_type)
           row.decorate
         end

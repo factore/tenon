@@ -1,4 +1,5 @@
 %ul
-  = nav_item 'Home', root_path, 'dashboard'
-  = nav_item 'Asset Library', assets_path, 'picture-o'
-  = nav_item 'Users', users_path, 'user'
+  - if can?(:index, Tenon::Asset)
+    = nav_item 'Asset Library', assets_path, 'photo_library'
+  - if can?(:index, MySettings)
+    = nav_item 'Settings', settings_path, 'settings'

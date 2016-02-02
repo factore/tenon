@@ -12,9 +12,9 @@ describe Tenon::SettingsController do
   context 'as not an admin' do
     let(:user) do
       double(
-        :staff? => false,
-        :is_super_admin? => false,
-        :is_admin? => false
+        staff?: false,
+        is_super_admin?: false,
+        is_admin?: false
       )
     end
 
@@ -36,9 +36,9 @@ describe Tenon::SettingsController do
   context 'as an admin' do
     let(:user) do
       double(
-        :staff? => true,
-        :is_super_admin? => false,
-        :is_admin? => true
+        staff?: true,
+        is_super_admin?: false,
+        is_admin?: true
       )
     end
 

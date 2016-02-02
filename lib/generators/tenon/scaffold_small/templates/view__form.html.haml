@@ -1,4 +1,4 @@
-<% collections = attributes.select {|a| a.name.match(/_id$/)}.map {|a| a.name.gsub(/_id$/, '')}.uniq -%>
+<% collections = attributes.select{|a| a.name.match(/_id$/)}.map{|a| a.name.gsub(/_id$/, '')}.uniq -%>
 = form_for @<%= singular_name %>, builder: Tenon::FormBuilder, data: {modal: true, remote: true, type: 'json', record: '<%= singular_name %>'} do |f|
   .modal-body
     .fields.full
@@ -15,7 +15,7 @@
 <% end -%>
 <% end -%>
 
-<% attributes.select { |a| ["datetime", "timestamp"].include?(a.type.to_s) }.each do |f| -%>
+<% attributes.select{ |a| ["datetime", "timestamp"].include?(a.type.to_s) }.each do |f| -%>
       .form-group
         = f.text_field :<%= f.name %>, data: {behaviour: 'datetimepicker'}
 <% end -%>

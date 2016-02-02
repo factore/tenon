@@ -3,5 +3,5 @@
   = f.hidden_field :row_type
   = f.fields_for :pieces do |piece|
     .tn-tc-piece.inner12
-      = render "tenon/tenon_content/piece_types/form/text", f: piece, position: 0
+      = render 'tenon/tenon_content/piece_types/form/text', f: piece, position: 0
   .spacer

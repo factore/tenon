@@ -59,5 +59,5 @@ module Tenon
           'data-modal-title' => 'Edit Asset'
         }
       end
-    end
+  end
 end

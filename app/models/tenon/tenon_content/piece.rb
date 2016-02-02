@@ -7,18 +7,18 @@ module Tenon
       def sizes
         # to translate between the stored piece size in words and a number for math
         {
-          :one => 1.0,
-          :two => 2.0,
-          :three => 3.0,
-          :four => 4.0,
-          :five => 5.0,
-          :six => 6.0,
-          :seven => 7.0,
-          :eight => 8.0,
-          :nine => 9.0,
-          :ten => 10.0,
-          :eleven => 11.0,
-          :twelve => 12.0
+          one: 1.0,
+          two: 2.0,
+          three: 3.0,
+          four: 4.0,
+          five: 5.0,
+          six: 6.0,
+          seven: 7.0,
+          eight: 8.0,
+          nine: 9.0,
+          ten: 10.0,
+          eleven: 11.0,
+          twelve: 12.0
         }
       end
 

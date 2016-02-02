@@ -4,7 +4,7 @@ json.records do
     json.gravatar gravatar_for(comment)
 
     if comment.commentable.posted? && route_exist?(comment.commentable)
-      json.commentable_link link_to("#{comment.commentable.title}", main_app.polymorphic_path(comment.commentable), :target => "_")
+      json.commentable_link link_to("#{comment.commentable.title}", main_app.polymorphic_path(comment.commentable), target: "_")
     else
       json.commentable_link comment.commentable.title
     end
