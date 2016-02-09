@@ -40,6 +40,8 @@
 1.0.76 2015-10-27
   * remove .css from .css.scss files to avoid deprecation notice
   * subpage.path updates when parent page is saved
+  * Fix error when switching image sides in "Image and Text (No Wrap)" Tenon
+    Content
 
 1.0.75 2015-09-28
   * fix password reset mailer link
