@@ -1,0 +1,8 @@
+= raw(label_tag)
+
+- if opts[:explanation].present?
+  .explanation= raw opts[:explanation]
+
+.editable-text{ contenteditable: 'true', data: { placeholder: opts[:placeholder] } }= raw f.object.try(field)
+
+= f.hidden_field field

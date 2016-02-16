@@ -6,10 +6,14 @@ class Tenon.features.tenonContent.Editor
     for div in $('.tn-tc')
       @_updateButtons($(div))
 
+    CKEDITOR.on 'instanceReady', ->
+      Tenon.features.Editor.watchChanges()
+
   _rowInserted: (e) =>
-    Tenon.mediumEditor.deactivate()
-    new Tenon.features.Medium
-    @_updateButtons($(e.currentTarget).closest('.tn-tc'))
+    # Reactivate Editor
+    $wrap = $(e.currentTarget).closest('.tn-tc')
+    @_redrawCkeditor()
+    @_updateButtons($wrap)
 
   _rowRemoved: (e) =>
     @_updateButtons($(e.currentTarget).closest('.tn-tc'))
@@ -25,3 +29,6 @@ class Tenon.features.tenonContent.Editor
     else
       $wrap.find('.tn-tc-add-content').hide()
       $wrap.find('.tn-tc-pop-out').show()
+
+  _redrawCkeditor: =>
+    Tenon.features.Editor.reinitInline()

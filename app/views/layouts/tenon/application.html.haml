@@ -10,6 +10,7 @@
       = Tenon::MySettings.site_title.present? ? Tenon::MySettings.site_title : 'Tenon'
 
     = stylesheet_link_tag 'tenon/tenon', '//fonts.googleapis.com/css?family=Open+Sans:400,700'
+    = javascript_include_tag '/ckeditor/ckeditor'
     = javascript_include_tag 'tenon/tenon_manifest'
 
   %body{data: { controller: params[:controller], action: params[:action] }, class: ('menu-open' if content_for?(:sidebar))}
