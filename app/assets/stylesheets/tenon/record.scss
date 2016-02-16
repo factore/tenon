@@ -30,3 +30,29 @@
     }
   }
 }
+
+.record-list {
+}
+
+.infinite-loader {
+  @include font-h3;
+  display: none;
+  text-align: center;
+  color: $infinite-loader-color;
+
+  &.visible {
+    display: block;
+  }
+}
+
+.record-expanded {
+  display: none;
+  padding-top: $default-spacing/3;
+  .actions {
+    position: relative;
+    border-top: 1px solid $light-border-color;
+    .action-text {
+      margin-right: $default-spacing;
+    }
+  }
+}

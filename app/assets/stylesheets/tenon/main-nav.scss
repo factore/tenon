@@ -1,3 +1,15 @@
+#main-nav {
+  @include font-smaller;
+  z-index: $z-layout-main-nav;
+  color: $main-nav-fg-color;
+}
+
+.main-nav-open {
+  #main-nav.drawer {
+    left: 0;
+  }
+}
+
 #main-nav > ul {
   padding: $default-spacing/2;
   > li {

@@ -36,8 +36,7 @@
 
 // Body
 @import "./body";
-@import "./main";
-
+@import "./alignment";
 
 
 @import "./lists";
@@ -74,20 +73,15 @@
 @import "./filter-toggle";
 
 // Drawers
-@import "./molecules/drawer";
-@import "./molecules/main-nav/app-info";
-@import "./molecules/main-nav/list";
-@import "./organisms/main-nav";
+@import "./drawer";
+@import "./app-info";
+@import "./main-nav";
 
 // Records
-@import "./molecules/record/list";
-@import "./molecules/record/panel";
-@import "./molecules/record/details";
-@import "./molecules/record/expanded";
+@import "./record";
 
 // Misc
 @import "./expandable";
-@import "./alignment";
 
 @import "./dropdown-content";
 @import "./panel";
@@ -97,10 +91,14 @@
 @import "./hr";
 @import "./pre";
 
+// Main
+@import "./main";
+
 // Tenon content
-@import "./molecules/tenon-content/base";
-@import "./molecules/tenon-content/library";
-@import "./molecules/tenon-content/embed-code";
+@import "./tn-content";
+@import "./tn-library";
+@import "./tn-embed-code";
+@import "./tn-popped-out";
 
 // Styleguide
 @import "./styleguide/init";
