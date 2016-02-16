@@ -1,10 +1,10 @@
 .tn-tc-row.four-column-image-and-text.stacked-image-and-text
   -[[0,1], [2,3], [4,5], [6,7]].each do |positions|
     .three{class: cycle('', '', '', 'omega')}
-      - row.pieces.select { |p| positions.include?(p.position) }.each do |piece|
+      - row.pieces.select{ |p| positions.include?(p.position) }.each do |piece|
         - if piece.piece_type == 'Image'
           .tn-tc-piece.tn-tc-asset-field
-            = render "tenon/tenon_content/piece_types/display/image", piece: piece
+            = render 'tenon/tenon_content/piece_types/display/image', piece: piece
         - else
           .tn-tc-piece
             = render 'tenon/tenon_content/piece_types/display/text', piece: piece

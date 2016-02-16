@@ -5,9 +5,9 @@ describe Tenon::UsersController do
 
   let(:user) do
     double(
-      :staff? => true,
-      :is_super_admin? => false,
-      :is_admin? => true
+      staff?: true,
+      is_super_admin?: false,
+      is_admin?: true
     )
   end
   let(:user_dbl) { double.as_null_object }

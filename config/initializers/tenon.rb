@@ -73,18 +73,4 @@ Tenon.configure do |config|
   # If you need to add further config options you can add them
   # in lib/tenon.rb as attr_accessors to Tenon::Configuration
 
-  # config.front_end is DEPRECATED as of 1.0.57
-  config.front_end = {
-    breakpoints: {
-      desktop: 1400,
-      laptop: 960,
-      tablet: 768
-    },
-    columns: 24,
-    gutter: 20,
-
-    content_columns: {
-      default: 18
-    }
-  }
 end

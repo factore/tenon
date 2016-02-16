@@ -1,5 +1,5 @@
 .tn-tc-row.two-column-image
   - row.pieces.each do |piece|
     .tn-tc-piece.tn-tc-asset-field{ class: [piece.size, cycle('', 'omega')] }
-      = render "tenon/tenon_content/piece_types/display/image", piece: piece
+      = render 'tenon/tenon_content/piece_types/display/image', piece: piece
   .spacer

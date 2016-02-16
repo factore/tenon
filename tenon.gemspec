@@ -29,10 +29,10 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'launchy'
 
   # Dummy app gems
-  s.add_dependency 'humanizer'
-  s.add_dependency 'awesome_nested_set'
-  s.add_dependency 'gravatar_image_tag'
-  s.add_dependency 'uglifier'
+  s.add_development_dependency 'humanizer'
+  s.add_development_dependency 'awesome_nested_set'
+  s.add_development_dependency 'gravatar_image_tag'
+  s.add_development_dependency 'uglifier'
 
   # The actual gem dependencies
   s.add_dependency 'rails', '5.0.0.beta1'
@@ -45,7 +45,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'date_time_attribute'
   s.add_dependency 'dynamic_form'
   s.add_dependency 'eco'
-  s.add_dependency 'font-awesome-rails'
   s.add_dependency 'haml'
   s.add_dependency 'ionicons-rails'
   s.add_dependency 'jbuilder'

@@ -1,9 +1,9 @@
-= form_tag({:action => :update}, :method => "PUT") do
+= form_tag({ action: :update }, method: 'PUT') do
   .toolbar.bg-color-primary-dk10
     = render 'tenon/shared/breadcrumbs'
     .actions
       - if can?(:publish, @post)
-        %button.action-btn.btn.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
+        %button.action-btn.btn.btn-flat.submit{ data: { disable_with: 'Please wait...' } } Save
 
   %main
     = render partial: 'general'

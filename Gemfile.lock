@@ -39,8 +39,7 @@ GIT
 PATH
   remote: .
   specs:
-    tenon (1.1.4)
-      awesome_nested_set
+    tenon (2.0.0)
       browserify-rails
       cancan
       cocoon
@@ -49,10 +48,7 @@ PATH
       date_time_attribute
       dynamic_form
       eco
-      font-awesome-rails
-      gravatar_image_tag
       haml
-      humanizer
       ionicons-rails
       jbuilder
       jquery-fileupload-rails
@@ -73,7 +69,6 @@ PATH
       sass-rails
       sprockets
       sprockets-es6
-      uglifier
       uuidtools
       will_paginate
 
@@ -213,8 +208,6 @@ GEM
     faye-websocket (0.10.2)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.5.1)
-    font-awesome-rails (4.5.0.0)
-      railties (>= 3.2, < 5.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     gravatar_image_tag (1.2.0)
@@ -376,6 +369,7 @@ PLATFORMS
 
 DEPENDENCIES
   activemodel-serializers-xml!
+  awesome_nested_set
   better_errors
   binding_of_caller
   capybara
@@ -384,6 +378,8 @@ DEPENDENCIES
   devise!
   draper!
   factory_girl_rails
+  gravatar_image_tag
+  humanizer
   launchy
   quiet_assets
   rack!
@@ -391,6 +387,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   tenon!
+  uglifier
 
 BUNDLED WITH
    1.11.2

@@ -1,80 +1,72 @@
-- content_for :sidebar do
-  .sidebar
-    .content
-      %h2 <%= plural_name.titleize %>
-      = link_to "New <%= singular_name.titleize %>", new_<%= singular_name %>_path, class: 'btn btn-block btn-primary'
-
-    = i18n_language_nav(:<%= plural_name %>)
-
-<% if has_seo? -%>
-    %h4 Edit Options
-    %nav
-      %ul
-        %li.active= link_to "Page Content", '#details', data: {toggle: 'tab'}
-        %li= link_to "Search Optimization", '#seo', data: {toggle: 'tab'}
-<% end -%>
 = autosaving_form_for @<%= singular_name %> do |f|
-  = error_messages_for :<%= singular_name %>
-  .fields.large.tabs
-    .tab-pane.active#details
-<% text_fields.each do |field| -%>
-      .form-group
-        = f.text_field :<%= field.name %>
-<% end -%>
-<% assets.each do |field| -%>
-      .form-group
-        = f.asset :<%= field.name %>
-<% end -%>
-<% text_areas.each do |field| -%>
-      .form-group
-        = f.text_area :<%= field.name %>
-<% end -%>
-<% if has_seo? -%>
-    .tab-pane#seo= render "tenon/shared/seo_fields", :f => f
-<% end -%>
+  .toolbar.bg-color-primary-dk10
+    = render 'tenon/shared/breadcrumbs'
+    .actions
+      - if can?(:publish, @<%= singular_name %>)
+        %button.action-btn.btn.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
 
-  .fields.small
-<% unless [collections, booleans, timestamps].flatten.empty? -%>
-    %h4.box-label Details
-    .box
-<% collections.each do |c| %>
-      .form-group.bordered
-        = f.super_label :<%= c %>, '<%= c.titleize %>'
-        = f.collection_select :<%= c %>_id, @<%= c.pluralize %>, :id, :title, prompt: '--'
-<% end -%>
-<% timestamps.each do |field| -%>
-      .form-group.bordered
-        = f.text_field :<%= field.name %>, data: {behaviour: 'datetime-picker'}, placeholder: '--'
-<% end -%>
-<% booleans.each do |field| %>
-      .form-group.bordered.inline
-        = f.check_box :<%= field.name %>, class: 'tn-checkbox-right'
-        = f.super_label :<%= field.name %>
-<% end -%>
-<% numbers.each do |field| %>
-      .form-group.bordered.inline
-        = f.text_field :<%= field.name %>, placeholder: '--'
-<% end -%>
+      %a.action-icon.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
+        = i('more_vert')
 
-<% end -%>
-
-    %h4.box-label Actions
-    .box
-<% if attributes.map(&:name).include? 'publish_at' -%>
-      .form-group
-        = f.text_field :publish_at, label: 'Publish Date', data: {behaviour: 'datetime-picker'}, placeholder: '--'
-<% end -%>
-      .content
-        - if can?(:publish, @<%= singular_name %>)
-          %button.btn.btn-block.btn-comp{ data: { disable_with: "Please wait..." } } Save
+      %ul.dropdown-content#form-dropdown
         - if can?(:create, Tenon::ItemVersion)
-          = save_draft_button(@<%= singular_name %>)
-          .last-autosave
+          = render 'tenon/shared/draft_controls', obj: @<%= singular_name %>
 
-      %hr
-      .content
-        = clear_draft_link if params[:version]
-        = load_draft_link(@<%= singular_name %>)
         - if @<%= singular_name %>.persisted?
-          = link_to "Delete", @<%= singular_name %>, data: {method: :delete, confirm: 'Are you sure you want to delete this?'}, :class => 'delete-link'
-    .spacer
+          %li
+            = link_to @<%= singular_name %>, data: { method: :delete, confirm: 'Are you sure you want to delete this?' }, class: 'delete-link' do
+              = i('delete')
+
+  %main
+    = error_messages_for :<%= singular_name %>
+
+    .form-label Text Fields
+    .panel.block
+<% text_fields.each do |field| -%>
+      = f.text_field :<%= field.name %>
+<% end -%>
+
+    .form-label Assets
+    .panel.block
+<% assets.each do |field| -%>
+      = f.asset :<%= field.name %>
+<% end -%>
+
+    .form-label Text Areas
+    .panel.block
+<% text_areas.each do |field| -%>
+      = f.text_area :<%= field.name %>
+<% end -%>
+
+<% if has_seo? -%>
+    = render "tenon/shared/seo_fields", :f => f
+<% end -%>
+
+<% unless [collections, booleans, timestamps].flatten.empty? -%>
+    .form-label Details
+<% collections.each do |c| %>
+    .panel.block
+      = f.super_label :<%= c %>, '<%= c.titleize %>'
+      = f.collection_select :<%= c %>_id, @<%= c.pluralize %>, :id, :title, prompt: '--'
+<% end -%>
+
+<% timestamps.each do |field| -%>
+      = f.date_time_picker :<%= field.name %>
+<% end -%>
+
+<% booleans.each do |field| %>
+      = f.check_box :<%= field.name %>
+<% end -%>
+
+<% numbers.each do |field| %>
+      = f.text_field :<%= field.name %>
+<% end -%>
+
+<% end -%>
+
+<% if attributes.map(&:name).include? 'publish_at' -%>
+    .panel.block
+      = f.date_time_picker :publish_at, label: 'Publish Date'
+<% end -%>
+
+  .spacer

@@ -4,7 +4,7 @@ class Page < ApplicationRecord
   has_history except: [:lft, :rgt, :parent_id, :depth],
               includes: [:content_tenon_content_rows]
   tenon_content :content, i18n: true
-  default_scope { order('tenon_pages.lft, tenon_pages.list_order') }
+  default_scope { order('pages.lft, pages.list_order') }
   scope :published, -> { where('publish_at <= ?', Time.now) }
   scope :for_menu, -> { published.where(show_in_menu: true) }
   scope :top, -> { where(parent_id: nil) }
@@ -94,9 +94,8 @@ class Page < ApplicationRecord
   end
 
   def parent_is_not_in_tree
-    if id && [id, descendants.map(&:id)].flatten.include?(parent_id)
-      msg = 'cannot be itself or one of its subpages.'
-      errors.add(:parent_id, msg)
-    end
+    return false unless id && [id, descendants.map(&:id)].flatten.include?(parent_id)
+    msg = 'cannot be itself or one of its subpages.'
+    errors.add(:parent_id, msg)
   end
 end

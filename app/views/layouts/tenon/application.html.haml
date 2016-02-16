@@ -1,9 +1,9 @@
 !!! Strict
-%html{ :lang => "en" }
+%html{ lang: 'en' }
   %head
     = csrf_meta_tag
-    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }/
-    %meta{ :content => 'initial-scale=1,width=device-width,user-scalable=no', :name => 'viewport' }
+    %meta{ content: "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
+    %meta{ content: 'initial-scale=1,width=device-width,user-scalable=no', name: 'viewport' }
     = platform_hints(Tenon.config.primary_color) if Tenon.config.primary_color.present?
 
     %title
@@ -13,11 +13,11 @@
     = stylesheet_link_tag '//fonts.googleapis.com/icon?family=Material+Icons'
     = stylesheet_link_tag 'tenon/tenon'
     = javascript_include_tag '/ckeditor/ckeditor'
-    = javascript_include_tag 'tenon/tenon_manifest'
+    = javascript_include_tag 'tenon/application'
 
   %body{data: { controller: params[:controller], action: params[:action] } }
     = render 'tenon/shared/util_nav'
-    
+
     #main-nav.drawer
       %p.app-info
         = link_to '/tenon' do

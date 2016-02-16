@@ -1,8 +1,8 @@
 .tn-tc-row.six-column-image
   - [ [0, 1], [2, 3], [4, 5] ].each_with_index do |columns, i|
-    .tn-tc-piece.four{class: i == 2 ? 'omega' : ''}
+    .tn-tc-piece.four{ class: i == 2 ? 'omega' : '' }
       - columns.each do |position|
-        .tn-tc-piece.tn-tc-asset-field.six{class: cycle('', 'omega')}
-          - row.pieces.select { |p| p.position == position }.each do |piece|
+        .tn-tc-piece.tn-tc-asset-field.six{ class: cycle('', 'omega') }
+          - row.pieces.select{ |p| p.position == position }.each do |piece|
             = render 'tenon/tenon_content/piece_types/display/image', piece: piece
   .spacer

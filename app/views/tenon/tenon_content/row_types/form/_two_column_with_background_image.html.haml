@@ -3,7 +3,7 @@
   = f.hidden_field :row_type
   = f.fields_for :pieces do |piece|
     - if piece.object.position == 0
-      .tn-tc-piece.tn-tc-background-image.tn-tc-asset-field.twelve
+      .tn-tc-piece.tn-tc-background-image.tn-tc-asset-field.inner12
         = render 'tenon/tenon_content/piece_types/form/background_image', f: piece, position: 0, style: 'full'
     - else
       .tn-tc-piece.tn-text-overlay{class: cycle('', 'omega')}
