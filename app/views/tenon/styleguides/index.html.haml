@@ -5,13 +5,42 @@
 
     %nav
       %ul
-        %li= link_to 'Atoms', '#atoms'
-        %li= link_to 'Molecules', '#molecules'
-        %li= link_to 'Organisms', '#organisms'
+        %li
+          = link_to 'Colors', '#colors'
+          %ul
+            %li= link_to 'Variables', '#color__variables'
+            %li= link_to 'Class helpers', '#color__class-helpers'
+        %li
+          = link_to 'Typography', '#typography'
+          %ul
+            %li= link_to 'Headers', '#typography__headings'
+            %li= link_to 'Paragraph', '#typography__paragraph'
+            %li= link_to 'Small', '#typography__small'
+            %li= link_to 'Blockquote', '#typography__blockquote'
+            %li= link_to 'Unordered lists', '#typography__ulists'
+            %li= link_to 'Ordered lists', '#typography__olists'
+            %li= link_to 'Inline', '#typography__inline'
+            %li= link_to 'Style class helpers', '#typography__styles'
+            %li= link_to 'Variables', '#typography__variables'
+        %li= link_to 'Icons', '#icons'
+        %li
+          = link_to 'Buttons', '#buttons'
+          %ul
+            %li= link_to 'Standard', '#buttons__standard'
+            %li= link_to 'Flat', '#buttons__flat'
+            %li= link_to 'Block', '#buttons__block'
+            %li= link_to 'Floating Action', '#buttons__fab'
 
-  %section
-    = render 'atoms'
-  %section
-    = render 'molecules'
-  %section
-    = render 'organisms'
+        %li
+          = link_to 'Forms', '#forms'
+          %ul
+            %li= link_to 'Default', '#forms__default'
+            %li= link_to 'Outside Panel', '#forms__outside'
+            %li= link_to 'HTML5', '#forms__html5'
+            -# %li= link_to 'Tenon content', '#forms-tenon'
+
+  = render 'tenon/styleguides/colors'
+  = render 'tenon/styleguides/typography'
+  = render 'tenon/styleguides/buttons'
+  = render 'tenon/styleguides/icons'
+  = render 'tenon/styleguides/forms'
