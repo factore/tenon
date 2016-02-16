@@ -19,3 +19,26 @@
     border-radius: 50%;
   }
 }
+
+.action-text {
+  @include font-smaller;
+  line-height: $default-spacing*1.5;
+  position: relative;
+  height: $default-spacing*1.5;
+  text-transform: uppercase;
+  color: $link-color;
+  &:hover {
+    text-decoration: none;
+    color: $link-hover-color;
+  }
+}
+
+.action-btn {
+  margin-right: $default-spacing/3;
+}
+
+.actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

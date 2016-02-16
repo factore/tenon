@@ -49,3 +49,30 @@
   width: 100%;
   margin-bottom: $default-spacing / 3;
 }
+
+.btn-flat,
+.btn-flat:hover {
+  @extend .btn;
+  @include z-depth-0;
+}
+
+.btn-flat-reverse,
+.btn-flat-reverse:hover {
+  @extend .btn-flat;
+  color: $btn-primary-bg-color;
+  background-color: $btn-primary-fg-color;
+}
+
+.btn-flat-secondary,
+.btn-flat-secondary:hover {
+  @extend .btn-flat;
+  color: $btn-secondary-fg-color;
+  background-color: $btn-secondary-bg-color;
+}
+
+.btn-flat-secondary-reverse,
+.btn-flat-secondary-reverse:hover {
+  @extend .btn-flat;
+  color: $btn-secondary-bg-color;
+  background-color: $btn-secondary-fg-color;
+}

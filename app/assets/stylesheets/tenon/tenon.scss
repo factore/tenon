@@ -6,73 +6,72 @@
 @import "bourbon";
 @import "./grid";
 
-// Universal
-@import "./atoms/layout-variables";
-@import "client/layout-variables";
-@import "./atoms/alignment";
-@import "./atoms/lists";
-@import "./atoms/transforms";
-@import "./atoms/transitions";
-@import "./atoms/truncate";
-@import "./atoms/z-depth";
-@import "./atoms/z-index";
+// Universal mixins
+@import "./mixins/colors";
+@import "./mixins/font-styles";
+@import "./mixins/font-size";
+@import "./mixins/transforms";
+@import "./mixins/transitions";
+@import "./mixins/truncate";
+@import "./mixins/z-depth";
 
-// Colors
-@import "./atoms/colors/mixins";
-@import "./atoms/colors/named";
-@import "client/color-names";
-@import "./atoms/colors/variables";
-@import "client/color-variables";
+// Universal variables
+@import "./variables/layout";
+@import "client/layout-variables"; // client over-rides
+@import "./variables/z-index";
 
-// Body
-@import "./organisms/body";
+// Color variables & over-rides
+@import "./variables/base-colors";
+@import "client/color-names"; // client over-rides
+@import "./variables/colors-named";
+@import "client/color-variables"; // client over-rides
 
 // Typography
-@import "./atoms/typography/font-style-mixins";
-@import "./atoms/typography/font-variables";
-@import "client/typography-fonts";
-@import "./atoms/typography/font-size-mixins";
-@import "./atoms/typography/size-variables";
-@import "client/typography-sizes";
-@import "./atoms/typography/default-mixins";
-@import "./atoms/typography/defaults";
+@import "./variables/font-family";
+@import "client/typography-fonts"; // client over-rides
+@import "./variables/font-size";
+@import "client/typography-sizes"; // client over-rides
+@import "./mixins/typography";
+@import "./typography";
+
+// Body
+@import "./body";
+@import "./main";
+
+
+
+@import "./lists";
 
 // Icons
-@import "./atoms/typography/material-icons";
+@import "./material-icons";
 
 // Buttons
-@import "./atoms/buttons/sizes";
-@import "client/button-sizes";
-@import "./atoms/buttons/standard";
-@import "./atoms/buttons/flat";
-@import "./atoms/buttons/floating";
+@import "./variables/btn";
+@import "client/button-sizes"; // client over-rides
+@import "./btn";
+@import "./fab";
 
 // Actions
-@import "./atoms/actions/icons";
-@import "./atoms/actions/text";
-@import "./atoms/actions/button";
-@import "./molecules/actions";
+@import "./actions";
 
 // Forms
-@import "./atoms/form/explanation";
-@import "./atoms/form/labels";
-@import "./atoms/form/inputs";
-@import "./molecules/forms";
+@import "./explanation";
+@import "./label";
+@import "./input";
+@import "./form";
 
 // Util nav/ toolbar
-@import "./atoms/main-nav-toggle";
-@import "./atoms/toolbar/action";
-@import "./atoms/toolbar/overlay";
-@import "./organisms/toolbar";
-@import "./organisms/account";
-@import "./organisms/util-nav";
-@import "./organisms/toolbar/search";
-@import "./organisms/toolbar/filters";
-@import "./organisms/toolbar/open";
+@import "./main-nav-toggle";
 
-// Search/ Filters
-@import "./atoms/search/input";
-@import "./atoms/search/filter-toggle";
+@import "./toolbar";
+
+@import "./account";
+
+@import "./util-nav";
+@import "./search";
+@import "./filters";
+@import "./search-open";
+@import "./filter-toggle";
 
 // Drawers
 @import "./molecules/drawer";
@@ -87,17 +86,16 @@
 @import "./molecules/record/expanded";
 
 // Misc
-@import "./atoms/burger";
-@import "./atoms/breadcrumbs";
-@import "./molecules/dropdown-content";
-@import "./molecules/flash-message";
-@import "./molecules/panel";
-@import "./atoms/horizontal-rule";
-@import "./atoms/typography/pre";
-@import "./atoms/expandable";
+@import "./expandable";
+@import "./alignment";
 
-// Main
-@import "./organisms/main";
+@import "./dropdown-content";
+@import "./panel";
+@import "./breadcrumbs";
+@import "./burger";
+@import "./flash";
+@import "./hr";
+@import "./pre";
 
 // Tenon content
 @import "./molecules/tenon-content/base";

@@ -36,3 +36,34 @@
     }
   }
 }
+
+.toolbar-overlay {
+  @include default-transition;
+  line-height: $util-nav-height;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  height: 0;
+  padding: 0 $default-spacing;
+  content: 0;
+  opacity: 0;
+}
+
+.toolbar-action {
+  line-height: $util-nav-height;
+  display: block;
+  color: $primary-fg-color;
+  &:hover {
+    text-decoration: none;
+    color: $link-color;
+  }
+  i {
+    @include font-size($h3-size);
+    line-height: $util-nav-height;
+    display: inline-block;
+    float: left;
+    margin-right: $default-spacing/2;
+  }
+}
