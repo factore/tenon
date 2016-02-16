@@ -13,16 +13,13 @@ module Tenon
       params.require(:post).permit!
     end
 
+    def filterer
+      PostFilterer.new(Post.all, params, ['posts.title'])
+    end
+
     def get_collections
       @categories = PostCategory.order(:title)
       @users = User.exclude_super_admins.approved
-    end
-
-    def search_args
-      [
-        'title ILIKE :q',
-        { q: "%#{params[:q].downcase}%" }
-      ]
     end
   end
 end

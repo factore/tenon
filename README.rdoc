@@ -159,3 +159,91 @@ To add internationalized fields, follow these steps:
 9. Make sure your routes are configured according to your needs and the I18n.locale is being set somehow (see Rails documentation for more info: http://guides.rubyonrails.org/i18n.html)
 
 Once you've done this and restarted your app you will see a language selection nav in the sidebar of each Tenon form that has internationalized fields.  On the front end, attributes on your Tenon models will be translated correctly, based on I18n.locale.
+
+== Searching and Filtering Records
+
+All Tenon controllers should inherit from <tt>Tenon::ResourcesController</tt> (or a
+controller that inherits from <tt>Tenon::ResourcesController</tt>.)  The standard
+<tt>Tenon::ResourcesController#index</tt> action provides a hook to allow the
+returned records to pass through a Filterer.  Filterers receive, at minimum,
+an <tt>ActiveRecord::Collection</tt> and a set of params with which to filter
+the collection.  They can then apply their own internal logic to return a new
+<tt>ActiveRecord::Collection</tt>.  For example, consider the following call
+to an imagined <tt>PostFilterer</tt>:
+
+    filterer = PostFilterer(Post.all, { q: 'Tenon' })
+    filterer.filter
+
+The imagined <tt>PostFilterer</tt> could use its internal logic to, for
+example, return only posts that are called "Tenon":
+
+    class PostFilterer < Tenon::BaseFilterer
+        def filter
+            if params[:q].present?
+                @scope = scope.where(title: params[:q])
+            end
+            super # Returns scope
+        end
+    end
+
+By default, records in the +index+ action of any controller that inherits from
+<tt>Tenon::ResourcesController</tt> will be filtered by the
+<tt>Tenon::GenericFilterer</tt>.  While <tt>Tenon::BaseFilterer</tt> takes
+a scope and a params object as its initialization arguments,
+<tt>Tenon::GenericFilterer</tt> also takes a list of fields to run a basic text
+search on as a third argument.  The <tt>#quick_search_fields</tt> on any
+controller is used to set these fields, like in the following example
+of a basic controller for posts:
+
+    class PostsController < Tenon::ResourcesController
+        private
+
+        def quick_search_fields
+            ['posts.title', 'posts.excerpt', 'posts.content']
+        end
+    end
+
+As it's a convention for all resources in Tenon to respond to a <tt>#title</tt>
+method the default behaviour is to filter on this field.
+
+In order to provide searching and filtering capabilities beyond what the
++GenericFilterer+ provides, simply create a a new filterer in the
+<tt>app/filterers</tt> directory.  It is usually best to have this custom
+filterer extend from the +GenericFilterer+ in order to keep the "quick search"
+functionality.  After creating the new filter, it can be inserted into the
+controller by defining in the <tt>#filterer</tt> method.
+
+    class PostsController < Tenon::ResourcesController
+        private
+
+        def quick_search_fields
+            ['posts.title', 'posts.excerpt', 'posts.content']
+        end
+
+        def filterer
+            PostFilterer.new(Post.all, params, quick_search_fields)
+        end
+    end
+
+Here is an example of what a +PostFilterer+ that extends
+<tt>Tenon::GenericFilterer</tt> with some date-filtering tools might look like:
+
+    class PostFilterer < Tenon::GenericFilterer #:nodoc:
+        def filter
+            @scope = filter_start_date
+            @scope = filter_end_date
+            super
+        end
+
+        private
+
+        def filter_start_date
+            return scope unless params[:start_date].present?
+            scope.where('publish_at >= ?', params[:start_date])
+        end
+
+        def filter_end_date
+            return scope unless params[:end_date].present?
+            scope.where('publish_at <= ?', params[:end_date])
+        end
+    end
