@@ -162,13 +162,12 @@ Once you've done this and restarted your app you will see a language selection n
 
 == Searching and Filtering Records
 
-All Tenon controllers should inherit from <tt>Tenon::ResourcesController</tt> (or a
-controller that inherits from <tt>Tenon::ResourcesController</tt>.)  The standard
-<tt>Tenon::ResourcesController#index</tt> action provides a hook to allow the
-returned records to pass through a Filterer.  Filterers receive, at minimum,
-a scope (eg. an <tt>ActiveRecord::Relation</tt>) and a set of params.  They can
-then apply their own internal logic to filter the passed scope.  For example,
-consider the following call to an imagined <tt>PostFilterer</tt>:
+Often you will need to provide various different ways to filter records that are returned
+in your controllers' +index+ action.  The standard <tt>Tenon::ResourcesController#index</tt> 
+action provides a hook to allow the returned records to pass through a Filterer.  
+Filterers receive, at minimum, a scope (eg. an <tt>ActiveRecord::Relation</tt>) and a set of params.  
+They can then apply their own internal logic to filter the passed scope.  For example, consider the 
+following call to an imagined <tt>PostFilterer</tt>:
 
   filterer = PostFilterer.new(Post.all, { q: 'Tenon' })
   @posts = filterer.filter
