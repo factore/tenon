@@ -1,15 +1,44 @@
+/* global React */
+
 class DefaultQuickSearch extends React.Component {
   constructor(props) {
     super(props);
-    this._delayedChange = _.debounce(function (event, action) {
-      action(event.target.value)
-    }, 250);
+    this._delayedChange = _.debounce(function(value, action) {
+      action(value);
+    }, 500);
+  }
+
+  componentWillMount() {
+    this.setState({ inputValue: this.props.q });
   }
 
   componentDidUpdate() {
-    if (this.props.searchClass == 'open') {
+    if (this.props.searchClass === 'open') {
       React.findDOMNode(this.refs.searchInput).focus();
     }
+  }
+
+  _handleChange(e) {
+    this.setState({ inputValue: e.target.value }, () => {
+      this._delayedChange(this.state.inputValue, this.props.searchAction);
+    });
+  }
+
+  _handleFocus() {
+    this.props.toggleQuickSearchAction('on');
+  }
+
+  _handleBlur(e) {
+    if (e.target.value === '') {
+      this.props.toggleQuickSearchAction('off');
+    }
+  }
+
+  _handleClear(e) {
+    e.preventDefault();
+    this.props.searchAction('');
+    this.props.toggleQuickSearchAction('off');
+    this.setState({ inputValue: '' });
   }
 
   render() {
@@ -21,8 +50,11 @@ class DefaultQuickSearch extends React.Component {
           <i className="search-icon material-icons">search</i>
           <input
             type="text"
-            ref='searchInput'
+            ref="searchInput"
+            value={this.state.inputValue}
             onChange={(e) => this._handleChange(e)}
+            onFocus={(e) => this._handleFocus(e)}
+            onBlur={(e) => this._handleBlur(e)}
             className="search-field"
             placeholder="Search..."
             title="Search" />
@@ -42,7 +74,10 @@ class DefaultQuickSearch extends React.Component {
 
         <div id="search-overlay" className="toolbar-overlay">
           <div className="search-content">
-            <a href="#" className="toolbar-action ">
+            <a
+              href="#"
+              className="toolbar-action"
+              onClick={(e) => this._handleClear(e)}>
               <i className="material-icons">arrow_back</i>
               Clear
             </a>
@@ -58,15 +93,8 @@ class DefaultQuickSearch extends React.Component {
             </div>
           </div>
         </div>
-
-
       </div>
-    )
-  }
-
-  _handleChange(e) {
-    e.persist();
-    this._delayedChange(e, this.props.searchAction);
+    );
   }
 }
 

@@ -1,22 +1,24 @@
+/* global React */
+
 class DefaultHeader extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = { searchOpen: false };
   }
 
   render() {
-    let searchClass = this.state.searchOpen ? 'open' : '';
-    let searchIcon = this.state.searchOpen ? 'fa-times' : 'fa-search';
-    let searchButton = this._renderSearchButton(searchClass, searchIcon)
+    const searchClass = this.state.searchOpen ? 'open' : '';
     const { QuickSearch } = this.props.childComponents;
 
     return(
-      <div className='toolbar'>
+      <div className="toolbar">
         <Breadcrumbs breadcrumbs={this.props.breadcrumbs} />
 
         <QuickSearch
-        searchAction={this.props.actions.quickSearchRecords}
-        searchClass={searchClass} />
+          q={this.props.data.query.q}
+          searchAction={this.props.actions.quickSearchRecords}
+          toggleQuickSearchAction={this.props.actions.toggleQuickSearch}
+          searchClass={searchClass} />
 
         <div className="actions">
           <a className="action-icon dropdown-button" href="#!" data-activates="sort-dropdown" title="Sort or options?">
@@ -64,20 +66,22 @@ class DefaultHeader extends React.Component {
           </ul>
         </div>
       </div>
-    )
+    );
   }
 
   _handleSearchToggle(e) {
     e.preventDefault();
     // Clear the query before closing
-    if (this.state.searchOpen) this.props.actions.quickSearchRecords('');
-    this.setState({searchOpen: !this.state.searchOpen});
+    if (this.state.searchOpen) {
+      this.props.actions.quickSearchRecords('');
+    }
+    this.setState({ searchOpen: !this.state.searchOpen });
   }
 
   _renderSearchButton(className, icon) {
     return (
       <div className="header-button">
-        <a href="#" onClick={e => this._handleSearchToggle(e)} className={className}>
+        <a href="#" onClick={(e) => this._handleSearchToggle(e)} className={className}>
           <div className="header-icon">
             <i className="material-icons">{icon}></i>
           </div>
