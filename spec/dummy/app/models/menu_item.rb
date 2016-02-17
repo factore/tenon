@@ -10,6 +10,4 @@ class MenuItem < ApplicationRecord
 
   # Relationships
   belongs_to :menu
-
-  private
 end

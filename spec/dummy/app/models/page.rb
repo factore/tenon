@@ -94,9 +94,8 @@ class Page < ApplicationRecord
   end
 
   def parent_is_not_in_tree
-    if id && [id, descendants.map(&:id)].flatten.include?(parent_id)
-      msg = 'cannot be itself or one of its subpages.'
-      errors.add(:parent_id, msg)
-    end
+    return false unless id && [id, descendants.map(&:id)].flatten.include?(parent_id)
+    msg = 'cannot be itself or one of its subpages.'
+    errors.add(:parent_id, msg)
   end
 end

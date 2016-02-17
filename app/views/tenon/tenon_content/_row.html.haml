@@ -1,4 +1,4 @@
-.tn-tc-row{:style => ("display: none;" if f.object._destroy)}
+.tn-tc-row{ :style => ('display: none;' if f.object._destroy) }
   = f.hidden_field :item_method, value: field
   .tn-tc-topbar
     .actions
@@ -7,7 +7,7 @@
       = link_to '#', class: 'tn-tc-open-library above', data: { modal_target: ".tenon-library", modal_closest: '.tn-tc', modal_title: "Insert Content", modal_handler: 'Tenon.features.tenonContent.Library', modal_clone: 'true', tooltip: '' }, title: 'Insert Content' do
         %i.material-icons playlist_add
 
-      = link_to_remove_association f, {'data-confirm' => 'Are you sure?', 'data-wrapper-class' => 'tn-tc-row'} do
+      = link_to_remove_association f, { 'data-confirm' => 'Are you sure?', 'data-wrapper-class' => 'tn-tc-row' } do
         %i.material-icons.delete delete
 
     .spacer

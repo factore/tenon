@@ -7,9 +7,9 @@ describe Tenon::AssetsController do
 
   let(:user) do
     double(
-      :staff? => true,
-      :is_super_admin? => false,
-      :is_admin? => true
+      staff?: true,
+      is_super_admin?: false,
+      is_admin?: true
     )
   end
 
@@ -171,7 +171,7 @@ describe Tenon::AssetsController do
 
     context 'when creating a duplicate' do
       let(:existing_asset) { double(attachment: 'test') }
-      let(:new_asset) { double(:cropping? => false).as_null_object }
+      let(:new_asset) { double(cropping?: false).as_null_object }
       let(:params) { { 'test' => 'test', 'duplicate' => '1' } }
 
       before do
@@ -215,7 +215,7 @@ describe Tenon::AssetsController do
 
     context 'when not creating a duplicate' do
       let(:existing_asset) do
-        double(attachment: 'test', :cropping? => cropping).as_null_object
+        double(attachment: 'test', cropping?: cropping).as_null_object
       end
       let(:params) { { 'test' => 'test' } }
       let(:cropping) { nil }

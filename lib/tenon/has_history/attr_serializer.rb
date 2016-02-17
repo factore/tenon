@@ -28,11 +28,11 @@ module Tenon
       end
 
       def require_only_attrs!
-        @attrs = @attrs.select { |k, v| only.include?(k) }
+        @attrs = @attrs.select{ |k, v| only.include?(k) }
       end
 
       def remove_except_attrs!
-        @attrs = @attrs.reject { |k, v| except.include?(k.to_sym) }
+        @attrs = @attrs.reject{ |k, v| except.include?(k.to_sym) }
       end
 
       def remove_children!

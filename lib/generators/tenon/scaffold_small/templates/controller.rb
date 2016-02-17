@@ -1,4 +1,4 @@
-<% collections = attributes.select {|a| a.name.match(/_id$/)}.map {|a| a.name.gsub(/_id$/, '')}.uniq -%>
+<% collections = attributes.select{|a| a.name.match(/_id$/)}.map{|a| a.name.gsub(/_id$/, '')}.uniq -%>
 class Tenon::<%= class_name.pluralize %>Controller < Tenon::SimpleResourcesController
 <% unless collections.blank? -%>
   before_filter :get_collections, :only => [:index, :edit, :update, :new, :create]
