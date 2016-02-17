@@ -224,7 +224,7 @@ In order to provide searching and filtering capabilities beyond what the
 filterer inherit from <tt>Tenon::GenericFilterer</tt> in order to keep the quick search
 functionality, but a filterer can also inherit from <tt>Tenon::BaseFilterer</tt>.
 
-After creating the new filter, it can be inserted into the controller
+After creating the new filterer, it can be inserted into the controller
 by defining the <tt>#filterer</tt> method.
 
   class PostsController < Tenon::ResourcesController
