@@ -78,7 +78,7 @@ module Tenon
       ie_versions.each do |version|
         next if version == max
 
-        klass = ie_versions.select { |e| e > version }.map { |e| "ie-lt#{e}" }.join(' ')
+        klass = ie_versions.select{ |e| e > version }.map{ |e| "ie-lt#{e}" }.join(' ')
 
         htmls << if_ie("<html lang='#{I18n.locale}' dir='ltr' class='noscript #{klass}'>", version: version)
       end

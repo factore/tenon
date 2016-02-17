@@ -3,5 +3,5 @@
   = f.hidden_field :row_type
   = f.fields_for :pieces do |piece|
     .tn-tc-piece.tn-tc-asset-field.inner4{ class: cycle('', '', 'omega') }
-      = render "tenon/tenon_content/piece_types/form/image", f: piece, position: piece.object.position
+      = render 'tenon/tenon_content/piece_types/form/image', f: piece, position: piece.object.position
   .spacer

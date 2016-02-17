@@ -1,4 +1,4 @@
-.tn-tc-holder{data: {'record-type' => object.class.to_s, 'record-id' => object.id, 'field' => field}}
+.tn-tc-holder{ data: { 'record-type' => object.class.to_s, 'record-id' => object.id, 'field' => field } }
   .tenon-content{id: "#{field}-tenon-content"}
     - object.send("#{field}_tenon_content_rows").decorate.each do |row|
       .tn-tc-row

@@ -4,9 +4,9 @@
   .twelve
     = f.fields_for :pieces do |piece|
       = piece.hidden_field :piece_type
-      - if piece.object.piece_type == "Image"
+      - if piece.object.piece_type == 'Image'
         .wrapped-image.left.tn-tc-asset-field.omega.tn-tc-piece{ class: "inner#{piece.object.size}" }
-          = render "tenon/tenon_content/piece_types/form/image", f: piece, style: 'wrap'
-      - if piece.object.piece_type == "Text"
-        = render "tenon/tenon_content/piece_types/form/text", f: piece
+          = render 'tenon/tenon_content/piece_types/form/image', f: piece, style: 'wrap'
+      - if piece.object.piece_type == 'Text'
+        = render 'tenon/tenon_content/piece_types/form/text', f: piece
   .spacer

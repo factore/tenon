@@ -16,7 +16,8 @@ module Tenon
         actions = %w(
           index.html.haml new.html.haml edit.html.haml _form.html.haml
           index.json.jbuilder create.json.jbuilder update.json.jbuilder
-)
+        )
+
         actions.each do |action|
           src_path = File.join(self.class.source_root, "view_#{action}")
           if File.exist?(src_path)
@@ -42,7 +43,7 @@ module Tenon
           # Prepare the routes
           filename = File.join(Rails.root, 'config', 'routes.rb')
           pattern = 'Tenon::Engine.routes.draw do'
-          reorder = attributes.select { |a| a.name == 'list_order' }.empty? ? '' : "do \n    post    'reorder', :on => :collection \n    end"
+          reorder = attributes.select{ |a| a.name == 'list_order' }.empty? ? '' : "do \n    post    'reorder', :on => :collection \n    end"
           contents = File.read(filename)
 
           # Write the initial Tenon routes block if it's not there already
@@ -100,18 +101,18 @@ module Tenon
         end
 
         def assets
-          @assets ||= attributes.select { |a| a.type.to_s == 'asset' }
+          @assets ||= attributes.select{ |a| a.type.to_s == 'asset' }
         end
 
         def text_fields
           return @text_fields if @text_fields
-          @text_fields = attributes.select { |a| a.type.to_s == 'string' }
+          @text_fields = attributes.select{ |a| a.type.to_s == 'string' }
           @text_fields = @text_fields - seo_fields
         end
 
         def text_areas
           return @text_areas if @text_areas
-          @text_areas = attributes.select { |a| a.type.to_s == 'text' }
+          @text_areas = attributes.select{ |a| a.type.to_s == 'text' }
           @text_areas = @text_areas - seo_fields
         end
 
@@ -123,7 +124,7 @@ module Tenon
         end
 
         def booleans
-          @booleans ||= attributes.select { |a| a.type.to_s == 'boolean' }
+          @booleans ||= attributes.select{ |a| a.type.to_s == 'boolean' }
         end
 
         def numbers
@@ -136,7 +137,7 @@ module Tenon
         def seo_fields
           return @seo_fields if @seo_fields
           names = %w(seo_title seo_keywords seo_description)
-          @seo_fields = attributes.select { |a| names.include?(a.name) }
+          @seo_fields = attributes.select{ |a| names.include?(a.name) }
         end
 
         def has_seo?

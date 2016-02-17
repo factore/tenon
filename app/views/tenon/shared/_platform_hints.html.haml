@@ -1,25 +1,25 @@
 -# Android
 -# https://developer.chrome.com/multidevice/android/installtohomescreen
 -# http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
-%meta{ :content => color, :name => 'theme-color' }
-%meta{ :content => 'yes', :name => 'mobile-web-app-capable' }
-%link{ :rel => 'icon', :sizes => '192x192', :href => image_path('tenon/icon-192x192.png') }
-%link{ :rel => 'manifest', :href => '/assets/javascripts/manifest.json' }
+%meta{ content: color, name: 'theme-color' }
+%meta{ content: 'yes', name: 'mobile-web-app-capable' }
+%link{ rel: 'icon', sizes: '192x192', href: image_path('tenon/icon-192x192.png') }
+%link{ rel: 'manifest', href: '/assets/javascripts/manifest.json' }
 
 -# iOS
 -# https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
-%link{ :rel => 'apple-touch-icon', :sizes => '57x57', :href => image_path('tenon/icon-57x57.png') }
-%link{ :rel => 'apple-touch-icon', :sizes => '72x72', :href => image_path('tenon/icon-72x72.png') }
-%link{ :rel => 'apple-touch-icon', :sizes => '114x114', :href => image_path('tenon/icon-114x114.png') }
-%link{ :rel => 'apple-touch-icon', :sizes => '144x144', :href => image_path('tenon/icon-144x144.png') }
-%meta{ :content => 'yes', :name => 'apple-mobile-web-app-capable' }
-%meta{ :content => 'default', :name => 'apple-mobile-web-app-status-bar-style' }
+%link{ rel: 'apple-touch-icon', sizes: '57x57', href: image_path('tenon/icon-57x57.png') }
+%link{ rel: 'apple-touch-icon', sizes: '72x72', href: image_path('tenon/icon-72x72.png') }
+%link{ rel: 'apple-touch-icon', sizes: '114x114', href: image_path('tenon/icon-114x114.png') }
+%link{ rel: 'apple-touch-icon', sizes: '144x144', href: image_path('tenon/icon-144x144.png') }
+%meta{ content: 'yes', name: 'apple-mobile-web-app-capable' }
+%meta{ content: 'default', name: 'apple-mobile-web-app-status-bar-style' }
 
 -# Windows
 -# http://msdn.microsoft.com/en-us/library/ie/gg491732(v=vs.85).aspx
 -# http://blogs.msdn.com/b/ie/archive/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8.aspx
-%meta{ :content => Tenon::MySettings.site_title ? Tenon::MySettings.site_title : 'Tenon', :name => 'application-name' }
-%meta{ :content => Tenon::MySettings.site_title ? Tenon::MySettings.site_title : 'Tenon', :name => 'msapplication-tooltip' }
-%meta{ :content => color, :name => 'msapplication-navbutton-color' }
-%meta{ :content => color, :name => 'msapplication-TileColor' }
-%meta{ :content => image_path('tenon/icon-144x144.png'), :name => 'msapplication-TileImage' }
+%meta{ content: Tenon::MySettings.site_title ? Tenon::MySettings.site_title : 'Tenon', name: 'application-name' }
+%meta{ content: Tenon::MySettings.site_title ? Tenon::MySettings.site_title : 'Tenon', name: 'msapplication-tooltip' }
+%meta{ content: color, name: 'msapplication-navbutton-color' }
+%meta{ content: color, name: 'msapplication-TileColor' }
+%meta{ content: image_path('tenon/icon-144x144.png'), name: 'msapplication-TileImage' }

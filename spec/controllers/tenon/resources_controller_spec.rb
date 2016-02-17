@@ -17,9 +17,9 @@ describe Tenon::GalleriesController do
   context 'with an administrator' do
     let(:user) do
       double(
-        :staff? => true,
-        :is_super_admin? => false,
-        :is_admin? => true
+        staff?: true,
+        is_super_admin?: false,
+        is_admin?: true
       )
     end
 
@@ -259,7 +259,7 @@ describe Tenon::GalleriesController do
   end
 
   context 'when not an administrator' do
-    let(:user) { double(:staff? => false) }
+    let(:user) { double(staff?: false) }
 
     describe 'GET index' do
       it 'should redirect' do

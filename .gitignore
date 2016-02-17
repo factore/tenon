@@ -16,3 +16,4 @@ spec/dummy/node_modules
 node_modules
 tags
 vendor/ruby
+tmp/
