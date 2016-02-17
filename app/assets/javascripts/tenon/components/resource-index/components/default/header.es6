@@ -8,9 +8,14 @@ class DefaultHeader extends React.Component {
 
   render() {
     const searchClass = this.state.searchOpen ? 'open' : '';
-    const { QuickSearch } = this.props.childComponents;
+    const { QuickSearch, FilterPane } = this.props.childComponents;
+    let filterPane = '';
 
-    return(
+    if (FilterPane) {
+      filterPane = <FilterPane />;
+    }
+
+    return (
       <div className="toolbar">
         <Breadcrumbs breadcrumbs={this.props.breadcrumbs} />
 
@@ -19,6 +24,19 @@ class DefaultHeader extends React.Component {
           searchAction={this.props.actions.quickSearchRecords}
           toggleQuickSearchAction={this.props.actions.toggleQuickSearch}
           searchClass={searchClass} />
+
+        <div className="actions">
+          <a className="action-icon toggle-drawer filter-toggle" href="#!" title="Filter" data-target="filters">
+            <i className="material-icons">tune</i>
+          </a>
+        </div>
+
+        {filterPane}
+        <section id="filters" className="drawer">
+          <p>
+          This is the filter pane.
+          </p>
+        </section>
 
         <div className="actions">
           <a className="action-icon dropdown-button" href="#!" data-activates="sort-dropdown" title="Sort or options?">
