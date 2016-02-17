@@ -3,102 +3,101 @@
 //= require pickadate/default
 //= require pickadate/default.date
 //= require pickadate/default.time
-@import "bourbon";
-@import "./grid";
+@import 'bourbon';
+@import './grid';
 
 // Universal mixins
-@import "./mixins/colors";
-@import "./mixins/font-styles";
-@import "./mixins/font-size";
-@import "./mixins/transforms";
-@import "./mixins/transitions";
-@import "./mixins/truncate";
-@import "./mixins/z-depth";
+@import './mixins/colors';
+@import './mixins/font-styles';
+@import './mixins/font-size';
+@import './mixins/transforms';
+@import './mixins/transitions';
+@import './mixins/truncate';
+@import './mixins/z-depth';
 
 // Universal variables
-@import "./variables/layout";
-@import "client/layout-variables"; // client over-rides
-@import "./variables/z-index";
+@import './variables/layout';
+@import 'client/layout-variables'; // client over-rides
+@import './variables/z-index';
 
 // Color variables & over-rides
-@import "./variables/base-colors";
-@import "client/color-names"; // client over-rides
-@import "./variables/colors-named";
-@import "client/color-variables"; // client over-rides
+@import './variables/base-colors';
+@import 'client/color-names'; // client over-rides
+@import './variables/colors-named';
+@import 'client/color-variables'; // client over-rides
 
 // Typography
-@import "./variables/font-family";
-@import "client/typography-fonts"; // client over-rides
-@import "./variables/font-size";
-@import "client/typography-sizes"; // client over-rides
-@import "./mixins/typography";
-@import "./typography";
+@import './variables/font-family';
+@import 'client/typography-fonts'; // client over-rides
+@import './variables/font-size';
+@import 'client/typography-sizes'; // client over-rides
+@import './mixins/typography';
+@import './typography';
 
 // Body
-@import "./body";
-@import "./alignment";
+@import './body';
+@import './alignment';
 
 
-@import "./lists";
+@import './lists';
 
 // Icons
-@import "./material-icons";
+@import './material-icons';
 
 // Buttons
-@import "./variables/btn";
-@import "client/button-sizes"; // client over-rides
-@import "./btn";
-@import "./fab";
+@import './variables/btn';
+@import 'client/button-sizes'; // client over-rides
+@import './btn';
+@import './fab';
 
 // Actions
-@import "./actions";
+@import './actions';
 
 // Forms
-@import "./explanation";
-@import "./label";
-@import "./input";
-@import "./form";
+@import './explanation';
+@import './label';
+@import './input';
+@import './form';
 
 // Util nav/ toolbar
-@import "./main-nav-toggle";
+@import './main-nav-toggle';
 
-@import "./toolbar";
+@import './toolbar';
 
-@import "./account";
+@import './account';
 
-@import "./util-nav";
-@import "./search";
-@import "./filters";
-@import "./search-open";
-@import "./filter-toggle";
+@import './util-nav';
+@import './search';
+@import './filters';
+@import './search-open';
+@import './filter-toggle';
 
 // Drawers
-@import "./drawer";
-@import "./app-info";
-@import "./main-nav";
+@import './drawer';
+@import './app-info';
+@import './main-nav';
 
 // Records
-@import "./record";
+@import './record';
 
 // Misc
-@import "./expandable";
+@import './expandable';
 
-@import "./dropdown-content";
-@import "./panel";
-@import "./breadcrumbs";
-@import "./burger";
-@import "./flash";
-@import "./hr";
-@import "./pre";
+@import './dropdown-content';
+@import './panel';
+@import './breadcrumbs';
+@import './burger';
+@import './flash';
+@import './hr';
+@import './pre';
 
 // Main
-@import "./main";
+@import './main';
 
 // Tenon content
-@import "./tn-content";
-@import "./tn-library";
-@import "./tn-embed-code";
-@import "./tn-popped-out";
+@import './tn-content';
+@import './tn-library';
+@import './tn-embed-code';
 
 // Styleguide
-@import "./styleguide/init";
+@import './styleguide/init';
