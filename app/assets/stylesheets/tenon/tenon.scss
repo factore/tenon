@@ -101,3 +101,7 @@
 
 // Styleguide
 @import './styleguide/init';
+
+// Backwards Compatibility (should be temporary)
+@import './backwards_compatibility/variables';
+@import './backwards_compatibility/modals';

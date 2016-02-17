@@ -1,6 +1,6 @@
 namespace :tenon do
   desc "Generate Asset responsive styles"
-  task :generate_responsive_styles  => :environment do
+  task generate_responsive_styles: :environment do
     styles = [
       :tenon_tenon_content_piece_image_x2000,
       :tenon_tenon_content_piece_image_x1800,
@@ -30,7 +30,7 @@ namespace :tenon do
   end
 
   desc "Regenerate all Asset styles"
-  task :regenerate_asset_styles  => :environment do
+  task regenerate_asset_styles: :environment do
     total_assets = Tenon::Asset.all.count
 
     Tenon::Asset.all.each_with_index do |asset, i|

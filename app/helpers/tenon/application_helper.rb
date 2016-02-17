@@ -13,11 +13,6 @@ module Tenon
       link_to(title, link, class: klass)
     end
 
-    # now uses http://github.com/mdeering/gravatar_image_tag
-    def gravatar_for(object)
-      gravatar_image_tag(object.email)
-    end
-
     def table_row(*args)
       html = '<tr>'
       args.each_with_index do |cell, i|
@@ -83,7 +78,7 @@ module Tenon
       ie_versions.each do |version|
         next if version == max
 
-        klass = ie_versions.select { |e| e > version }.map { |e| "ie-lt#{e}" }.join(' ')
+        klass = ie_versions.select{ |e| e > version }.map{ |e| "ie-lt#{e}" }.join(' ')
 
         htmls << if_ie("<html lang='#{I18n.locale}' dir='ltr' class='noscript #{klass}'>", version: version)
       end

@@ -9,10 +9,10 @@
   .panel.block
     %h4 Standard Button
     %p
-      %button{type: 'button', class: 'btn'}
+      %button{ type: 'button', class: 'btn' }
         Button
     %p
-      %a{href: '#', class: 'btn'}
+      %a{ href: '#', class: 'btn' }
         Link
     %code
       %p= "<button type='button' class='btn'>Button</button>"
@@ -21,10 +21,10 @@
     %h4 Flat Button
     %p Same as the standard button, but without depth.
     %p
-      %button{type: 'button', class: 'btn btn-flat'}
+      %button{ type: 'button', class: 'btn btn-flat' }
         Button
     %p
-      %a{href: '#', class: 'btn btn-flat'}
+      %a{ href: '#', class: 'btn btn-flat' }
         Link
     %code
       %p= "<button type='button' class='btn btn-flat'>Button</button>"
@@ -33,10 +33,10 @@
     %h4 Block Button
     %p Same as the standard button, but with display:block;
     %p
-      %button{type: 'button', class: 'btn btn-block'}
+      %button{ type: 'button', class: 'btn btn-block' }
         Button
     %p
-      %a{href: '#', class: 'btn btn-block'}
+      %a{ href: '#', class: 'btn btn-block' }
         Link
     %code
       %p= "<button type='button' class='btn btn-block'>Button</button>"
@@ -48,10 +48,10 @@
       = link_to "floating action button", 'https://www.google.com/design/spec/components/buttons-floating-action-button.html#buttons-floating-action-button-large-screens', target: '_'
       triggers the primary action of the page it lives on.
     %p
-      %a{href: '#', class: 'btn-fab'}
+      %a{ href: '#', class: 'btn-fab' }
         = i('add')
     %p
-      %a{href: '#', class: 'btn-fab-reverse'}
+      %a{ href: '#', class: 'btn-fab-reverse' }
         = i('edit')
 
     %code

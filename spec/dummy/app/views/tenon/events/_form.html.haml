@@ -1,52 +1,35 @@
-.sidebar-container
-  .sidebar
-    .content
-      %h2 Events
-      = link_to "New Event", new_event_path, class: 'btn btn-block btn-primary'
+= autosaving_form_for @event do |f|
+  .toolbar.bg-color-primary-dk10
+    = render 'tenon/shared/breadcrumbs'
+    .actions
+      - if can?(:publish, @event)
+        %button.action-btn.btn.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
 
-    = i18n_language_nav(:'tenon/events')
+      %a.action-icon.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
+        = i('more_vert')
 
-.page-wrap
-  %header
-    %h1= form_header_for(@event)
+      %ul.dropdown-content#form-dropdown
+        - if can?(:create, Tenon::ItemVersion)
+          = render 'tenon/shared/draft_controls', obj: @event
 
-    .tools
-      = render "tenon/shared/section_header/sidebar_toggle"
+        - if @event.persisted?
+          %li
+            = link_to @event, data: { method: :delete, confirm: 'Are you sure you want to delete this?' }, class: 'delete-link' do
+              = i('delete')
 
-  .main-content
+  %main
     = error_messages_for :event
 
-    = autosaving_form_for @event do |f|
-      .fields.large
-        .form-group= f.text_field :title
-        .form-group
-          = f.tenon_content :description
+    = f.text_field :title, required: true, class: 'form-title-field'
 
-      .fields.small
-        %h4.box-label Event Details
-        .box
-          .form-group.bordered= f.text_field :location, :placeholder => '--'
-          .form-group.bordered
-            = f.text_field :starts_at, data: {behaviour: 'datetime-picker'}, placeholder: '--'
-          .form-group.bordered
-            = f.text_field :ends_at, data: {behaviour: 'datetime-picker'}, placeholder: '--'
+    .form-label Content
+    .panel.block
+      = f.tenon_content :description
 
-        %h4.box-label Publish Your Event
-        .box
-          .form-group
-            = f.text_field :publish_at, label: "Publish Date", data: {behaviour: 'datetime-picker'}, placeholder: '--'
+    .form-label Event Details
+    .panel.block
+      = f.text_field :location
+      = f.date_time_picker :starts_at
+      = f.date_time_picker :ends_at
 
-          .row.content
-            - if can?(:publish, @event)
-              %button.btn.btn-comp.btn-block.submit{ data: { disable_with: "Please wait..." } } Save
-            - if can?(:create, Tenon::ItemVersion)
-              = save_draft_button(@event)
-              .last-autosave
-
-          %hr
-          .content
-            = clear_draft_link if params[:version]
-            = load_draft_link(@event)
-            - if @event.persisted?
-              = link_to "Delete", @event, :data => {:method => :delete, :confirm => "Are you sure you want to delete this?"}, :class => 'delete-link'
-
+      = f.date_time_picker :publish_at, label: "Publish Date"

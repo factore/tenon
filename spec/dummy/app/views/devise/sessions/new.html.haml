@@ -1,28 +1,25 @@
-= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  .row
-    .logo= image_tag('tenon/client-logo.png')
-    .title
-      = Tenon::MySettings.site_title
-  - unless flash[:alert].blank?
-    .flash= flash[:alert]
-  .row.bordered
-    = f.label :email, :label => "Email Address:"
-    = f.email_field :email, placeholder: 'user@example.com'
+%main
+  .inner9
+    .panel.block
+      = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+        .row
+          .logo= image_tag('tenon/client-logo.png')
+          .title
+            = Tenon::MySettings.site_title
+        - unless flash[:alert].blank?
+          .flash= flash[:alert]
+        = f.label :email, :label => "Email Address:"
+        = f.email_field :email, placeholder: 'user@example.com', autofocus: true
 
-  .row.bordered
-    = f.label :password, :label => "Password:"
-    = f.password_field :password, placeholder: 'password'
+        = f.label :password, :label => "Password:"
+        = f.password_field :password, placeholder: 'password', autocomplete: 'off'
 
-  .row.bordered
-    .remember.left
-      = f.check_box :remember_me, class: 'tn-checkbox-left'
-      = f.label :remember_me, "Remember Me?"
+        = f.check_box :remember_me, class: 'tn-checkbox-left'
+        = f.label :remember_me, "Remember Me?"
 
-    = f.submit "Login", :class => "btn btn-info"
-
-  .row.bordered
-    %p{:style => "text-align: right; margin-top: 10px; font-size: 12px;"}
-      - if devise_mapping.recoverable? && controller_name != 'passwords'
-        = link_to "Forgot your password?", new_password_path(resource_name)
-      = # " | "
-      = # link_to "Register", "/register"
+        %br/
+        %br/
+        = f.submit "Login", :class => "btn"
+        %br/
+        %br/
+      = render "devise/shared/links"

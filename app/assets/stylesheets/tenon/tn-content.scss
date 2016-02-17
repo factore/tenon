@@ -87,70 +87,41 @@
     }
   }
 
-  .drag-anchor {
+  .reorder {
     float: left;
   }
 
   .tn-tc-topbar,
   .tn-tc-bottombar {
-    height: $default-spacing;
     padding: 0;
-    // background-color: $tn-med-grey;
     .actions {
-      @include default-transition;
       position: relative;
       text-align: right;
       color: $primary-fg-color;
 
       i {
-        @include default-transition;
+        font-size: 20px;
+        line-height: 20px;
       }
 
       a {
-        @include default-transition;
         display: inline-block;
-        padding: $default-spacing / 3 0 $default-spacing / 4;
+        padding: 0;
         color: $primary-fg-color;
-        span {
-          position: relative;
-          top: -2px;
-          display: inline-block;
-        }
+        height: 20px;
       }
 
       .tn-tc-open-library {
-        @include vertical-align;
-        text-transform: uppercase;
-        span {
-          @include font-smaller;
-        }
       }
 
       a:hover {
         text-decoration: none;
       }
 
-      .drag-anchor {
+      .reorder {
         float: left;
-        padding: $default-spacing / 3 0 $default-spacing / 4;
         cursor: move;
       }
-    }
-  }
-  .tn-tc-row:hover {
-    &:hover {
-      .tn-tc-topbar, .tn-tc-bottombar {
-        color: $primary-fg-color;
-        a {
-          color: $primary-fg-color;
-        }
-        i {
-          color: $primary-fg-color;
-        }
-      }
-    }
-    .tn-tc-topbar, .tn-tc-bottombar {
-      opacity: 1;
     }
   }
   .tn-tc-fields {

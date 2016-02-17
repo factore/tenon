@@ -3,7 +3,7 @@ class Redirect < ApplicationRecord
   has_history
   include Tenon::Reorderable
 
-  default_scope { order('tenon_redirects.list_order') }
+  default_scope { order('redirects.list_order') }
   scope :active, -> { where(active: true) }
 
   # Validations

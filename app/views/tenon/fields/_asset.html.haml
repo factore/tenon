@@ -21,8 +21,8 @@
           - if opts[:remove_association]
             %small
               or
-              = link_to_remove_association "remove", f
+              = link_to_remove_association 'remove', f
           - else
             %small
               or
-              = link_to "remove", '#', class: 'remove-asset', data: { confirm: 'Are you sure?' }
+              = link_to 'remove', '#', class: 'remove-asset', data: { confirm: 'Are you sure?' }

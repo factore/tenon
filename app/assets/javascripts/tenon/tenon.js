@@ -26,17 +26,11 @@ var Tenon = {
     new Tenon.features.AssetCropping();
     new Tenon.features.AssetDetachment();
     new Tenon.features.CocoonHooks();
-    new Tenon.features.FocusFirstField();
-    new Tenon.features.Pagination();
-    new Tenon.features.HeaderMenu();
     new Tenon.features.ItemVersionAutosave();
     Tenon.modals = new Tenon.features.ModalWindows();
     new Tenon.features.ModalForms();
     new Tenon.features.ProtectChanges();
-    new Tenon.features.SidebarActiveLinks();
-    new Tenon.features.SidebarNavigation();
     new Tenon.features.SortableNestedFields();
-    new Tenon.features.videoFeeds();
     new Tenon.features.tenonContent.Base();
     new Tenon.features.GenericClassToggler();
     new Tenon.features.ToggleMainNav();

@@ -7,4 +7,9 @@ module ApplicationHelper
     end
     rows.join('').html_safe
   end
+
+  # now uses http://github.com/mdeering/gravatar_image_tag
+  def gravatar_for(object)
+    gravatar_image_tag(object.email)
+  end
 end

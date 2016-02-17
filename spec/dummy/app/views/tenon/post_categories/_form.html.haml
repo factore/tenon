@@ -1,11 +1,21 @@
-= form_for @post_category, builder: Tenon::FormBuilder, data: {modal: true, remote: true, type: 'json', record: 'post_category'} do |f|
-  .modal-body
-    .fields.full
+= form_for @post_category, builder: Tenon::FormBuilder do |f|
+  .toolbar.bg-color-primary-dk10
+    = render 'tenon/shared/breadcrumbs'
+    .actions
+      - if can?(:publish, @post_category)
+        %button.action-btn.btn.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
 
-      .form-group
-        = f.text_field :title
+      %a.action-icon.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
+        = i('more_vert')
 
-      .spacer
+      %ul.dropdown-content#form-dropdown
+        - if @post_category.persisted?
+          %li
+            = link_to @post_category, data: { method: :delete, confirm: 'Are you sure you want to delete this?' }, class: 'delete-link' do
+              = i('delete')
+  %main
+    = error_messages_for :post_category
 
-  .modal-footer
-    = f.submit "Save", class: 'btn btn-comp', data: { disable_with: "Please wait..." }
+    = f.text_field :title, required: true, class: 'form-title-field', autofocus: true
+
+    .spacer

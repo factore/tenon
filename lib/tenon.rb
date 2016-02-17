@@ -1,6 +1,5 @@
 require 'tenon/engine'
 require 'tenon/config/breakpoints.rb'
-require 'tenon/config/events.rb'
 require 'tenon/config/routing.rb'
 require 'tenon/config/grid.rb'
 require 'tenon/can_be_foreign.rb'

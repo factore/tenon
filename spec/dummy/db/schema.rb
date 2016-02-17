@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119185706) do
+ActiveRecord::Schema.define(version: 20160126194219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -233,41 +233,6 @@ ActiveRecord::Schema.define(version: 20160119185706) do
     t.index ["item_id", "item_type"], name: "index_tenon_item_versions_on_item_id_and_item_type", using: :btree
   end
 
-  create_table "tenon_subscriber_group_members", force: :cascade do |t|
-    t.integer  "subscriber_id"
-    t.integer  "group_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["group_id"], name: "index_subscriber_group_members_on_group_id", using: :btree
-    t.index ["subscriber_id"], name: "index_subscriber_group_members_on_subscriber_id", using: :btree
-  end
-
-  create_table "tenon_subscriber_groups", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tenon_subscribers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tenon_tenon_callouts", force: :cascade do |t|
-    t.string   "title"
-    t.string   "icon"
-    t.text     "content"
-    t.string   "uri"
-    t.string   "button_text"
-    t.integer  "list_order"
-    t.boolean  "published"
-    t.boolean  "new_window"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "tenon_tenon_content_pieces", force: :cascade do |t|
     t.integer  "row_id"
     t.integer  "position"
@@ -278,10 +243,10 @@ ActiveRecord::Schema.define(version: 20160119185706) do
     t.string   "piece_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "size"
     t.boolean  "show_caption",    default: false
     t.text     "embed_code"
     t.boolean  "stretch_to_fill", default: false
+    t.integer  "size"
     t.index ["row_id"], name: "index_tenon_content_pieces_on_row_id", using: :btree
   end
 
