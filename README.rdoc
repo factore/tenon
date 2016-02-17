@@ -163,10 +163,10 @@ Once you've done this and restarted your app you will see a language selection n
 == Searching and Filtering Records
 
 Often you will need to provide various different ways to filter records that are returned
-in your controllers' +index+ action.  The standard <tt>Tenon::ResourcesController#index</tt> 
-action provides a hook to allow the returned records to pass through a Filterer.  
-Filterers receive, at minimum, a scope (eg. an <tt>ActiveRecord::Relation</tt>) and a set of params.  
-They can then apply their own internal logic to filter the passed scope.  For example, consider the 
+in your controllers' +index+ action.  The standard <tt>Tenon::ResourcesController#index</tt>
+action provides a hook to allow the returned records to pass through a Filterer.
+Filterers receive, at minimum, a scope (eg. an <tt>ActiveRecord::Relation</tt>) and a set of params.
+They can then apply their own internal logic to filter the passed scope.  For example, consider the
 following call to an imagined <tt>PostFilterer</tt>:
 
   filterer = PostFilterer.new(Post.all, { q: 'Tenon' })
@@ -238,7 +238,7 @@ by defining the <tt>#filterer</tt> method.
     end
   end
 
-Here is an example of what an imagined +PostFilterer+ that extends
+Here is an example of what an imagined +PostFilterer+ that inherits from
 <tt>Tenon::GenericFilterer</tt> with some date-filtering logic might look like:
 
   class PostFilterer < Tenon::GenericFilterer
