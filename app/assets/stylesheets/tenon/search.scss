@@ -27,10 +27,10 @@
 
 input.search-field {
   @include placeholder {
-    @include default-transition;
+    @extend %default-transition;
     color: white;
   }
-  @include default-transition;
+  @extend %default-transition;
   @include font-size($h5-size);
   line-height: $util-nav-height - ($default-spacing * (2 / 3));
   position: relative;

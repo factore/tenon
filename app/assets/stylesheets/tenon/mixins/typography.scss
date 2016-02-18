@@ -1,53 +1,53 @@
-@mixin font-h1 {
-  @extend .font-n3;
-  @include font($h1-size, $h1-line-height);
+%font-h1 {
   font-family: $font-family-h1;
+  @extend %font-n3;
+  @include font($h1-size, $h1-line-height);
 }
 
-@mixin font-h2 {
-  @extend .font-n3;
-  @include font($h2-size, $h2-line-height);
+%font-h2 {
   font-family: $font-family-h2;
+  @extend %font-n3;
+  @include font($h2-size, $h2-line-height);
 }
 
-@mixin font-h3 {
-  @extend .font-n3;
-  @include font($h3-size, $h3-line-height);
+%font-h3 {
   font-family: $font-family-h3;
+  @extend %font-n3;
+  @include font($h3-size, $h3-line-height);
 }
 
-@mixin font-h4 {
-  @extend .font-n4;
-  @include font($h4-size, $h4-line-height);
+%font-h4 {
   font-family: $font-family-h4;
+  @extend %font-n4;
+  @include font($h4-size, $h4-line-height);
 }
 
-@mixin font-h5 {
-  @extend .font-n7;
-  @include font($h5-size, $h5-line-height);
+%font-h5 {
   font-family: $font-family-h5;
+  @extend %font-n7;
+  @include font($h5-size, $h5-line-height);
 }
 
-@mixin font-h6 {
-  @extend .font-n7;
-  @include font($h6-size, $h6-line-height);
+%font-h6 {
   font-family: $font-family-h6;
+  @extend %font-n7;
+  @include font($h6-size, $h6-line-height);
 }
 
-@mixin font-body {
-  @extend .font-n4;
-  @include font($body-size, $body-line-height);
+%font-body {
   font-family: $font-family-body;
+  @extend %font-n4;
+  @include font($body-size, $body-line-height);
 }
 
-@mixin font-small {
+%font-small {
   @include font($small-size, $small-line-height);
 }
 
-@mixin font-smaller {
+%font-smaller {
   @include font($smaller-size, $smaller-line-height);
 }
 
-@mixin font-smallest {
+%font-smallest {
   @include font($smallest-size, $smallest-line-height);
 }

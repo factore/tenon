@@ -1,5 +1,5 @@
 #main-nav {
-  @include font-smaller;
+  @extend %font-smaller;
   z-index: $z-layout-main-nav;
   color: $main-nav-fg-color;
 }

@@ -38,7 +38,7 @@
 }
 
 .toolbar-overlay {
-  @include default-transition;
+  @extend %default-transition;
   position: fixed;
   top: 0;
   right: 0;

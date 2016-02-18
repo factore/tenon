@@ -1,6 +1,6 @@
 pre,
 code {
-  @include font-small;
+  @extend %font-small;
   position: relative;
   display: block;
   overflow: auto;

@@ -22,7 +22,7 @@
     color: $dropdown-fg-color;
 
     &.dropdown-label {
-      @include font-smaller;
+      @extend %font-smaller;
       min-height: 0;
       margin-bottom: 0;
       padding: $default-spacing/3 $default-spacing/2;
@@ -46,7 +46,7 @@
     }
 
     & > a, & > span {
-      @include font-smaller;
+      @extend %font-smaller;
       line-height: $dropdown-item-height;
       display: block;
       padding: 0 $default-spacing / 2;

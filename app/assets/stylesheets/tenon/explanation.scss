@@ -1,5 +1,5 @@
 .explanation {
-  @include font-smallest;
+  @extend %font-smallest;
   padding-top: $default-spacing / 4;
   color: $explanation-color;
 }

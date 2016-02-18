@@ -24,7 +24,7 @@
   height: $util-nav-height;
   margin: 0 0 0 $default-spacing*2.5;
   p {
-    @include truncate;
+    @extend %truncate;
     display: inline-block;
     width: $main-nav-width - $default-spacing*2;
   }

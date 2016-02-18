@@ -1,7 +1,7 @@
-@mixin default-transition {
+%default-transition {
   @include transition(all .25s ease 0s);
 }
 
-@mixin drawer-transition {
+%drawer-transition {
   @include transition(all .2s ease-in-out 0s);
 }

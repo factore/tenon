@@ -3,27 +3,23 @@ $standard-icon-size: 24;
 $dropdown-icon-size: 22;
 $main-nav-icon-size: 22;
 
-// Docs: https://design.google.com/icons/
+//* Docs: https://design.google.com/icons/ *//
 .material-icons {
-  @include font-size($standard-icon-size);
-  font-family: "Material Icons";
-  font-weight: normal;
-  font-style: normal;
   display: inline-block;
   width: 1em;
   height: 1em;
-  white-space: nowrap;
   text-transform: none;
+  text-rendering: optimizeLegibility; // Support for Safari and Chrome.
+  white-space: nowrap;
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
   word-wrap: normal;
+  @include font-size($standard-icon-size);
 
   direction: ltr;
-  /* Support for IE. */
-  font-feature-settings: "liga";
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'liga'; // Support for IE.
+  -webkit-font-smoothing: antialiased; // Support for all WebKit browsers.
   line-heihgt: 1;
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale; // Support for Firefox.
 }

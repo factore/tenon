@@ -1,5 +1,5 @@
 .drawer {
-  @include drawer-transition;
+  @extend %drawer-transition;
   position: fixed;
   top: $util-nav-height;
   left: -$main-nav-width;
@@ -12,7 +12,7 @@
 }
 
 .drawer-pusher {
-  @include drawer-transition;
+  @extend %drawer-transition;
   position: relative;
   left: 0;
   width: 100%;

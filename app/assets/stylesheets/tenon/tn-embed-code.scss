@@ -1,6 +1,6 @@
 a.open-embed-modal {
   @include transition(all .2s ease);
-  @include font-smaller;
+  @extend %font-smaller;
   display: block;
   padding: 5px 0;
   text-transform: uppercase;

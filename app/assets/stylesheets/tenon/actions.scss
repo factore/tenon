@@ -9,8 +9,6 @@
   }
 
   i {
-    @include default-transition;
-    @include font($h3-size, $h3-line-height);
     display: block;
     position: relative;
     border-radius: 50%;
@@ -19,16 +17,18 @@
     overflow: hidden;
     text-align: center;
     line-height: $default-spacing*1.5;
+    @extend %default-transition;
+    @include font($h3-size, $h3-line-height);
   }
 }
 
 .action--text {
-  @include font-smaller;
   position: relative;
   height: $default-spacing*1.5;
   text-transform: uppercase;
   line-height: $default-spacing*1.5;
   color: $link-color;
+  @extend %font-smaller;
 
   &:hover {
     text-decoration: none;

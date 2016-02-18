@@ -2,8 +2,6 @@
 }
 
 .record {
-  @include z-depth-1;
-  @include default-transition;
   position: relative;
   opacity: .7;
   margin-bottom: 1px;
@@ -11,10 +9,11 @@
   padding: ($default-spacing / 2) $default-spacing;
   width: 100%;
   overflow: hidden;
-
+  @include z-depth-1;
+  @extend %default-transition;
   &:hover {
-    @include z-depth-1;
     opacity: 1;
+    @include z-depth-1;
   }
 }
 
@@ -23,19 +22,19 @@
 }
 
 .record__title {
-  @include truncate;
   margin: 0;
   color: $body-fg-color;
+  @extend %truncate;
 }
 
 .record__title--smallest {
-  @extend .record__title;
-  @include font-smallest;
+  margin: 0;
+  color: $body-fg-color;
+  @extend %font-smallest;
 }
 
 .record__actions {
   @include bp-md {
-    @include transform-style(preserve-3d);
     position: absolute;
     top: 0;
     right: 0;
@@ -45,8 +44,9 @@
     background-color: $panel-bg-color;
     padding-left: $default-spacing/2;
     text-align: right;
+    @include transform-style(preserve-3d);
   }
-  @include default-transition;
+  @extend %default-transition;
 }
 
 .record:hover .record__actions {
@@ -54,11 +54,11 @@
 }
 
 .record__action-icon {
+  color: $primary-fg-color;
   @extend .action--icon;
   @include bp-md {
     @include vertical-align;
   }
-  color: $primary-fg-color;
 
   &:hover {
     color: $primary-color;
@@ -75,7 +75,7 @@
 }
 
 .record__expanded-title--smallest {
-  @include font-smallest;
+  @extend %font-smallest;
 }
 
 .record__expanded-actions {
@@ -84,8 +84,8 @@
 }
 
 .record__expanded-action-text {
-  @extend .action--text;
   margin-right: $default-spacing;
+  @extend .action--text;
 }
 
 .record__expand-toggle {
@@ -103,10 +103,10 @@
 
 
 .infinite-loader {
-  @include font-h3;
   display: none;
   text-align: center;
   color: $infinite-loader-color;
+  @extend %font-h3;
 
   &.visible {
     display: block;

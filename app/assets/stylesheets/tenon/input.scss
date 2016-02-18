@@ -11,8 +11,8 @@ select {
   @include placeholder {
     color: $placeholder-color;
   }
-  @include default-transition;
-  @include font-smaller;
+  @extend %default-transition;
+  @extend %font-smaller;
   @include appearance(none);
   line-height: normal;
   display: block;
@@ -35,7 +35,7 @@ select {
 
 textarea,
 .editable-text {
-  @include font-smaller;
+  @extend %font-smaller;
   height: auto;
   min-height: 34px;
   margin-top: $default-spacing/3;
@@ -57,6 +57,6 @@ textarea,
 }
 
 input.form-title-field {
-  @include font-h3;
+  @extend %font-h3;
   border: 0;
 }

@@ -1,30 +1,30 @@
 .btn-fab {
-  @include default-transition;
-  @include animation(btn-fab-intro .3s forwards .5s);
-  @include transform(scale(0) rotate(-45deg));
-  @include z-depth-1;
-  line-height: $btn-fab-size;
-  position: relative;
-  z-index: $z-btn-fab;
   display: inline-block;
-  overflow: hidden;
-  width: $btn-fab-size;
-  height: $btn-fab-size;
-  padding: 0;
-  cursor: pointer;
+  position: relative;
   transition: .3s;
-  vertical-align: middle;
-  color: $btn-fab-fg-color;
+  z-index: $z-btn-fab;
   border: none;
   border-radius: 50%;
   background-color: $btn-fab-bg-color;
+  padding: 0;
+  width: $btn-fab-size;
+  height: $btn-fab-size;
+  overflow: hidden;
+  vertical-align: middle;
+  line-height: $btn-fab-size;
+  color: $btn-fab-fg-color;
+  cursor: pointer;
+  @extend %default-transition;
+  @include animation(btn-fab-intro .3s forwards .5s);
+  @include transform(scale(0) rotate(-45deg));
+  @include z-depth-1;
   i {
-    @include font-size($btn-fab-icon-size);
-    line-height: $btn-fab-size;
     display: inline-block;
     width: inherit;
     text-align: center;
+    line-height: $btn-fab-size;
     color: $btn-fab-fg-color;
+    @include font-size($btn-fab-icon-size);
   }
   &:hover {
     @include z-depth-1-half;
@@ -44,9 +44,9 @@
 
 // alt color:
 .btn-fab-reverse {
-  @extend .btn-fab;
-  color: $btn-fab-bg-color;
   background-color: $btn-fab-fg-color;
+  color: $btn-fab-bg-color;
+  @extend .btn-fab;
   i {
     color: $btn-fab-bg-color;
   }

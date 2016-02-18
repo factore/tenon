@@ -1,7 +1,7 @@
 .btn {
-  @include default-transition;
+  @extend %default-transition;
   @include z-depth-1;
-  @include font-smaller;
+  @extend %font-smaller;
   line-height: $btn-height;
   position: relative;
   display: inline-block;

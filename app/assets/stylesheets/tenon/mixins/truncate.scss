@@ -1,4 +1,4 @@
-@mixin truncate {
+%truncate {
   overflow: hidden;
   width: 100%;
   white-space: nowrap;
@@ -6,5 +6,5 @@
 }
 
 .truncate {
-  @include truncate;
+  @extend %truncate;
 }

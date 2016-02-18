@@ -1,10 +1,10 @@
 @mixin font-style-generators {
   @for $i from 1 through 9 {
-    .font-n#{$i} {
+    %font-n#{$i} {
       font-weight: #{$i*100};
       font-style: normal;
     }
-    .font-i#{$i} {
+    %font-i#{$i} {
       font-weight: #{$i*100};
       font-style: italic;
     }
@@ -14,7 +14,7 @@
 @include font-style-generators;
 
 // Example usage:
-// @extend .font-n4;
-// @extend .font-n2;
-// @extend .font-n6;
-// @extend .font-i4;
+// @extend %font-n4;
+// @extend %font-n2;
+// @extend %font-n6;
+// @extend %font-i4;
