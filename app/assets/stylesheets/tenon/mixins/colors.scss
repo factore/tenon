@@ -7,10 +7,12 @@
 
 @mixin generate_base_color_helpers($name, $color) {
   // base colors:
-  .color-#{$name} {
+  .color-#{$name},
+  %color-#{$name} {
     color: $color !important;
   }
-  .bg-color-#{$name} {
+  .bg-color-#{$name},
+  %bg-color-#{$name} {
     background-color: $color !important;
   }
 }
@@ -18,10 +20,12 @@
 @mixin generate_opacity_color_helpers($name, $color) {
   // opacities:
   @for $i from 1 through 10 {
-    .color-#{$name}-o#{$i*10} {
+    .color-#{$name}-o#{$i*10},
+    %color-#{$name}-o#{$i*10} {
       color: rgba($color, $i/10) !important;
     }
-    .bg-color-#{$name}-o#{$i*10} {
+    .bg-color-#{$name}-o#{$i*10},
+    %bg-color-#{$name}-o#{$i*10} {
       background-color: rgba($color, $i/10) !important;
     }
   }
@@ -30,16 +34,20 @@
 @mixin generate_gradient_color_helpers($name, $color) {
   // lighten and darken:
   @for $i from 1 through 5 {
-    .color-#{$name}-lt#{$i*10} {
+    .color-#{$name}-lt#{$i*10},
+    %color-#{$name}-lt#{$i*10} {
       color: lighten($color, $i*10%) !important;
     }
-    .color-#{$name}-dk#{$i*10} {
+    .color-#{$name}-dk#{$i*10},
+    %color-#{$name}-dk#{$i*10} {
       color: darken($color, $i*10%) !important;
     }
-    .bg-color-#{$name}-lt#{$i*10} {
+    .bg-color-#{$name}-lt#{$i*10},
+    %bg-color-#{$name}-lt#{$i*10} {
       background-color: lighten($color, $i*10%) !important;
     }
-    .bg-color-#{$name}-dk#{$i*10} {
+    .bg-color-#{$name}-dk#{$i*10},
+    %bg-color-#{$name}-dk#{$i*10} {
       background-color: darken($color, $i*10%) !important;
     }
   }
