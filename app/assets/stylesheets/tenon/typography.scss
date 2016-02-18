@@ -1,10 +1,10 @@
 // Default Text Styles
 html,
 body {
-  @extend %font-body;
-  font-size: $body-size * 1px; // required for rem
   line-height: $body-line-height;
   color: $primary-fg-color;
+  font-size: $body-size * 1px; // required for rem
+  @extend %font-body;
 }
 
 // Links
@@ -64,9 +64,9 @@ h6, .font-h6 {
 
 blockquote {
   margin: 0 0 $default-margin;
-  padding: $default-spacing;
   border-top: 1px solid $grey;
   border-bottom: 1px solid $grey;
+  padding: $default-spacing;
 }
 
 small {

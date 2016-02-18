@@ -1,0 +1,12 @@
+// Vertical align an element within its parent:
+// Note: The parent element will need preserve-3d
+// or the centered element will be blurry:
+//   @include transform-style(preserve-3d);
+
+%vertical-align {
+  position: relative;
+  top: 50%;
+  @include transform(translateY(-50%));
+}
+
+// Read more: http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/

@@ -8,43 +8,44 @@
 
 // Universal mixins
 @import './mixins/colors';
-@import './mixins/font-styles';
-@import './mixins/font-size';
+@import './mixins/spacer';
 @import './mixins/transforms';
 @import './mixins/transitions';
 @import './mixins/truncate';
+@import './mixins/vertical-align';
 @import './mixins/z-depth';
 
 // Universal variables
 @import './variables/layout';
-@import 'client/layout-variables'; // client over-rides
+@import 'client/variables/layout'; // client over-rides
 @import './variables/z-index';
 
 // Color variables & over-rides
 @import './variables/base-colors';
-@import 'client/color-names'; // client over-rides
+@import 'client/variables/base-colors'; // client over-rides
 @import './variables/colors-named';
-@import 'client/color-variables'; // client over-rides
+@import 'client/variables/colors-named'; // client over-rides
 
 // Typography
 @import './variables/font-family';
-@import 'client/typography-fonts'; // client over-rides
+@import 'client/variables/font-family'; // client over-rides
 @import './variables/font-size';
-@import 'client/typography-sizes'; // client over-rides
+@import 'client/variables/font-size'; // client over-rides
+@import './mixins/font-styles';
+@import './mixins/font-size';
 @import './mixins/typography';
 @import './typography';
-
-// Body
-@import './body';
-@import './alignment';
 @import './lists';
 
 // Icons
 @import './material-icon';
 
+// Body
+@import './body';
+
 // Buttons
 @import './variables/btn';
-@import 'client/button-sizes'; // client over-rides
+@import 'client//variables/btn'; // client over-rides
 @import './btn';
 @import './fab';
 
