@@ -1,7 +1,7 @@
 module Tenon
   module ApplicationHelper
     def thisicon(icon)
-      content_tag(:i, icon, class: 'material-icons')
+      content_tag(:i, icon, class: 'material-icon')
     end
 
     def menu_item(title, link, options = {})

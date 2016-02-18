@@ -8,7 +8,7 @@
     }
   }
   .expand {
-    @include default-transition;
+    @extend %default-transition;
     position: absolute;
     right: 0;
     bottom: 0;

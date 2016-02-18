@@ -1,7 +1,7 @@
 // Default Text Styles
 html,
 body {
-  @include font-body;
+  @extend %font-body;
   font-size: $body-size * 1px; // required for rem
   line-height: $body-line-height;
   color: $primary-fg-color;
@@ -23,43 +23,43 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 h1, .font-h1 {
-  @include font-h1;
+  @extend %font-h1;
 }
 
 h2, .font-h2 {
-  @include font-h2;
+  @extend %font-h2;
 }
 
 h3, .font-h3 {
-  @include font-h3;
+  @extend %font-h3;
 }
 
 h4, .font-h4 {
-  @include font-h4;
+  @extend %font-h4;
 }
 
 h5, .font-h5 {
-  @include font-h5;
+  @extend %font-h5;
 }
 
 h6, .font-h6 {
-  @include font-h6;
+  @extend %font-h6;
 }
 
 .font-body {
-  @include font-body;
+  @extend %font-body;
 }
 
 .font-small {
-  @include font-small;
+  @extend %font-small;
 }
 
 .font-smaller {
-  @include font-smaller;
+  @extend %font-smaller;
 }
 
 .font-smallest {
-  @include font-smallest;
+  @extend %font-smallest;
 }
 
 blockquote {
@@ -70,13 +70,13 @@ blockquote {
 }
 
 small {
-  @include font-smallest;
+  @extend %font-smallest;
 }
 
 strong {
-  @extend .font-n7;
+  @extend %font-n7;
 }
 
 em {
-  @extend .font-i4;
+  @extend %font-i4;
 }

@@ -1,8 +1,8 @@
 .app-info {
   a {
-    @include default-transition;
-    @include truncate;
-    @include font-body;
+    @extend %default-transition;
+    @extend %truncate;
+    @extend %font-body;
     line-height: $toolbar-height;
     display: block;
     height: $toolbar-height;

@@ -4,7 +4,7 @@ class RedirectList extends React.Component {
     return(
       <div className="main-content">
         <div className="flash flash-alert" style={{paddingRight: '40px'}}>
-          <i className="material-icons">warning</i>
+          <i className="material-icon">warning</i>
           Redirects will be run when a page cannot be found. It will not redirect an existing page.
         </div>
 

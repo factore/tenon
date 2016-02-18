@@ -5,7 +5,7 @@ class Breadcrumbs extends React.Component {
         {this.props.breadcrumbs.map((breadcrumb, i) =>
           <li key={i}>
             {this.renderLink(breadcrumb, i)}
-            <i className="material-icons">keyboard_arrow_right</i>
+            <i className="material-icon">keyboard_arrow_right</i>
           </li>
         )}
       </ul>

@@ -28,7 +28,7 @@
 
 .tn-tc-main-actions {
   a {
-    @include default-transition;
+    @extend %default-transition;
     margin: $default-spacing $default-spacing 0 0;
     text-transform: uppercase;
     &.btn-fab {
@@ -41,7 +41,7 @@
       text-decoration: none;
     }
     span {
-      @include font-smaller;
+      @extend %font-smaller;
       position: relative;
       top: -2px;
       padding-left: $default-spacing / 4;
@@ -55,7 +55,7 @@
   // @import "styleguides/styleguide";
   // @extend body;
   .tn-tc-row {
-    @include default-transition;
+    @extend %default-transition;
     position: relative;
     overflow: hidden;
     min-height: 50px;
@@ -186,7 +186,7 @@
     }
   }
   textarea.caption, div.tn-tc-caption {
-    @include font-smaller;
+    @extend %font-smaller;
     width: 100%;
     margin: 0;
     padding: $default-spacing / 4;
@@ -201,7 +201,7 @@
     color: $white;
   }
   .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve {
-    @include default-transition;
+    @extend %default-transition;
   }
 }
 

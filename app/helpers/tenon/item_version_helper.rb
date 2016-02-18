@@ -20,7 +20,7 @@ module Tenon
         'modal-title' => 'Save Draft'
       }
       link_to path, class: css_class, data: data do
-        content_tag(:i, 'cloud_queue', class: 'material-icons') +
+        content_tag(:i, 'cloud_queue', class: 'material-icon') +
         'Save Draft'
       end
     end

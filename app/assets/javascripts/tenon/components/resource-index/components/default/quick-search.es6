@@ -7,7 +7,7 @@ class DefaultQuickSearch extends React.Component {
     return (
       <div id="search-container">
         <section id="search" className="search-content">
-          <i className="search-icon material-icons">search</i>
+          <i className="search-icon material-icon">search</i>
           <input
             type="text"
             ref="searchInput"
@@ -27,7 +27,7 @@ class DefaultQuickSearch extends React.Component {
               href="#!"
               className="toolbar-action"
               onClick={onClickClear}>
-              <i className="material-icons">arrow_back</i>
+              <i className="material-icon">arrow_back</i>
               Clear
             </a>
           </div>

@@ -6,11 +6,11 @@ class RedirectRecord extends React.Component {
         <div className="record-details">
           <div className='record-actions'>
             <a onClick={onDelete} data-tooltip='Delete' title='Delete'>
-              <i className="material-icons">delete</i>
+              <i className="material-icon">delete</i>
             </a>
 
             <a href={edit_path} data-tooltip="Edit" title="Edit">
-              <i className="material-icons">edit</i>
+              <i className="material-icon">edit</i>
             </a>
           </div>
 

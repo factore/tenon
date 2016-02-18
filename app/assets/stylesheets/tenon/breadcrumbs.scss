@@ -1,5 +1,5 @@
 .breadcrumbs {
-  @include truncate;
+  @extend %truncate;
   line-height: $util-nav-height;
   position: absolute;
   top: 0;
@@ -8,7 +8,7 @@
   height: $util-nav-height;
   padding-left: $default-spacing*2.5;
   li {
-    @include truncate;
+    @extend %truncate;
     line-height: $util-nav-height;
     display: block;
     float: left;

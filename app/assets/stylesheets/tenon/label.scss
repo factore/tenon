@@ -1,5 +1,5 @@
 label, .label {
-  @include font-smallest;
+  @extend %font-smallest;
   color: $label-color;
 }
 
