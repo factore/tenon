@@ -17,7 +17,7 @@ class DefaultSidebar extends React.Component {
       const singular = _.singularize(this.props.title);
 
       return (
-        <a href={this.props.newPath} className="btn btn-primary btn-block">
+        <a href={this.props.newPath} className="btn btn--primary btn--block">
           New {singular}
         </a>);
     }

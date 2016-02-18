@@ -60,9 +60,11 @@ class DefaultQuickSearch extends React.Component {
             title="Search" />
 
           <div className="actions">
-            <a className="action--icon toggle-drawer filter-toggle" href="#!" title="Filter" data-target="filters">
-              <i className="material-icon">tune</i>
-            </a>
+            <div className="action action__icon">
+              <a className="action-icon action-icon--white toggle-drawer filter-toggle" href="#!" title="Filter" data-target="filters">
+                <i className="material-icon">tune</i>
+              </a>
+            </div>
           </div>
         </section>
 

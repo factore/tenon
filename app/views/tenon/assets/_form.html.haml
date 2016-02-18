@@ -3,9 +3,9 @@
     = render 'tenon/shared/breadcrumbs'
     .actions
       - if can?(:publish, @asset)
-        %button.action-btn.btn.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
+        %button.action__btn.btn-flat.btn--primary.submit{ data: { disable_with: "Please wait..." } } Save
 
-      = link_to '#!', class: 'action--icon dropdown-button' , data: { activates: 'form-dropdown'}  do
+      = link_to '#!', class: 'action-icon dropdown-button' , data: { activates: 'form-dropdown'}  do
         = i('more_vert')
 
       %ul.dropdown-content#form-dropdown
