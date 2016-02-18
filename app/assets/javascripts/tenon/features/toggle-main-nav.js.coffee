@@ -10,7 +10,6 @@ class Tenon.features.ToggleMainNav
     target = $(e.currentTarget).data('target')
 
     $('body').toggleClass("#{target}-open")
-    console.log @hasStorage
     @_storeChange(target) if @hasStorage
 
   _storeChange: (target) ->
@@ -22,6 +21,3 @@ class Tenon.features.ToggleMainNav
   _checkStorage: ->
     navIsOpen = localStorage.getItem('main-nav-open')
     $('body').addClass('main-nav-open') if navIsOpen
-
-    filterIsOpen = localStorage.getItem('filters-open')
-    $('body').addClass('filters-open') if filterIsOpen
