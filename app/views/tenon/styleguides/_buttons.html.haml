@@ -1,0 +1,139 @@
+%section
+  %a.scroll-target{name: 'buttons'}
+  %h3.color-black Buttons
+  %p
+    Use these classes on any HTML element that you would like to look and
+    act like a button.
+
+  %a.scroll-target{name: 'buttons__standard'}
+  %h3.color-black Standard Button
+  .panel--block
+    %h4 Primary
+    %p
+      %button{type: 'button', class: 'btn'}
+        Button
+    %p
+      %a{href: '#', class: 'btn'}
+        Link
+    %code
+      %p= "<button type='button' class='btn'>Button</button>"
+      %p= "<a href='#' class='btn'>Link</a>"
+
+    %h4 Primary reversed
+    %p
+      %button{type: 'button', class: 'btn-reverse'}
+        Button
+    %p
+      %a{href: '#', class: 'btn-reverse'}
+        Link
+    %code
+      %p= "<button type='button' class='btn-reverse'>Button</button>"
+      %p= "<a href='#' class='btn-reverse'>Link</a>"
+
+    %h4 Secondary
+    %p
+      %button{type: 'button', class: 'btn-secondary'}
+        Button
+    %p
+      %a{href: '#', class: 'btn-secondary'}
+        Link
+    %code
+      %p= "<button type='button' class='btn-secondary'>Button</button>"
+      %p= "<a href='#' class='btn-secondary'>Link</a>"
+
+    %h4 Secondary reversed
+    %p
+      %button{type: 'button', class: 'btn-secondary-reverse'}
+        Button
+    %p
+      %a{href: '#', class: 'btn-secondary-reverse'}
+        Link
+    %code
+      %p= "<button type='button' class='btn-secondary-reverse'>Button</button>"
+      %p= "<a href='#' class='btn-secondary-reverse'>Link</a>"
+
+%section
+  %a.scroll-target{name: 'buttons__flat'}
+  %h3.color-black Flat Button
+  %p Same as the standard button, but without depth.
+  .panel--block
+    %h4 Primary
+    %p
+      %button{type: 'button', class: 'btn-flat'}
+        Button
+    %p
+      %a{href: '#', class: 'btn-flat'}
+        Link
+    %code
+      %p= "<button type='button' class='btn-flat'>Button</button>"
+      %p= "<a href='#' class='btn-flat'>Link</a>"
+
+    %h4 Primary reverse
+    %p
+      %button{type: 'button', class: 'btn-flat-reverse'}
+        Button
+    %p
+      %a{href: '#', class: 'btn-flat-reverse'}
+        Link
+    %code
+      %p= "<button type='button' class='btn-flat-reverse'>Button</button>"
+      %p= "<a href='#' class='btn-flat-reverse'>Link</a>"
+
+    %h4 Secondary
+    %p
+      %button{type: 'button', class: 'btn-flat-secondary'}
+        Button
+    %p
+      %a{href: '#', class: 'btn-flat-secondary'}
+        Link
+    %code
+      %p= "<button type='button' class='btn-flat-secondary'>Button</button>"
+      %p= "<a href='#' class='btn-flat-secondary'>Link</a>"
+
+    %h4 Secondary reverse
+    %p
+      %button{type: 'button', class: 'btn-flat-secondary-reverse'}
+        Button
+    %p
+      %a{href: '#', class: 'btn-flat-secondary-reverse'}
+        Link
+    %code
+      %p= "<button type='button' class='btn-flat-secondary-reverse'>Button</button>"
+      %p= "<a href='#' class='btn-flat-secondary-reverse'>Link</a>"
+
+%section
+  %a.scroll-target{name: 'buttons__block'}
+  %h3 Block Button
+  %p
+    Apply the .btn-block class to any button that should fit the width of
+    the parent container.
+
+  .panel--block
+    %p
+      %button{type: 'button', class: 'btn btn-block'}
+        Button
+    %p
+      %a{href: '#', class: 'btn btn-block'}
+        Link
+    %code
+      %p= "<button type='button' class='btn btn-block'>Button</button>"
+      %p= "<a href='#' class='btn btn-block'>Link</a>"
+
+%section
+  %a.scroll-target{name: 'buttons__fab'}
+  %h3.color-black Floating Action Button
+  %p
+    A Material design pattern, the
+    = link_to "floating action button", 'https://www.google.com/design/spec/components/buttons-floating-action-button.html#buttons-floating-action-button-large-screens', target: '_'
+    triggers the primary action of the page it lives on.
+  .panel--block
+    %p
+      %a{href: '#', class: 'btn-fab'}
+        = i('add')
+    %p
+      %a{href: '#', class: 'btn-fab-reverse'}
+        = i('edit')
+
+    %code
+      %p= "<a href='#' class='btn-fab'><i class='material-icons'>add</i></a>"
+      %p= "<a href='#' class='btn-fab-reverse'><i class='material-icons'>edit</i></a>"

@@ -8,7 +8,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
   case TOGGLE_QUICK_SEARCH:
     let newState;
 
@@ -19,8 +19,20 @@ export default (state = initialState, action) => {
     }
     return newState;
   case TOGGLE_EXPANDED_RECORD:
-    // c onst id = action.record.id;
-    return state;
+    const id = action.record.id;
+    const index = state.expandedRecordIds.indexOf(action.record.id);
+    let newExpandedRecordIds;
+
+    if (index === -1) {
+      newExpandedRecordIds = [...state.expandedRecordIds, id];
+    } else {
+      newExpandedRecordIds = [
+        ...state.expandedRecordIds.slice(0, index),
+        ...state.expandedRecordIds.slice(index + 1)
+      ];
+    }
+
+    return { ...state, expandedRecordIds: newExpandedRecordIds };
   default:
     return state;
   }

@@ -1,0 +1,69 @@
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $z-layout-toolbar;
+  background-color: $toolbar-bg-color;
+  padding: 0 $default-spacing*4.5 0 $main-nav-width;
+  width: 100%;
+  height: $util-nav-height;
+  overflow: visible;
+
+  .actions {
+    right: $default-spacing*4.5;
+    height: $util-nav-height;
+    line-height: $util-nav-height;
+    .action--icon,
+    .action-btn {
+      float: left;
+    }
+    .action-btn {
+      top: $default-spacing/3;
+      height: $util-nav-height - $default-spacing*(2/3);
+      line-height: $util-nav-height - $default-spacing*(2/3);
+    }
+    .action--icon,
+    .action--text {
+      line-height: $util-nav-height;
+      color: rgba($toolbar-fg-color, .8);
+      &:hover {
+        color: $toolbar-fg-color;
+      }
+      i {
+        height: $util-nav-height;
+        line-height: $util-nav-height;
+      }
+    }
+  }
+}
+
+.toolbar-overlay {
+  @include default-transition;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  padding: 0 $default-spacing;
+  height: 0;
+  overflow: hidden;
+  line-height: $util-nav-height;
+  content: 0;
+}
+
+.toolbar-action {
+  display: block;
+  line-height: $util-nav-height;
+  color: $primary-fg-color;
+  &:hover {
+    text-decoration: none;
+    color: $link-color;
+  }
+  i {
+    @include font-size($h3-size);
+    display: inline-block;
+    float: left;
+    margin-right: $default-spacing/2;
+    line-height: $util-nav-height;
+  }
+}

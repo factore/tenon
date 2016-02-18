@@ -1,0 +1,78 @@
+.btn {
+  @include default-transition;
+  @include z-depth-1;
+  @include font-smaller;
+  line-height: $btn-height;
+  position: relative;
+  display: inline-block;
+  height: $btn-height;
+  padding: 0 $default-spacing;
+  text-align: center;
+  text-transform: uppercase;
+  color: $btn-primary-fg-color;
+  border: 0;
+  border-radius: $default-border-radius;
+  background-color: $btn-primary-bg-color;
+  &:hover {
+    @include z-depth-1-half;
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.btn-reverse {
+  @extend .btn;
+  color: $btn-primary-bg-color;
+  background-color: $btn-primary-fg-color;
+  &:hover {
+    color: $btn-primary-bg-color;
+  }
+}
+
+.btn-secondary {
+  @extend .btn;
+  color: $btn-secondary-fg-color;
+  background-color: $btn-secondary-bg-color;
+}
+
+.btn-secondary-reverse {
+  @extend .btn;
+  color: $btn-secondary-bg-color;
+  background-color: $btn-secondary-fg-color;
+  &:hover {
+    color: $btn-secondary-bg-color;
+  }
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  margin-bottom: $default-spacing / 3;
+}
+
+.btn-flat,
+.btn-flat:hover {
+  @extend .btn;
+  @include z-depth-0;
+}
+
+.btn-flat-reverse,
+.btn-flat-reverse:hover {
+  @extend .btn-flat;
+  color: $btn-primary-bg-color;
+  background-color: $btn-primary-fg-color;
+}
+
+.btn-flat-secondary,
+.btn-flat-secondary:hover {
+  @extend .btn-flat;
+  color: $btn-secondary-fg-color;
+  background-color: $btn-secondary-bg-color;
+}
+
+.btn-flat-secondary-reverse,
+.btn-flat-secondary-reverse:hover {
+  @extend .btn-flat;
+  color: $btn-secondary-bg-color;
+  background-color: $btn-secondary-fg-color;
+}

@@ -1,0 +1,59 @@
+%section
+  %a.scroll-target{name: 'buttons'}
+  %a.scroll-target{name: 'button__styles'}
+  %h3.color-black Button Styles
+  %p
+    Use these classes on any HTML element that you would like to look and
+    act like a button. Can be used with any button color class below.
+
+  .panel--block
+    %h4 Standard Button
+    %p
+      %button{ type: 'button', class: 'btn' }
+        Button
+    %p
+      %a{ href: '#', class: 'btn' }
+        Link
+    %code
+      %p= "<button type='button' class='btn'>Button</button>"
+      %p= "<a href='#' class='btn'>Link</a>"
+
+    %h4 Flat Button
+    %p Same as the standard button, but without depth.
+    %p
+      %button{ type: 'button', class: 'btn btn-flat' }
+        Button
+    %p
+      %a{ href: '#', class: 'btn btn-flat' }
+        Link
+    %code
+      %p= "<button type='button' class='btn btn-flat'>Button</button>"
+      %p= "<a href='#' class='btn btn-flat'>Link</a>"
+
+    %h4 Block Button
+    %p Same as the standard button, but with display:block;
+    %p
+      %button{ type: 'button', class: 'btn btn-block' }
+        Button
+    %p
+      %a{ href: '#', class: 'btn btn-block' }
+        Link
+    %code
+      %p= "<button type='button' class='btn btn-block'>Button</button>"
+      %p= "<a href='#' class='btn btn-block'>Link</a>"
+
+    %h4 Floating Action Button
+    %p
+      A Material design pattern, the
+      = link_to "floating action button", 'https://www.google.com/design/spec/components/buttons-floating-action-button.html#buttons-floating-action-button-large-screens', target: '_'
+      triggers the primary action of the page it lives on.
+    %p
+      %a{ href: '#', class: 'btn-fab' }
+        = i('add')
+    %p
+      %a{ href: '#', class: 'btn-fab-reverse' }
+        = i('edit')
+
+    %code
+      %p= "<a href='#' class='btn-fab'><i class='material-icons'>add</i></a>"
+      %p= "<a href='#' class='btn-fab-reverse'><i class='material-icons'>edit</i></a>"

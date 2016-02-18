@@ -2,6 +2,7 @@ window.ResourceIndexComponents.DefaultList = (props) => {
   const { Record, LoadMoreButton }  = props.childComponents;
   const { deleteRecord, updateRecord, toggleExpandedRecord } = props.handlers;
   const { records, isFetching, pagination } = props.data;
+  const { expandedRecordIds } = props.ui;
   let output;
 
   if (records.length === 0 && !isFetching) {
@@ -12,6 +13,7 @@ window.ResourceIndexComponents.DefaultList = (props) => {
         <Record
           {...record}
           key={i}
+          expanded={expandedRecordIds.indexOf(record.id) !== -1}
           onDelete={(e) => deleteRecord(e, record)}
           onUpdate={(e, payload) => updateRecord(e, record, payload)}
           onToggleExpand={(e) => toggleExpandedRecord(e, record)} />

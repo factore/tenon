@@ -15,7 +15,7 @@ class Datepicker extends React.Component {
 
   setupDatepicker() {
     const el = this.refs.datepicker;
-    const {name, onChange } = this.props;
+    const { name, onChange } = this.props;
 
     $(ReactDOM.findDOMNode(el)).pickadate({
       format: 'yyyy-mm-dd',
@@ -24,7 +24,7 @@ class Datepicker extends React.Component {
       selectYears: 5,
       container: 'body',
       closeOnSelect: true,
-      onSet: function(e) {
+      onSet: function() {
         const value = this.get('select', 'yyyy-mm-dd');
         const event = { target: { value: value, name: name } };
 
@@ -36,10 +36,11 @@ class Datepicker extends React.Component {
   render() {
     return (
       <input
+        className={this.props.className}
         type="date"
         ref="datepicker"
         name={this.props.name}
-        value={this.props.value} />
+        initialValue={this.props.value} />
     );
   }
 }

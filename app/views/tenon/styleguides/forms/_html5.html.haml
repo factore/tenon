@@ -1,0 +1,31 @@
+%section
+  %a.scroll-target{name: 'forms__html5'}
+  %h3.color-black HTML5 fields
+  %p
+    These are HTML5 specific and might not work for every app (i.e. IE). But
+    they are available in Tenon.
+  .panel--block
+    = f.number_field :number, label: 'Number field', placeholder: 'i.e. 1234'
+    %code
+      %p f.number_field :number, label: 'Number field', placeholder: 'i.e. 1234'
+      %p= link_to 'http://caniuse.com/#feat=input-number', 'http://caniuse.com/#feat=input-number', target: '_'
+
+    = f.email_field :text, label: 'Email field', placeholder: 'placeholder@email.com'
+    %code
+      %p f.email_field :text, label: 'Email field', placeholder: 'placeholder@email.com'
+      %p.font-smallest= link_to 'http://caniuse.com/#feat=input-email-tel-url', 'http://caniuse.com/#feat=input-email-tel-url', target: '_'
+
+    = f.phone_field :text, label: 'Phone field', placeholder: 'i.e. 905 522-7894'
+    %code
+      %p f.phone_field :text, label: 'Phone field', placeholder: 'i.e. 905 522-7894'
+      %p.font-smallest= link_to 'http://caniuse.com/#feat=input-email-tel-url', 'http://caniuse.com/#feat=input-email-tel-url', target: '_'
+
+    = f.url_field :text, label: 'URL field', placeholder: 'i.e. http://factore.ca'
+    %code
+      %p f.url_field :text, label: 'URL field', placeholder: 'i.e. http://factore.ca'
+      %p.font-smallest= link_to 'http://caniuse.com/#feat=input-email-tel-url', 'http://caniuse.com/#feat=input-email-tel-url', target: '_'
+
+    = f.color_field :text, label: 'HTML5 color picker field'
+    %code
+      %p f.color_field :text, label: 'HTML5 color picker field'
+      %p.font-smallest= link_to 'http://caniuse.com/#feat=input-color', 'http://caniuse.com/#feat=input-color', target: '_'

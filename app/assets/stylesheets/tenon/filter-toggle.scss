@@ -1,0 +1,10 @@
+.action--text.toggle-drawer {
+  top: -1px;
+  padding: 2px 8px;
+  &:hover {
+    border-radius: $default-border-radius;
+    background-color: $link-color;
+    text-decoration: none;
+    color: $white;
+  }
+}
