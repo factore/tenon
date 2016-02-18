@@ -19,7 +19,7 @@ module Tenon
 
     def crop_link
       h.action_link(
-        'Crop',
+        t('tenon.asset.crop'),
         [:crop, object],
         'crop',
         class: 'asset-crop',
@@ -33,13 +33,13 @@ module Tenon
     def edit_link(opts = {})
       defaults = {
         'data-modal-remote' => true,
-        'data-modal-title' => 'Edit Asset'
+        'data-modal-title' => t('tenon.asset.edit_asset')
       }
       super(opts.merge(defaults))
     end
 
     def download_link
-      h.action_link('Download', object.attachment.url, 'download', target: '_')
+      h.action_link(t('tenon.asset.download'), object.attachment.url, 'download', target: '_')
     end
 
     def style_urls

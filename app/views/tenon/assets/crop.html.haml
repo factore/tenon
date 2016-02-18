@@ -3,8 +3,7 @@
   .preview
     .modal-header
       %button{ type: 'button', class: 'close', data: { dismiss: 'modal' }, :'aria-hidden' => 'true' } &times;
-      %h4#myModalLabel{ class: 'modal-title'}
-        Crop
+      %h4#myModalLabel{ class: 'modal-title'}= t('tenon.asset.crop')
     .image-holder= image_tag(@asset.attachment.url, id: 'cropbox', data: { width: @asset.dimensions(:original)[0], height: @asset.dimensions(:original)[1] })
     .spinner= fa_icon('spinner spin')
 
@@ -13,5 +12,5 @@
         = f.hidden_field field
       .crop_buttons.right.full
         = f.check_box :duplicate, checked: true, class: 'tn-checkbox-right'
-        = f.label :duplicate, "Create New Asset From Crop?", class: 'left'
-        .right= f.submit "Save", class: 'save btn btn-comp', data: { disable_with: "Please wait..." }
+        = f.label :duplicate, t('tenon.asset.create_new_asset_from_crop'), class: 'left'
+        .right= f.submit t('tenon.common.save'), class: 'save btn btn-comp', data: { disable_with: t('tenon.common.please_wait') }

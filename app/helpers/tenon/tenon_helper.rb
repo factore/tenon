@@ -36,7 +36,7 @@ module Tenon
     def edit_link(obj, options = {})
       if can?(:edit, obj)
         url = polymorphic_url([:edit] + Array(obj))
-        action_link('Edit', url, 'pencil', options)
+        action_link(t('tenon.common.edit'), url, 'pencil', options)
       end
     end
 

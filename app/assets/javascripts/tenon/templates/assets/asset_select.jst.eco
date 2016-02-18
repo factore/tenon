@@ -1,1 +1,1 @@
-<li>Asset</li>
+<li><%= t('tenon.asset.asset') %></li>

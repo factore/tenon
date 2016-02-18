@@ -50,7 +50,7 @@ module Tenon
 
     def check_attached_items
       unless item_assets.count == 0
-        errors.add(:base, "This asset has been attached to items in your site and can't be deleted.")
+        errors.add(:base, t('tenon.asset.in_use'))
         return false
       end
     end

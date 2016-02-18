@@ -1,0 +1,30 @@
+en:
+  tenon:
+    common:
+      save: Save
+      please_wait: Please wait...
+      edit: Edit
+      are_you_sure: Are you sure? There is no undo for this!
+      delete: Delete
+
+    asset:
+      enter_a_title_for_your_asset: Enter a title for your asset. You can leave this blank to just use the file name as the title.
+      multiple_assets: If you upload multiple assets a numerical series will be created.
+      choose_file: Choose File
+      choose_files: Choose Files
+      asset_library: Asset Library
+      upload_new: Upload New
+      upload_assets: Upload Assets
+      file_types: File Types
+      all_assets: All Assets
+      images: Images
+      documents: Documents
+      crop: Crop
+      create_new_asset_from_crop: Create New Asset From Crop?
+      load_more: Load More Assets
+      edit_asset: Edit Asset
+      size: Size
+      asset: Asset
+      successfully_uploaded: Asset was successfully uploaded.
+      download: Download
+      in_use: This asset has been attached to items in your site and can't be deleted.
