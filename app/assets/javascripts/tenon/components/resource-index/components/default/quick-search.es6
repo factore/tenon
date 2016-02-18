@@ -1,60 +1,19 @@
 /* global React */
 
 class DefaultQuickSearch extends React.Component {
-  constructor(props) {
-    super(props);
-    this._delayedChange = _.debounce(function(value, action) {
-      action(value);
-    }, 500);
-  }
-
-  componentWillMount() {
-    this.setState({ inputValue: this.props.q });
-  }
-
-  componentDidUpdate() {
-    if (this.props.searchClass === 'open') {
-      React.findDOMNode(this.refs.searchInput).focus();
-    }
-  }
-
-  _handleChange(e) {
-    this.setState({ inputValue: e.target.value }, () => {
-      this._delayedChange(this.state.inputValue, this.props.searchAction);
-    });
-  }
-
-  _handleFocus() {
-    this.props.toggleQuickSearchAction('on');
-  }
-
-  _handleBlur(e) {
-    if (e.target.value === '') {
-      this.props.toggleQuickSearchAction('off');
-    }
-  }
-
-  _handleClear(e) {
-    e.preventDefault();
-    this.props.searchAction('');
-    this.props.toggleQuickSearchAction('off');
-    this.setState({ inputValue: '' });
-  }
-
   render() {
-    const { searchClass } = this.props;
-
+    const { q, onChange, onFocus, onBlur, onClickClear } = this.props;
     return (
-      <div id="search-container" className={searchClass}>
+      <div id="search-container">
         <section id="search" className="search-content">
           <i className="search-icon material-icons">search</i>
           <input
             type="text"
             ref="searchInput"
-            value={this.state.inputValue}
-            onChange={(e) => this._handleChange(e)}
-            onFocus={(e) => this._handleFocus(e)}
-            onBlur={(e) => this._handleBlur(e)}
+            value={q}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
             className="search-field"
             placeholder="Search..."
             title="Search" />
@@ -65,7 +24,7 @@ class DefaultQuickSearch extends React.Component {
             <a
               href="#"
               className="toolbar-action"
-              onClick={(e) => this._handleClear(e)}>
+              onClick={onClickClear}>
               <i className="material-icons">arrow_back</i>
               Clear
             </a>

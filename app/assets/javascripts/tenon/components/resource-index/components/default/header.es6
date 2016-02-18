@@ -3,40 +3,16 @@
 class DefaultHeader extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { searchOpen: false };
   }
 
   render() {
-    const searchClass = this.state.searchOpen ? 'open' : '';
-    const { QuickSearch, FilterPane } = this.props.childComponents;
-    let filterPane = '';
-
-    if (FilterPane) {
-      filterPane = <FilterPane />;
-    }
+    const { Filtering } = this.props.childComponents;
 
     return (
       <div className="toolbar">
         <Breadcrumbs breadcrumbs={this.props.breadcrumbs} />
+        <Filtering {...this.props} />
 
-        <QuickSearch
-          q={this.props.data.query.q}
-          searchAction={this.props.actions.quickSearchRecords}
-          toggleQuickSearchAction={this.props.actions.toggleQuickSearch}
-          searchClass={searchClass} />
-
-        <div className="actions">
-          <a className="action-icon toggle-drawer filter-toggle" href="#!" title="Filter" data-target="filters">
-            <i className="material-icons">tune</i>
-          </a>
-        </div>
-
-        {filterPane}
-        <section id="filters" className="drawer">
-          <p>
-          This is the filter pane.
-          </p>
-        </section>
 
         <div className="actions">
           <a className="action-icon dropdown-button" href="#!" data-activates="sort-dropdown" title="Sort or options?">
@@ -83,27 +59,6 @@ class DefaultHeader extends React.Component {
             </li>
           </ul>
         </div>
-      </div>
-    );
-  }
-
-  _handleSearchToggle(e) {
-    e.preventDefault();
-    // Clear the query before closing
-    if (this.state.searchOpen) {
-      this.props.actions.quickSearchRecords('');
-    }
-    this.setState({ searchOpen: !this.state.searchOpen });
-  }
-
-  _renderSearchButton(className, icon) {
-    return (
-      <div className="header-button">
-        <a href="#" onClick={(e) => this._handleSearchToggle(e)} className={className}>
-          <div className="header-icon">
-            <i className="material-icons">{icon}></i>
-          </div>
-        </a>
       </div>
     );
   }

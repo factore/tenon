@@ -3,7 +3,7 @@
   position: fixed;
   top: $util-nav-height;
   left: -$main-nav-width;
-  overflow: auto;
+  overflow-y: auto;
   width: $main-nav-width;
   height: 100%;
   border-right: 1px solid $light-border-color;

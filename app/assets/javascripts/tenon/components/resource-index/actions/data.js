@@ -47,26 +47,22 @@ export const fetchRecords = (append = false) => {
   };
 };
 
-export const updateQuery = (query) => {
-  return {
-    type: UPDATE_QUERY,
-    query: query
+export const updateQuery = (query, append = false) => {
+  return (dispatch) => {
+    dispatch({
+      type: UPDATE_QUERY,
+      query: query
+    });
+
+    dispatch(fetchRecords(append));
   };
 };
 
 export const loadNextPage = () => {
   return function(dispatch, getState) {
-    const nextPage = getState().pagination.currentPage + 1;
+    const nextPage = getState().data.pagination.currentPage + 1;
 
-    dispatch(updateQuery({ page: nextPage }));
-    dispatch(fetchRecords(true));
-  };
-};
-
-export const quickSearchRecords = (query) => {
-  return function(dispatch) {
-    dispatch(updateQuery({ q: query, page: 1 }));
-    dispatch(fetchRecords());
+    dispatch(updateQuery({ page: nextPage }, true));
   };
 };
 
