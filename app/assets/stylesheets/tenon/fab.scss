@@ -17,7 +17,7 @@
   @extend %default-transition;
   @include animation(btn-fab-intro .3s forwards .5s);
   @include transform(scale(0) rotate(-45deg));
-  @include z-depth-1;
+  @extend %z-depth-2;
   i {
     display: inline-block;
     width: inherit;
@@ -27,7 +27,7 @@
     @include font-size($btn-fab-icon-size);
   }
   &:hover {
-    @include z-depth-1-half;
+    @extend %z-depth-1;
   }
   &:before {
     border-radius: 0;

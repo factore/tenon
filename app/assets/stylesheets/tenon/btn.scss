@@ -1,6 +1,6 @@
 .btn {
   @extend %default-transition;
-  @include z-depth-1;
+  @extend %z-depth-2;
   @extend %font-smaller;
   line-height: $btn-height;
   position: relative;
@@ -14,7 +14,7 @@
   border-radius: $default-border-radius;
   background-color: $btn-primary-bg-color;
   &:hover {
-    @include z-depth-1-half;
+    @extend %z-depth-1;
     text-decoration: none;
     color: white;
   }
@@ -53,7 +53,7 @@
 .btn-flat,
 .btn-flat:hover {
   @extend .btn;
-  @include z-depth-0;
+  @extend %z-depth-0;
 }
 
 .btn-flat-reverse,

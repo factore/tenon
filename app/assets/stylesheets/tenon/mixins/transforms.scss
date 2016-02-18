@@ -1,15 +1,7 @@
- @mixin flip-horizontal {
+ %flip-horizontal {
   @include transform(scaleX(-1));
 }
 
-@mixin flip-vertical {
+%flip-vertical {
   @include transform(scaleY(-1));
-}
-
-.flip-horizontal {
-  @include flip-horizontal;
-}
-
-.flip-vertical {
-  @include flip-vertical;
 }

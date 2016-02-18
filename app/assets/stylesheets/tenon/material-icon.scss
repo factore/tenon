@@ -23,3 +23,11 @@ $main-nav-icon-size: 22;
   line-heihgt: 1;
   -moz-osx-font-smoothing: grayscale; // Support for Firefox.
 }
+
+.material-icon--flip-vertical {
+  @extend %flip-vertical;
+}
+
+.material-icon--flip-horizontal {
+  @extend %flip-horizontal;
+}

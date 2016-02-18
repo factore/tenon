@@ -9,11 +9,11 @@
   padding: ($default-spacing / 2) $default-spacing;
   width: 100%;
   overflow: hidden;
-  @include z-depth-1;
+  @extend %z-depth-2;
   @extend %default-transition;
   &:hover {
     opacity: 1;
-    @include z-depth-1;
+    @extend %z-depth-2;
   }
 }
 

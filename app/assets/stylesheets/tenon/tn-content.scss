@@ -63,7 +63,7 @@
     padding: 0;
 
     &.ui-sortable-helper {
-      @include z-depth-2;
+      @extend %z-depth-3;
       overflow: hidden;
       box-sizing: content-box;
       max-height: 200px;

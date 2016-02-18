@@ -1,5 +1,4 @@
 /* global React */
-
 class DefaultHeader extends React.Component {
   constructor(props) {
     super(props);
@@ -35,7 +34,7 @@ class DefaultHeader extends React.Component {
             </li>
             <li>
               <a href="#!">
-                <i className="material-icon flip-vertical">sort</i>
+                <i className="material-icon material-icon--flip-vertical">sort</i>
                 Z to A
               </a>
             </li>
