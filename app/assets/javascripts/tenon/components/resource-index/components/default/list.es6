@@ -22,7 +22,7 @@ window.ResourceIndexComponents.DefaultList = (props) => {
   return (
     <main>
       <a className="btn-fab btn-fab-bottom-right" href={props.newPath}>
-        <i className="material-icons">add</i>
+        <i className="material-icon">add</i>
       </a>
 
       <div className="record-list with-btn-fab">

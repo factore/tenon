@@ -16,7 +16,7 @@ class ContactRecord extends React.Component {
         <div className="record-details">
           <div className='record-actions'>
             <a href='#' onClick={onDelete} data-tooltip='Delete' title='Delete'>
-              <i className="material-icons">delete</i>
+              <i className="material-icon">delete</i>
             </a>
 
             <a
@@ -25,7 +25,7 @@ class ContactRecord extends React.Component {
               data-modal-title='Contact Details'
               data-tooltip='View Contact Details'
               title='View Contact Details'>
-              <i className="material-icons">visibility</i>
+              <i className="material-icon">visibility</i>
             </a>
 
             <a

@@ -47,7 +47,7 @@ class DefaultQuickSearch extends React.Component {
     return (
       <div id="search-container" className={searchClass}>
         <section id="search" className="search-content">
-          <i className="search-icon material-icons">search</i>
+          <i className="search-icon material-icon">search</i>
           <input
             type="text"
             ref="searchInput"
@@ -61,7 +61,7 @@ class DefaultQuickSearch extends React.Component {
 
           <div className="actions">
             <a className="action--icon toggle-drawer filter-toggle" href="#!" title="Filter" data-target="filters">
-              <i className="material-icons">tune</i>
+              <i className="material-icon">tune</i>
             </a>
           </div>
         </section>
@@ -78,14 +78,14 @@ class DefaultQuickSearch extends React.Component {
               href="#"
               className="toolbar-action"
               onClick={(e) => this._handleClear(e)}>
-              <i className="material-icons">arrow_back</i>
+              <i className="material-icon">arrow_back</i>
               Clear
             </a>
           </div>
 
           <div className="filter-content">
             <a href="#" className="toolbar-action toggle-drawer" data-target="filters">
-              <i className="material-icons">close</i>
+              <i className="material-icon">close</i>
               Close
             </a>
             <div className="util-nav-content">
