@@ -1,4 +1,4 @@
-window.ResourceIndexComponents.PostsFilterPane = ({ data, onChange }) => {
+window.ResourceIndexComponents.PostsFilterDrawer = ({ data, onChange }) => {
   const query = data.query;
 
   return (

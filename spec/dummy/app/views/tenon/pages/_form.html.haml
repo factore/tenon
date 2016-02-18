@@ -1,43 +1,44 @@
-= autosaving_form_for @page do |f|
-  .toolbar.bg-color-primary-dk10
-    = render 'tenon/shared/breadcrumbs'
-    .actions
-      - if can?(:publish, @page)
-        %button.action-btn.btn.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
+.drawer-pusher
+  = autosaving_form_for @page do |f|
+    .toolbar.bg-color-primary-dk10
+      = render 'tenon/shared/breadcrumbs'
+      .actions
+        - if can?(:publish, @page)
+          %button.action-btn.btn.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
 
-      %a.action-icon.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
-        = i('more_vert')
+        %a.action-icon.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
+          = i('more_vert')
 
-      %ul.dropdown-content#form-dropdown
-        - if can?(:create, Tenon::ItemVersion)
-          = render 'tenon/shared/draft_controls', obj: @page
+        %ul.dropdown-content#form-dropdown
+          - if can?(:create, Tenon::ItemVersion)
+            = render 'tenon/shared/draft_controls', obj: @page
 
-        - if @page.persisted?
-          %li
-            = link_to @page, data: { method: :delete, confirm: 'Are you sure you want to delete this?' }, class: 'delete-link' do
-              = i('delete')
+          - if @page.persisted?
+            %li
+              = link_to @page, data: { method: :delete, confirm: 'Are you sure you want to delete this?' }, class: 'delete-link' do
+                = i('delete')
 
-  %main
-    = error_messages_for :page
+    %main
+      = error_messages_for :page
 
-    = f.text_field :title, required: true, class: 'form-title-field', explanation: 'This is the title that shows up at the top of your page.'
+      = f.text_field :title, required: true, class: 'form-title-field', explanation: 'This is the title that shows up at the top of your page.'
 
-    .form-label Content
-    .panel.block
-      = f.tenon_content :content
+      .form-label Content
+      .panel.block
+        = f.tenon_content :content
 
-    .form-label Details
-    .panel.block
-      .row
-        .inner4
-        = f.collection_select :parent_id, @potential_parents, :id, :option_title, {:include_blank => "(No Parent)"}
-        .inner4
-          = f.check_box :show_in_menu, class: 'tn-checkbox-right'
-        .inner4.omega
-          = f.check_box :show_contact_form, class: 'tn-checkbox-right'
-      .row
-        = f.text_field :publish_at, label: "Publish Date", data: {behaviour: 'datetime-picker'}, placeholder: '--'
+      .form-label Details
+      .panel.block
+        .row
+          .inner4
+          = f.collection_select :parent_id, @potential_parents, :id, :option_title, {:include_blank => "(No Parent)"}
+          .inner4
+            = f.check_box :show_in_menu, class: 'tn-checkbox-right'
+          .inner4.omega
+            = f.check_box :show_contact_form, class: 'tn-checkbox-right'
+        .row
+          = f.text_field :publish_at, label: "Publish Date", data: {behaviour: 'datetime-picker'}, placeholder: '--'
 
-    = render 'tenon/shared/seo_fields', f: f
+      = render 'tenon/shared/seo_fields', f: f
 
-    .spacer
+      .spacer

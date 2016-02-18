@@ -6,7 +6,13 @@ window.ResourceIndexComponents.DefaultList = (props) => {
   let output;
 
   if (records.length === 0 && !isFetching) {
-    output = <li className="collection-item">No {props.title.toLowerCase()} found.</li>;
+    output = (
+      <li className="record">
+        <div className="record__details">
+          <p className="record__title">No {props.title.toLowerCase()} found.</p>
+        </div>
+      </li>
+    );
   } else {
     output = records.map((record, i) => {
       return (

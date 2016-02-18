@@ -16,7 +16,8 @@
     = javascript_include_tag 'tenon/application'
 
   %body{data: { controller: params[:controller], action: params[:action] } }
-    = render 'tenon/shared/util_nav'
+    = flash_messages
+    = render 'tenon/shared/version_warning' if @item_version
 
     #main-nav.drawer
       %p.app-info
@@ -25,7 +26,5 @@
           = Tenon::MySettings.site_title
       = render 'tenon/shared/main_nav'
 
-    .drawer-pusher
-      = flash_messages
-      = yield
-      = render 'tenon/shared/version_warning' if @item_version
+    = render 'tenon/shared/util_nav'
+    = yield

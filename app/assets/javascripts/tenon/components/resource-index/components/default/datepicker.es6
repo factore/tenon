@@ -40,7 +40,7 @@ class Datepicker extends React.Component {
         type="date"
         ref="datepicker"
         name={this.props.name}
-        initialValue={this.props.value} />
+        defaultValue={this.props.value} />
     );
   }
 }

@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import _ from 'lodash';
+import { toQueryString, debounce } from 'lodash';
 
 export const REQUEST_RECORDS = 'REQUEST_RECORDS';
 export const FETCH_RECORDS = 'FETCH_RECORDS';
@@ -38,7 +38,7 @@ export const receiveRecords = (json, append) => {
 export const fetchRecords = (append = false) => {
   return function(dispatch, getState) {
     const state = getState().data;
-    const query = _.toQueryString(state.query);
+    const query = toQueryString(state.query);
 
     dispatch(requestRecords);
     return fetch(state.baseUri + query, { credentials: 'same-origin' })
@@ -47,6 +47,10 @@ export const fetchRecords = (append = false) => {
   };
 };
 
+const debouncedFetchRecords = debounce((dispatch, append = false) => {
+  dispatch(fetchRecords(append));
+}, 500);
+
 export const updateQuery = (query, append = false) => {
   return (dispatch) => {
     dispatch({
@@ -54,7 +58,7 @@ export const updateQuery = (query, append = false) => {
       query: query
     });
 
-    dispatch(fetchRecords(append));
+    debouncedFetchRecords(dispatch, append);
   };
 };
 

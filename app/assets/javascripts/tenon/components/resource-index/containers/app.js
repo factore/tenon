@@ -71,6 +71,11 @@ class App extends Component {
     if (this.props.ui.quickSearchOpen) {
       classNames.push('quick-search-open');
     }
+
+    if (this.props.ui.filterDrawerOpen) {
+      classNames.push('filter-drawer-open');
+    }
+
     return classNames.join(' ');
   }
 
@@ -80,8 +85,10 @@ class App extends Component {
 
     return (
       <div className={classNames}>
-        <Header {...this.props} />
-        <List {...this.props} />
+        <div className='drawer-pusher'>
+          <Header {...this.props} />
+          <List {...this.props} />
+        </div>
       </div>
     );
   }

@@ -14,25 +14,25 @@ class DefaultFiltering extends React.Component {
   }
 
   render() {
-    const { FilterPane, QuickSearch } = this.props.childComponents;
+    const { FilterDrawer, QuickSearch } = this.props.childComponents;
     const { actions } = this.props;
 
-    let filterPane = '';
-    let filterPaneToggle = '';
+    let filterDrawer = '';
+    let filterDrawerToggle = '';
 
-    if (FilterPane) {
-      filterPane = (
+    if (FilterDrawer) {
+      filterDrawer = (
         <form
           id="filters"
           className="drawer">
-          <FilterPane
+          <FilterDrawer
             { ...this.props }
             onChange={(e) => this._changeFilter(e)} />
         </form>
       );
 
-      filterPaneToggle = (
-        <a className="toggle-drawer filter-toggle" href="#!" title="Filter" data-target="filters">
+      filterDrawerToggle = (
+        <a className="action-icon" onClick={actions.toggleFilterDrawer} href="#!" title="Filter">
           <i className="material-icons">tune</i>
         </a>
       );
@@ -51,8 +51,8 @@ class DefaultFiltering extends React.Component {
               }
             }} />
 
-        {filterPaneToggle}
-        {filterPane}
+        {filterDrawerToggle}
+        {filterDrawer}
 
         <div className="toolbar-overlay">
           <div className="filter-content">
