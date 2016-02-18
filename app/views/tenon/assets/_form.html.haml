@@ -5,7 +5,7 @@
       - if can?(:publish, @asset)
         %button.action-btn.btn.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
 
-      %a.action-icon.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
+      = link_to '#!', class: 'action--icon dropdown-button' , data: { activates: 'form-dropdown'}  do
         = i('more_vert')
 
       %ul.dropdown-content#form-dropdown
@@ -19,11 +19,10 @@
 
     = f.text_field :title, class: 'form-title-field', explanation: "Enter a title for your asset.  You can leave this blank to just use the file name as the title. #{defined?(multiple) ? 'If you upload multiple assets a numerical series will be created.' : '' }"
 
-    .panel.block
+    .panel--block
       .browse-button-holder
         .fileupload.btn.btn-secondary.browse
           %span#choose-files= defined?(multiple) ? 'Choose Files' : 'Choose File'
           %input{ type: 'file', class: 'upload', multiple: defined?(multiple) && multiple, style: 'width: 100%;', name: 'asset[attachment]' }
 
     .spacer
-

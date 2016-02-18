@@ -1,13 +1,13 @@
 .filters-open,
 .quick-search-open {
   #search-overlay.toolbar-overlay {
-    height: $util-nav-height;
     opacity: 1;
+    height: $util-nav-height;
   }
 
   .toolbar {
     z-index: $z-quick-search-active;
-    .actions .action-icon {
+    .actions .action--icon {
       color: $primary-fg-color;
       &:hover {
         color: $link-color;

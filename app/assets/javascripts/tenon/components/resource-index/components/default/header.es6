@@ -21,7 +21,7 @@ class DefaultHeader extends React.Component {
           searchClass={searchClass} />
 
         <div className="actions">
-          <a className="action-icon dropdown-button" href="#!" data-activates="sort-dropdown" title="Sort or options?">
+          <a className="action--icon dropdown-button" href="#!" data-activates="sort-dropdown" title="Sort or options?">
             <i className="material-icons">sort</i>
           </a>
           <ul className="dropdown-content" id="sort-dropdown">
@@ -41,7 +41,7 @@ class DefaultHeader extends React.Component {
             </li>
           </ul>
 
-          <a className="action-icon dropdown-button" href="#!" data-activates="list-dropdown" title="Links!">
+          <a className="action--icon dropdown-button" href="#!" data-activates="list-dropdown" title="Links!">
             <i className="material-icons">more_vert</i>
           </a>
           <ul className="dropdown-content" id="list-dropdown">

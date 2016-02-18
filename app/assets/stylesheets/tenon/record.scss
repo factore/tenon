@@ -1,38 +1,106 @@
-.record-details {
+.record-list {
+}
+
+.record {
+  @include z-depth-1;
+  @include default-transition;
   position: relative;
-  p {
-    margin: 0;
-    &.record-title {
-      @include truncate;
-      color: $body-fg-color;
-    }
-  }
-  .actions {
-    @include bp-md {
-      @include transform-style(preserve-3d);
-      position: absolute;
-      z-index: $z-panel-open;
-      right: 0;
-      bottom: 0;
-      opacity: 0;
-      .action-icon {
-        @include vertical-align;
-      }
-    }
-    padding-left: $default-spacing/2;
-    text-align: right;
-    background-color: $panel-bg-color;
-    .action-icon {
-      color: $primary-fg-color;
-      &:hover {
-        color: $primary-color;
-      }
-    }
+  opacity: .7;
+  margin-bottom: 1px;
+  background-color: $panel-bg-color;
+  padding: ($default-spacing / 2) $default-spacing;
+  width: 100%;
+  overflow: hidden;
+
+  &:hover {
+    @include z-depth-1;
+    opacity: 1;
   }
 }
 
-.record-list {
+.record__details {
+  position: relative;
 }
+
+.record__title {
+  @include truncate;
+  margin: 0;
+  color: $body-fg-color;
+}
+
+.record__title--smallest {
+  @extend .record__title;
+  @include font-smallest;
+}
+
+.record__actions {
+  @include bp-md {
+    @include transform-style(preserve-3d);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: $z-panel-open;
+    background-color: $panel-bg-color;
+    padding-left: $default-spacing/2;
+    text-align: right;
+  }
+  @include default-transition;
+}
+
+.record:hover .record__actions {
+  opacity: .9;
+}
+
+.record__action-icon {
+  @extend .action--icon;
+  @include bp-md {
+    @include vertical-align;
+  }
+  color: $primary-fg-color;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.record__expanded-content {
+  display: none;
+  padding-top: $default-spacing/3;
+}
+
+.record__expanded-title {
+  color: $primary-color;
+}
+
+.record__expanded-title--smallest {
+  @include font-smallest;
+}
+
+.record__expanded-actions {
+  position: relative;
+  border-top: 1px solid $light-border-color;
+}
+
+.record__expanded-action-text {
+  @extend .action--text;
+  margin-right: $default-spacing;
+}
+
+.record__expand-toggle {
+  cursor: pointer;
+}
+
+.record--is-expanded {
+  margin: 1px -2%;
+  width: 104%;
+
+  > .record__expanded-content {
+    display: block;
+  }
+}
+
 
 .infinite-loader {
   @include font-h3;
@@ -42,17 +110,5 @@
 
   &.visible {
     display: block;
-  }
-}
-
-.record-expanded {
-  display: none;
-  padding-top: $default-spacing/3;
-  .actions {
-    position: relative;
-    border-top: 1px solid $light-border-color;
-    .action-text {
-      margin-right: $default-spacing;
-    }
   }
 }

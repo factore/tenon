@@ -1,37 +1,37 @@
 .toolbar {
   position: fixed;
-  z-index: $z-layout-toolbar;
   top: 0;
   left: 0;
-  overflow: visible;
+  z-index: $z-layout-toolbar;
+  background-color: $toolbar-bg-color;
+  padding: 0 $default-spacing*4.5 0 $main-nav-width;
   width: 100%;
   height: $util-nav-height;
-  padding: 0 $default-spacing*4.5 0 $main-nav-width;
-  background-color: $toolbar-bg-color;
+  overflow: visible;
 
   .actions {
-    line-height: $util-nav-height;
     right: $default-spacing*4.5;
     height: $util-nav-height;
-    .action-icon,
+    line-height: $util-nav-height;
+    .action--icon,
     .action-btn {
       float: left;
     }
     .action-btn {
-      line-height: $util-nav-height - $default-spacing*(2/3);
       top: $default-spacing/3;
       height: $util-nav-height - $default-spacing*(2/3);
+      line-height: $util-nav-height - $default-spacing*(2/3);
     }
-    .action-icon,
-    .action-text {
+    .action--icon,
+    .action--text {
       line-height: $util-nav-height;
       color: rgba($toolbar-fg-color, .8);
       &:hover {
         color: $toolbar-fg-color;
       }
       i {
-        line-height: $util-nav-height;
         height: $util-nav-height;
+        line-height: $util-nav-height;
       }
     }
   }
@@ -39,21 +39,21 @@
 
 .toolbar-overlay {
   @include default-transition;
-  line-height: $util-nav-height;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  overflow: hidden;
-  height: 0;
-  padding: 0 $default-spacing;
-  content: 0;
   opacity: 0;
+  padding: 0 $default-spacing;
+  height: 0;
+  overflow: hidden;
+  line-height: $util-nav-height;
+  content: 0;
 }
 
 .toolbar-action {
-  line-height: $util-nav-height;
   display: block;
+  line-height: $util-nav-height;
   color: $primary-fg-color;
   &:hover {
     text-decoration: none;
@@ -61,9 +61,9 @@
   }
   i {
     @include font-size($h3-size);
-    line-height: $util-nav-height;
     display: inline-block;
     float: left;
     margin-right: $default-spacing/2;
+    line-height: $util-nav-height;
   }
 }

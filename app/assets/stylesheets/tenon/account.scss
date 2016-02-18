@@ -1,20 +1,20 @@
 .account {
   position: fixed;
-  z-index: $z-account;
   top: 0;
   right: $default-spacing;
-  .action-icon {
+  z-index: $z-account;
+  .action--icon {
     line-height: $util-nav-height;
     i {
-      line-height: $util-nav-height - $default-spacing*(2/3);
+      margin: $default-spacing/3 0;
+      background-color: $avatar-bg-color;
       width: $util-nav-height - 20px;
       height: $util-nav-height - 20px;
-      margin: $default-spacing/3 0;
+      line-height: $util-nav-height - $default-spacing*(2/3);
       color: $avatar-fg-color;
-      background-color: $avatar-bg-color;
       &:hover {
-        color: $avatar-fg-hover-color;
         background-color: $avatar-bg-hover-color;
+        color: $avatar-fg-hover-color;
       }
     }
   }
@@ -22,13 +22,13 @@
 
 .account-avatar {
   .account-avatar-image {
+    display: none; // temporary
     position: absolute;
-    z-index: 10;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    display: none; // temporary
+    z-index: 10;
     width: 100%;
   }
 }

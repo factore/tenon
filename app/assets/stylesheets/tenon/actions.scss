@@ -1,32 +1,35 @@
-.action-icon {
-  line-height: $default-spacing*1.5;
-  position: relative;
+.action--icon {
   display: inline-block;
+  position: relative;
+  line-height: $default-spacing*1.5;
   color: $primary-fg-color;
+
   &:hover {
     text-decoration: none;
   }
+
   i {
     @include default-transition;
     @include font($h3-size, $h3-line-height);
-    line-height: $default-spacing*1.5;
-    position: relative;
     display: block;
-    overflow: hidden;
+    position: relative;
+    border-radius: 50%;
     width: $default-spacing*1.5;
     height: $default-spacing*1.5;
+    overflow: hidden;
     text-align: center;
-    border-radius: 50%;
+    line-height: $default-spacing*1.5;
   }
 }
 
-.action-text {
+.action--text {
   @include font-smaller;
-  line-height: $default-spacing*1.5;
   position: relative;
   height: $default-spacing*1.5;
   text-transform: uppercase;
+  line-height: $default-spacing*1.5;
   color: $link-color;
+
   &:hover {
     text-decoration: none;
     color: $link-hover-color;
