@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'uglifier'
 
   # The actual gem dependencies
-  s.add_dependency 'rails', '5.0.0.beta1'
+  s.add_dependency 'rails', '5.0.0.beta2'
 
   s.add_dependency 'browserify-rails'
   s.add_dependency 'cancan'
