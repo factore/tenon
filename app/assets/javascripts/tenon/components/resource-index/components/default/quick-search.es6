@@ -2,11 +2,13 @@
 
 class DefaultQuickSearch extends React.Component {
   render() {
-    const { q, onChange, onFocus, onBlur, onClickClear } = this.props;
-
-    return (
-      <div id="search-container">
-        <section id="search" className="search-content">
+    const {
+      q, onChange, onFocus, onBlur,
+      onClickClear, quickSearchOpen, ActionButtons
+    } = this.props;
+    let toolbarOverlayClassName = 'toolbar-overlay';
+    const quickSearchInput = (
+      <section id="search" className="search-content">
           <i className="search-icon material-icon">search</i>
           <input
             type="text"
@@ -20,16 +22,31 @@ class DefaultQuickSearch extends React.Component {
             placeholder="Search..."
             title="Search" />
         </section>
+    );
 
-        <div id="search-overlay" className="toolbar-overlay">
-          <div className="search-content">
-            <a
-              href="#!"
-              className="toolbar-action"
-              onClick={onClickClear}>
-              <i className="material-icon">arrow_back</i>
-              Clear
-            </a>
+    if (quickSearchOpen) {
+      toolbarOverlayClassName += ' toolbar-overlay--is-open';
+    }
+
+    return (
+      <div id="search-container">
+        {quickSearchInput}
+
+        <div className={toolbarOverlayClassName}>
+          <div className="toolbar-overlay__background"></div>
+          <div className="toolbar-overlay__content">
+            <div className="quick-search-content">
+              <a
+                href="#!"
+                className="toolbar-action"
+                onClick={onClickClear}>
+                <i className="material-icon">arrow_back</i>
+                Clear
+              </a>
+
+              {quickSearchInput}
+              {this.props.ActionButtons}
+            </div>
           </div>
         </div>
       </div>

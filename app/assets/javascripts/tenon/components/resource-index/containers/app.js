@@ -7,6 +7,7 @@ import * as DataActionCreators from '../actions/data';
 const DEFAULT_CHILD_COMPONENT_NAMES = {
   Sidebar: 'DefaultSidebar',
   Header: 'DefaultHeader',
+  ActionButtons: 'DefaultActionButtons',
   Filtering: 'DefaultFiltering',
   QuickSearch: 'DefaultQuickSearch',
   List: 'DefaultList',

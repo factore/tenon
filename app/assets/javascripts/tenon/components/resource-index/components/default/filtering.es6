@@ -14,7 +14,7 @@ class DefaultFiltering extends React.Component {
   }
 
   render() {
-    const { FilterDrawer, QuickSearch } = this.props.childComponents;
+    const { FilterDrawer, QuickSearch, ActionButtons } = this.props.childComponents;
     const { actions } = this.props;
 
     let filterDrawer = '';
@@ -32,7 +32,11 @@ class DefaultFiltering extends React.Component {
       );
 
       filterDrawerToggle = (
-        <a className="action-icon" onClick={actions.toggleFilterDrawer} href="#!" title="Filter">
+        <a
+          className="action-icon"
+          onClick={actions.toggleFilterDrawer}
+          href="#!"
+          title="Filter">
           <i className="material-icons">tune</i>
         </a>
       );
@@ -42,6 +46,8 @@ class DefaultFiltering extends React.Component {
       <div>
         <QuickSearch
             q={this.props.data.query.q}
+            ActionButtons={ActionButtons}
+            quickSearchOpen={this.props.ui.quickSearchOpen}
             onClickClear={(e) => this._clearFilters(e)}
             onFocus={() => actions.toggleQuickSearch('on')}
             onChange={(e) => this._changeFilter(e)}

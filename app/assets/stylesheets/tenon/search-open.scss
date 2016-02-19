@@ -1,20 +1,5 @@
 .filter-drawer-open,
 .quick-search-open {
-  #search-overlay.toolbar-overlay {
-    opacity: 1;
-    height: $util-nav-height;
-  }
-
-  .toolbar {
-    z-index: $z-quick-search-active;
-    .actions .action--icon {
-      color: $primary-fg-color;
-      &:hover {
-        color: $link-color;
-      }
-    }
-  }
-
   #search {
     .search-icon {
       z-index: $z-quick-search-active;
