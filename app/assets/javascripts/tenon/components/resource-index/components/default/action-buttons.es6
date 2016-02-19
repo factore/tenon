@@ -1,6 +1,6 @@
 window.ResourceIndexComponents.DefaultActionButtons = (props) => {
   return (
-    <div className="toolbar__actions">
+    <div className="toolbar__actions toolbar__actions--right">
       <div className="toolbar__action">
         <a className="action-icon dropdown-button" href="#!" data-activates="sort-dropdown" title="Sort or options?">
           <i className="material-icon">sort</i>

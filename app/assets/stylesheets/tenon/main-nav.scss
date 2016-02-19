@@ -15,8 +15,8 @@
   > li {
     position: relative;
     margin-bottom: 1px;
-    padding: $default-spacing/5 0;
     border-radius: $default-border-radius;
+    padding: $default-spacing/5 0;
   }
   > :hover {
     background-color: rgba($white, .45);
@@ -32,9 +32,9 @@
   }
 
   a {
-    line-height: $default-spacing;
     display: block;
     padding: 0 $default-spacing/2;
+    line-height: $default-spacing;
     color: $main-nav-fg-color;
     &:hover {
       text-decoration: none;
@@ -43,11 +43,11 @@
 
   i {
     @include font-size($main-nav-icon-size);
-    line-height: $default-spacing;
     display: inline-block;
-    height: $default-spacing;
     margin-right: $default-spacing/3;
+    height: $default-spacing;
     vertical-align: middle;
+    line-height: $default-spacing;
     color: $light-fg-color;
   }
 

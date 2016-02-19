@@ -1,8 +1,9 @@
 .drawer {
-  @extend %drawer-transition;
+  @include drawer-transition;
   position: fixed;
   top: $util-nav-height;
   left: -$main-nav-width;
+  z-index: $z-layout-drawer;
   border-right: 1px solid $light-border-color;
   box-shadow: inset -2px 1px 10px -6px rgba(0, 0, 0, .46);
   background-color: $body-bg-color;
@@ -12,7 +13,7 @@
 }
 
 .drawer-pusher {
-  @extend %drawer-transition;
+  @include drawer-transition;
   position: relative;
   left: 0;
   width: 100%;

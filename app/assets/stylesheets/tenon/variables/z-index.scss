@@ -1,17 +1,35 @@
 // layout:
-$z-layout-util-nav: 30;
-$z-layout-toolbar: 40;
+$z-layout-toolbar: 10;
 $z-layout-main-nav: 10;
-$z-layout-filter: 20;
+$z-layout-main-nav-toggle: 20;
+$z-layout-drawer: 10;
+$z-layout-util-nav: 200;
 
 // ui:
-$z-account: 70;
-$z-nav-toggle: 50;
 $z-kebab-dropdown: 10;
 $z-btn-fab: 10;
 $z-flash-message: 20;
 $z-panel-open: 10;
 $z-filters-active: 60;
+
 $z-quick-search-active: 50;
 $z-quick-search-input: 10;
 $z-quick-search-actions: 20;
+
+// toolbar:
+@mixin toolbar-z-index-generator {
+  @for $i from 1 through 10 {
+    .toolbar-overlay--z#{$i} {
+      z-index: #{100 + ($i * 10)};
+
+      .toolbar-overlay__background {
+        z-index: #{100 + ($i * 10)};
+      }
+
+      .toolbar-overlay__action,
+      .toolbar-overlay__content {
+        z-index: #{100 + ($i * 10) + 1};
+      }
+    }
+  }
+}

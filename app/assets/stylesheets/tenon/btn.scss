@@ -1,6 +1,6 @@
 .btn {
   @extend %z-depth-1;
-  @extend %default-transition;
+  @include default-transition;
   @extend %font-smaller;
   display: inline-block;
   position: relative;

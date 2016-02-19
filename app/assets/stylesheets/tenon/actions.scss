@@ -14,10 +14,9 @@
     text-decoration: none;
   }
 
-  i {
-    @extend %default-transition;
-    @include font($h3-size, $h3-line-height);
-    display: block;
+  i, span {
+    @include default-transition;
+    display: inline-block;
     position: relative;
     border-radius: 50%;
     width: 44px;

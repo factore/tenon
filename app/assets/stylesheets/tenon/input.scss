@@ -11,7 +11,7 @@ select {
   @include placeholder {
     color: $placeholder-color;
   }
-  @extend %default-transition;
+  @include default-transition;
   @extend %font-smaller;
   @include appearance(none);
   line-height: normal;

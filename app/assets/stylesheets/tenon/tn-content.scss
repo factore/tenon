@@ -28,7 +28,7 @@
 
 .tn-tc-main-actions {
   a {
-    @extend %default-transition;
+    @include default-transition;
     margin: $default-spacing $default-spacing 0 0;
     text-transform: uppercase;
     &.btn-fab {
@@ -55,7 +55,7 @@
   // @import "styleguides/styleguide";
   // @extend body;
   .tn-tc-row {
-    @extend %default-transition;
+    @include default-transition;
     position: relative;
     overflow: hidden;
     min-height: 50px;
@@ -201,7 +201,7 @@
     color: $white;
   }
   .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve {
-    @extend %default-transition;
+    @include default-transition;
   }
 }
 

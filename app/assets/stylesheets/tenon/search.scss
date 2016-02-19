@@ -1,8 +1,8 @@
-#search-container {
+.search-container {
   display: block;
   position: relative;
   float: left;
-  padding: 10px 0 0 $default-spacing;
+  // padding: 10px 0 0 $default-spacing;
   width: calc(100% - #{$default-spacing*6});
 }
 
@@ -22,10 +22,10 @@
 
 .search-content__field {
   @include placeholder {
-    @extend %default-transition;
+    @include default-transition;
     color: white;
   }
-  @extend %default-transition;
+  @include default-transition;
   @include font-size($h5-size);
   display: inline-block;
   position: relative;
@@ -43,8 +43,6 @@
 // .is-open and %input:focus state
 .search-content__field:focus + .toolbar-overlay,
 .toolbar-overlay--is-open {
-  opacity: 1;
-  height: $util-nav-height;
   > .search-content__field {
     @include placeholder {
       color: lighten($primary-fg-color, 20%);

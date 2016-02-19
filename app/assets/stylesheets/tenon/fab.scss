@@ -14,7 +14,7 @@
   line-height: $btn-fab-size;
   color: $btn-fab-fg-color;
   cursor: pointer;
-  @extend %default-transition;
+  @include default-transition;
   @include animation(btn-fab-intro .3s forwards .5s);
   @include transform(scale(0) rotate(-45deg));
   @extend %z-depth-2;
