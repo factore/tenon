@@ -1,32 +1,32 @@
 .breadcrumbs {
   @extend %truncate;
-  line-height: $util-nav-height;
   position: absolute;
   top: 0;
   left: 0;
+  padding-left: $default-spacing*2.5;
   width: $main-nav-width;
   height: $util-nav-height;
-  padding-left: $default-spacing*2.5;
+  line-height: $util-nav-height;
   li {
     @extend %truncate;
-    line-height: $util-nav-height;
     display: block;
     float: left;
     width: auto;
+    line-height: $util-nav-height;
     color: $toolbar-fg-color;
     &:last-of-type i {
       display: none;
     }
     i {
-      line-height: $util-nav-height;
       display: block;
       float: left;
+      line-height: $util-nav-height;
       color: $light-border-color;
     }
     a {
       display: block;
       float: left;
-      color: $util-nav-fg-color;
+      color: $toolbar-fg-color;
     }
   }
 }

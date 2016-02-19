@@ -1,60 +1,55 @@
 #search-container {
+  display: block;
   position: relative;
-  display: inline-block;
+  float: left;
+  padding: 10px 0 0 $default-spacing;
   width: calc(100% - #{$default-spacing*6});
-  padding: 0 0 0 $default-spacing;
 }
 
-#search-overlay.toolbar-overlay {
-  background-color: $quick-search-overlay-bg-color;
+.search-content {
+  position: relative;
 }
 
-#search {
-  .search-icon {
-    line-height: $util-nav-height;
-    position: absolute;
-    z-index: $z-quick-search-actions;
-    top: 0;
-    left: $default-spacing*(4/3);
-    display: block;
-    color: $quick-search-fg-color;
-  }
-  .actions {
-    z-index: $z-quick-search-actions;
-    right: -$default-spacing*1.5;
-  }
+.search-content__icon {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  z-index: $z-quick-search-actions;
+  line-height: 40px;
+  color: $quick-search-fg-color;
 }
 
-input.search-field {
+.search-content__field {
   @include placeholder {
     @extend %default-transition;
     color: white;
   }
   @extend %default-transition;
   @include font-size($h5-size);
-  line-height: $util-nav-height - ($default-spacing * (2 / 3));
+  display: inline-block;
   position: relative;
   z-index: $z-quick-search-input;
-  display: inline-block;
-  width: 100%;
-  height: $util-nav-height - ($default-spacing * (2 / 3));
-  margin-top: ($default-spacing / 3);
-  padding: 0 ($default-spacing / 3) 0 ($default-spacing * 1.5);
-  color: $quick-search-fg-color;
   border: 0;
   border-radius: $default-border-radius;
   background-color: $quick-search-bg-color;
+  padding: 0 ($default-spacing / 3) 0 ($default-spacing * 1.5);
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  color: $quick-search-fg-color;
+}
 
-  &:focus {
+// .is-open and %input:focus state
+.search-content__field:focus + .toolbar-overlay,
+.toolbar-overlay--is-open {
+  opacity: 1;
+  height: $util-nav-height;
+  > .search-content__field {
     @include placeholder {
       color: lighten($primary-fg-color, 20%);
     }
-    color: $primary-fg-color;
     background-color: $white;
-
-    + .toolbar-overlay {
-      height: $util-nav-height;
-      opacity: 1;
-    }
+    color: $primary-fg-color;
   }
 }

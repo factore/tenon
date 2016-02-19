@@ -60,16 +60,13 @@
 
 // Util nav/ toolbar
 @import './main-nav-toggle';
+@import './util-nav';
 
 @import './toolbar';
 
-@import './account';
-
-@import './util-nav';
 @import './search';
 @import './filters';
 @import './search-open';
-@import './filter-toggle';
 
 // Drawers
 @import './drawer';

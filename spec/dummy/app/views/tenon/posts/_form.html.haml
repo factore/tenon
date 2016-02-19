@@ -1,6 +1,6 @@
 .drawer-pusher
   = autosaving_form_for @post do |f|
-    .toolbar.bg-color-primary-dk10
+    .toolbar.toolbar--posts
       = render 'tenon/shared/breadcrumbs'
       .actions
         - if can?(:publish, @post)

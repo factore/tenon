@@ -8,34 +8,36 @@
   width: 100%;
   height: $util-nav-height;
   overflow: visible;
+}
 
-  .actions {
-    right: $default-spacing*4.5;
-    height: $util-nav-height;
-    line-height: $util-nav-height;
-    .action--icon,
-    .action-btn {
-      float: left;
-    }
-    .action-btn {
-      top: $default-spacing/3;
-      height: $util-nav-height - $default-spacing*(2/3);
-      line-height: $util-nav-height - $default-spacing*(2/3);
-    }
-    .action--icon,
-    .action--text {
-      line-height: $util-nav-height;
-      color: rgba($toolbar-fg-color, .8);
-      &:hover {
-        color: $toolbar-fg-color;
-      }
-      i {
-        height: $util-nav-height;
-        line-height: $util-nav-height;
-      }
+.toolbar__actions {
+  position: fixed;
+  top: 0;
+  right: $default-spacing*4.5;
+  padding: 8px 10px;
+  height: $util-nav-height;
+}
+
+.toolbar__action {
+  display: inline-block;
+  height: 44px;
+  a {
+    color: $toolbar-link-fg-color;
+    &:hover {
+      color: $toolbar-link-fg-color--hover;
     }
   }
 }
+
+.toolbar--posts {
+  // @sean: just an example. see note here =>
+  // app/assets/javascripts/tenon/components/resource-index/components/default/header.es6
+  background-color: $black;
+}
+
+
+
+
 
 .toolbar-overlay {
   @extend %default-transition;
@@ -67,19 +69,19 @@
   }
 }
 
-.toolbar-action {
-  display: block;
-  line-height: $util-nav-height;
-  color: $primary-fg-color;
-  &:hover {
-    text-decoration: none;
-    color: $link-color;
-  }
-  i {
-    @include font-size($h3-size);
-    display: inline-block;
-    float: left;
-    margin-right: $default-spacing/2;
-    line-height: $util-nav-height;
-  }
-}
+// .toolbar-action {
+//   display: block;
+//   line-height: $util-nav-height;
+//   color: $primary-fg-color;
+//   &:hover {
+//     text-decoration: none;
+//     color: $link-color;
+//   }
+//   i {
+//     @include font-size($h3-size);
+//     display: inline-block;
+//     float: left;
+//     margin-right: $default-spacing/2;
+//     line-height: $util-nav-height;
+//   }
+// }

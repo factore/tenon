@@ -1,10 +1,10 @@
 = render 'tenon/shared/burger'
 
-.account
-  = link_to '#!', class: 'account-notifications action-icon dropdown-button', data: { activates: 'notification-dropdown'} do
-    = i('notifications_none')
+.util-nav
+  = link_to '#!', class: 'util-nav__action-icon dropdown-button', data: { activates: 'notifications-dropdown'} do
+    .action-icon= i('notifications_none')
 
-  %ul.dropdown-content#notification-dropdown
+  %ul.dropdown-content#notifications-dropdown
     %li.dropdown-label Notifications
     %li.divider
     %li
@@ -20,10 +20,10 @@
         = i('notifications_none')
         None Icon
 
-  = link_to '#!', class: 'account-avatar action-icon dropdown-button', data: { activates: 'current-user-dropdown'} do
-    = i('face')
+  = link_to '#!', class: 'util-nav__action-icon dropdown-button', data: { activates: 'account-dropdown'} do
+    .action-icon= i('face')
 
-  %ul.dropdown-content#current-user-dropdown
+  %ul.dropdown-content#account-dropdown
     %li
       = link_to '#' do
         = i('person_outline')
@@ -36,10 +36,3 @@
       = link_to destroy_user_session_path, method: :delete do
         = i('exit_to_app')
         Logout
-
-%nav.util-nav
-  .util-nav-context
-    %p= @context_title
-
-  .util-nav-content
-    = yield :util_nav_content

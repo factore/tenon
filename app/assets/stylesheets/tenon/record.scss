@@ -2,6 +2,8 @@
 }
 
 .record {
+  @extend %z-depth-2;
+  @extend %default-transition;
   position: relative;
   opacity: .7;
   margin-bottom: 1px;
@@ -9,11 +11,9 @@
   padding: ($default-spacing / 2) $default-spacing;
   width: 100%;
   overflow: hidden;
-  @extend %z-depth-2;
-  @extend %default-transition;
   &:hover {
-    opacity: 1;
     @extend %z-depth-2;
+    opacity: 1;
   }
 }
 
@@ -22,19 +22,20 @@
 }
 
 .record__title {
+  @extend %truncate;
   margin: 0;
   color: $body-fg-color;
-  @extend %truncate;
 }
 
 .record__title--smallest {
+  @extend %font-smallest;
   margin: 0;
   color: $body-fg-color;
-  @extend %font-smallest;
 }
 
 .record__actions {
   @include bp-md {
+    @include transform-style(preserve-3d);
     position: absolute;
     top: 0;
     right: 0;
@@ -44,7 +45,6 @@
     background-color: $panel-bg-color;
     padding-left: $default-spacing/2;
     text-align: right;
-    @include transform-style(preserve-3d);
   }
   @extend %default-transition;
 }
@@ -54,13 +54,13 @@
 }
 
 .record__action-icon {
-  color: $primary-fg-color;
   @extend .action--icon;
   @include bp-md {
+    @include transform(translateY(-50%));
     position: relative;
     top: 50%;
-    @include transform(translateY(-50%));
   }
+  color: $primary-fg-color;
 
   &:hover {
     color: $primary-color;
@@ -86,8 +86,8 @@
 }
 
 .record__expanded-action-text {
+  @extend .action-text;
   margin-right: $default-spacing;
-  @extend .action--text;
 }
 
 .record__expand-toggle {
@@ -105,10 +105,10 @@
 
 
 .infinite-loader {
+  @extend %font-h3;
   display: none;
   text-align: center;
   color: $infinite-loader-color;
-  @extend %font-h3;
 
   &.visible {
     display: block;

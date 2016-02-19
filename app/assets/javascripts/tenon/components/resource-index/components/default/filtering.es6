@@ -32,13 +32,15 @@ class DefaultFiltering extends React.Component {
       );
 
       filterDrawerToggle = (
-        <a
-          className="action-icon"
-          onClick={actions.toggleFilterDrawer}
-          href="#!"
-          title="Filter">
-          <i className="material-icons">tune</i>
-        </a>
+        <div className='toolbar__action filter-toggle'>
+          <a
+            className="action-icon"
+            onClick={actions.toggleFilterDrawer}
+            href="#!"
+            title="Filter">
+            <i className="material-icons">tune</i>
+          </a>
+        </div>
       );
     }
 
@@ -62,7 +64,7 @@ class DefaultFiltering extends React.Component {
 
         <div className="toolbar-overlay">
           <div className="filter-content">
-            <a href="#!" className="toolbar-action toggle-drawer" data-target="filters">
+            <a href="#!" className="toolbar__action toggle-drawer" data-target="filters">
               <i className="material-icons">close</i>
               Close
             </a>

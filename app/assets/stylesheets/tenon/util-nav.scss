@@ -1,40 +1,23 @@
 .util-nav {
-  @extend %z-depth-2;
-  line-height: $util-nav-height;
   position: fixed;
-  z-index: $z-layout-util-nav;
   top: 0;
-  right: 0;
-  left: 0;
-  height: $util-nav-height;
-  color: $util-nav-fg-color;
-  background-color: $util-nav-bg-color;
-  a {
-    color: $util-nav-fg-color;
-  }
+  right: $default-spacing;
+  z-index: $z-account;
+  padding: 8px 0;
 }
 
-.util-nav-context {
-  line-height: $util-nav-height;
-  display: block;
+.util-nav__action-icon {
+  display: inline-block;
   float: left;
-  overflow: hidden;
-  box-sizing: border-box;
-  width: $main-nav-width;
-  height: $util-nav-height;
-  margin: 0 0 0 $default-spacing*2.5;
-  p {
-    @extend %truncate;
-    display: inline-block;
-    width: $main-nav-width - $default-spacing*2;
+  margin-left: 10px;
+  border-radius: 50%;
+  background-color: $avatar-bg-color;
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  color: $avatar-fg-color;
+  &:hover {
+    background-color: $avatar-bg-hover-color;
+    color: $avatar-fg-hover-color;
   }
-}
-
-.util-nav-content {
-  @include calc(width, "100% - #{$main-nav-width + $util-nav-height + $default-spacing}");
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: $util-nav-height;
-  margin-left: $main-nav-width + $default-spacing;
 }

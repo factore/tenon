@@ -9,7 +9,7 @@ class DefaultQuickSearch extends React.Component {
     let toolbarOverlayClassName = 'toolbar-overlay';
     const quickSearchInput = (
       <section id="search" className="search-content">
-          <i className="search-icon material-icon">search</i>
+          <i className="search-content__icon material-icon">search</i>
           <input
             type="text"
             ref="searchInput"
@@ -18,7 +18,7 @@ class DefaultQuickSearch extends React.Component {
             onChange={onChange}
             onFocus={onFocus}
             onBlur={onBlur}
-            className="search-field"
+            className="search-content__field"
             placeholder="Search..."
             title="Search" />
         </section>
@@ -38,9 +38,9 @@ class DefaultQuickSearch extends React.Component {
             <div className="quick-search-content">
               <a
                 href="#!"
-                className="toolbar-action"
+                className="toolbar__action"
                 onClick={onClickClear}>
-                <i className="material-icon">arrow_back</i>
+                  <i className="material-icon">arrow_back</i>
                 Clear
               </a>
 

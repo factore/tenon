@@ -1,13 +1,13 @@
 // Use American 'color' in variable names for consistency with CSS keywords.
 
 // Generate color helpers based on base colors
-@include generate_base_color_helpers("black", $black);
-@include generate_base_color_helpers("white", $white);
-@include generate_base_color_helpers("required", $required-color);
-@include generate_color_helpers("grey", $grey);
-@include generate_color_helpers("primary", $primary-color);
-@include generate_color_helpers("secondary", $secondary-color);
-@include generate_color_helpers("accent", $accent-color);
+@include generate_base_color_helpers('black', $black);
+@include generate_base_color_helpers('white', $white);
+@include generate_base_color_helpers('required', $required-color);
+@include generate_color_helpers('grey', $grey);
+@include generate_color_helpers('primary', $primary-color);
+@include generate_color_helpers('secondary', $secondary-color);
+@include generate_color_helpers('accent', $accent-color);
 
 // Text colors
 $primary-fg-color: darken($grey, 25);
@@ -16,10 +16,10 @@ $body-fg-color: $black;
 $link-color: $primary-color;
 $link-hover-color: darken($primary-color, 10%);
 
-@include generate_base_color_helpers("primary-fg", $primary-fg-color);
-@include generate_base_color_helpers("light-fg", $light-fg-color);
-@include generate_base_color_helpers("body-fg", $body-fg-color);
-@include generate_base_color_helpers("link", $link-color);
+@include generate_base_color_helpers('primary-fg', $primary-fg-color);
+@include generate_base_color_helpers('light-fg', $light-fg-color);
+@include generate_base_color_helpers('body-fg', $body-fg-color);
+@include generate_base_color_helpers('link', $link-color);
 
 // Form colors
 $label-color: darken($grey, 10%);
@@ -57,11 +57,6 @@ $app-info-fg-color: $white;
 $app-info-hover-color: rgba($primary-color, .4);
 $app-info-bg-color: rgba(darken($main-nav-bg-color, 20%), .4);
 
-// Util Nav
-$util-nav-bg-color: $primary-color;
-$util-nav-fg-color: $white;
-$burger-color: $white;
-
 // Account Avatar
 $avatar-bg-color: lighten($grey, 20%);
 $avatar-fg-color: $primary-fg-color;
@@ -69,13 +64,17 @@ $avatar-bg-hover-color: $white;
 $avatar-fg-hover-color: $primary-color;
 
 // Toolbar
+$burger-color: $white;
 $toolbar-bg-color: $primary-color;
 $toolbar-fg-color: $white;
+$toolbar-link-fg-color: rgba($white, .6);
+$toolbar-link-fg-color--hover: rgba($white, .9);
+
+// Toolbar overlays
 $quick-search-bg-color: rgba($white, .3);
 $quick-search-fg-color: $white;
 $quick-search-overlay-bg-color: darken($white, 10%);
 $filter-overlay-bg-color: darken($white, 20%);
-
 
 // Records
 $infinite-loader-color: darken($grey, 20%);
@@ -84,12 +83,12 @@ $infinite-loader-color: darken($grey, 20%);
 $warning-background-color: $warning-color;
 $warning-border-color: darken($warning-color, 10%);
 $warning-text-color: $white;
-@include generate_base_color_helpers("warning", $warning-color);
+@include generate_base_color_helpers('warning', $warning-color);
 $error-background-color: $error-color;
 $error-border-color: darken($error-color, 10%);
 $error-text-color: $white;
-@include generate_base_color_helpers("error", $error-color);
+@include generate_base_color_helpers('error', $error-color);
 $success-background-color: $success-color;
 $success-border-color: darken($success-color, 10%);
 $success-text-color: $white;
-@include generate_base_color_helpers("success", $success-color);
+@include generate_base_color_helpers('success', $success-color);

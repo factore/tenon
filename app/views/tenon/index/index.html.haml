@@ -1,6 +1,11 @@
-- content_for :util_nav_content do
-  / `content_for :util_nav_content do`
-
 .drawer-pusher
+  .toolbar
+    .drawer-pusher
+      .toolbar.bg-color-primary
+        %ul.breadcrumbs
+          %li
+            Dashboard?
+            = i 'keyboard_arrow_right'
+
   %main
-    / %h1 Index#Index
+    -# %h1 Index#Index
