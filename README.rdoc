@@ -321,8 +321,7 @@ As long as +name+, +value+, and +onChange+ are present you can use any HTML elem
 * +TextField+
 * +DatepickerField+
 * +SelectField+
-* +CheckboxField+
-* +RadioField+
+* +CheckBoxField+
 
 To inject this component into the top-level +ResourceIndex+ component for your particular resource its name needs to be passed in as part of the +childComponentNames+ prop in your index view.  Here is an example of what it might look like in an imagined posts index, located at <tt>app/views/tenon/posts/index.html.haml</tt>:
 
