@@ -7,9 +7,11 @@ import * as DataActionCreators from '../actions/data';
 const DEFAULT_CHILD_COMPONENT_NAMES = {
   Sidebar: 'DefaultSidebar',
   Header: 'DefaultHeader',
+  ActionButtons: 'DefaultActionButtons',
+  Filtering: 'DefaultFiltering',
+  QuickSearch: 'DefaultQuickSearch',
   List: 'DefaultList',
   Record: 'DefaultRecord',
-  QuickSearch: 'DefaultQuickSearch',
   LoadMoreButton: 'DefaultLoadMoreButton'
 };
 
@@ -70,6 +72,11 @@ class App extends Component {
     if (this.props.ui.quickSearchOpen) {
       classNames.push('quick-search-open');
     }
+
+    if (this.props.ui.filterDrawerOpen) {
+      classNames.push('filter-drawer-open');
+    }
+
     return classNames.join(' ');
   }
 
@@ -79,8 +86,10 @@ class App extends Component {
 
     return (
       <div className={classNames}>
-        <Header {...this.props} />
-        <List {...this.props} />
+        <div className='drawer-pusher'>
+          <Header {...this.props} />
+          <List {...this.props} />
+        </div>
       </div>
     );
   }

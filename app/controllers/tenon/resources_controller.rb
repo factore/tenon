@@ -13,8 +13,7 @@ module Tenon
       respond_to do |format|
         format.html
         format.json do
-          self.collection = klass.all
-          self.collection = collection.where(search_args) if params[:q]
+          self.collection = filterer.filter
           self.collection = collection.paginate(per_page: 5, page: params[:page])
           self.collection = Tenon::PaginatingDecorator.decorate(collection)
         end
@@ -141,14 +140,16 @@ module Tenon
       { except: [:index, :create] }
     end
 
-    def search_args
-      ["#{klass.table_name}.title ILIKE ?", "%#{params[:q]}%"]
+    def quick_search_fields
+      ["#{klass.table_name}.title"]
+    end
+
+    def filterer
+      Tenon::GenericFilterer.new(klass.all, params, quick_search_fields)
     end
 
     def resource_params
       fail 'Define strong paramaters in controller method resource_params'
     end
-
-    helper_method :sidebar
   end
 end

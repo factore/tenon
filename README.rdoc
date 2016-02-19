@@ -12,58 +12,58 @@ depends.
 
 In your Gemfile
 
-    gem 'tenon'
+  gem 'tenon'
 
 and then bundle install.
 
 in config/application.rb:
 
-    require 'active_record/railtie'
+  require 'active_record/railtie'
 
 
 in config/routes.rb:
 
-    mount Tenon::Engine => '/tenon'
+  mount Tenon::Engine => '/tenon'
 
 
 Run command:
 
-    $ rake tenon:install:migrations
-    $ rake db:migrate
+  $ rake tenon:install:migrations
+  $ rake db:migrate
 
 
 You will need to have a database set up at this point.  Currently Tenon requires that you use postgres.
 
 Running rake db:migrate probably threw up a devise error.  Create config/initializers/devise.rb and paste:
 
-    Devise.setup do |config|
-      ## paste the secret key line from the error output ##
-    end
+  Devise.setup do |config|
+    ## paste the secret key line from the error output ##
+  end
 
 
 Run that command again:
 
-    $ rake db:migrate
+  $ rake db:migrate
 
 
 Install the Tenon helpers in app/controllers/application_controller.rb:
 
-    helper Tenon::Engine.helpers
+  helper Tenon::Engine.helpers
 
 Install the necessary files to run and customize Tenon (this is now required):
 
-    $ rails generate tenon:install
+  $ rails generate tenon:install
 
 To run seed data (such as creating an admin user) from Tenon, open console and run:
 
-    ENV['PASSWORD'] = 'password' # or something at least 8 chars long
-    Tenon::Engine.load_seed
+  ENV['PASSWORD'] = 'password' # or something at least 8 chars long
+  Tenon::Engine.load_seed
 
 Restart your app and navigate to /tenon
 
 If you want to be able to use rspec, which would be good, you will also need to run:
 
-    bundle exec rails generate rspec:install
+  bundle exec rails generate rspec:install
 
 ==== Note about CKEditor
 
@@ -86,76 +86,186 @@ To add internationalized fields, follow these steps:
 
 1. Add our 'translates' gem to your Gemfile and then bundle install
 
-    gem 'translates', git: 'https://github.com/factore/translates.git'
+  gem 'translates', git: 'https://github.com/factore/translates.git'
 
 2. Tell Tenon which languages you want to support in config/initializers/tenon.rb (You don't need to add English, Tenon always assumes its in use.)
 
-    config.languages = {
-      "French" => :fr,
-      "German" => :de
-      # etc.
-    }
+  config.languages = {
+    "French" => :fr,
+    "German" => :de
+    # etc.
+  }
 
 3. Add a language yml file in config/locales/ for each language defined above, or rails will have a fit, eg 'config/locales/fr.yml'
 
 4. Create or update config/i18n_fields.yml to tell Tenon which fields you would like to have internationalized.
 
-    tables:
-      cars:
-        - title
-        - description
+  tables:
+    cars:
+    - title
+    - description
 
-      events:
-        - title
-        - location
-        - description
+    events:
+    - title
+    - location
+    - description
 
-    If you want to add internationalization to the default Tenon models you should make your i18n_fields.yml look like this:
+  If you want to add internationalization to the default Tenon models you should make your i18n_fields.yml look like this:
 
-    tables:
-      tenon/events:
-        - title
-        - location
+  tables:
+    tenon/events:
+    - title
+    - location
 
-      tenon/pages:
-        - title
-        - seo_title
-        - seo_keywords
-        - seo_description
+    tenon/pages:
+    - title
+    - seo_title
+    - seo_keywords
+    - seo_description
 
-      tenon/posts:
-        - title
-        - excerpt
-        - seo_title
-        - seo_keywords
-        - seo_description
+    tenon/posts:
+    - title
+    - excerpt
+    - seo_title
+    - seo_keywords
+    - seo_description
 
 5. Generate and run the internationalization migration.  The generator will only try to create columns that don't already exist, so you can use this generator multiple times throughout the development of your application.
 
-    rails generate tenon:i18n_migrations
-    rake db:migrate
+  rails generate tenon:i18n_migrations
+  rake db:migrate
 
 6. Update your models to make sure your attributes are translated
 
-    class MyModel < ApplicationRecord
-        include Translates
-        # plain old rails attributes
-        translates :title
-        # tenon_content
-        tenon_content :description, i18n: true
-    end
+  class MyModel < ApplicationRecord
+    include Translates
+    # plain old rails attributes
+    translates :title
+    # tenon_content
+    tenon_content :description, i18n: true
+  end
 
 7. Update your tenon views to add the language navigation helper, where needed:
-    # app/views/tenon/cars/_form.html.haml
-    - content_for :sidebar do
-        .sidebar
-            .content
-                ...
-            = i18n_language_nav(:cars)
-    ...
+  # app/views/tenon/cars/_form.html.haml
+  - content_for :sidebar do
+    .sidebar
+      .content
+        ...
+      = i18n_language_nav(:cars)
+  ...
 
 8. While there, make sure you are using 'autosaving_form_for' instead of 'form_for' to create your forms.  By doing this, Tenon will automatically update the labels when the different languages are selected.
 
 9. Make sure your routes are configured according to your needs and the I18n.locale is being set somehow (see Rails documentation for more info: http://guides.rubyonrails.org/i18n.html)
 
 Once you've done this and restarted your app you will see a language selection nav in the sidebar of each Tenon form that has internationalized fields.  On the front end, attributes on your Tenon models will be translated correctly, based on I18n.locale.
+
+== Searching and Filtering Records
+
+Often you will need to provide various different ways to filter records that are returned
+in your controllers' +index+ action.  The standard <tt>Tenon::ResourcesController#index</tt>
+action provides a hook to allow the returned records to pass through a Filterer.
+Filterers receive, at minimum, a scope (eg. an <tt>ActiveRecord::Relation</tt>) and a set of params.
+They can then apply their own internal logic to filter the passed scope.  For example, consider the
+following call to an imagined <tt>PostFilterer</tt>:
+
+  filterer = PostFilterer.new(Post.all, { q: 'Tenon' })
+  @posts = filterer.filter
+
+The <tt>PostFilterer</tt> could use its internal logic to, for
+example, return only posts that are called "Tenon":
+
+  class PostFilterer < Tenon::BaseFilterer
+    def filter
+      if params[:q].present?
+        @scope = scope.where(title: params[:q])
+      end
+      super # Returns the scope
+    end
+  end
+
+or it could use its internal logic to return only posts that are
+in a +Category+ called "Tenon":
+
+  class PostFilterer < Tenon::BaseFilterer
+    def filter
+      if params[:q].present?
+        @scope = scope.includes(:category)
+        @scope = scope.where(category: { title: params[:q] })
+      end
+      super # Returns scope
+    end
+  end
+
+By default, records in the +index+ action of any controller that inherits from
+<tt>Tenon::ResourcesController</tt> will be filtered by
+<tt>Tenon::GenericFilterer</tt>.  While <tt>Tenon::BaseFilterer</tt> takes
+a scope and a params object as its initialization arguments,
+<tt>Tenon::GenericFilterer</tt> also takes as a third argument a list of
+fields to run a basic text search on.  The <tt>#quick_search_fields</tt> method
+on any controller is used to set these fields, like in the following example
+of a basic controller for posts:
+
+  class PostsController < Tenon::ResourcesController
+    private
+
+    def quick_search_fields
+      ['posts.title', 'posts.excerpt', 'posts.content']
+    end
+  end
+
+As it's a convention for all resources in Tenon to respond to a <tt>#title</tt>
+method the default behaviour is to filter on this field.
+
+In order to provide searching and filtering capabilities beyond what the
++GenericFilterer+ provides, simply create a a new filterer in the
+<tt>app/filterers</tt> directory.  It is usually best to have this custom
+filterer inherit from <tt>Tenon::GenericFilterer</tt> in order to keep the quick search
+functionality, but a filterer can also inherit from <tt>Tenon::BaseFilterer</tt>.
+
+After creating the new filterer, it can be inserted into the controller
+by defining the <tt>#filterer</tt> method.
+
+  class PostsController < Tenon::ResourcesController
+    private
+
+    def quick_search_fields
+      ['posts.title', 'posts.excerpt', 'posts.content']
+    end
+
+    def filterer
+      PostFilterer.new(Post.all, params, quick_search_fields)
+    end
+  end
+
+Here is an example of what an imagined +PostFilterer+ that inherits from
+<tt>Tenon::GenericFilterer</tt> with some date-filtering logic might look like:
+
+  class PostFilterer < Tenon::GenericFilterer
+    def filter
+      @scope = filter_start_date
+      @scope = filter_end_date
+      super
+    end
+
+    private
+
+    def filter_start_date
+      return scope unless params[:start_date].present?
+      scope.where('publish_at >= ?', params[:start_date])
+    end
+
+    def filter_end_date
+      return scope unless params[:end_date].present?
+      scope.where('publish_at <= ?', params[:end_date])
+    end
+  end
+
+The +filter_start_date+ and +filter_end_date+ methods allow custom filtering
+of the collection that's passed in, while the call to +super+ on the
+<tt>#filter</tt> method also allows for the +quick_search_fields+ to be
+searched.
+
+A custom filterer is just a plain old Ruby object and can use any kind of
+internal logic to filter a collection.  The only requirement is that the
+<tt>#filter</tt> method returns a chainable <tt>ActiveRecord::Relation</tt>.

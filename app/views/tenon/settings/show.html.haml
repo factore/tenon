@@ -1,11 +1,12 @@
-= form_tag({ action: :update }, method: 'PUT') do
-  .toolbar.bg-color-primary-dk10
-    = render 'tenon/shared/breadcrumbs'
-    .actions
-      - if can?(:publish, @post)
-        %button.action__btn.btn-flat.btn--primary.submit{ data: { disable_with: 'Please wait...' } } Save
+.drawer-pusher
+  = form_tag({ action: :update }, method: 'PUT') do
+    .toolbar.bg-color-primary-dk10
+      = render 'tenon/shared/breadcrumbs'
+      .actions
+        - if can?(:publish, @post)
+          %button.action__btn.btn-flat.btn--primary.submit{ data: { disable_with: 'Please wait...' } } Save
 
-  %main
-    = render partial: 'general'
-    = render partial: 'contact'
-    = render partial: 'seo'
+    %main
+      = render partial: 'general'
+      = render partial: 'contact'
+      = render partial: 'seo'

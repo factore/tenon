@@ -44,11 +44,27 @@
   right: 0;
   left: 0;
   opacity: 0;
+  background-color: $quick-search-overlay-bg-color;
   padding: 0 $default-spacing;
   height: 0;
   overflow: hidden;
   line-height: $util-nav-height;
   content: 0;
+}
+
+.toolbar-overlay--is-open {
+  opacity: 1;
+  height: $util-nav-height;
+}
+
+.toolbar-overlay__toolbar {
+  z-index: $z-quick-search-active;
+  > .actions .action--icon {
+    color: $primary-fg-color;
+    &:hover {
+      color: $link-color;
+    }
+  }
 }
 
 .toolbar-action {

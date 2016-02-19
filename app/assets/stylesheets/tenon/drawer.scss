@@ -1,4 +1,5 @@
 .drawer {
+  @extend %drawer-transition;
   position: fixed;
   top: $util-nav-height;
   left: -$main-nav-width;
@@ -8,18 +9,17 @@
   width: $main-nav-width;
   height: 100%;
   overflow: auto;
-  @extend %drawer-transition;
 }
 
 .drawer-pusher {
+  @extend %drawer-transition;
   position: relative;
   left: 0;
   width: 100%;
   min-height: 100vh;
-  @extend %drawer-transition;
 }
 
-.filters-open,
+.filter-drawer-open,
 .main-nav-open {
   .drawer-pusher {
     left: $main-nav-width;

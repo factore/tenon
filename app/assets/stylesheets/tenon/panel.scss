@@ -1,12 +1,12 @@
 .panel {
+  @extend %z-depth-1;
   position: relative;
   background-color: $panel-bg-color;
   overflow: hidden;
-  @extend %z-depth-1;
 }
 
 .panel--block {
-  margin-bottom: $default-spacing;
-  padding: $default-spacing/2 $default-spacing;
   @extend .panel;
+  margin-bottom: $default-spacing;
+  padding: ($default-spacing / 2) $default-spacing;
 }
