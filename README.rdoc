@@ -162,6 +162,8 @@ Once you've done this and restarted your app you will see a language selection n
 
 == Searching and Filtering Records
 
+=== Setting up your Rails Controllers and Filterers
+
 Often you will need to provide various different ways to filter records that are returned
 in your controllers' +index+ action.  The standard <tt>Tenon::ResourcesController#index</tt>
 action provides a hook to allow the returned records to pass through a Filterer.
@@ -266,6 +268,89 @@ of the collection that's passed in, while the call to +super+ on the
 <tt>#filter</tt> method also allows for the +quick_search_fields+ to be
 searched.
 
+Because many filtering tasks are similar, filterers that inherit from <tt>Tenon::BaseFilterer</tt> (and thus <tt>Tenon::GenericFilterer</tt>) have access to a few convenience methods for easier filtering.  These methods are:
+
+<tt>eq(field, value)</tt>:: Used to check if +field+ is equal to +value+
+<tt>ilike(field, value)</tt>:: Used to check if +field+ <em>ILIKE matches</em> +value+
+<tt>gt(field, value)</tt>:: Used to check if +field+ is greater than +value+
+<tt>lt(field, value)</tt>:: Used to check if +field+ is less than +value+
+<tt>gte(field, value)</tt>:: Used to check if +field+ is greater than or equal to +value+
+<tt>lte(field, value)</tt>:: Used to check if +field+ is less than or equal to +value+
+
+These methods will always simply return the current scope if +value+ is not +.present?+, so there's no need to check for the presence of a param.
+
+Here is an example of the imagined +PostFilterer+ rewritten using these convenience methods:
+
+  class PostFilterer < Tenon::GenericFilterer #:nodoc:
+    def filter
+      @scope = gte('posts.publish_at', params[:start_date])
+      @scope = lte('posts.publish_at', params[:end_date])
+      super
+    end
+  end
+
 A custom filterer is just a plain old Ruby object and can use any kind of
 internal logic to filter a collection.  The only requirement is that the
 <tt>#filter</tt> method returns a chainable <tt>ActiveRecord::Relation</tt>.
+
+=== Creating the Filtering UI for your Resource
+
+The ResourceIndex component's toolbar contains a search input that automatically sends its value as <tt>params[:q]</tt> when a user types in it.  This hook into <tt>Tenon::GenericFilterer</tt> on the Rails end and provide basic filtering of a resource.  For many resources this all the filtering that's required, and no customization is necessary.
+
+However, it's often necessary to build more advanced filtering features, as demonstrated in the above example using the PostFilterer to filter posts on params like <tt>:start_date</tt> and <tt>:end_date</tt>.  In order to expose these options to the end user, we need to create a React component and inject it into our ResourceIndex component.  These custom components are called <b>Filter Drawers</b>.
+
+Here is an example of what an imagined +PostsFilterDrawer+ component, living at <tt>/app/assets/javascripts/tenon/components/resource-index/components/custom/posts-filter-drawer.es6</tt>, might look like.
+
+    window.ResourceIndexComponents.PostsFilterDrawer = (props) => {
+      const query = props.data.query;
+      const onChange = props.onChange;
+
+      return (
+        <div className="panel--block">
+          <TextField
+            label="Keywords"
+            name="q"
+            value={query.q}
+            onChange={onChange} />
+
+          <DatepickerField
+            label="Start Date"
+            name="start_date"
+            value={query.start_date}
+            onChange={onChange} />
+
+          <DatepickerField
+            label="End"
+            name="end_date"
+            value={query.end_date}
+            onChange={onChange} />
+        </div>
+      );
+    };
+
+This stateless React component (https://toddmotto.com/stateless-react-components/) is passed the entire state tree from the top-level +ResourceIndex+ component, but only uses the <tt>data.query</tt> object (responsible for which params are passed to the server when fetching records) and an +onChange+ function passed down from the parent component.  Also, notice that the component is set within the <tt>window.ResourceIndexComponents</tt> object.  All custom components intended to be passed into the ResourceIndex component tree must be set this way.
+
+The component uses JSX needed to build three simple form controls: a text field for a general query, a datepicker for the start date, and a datepicker for the end date.  Each input is passed four props:
+
+label:: The visible label for the field
+name:: The name of the +param+ being changed (eg. <tt>name="start_date"</tt> -> <tt>params[:start_date]</tt>)
+value:: The initial value of input, almost always <tt>query.<param_name></tt>
+onChange:: The +onChange+ prop passed in from the parent component.
+
+As long as +name+, +value+, and +onChange+ are present you can use any HTML elements and form inputs you like to build your Filter Drawer.  There are a handful of simple pre-built components available as conveniences for building form elements, including:
+
+* +TextField+
+* +DatepickerField+
+* +SelectField+
+* +CheckBoxField+
+
+To inject this component into the top-level +ResourceIndex+ component for your particular resource its name needs to be passed in as part of the +childComponentNames+ prop in your index view.  Here is an example of what it might look like in an imagined posts index, located at <tt>app/views/tenon/posts/index.html.haml</tt>:
+
+    = react_component 'ResourceIndexRoot',
+        title: 'Posts',
+        breadcrumbs: breadcrumb_links,
+        recordsPath: posts_path(format: 'json'),
+        newPath: new_post_path,
+        childComponentNames: { FilterDrawer: 'PostsFilterDrawer' }
+
+When the top-level +ResourceIndex+ is rendered with a +FilterDrawer+, the Filter Drawer will be available to your users, and you can provide as much or as little advanced filtering as you like.
