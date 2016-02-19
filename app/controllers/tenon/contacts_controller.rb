@@ -29,10 +29,10 @@ module Tenon
       respond_to do |format|
         if @contact.toggle_read!
           format.json { render json: @contact.to_json }
-          format.html { flash[:notice] = 'Comment flagged as read.' and redirect_to contacts_path }
+          format.html { flash[:notice] = t('tenon.contacts.contact_flagged_as_read') and redirect_to contacts_path }
         else
           format.json { render status: 500, nothing: true }
-          format.html { flash[:warning] = 'Error flagging contact as read.' and redirect_to contacts_path }
+          format.html { flash[:warning] = t('tenon.contacts.error_flagging_contact_as_read') and redirect_to contacts_path }
         end
       end
     end
@@ -41,10 +41,10 @@ module Tenon
       respond_to do |format|
         if @contact.toggle_replied!
           format.json { render json: @contact.to_json }
-          format.html { flash[:notice] = 'Comment flagged as replied.' and redirect_to contacts_path }
+          format.html { flash[:notice] = t('tenon.contacts.contact_flagged_as_replied') and redirect_to contacts_path }
         else
           format.json { render status: 500, nothing: true }
-          format.html { flash[:warning] = 'Error flagging contact as replied.' and redirect_to contacts_path }
+          format.html { flash[:warning] = t('tenon.contacts.error_flagging_contact_as_replied.') and redirect_to contacts_path }
         end
       end
     end

@@ -50,7 +50,7 @@ module Tenon
 
     def check_attached_items
       unless item_assets.count == 0
-        errors.add(:base, t('tenon.asset.in_use'))
+        errors.add(:base, t('tenon.assets.in_use'))
         return false
       end
     end

@@ -1,14 +1,14 @@
 .nav-holder
   %nav.main-nav
     %ul
-      = nav_item 'Home', root_path, 'dashboard'
-      = nav_item 'Asset Library', assets_path, 'picture-o'
-      = nav_item 'Comments', comments_path, 'comment'
-      = nav_item 'Pages', pages_path, 'file'
-      = nav_item 'Posts', posts_path, 'file-text', active: ['post_categories'].include?(controller_name)
-      = nav_item 'Users', users_path, 'user'
-      = nav_item 'Events', events_path, 'calendar'
-      = nav_item 'Galleries', galleries_path, 'th'
-      = nav_item 'Contacts', contacts_path, 'envelope'
-      = nav_item 'Redirects', redirects_path, 'exchange'
-      = nav_item 'Settings', settings_path, 'gear'
+      = nav_item t('tenon.common.home'), root_path, 'dashboard'
+      = nav_item t('tenon.asset_library.asset_library'), assets_path, 'picture-o'
+      = nav_item t('tenon.comments.comments'), comments_path, 'comment'
+      = nav_item t('tenon.pages.pages'), pages_path, 'file'
+      = nav_item t('tenon.posts.posts'), posts_path, 'file-text', active: ['post_categories'].include?(controller_name)
+      = nav_item t('tenon.users.users'), users_path, 'user'
+      = nav_item t('tenon.events.events'), events_path, 'calendar'
+      = nav_item t('tenon.galleries.galleries'), galleries_path, 'th'
+      = nav_item t('tenon.contacts.contacts'), contacts_path, 'envelope'
+      = nav_item t('tenon.redirects.redirects'), redirects_path, 'exchange'
+      = nav_item t('tenon.settings.settings'), settings_path, 'gear'

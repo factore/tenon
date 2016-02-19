@@ -10,8 +10,8 @@
       </div>
     </div>
     <div class="record-actions">
-      <a data-tooltip="<%= t('tenon.common.edit') %>" href="<%= @asset.edit_path %>" title="<%= t('tenon.common.edit') %>"><i class="fa fa-pencil"></i></a>
-      <a data-confirm="<%= t('tenon.common.are_you_sure') %>" data-method="delete" data-tooltip="<%= t('tenon.common.delete') %>" href="<%= @asset.path %>" rel="nofollow" title="<%= t('tenon.common.delete') %>"><i class="fa fa-trash-o"></i></a>
+      <a data-tooltip="Edit" href="<%= @asset.edit_path %>" title="Edit"><i class="fa fa-pencil"></i></a>
+      <a data-confirm="Are you sure?" data-method="delete" data-tooltip="Delete" href="<%= @asset.path %>" rel="nofollow" title="Delete"><i class="fa fa-trash-o"></i></a>
     </div>
   </div>
 </li>

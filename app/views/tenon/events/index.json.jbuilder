@@ -3,7 +3,7 @@ json.records do
     json.extract!(event, :id, :title, :display_date, :location, :edit_path, :edit_link, :delete_link)
 
     if event.published? && main_app.respond_to?(:event_path)
-      json.view_link action_link("View on Site", main_app.event_path(event), "laptop")
+      json.view_link action_link(t('tenon.common.view_on_site'), main_app.event_path(event), "laptop")
     end
 
   end

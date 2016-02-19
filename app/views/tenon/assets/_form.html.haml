@@ -4,12 +4,12 @@
     = error_messages_for :asset
     .fields.full
       .form-group.full
-        = f.text_field :title, placeholder: '--', explanation: "#{t('tenon.asset.enter_a_title_for_your_asset')} #{defined?(multiple) ? t('tenon.asset.multiple_assets') : '' }"
+        = f.text_field :title, placeholder: '--', explanation: "#{t('tenon.assets.enter_a_title_for_your_asset')} #{defined?(multiple) ? t('tenon.assets.multiple_assets') : '' }"
 
       .form-group
         .browse-button-holder
           .fileupload.btn.btn-comp.browse
-            %span#choose-files= defined?(multiple) ? t('tenon.asset.choose_file') : t('tenon.asset.choose_files')
+            %span#choose-files= defined?(multiple) ? t('tenon.assets.choose_file') : t('tenon.assets.choose_files')
             %input{ :type => 'file', :class => 'upload', multiple: defined?(multiple) && multiple, style: 'width: 100%;', name: 'asset[attachment]' }
 
     .spacer

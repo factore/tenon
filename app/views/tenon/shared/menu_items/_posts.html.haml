@@ -2,6 +2,6 @@
   = tenon_menu_item item, posts_path, :active => is_active(["posts", "post_categories"]), :submenu => can?(:create, Post) || can?(:index, PostCategory)
   - if can?(:create, Post) || can?(:index, PostCategory)
     %ul.tenon_submenu{ :class => is_active(["posts", "post_categories"]) ? "#{item} active" : item }
-      = link_to "New Post", new_post_path, :class => ("active" if params[:controller] == "tenon/posts" && params[:action] == "new") if can?(:create, Post)
-      = link_to "Post Categories", post_categories_path, :class => ("active" if params[:controller] == "tenon/post_categories") if can?(:index, PostCategory)
+      = link_to t('tenon.posts.new_post'), new_post_path, :class => ("active" if params[:controller] == "tenon/posts" && params[:action] == "new") if can?(:create, Post)
+      = link_to t('tenon.post_categories.post_categories'), post_categories_path, :class => ("active" if params[:controller] == "tenon/post_categories") if can?(:index, PostCategory)
     .spacer

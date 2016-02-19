@@ -2,5 +2,5 @@
   = tenon_menu_item item, events_path, :active => is_active("events"), :submenu => can?(:create, Event)
   - if can?(:create, Event)
     %ul.tenon_submenu{ :class => is_active(["events"]) ? "#{item} active" : item }
-      = link_to "New Event", new_event_path, :class => ("active" if is_active(["events"]) && params[:action] == "new")
+      = link_to t('tenon.events.new_event'), new_event_path, :class => ("active" if is_active(["events"]) && params[:action] == "new")
     .spacer

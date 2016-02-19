@@ -1,22 +1,22 @@
 - content_for :sidebar do
   .sidebar
     .content
-      %h2 Comments
+      %h2= t('tenon.comments.comments')
 
-    %h4 Filter
+    %h4= t('tenon.common.filter')
     %nav.list-toggles
       %ul
         %li
           = link_to(comments_path, :class => 'record-list-updater', 'data-clear-record-list-params' => true) do
-            All
+            = t('tenon.common.all')
             %span.count= @counts[:all]
 
         %li
           = link_to(url_for(type: 'unapproved'), class: 'record-list-updater') do
-            Unapproved
+            = t('tenon.common.unapproved')
             %span.count= @counts[:unapproved]
 
         %li
           = link_to(url_for(type: 'approved'), class: 'record-list-updater') do
-            Approved
+            = t('tenon.common.approved')
             %span.count= @counts[:approved]

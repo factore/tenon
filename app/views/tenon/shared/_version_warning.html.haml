@@ -1,14 +1,13 @@
 .flash.flash-notice
-  %p
-    You are viewing a draft version of this resource.  Hitting save will replace the active version with this version.
+  %p= t('tenon.item_versions.you_are_viewing_a_draft')
 
-  %p Auto-saving is disabled when you are viewing a draft version.
+  %p= t('tenon.item_versions.auto_saving_is_disabled')
 
   %p
     %small
-      Draft
+      = t('tenon.item_versions.draft')
       - unless @item_version.title.blank?
         %strong "#{@item_version.title}"
-      was created on #{@item_version.created_at.strftime('%m/%d/%Y at %l:%M %p')}
-      by #{@item_version.user.try(:email)}
+      #{t('tenon.item_versions.was_created_on')} #{@item_version.created_at.strftime('%m/%d/%Y')} #{t('tenon.common.at')} #{@item_version.created_at.strftime('%l:%M %p')}
+      #{t('tenon.item_versions.by')} #{@item_version.user.try(:email)}
   =link_to fa_icon('times'), '#', id: 'flash-dismiss'

@@ -8,7 +8,7 @@ module Tenon
       @comment = comment
       mail(
         to: email,
-        subject: "#{Tenon::MySettings.site_name} - New Comment: #{@post.title}",
+        subject: "#{Tenon::MySettings.site_name} - #{I18n.t('tenon.comment_mailer.new_comment')}: #{@post.title}",
         from: Tenon::MySettings.from_email
       )
     end

@@ -3,7 +3,7 @@
     .i18n-frame
       .i18n.en.active= render 'tenon/tenon_content/fields', field: field, f: f
       - Tenon.config.languages.each do |title, lang|
-        .i18n{class: lang}= render 'tenon/tenon_content/fields', field: "#{field}_#{lang}", lang: lang, lang_title: title, f: f
+        .i18n{ class: lang }= render 'tenon/tenon_content/fields', field: "#{field}_#{lang}", lang: lang, lang_title: title, f: f
 - else
   = render 'tenon/tenon_content/fields', field: field, f: f
 

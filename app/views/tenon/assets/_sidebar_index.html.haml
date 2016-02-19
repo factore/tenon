@@ -2,17 +2,17 @@
   #new-asset{:style => "display: none;"}= render "form", multiple: true
   .sidebar
     .content
-      %h2= t('tenon.asset.asset_library')
-      = link_to t('tenon.asset.upload_new'), '#', class: 'btn btn-primary btn-block', data: {'modal-target' => '#new-asset', 'modal-title' => t('tenon.asset.upload_assets'), 'keyboard' => 'false' }
+      %h2= t('tenon.assets.asset_library')
+      = link_to t('tenon.assets.upload_new'), '#', class: 'btn btn-primary btn-block', data: {'modal-target' => '#new-asset', 'modal-title' => t('tenon.assets.upload_assets'), 'keyboard' => 'false' }
 
-    %h4= t('tenon.asset.file_types')
+    %h4= t('tenon.assets.file_types')
     %nav.list-toggles
       %ul
         %li
-          = link_to t('tenon.asset.all_assets'), assets_path, :class => 'record-list-updater', 'data-clear-record-list-params' => true
+          = link_to t('tenon.assets.all_assets'), assets_path, :class => 'record-list-updater', 'data-clear-record-list-params' => true
 
         %li
-          = link_to t('tenon.asset.images'), '?type=images', class: 'record-list-updater'
+          = link_to t('tenon.assets.images'), '?type=images', class: 'record-list-updater'
 
         %li
-          = link_to t('tenon.asset.documents'), '?type=documents', class: 'record-list-updater'
+          = link_to t('tenon.assets.documents'), '?type=documents', class: 'record-list-updater'

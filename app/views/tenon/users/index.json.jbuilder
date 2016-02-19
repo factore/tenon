@@ -7,11 +7,11 @@ json.records do
       if user.last_sign_in_at
         json.last_login user.last_sign_in_at.strftime('%B %e, %Y')
       else
-        json.last_login "Never"
+        json.last_login t('tenon.users.never')
       end
 
       unless user == current_user
-        json.approval_link action_link(user.approved? ? "Unapprove" : "Approve", approve_user_path(user), :icon => user.approved? ? "thumbdown" : "thumbup", :class => "approve", :confirm => user.approved? ? "Are you sure you want to unapprove this user?" : "Are you sure? The user will be notified by email.") if can?(:edit, user)
+        json.approval_link action_link(user.approved? ? t('tenon.users.unapprove') : t('tenon.common.approve'), approve_user_path(user), :icon => user.approved? ? "thumbdown" : "thumbup", :class => "approve", :confirm => user.approved? ? t('tenon.users.are_you_sure_you_want_to_unapprove') : t('tenon.users.are_you_sure_the_user_will_be_notified')) if can?(:edit, user)
       end
 
       json.edit_path edit_user_path(user)

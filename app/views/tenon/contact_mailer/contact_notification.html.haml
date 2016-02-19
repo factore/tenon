@@ -1,15 +1,15 @@
 %p
-  A new contact request has been recieved.
-  Reply to this email to get in touch with the person who sent it.
+  = t('tenon.contact_mailer.new_contact_request_received')
+  = t('tenon.contact_mailer.reply_to_this_email')
 
 %p{:style => "text-align:center"} --
 
 %p
-  %strong From:
+  %strong #{t('tenon.contact_mailer.from')}:
   = @contact.name
 
 %p
-  %strong Email:
+  %strong #{t('tenon.contact_mailer.email')}:
   = @contact.email
 
 = simple_format(@contact.content)

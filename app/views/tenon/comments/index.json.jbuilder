@@ -9,7 +9,7 @@ json.records do
       json.commentable_link comment.commentable.title
     end
 
-    json.read_link action_link("Read", '#', 'eye', 'data-modal-target' => "#comment-#{comment.id}", 'data-modal-title' => 'Read Comment')
+    json.read_link action_link(t('tenon.comments.read'), '#', 'eye', 'data-modal-target' => "#comment-#{comment.id}", 'data-modal-title' => t('tenon.comments.read_comment'))
     json.approval_link toggle_link(comment, 'approved', toggle_approved_comment_path(comment), ['thumbs-up', 'Approved'], ['thumbs-down', 'Not Approved'])
     json.delete_link delete_link(comment)
   end

@@ -22,7 +22,7 @@ module Tenon
     before_validation :set_slug_and_path
     after_move :set_slug_and_path
     validates_presence_of :title
-    validates_presence_of :slug, message: 'must exist in order to have a properly generated URL.'
+    validates_presence_of :slug, message: I18n.t('tenon.pages.must_exist_in_order_to_have')
     validates_uniqueness_of :slug, scope: :parent_id
     validate :path_is_not_route
     validate :parent_is_not_in_tree
@@ -81,7 +81,7 @@ module Tenon
 
     def path_is_not_route
       match = Rails.application.routes.recognize_path(path, method: :get) rescue nil
-      errors.add(:base, "There's already something happening at #{MySettings.site_url}#{path}.  Try giving the page a different name.") if match && !match[:slugs]
+      errors.add(:base, I18n.t('tenon.pages.theres_already_something_happening', path: "#{MySettings.site_url}#{path}")) if match && !match[:slugs]
     end
 
     def set_slug_and_path
@@ -97,7 +97,7 @@ module Tenon
 
     def parent_is_not_in_tree
       if id && [id, descendants.map(&:id)].flatten.include?(parent_id)
-        msg = 'cannot be itself or one of its subpages.'
+        msg = I18n.t('tenon.pages.cannot_be_itself_or_one_of_its_subpages')
         errors.add(:parent_id, msg)
       end
     end

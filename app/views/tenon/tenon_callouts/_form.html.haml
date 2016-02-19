@@ -1,8 +1,8 @@
 - content_for :sidebar do
   .sidebar
     .content
-      %h2 Tenon Callouts
-      = link_to "New Tenon Callout", new_tenon_callout_path, class: 'btn btn-block btn-primary'
+      %h2= t('tenon.tenon_callouts.tenon_callouts')
+      = link_to t('tenon.tenon_callouts.new_tenon_callout'), new_tenon_callout_path, class: 'btn btn-block btn-primary'
 
 = form_for @tenon_callout, builder: Tenon::FormBuilder do |f|
   = error_messages_for :tenon_callout
@@ -15,7 +15,7 @@
         = f.text_area :content
 
   .fields.small
-    %h4.box-label Details
+    %h4.box-label= t('tenon.common.details')
     .box
       .form-group.bordered
         = f.text_field :button_text, :placeholder => '--'
@@ -26,22 +26,20 @@
 
       .form-group.bordered.inline
         = f.check_box :new_window, class: 'tn-checkbox-right'
-        = f.super_label :new_window, 'Open in New Window'
+        = f.super_label :new_window, t('tenon.tenon_callouts.open_in_new_window')
 
-    %h4.box-label Actions
+    %h4.box-label= t('tenon.common.actions')
     .box
       .form-group.inline
         = f.check_box :published, class: 'tn-checkbox-right'
         = f.super_label :published
 
       .content
-        %button.btn.btn-comp.submit.btn-block{:href => 'javascript:;', data: { disable_with: "Please wait..." } } Save
+        %button.btn.btn-comp.submit.btn-block{ :href => 'javascript:;', data: { disable_with: t('tenon.common.please_wait') } }= t('tenon.common.save')
 
       - if @tenon_callout.persisted?
         %hr
         .content
-          = link_to "Delete", @tenon_callout, data: {method: :delete, confirm: 'Are you sure you want to delete this?'}, :class => 'delete-link'
-
-
+          = link_to t('tenon.common.delete'), @tenon_callout, data: { method: :delete, confirm: t('tenon.common.are_you_sure') }, :class => 'delete-link'
 
     .spacer

@@ -1,8 +1,8 @@
 - content_for :sidebar do
   .sidebar
     .content
-      %h2 Galleries
-      = link_to "New Gallery", new_gallery_path, class: 'btn btn-block btn-primary'
+      %h2= t('tenon.galleries.galleries')
+      = link_to t('tenon.galleries.new_gallery'), new_gallery_path, class: 'btn btn-block btn-primary'
 
 = error_messages_for :gallery
 
@@ -13,18 +13,18 @@
 
     .form-group
       %p
-        = link_to_add_association "Add another photo", f, :photos, 'data-association-insertion-node' => '#photo-list', 'data-association-insertion-method' => 'append'
-        = link_to 'Add several', new_item_asset_path(multiple: true), class: 'btn btn-comp browse', data: {'modal-remote' => true, 'modal-title' => "Select file", 'modal-handler' => 'Tenon.features.MultipleAssetAttachment', target: '.tn-tc-asset-fields' }
+        = link_to_add_association t('tenon.galleries.add_another_photo'), f, :photos, 'data-association-insertion-node' => '#photo-list', 'data-association-insertion-method' => 'append'
+        = link_to t('tenon.galleries.add_several'), new_item_asset_path(multiple: true), class: 'btn btn-comp browse', data: {'modal-remote' => true, 'modal-title' => "Select file", 'modal-handler' => 'Tenon.features.MultipleAssetAttachment', target: '.tn-tc-asset-fields' }
 
       %ul.nested-field-list.sortable#photo-list
         = f.nested_fields :photo
 
   .fields.small
-    %h4.box-label Publish
+    %h4.box-label= t('tenon.common.publish')
     .box
       .content
         - if can?(:publish, @gallery)
-          = f.submit 'Save', class: 'btn btn-block btn-comp', data: { disable_with: "Please wait..." }
+          = f.submit t('tenon.common.save'), class: 'btn btn-block btn-comp', data: { disable_with: t('tenon.common.please_wait') }
 
         - if can?(:create, Tenon::ItemVersion)
           = save_draft_button(@gallery)
@@ -35,4 +35,4 @@
         = clear_draft_link if params[:version]
         = load_draft_link(@gallery)
         - if @gallery.persisted?
-          = link_to "Delete", @gallery, :data => {:method => :delete, :confirm => "Are you sure you want to delete this?"}, :class => 'delete-link'
+          = link_to t('tenon.common.delete'), @gallery, :data => { :method => :delete, :confirm => t('tenon.common.are_you_sure') }, :class => 'delete-link'

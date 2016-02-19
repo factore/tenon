@@ -1,13 +1,13 @@
 - content_for :sidebar do
   .sidebar
     .content
-      %h2 Pages
+      %h2= t('tenon.pages.pages')
 
-    %h4 Edit Options
+    %h4= t('tenon.common.edit_options')
     %nav
       %ul
-        %li.active= link_to 'Page Content', '#details', data: {toggle: 'tab'}
-        %li= link_to 'Search Optimization', '#seo', data: {toggle: 'tab'}
+        %li.active= link_to t('tenon.pages.page_content'), '#details', data: {toggle: 'tab'}
+        %li= link_to t('tenon.common.search_optimization'), '#seo', data: {toggle: 'tab'}
 
     = i18n_language_nav(:'tenon/pages')
 
@@ -16,35 +16,35 @@
   .fields.large.tabs
     .tab-pane.active#details
       .form-group
-        = f.text_field :title, explanation: 'This is the title that shows up at the top of your page.'
+        = f.text_field :title, explanation: t('tenon.pages.this_is_the_title')
 
       .form-group= f.tenon_content :content
 
     .tab-pane#seo= render 'tenon/shared/seo_fields', f: f
 
   .fields.small
-    %h4.box-label Details
+    %h4.box-label= t('tenon.common.details')
     .box
       .form-group.bordered
-        = f.super_label :parent_id, 'Parent Page'
-        = f.collection_select :parent_id, @potential_parents, :id, :option_title, {:include_blank => "(No Parent)"}
+        = f.super_label :parent_id, t('tenon.pages.parent_page')
+        = f.collection_select :parent_id, @potential_parents, :id, :option_title, { :include_blank => t('tenon.pages.no_parent') }
 
       .form-group.inline.bordered
         = f.check_box :show_in_menu, class: 'tn-checkbox-right'
-        = f.super_label :show_in_menu, "Show in Menu?"
+        = f.super_label :show_in_menu, t('tenon.pages.show_in_menu')
 
       .form-group.inline.bordered
         = f.check_box :show_contact_form, class: 'tn-checkbox-right'
-        = f.super_label :show_contact_form, "Show Contact Form?"
+        = f.super_label :show_contact_form, t('tenon.pages.show_contact_form')
 
-    %h4.box-label Publish Your Page
+    %h4.box-label= t('tenon.pages.publish_your_page')
     .box
       .form-group
-        = f.text_field :publish_at, label: "Publish Date", data: {behaviour: 'datetime-picker'}, placeholder: '--'
+        = f.text_field :publish_at, label: t('tenon.common.publish_date'), data: { behaviour: 'datetime-picker' }, placeholder: '--'
 
       .row.content
         - if can?(:publish, @page)
-          %button.btn.btn-comp.btn-block.submit{ data: { disable_with: "Please wait..." } } Save
+          %button.btn.btn-comp.btn-block.submit{ data: { disable_with: t('tenon.common.please_wait') } }= t('tenon.common.save')
 
         - if can?(:create, Tenon::ItemVersion)
           = save_draft_button(@page)
@@ -55,4 +55,4 @@
         = clear_draft_link if params[:version]
         = load_draft_link(@page)
         - if @page.persisted?
-          = link_to "Delete", @page, data: {method: :delete, confirm: 'Are you sure you want to delete this?'}, class: 'delete-link'
+          = link_to t('tenon.common.delete'), @page, data: { method: :delete, confirm: t('tenon.common.are_you_sure') }, class: 'delete-link'

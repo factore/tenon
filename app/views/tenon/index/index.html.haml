@@ -1,22 +1,22 @@
 - content_for :sidebar do
   .sidebar
     .content
-      %h2 Notifications
+      %h2= t('tenon.index.notifications')
       - unless @warnings.empty?
-        %h3 Some items need your attention!
+        %h3= t('tenon.index.some_items_need_your_attention')
 
         - @warnings.each do |warning|
           .notification= warning
 
 %header
-  %h1 Welcome to Tenon
+  %h1= t('tenon.index.welcome_to_tenon')
 
   .tools
     = render "tenon/shared/section_header/sidebar_toggle"
 
 .main-content
   #dashboard-callouts.container
-    // change the count to test various quantities of callouts - eimaj
+    - # change the count to test various quantities of callouts - eimaj
     - @tenon_callouts.each do |callout|
       .callout
         %h4.title

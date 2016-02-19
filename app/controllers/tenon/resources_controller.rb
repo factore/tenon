@@ -41,7 +41,7 @@ module Tenon
       authorize!(:publish, resource)
       if resource.update_attributes(resource_params)
         save_item_version if resource.respond_to?(:versions)
-        flash[:notice] = "#{human_name} saved successfully." unless request.xhr?
+        flash[:notice] = "#{human_name} #{t('tenon.common.saved_successfully')}." unless request.xhr?
       end
 
       self.resource = resource.decorate
@@ -52,7 +52,7 @@ module Tenon
       self.resource = klass.new(resource_params).decorate
       authorize!(:publish, resource)
       if resource.save && !request.xhr?
-        flash[:notice] = "#{human_name} saved successfully."
+        flash[:notice] = "#{human_name} #{t('tenon.common.saved_successfully')}."
         save_item_version if resource.respond_to?(:versions)
       end
       respond_with(resource.decorate, location: after_create_path, status: (201 if resource.valid?))
@@ -83,7 +83,7 @@ module Tenon
       item_version.user = current_user
       item_version.created_at = resource.updated_at
       item_version.save_type = 'post-save'
-      item_version.title = 'Post-Save'
+      item_version.title = t('tenon.item_versions.post_save')
       item_version.save
     end
 

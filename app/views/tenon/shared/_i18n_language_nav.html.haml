@@ -1,6 +1,6 @@
-%h4 Languages
+%h4= t('tenon.common.languages')
 %nav.i18n-nav
   %ul
-    %li.active= link_to 'English', '#', data: { 'i18n-lang' => 'en' }
+    %li.active= link_to t('tenon.common.english'), '#', data: { 'i18n-lang' => 'en' }
     - Tenon.config.languages.each do |title, lang|
       %li= link_to title, '#', data: { 'i18n-lang' => lang }

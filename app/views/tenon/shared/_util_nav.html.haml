@@ -21,8 +21,8 @@
         %li
           = link_to edit_user_path(current_user) do
             .header-icon= fa_icon('fw gear')
-            .header-label Edit Info
+            .header-label= t('tenon.users.edit_info')
         %li
           = link_to destroy_user_session_path, method: :delete do
             .header-icon= fa_icon('fw sign-out')
-            .header-label Sign Out
+            .header-label= t('tenon.users.sign_out')

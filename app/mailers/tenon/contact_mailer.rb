@@ -7,7 +7,7 @@ module Tenon
       @contact = contact
       mail(
         to: Tenon::MySettings.contact_email,
-        subject: "#{Tenon::MySettings.site_name} - New Contact Request",
+        subject: "#{Tenon::MySettings.site_name} - #{I18n.t('tenon.contact_mailer.new_contact_request')}",
         from: @contact.email
       )
     end

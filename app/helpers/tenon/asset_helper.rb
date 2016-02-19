@@ -56,7 +56,7 @@ module Tenon
       def default_options
         {
           'data-modal-remote' => true,
-          'data-modal-title' => t('tenon.asset.edit_asset')
+          'data-modal-title' => t('tenon.assets.edit_asset')
         }
       end
     end

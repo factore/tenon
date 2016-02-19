@@ -1,32 +1,32 @@
 - content_for :sidebar do
   .sidebar
     .content
-      %h2 Contacts
+      %h2= t('tenon.contacts.contacts')
 
-    %h4 Filter
+    %h4= t('tenon.common.filter')
     %nav.list-toggles
       %ul
         %li
           = link_to(contacts_path, :class => 'record-list-updater', 'data-clear-record-list-params' => true) do
-            All
+            = t('tenon.common.all')
             %span.count= @counts[:all]
 
         %li
           = link_to(url_for(type: 'unread'), class: 'record-list-updater') do
-            Unread
+            = t('tenon.contacts.unread')
             %span.count= @counts[:unread]
 
         %li
           = link_to(url_for(type: 'read'), class: 'record-list-updater') do
-            Read
+            = t('tenon.contacts.read')
             %span.count= @counts[:read]
 
         %li
           = link_to(url_for(type: 'unreplied'), class: 'record-list-updater') do
-            Awaiting reply
+            = t('tenon.contacts.awaiting_reply')
             %span.count= @counts[:unreplied]
 
         %li
           = link_to(url_for(type: 'replied'), class: 'record-list-updater') do
-            Replied
+            = t('tenon.contacts.replied')
             %span.count= @counts[:replied]

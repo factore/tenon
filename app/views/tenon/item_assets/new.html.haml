@@ -1,7 +1,7 @@
 .modal-tab-pane.tab-content
   - unless params[:hide_upload]
     #upload-asset
-      %h5 From Your Computer
+      %h5= t('tenon.assets.from_your_computer')
       #progress
       = form_for Tenon::Asset.new, format: 'json', builder: Tenon::FormBuilder do |f|
         = error_messages_for :asset
@@ -9,16 +9,16 @@
           .form-group
             .browse-button-holder.solo
               .fileupload.btn.btn-comp.browse
-                %span#choose-files Browse
+                %span#choose-files= t('tenon.common.browse')
                 %input{ :type => 'file', :class => 'upload', multiple: defined?(multiple) && multiple, style: 'width: 100%;', name: 'asset[attachment]' }
         .spacer
 
   #pick-asset
-    %h5 From the Asset Library
+    %h5= t('tenon.assets.from_the_asset_library')
 
-    .filter= text_field_tag :q, '', id: 'quick-search', class: 'filter search', placeholder: 'Filter Assets', data: { 'record-list' => '.asset-list' }
+    .filter= text_field_tag :q, '', id: 'quick-search', class: 'filter search', placeholder: t('tenon.assets.filter_assets'), data: { 'record-list' => '.asset-list' }
 
     .asset-list-scroller
-      %ul#modal-asset-list.asset-list.record-grid.infinite-scroll{data: {records: {url: assets_path(format: 'json'), template: 'tenon/templates/assets/asset_row', name: 'asset'}}}
+      %ul#modal-asset-list.asset-list.record-grid.infinite-scroll{ data: { records: { url: assets_path(format: 'json'), template: 'tenon/templates/assets/asset_row', name: 'asset' } } }
 
-      = link_to "Load More Assets", '#', :class => 'infinite-loader', 'data-record-list' => '#modal-asset-list'
+      = link_to t('tenon.assets.load_more'), '#', :class => 'infinite-loader', 'data-record-list' => '#modal-asset-list'

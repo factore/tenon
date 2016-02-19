@@ -1,10 +1,10 @@
 - content_for :sidebar do
   .sidebar
     .content
-      %h2 Galleries
-      = link_to "New Gallery", new_gallery_path, class: 'btn btn-block btn-primary'
+      %h2= t('tenon.galleries.galleries')
+      = link_to t('tenon.galleries.new_gallery'), new_gallery_path, class: 'btn btn-block btn-primary'
 %header
-  %h1 Galleries
+  %h1= t('tenon.galleries.galleries')
 
   .tools
     = render "tenon/shared/section_header/sidebar_toggle"
@@ -17,6 +17,6 @@
   = render "tenon/shared/section_header/quick_search", record_list: '#galleries'
 
 .main-content
-  %ul#galleries.record-list{data: {records: {url: galleries_path(format: 'json'), template: 'tenon/templates/galleries/gallery_row', name: 'gallery'}}}
+  %ul#galleries.record-list{ data: { records: { url: galleries_path(format: 'json'), template: 'tenon/templates/galleries/gallery_row', name: 'gallery' } } }
 
-  = link_to "Load More Galleries", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#galleries'
+  = link_to t('tenon.galleries.load_more'), '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#galleries'

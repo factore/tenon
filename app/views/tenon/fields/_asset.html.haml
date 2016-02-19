@@ -21,12 +21,12 @@
 
     .browse-button-holder{ class: ('with-remove' if opts[:remove_association]) }
       .browse-button
-        = link_to 'Browse', new_item_asset_path, class: 'btn btn-comp browse', data: { modal_remote: true, modal_title: "Select #{field.to_s.titleize}", modal_handler: 'Tenon.features.AssetAttachment' }
+        = link_to t('tenon.common.browse'), new_item_asset_path, class: 'btn btn-comp browse', data: { modal_remote: true, modal_title: "#{t('tenon.fields.select')} #{field.to_s.titleize}", modal_handler: 'Tenon.features.AssetAttachment' }
         - if opts[:remove_association]
           %small
             or
-            = link_to_remove_association "remove", f
+            = link_to_remove_association t('tenon.fields.remove'), f
         - else
           %small
             or
-            = link_to "remove", '#', class: 'remove-asset', data: { confirm: 'Are you sure?' }
+            = link_to t('tenon.fields.remove'), '#', class: 'remove-asset', data: { confirm: t('tenon.common.are_you_sure') }
