@@ -268,6 +268,27 @@ of the collection that's passed in, while the call to +super+ on the
 <tt>#filter</tt> method also allows for the +quick_search_fields+ to be
 searched.
 
+Because many filtering tasks are similar, filterers that inherit from <tt>Tenon::BaseFilterer</tt> (and thus <tt>Tenon::GenericFilterer</tt>) have access to a few convenience methods for easier filtering.  These methods are:
+
+eq(field, value):: Used to check if +field+ is equal to +value+
+ilike(field, value):: Used to check if +field+ <em>ILIKE matches</em> +value+
+gt(field, value):: Used to check if +field+ is greater than +value+
+lt(field, value):: Used to check if +field+ is less than +value+
+gte(field, value):: Used to check if +field+ is greater than or equal to +value+
+lte(field, value):: Used to check if +field+ is less than or equal to +value+
+
+These methods will always simply return the current scope if +value+ is not +.present?+, so there's no need to check for the presence of a param.
+
+Here is an example of the imagined +PostFilterer+ using these convenience methods:
+
+  class PostFilterer < Tenon::GenericFilterer #:nodoc:
+    def filter
+      @scope = gte('posts.publish_at', params[:start_date])
+      @scope = lte('posts.publish_at', params[:end_date])
+      super
+    end
+  end
+
 A custom filterer is just a plain old Ruby object and can use any kind of
 internal logic to filter a collection.  The only requirement is that the
 <tt>#filter</tt> method returns a chainable <tt>ActiveRecord::Relation</tt>.
