@@ -14,42 +14,27 @@ class DefaultFiltering extends React.Component {
   }
 
   render() {
-    const { FilterDrawer, QuickSearch, ActionButtons } = this.props.childComponents;
+    const { FilterDrawer, QuickSearch } = this.props.childComponents;
     const { actions } = this.props;
 
     let filterDrawer = '';
-    let filterDrawerToggle = '';
 
     if (FilterDrawer) {
       filterDrawer = (
-        <form
-          id="filters"
-          className="drawer">
+        <div id="filters" className="drawer">
           <FilterDrawer
             { ...this.props }
             onChange={(e) => this._changeFilter(e)} />
-        </form>
-      );
-
-      filterDrawerToggle = (
-        <div className='toolbar__action filter-toggle'>
-          <a
-            className="action-icon"
-            onClick={actions.toggleFilterDrawer}
-            href="#!"
-            title="Filter">
-            <i className="material-icons">tune</i>
-          </a>
         </div>
       );
     }
 
     return (
       <div>
+        {filterDrawer}
+
         <QuickSearch
-            q={this.props.data.query.q}
-            ActionButtons={ActionButtons}
-            quickSearchOpen={this.props.ui.quickSearchOpen}
+            { ...this.props }
             onClickClear={(e) => this._clearFilters(e)}
             onFocus={() => actions.toggleQuickSearch('on')}
             onChange={(e) => this._changeFilter(e)}
@@ -59,12 +44,9 @@ class DefaultFiltering extends React.Component {
               }
             }} />
 
-        {filterDrawerToggle}
-        {filterDrawer}
-
         <div className="toolbar-overlay">
           <div className="filter-content">
-            <a href="#!" className="toolbar__action toggle-drawer" data-target="filters">
+            <a href="#!" className="toolbar__action">
               <i className="material-icons">close</i>
               Close
             </a>

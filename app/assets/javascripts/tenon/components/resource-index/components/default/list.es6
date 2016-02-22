@@ -29,27 +29,29 @@ window.ResourceIndexComponents.DefaultList = (props) => {
   }
 
   return (
-    <main>
-      <a className="btn-fab btn-fab-bottom-right" href={props.newPath}>
-        <i className="material-icon">add</i>
-      </a>
+    <div className="drawer-pusher">
+      <main>
+        <a className="btn-fab btn-fab-bottom-right" href={props.newPath}>
+          <i className="material-icon">add</i>
+        </a>
 
-      <div className="record-list with-btn-fab">
-        <ul className="">
-          <ReactCSSTransitionGroup
-            transitionName="record"
-            transitionEnterTimeout={250}
-            transitionLeaveTimeout={250}>
-            {output}
-          </ReactCSSTransitionGroup>
+        <div className="record-list with-btn-fab">
+          <ul className="">
+            <ReactCSSTransitionGroup
+              transitionName="record"
+              transitionEnterTimeout={250}
+              transitionLeaveTimeout={250}>
+              {output}
+            </ReactCSSTransitionGroup>
 
-        </ul>
+          </ul>
 
-        <LoadMoreButton
-          title={props.title}
-          loadAction={(e) => props.handlers.loadNextPage(e)}
-          pagination={pagination} />
-      </div>
-    </main>
+          <LoadMoreButton
+            title={props.title}
+            loadAction={(e) => props.handlers.loadNextPage(e)}
+            pagination={pagination} />
+        </div>
+      </main>
+    </div>
   );
 };
