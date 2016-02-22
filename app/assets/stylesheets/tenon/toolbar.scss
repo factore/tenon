@@ -10,15 +10,24 @@
   overflow: visible;
 }
 
+.toolbar--overlay {
+  @extend %toolbar--z1;
+  @include default-transition;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  line-height: $util-nav-height;
+}
+
 .toolbar__actions {
-  padding: 8px 10px;
+  padding: 8px 0;
   height: $util-nav-height;
 }
 
 .toolbar__actions--right {
-  position: fixed;
+  position: absolute;
   top: 0;
-  right: $default-spacing*4.5;
+  right: 0;
 }
 
 .toolbar__action {
@@ -32,7 +41,14 @@
   }
 }
 
-.toolbar__search-clear {
+.toolbar__action--left {
+  position: absolute;
+  top: 6px;
+  left: $default-spacing;
+}
+
+.quick-search {
+  position: relative;
 }
 
 .toolbar--posts {
@@ -42,47 +58,36 @@
 }
 
 
+// .toolbar__background {
+//   @include default-transition;
+//   position: fixed;
+//   top: 0;
+//   right: 0;
+//   left: 0;
+//   opacity: .5;
+//   background-color: $quick-search-overlay-bg-color;
+//   height: 0;
+// }
 
-
-
-.toolbar-overlay {
-  @include default-transition;
-  opacity: 0;
-  height: 0;
-  overflow: hidden;
-  line-height: $util-nav-height;
-  content: 0;
+.toolbar__content {
+  padding: 10px ($action-icon-dimension * 3 + 10px) 10px $default-spacing;
+  // position: absolute;
+  // top: 0;
+  // right: 0;
+  // left: $default-spacing;
 }
 
-.toolbar-overlay__background {
-  @include default-transition;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  opacity: .5;
-  background-color: $quick-search-overlay-bg-color;
-  height: 0;
-}
+// .toolbar-overlay__action {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   float: left;
+//   padding: 8px 10px 8px $default-spacing;
+//   width: $main-nav-width;
+//   height: $util-nav-height;
+// }
 
-.toolbar-overlay__content {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: $default-spacing;
-}
-
-.toolbar-overlay__action {
-  position: fixed;
-  top: 0;
-  left: 0;
-  float: left;
-  padding: 8px 10px 8px $default-spacing;
-  width: $main-nav-width;
-  height: $util-nav-height;
-}
-
-.toolbar-overlay--is-open {
+.toolbar--is-open {
   opacity: 1;
   height: $util-nav-height;
   .toolbar-overlay__background {
@@ -90,15 +95,15 @@
   }
 }
 
-.toolbar-overlay__toolbar {
-  z-index: $z-quick-search-active;
-  > .actions .action--icon {
-    color: $primary-fg-color;
-    &:hover {
-      color: $link-color;
-    }
-  }
-}
+// .toolbar-overlay__toolbar {
+//   z-index: $z-quick-search-active;
+//   > .actions .action--icon {
+//     color: $primary-fg-color;
+//     &:hover {
+//       color: $link-color;
+//     }
+//   }
+// }
 
 @include toolbar-z-index-generator;
 

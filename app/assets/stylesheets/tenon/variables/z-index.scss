@@ -16,20 +16,11 @@ $z-quick-search-active: 50;
 $z-quick-search-input: 10;
 $z-quick-search-actions: 20;
 
-// toolbar:
+// toolbar z'd's:
 @mixin toolbar-z-index-generator {
   @for $i from 1 through 10 {
-    .toolbar-overlay--z#{$i} {
+    %toolbar--z#{$i} {
       z-index: #{100 + ($i * 10)};
-
-      .toolbar-overlay__background {
-        z-index: #{100 + ($i * 10)};
-      }
-
-      .toolbar-overlay__action,
-      .toolbar-overlay__content {
-        z-index: #{100 + ($i * 10) + 1};
-      }
     }
   }
 }

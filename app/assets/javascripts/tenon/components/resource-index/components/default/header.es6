@@ -5,20 +5,51 @@ class DefaultHeader extends React.Component {
   }
 
   render() {
-    const { Filtering, ActionButtons } = this.props.childComponents;
-    // @sean: Can we, by default, provide a unique modifier class for each tenon
-    // module? This way, if we want to add a unique color, all we have to do is
-    // add a bg-color to a .toolbar--module class.
-    let toolbarClassName = 'toolbar toolbar--posts';
+    const { Filtering, QuickSearch } = this.props.childComponents;
 
     return (
-      <div className={toolbarClassName}>
-        <Breadcrumbs breadcrumbs={this.props.breadcrumbs} />
+      <div>
+        <QuickSearch
+            { ...this.props }
+            onClickClear={(e) => this._clearFilters(e)}
+            onFocus={() => actions.toggleQuickSearch('on')}
+            onChange={(e) => this._changeFilter(e)}
+            onBlur={(e) => {
+              if (e.target.value === '') {
+                actions.toggleQuickSearch('off');
+              }
+            }} />
+
+        // @sean: Put the Quicksearch overlay here
+        // When we discussed this you said that the quick search component doesn't
+        // need to know all the QuickSearchInput functions and as a result would
+        // be moved into it's own smart component.
+        // I added your sample tree below.
+
         <Filtering { ...this.props } />
-        <ActionButtons { ...this.props } />
       </div>
     );
   }
 }
 
 window.ResourceIndexComponents.DefaultHeader = DefaultHeader;
+
+
+
+// <toolbar BASE>
+//   <breadcrumbs>
+//   <qsi>
+//   <actions>
+// </toolbar>
+//
+// <toolbar toolbar--overlay WHEN QUICK SEARCH IS FOCUSED>
+//   <back button>
+//   <qsi>
+//   <actions>
+// </toolbar>
+//
+// <toolbar toolbar--overlay WHEN FILTERING SHIT>
+//   <back button>
+//   <number of record results>
+//   <actions>
+// </toolbar>

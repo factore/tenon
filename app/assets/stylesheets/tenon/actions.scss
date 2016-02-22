@@ -1,3 +1,5 @@
+$action-icon-dimension: 44px;
+
 .actions {
   position: absolute;
   top: 0;
@@ -7,7 +9,7 @@
 .action-icon {
   display: inline-block;
   position: relative;
-  line-height: 44px;
+  line-height: $action-icon-dimension;
   color: $primary-fg-color;
 
   &:hover {
@@ -19,8 +21,8 @@
     display: inline-block;
     position: relative;
     border-radius: 50%;
-    width: 44px;
-    height: 44px;
+    width: $action-icon-dimension;
+    height: $action-icon-dimension;
     overflow: hidden;
     text-align: center;
     line-height: $default-spacing*1.5;

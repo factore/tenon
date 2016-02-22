@@ -54,7 +54,7 @@
 }
 
 .record__action-icon {
-  @extend .action--icon;
+  @extend .action-icon;
   @include bp-md {
     @include transform(translateY(-50%));
     position: relative;
