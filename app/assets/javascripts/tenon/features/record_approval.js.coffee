@@ -14,10 +14,10 @@ class Tenon.features.RecordApproval
   _finishToggle:  =>
     @$link.toggleClass('unapprove approve')
     if @$link.hasClass('approve')
-      @_setTooltip('Approve')
+      @_setTooltip(I18n.tenon.common.approve)
       @$link.find('i').toggleClass('fa-spin fa-gear fa-thumbs-up')
     else
-      @_setTooltip('Unapprove')
+      @_setTooltip(I18n.tenon.common.unapprove)
       @$link.find('i').toggleClass('fa-spin fa-gear fa-thumbs-down')
 
   _startIconLoad: =>

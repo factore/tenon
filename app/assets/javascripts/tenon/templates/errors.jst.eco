@@ -1,5 +1,5 @@
 <div class="error-explanation">
-  <h4>The following errors occurred:</h2>
+  <h4><%= I18n.tenon.common.the_following_errors_occurred %>:</h2>
   <ul>
     <% for field, errors of @errors: %>
       <% for error in errors: %>

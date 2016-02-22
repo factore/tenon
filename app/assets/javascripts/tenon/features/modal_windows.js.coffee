@@ -41,7 +41,6 @@ class Tenon.features.ModalWindows
     @_launchWithContent() if @opts.content?.length
 
   _launchWithUrl: (e) =>
-    console.debug("called _launchWithUrl")
     @remote = true
     Tenon.$genericLoader.show()
     $.ajax
@@ -51,7 +50,6 @@ class Tenon.features.ModalWindows
       beforeSend: null
 
   _launchWithTarget: (e) =>
-    console.debug("called _launchWithTarget")
     if @opts.closest?.length && @opts.$link
       $parentNode = @opts.$link.closest(@opts.closest)
       $el = $parentNode.find(@opts.target)

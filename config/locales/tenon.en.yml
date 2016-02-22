@@ -20,7 +20,7 @@ en:
       search_optimization: Search Optimization
       details: Details
       active: Actions
-      search: SEARCH
+      search: Search
       languages: Languages
       english: English
       home: Home
@@ -34,6 +34,7 @@ en:
       new: New
       loading: Loading...
       you_have_unsaved_changes: You have unsaved changes, are you sure you want to leave this page?
+      the_following_errors_occurred: The following errors occurred
 
     assets:
       enter_a_title_for_your_asset: Enter a title for your asset. You can leave this blank to just use the file name as the title.
@@ -60,6 +61,8 @@ en:
       from_your_computer: From Your Computer
       from_the_asset_library: From the Asset Library
       filter_assets: Filter Assets
+      asset_link: Asset Link
+      no_asset_selected: No asset selected.
 
     comment_mailer:
       a_new_comment_has_been_added: A new comment has been added to
@@ -79,6 +82,12 @@ en:
       from: From
       email: Email
       new_contact_request: New Contact Request
+      sent_on: Sent on
+      name: Name
+      phone: Phone
+      ip: IP
+      agent: Agent
+      referrer: Referrer
 
     contacts:
       contacts: Contacts
@@ -108,6 +117,8 @@ en:
       create_a_new_event: Create a New Event
       from: from
       until: until
+      when: When
+      where: Where
 
     fields:
       remove: remove
@@ -140,6 +151,8 @@ en:
       by: by
       post_save: Post-Save
       failed_to_save_draft: Failed to save draft.
+      created: Created
+      creator: Creator
 
     pages:
       pages: Pages
@@ -160,6 +173,7 @@ en:
       must_exist_in_order_to_have: must exist in order to have a properly generated URL.
       theres_already_something_happening: "There's already something happening at %{path}. Try giving the page a different name."
       cannot_be_itself_or_one_of_its_subpages: cannot be itself or one of its subpages.
+      last_updated: Last Updated
 
     post_categories:
       post_categories: Post Categories
@@ -181,6 +195,7 @@ en:
       load_more: Load More Posts
       date_not_set: Date not set
       create_a_new_post: Create a New Post
+      published: Published
 
     redirects:
       redirects: Redirects
@@ -237,6 +252,7 @@ en:
       never: Never
       are_you_sure_you_want_to_unapprove: Are you sure you want to unapprove this user?
       are_you_sure_the_user_will_be_notified: Are you sure? The user will be notified by email.
+      last_login: Last Login
 
     tenon_callouts:
       tenon_callouts: Tenon Callouts

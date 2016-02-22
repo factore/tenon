@@ -52,7 +52,7 @@ Tenon.features.nestedFields = {
     var self        = Tenon.features.nestedFields,
         hiddenField = $(this).prev('input[name*=_destroy]')[0];
 
-    if (confirm("Are you sure?")) {
+    if (confirm(I18n.tenon.common.are_you_sure)) {
       // Existing records get set as deleted, new records just get cleared out of the DOM
       if(hiddenField) {
         hiddenField.value = 'true';

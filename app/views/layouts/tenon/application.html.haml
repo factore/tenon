@@ -13,6 +13,10 @@
     = javascript_include_tag '/ckeditor/ckeditor'
     = javascript_include_tag 'tenon/tenon_manifest'
 
+    :javascript
+      window.I18n = #{current_translations.to_json.html_safe}
+
+
   %body{data: { controller: params[:controller], action: params[:action] }, class: ('menu-open' if content_for?(:sidebar))}
     = render 'tenon/shared/util_nav'
     = render 'tenon/shared/main_nav'

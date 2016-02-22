@@ -61,7 +61,7 @@ class Tenon.features.AssetUploader
     @titleCounter += 1
 
   _updateButtonText: ->
-    $('#choose-files').text('Choose Another File')
+    $('#choose-files').text(I18n.tenon.assets.choose_another_file)
 
   _resetCounter: =>
     $('#asset_title').val($('#aset_title').data('original-value'))

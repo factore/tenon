@@ -2,12 +2,12 @@
   <div class="thumbnail"><%- @asset.icon %></div>
   <div class="record-details">
     <div class="record-title">
-      <a href="<%= @asset.edit_path %>" data-modal-remote="true" data-modal-title="Edit Asset"><%= @asset.display_name %></a>
+      <a href="<%= @asset.edit_path %>" data-modal-remote="true" data-modal-title="<%= I18n.tenon.assets.edit_asset %>"><%= @asset.display_name %></a>
     </div>
 
     <div class="record-fields">
       <div class="record-field">
-        Size - <%= @asset.human_size %>
+        <%= I18n.tenon.assets.size %> - <%= @asset.human_size %>
       </div>
     </div>
 

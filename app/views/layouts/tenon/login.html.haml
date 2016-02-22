@@ -12,5 +12,8 @@
     = stylesheet_link_tag 'tenon/tenon', '//fonts.googleapis.com/css?family=Open+Sans:400,700'
     = javascript_include_tag 'tenon/tenon_manifest'
 
+    :javascript
+        window.I18n = #{current_translations.to_json.html_safe}
+
   %body{data: { controller: params[:controller], action: params[:action] }, class: ('menu-open' if content_for?(:sidebar))}
     .tenon-login= yield

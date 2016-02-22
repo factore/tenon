@@ -6,7 +6,7 @@
     </div>
 
     <div class="record-title">
-      <a href="<%= @post_category.edit_path %>" data-modal-remote="true" data-modal-title="Edit Post Category"><%= @post_category.title %></a>
+      <a href="<%= @post_category.edit_path %>" data-modal-remote="true" data-modal-title="<%= I18n.tenon.post_categories.edit_post_category %>"><%= @post_category.title %></a>
     </div>
   </div>
 </li>

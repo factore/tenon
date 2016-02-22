@@ -14,7 +14,7 @@
 
     <div class="record-fields">
       <div class="record-field">
-        Last Updated - <%= @page.updated_at %> by <%=@page.updater %>
+        <%= I18n.tenon.pages.last_updated %> - <%= @page.updated_at %> by <%=@page.updater %>
       </div>
     </div>
   </div>

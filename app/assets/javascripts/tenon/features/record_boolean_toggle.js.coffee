@@ -10,7 +10,7 @@ class Tenon.features.RecordBooleanToggle
     @trueTooltip = @$link.data('truetooltip')
     @falseTooltip = @$link.data('falsetooltip')
     @_startIconLoad()
-    @_setTooltip('Loading...')
+    @_setTooltip(I18n.tenon.common.loading)
     $.getJSON(@$link.attr('href'))
       .done(@_finishToggle)
       .fail((data)-> console.log(data))
