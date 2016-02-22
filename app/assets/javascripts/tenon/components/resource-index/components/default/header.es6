@@ -14,8 +14,8 @@ class DefaultHeader extends React.Component {
     return (
       <div className={toolbarClassName}>
         <Breadcrumbs breadcrumbs={this.props.breadcrumbs} />
-        <Filtering {...this.props} />
-        <ActionButtons />
+        <Filtering { ...this.props } />
+        <ActionButtons { ...this.props } />
       </div>
     );
   }

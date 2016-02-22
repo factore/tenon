@@ -10,8 +10,13 @@ const DEFAULT_CHILD_COMPONENT_NAMES = {
   ActionButtons: 'DefaultActionButtons',
   Filtering: 'DefaultFiltering',
   QuickSearch: 'DefaultQuickSearch',
+  QuickSearchInput: 'DefaultQuickSearchInput',
+  QuickSearchOverlay: 'DefaultQuickSearchOverlay',
   List: 'DefaultList',
   Record: 'DefaultRecord',
+  RecordTitle: 'DefaultRecordTitle',
+  RecordActions: 'DefaultRecordActions',
+  RecordExpandedContent: 'DefaultRecordExpandedContent',
   LoadMoreButton: 'DefaultLoadMoreButton'
 };
 
@@ -66,7 +71,8 @@ class App extends Component {
     this.props.actions.loadNextPage();
   }
 
-  _outerClassNames() {
+  render() {
+    const { Header, List } = this.props.childComponents;
     const classNames = [];
 
     if (this.props.ui.quickSearchOpen) {
@@ -77,19 +83,10 @@ class App extends Component {
       classNames.push('filter-drawer-open');
     }
 
-    return classNames.join(' ');
-  }
-
-  render() {
-    const { Header, List } = this.props.childComponents;
-    const classNames = this._outerClassNames();
-
     return (
-      <div className={classNames}>
-        <div className='drawer-pusher'>
-          <Header {...this.props} />
-          <List {...this.props} />
-        </div>
+      <div className={classNames.join(' ')}>
+        <Header {...this.props} />
+        <List {...this.props} />
       </div>
     );
   }

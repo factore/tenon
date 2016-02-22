@@ -1,6 +1,23 @@
 window.ResourceIndexComponents.DefaultActionButtons = (props) => {
+  let filterDrawerToggle = '';
+
+  if (props.childComponents.FilterDrawer) {
+    filterDrawerToggle = (
+        <div className="toolbar__action filter-toggle">
+          <a
+            className="action-icon"
+            onClick={props.actions.toggleFilterDrawer}
+            href="#!"
+            title="Filter">
+            <i className="material-icons">tune</i>
+          </a>
+        </div>
+      );
+  }
+
   return (
     <div className="toolbar__actions toolbar__actions--right">
+      {filterDrawerToggle}
       <div className="toolbar__action">
         <a className="action-icon dropdown-button" href="#!" data-activates="sort-dropdown" title="Sort or options?">
           <i className="material-icon">sort</i>
