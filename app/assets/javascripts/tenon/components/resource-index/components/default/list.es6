@@ -17,9 +17,10 @@ window.ResourceIndexComponents.DefaultList = (props) => {
     output = records.map((record, i) => {
       return (
         <Record
-          {...record}
+          { ...props }
+          record={record}
           key={i}
-          expanded={expandedRecordIds.indexOf(record.id) !== -1}
+          isExpanded={expandedRecordIds.indexOf(record.id) !== -1}
           onDelete={(e) => deleteRecord(e, record)}
           onUpdate={(e, payload) => updateRecord(e, record, payload)}
           onToggleExpand={(e) => toggleExpandedRecord(e, record)} />

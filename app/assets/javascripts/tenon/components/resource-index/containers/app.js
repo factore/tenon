@@ -12,6 +12,9 @@ const DEFAULT_CHILD_COMPONENT_NAMES = {
   QuickSearch: 'DefaultQuickSearch',
   List: 'DefaultList',
   Record: 'DefaultRecord',
+  RecordTitle: 'DefaultRecordTitle',
+  RecordActions: 'DefaultRecordActions',
+  RecordExpandedContent: 'DefaultRecordExpandedContent',
   LoadMoreButton: 'DefaultLoadMoreButton'
 };
 
