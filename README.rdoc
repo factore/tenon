@@ -160,6 +160,220 @@ To add internationalized fields, follow these steps:
 
 Once you've done this and restarted your app you will see a language selection nav in the sidebar of each Tenon form that has internationalized fields.  On the front end, attributes on your Tenon models will be translated correctly, based on I18n.locale.
 
+== Using and Customizing the ResourceIndex React Application
+
+One of the biggest changes in Tenon 2.0 is the replacement of the index view for each resource with a common ResourceIndex ReactJS/Redux app.  Listing, paginating, filtering, sorting, deleting, light adding/editing, and all other tasks typically done on the index route of a resource are managed through this application.
+
+Rather than scaffolding new code for every resource, code is shared for all resources.  If you find yourself needing to customize the index view, individual components of the React app can easily be replaced with custom components.  This allows for a high level of customization without creating a lot of repetitive code.
+
+=== The simplest thing that could possibly work
+
+The bare minimum code to get a fully functioning resource index view is as follows.  (For an imagined +Post+ resource this code would be the entirety of <tt>app/views/tenon/posts/index.html.haml</tt>)
+
+  = react_component 'ResourceIndexRoot',
+      title: 'Posts',
+      breadcrumbs: breadcrumb_links,
+      recordsPath: posts_path(format: 'json'),
+      newPath: new_post_path
+
+This code will instantiate the +ResourceIndexRoot+ React component, and pass it the following required props:
+
++title+:: The pluralized title of the resource.
++breadcrumb_links+:: An array of Ruby hashes in the format of <tt>[{ title: 'A Title', path: '/path/to/somewhere' }]</tt>.  Use the built-in ++breadcrumb_links++ helper to automatically generate this for your current resource, or supply your own.
++recordsPath+:: The path where the JSON dump of your resource can be found.  Typically just the +index+ path with the +format+ of <tt>'json'</tt> specified.
++newPath+:: The path to the +new+ action for your resource.
+
+=== Customizing the app
+
+At some point you will need to make changes to how the ResourceIndex app looks and behaves for a specific resource.  Rather than copying the entire app and changing the relevant portions, the app can be instantiated with specific sub-components swapped out with your own custom components.
+
+In order to do this first we need to understand the composition of the app.  The app is broken up into several smaller sub-components, each of which can be swapped out when the app is instantiated in your +index+ view.  The component tree is as follows:
+
+  <ResourceIndexRoot>
+    <App>
+      <Header>
+        <Filtering>
+          <QuickSearch>
+            <QuickSearchInput />
+
+            <QuickSearchOverlay>
+              <QuickSearchInput />
+              <ActionButtons />
+            </QuickSearchOverlay>
+          </QuickSearch>
+
+          <FilterDrawer />
+        </Filtering>
+
+        <ActionButtons />
+      </Header>
+
+      <List>
+        <Record>
+          <RecordTitle />
+          <RecordActions />
+          <RecordExpandedContent />
+        </Record>
+
+        <LoadMoreButton />
+      </List>
+    </App>
+  </ResourceIndexRoot>
+
+A common task when creating index views is changing the way the title is displayed.  Let's change our imagined +Post+ resource to displayed not only the post's title, but also its publish date.
+
+The first step to replacing a sub-component is changing the initial instantiation call to the +ResourceIndex+ component and passing in the name of our new component.  In this case, we want to replace +RecordTitle+ with a custom component, which we'll call +PostsRecordTitle+.  Pass it in as a prop like so:
+
+  = react_component 'ResourceIndexRoot',
+      title: 'Posts',
+      breadcrumbs: breadcrumb_links,
+      recordsPath: posts_path(format: 'json'),
+      newPath: new_post_path,
+      childComponentNames: { RecordTitle: 'PostsRecordTitle' }
+
+This prop tells the top-level component to render +PostsRecordTitle+ instead of +DefaultRecordTitle+ in the component tree.
+
+The next step is to create our +PostsRecordTitle+ component.  Start by copying the code of the +DefaultRecordTitle+ component, found at <tt>app/assets/javascripts/tenon/components/resource-index/components/default/record-title.es6</tt>.  The code will look something like this.
+
+    window.ResourceIndexComponents.DefaultRecordTitle = ({ record }) => {
+      return (
+        <p className="record__title">{record.title}</p>
+      );
+    };
+
+Copy this code and create the new component at <tt>app/assets/javascripts/tenon/components/resource-index/components/custom/posts-record-title.es6</tt>.  In our case we simply want to change the name of the component, and add a second line with the record's +publish_at+ method.  Our finished component looks like this:
+
+  window.ResourceIndexComponents.PostsRecordTitle = ({ record }) => {
+    return (
+      <div>
+        <p className="record__title">
+          {record.title}
+        </p>
+
+        <p className="record__title--smallest">
+          Published on {record.publish_at}
+        </p>
+      </div>
+    );
+  };
+
+Upon saving this component our imagined +Post+ resource's index page will now display a customized title including the publish date/time of the post.
+
+=== Triggering actions and making changes
+
+It's not enough to just display custom information in the index view, often we need to give users the ability to make changes or interact with data as well.  You can trigger actions in your custom components that allow you to change the state of the app and update the database.  The two most common actions you will want to take are making updates to an individual record, and changing how your records are filtered and sorted.  These two actions are known as +updateRecord+ and +updateQuery+ and are passed down as methods on the +handlers+ prop available in any custom component.
+
+<tt>updateRecord(event, record, changeObject)</tt>:: Updates the record in question and sends the changes to the server.
+
+* +record+ - The record object, or any object that exposes an +id+ method.
+
+* +changeObject+ - An object describing the changes to the object, eg. <tt>{ title: 'My New Title', featured: false }</tt>
+
+<tt>updateQuery(event, changeObject [, appendRecords])</tt>:: Changes the query sent to the server when fetching records, re-fetches records with new query, and updates query string in address bar.
+
+* +changeObject+ - An object describing the changes to the query, eg. <tt>{ q: 'my search', page: 1 }</tt>.  (You should always include <tt>page: 1</tt> in your query unless you are appending records.)
+
+* +appendRecords+ - Boolean.  True: Append new records to the bottom of the list.  False: Clear record list before getting new records.  Default: false.
+
+Let's create a simple button on our imagined posts index that allows us to toggle whether a given post is featured or not.
+
+The first thing we need to do is update our call to the +ResourceIndex+ component in <tt>index.html.haml</tt> to tell it that we're going to be passing in our custom set of +RecordActions+.
+
+  = react_component 'ResourceIndexRoot',
+      title: 'Posts',
+      breadcrumbs: breadcrumb_links,
+      recordsPath: posts_path(format: 'json'),
+      newPath: new_post_path,
+      childComponentNames: {  RecordTitle: 'PostsRecordTitle',
+                              RecordActions: 'PostsRecordActions' }
+
+Next, we'll want to make a copy of the +DefaultRecordActions+ component found at <tt>app/assets/javascripts/components/resource-index/components/default/record-actions.es6</tt>.  The default component looks like this:
+
+  window.ResourceIndexComponents.DefaultRecordActions = (props) => {
+    const editPath = props.record.edit_path;
+    const onDelete = props.onDelete;
+
+    return (
+      <div className="record__actions">
+        <a
+          className="record__action-icon"
+          href={editPath}
+          title="Edit">
+          <i className="material-icon">edit</i>
+        </a>
+
+        <a
+          className="record__action-icon"
+          href="#!"
+          onClick={onDelete}
+          title="Delete">
+          <i className="material-icon">delete</i>
+        </a>
+      </div>
+    );
+  };
+
+We'll make our new component at <tt>app/views/javascripts/components/resource-index/components/custom/posts-record-actions.es6</tt> and add a new icon.
+
+  window.ResourceIndexComponents.PostsRecordActions = (props) => {
+    const editPath = props.record.edit_path;
+    const onDelete = props.onDelete;
+
+    return (
+      <div className="record__actions">
+        <!-- copied edit and delete buttons -->
+
+        <a
+          className="record__action-icon"
+          href="#!"
+          onClick={null}
+          title="Toggle Featured">
+          <i className="material-icon">star_border</i>
+        </a>
+      </div>
+    );
+  };
+
+Next we need to tap into the +onClick+ action of the link to toggle the featured state of the record.
+
+  <a
+    className="record__action-icon"
+    href="#!"
+    onClick={(e) => {
+      props.handlers.updateRecord(e, props.record, !props.record.featured)
+    }}
+    title="Toggle Featured">
+    <i className="material-icon">star_border</i>
+  </a>
+
+This is a little bit wordy for JSX, so let's extract some constants up above.
+
+  window.ResourceIndexComponents.PostsRecordActions = (props) => {
+    const editPath = props.record.edit_path;
+    const { onDelete, record } = props;
+    const { updateRecord } = props.handlers;
+
+    return (
+      <div className="record__actions">
+        <!-- copied edit and delete buttons -->
+
+        <a
+          className="record__action-icon"
+          href="#!"
+          onClick={(e) => updateRecord(e, record, !record.featured)}
+          title="Toggle Featured">
+          <i className="material-icon">star_border</i>
+        </a>
+      </div>
+    );
+  };
+
+
+
+
+
+
+
 == Searching and Filtering Records
 
 === Setting up your Rails Controllers and Filterers

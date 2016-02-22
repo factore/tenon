@@ -1,4 +1,4 @@
-window.ResourceIndexComponents.DefaultRecordActions = (props) => {
+window.ResourceIndexComponents.PostsRecordActions = (props) => {
   const editPath = props.record.edit_path;
   const onDelete = props.onDelete;
 
@@ -14,8 +14,17 @@ window.ResourceIndexComponents.DefaultRecordActions = (props) => {
       <a
         className="record__action-icon"
         href="#!"
-        onClick={onDelete} title="Delete">
+        onClick={onDelete}
+        title="Delete">
         <i className="material-icon">delete</i>
+      </a>
+
+      <a
+        className="record__action-icon"
+        href="#!"
+        onClick={null}
+        title="Toggle Featured">
+        <i className="material-icon">star_border</i>
       </a>
     </div>
   );

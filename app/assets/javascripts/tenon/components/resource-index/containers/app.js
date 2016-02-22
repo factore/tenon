@@ -33,6 +33,7 @@ class App extends Component {
   }
 
   _setupHandlers() {
+    this.props.handlers.updateQuery = this._updateQuery.bind(this);
     this.props.handlers.deleteRecord = this._deleteRecord.bind(this);
     this.props.handlers.loadNextPage = this._loadNextPage.bind(this);
     this.props.handlers.updateRecord = this._updateRecord.bind(this);
@@ -59,6 +60,11 @@ class App extends Component {
   _updateRecord(e, record, payload) {
     e.preventDefault();
     this.props.actions.updateRecord(record, payload);
+  }
+
+  _updateQuery(e, changes, append = false) {
+    e.preventDefault();
+    this.props.actions.updateQuery(payload, false);
   }
 
   _toggleExpandedRecord(e, record) {
