@@ -579,7 +579,7 @@ When the top-level +ResourceIndex+ is rendered with a +FilterDrawer+, the Filter
 
 === Creating the Ordering UI for your Resource
 
-(This section glosses over the process of adding and editing components to the ResourceIndex app.  Make sure you read {Using and Customizing the ResourceIndex React App}[#label-Using+and+Customizing+the+ResourceIndex+React+App] before reading this.)
+(This section glosses over the process of adding and editing components to the ResourceIndex app.  Make sure you read <b>Using and Customizing the ResourceIndex React App</b> before reading this.)
 
 While it's certainly possible to add the UI for ordering the returned records into the +FilterDrawer+ component, the recommend approach is to  separate it from filtering and instead use a button with a dropdown menu in the toolbar.  To add this button, we're going to supply our own custom +ActionButtons+ child-component to the +ResourceIndex+ app.
 
