@@ -31,15 +31,3 @@
   line-height: 40px;
   color: $toolbar-quicksearch-fg-color;
 }
-//
-// // .is-open and %input:focus state
-// .search-content__field:focus + .toolbar-overlay,
-// .toolbar-overlay--is-open {
-//   > .search-content__field {
-//     @include placeholder {
-//       color: lighten($primary-fg-color, 20%);
-//     }
-//     background-color: $white;
-//     color: $primary-fg-color;
-//   }
-// }

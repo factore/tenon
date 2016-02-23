@@ -37,17 +37,23 @@
 
   a {
     color: $toolbar-link-fg-color;
-    
+
     &:hover {
       color: $toolbar-link-fg-color--hover;
     }
   }
 }
 
-.toolbar__action--left {
+.toolbar__action--back {
   position: absolute;
   top: 6px;
   left: $default-spacing;
+}
+
+.toolbar__text {
+  line-height: 40px;
+  height: 40px;
+  margin: 0;
 }
 
 // toolbar overlay depths:
@@ -88,12 +94,12 @@
 }
 
 // toolbar overlay colors:
-.toolbar__quicksearch {
+.toolbar--quicksearch {
   background-color: $toolbar-quicksearch-bg-color;
   color: $toolbar-quicksearch-fg-color;
 }
 
-.toolbar__filter {
+.toolbar--filter {
   background-color: $toolbar-filter-bg-color;
   color: $toolbar-filter-fg-color;
 }
