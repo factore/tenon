@@ -84,10 +84,11 @@ export const deleteRecord = (record) => {
   };
 };
 
-export const startUpdateRecord = (record) => {
+export const startUpdateRecord = (record, payload) => {
   return {
     type: START_UPDATE_RECORD,
-    record: record
+    record: record,
+    payload: payload
   };
 };
 
@@ -100,7 +101,7 @@ export const completeUpdateRecord = (record) => {
 
 export const updateRecord = (record, payload) => {
   return function(dispatch) {
-    dispatch(startUpdateRecord(record));
+    dispatch(startUpdateRecord(record, payload));
     fetch(`${record.update_path}.json`, {
       credentials: 'same-origin',
       method: 'PUT',

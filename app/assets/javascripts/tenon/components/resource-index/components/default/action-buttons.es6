@@ -18,8 +18,13 @@ window.ResourceIndexComponents.DefaultActionButtons = (props) => {
   return (
     <div className="toolbar__actions toolbar__actions--right">
       {filterDrawerToggle}
+
       <div className="toolbar__action">
-        <a className="action-icon dropdown-button" href="#!" data-activates="sort-dropdown" title="Sort or options?">
+        <a
+          className="action-icon dropdown-button"
+          href="#!"
+          data-activates="sort-dropdown"
+          title="Sort or options?">
           <i className="material-icon">sort</i>
         </a>
 
@@ -42,9 +47,14 @@ window.ResourceIndexComponents.DefaultActionButtons = (props) => {
       </div>
 
       <div className="toolbar__action">
-        <a className="action-icon dropdown-button" href="#!" data-activates="list-dropdown" title="Links!">
+        <a
+          className="action-icon dropdown-button"
+          href="#!"
+          data-activates="list-dropdown"
+          title="Links!">
           <i className="material-icon">more_vert</i>
         </a>
+
         <ul className="dropdown-content" id="list-dropdown">
           <li>
             <a href="#!">

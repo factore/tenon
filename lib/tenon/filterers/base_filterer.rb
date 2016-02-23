@@ -43,4 +43,15 @@ class Tenon::BaseFilterer
     return scope unless value.present?
     scope.where("#{field} >= ?", value)
   end
+
+  def sort(field, direction)
+    direction ||= 'asc' # Do this manually in case nil is passed in
+    return scope unless field.in?(allowed_sort_fields)
+    return scope unless direction.downcase.in?(['asc', 'desc'])
+    scope.order("#{field} #{direction}")
+  end
+
+  def allowed_sort_fields
+    []
+  end
 end

@@ -103,6 +103,14 @@
   }
 }
 
+.record--is-updating {
+  opacity: .25;
+
+  &:hover {
+    opacity: .25;
+  }
+}
+
 
 .infinite-loader {
   @extend %font-h3;
