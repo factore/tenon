@@ -53,6 +53,7 @@ $tool-toggle-fg-color: $white;
 $main-nav-bg-color: lighten($grey, 10%);
 $main-nav-fg-color: $black;
 $main-nav-hover-color: $grey;
+$main-nav-icon-color: rgba($primary-color, .9);
 $app-info-fg-color: $white;
 $app-info-hover-color: rgba($primary-color, .4);
 $app-info-bg-color: rgba(darken($main-nav-bg-color, 20%), .4);

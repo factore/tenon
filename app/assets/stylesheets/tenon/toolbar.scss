@@ -4,21 +4,21 @@
   left: 0;
   z-index: $z-layout-toolbar;
   background-color: $toolbar-bg-color;
-  padding: 0 $default-spacing*5 0 $main-nav-width;
+  padding: 0 ($default-spacing * 5) 0 $main-nav-width;
   width: 100%;
   height: $util-nav-height;
   overflow: visible;
 }
 
 .toolbar__content {
-  padding: 10px ($action-icon-dimension * 3 + 10px) 10px $default-spacing;
   position: relative;
+  padding: 10px ($action-icon-dimension * 3 + 10px) 10px $default-spacing;
 }
 
 .toolbar__text {
-  line-height: 40px;
-  height: 40px;
   margin: 0;
+  height: 40px;
+  line-height: 40px;
 }
 
 .toolbar__actions {

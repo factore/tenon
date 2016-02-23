@@ -1,25 +1,26 @@
 .app-info {
+  margin: 0;
   a {
     @include default-transition;
     @extend %truncate;
     @extend %font-body;
-    line-height: $toolbar-height;
     display: block;
-    height: $toolbar-height;
     margin: 0;
-    padding: 0 $default-spacing;
-    color: $app-info-fg-color;
     background: $app-info-bg-color;
+    padding: 0 $default-spacing;
+    height: $toolbar-height;
+    line-height: $toolbar-height;
+    color: $app-info-fg-color;
     &:hover {
-      text-decoration: none;
       background-color: $app-info-hover-color;
+      text-decoration: none;
     }
   }
   img {
+    display: inline-block;
     position: relative;
     top: 10px;
-    display: inline-block;
-    max-height: $main-nav-logo-height;
     margin-right: $default-spacing/2;
+    max-height: $main-nav-logo-height;
   }
 }
