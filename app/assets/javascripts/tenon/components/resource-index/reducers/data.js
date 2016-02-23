@@ -56,7 +56,7 @@ export default (state = initialState, action) => {
     index = state.records.map((r) => r.id).indexOf(action.record.id);
     records = [
       ...state.records.slice(0, index),
-      { ...state.records[index], isUpdating: true },
+      { ...state.records[index], ...action.payload, isUpdating: true },
       ...state.records.slice(index + 1)
     ];
     return { ...state, records: records };

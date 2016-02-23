@@ -12,6 +12,10 @@ class DefaultRecord extends React.Component {
       classNames.push('record--is-expanded');
     }
 
+    if (this.props.record.isUpdating) {
+      classNames.push('record--is-updating');
+    }
+
     return (
       <li className={classNames.join(' ')}>
         <div className="record__details">
