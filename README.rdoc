@@ -191,15 +191,15 @@ In order to do this first we need to understand the composition of the app.  The
 
   - ResourceIndexRoot
     - App
-      - Header
-        - Filtering
-          - QuickSearch
-            - QuickSearchInput
-            - QuickSearchOverlay
-              - QuickSearchInput
-              - ActionButtons
-          - FilterDrawer
-
+      - QuickSearchToolbar
+        - QuickSearchInput
+        - ActionButtons
+      - QuickSearchOverlay
+        - QuickSearchInput
+        - ActionButtons
+      - Filtering
+        - FilterDrawer
+        - FilterOverlay
       - List
         - Record
           - RecordTitle

@@ -1,7 +1,8 @@
 const component = (props) => {
   const {
-    onClickClear, ui: { quickSearchOpen },
-    childComponents: { QuickSearchInput, ActionButtons }
+    ui: { quickSearchOpen },
+    childComponents: { QuickSearchInput, ActionButtons },
+    actions: { toggleQuickSearch, updateQuery }
   } = props;
   const classNames = ['toolbar', 'toolbar--overlay'];
 
@@ -15,7 +16,11 @@ const component = (props) => {
         <a
           href="#!"
           className="action-icon toolbar__search-clear"
-          onClick={onClickClear}>
+          onClick={(e) => {
+            e.preventDefault();
+            toggleQuickSearch('off');
+            updateQuery({ q: '', page: 1 });
+          }}>
             <i className="material-icon">arrow_back</i>
           Clear
         </a>

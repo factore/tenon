@@ -5,11 +5,10 @@ import * as UiActionCreators from '../actions/ui';
 import * as DataActionCreators from '../actions/data';
 
 const DEFAULT_CHILD_COMPONENT_NAMES = {
-  Sidebar: 'DefaultSidebar',
-  Header: 'DefaultHeader',
   ActionButtons: 'DefaultActionButtons',
   Filtering: 'DefaultFiltering',
-  QuickSearch: 'DefaultQuickSearch',
+  FilterOverlay: 'DefaultFilterOverlay',
+  QuickSearchToolbar: 'DefaultQuickSearchToolbar',
   QuickSearchInput: 'DefaultQuickSearchInput',
   QuickSearchOverlay: 'DefaultQuickSearchOverlay',
   List: 'DefaultList',
@@ -41,7 +40,10 @@ class App extends Component {
   }
 
   _setupChildComponents() {
-    const names = Object.assign({}, DEFAULT_CHILD_COMPONENT_NAMES, this.props.childComponentNames);
+    const names = {
+      ...DEFAULT_CHILD_COMPONENT_NAMES,
+      ...this.props.childComponentNames
+    };
     let name;
 
     Object.keys(names).forEach((key) => {
@@ -64,7 +66,7 @@ class App extends Component {
 
   _updateQuery(e, changes, append = false) {
     e.preventDefault();
-    this.props.actions.updateQuery(changes, false);
+    this.props.actions.updateQuery(changes, append);
   }
 
   _toggleExpandedRecord(e, record) {
@@ -78,7 +80,9 @@ class App extends Component {
   }
 
   render() {
-    const { Header, List } = this.props.childComponents;
+    const {
+      QuickSearchOverlay, QuickSearchToolbar, List, Filtering
+    } = this.props.childComponents;
     const classNames = [];
 
     if (this.props.ui.quickSearchOpen) {
@@ -91,7 +95,9 @@ class App extends Component {
 
     return (
       <div className={classNames.join(' ')}>
-        <Header {...this.props} />
+        <QuickSearchToolbar { ...this.props } />
+        <QuickSearchOverlay { ...this.props } />
+        <Filtering { ...this.props } />
         <List {...this.props} />
       </div>
     );
