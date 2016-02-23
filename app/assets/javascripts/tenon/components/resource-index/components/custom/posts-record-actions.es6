@@ -1,6 +1,7 @@
 window.ResourceIndexComponents.PostsRecordActions = (props) => {
   const editPath = props.record.edit_path;
-  const onDelete = props.onDelete;
+  const { onDelete, record } = props;
+  const { updateRecord } = props.handlers;
 
   return (
     <div className="record__actions">
@@ -22,9 +23,13 @@ window.ResourceIndexComponents.PostsRecordActions = (props) => {
       <a
         className="record__action-icon"
         href="#!"
-        onClick={null}
+        onClick={(e) => {
+          updateRecord(e, record, { featured: !record.featured });
+        }}
         title="Toggle Featured">
-        <i className="material-icon">star_border</i>
+        <i className="material-icon">
+          {record.featured ? 'star' : 'star_border'}
+        </i>
       </a>
     </div>
   );

@@ -265,7 +265,7 @@ It's not enough to just display custom information in the index view, often we n
 
 <tt>updateRecord(event, record, changeObject)</tt>:: Updates the record in question and sends the changes to the server.
 
-* +record+ - The record object, or any object that exposes an +id+ method.
+* +record+ - The record object, or any object that exposes an +id+ method and an +update_path+ method.
 
 * +changeObject+ - An object describing the changes to the object, eg. <tt>{ title: 'My New Title', featured: false }</tt>
 
@@ -326,7 +326,7 @@ We'll make our new component at <tt>app/views/javascripts/components/resource-in
         <a
           className="record__action-icon"
           href="#!"
-          onClick={null}
+          onClick={<we need something here>}
           title="Toggle Featured">
           <i className="material-icon">star_border</i>
         </a>
@@ -360,13 +360,29 @@ This is a little bit wordy for JSX, so let's extract some constants up above.
         <a
           className="record__action-icon"
           href="#!"
-          onClick={(e) => updateRecord(e, record, !record.featured)}
+          onClick={(e) => {
+            updateRecord(e, record, { featured: !record.featured });
+          }}
           title="Toggle Featured">
           <i className="material-icon">star_border</i>
         </a>
       </div>
     );
   };
+
+Finally, let's add some feedback to the user to show that something happened.  We'll have the component display an empty star for regular posts, and a full star for featured ones.
+
+  <a
+    className="record__action-icon"
+    href="#!"
+    onClick={(e) => {
+      updateRecord(e, record, { featured: !record.featured });
+    }}
+    title="Toggle Featured">
+    <i className="material-icon">
+      {record.featured ? 'star' : 'star_border'}
+    </i>
+  </a>
 
 
 

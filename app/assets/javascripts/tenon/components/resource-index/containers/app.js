@@ -57,14 +57,14 @@ class App extends Component {
     }
   }
 
-  _updateRecord(e, record, payload) {
+  _updateRecord(e, record, changes) {
     e.preventDefault();
-    this.props.actions.updateRecord(record, payload);
+    this.props.actions.updateRecord(record, changes);
   }
 
   _updateQuery(e, changes, append = false) {
     e.preventDefault();
-    this.props.actions.updateQuery(payload, false);
+    this.props.actions.updateQuery(changes, false);
   }
 
   _toggleExpandedRecord(e, record) {

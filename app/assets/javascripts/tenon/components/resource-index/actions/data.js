@@ -10,8 +10,8 @@ export const SET_BASE_URI = 'SET_BASE_URI';
 export const LOAD_NEXT_PAGE = 'LOAD_NEXT_PAGE';
 
 export const DELETE_RECORD = 'DELETE_RECORD';
-export const UPDATED_RECORD = 'UPDATED_RECORD';
 export const START_UPDATE_RECORD = 'START_UPDATE_RECORD';
+export const COMPLETE_UPDATE_RECORD = 'COMPLETE_UPDATE_RECORD';
 
 export const setBaseUri = (baseUri) => {
   return {
@@ -84,29 +84,33 @@ export const deleteRecord = (record) => {
   };
 };
 
-export const startUpdate = (record) => {
+export const startUpdateRecord = (record) => {
   return {
     type: START_UPDATE_RECORD,
     record: record
   };
 };
 
-export const updatedRecord = (record) => {
+export const completeUpdateRecord = (record) => {
   return {
-    type: UPDATED_RECORD,
+    type: COMPLETE_UPDATE_RECORD,
     record: record
   };
 };
 
 export const updateRecord = (record, payload) => {
   return function(dispatch) {
-    dispatch(startUpdate(record));
+    dispatch(startUpdateRecord(record));
     fetch(`${record.update_path}.json`, {
       credentials: 'same-origin',
-      method: 'POST',
-      body: payload
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ [record.resource_type]: payload })
     })
     .then((response) => response.json())
-    .then((json) => dispatch(updatedRecord(json.record)));
+    .then((json) => dispatch(completeUpdateRecord(json)));
   };
 };

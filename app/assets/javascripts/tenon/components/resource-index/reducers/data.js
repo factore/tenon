@@ -1,6 +1,7 @@
 import {
   REQUEST_RECORDS, RECEIVE_RECORDS, DELETE_RECORD,
-  SET_BASE_URI, UPDATE_QUERY, START_UPDATE_RECORD
+  SET_BASE_URI, UPDATE_QUERY, START_UPDATE_RECORD,
+  COMPLETE_UPDATE_RECORD
 } from '../actions/data';
 
 import queryStringObject from '../query-string-object';
@@ -52,10 +53,23 @@ export default (state = initialState, action) => {
     return { ...state, records: records };
 
   case START_UPDATE_RECORD:
-    records = state.records;
-    index = records.index(action.record);
-    records[index].isUpdating = true;
+    index = state.records.map((r) => r.id).indexOf(action.record.id);
+    records = [
+      ...state.records.slice(0, index),
+      { ...state.records[index], isUpdating: true },
+      ...state.records.slice(index + 1)
+    ];
     return { ...state, records: records };
+
+  case COMPLETE_UPDATE_RECORD:
+    index = state.records.map((r) => r.id).indexOf(action.record.id);
+    records = [
+      ...state.records.slice(0, index),
+      { ...state.records[index], ...action.record, isUpdating: false },
+      ...state.records.slice(index + 1)
+    ];
+    return { ...state, records: records };
+
   default:
     return state;
   }
