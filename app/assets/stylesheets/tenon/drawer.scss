@@ -20,8 +20,7 @@
   min-height: 100vh;
 }
 
-.filter-drawer-open,
-.main-nav-open {
+.drawer--open {
   .drawer-pusher {
     left: $main-nav-width;
     width: calc(100% - #{$main-nav-width});

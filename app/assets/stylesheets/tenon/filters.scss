@@ -3,18 +3,10 @@
   padding: $default-spacing;
 }
 
-.filter-content {
-  display: none;
-}
+.filter-drawer--open {
+  @extend .drawer--open;
 
-.filter-drawer-open {
   #filters.drawer {
     left: 0;
-  }
-  .search-content {
-    display: none;
-  }
-  .filter-content {
-    display: block;
   }
 }

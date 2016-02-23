@@ -53,10 +53,10 @@
 @import './actions';
 
 // Forms
-@import './explanation';
-@import './label';
-@import './input';
-@import './form';
+@import './explanation'; // bem: todo
+@import './label'; // bem: todo
+@import './input'; // bem: todo
+@import './form'; // bem: todo
 
 // Util nav
 @import './main-nav-toggle';
@@ -64,26 +64,25 @@
 
 // Toolbar
 @import './toolbar';
-
 @import './search';
-@import './filters';
 
 // Drawers
 @import './drawer';
 @import './app-info';
-@import './main-nav';
+@import './main-nav'; // bem: todo
+@import './filters';
 
 // Records
 @import './record';
 
 // Misc
-@import './expandable';
+@import './expandable'; // bem: todo
 
-@import './dropdown-content';
+@import './dropdown-content'; // bem: todo
 @import './panel';
-@import './breadcrumbs';
+@import './breadcrumbs';  // bem: todo
 @import './burger';
-@import './flash';
+@import './flash'; // bem: todo
 @import './hr';
 @import './pre';
 
@@ -91,9 +90,9 @@
 @import './main';
 
 // Tenon content
-@import './tn-content';
-@import './tn-library';
-@import './tn-embed-code';
+@import './tn-content';  // bem: todo
+@import './tn-library';  // bem: todo
+@import './tn-embed-code';  // bem: todo
 
 // Styleguide
 @import './styleguide/init';
