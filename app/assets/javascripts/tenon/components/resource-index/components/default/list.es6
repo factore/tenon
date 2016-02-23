@@ -31,11 +31,11 @@ window.ResourceIndexComponents.DefaultList = (props) => {
   return (
     <div className="drawer-pusher">
       <main>
-        <a className="btn-fab btn-fab-bottom-right" href={props.newPath}>
+        <a className="fab fab--bottom-right" href={props.newPath}>
           <i className="material-icon">add</i>
         </a>
 
-        <div className="record-list with-btn-fab">
+        <div className="record-list">
           <ul className="">
             <ReactCSSTransitionGroup
               transitionName="record"

@@ -18,6 +18,10 @@
 .toolbar__actions {
   padding: 8px 0;
   height: $util-nav-height;
+
+  .toolbar__action {
+    width: $action-icon-dimension;
+  }
 }
 
 .toolbar__actions--right {
@@ -30,10 +34,6 @@
   display: inline-block;
   height: $action-icon-dimension;
   text-align: center;
-
-  i {
-    margin-right: 20px;
-  }
 
   a {
     color: $toolbar-link-fg-color;
@@ -48,6 +48,10 @@
   position: absolute;
   top: 6px;
   left: $default-spacing;
+
+  i {
+    margin-right: 20px;
+  }
 }
 
 .toolbar__text {

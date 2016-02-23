@@ -4,7 +4,7 @@
       = render 'tenon/shared/breadcrumbs'
       .actions
         - if can?(:publish, @post)
-          %button.action__btn.btn-flat.btn--primary.submit{ data: { disable_with: 'Please wait...' } } Save
+          %button.action__btn.btn-flat.submit{ data: { disable_with: 'Please wait...' } } Save
 
     %main
       = render partial: 'general'
