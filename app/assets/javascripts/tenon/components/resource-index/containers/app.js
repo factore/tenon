@@ -76,7 +76,8 @@ class App extends Component {
     e.preventDefault();
     const changes = {
       order_field: field,
-      order_direction: direction
+      order_direction: direction,
+      page: 1
     };
     const append = false;
 

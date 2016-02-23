@@ -579,7 +579,7 @@ When the top-level +ResourceIndex+ is rendered with a +FilterDrawer+, the Filter
 
 === Creating the Ordering UI for your Resource
 
-(This section glosses over the process of adding and editing components to the ResourceIndex app.  Make sure you've read {Using and Customizing the ResourceIndex React App}[#label-Using+and+Customizing+the+ResourceIndex+React+App])
+(This section glosses over the process of adding and editing components to the ResourceIndex app.  Make sure you read {Using and Customizing the ResourceIndex React App}[#label-Using+and+Customizing+the+ResourceIndex+React+App] before reading this.)
 
 While it's certainly possible to add the UI for ordering the returned records into the +FilterDrawer+ component, the recommend approach is to  separate it from filtering and instead use a button with a dropdown menu in the toolbar.  To add this button, we're going to supply our own custom +ActionButtons+ child-component to the +ResourceIndex+ app.
 
@@ -606,9 +606,9 @@ Next, copy the +DefaultActionButtons+ component, found at <tt>app/assets/javascr
     );
   };
 
-We want to be able to order our posts from oldest to newest, and from newest to oldest, so let's add some markup that creates a dropdown menu with these options.
+We'll create our new component at <tt>app/assets/javascripts/tenon/components/resource-index/components/custom/posts-action-buttons.es6</tt>.  We want to be able to order our posts from oldest to newest, and from newest to oldest, so let's paste the code from the +DefaultActionButtons+ component and add some markup that creates a dropdown menu with these options.
 
-  window.ResourceIndexComponents.DefaultActionButtons = (props) => {
+  window.ResourceIndexComponents.PostsActionButtons = (props) => {
     const { FilterDrawerToggle } = props.childComponents;
 
     return (
@@ -639,7 +639,7 @@ We want to be able to order our posts from oldest to newest, and from newest to 
     );
   };
 
-Next we need to set up the links to update the query.  There is an +orderBy+ handler that takes +field+ and +direction+ as arguments available in our props.  We'll extract that handler and then call it in the +onClick+ prop of our links.
+Next we need to set up the links to update the query.  There is an +orderBy+ handler that takes +field+ and +direction+ as arguments available in our props.  This handler is just a convenient wrapper around the +updateQuery+ wrapper.  We'll extract it and then call it in the +onClick+ prop of our links.
 
   window.ResourceIndexComponents.PostsActionButtons = (props) => {
     const { FilterDrawerToggle } = props.childComponents;
@@ -722,7 +722,7 @@ Finally, let's give some feedback to the user so they can see which item is curr
     );
   };
 
-If all this seems a bit effortful for a very common requirement, you're not wrong.  This same behaviour can be replicated by going back to the +DefaultActionButtons+ component and passing an +orderOptions+ array as a prop to the +ResourceIndex+, like this:
+If you think all this seems a bit effortful for a very common requirement, you're not wrong.  This same behaviour can be replicated by going back to the +DefaultActionButtons+ component and passing an +orderOptions+ array as a prop to the +ResourceIndex+, like this:
 
   = react_component 'ResourceIndexRoot',
       title: 'Posts',
