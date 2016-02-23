@@ -160,9 +160,9 @@ To add internationalized fields, follow these steps:
 
 Once you've done this and restarted your app you will see a language selection nav in the sidebar of each Tenon form that has internationalized fields.  On the front end, attributes on your Tenon models will be translated correctly, based on I18n.locale.
 
-== Using and Customizing the ResourceIndex React Application
+== Using and Customizing the ResourceIndex React App
 
-One of the biggest changes in Tenon 2.0 is the replacement of the index view for each resource with a common ResourceIndex ReactJS/Redux app.  Listing, paginating, filtering, sorting, deleting, light adding/editing, and all other tasks typically done on the index route of a resource are managed through this application.
+One of the biggest changes in Tenon 2.0 is the replacement of the index view for each resource with a common ResourceIndex ReactJS/Redux app.  Listing, paginating, filtering, sorting, deleting, editing, and all other tasks typically done on the index route of a resource are managed through this mounted React app.
 
 Rather than scaffolding new code for every resource, code is shared for all resources.  If you find yourself needing to customize the index view, individual components of the React app can easily be replaced with custom components.  This allows for a high level of customization without creating a lot of repetitive code.
 
@@ -179,50 +179,38 @@ The bare minimum code to get a fully functioning resource index view is as follo
 This code will instantiate the +ResourceIndexRoot+ React component, and pass it the following required props:
 
 +title+:: The pluralized title of the resource.
-+breadcrumb_links+:: An array of Ruby hashes in the format of <tt>[{ title: 'A Title', path: '/path/to/somewhere' }]</tt>.  Use the built-in ++breadcrumb_links++ helper to automatically generate this for your current resource, or supply your own.
++breadcrumb_links+:: An array of Ruby hashes in the format of <tt>[{ title: 'A Title', path: '/path/to/somewhere' }]</tt>.  Use the built-in +breadcrumb_links+ Rails helper to automatically generate this for your current resource, or supply your own.
 +recordsPath+:: The path where the JSON dump of your resource can be found.  Typically just the +index+ path with the +format+ of <tt>'json'</tt> specified.
 +newPath+:: The path to the +new+ action for your resource.
 
 === Customizing the app
 
-At some point you will need to make changes to how the ResourceIndex app looks and behaves for a specific resource.  Rather than copying the entire app and changing the relevant portions, the app can be instantiated with specific sub-components swapped out with your own custom components.
+At some point you will need to make changes to how the ResourceIndex app looks and behaves for a specific resource.  Rather than copying the entire app and changing the relevant portions, the app can be instantiated with specific child-components swapped out for your own custom components.
 
-In order to do this first we need to understand the composition of the app.  The app is broken up into several smaller sub-components, each of which can be swapped out when the app is instantiated in your +index+ view.  The component tree is as follows:
+In order to do this first we need to understand the composition of the app.  The app is broken up into several smaller child-components, each of which can be swapped out when the app is instantiated in your +index+ view.  The component tree is as follows:
 
-  <ResourceIndexRoot>
-    <App>
-      <Header>
-        <Filtering>
-          <QuickSearch>
-            <QuickSearchInput />
+  - ResourceIndexRoot
+    - App
+      - Header
+        - Filtering
+          - QuickSearch
+            - QuickSearchInput
+            - QuickSearchOverlay
+              - QuickSearchInput
+              - ActionButtons
+          - FilterDrawer
 
-            <QuickSearchOverlay>
-              <QuickSearchInput />
-              <ActionButtons />
-            </QuickSearchOverlay>
-          </QuickSearch>
+      - List
+        - Record
+          - RecordTitle
+          - RecordActions
+          - RecordExpandedContent
+        - LoadMoreButton
 
-          <FilterDrawer />
-        </Filtering>
 
-        <ActionButtons />
-      </Header>
+A common task when creating index views is changing the way the title of each individual record is displayed.  Let's change our imagined +Post+ resource to display not only the post's title, but also its publish date.
 
-      <List>
-        <Record>
-          <RecordTitle />
-          <RecordActions />
-          <RecordExpandedContent />
-        </Record>
-
-        <LoadMoreButton />
-      </List>
-    </App>
-  </ResourceIndexRoot>
-
-A common task when creating index views is changing the way the title is displayed.  Let's change our imagined +Post+ resource to displayed not only the post's title, but also its publish date.
-
-The first step to replacing a sub-component is changing the initial instantiation call to the +ResourceIndex+ component and passing in the name of our new component.  In this case, we want to replace +RecordTitle+ with a custom component, which we'll call +PostsRecordTitle+.  Pass it in as a prop like so:
+The first step to replacing a child-component is changing the instantiation call to the +ResourceIndex+ component and passing in the name of our new component.  In this case, we want to replace +RecordTitle+ with a custom component, which we'll call +PostsRecordTitle+.  Pass it in as a prop like so:
 
   = react_component 'ResourceIndexRoot',
       title: 'Posts',
@@ -265,9 +253,9 @@ It's not enough to just display custom information in the index view, often we n
 
 <tt>updateRecord(event, record, changeObject)</tt>:: Updates the record in question and sends the changes to the server.
 
-* +record+ - The record object, or any object that exposes an +id+ method and an +update_path+ method.
+* +record+ - The record object.  At minimum it must have +id+, +update_path+, and +resource_type+ methods.  (Any resource generated with a Tenon scaffold will have these.)
 
-* +changeObject+ - An object describing the changes to the object, eg. <tt>{ title: 'My New Title', featured: false }</tt>
+* +changeObject+ - An object describing the changes to the object, eg. <tt>{ title: 'My New Title', featured: true }</tt>
 
 <tt>updateQuery(event, changeObject [, appendRecords])</tt>:: Changes the query sent to the server when fetching records, re-fetches records with new query, and updates query string in address bar.
 
@@ -313,7 +301,7 @@ Next, we'll want to make a copy of the +DefaultRecordActions+ component found at
     );
   };
 
-We'll make our new component at <tt>app/views/javascripts/components/resource-index/components/custom/posts-record-actions.es6</tt> and add a new icon.
+We'll make our new component at <tt>app/assets/javascripts/tenon/components/resource-index/components/custom/posts-record-actions.es6</tt> and add a new icon.
 
   window.ResourceIndexComponents.PostsRecordActions = (props) => {
     const editPath = props.record.edit_path;
@@ -346,7 +334,7 @@ Next we need to tap into the +onClick+ action of the link to toggle the featured
     <i className="material-icon">star_border</i>
   </a>
 
-This is a little bit wordy for JSX, so let's extract some constants up above.
+This is a little bit lengthy, so let's extract some constants up above.
 
   window.ResourceIndexComponents.PostsRecordActions = (props) => {
     const editPath = props.record.edit_path;
@@ -370,7 +358,7 @@ This is a little bit wordy for JSX, so let's extract some constants up above.
     );
   };
 
-Finally, let's add some feedback to the user to show that something happened.  We'll have the component display an empty star for regular posts, and a full star for featured ones.
+Finally, let's add some feedback to show the user that something happened.  We'll have the component display an empty star for regular posts, and a full star for featured ones.
 
   <a
     className="record__action-icon"
@@ -384,11 +372,9 @@ Finally, let's add some feedback to the user to show that something happened.  W
     </i>
   </a>
 
+Your users can now click on the star to toggle the post's featured state.
 
-
-
-
-
+Read on through the next section to understand how <tt>updateQuery()</tt> and the query object interacts with the server to filter and return records.
 
 == Searching and Filtering Records
 
