@@ -81,15 +81,16 @@ $toolbar-filter-fg-color: $white;
 $infinite-loader-color: darken($grey, 20%);
 
 // Flash messages
-$warning-background-color: $warning-color;
+$flash-dismiss-fg-color: $white;
+$warning-bg-color: $warning-color;
 $warning-border-color: darken($warning-color, 10%);
-$warning-text-color: $white;
+$warning-fg-color: $white;
 @include generate_base_color_helpers('warning', $warning-color);
-$error-background-color: $error-color;
+$error-bg-color: $error-color;
 $error-border-color: darken($error-color, 10%);
-$error-text-color: $white;
+$error-fg-color: $white;
 @include generate_base_color_helpers('error', $error-color);
-$success-background-color: $success-color;
+$success-bg-color: $success-color;
 $success-border-color: darken($success-color, 10%);
-$success-text-color: $white;
+$success-fg-color: $white;
 @include generate_base_color_helpers('success', $success-color);

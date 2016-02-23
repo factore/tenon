@@ -14,8 +14,6 @@
 
 .breadcrumbs__item {
   @extend %truncate;
-  // display: block;
-  // float: left;
   width: auto;
   height: $util-nav-height;
   line-height: $util-nav-height;
