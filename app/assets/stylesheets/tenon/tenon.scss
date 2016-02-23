@@ -69,20 +69,18 @@
 // Drawers
 @import './drawer';
 @import './app-info';
-@import './main-nav'; // bem: todo
+@import './main-nav';
 @import './filters';
 
 // Records
 @import './record';
 
 // Misc
-@import './expandable'; // bem: todo
-
 @import './dropdown-content'; // bem: todo
 @import './panel';
-@import './breadcrumbs';  // bem: todo
+@import './breadcrumbs';
 @import './burger';
-@import './flash'; // bem: todo
+@import './flash';
 @import './hr';
 @import './pre';
 
@@ -95,7 +93,7 @@
 @import './tn-embed-code';  // bem: todo
 
 // Styleguide
-@import './styleguide/init';
+@import './styleguide/init'; // bem: todo
 
 // Backwards Compatibility (should be temporary)
 @import './backwards_compatibility/variables';

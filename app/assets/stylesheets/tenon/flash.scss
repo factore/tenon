@@ -2,58 +2,62 @@
 .flash {
   @extend %z-depth-2;
   position: absolute;
-  z-index: $z-flash-message;
   top: $util-nav-height;
+  z-index: $z-flash-message;
+  background: $warning-bg-color;
+  padding: ($default-spacing / 3) $default-spacing;
   width: 100%;
-  padding: $default-spacing/3 $default-spacing;
+  color: $warning-fg-color;
+
   h2 {
     display: none;
   }
-  h4 {
+
+  h4, p {
     margin-bottom: 0;
   }
-  p {
-    margin-bottom: 0;
-  }
+
   ul {
     @extend %font-small;
     margin: 0 $default-spacing;
-    padding: $default-spacing/2 0;
-    li {
-    }
+    padding: ($default-spacing / 2) 0;
   }
-  &.flash {
-    color: $warning-text-color;
-    background: $warning-background-color;
-  }
-  &.flash-warning {
-    color: $warning-text-color;
-    background: $warning-background-color;
-  }
-  &.flash-error {
-    color: $error-text-color;
-    background: $error-background-color;
-  }
-  &.flash-notice {
-    color: $success-text-color;
-    background: $success-background-color;
-  }
+}
+
+.flash--warning {
+  background: $warning-bg-color;
+  color: $warning-fg-color;
+}
+
+.flash--error {
+  background: $error-bg-color;
+  color: $error-fg-color;
+}
+
+.flash--notice {
+  background: $success-bg-color;
+  color: $success-fg-color;
 }
 
 .errorExplanation {
   @extend .flash;
-  @extend .flash-warning;
+  @extend .flash--warning;
   margin-bottom: $default-spacing;
 }
 
-#flash-dismiss {
+.flash__dismiss {
   position: absolute;
   top: 0;
   right: $default-spacing;
-  padding: $default-spacing/3 0;
+  padding: ($default-spacing / 3) 0;
   text-align: right;
-  color: white;
+  color: $flash-dismiss-fg-color;
+
   i {
     line-height: $default-spacing;
+  }
+
+  &:hover {
+    color: $flash-dismiss-fg-color;
   }
 }

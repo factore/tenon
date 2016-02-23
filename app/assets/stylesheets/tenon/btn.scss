@@ -23,6 +23,7 @@
 // flat
 .btn--flat {
   @extend %z-depth-0;
+
   &:hover {
     @extend %z-depth-0;
   }
@@ -34,8 +35,13 @@
 }
 
 .btn--white {
-  color: $white;
+  background-color: rgba($white, .9);
   color: $btn-primary-bg-color;
+
+  &:hover {
+    background-color: rgba($white, 1);
+    color: $btn-primary-bg-color;
+  }
 }
 
 // full width

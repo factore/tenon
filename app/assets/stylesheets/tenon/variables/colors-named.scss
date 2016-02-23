@@ -53,14 +53,14 @@ $tool-toggle-fg-color: $white;
 $main-nav-bg-color: lighten($grey, 10%);
 $main-nav-fg-color: $black;
 $main-nav-hover-color: $grey;
+$main-nav-icon-color: rgba($primary-color, .9);
 $app-info-fg-color: $white;
 $app-info-hover-color: rgba($primary-color, .4);
 $app-info-bg-color: rgba(darken($main-nav-bg-color, 20%), .4);
 
 // Account Avatar
-$avatar-bg-color: lighten($grey, 20%);
+$avatar-bg-color: $white;
 $avatar-fg-color: $primary-fg-color;
-$avatar-bg-hover-color: $white;
 $avatar-fg-hover-color: $primary-color;
 
 // Toolbar
@@ -81,15 +81,16 @@ $toolbar-filter-fg-color: $white;
 $infinite-loader-color: darken($grey, 20%);
 
 // Flash messages
-$warning-background-color: $warning-color;
+$flash-dismiss-fg-color: $white;
+$warning-bg-color: $warning-color;
 $warning-border-color: darken($warning-color, 10%);
-$warning-text-color: $white;
+$warning-fg-color: $white;
 @include generate_base_color_helpers('warning', $warning-color);
-$error-background-color: $error-color;
+$error-bg-color: $error-color;
 $error-border-color: darken($error-color, 10%);
-$error-text-color: $white;
+$error-fg-color: $white;
 @include generate_base_color_helpers('error', $error-color);
-$success-background-color: $success-color;
+$success-bg-color: $success-color;
 $success-border-color: darken($success-color, 10%);
-$success-text-color: $white;
+$success-fg-color: $white;
 @include generate_base_color_helpers('success', $success-color);

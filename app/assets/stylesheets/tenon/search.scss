@@ -13,12 +13,12 @@
 }
 
 .search-content__field {
-  @include placeholder {
-    @include default-transition;
-    color: white;
-  }
   @include default-transition;
   @include font-size($h5-size);
+  @include placeholder {
+    @include default-transition;
+    color: $white;
+  }
   display: block;
   position: relative;
   z-index: $z-quick-search-input;
