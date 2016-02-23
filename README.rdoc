@@ -492,6 +492,7 @@ Because many filtering tasks are similar, filterers that inherit from <tt>Tenon:
 <tt>lt(field, value)</tt>:: Used to check if +field+ is less than +value+
 <tt>gte(field, value)</tt>:: Used to check if +field+ is greater than or equal to +value+
 <tt>lte(field, value)</tt>:: Used to check if +field+ is less than or equal to +value+
+<tt>sort(field, direction)</tt>:: Used to order your scope by +field+ in +direction+, eg. <tt>sort('books.title', 'asc')</tt>.  Define a method called +allowed_sort_fields+ on your Filterer and return an array of allowed fields, eg. <tt>['books.title', 'created_at', 'authors.title']</tt>.  Direction must be <tt>'asc'</tt> or <tt>'desc'</tt>.
 
 These methods will always simply return the current scope if +value+ is not +.present?+, so there's no need to check for the presence of a param.
 
