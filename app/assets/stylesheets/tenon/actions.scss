@@ -9,6 +9,7 @@ $action-icon-dimension: 44px;
 .action-icon {
   display: inline-block;
   position: relative;
+  height: $action-icon-dimension;
   line-height: $action-icon-dimension;
   color: $primary-fg-color;
 
@@ -21,7 +22,7 @@ $action-icon-dimension: 44px;
     display: inline-block;
     position: relative;
     border-radius: 50%;
-    width: $action-icon-dimension;
+    // width: $action-icon-dimension;
     height: $action-icon-dimension;
     overflow: hidden;
     text-align: center;

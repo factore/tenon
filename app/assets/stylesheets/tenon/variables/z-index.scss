@@ -11,16 +11,6 @@ $z-btn-fab: 10;
 $z-flash-message: 20;
 $z-panel-open: 10;
 $z-filters-active: 60;
-
 $z-quick-search-active: 50;
 $z-quick-search-input: 10;
 $z-quick-search-actions: 20;
-
-// toolbar z'd's:
-@mixin toolbar-z-index-generator {
-  @for $i from 1 through 10 {
-    %toolbar--z#{$i} {
-      z-index: #{100 + ($i * 10)};
-    }
-  }
-}

@@ -6,6 +6,7 @@
   position: relative;
   border: 0;
   border-radius: $default-border-radius;
+  background-color: $btn-primary-bg-color;
   padding: 0 $default-spacing;
   height: $btn-height;
   text-align: center;
@@ -28,10 +29,6 @@
 }
 
 // colors
-.btn--primary {
-  background-color: $btn-primary-bg-color;
-}
-
 .btn--secondary {
   background-color: $btn-secondary-bg-color;
 }

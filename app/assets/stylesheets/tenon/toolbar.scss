@@ -10,18 +10,24 @@
   overflow: visible;
 }
 
-.toolbar--overlay {
-  @extend %toolbar--z1;
-  @include default-transition;
-  opacity: 0;
-  height: 0;
-  overflow: hidden;
-  line-height: $util-nav-height;
+.toolbar__content {
+  padding: 10px ($action-icon-dimension * 3 + 10px) 10px $default-spacing;
+  position: relative;
+}
+
+.toolbar__text {
+  line-height: 40px;
+  height: 40px;
+  margin: 0;
 }
 
 .toolbar__actions {
   padding: 8px 0;
   height: $util-nav-height;
+
+  .toolbar__action {
+    width: $action-icon-dimension;
+  }
 }
 
 .toolbar__actions--right {
@@ -32,95 +38,72 @@
 
 .toolbar__action {
   display: inline-block;
-  height: 44px;
+  height: $action-icon-dimension;
+  text-align: center;
+
   a {
     color: $toolbar-link-fg-color;
+
     &:hover {
       color: $toolbar-link-fg-color--hover;
     }
   }
 }
 
-.toolbar__action--left {
+.toolbar__action--back {
   position: absolute;
   top: 6px;
   left: $default-spacing;
-}
 
-.quick-search {
-  position: relative;
-}
-
-.toolbar--posts {
-  // @sean: just an example. see note here =>
-  // app/assets/javascripts/tenon/components/resource-index/components/default/header.es6
-  background-color: $black;
-}
-
-
-// .toolbar__background {
-//   @include default-transition;
-//   position: fixed;
-//   top: 0;
-//   right: 0;
-//   left: 0;
-//   opacity: .5;
-//   background-color: $quick-search-overlay-bg-color;
-//   height: 0;
-// }
-
-.toolbar__content {
-  padding: 10px ($action-icon-dimension * 3 + 10px) 10px $default-spacing;
-  // position: absolute;
-  // top: 0;
-  // right: 0;
-  // left: $default-spacing;
-}
-
-// .toolbar-overlay__action {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   float: left;
-//   padding: 8px 10px 8px $default-spacing;
-//   width: $main-nav-width;
-//   height: $util-nav-height;
-// }
-
-.toolbar--is-open {
-  opacity: 1;
-  height: $util-nav-height;
-  .toolbar-overlay__background {
-    height: $util-nav-height;
+  i {
+    margin-right: 20px;
   }
 }
 
-// .toolbar-overlay__toolbar {
-//   z-index: $z-quick-search-active;
-//   > .actions .action--icon {
-//     color: $primary-fg-color;
-//     &:hover {
-//       color: $link-color;
-//     }
-//   }
-// }
+// toolbar overlay depths:
+@mixin toolbar-z-index-generator {
+  @for $i from 1 through 10 {
+    %toolbar--z#{$i} {
+      z-index: #{100 + ($i * 10)};
+    }
+  }
+}
 
 @include toolbar-z-index-generator;
 
+@mixin toolbar-overlay-generator {
+  %toolbar--overlay {
+    @include default-transition;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    line-height: $util-nav-height;
+  }
 
-// .toolbar-action {
-//   display: block;
-//   line-height: $util-nav-height;
-//   color: $primary-fg-color;
-//   &:hover {
-//     text-decoration: none;
-//     color: $link-color;
-//   }
-//   i {
-//     @include font-size($h3-size);
-//     display: inline-block;
-//     float: left;
-//     margin-right: $default-spacing/2;
-//     line-height: $util-nav-height;
-//   }
-// }
+  @for $i from 1 through 10 {
+    .toolbar--overlay-z#{$i} {
+      @extend %toolbar--z#{$i};
+      @extend %toolbar--overlay;
+      background-color: lighten($primary-color, ($i * 10%));
+    }
+  }
+}
+
+@include toolbar-overlay-generator;
+
+// toolbar overlay is open:
+.toolbar--is-open {
+  opacity: 1;
+  height: $util-nav-height;
+}
+
+// toolbar overlay colors:
+.toolbar--quicksearch {
+  background-color: $toolbar-quicksearch-bg-color;
+  color: $toolbar-quicksearch-fg-color;
+}
+
+.toolbar--filter {
+  background-color: $toolbar-filter-bg-color;
+  color: $toolbar-filter-fg-color;
+}

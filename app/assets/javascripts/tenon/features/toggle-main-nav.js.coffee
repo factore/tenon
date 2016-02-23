@@ -19,5 +19,5 @@ class Tenon.features.ToggleMainNav
       localStorage.removeItem("#{target}-open")
 
   _checkStorage: ->
-    navIsOpen = localStorage.getItem('main-nav-open')
-    $('body').addClass('main-nav-open') if navIsOpen
+    navIsOpen = localStorage.getItem('main-nav-drawer--open')
+    $('body').addClass('main-nav-drawer--open') if navIsOpen

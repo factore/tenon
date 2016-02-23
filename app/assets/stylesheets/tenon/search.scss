@@ -1,11 +1,3 @@
-// .search-container {
-//   display: block;
-//   position: relative;
-//   float: left;
-//   // padding: 10px 0 0 $default-spacing;
-//   width: calc(100% - #{$default-spacing*6});
-// }
-
 .search-content {
   position: relative;
 }
@@ -17,7 +9,7 @@
   left: 10px;
   z-index: $z-quick-search-actions;
   line-height: 40px;
-  color: $quick-search-fg-color;
+  color: $toolbar-quicksearch-fg-color;
 }
 
 .search-content__field {
@@ -27,27 +19,15 @@
   }
   @include default-transition;
   @include font-size($h5-size);
-  display: inline-block;
+  display: block;
   position: relative;
   z-index: $z-quick-search-input;
   border: 0;
   border-radius: $default-border-radius;
-  background-color: $quick-search-bg-color;
+  background-color: $quicksearch-input-bg-color;
   padding: 0 ($default-spacing / 3) 0 ($default-spacing * 1.5);
   width: 100%;
   height: 40px;
   line-height: 40px;
-  color: $quick-search-fg-color;
-}
-
-// .is-open and %input:focus state
-.search-content__field:focus + .toolbar-overlay,
-.toolbar-overlay--is-open {
-  > .search-content__field {
-    @include placeholder {
-      color: lighten($primary-fg-color, 20%);
-    }
-    background-color: $white;
-    color: $primary-fg-color;
-  }
+  color: $toolbar-quicksearch-fg-color;
 }

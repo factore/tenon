@@ -4,7 +4,9 @@
   color: $main-nav-fg-color;
 }
 
-.main-nav-open {
+.main-nav-drawer--open {
+  @extend .drawer--open;
+
   #main-nav.drawer {
     left: 0;
   }

@@ -71,10 +71,11 @@ $toolbar-link-fg-color: rgba($white, .6);
 $toolbar-link-fg-color--hover: rgba($white, .9);
 
 // Toolbar overlays
-$quick-search-bg-color: rgba($white, .3);
-$quick-search-fg-color: $white;
-$quick-search-overlay-bg-color: darken($white, 10%);
-$filter-overlay-bg-color: darken($white, 20%);
+$quicksearch-input-bg-color: rgba($white, .3);
+$toolbar-quicksearch-bg-color: darken($white, 20%);
+$toolbar-quicksearch-fg-color: $white;
+$toolbar-filter-bg-color: darken($white, 20%);
+$toolbar-filter-fg-color: $white;
 
 // Records
 $infinite-loader-color: darken($grey, 20%);
