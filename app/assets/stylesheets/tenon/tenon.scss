@@ -76,8 +76,6 @@
 @import './record';
 
 // Misc
-@import './expandable'; // bem: todo
-
 @import './dropdown-content'; // bem: todo
 @import './panel';
 @import './breadcrumbs';
@@ -95,7 +93,7 @@
 @import './tn-embed-code';  // bem: todo
 
 // Styleguide
-@import './styleguide/init';
+@import './styleguide/init'; // bem: todo
 
 // Backwards Compatibility (should be temporary)
 @import './backwards_compatibility/variables';
