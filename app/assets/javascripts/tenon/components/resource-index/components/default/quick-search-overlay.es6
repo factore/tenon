@@ -4,7 +4,7 @@ const component = (props) => {
     childComponents: { QuickSearchInput, ActionButtons },
     actions: { toggleQuickSearch, updateQuery }
   } = props;
-  const classNames = ['toolbar', 'toolbar--overlay'];
+  const classNames = ['toolbar', 'toolbar__quicksearch', 'toolbar--overlay-z1'];
 
   if (quickSearchOpen) {
     classNames.push('toolbar--is-open');
