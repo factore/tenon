@@ -20,6 +20,8 @@
     = render 'tenon/shared/version_warning' if @item_version
 
     = render 'tenon/shared/burger'
+    = render 'tenon/shared/util_nav'
+
     #main-nav.drawer
       %p.app-info
         = link_to '/tenon' do
@@ -27,5 +29,4 @@
           = Tenon::MySettings.site_title
       = render 'tenon/shared/main_nav'
 
-    = render 'tenon/shared/util_nav'
     = yield

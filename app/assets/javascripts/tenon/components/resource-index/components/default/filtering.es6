@@ -14,7 +14,7 @@ class DefaultFiltering extends React.Component {
   }
 
   render() {
-    const { FilterDrawer, QuickSearch } = this.props.childComponents;
+    const { FilterDrawer } = this.props.childComponents;
     const { actions } = this.props;
 
     let filterDrawer = '';
@@ -33,18 +33,7 @@ class DefaultFiltering extends React.Component {
       <div>
         {filterDrawer}
 
-        <QuickSearch
-            { ...this.props }
-            onClickClear={(e) => this._clearFilters(e)}
-            onFocus={() => actions.toggleQuickSearch('on')}
-            onChange={(e) => this._changeFilter(e)}
-            onBlur={(e) => {
-              if (e.target.value === '') {
-                actions.toggleQuickSearch('off');
-              }
-            }} />
-
-        <div className="toolbar-overlay">
+        <div className="toolbar toolbar--overlay">
           <div className="filter-content">
             <a href="#!" className="toolbar__action">
               <i className="material-icons">close</i>
