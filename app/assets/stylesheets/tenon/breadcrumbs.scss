@@ -7,26 +7,31 @@
   width: $main-nav-width;
   height: $util-nav-height;
   line-height: $util-nav-height;
+
   li {
-    @extend %truncate;
-    display: block;
-    float: left;
-    width: auto;
+  }
+}
+
+.breadcrumbs__item {
+  @extend %truncate;
+  // display: block;
+  // float: left;
+  width: auto;
+  height: $util-nav-height;
+  line-height: $util-nav-height;
+  color: $toolbar-fg-color;
+
+  &:last-of-type i {
+    display: none;
+  }
+
+  span, a, i {
+    height: $util-nav-height;
     line-height: $util-nav-height;
     color: $toolbar-fg-color;
-    &:last-of-type i {
-      display: none;
-    }
-    i {
-      display: block;
-      float: left;
-      line-height: $util-nav-height;
-      color: $light-border-color;
-    }
-    a {
-      display: block;
-      float: left;
-      color: $toolbar-fg-color;
-    }
+  }
+
+  i {
+    margin: 0 6px;
   }
 }

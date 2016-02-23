@@ -59,9 +59,8 @@ $app-info-hover-color: rgba($primary-color, .4);
 $app-info-bg-color: rgba(darken($main-nav-bg-color, 20%), .4);
 
 // Account Avatar
-$avatar-bg-color: lighten($grey, 20%);
+$avatar-bg-color: $white;
 $avatar-fg-color: $primary-fg-color;
-$avatar-bg-hover-color: $white;
 $avatar-fg-hover-color: $primary-color;
 
 // Toolbar

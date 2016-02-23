@@ -7,6 +7,7 @@
 }
 
 .util-nav__action-icon {
+  @include default-transition;
   display: inline-block;
   float: left;
   margin-left: 10px;
@@ -19,7 +20,7 @@
   color: $avatar-fg-color;
 
   &:hover {
-    background-color: $avatar-bg-hover-color;
+    @extend %z-depth-1;
     color: $avatar-fg-hover-color;
   }
 }
