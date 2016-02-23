@@ -194,9 +194,13 @@ In order to do this first we need to understand the composition of the app.  The
       - QuickSearchToolbar
         - QuickSearchInput
         - ActionButtons
+          - FilterToggle
+          - SortOrder
       - QuickSearchOverlay
         - QuickSearchInput
         - ActionButtons
+          - FilterToggle
+          - SortOrder
       - Filtering
         - FilterDrawer
         - FilterOverlay
@@ -492,7 +496,8 @@ Because many filtering tasks are similar, filterers that inherit from <tt>Tenon:
 <tt>lt(field, value)</tt>:: Used to check if +field+ is less than +value+
 <tt>gte(field, value)</tt>:: Used to check if +field+ is greater than or equal to +value+
 <tt>lte(field, value)</tt>:: Used to check if +field+ is less than or equal to +value+
-<tt>sort(field, direction)</tt>:: Used to order your scope by +field+ in +direction+, eg. <tt>sort('books.title', 'asc')</tt>.  Define a method called +allowed_sort_fields+ on your Filterer and return an array of allowed fields, eg. <tt>['books.title', 'created_at', 'authors.title']</tt>.  Direction must be <tt>'asc'</tt> or <tt>'desc'</tt>.
+<tt>order(field, direction)</tt>:: Used to order your scope by +field+ in +direction+, eg. <tt>order('books.title', 'asc')</tt>.  Define a method called +allowed_order_fields+ on your Filterer and return an array of allowed fields, eg. <tt>['books.title', 'created_at', 'authors.title']</tt>.  Direction must be <tt>'asc'</tt> or <tt>'desc'</tt>.
+<tt>reorder(field, direction)</tt>:: Same as +order+ but uses <tt>#reorder</tt> instead of <tt>#order</tt> on the scope.
 
 These methods will always simply return the current scope if +value+ is not +.present?+, so there's no need to check for the presence of a param.
 
@@ -563,11 +568,167 @@ As long as +name+, +value+, and +onChange+ are present you can use any HTML elem
 
 To inject this component into the top-level +ResourceIndex+ component for your particular resource its name needs to be passed in as part of the +childComponentNames+ prop in your index view.  Here is an example of what it might look like in an imagined posts index, located at <tt>app/views/tenon/posts/index.html.haml</tt>:
 
-    = react_component 'ResourceIndexRoot',
-        title: 'Posts',
-        breadcrumbs: breadcrumb_links,
-        recordsPath: posts_path(format: 'json'),
-        newPath: new_post_path,
-        childComponentNames: { FilterDrawer: 'PostsFilterDrawer' }
+  = react_component 'ResourceIndexRoot',
+      title: 'Posts',
+      breadcrumbs: breadcrumb_links,
+      recordsPath: posts_path(format: 'json'),
+      newPath: new_post_path,
+      childComponentNames: { FilterDrawer: 'PostsFilterDrawer' }
 
 When the top-level +ResourceIndex+ is rendered with a +FilterDrawer+, the Filter Drawer will be available to your users, and you can provide as much or as little advanced filtering as you like.
+
+=== Creating the Ordering UI for your Resource
+
+(This section glosses over the process of adding and editing components to the ResourceIndex app.  Make sure you've read {Using and Customizing the ResourceIndex React App}[#label-Using+and+Customizing+the+ResourceIndex+React+App])
+
+While it's certainly possible to add the UI for ordering the returned records into the +FilterDrawer+ component, the recommend approach is to  separate it from filtering and instead use a button with a dropdown menu in the toolbar.  To add this button, we're going to supply our own custom +ActionButtons+ child-component to the +ResourceIndex+ app.
+
+The first step is initializing the +ResourceIndex+ app with the name of our custom +ActionButtons+ component.  We'll continue working on our imagined +Post+ resource, and so this component will be called +PostsActionButtons+.
+
+  = react_component 'ResourceIndexRoot',
+      title: 'Posts',
+      breadcrumbs: breadcrumb_links,
+      recordsPath: posts_path(format: 'json'),
+      newPath: new_post_path,
+      childComponentNames: {  FilterDrawer: 'PostsFilterDrawer',
+                              ActionButtons: 'PostsActionButtons' }
+
+
+Next, copy the +DefaultActionButtons+ component, found at <tt>app/assets/javascripts/tenon/components/resource-index/components/default/action-buttons.es6</tt>.  The default component looks like this:
+
+  window.ResourceIndexComponents.DefaultActionButtons = (props) => {
+    const { FilterDrawerToggle } = props.childComponents;
+
+    return (
+      <div className="toolbar__actions toolbar__actions--right">
+        <FilterDrawerToggle {...props} />
+      </div>
+    );
+  };
+
+We want to be able to order our posts from oldest to newest, and from newest to oldest, so let's add some markup that creates a dropdown menu with these options.
+
+  window.ResourceIndexComponents.DefaultActionButtons = (props) => {
+    const { FilterDrawerToggle } = props.childComponents;
+
+    return (
+      <div className="toolbar__actions toolbar__actions--right">
+        <FilterDrawerToggle {...props} />
+
+        <div className="toolbar__action">
+          <a
+            className="action-icon dropdown-button"
+            href="#!"
+            title="Sort Order">
+            <i className="material-icons">tune</i>
+          </a>
+
+          <ul className="dropdown-content">
+            <li className="dropdown-label">Order By:</li>
+            <li>
+              <a href="#!">Oldest to Newest</a>
+            </li>
+            <li>
+              <a href="#!">Newest to Oldest</a>
+            </li>
+          </ul>
+        </div>
+
+
+      </div>
+    );
+  };
+
+Next we need to set up the links to update the query.  There is an +orderBy+ handler that takes +field+ and +direction+ as arguments available in our props.  We'll extract that handler and then call it in the +onClick+ prop of our links.
+
+  window.ResourceIndexComponents.PostsActionButtons = (props) => {
+    const { FilterDrawerToggle } = props.childComponents;
+    const { orderBy } = props.handlers;
+
+    return (
+      <div className="toolbar__actions toolbar__actions--right">
+        <FilterDrawerToggle {...props} />
+
+        <div className="toolbar__action">
+          <a
+            className="action-icon dropdown-button"
+            href="#!"
+            title="Sort Order">
+            <i className="material-icons">sort</i>
+          </a>
+
+          <ul className="dropdown-content">
+            <li className="dropdown-label">Order By:</li>
+            <li>
+              <a
+                href="#!"
+                onClick={(e) => orderBy(e, 'publish_at', 'asc')}>
+                Oldest to Newest
+              </a>
+            </li>
+            <li>
+              <a
+                href="#!"
+                onClick={(e) => orderBy(e, 'publish_at', 'desc')}>
+                Newest to Oldest
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    );
+  };
+
+Finally, let's give some feedback to the user so they can see which item is currently selected.  We'll pull the +order_direction+ out from the +query+ object and then use it to set the +active+ class on the correct <tt><li></tt>.
+
+  window.ResourceIndexComponents.PostsActionButtons = (props) => {
+    const { FilterDrawerToggle } = props.childComponents;
+    const { orderBy } = props.handlers;
+    const { order_direction } = props.data.query;
+
+    return (
+      <div className="toolbar__actions toolbar__actions--right">
+        <FilterDrawerToggle {...props} />
+
+        <div className="toolbar__action">
+          <a
+            className="action-icon dropdown-button"
+            href="#!"
+            title="Sort Order">
+            <i className="material-icons">sort</i>
+          </a>
+
+          <ul className="dropdown-content">
+            <li className="dropdown-label">Order By:</li>
+            <li
+              className={order_direction === 'asc' ? 'active' : ''}>
+              <a
+                href="#!"
+                onClick={(e) => orderBy(e, 'publish_at', 'asc')}>
+                Oldest to Newest
+              </a>
+            </li>
+            <li
+              className={order_direction === 'desc' ? 'active' : ''}>
+              <a
+                href="#!"
+                onClick={(e) => orderBy(e, 'publish_at', 'desc')}>
+                Newest to Oldest
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    );
+  };
+
+If all this seems a bit effortful for a very common requirement, you're not wrong.  This same behaviour can be replicated by going back to the +DefaultActionButtons+ component and passing an +orderOptions+ array as a prop to the +ResourceIndex+, like this:
+
+  = react_component 'ResourceIndexRoot',
+      title: 'Posts',
+      breadcrumbs: breadcrumb_links,
+      recordsPath: posts_path(format: 'json'),
+      newPath: new_post_path,
+      childComponentNames: {  FilterDrawer: 'PostsFilterDrawer' }
+      orderOptions: [ { title: 'Oldest to Newest', order: 'publish_at:asc' },
+                      { title: 'Newest to Oldest', order: 'publish_at:desc'} ]
