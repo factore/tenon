@@ -21,11 +21,9 @@ $action-icon-dimension: 44px;
     @include default-transition;
     display: inline-block;
     position: relative;
-    border-radius: 50%;
-    // width: $action-icon-dimension;
     height: $action-icon-dimension;
     overflow: hidden;
-    text-align: center;
+    // text-align: center;
     line-height: $default-spacing*1.5;
   }
 }

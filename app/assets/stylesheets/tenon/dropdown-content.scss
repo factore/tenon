@@ -1,77 +1,107 @@
-.dropdown-content {
+.dropdown {
   @extend %z-depth-2;
-  position: absolute;
-  z-index: $z-kebab-dropdown;
   display: none;
-  overflow-y: auto;
+  position: absolute;
+  opacity: 0;
+  z-index: $z-dropdown;
+  margin: 0;
+  background-color: $dropdown-bg-color;
+  width: auto;
   min-width: 200px;
   max-height: 650px;
-  margin: 0;
-  opacity: 0;
-  background-color: $dropdown-bg-color;
+  overflow-y: auto;
 
   will-change: width, height;
+}
 
-  li {
-    clear: both;
-    width: 100%;
+.dropdown__divider {
+  background: $light-border-color;
+  height: 1px;
+  min-height: 0;
+}
+
+.dropdown__item {
+  @extend %font-smaller;
+  display: block;
+  clear: both;
+  min-height: $dropdown-item-height;
+  text-align: left;
+  text-transform: none;
+  line-height: $dropdown-item-height;
+  color: $dropdown-fg-color;
+  cursor: pointer;
+
+  // &:hover, &.active, &.selected {
+  //   background-color: $dropdown-hover-bg-color;
+  // }
+  //
+  // &.active.selected {
+  //   background-color: darken($dropdown-hover-bg-color, 5%);
+  // }
+
+
+  // & > span > label {
+  //   top: 1px;
+  //   left: 3px;
+  //   height: 18px;
+  // }
+
+  // Icon alignment override
+  // & > a > i {
+  //   @include font-size($dropdown-icon-size);
+  //   display: inline-block;
+  //   margin-right: $default-spacing / 2;
+  //   width: $dropdown-icon-size * 1px;
+  //   overflow: hidden;
+  //   vertical-align: middle;
+  //   text-align: center;
+  // }
+}
+
+
+.dropdown__item--label {
+  padding: 0 $default-spacing / 2;
+  color: lighten($dropdown-fg-color, 10%);
+}
+
+.dropdown__action {
+  display: block;
+  padding: 0 ($default-spacing / 2);
+  text-align: left;
+  line-height: $dropdown-item-height - 20px;
+
+  &, span, i {
+    display: block;
+    height: auto;
     min-height: $dropdown-item-height;
-    cursor: pointer;
-    text-align: left;
-    text-transform: none;
-    color: $dropdown-fg-color;
+  }
 
-    &.dropdown-label {
-      @extend %font-smaller;
-      min-height: 0;
-      margin-bottom: 0;
-      padding: $default-spacing/3 $default-spacing/2;
-      &:hover {
-        background: none;
-      }
-    }
+  &, span {
+    overflow: hidden;
+    zoom: 1;
 
-    &:hover, &.active, &.selected {
-      background-color: $dropdown-hover-bg-color;
-    }
+    _overflow: visible;
+  }
 
-    &.active.selected {
-      background-color: darken($dropdown-hover-bg-color, 5%);
-    }
+  span, i {
+    padding: 10px 0;
+    line-height: $dropdown-item-height - 20px;
+  }
 
-    &.divider {
-      height: 1px;
-      min-height: 0;
-      background: $light-border-color;
-    }
+  i {
+    @include font-size($dropdown-icon-size);
+    float: left;
+    margin-right: 10px;
+  }
 
-    & > a, & > span {
-      @extend %font-smaller;
-      line-height: $dropdown-item-height;
-      display: block;
-      padding: 0 $default-spacing / 2;
-      color: $dropdown-fg-color;
-    }
+  &:hover {
+    background-color: $dropdown-hover-bg-color;
+    text-decoration: none;
+    color: $dropdown-hover-fg-color;
+  }
 
-    a:hover {
-      text-decoration: none;
-    }
-
-    & > span > label {
-      top: 1px;
-      left: 3px;
-      height: 18px;
-    }
-
-    // Icon alignment override
-    & > a > i {
-      @include font-size($dropdown-icon-size);
-      display: inline-block;
-      overflow: hidden;
-      width: $dropdown-icon-size * 1px;
-      margin-right: $default-spacing / 2;
-      text-align: center;
-      vertical-align: middle;
-    }
+  &.--is-active {
+    background-color: $dropdown-active-bg-color;
+    color: $dropdown-active-fg-color;
   }
 }
