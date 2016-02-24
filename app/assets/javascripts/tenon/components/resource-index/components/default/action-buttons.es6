@@ -28,19 +28,18 @@ window.ResourceIndexComponents.DefaultActionButtons = (props) => {
           <i className="material-icon">sort</i>
         </a>
 
-        <ul className="dropdown-content" id="sort-dropdown">
-          <li className="dropdown-label">Dropdown Label</li>
-          <li className="divider"></li>
-          <li>
-            <a href="#!">
+        <ul className=".dropdown" id="sort-dropdown">
+          <li className="dropdown__item dropdown__item--label">Dropdown Label</li>
+          <li className="dropdown__item">
+            <a href="#!" className="dropdown__icon action-icon">
               <i className="material-icon">sort</i>
-              A to Z
+              <span>A to Z</span>
             </a>
           </li>
-          <li>
-            <a href="#!">
+          <li className="dropdown__item">
+            <a href="#!" className="dropdown__icon action-icon">
               <i className="material-icon flip-vertical">sort</i>
-              Z to A
+              <span>Z to A</span>
             </a>
           </li>
         </ul>
@@ -55,23 +54,23 @@ window.ResourceIndexComponents.DefaultActionButtons = (props) => {
           <i className="material-icon">more_vert</i>
         </a>
 
-        <ul className="dropdown-content" id="list-dropdown">
-          <li>
-            <a href="#!">
+        <ul className=".dropdown" id="list-dropdown">
+          <li className="dropdown__item">
+            <a href="#!" className="dropdown__icon action-icon">
               <i className="material-icon">apps</i>
-              Index Actions
+              <span>Index Actions</span>
             </a>
           </li>
-          <li>
-            <a href="#!">
+          <li className="dropdown__item">
+            <a href="#!" className="dropdown__icon action-icon">
                 <i className="material-icon">cloud_upload</i>
-                Import
+                <span>Import</span>
             </a>
           </li>
-          <li>
-            <a href="#!">
+          <li className="dropdown__item">
+            <a href="#!" className="dropdown__icon action-icon">
               <i className="material-icon">cloud_download</i>
-              Export
+              <span>Export</span>
             </a>
           </li>
         </ul>

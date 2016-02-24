@@ -165,7 +165,7 @@
       origin.on('mouseleave', function(e){
         // If hover on origin then to something other than dropdown content, then close
         var toEl = e.toElement || e.relatedTarget; // added browser compatibility for target element
-        if(!$(toEl).closest('.dropdown-content').is(activates)) {
+        if(!$(toEl).closest('.dropdown').is(activates)) {
           activates.stop(true, true);
           hideDropdown();
           open = false;
@@ -189,7 +189,7 @@
         if (!isFocused) {
           if ( origin[0] == e.currentTarget &&
                !origin.hasClass('active') &&
-               ($(e.target).closest('.dropdown-content').length === 0)) {
+               ($(e.target).closest('.dropdown').length === 0)) {
             e.preventDefault(); // Prevents button click from moving window
             placeDropdown('click');
           }

@@ -5,7 +5,6 @@
   %ul.dropdown#notifications-dropdown
     %li.dropdown__item.dropdown__item--label
       Notifications
-    %li.dropdown__divider
     %li.dropdown__item
       = active_link_to '', class: 'dropdown__action action-icon' do
         = i('notifications_active')
@@ -31,6 +30,7 @@
       = active_link_to '#', class: 'dropdown__action action-icon' do
         = i('accessible')
         %span Accessibility
+    %li.dropdown__divider
     %li.dropdown__item
       = active_link_to destroy_user_session_path, method: :delete, class: 'dropdown__action action-icon' do
         = i('exit_to_app')
