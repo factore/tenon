@@ -255,15 +255,15 @@ It's not enough to just display custom information in the index view, often we n
 
 <tt>updateRecord(event, record, changeObject)</tt>:: Updates the record in question and sends the changes to the server.
 
-* +record+ - The record object.  At minimum it must have +id+, +update_path+, and +resource_type+ methods.  (Any resource generated with a Tenon scaffold will have these.)
+                                                     * +record+ - The record object.  At minimum it must have +id+, +update_path+, and +resource_type+ methods.  (Any resource generated with a Tenon scaffold will have these.)
 
-* +changeObject+ - An object describing the changes to the object, eg. <tt>{ title: 'My New Title', featured: true }</tt>
+                                                     * +changeObject+ - An object describing the changes to the object, eg. <tt>{ title: 'My New Title', featured: true }</tt>
 
 <tt>updateQuery(event, changeObject [, appendRecords])</tt>:: Changes the query sent to the server when fetching records, re-fetches records with new query, and updates query string in address bar.
 
-* +changeObject+ - An object describing the changes to the query, eg. <tt>{ q: 'my search', page: 1 }</tt>.  (You should always include <tt>page: 1</tt> in your query unless you are appending records.)
+                                                              * +changeObject+ - An object describing the changes to the query, eg. <tt>{ q: 'my search', page: 1 }</tt>.  (You should always include <tt>page: 1</tt> in your query unless you are appending records.)
 
-* +appendRecords+ - Boolean.  True: Append new records to the bottom of the list.  False: Clear record list before getting new records.  Default: false.
+                                                              * +appendRecords+ - Boolean.  True: Append new records to the bottom of the list.  False: Clear record list before getting new records.  Default: false.
 
 Let's create a simple button on our imagined posts index that allows us to toggle whether a given post is featured or not.
 
