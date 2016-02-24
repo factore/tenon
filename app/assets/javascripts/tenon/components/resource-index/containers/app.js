@@ -13,6 +13,7 @@ const DEFAULT_CHILD_COMPONENT_NAMES = {
   QuickSearchInput: 'DefaultQuickSearchInput',
   QuickSearchOverlay: 'DefaultQuickSearchOverlay',
   SortOrder: 'DefaultSortOrder',
+  SortOrderItem: 'DefaultSortOrderItem',
   List: 'DefaultList',
   Record: 'DefaultRecord',
   RecordTitle: 'DefaultRecordTitle',

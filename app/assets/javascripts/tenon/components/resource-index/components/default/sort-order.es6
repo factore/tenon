@@ -3,8 +3,7 @@ window.ResourceIndexComponents.DefaultSortOrder = (props) => {
     return <div></div>;
   }
 
-  const { orderBy } = props.handlers;
-  const { order_direction, order_field } = props.data.query;
+  const { SortOrderItem } = props.childComponents;
 
   return (
     <div className="toolbar__action">
@@ -18,24 +17,12 @@ window.ResourceIndexComponents.DefaultSortOrder = (props) => {
       <ul className="dropdown-content">
         <li className="dropdown-label">Order By:</li>
         {props.orderOptions.map((oo) => {
-          const classNames = [''];
-          const { title, order } = oo;
-          const [field, direction] = order.split(':');
-
-          if (field === order_field && direction === order_direction) {
-            classNames.push('active');
-          }
-
           return (
-            <li
-              key={order}
-              className={classNames.join(' ')}>
-              <a
-                href="#!"
-                onClick={(e) => orderBy(e, field, direction)}>
-                {title}
-              </a>
-            </li>
+            <SortOrderItem
+              key={oo.order}
+              { ...props }
+              title={oo.title}
+              order={oo.order} />
           );
         })}
       </ul>
