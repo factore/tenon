@@ -24,7 +24,7 @@
     var isFocused = false;
 
     // Dropdown menu
-    var activates = $("#"+ origin.attr('data-activates'));
+    var activates = origin.next('.dropdown-content');
 
     function updateOptions() {
       if (origin.data('induration') !== undefined)

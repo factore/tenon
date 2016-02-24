@@ -5,5 +5,7 @@
     newPath: new_post_path,
     childComponentNames: {  FilterDrawer: 'PostsFilterDrawer',
                             RecordTitle: 'PostsRecordTitle',
-                            RecordActions: 'PostsRecordActions' }
+                            RecordActions: 'PostsRecordActions' },
+    orderOptions: [ { title: 'Oldest to Newest', order: 'publish_at:asc' },
+                    { title: 'Newest to Oldest', order: 'publish_at:desc'} ]
 

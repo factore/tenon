@@ -4,7 +4,9 @@ import {
 import queryStringObject from '../query-string-object';
 import { omit } from 'lodash';
 
-const filterKeys = Object.keys(omit(queryStringObject, 'q', 'page'));
+const filterKeys = Object.keys(
+  omit(queryStringObject, 'q', 'page', 'order_field', 'order_direction')
+);
 
 const initialState = {
   expandedRecordIds: [],

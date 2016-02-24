@@ -8,9 +8,12 @@ const DEFAULT_CHILD_COMPONENT_NAMES = {
   ActionButtons: 'DefaultActionButtons',
   Filtering: 'DefaultFiltering',
   FilterOverlay: 'DefaultFilterOverlay',
+  FilterDrawerToggle: 'DefaultFilterDrawerToggle',
   QuickSearchToolbar: 'DefaultQuickSearchToolbar',
   QuickSearchInput: 'DefaultQuickSearchInput',
   QuickSearchOverlay: 'DefaultQuickSearchOverlay',
+  SortOrder: 'DefaultSortOrder',
+  SortOrderItem: 'DefaultSortOrderItem',
   List: 'DefaultList',
   Record: 'DefaultRecord',
   RecordTitle: 'DefaultRecordTitle',
@@ -36,6 +39,7 @@ class App extends Component {
     this.props.handlers.deleteRecord = this._deleteRecord.bind(this);
     this.props.handlers.loadNextPage = this._loadNextPage.bind(this);
     this.props.handlers.updateRecord = this._updateRecord.bind(this);
+    this.props.handlers.orderBy = this._orderBy.bind(this);
     this.props.handlers.toggleExpandedRecord = this._toggleExpandedRecord.bind(this);
   }
 
@@ -66,6 +70,18 @@ class App extends Component {
 
   _updateQuery(e, changes, append = false) {
     e.preventDefault();
+    this.props.actions.updateQuery(changes, append);
+  }
+
+  _orderBy(e, field, direction = 'asc') {
+    e.preventDefault();
+    const changes = {
+      order_field: field,
+      order_direction: direction,
+      page: 1
+    };
+    const append = false;
+
     this.props.actions.updateQuery(changes, append);
   }
 
