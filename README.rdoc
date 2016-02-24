@@ -196,11 +196,9 @@ In order to do this first we need to understand the composition of the app.  The
         - ActionButtons
           - FilterToggle
           - SortOrder
+            - SortOrderItem
       - QuickSearchOverlay
-        - QuickSearchInput
-        - ActionButtons
-          - FilterToggle
-          - SortOrder
+        - (Same Children as QuickSearchToolbar)
       - Filtering
         - FilterDrawer
         - FilterOverlay
