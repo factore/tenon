@@ -35,9 +35,12 @@ $light-border-color: lighten($grey, 10%);
 $hr-bg-color: $grey;
 
 // Dropdown
-$dropdown-bg-color: $white;
-$dropdown-hover-bg-color: lighten($grey, 30%);
 $dropdown-fg-color: darken($grey, 20%);
+$dropdown-bg-color: $white;
+$dropdown-hover-fg-color: $primary-color;
+$dropdown-hover-bg-color: lighten($grey, 30%);
+$dropdown-active-fg-color: $white;
+$dropdown-active-bg-color: rgba($primary-color, .4);
 
 // Buttons
 $btn-primary-bg-color: $primary-color;

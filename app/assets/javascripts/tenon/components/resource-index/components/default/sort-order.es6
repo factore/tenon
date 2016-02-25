@@ -14,8 +14,8 @@ window.ResourceIndexComponents.DefaultSortOrder = (props) => {
         <i className="material-icons">sort</i>
       </a>
 
-      <ul className="dropdown-content">
-        <li className="dropdown-label">Order By:</li>
+      <ul className="dropdown">
+        <li className="dropdown__item dropdown__item--label">Order By</li>
         {props.orderOptions.map((oo) => {
           return (
             <SortOrderItem

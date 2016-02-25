@@ -2,35 +2,36 @@
   = link_to '#!', class: 'util-nav__action-icon dropdown-button', data: { activates: 'notifications-dropdown'} do
     .action-icon= i('notifications_none')
 
-  %ul.dropdown-content#notifications-dropdown
-    %li.dropdown-label Notifications
-    %li.divider
-    %li
-      = link_to '#' do
+  %ul.dropdown#notifications-dropdown
+    %li.dropdown__item.dropdown__item--label
+      Notifications
+    %li.dropdown__item
+      = active_link_to '', class: 'dropdown__action action-icon' do
         = i('notifications_active')
-        Active Icon
-    %li
-      = link_to '#' do
+        %span Icon with an unnecessarily long name for overlap testing
+    %li.dropdown__item
+      = active_link_to posts_path, class: 'dropdown__action action-icon' do
         = i('notifications')
-        Inactive Icon
-    %li
-      = link_to '#' do
+        %span Active Icon based on URL
+    %li.dropdown__item
+      = active_link_to '#', class: 'dropdown__action action-icon' do
         = i('notifications_none')
-        None Icon
+        %span Another Icon
 
   = link_to '#!', class: 'util-nav__action-icon dropdown-button', data: { activates: 'account-dropdown'} do
     .action-icon= i('face')
 
-  %ul.dropdown-content#account-dropdown
-    %li
-      = link_to '#' do
+  %ul.dropdown#account-dropdown
+    %li.dropdown__item
+      = active_link_to '#', class: 'dropdown__action action-icon' do
         = i('person_outline')
-        Account
-    %li
-      = link_to '#' do
+        %span Account
+    %li.dropdown__item
+      = active_link_to '#', class: 'dropdown__action action-icon' do
         = i('accessible')
-        Accessibility
-    %li
-      = link_to destroy_user_session_path, method: :delete do
+        %span Accessibility
+    %li.dropdown__divider
+    %li.dropdown__item
+      = active_link_to destroy_user_session_path, method: :delete, class: 'dropdown__action action-icon' do
         = i('exit_to_app')
-        Logout
+        %span Logout

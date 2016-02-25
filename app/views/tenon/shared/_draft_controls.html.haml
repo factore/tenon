@@ -1,17 +1,18 @@
-%li.dropdown-label.last-autosave Draft Versions
-%li
-  = link_to new_item_version_path(item_type: class_for(obj), item_id: obj.id), data: { modal_remote: true, modal_handler: 'Tenon.features.NewItemVersionHandler', modal_title: 'Save Draft' } do
-    = i('cloud_upload')
-    Safe Draft
+%li.dropdown__item.dropdown__item--label.last-autosave
+  Draft Versions
 
-%li
-  = link_to item_versions_path(item_type: obj.class.to_s, item_id: obj.id), data: { modal_remote: true, modal_handler: 'Tenon.features.ItemVersionIndexHandler', modal_title: 'Load Draft' } do
+%li.dropdown__item
+  = link_to new_item_version_path(item_type: class_for(obj), item_id: obj.id), data: { modal_remote: true, modal_handler: 'Tenon.features.NewItemVersionHandler', modal_title: 'Save Draft' }, class: 'dropdown__action action-icon' do
+    = i('cloud_upload')
+    %span Safe Draft
+
+%li.dropdown__item
+  = link_to item_versions_path(item_type: obj.class.to_s, item_id: obj.id), data: { modal_remote: true, modal_handler: 'Tenon.features.ItemVersionIndexHandler', modal_title: 'Load Draft' }, class: 'dropdown__action action-icon' do
     = i('cloud_download')
-    Load Draft
+    %span Load Draft
 
 - if params[:version]
-  %li
-    %a{ href: url_for(version: nil) }
+  %li.dropdown__item
+    = link_to url_for(version: nil), class: 'dropdown__action action-icon' do
       = i('star')
-      Load Active Version
-%li.divider
+      %span Load Active Version

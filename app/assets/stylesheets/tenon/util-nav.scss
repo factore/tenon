@@ -8,7 +8,7 @@
 
 .util-nav__action-icon {
   @include default-transition;
-  @extend %z-depth-1;
+  @extend %z-depth-2;
   display: inline-block;
   float: left;
   margin-left: 10px;
@@ -21,7 +21,7 @@
   color: $avatar-fg-color;
 
   &:hover {
-    @extend %z-depth-2;
+    @extend %z-depth-0;
 
     .action-icon {
       color: $avatar-fg-hover-color;
