@@ -18,6 +18,8 @@
 //= require pickadate/picker
 //= require pickadate/picker.date
 //= require pickadate/picker.time
+//= require rails.validations
+//= require tenon/rails.validations
 //= require react_ujs
 //= require uri
 
