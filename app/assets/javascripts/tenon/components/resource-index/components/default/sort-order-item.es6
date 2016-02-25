@@ -1,5 +1,5 @@
 window.ResourceIndexComponents.DefaultSortOrderItem = (props) => {
-  const classNames = [''];
+  const classNames = ['dropdown__item'];
   const { title, order } = props;
   const { order_field, order_direction } = props.data.query;
   const { orderBy } = props.handlers;
@@ -13,8 +13,9 @@ window.ResourceIndexComponents.DefaultSortOrderItem = (props) => {
     <li className={classNames.join(' ')}>
       <a
         href="#!"
+        className="dropdown__action action-icon"
         onClick={(e) => orderBy(e, field, direction)}>
-        {title}
+        <span>{title}</span>
       </a>
     </li>
   );

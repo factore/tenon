@@ -8,14 +8,16 @@
       %a.action-icon.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
         = i('more_vert')
 
-      %ul.dropdown-content#form-dropdown
+      %ul.dropdown#form-dropdown
         - if can?(:create, Tenon::ItemVersion)
           = render 'tenon/shared/draft_controls', obj: @<%= singular_name %>
 
         - if @<%= singular_name %>.persisted?
-          %li
-            = link_to @<%= singular_name %>, data: { method: :delete, confirm: 'Are you sure you want to delete this?' }, class: 'delete-link' do
+          %li.dropdown__divider
+          %li.dropdown__item
+            = link_to @<%= singular_name %>, data: { method: :delete, confirm: 'Are you sure you want to delete this?' }, class: 'dropdown__action action-icon delete-link' do
               = i('delete')
+              %span Delete
 
   %main
     = error_messages_for :<%= singular_name %>

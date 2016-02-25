@@ -57,7 +57,7 @@
   height: $action-icon-dimension;
   text-align: center;
 
-  a {
+  > a {
     color: $toolbar-link-fg-color;
 
     &:hover {

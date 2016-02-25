@@ -621,13 +621,19 @@ We'll create our new component at <tt>app/assets/javascripts/tenon/components/re
             <i className="material-icons">tune</i>
           </a>
 
-          <ul className="dropdown-content">
-            <li className="dropdown-label">Order By:</li>
-            <li>
-              <a href="#!">Oldest to Newest</a>
+          <ul className="dropdown">
+            <li className="dropdown__item dropdown__item--label">Order By</li>
+            <li className="dropdown__item">
+              <a
+                href="#!"
+                className="dropdown__action action-icon">
+                  <span>Oldest to Newest</span>
+              </a>
             </li>
-            <li>
-              <a href="#!">Newest to Oldest</a>
+            <li className="dropdown__item">
+              <a href="#!" className="dropdown__action action-icon">
+                <span>Newest to Oldest</span>
+              </a>
             </li>
           </ul>
         </div>
@@ -655,20 +661,22 @@ Next we need to set up the links to update the query.  There is an +orderBy+ han
             <i className="material-icons">sort</i>
           </a>
 
-          <ul className="dropdown-content">
-            <li className="dropdown-label">Order By:</li>
-            <li>
+          <ul className="dropdown">
+            <li className="dropdown__item dropdown__item--label">Order By</li>
+            <li className="dropdown__item">
               <a
                 href="#!"
+                className="dropdown__action"
                 onClick={(e) => orderBy(e, 'publish_at', 'asc')}>
-                Oldest to Newest
+                  <span>Oldest to Newest</span>
               </a>
             </li>
-            <li>
+            <li className="dropdown__item">
               <a
                 href="#!"
+                className="dropdown__action"
                 onClick={(e) => orderBy(e, 'publish_at', 'desc')}>
-                Newest to Oldest
+                  <span>Newest to Oldest</span>
               </a>
             </li>
           </ul>
@@ -696,22 +704,24 @@ Finally, let's give some feedback to the user so they can see which item is curr
             <i className="material-icons">sort</i>
           </a>
 
-          <ul className="dropdown-content">
-            <li className="dropdown-label">Order By:</li>
+          <ul className="dropdown">
+            <li className="dropdown__item dropdown__item--label">Order By:</li>
             <li
-              className={order_direction === 'asc' ? 'active' : ''}>
+              className={order_direction === 'asc' ? 'dropdown__item active' : 'dropdown__item'}>
               <a
                 href="#!"
+                className="dropdown__action action-icon"
                 onClick={(e) => orderBy(e, 'publish_at', 'asc')}>
-                Oldest to Newest
+                  <span>Oldest to Newest</span>
               </a>
             </li>
             <li
-              className={order_direction === 'desc' ? 'active' : ''}>
+              className={order_direction === 'desc' ? 'active dropdown__item' : 'dropdown__item'}>
               <a
                 href="#!"
+                className="dropdown__action action-icon"
                 onClick={(e) => orderBy(e, 'publish_at', 'desc')}>
-                Newest to Oldest
+                  <span>Newest to Oldest</span>
               </a>
             </li>
           </ul>
