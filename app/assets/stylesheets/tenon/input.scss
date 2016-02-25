@@ -1,4 +1,5 @@
 .input-block {
+  position: relative;
   margin-bottom: $default-spacing;
 }
 
@@ -20,10 +21,6 @@
     vertical-align: middle;
     content: '';
   }
-}
-
-.input-block__label--inline {
-  display: inline-block;
 }
 
 %text-field {
@@ -71,10 +68,51 @@
 }
 
 .input-block__inline {
+  display: inline-block;
+  position: relative;
+  margin-right: $default-spacing;
+}
+
+.input-block__label-inline {
+  @extend %font-smaller;
+  display: inline-block;
+  padding-left: $default-spacing;
+  line-height: $body-line-height;
 }
 
 .input-block__check-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+
+  &:checked + .input-block__check-box-icon {
+    border-color: $primary-color;
+    background-color: $primary-color;
+    color: $white;
+  }
 }
+
+.input-block__check-box-icon {
+  @include default-transition;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid $grey;
+  border-radius: 2px;
+  width: 30px;
+  height: 30px;
+  color: transparent;
+  content: 0;
+}
+
 
 .input-block__radio-button {
 }

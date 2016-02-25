@@ -252,8 +252,8 @@ module Tenon
         label ||= method_name.to_s.titleize
         label = language_title ? label + " (#{language_title.to_s.titleize})" : label
         label_class = ['input-block__label']
+        label_class = ['input-block__label-inline'] if inline
         label_class << ' input-block__label--is-required' if required
-        label_class << ' input-block__label--inline' if inline
         super(get_method(method_name, language), label.html_safe, class: label_class.join(' '))
       end
     end
