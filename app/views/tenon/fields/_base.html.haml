@@ -1,7 +1,7 @@
-.form-field
-  = f.label method_name, opts[:label], opts[:required]
+.input-block
+  = f.label method_name, opts[:label], opts[:required], class: 'input-block__label'
 
   = yield
 
   - if opts[:explanation].present?
-    .explanation= raw opts[:explanation]
+    .input-block__explanation= raw opts[:explanation]

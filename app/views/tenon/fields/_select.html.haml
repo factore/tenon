@@ -1,2 +1,2 @@
 = render layout: 'tenon/fields/base', locals: { f: f, method_name: method_name, opts: opts } do
-  = f.super_select method_name, choices, opts, html_opts
+  = f.super_select method_name, choices, opts, html_opts.merge(class: 'input-block__select')
