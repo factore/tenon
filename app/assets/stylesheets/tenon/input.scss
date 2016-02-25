@@ -78,3 +78,9 @@
 
 .input-block__radio-button {
 }
+
+.input-block__explanation {
+  @extend %font-smallest;
+  padding-top: $default-spacing / 4;
+  color: $explanation-color;
+}
