@@ -1,5 +1,5 @@
 = render layout: 'tenon/fields/base', locals: { f: f, method_name: method_name, opts: opts } do
 
-  .editable-text{ contenteditable: 'true', data: { placeholder: opts[:placeholder] } }= raw f.object.try(method_name)
+  .input-block__multiline-text-field{ contenteditable: 'true', data: { placeholder: opts[:placeholder] } }= raw f.object.try(method_name)
 
   = f.hidden_field method_name
