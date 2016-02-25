@@ -11,16 +11,15 @@ $main-nav-icon-size: 20;
   height: 1em;
   text-transform: none;
   text-rendering: optimizeLegibility; // Support for Safari and Chrome.
+  line-height: 1;
   white-space: nowrap;
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
   word-wrap: normal;
-
   direction: ltr;
   font-feature-settings: 'liga'; // Support for IE.
   -webkit-font-smoothing: antialiased; // Support for all WebKit browsers.
-  line-heihgt: 1;
   -moz-osx-font-smoothing: grayscale; // Support for Firefox.
 }
 

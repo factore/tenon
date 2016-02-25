@@ -1,62 +1,80 @@
-[type=text],
-[type=email],
-[type=password],
-[type=number],
-[type=tel],
-[type=url],
-[type=color],
-textarea,
-.editable-text,
-select {
-  @include placeholder {
-    color: $placeholder-color;
-  }
-  @include default-transition;
-  @extend %font-smaller;
-  @include appearance(none);
-  line-height: normal;
+.input-block {
+  margin-bottom: $default-spacing;
+}
+
+.input-block__label {
+  @extend %font-smallest;
   display: block;
-  width: 100%;
-  height: 34px;
-  padding: 0;
+  line-height: $body-line-height;
+  color: $label-color;
+}
+
+.input-block__label--is-required {
+  &::after {
+    display: inline-block;
+    margin-left: 5px;
+    border-radius: 50%;
+    background: $required-color;
+    width: $required-dot-size;
+    height: $required-dot-size;
+    vertical-align: middle;
+    content: '';
+  }
+}
+
+.input-block__label--inline {
+  display: inline-block;
+}
+
+%text-field {
+  @include default-transition;
+  @include appearance(none);
+  display: block;
   border: 0;
   border-bottom: 1px solid $light-border-color;
   border-radius: 0;
   background: transparent;
+  padding: 0;
+  width: 100%;
+  line-height: normal;
 
   &:focus {
     border-color: $primary-color;
   }
-
-  &.stacked {
-    margin-bottom: $default-spacing / 4;
-  }
 }
 
-textarea,
-.editable-text {
+.input-block__text-field {
+  @extend %text-field;
   @extend %font-smaller;
-  height: auto;
-  min-height: 34px;
-  margin-top: $default-spacing/3;
-  padding-left: $default-spacing/2;
-  border-left: 1px solid $light-border-color;
+  height: 34px;
 }
 
-.required {
-  &:after {
-    display: inline-block;
-    width: $required-dot-size;
-    height: $required-dot-size;
-    margin-left: 5px;
-    content: "";
-    vertical-align: middle;
-    border-radius: 50%;
-    background: $required-color;
+.input-block__title-text-field {
+  @extend %text-field;
+  @extend %font-h3;
+  border-color: transparent;
+  padding: ($default-spacing / 3) 0;
+
+  &:focus {
+    border-color: $primary-color;
   }
 }
 
-input.form-title-field {
-  @extend %font-h3;
-  border: 0;
+.input-block__multiline-text-field {
+  @extend %text-field;
+  @extend %font-smaller;
+  border-left: 1px solid $light-border-color;
+  padding: $default-spacing / 3;
+  padding-left: $default-spacing / 2;
+  min-height: 34px;
+  line-height: 1.4em;
+}
+
+.input-block__inline {
+}
+
+.input-block__check-box {
+}
+
+.input-block__radio-button {
 }

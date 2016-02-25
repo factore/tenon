@@ -29,8 +29,28 @@
     = f.date_time_picker :text, label: 'Date & Time'
     %code f.date_time_picker :text, label: 'Date & Time'
 
+    = input_block 'Pick one', explanation: 'This is what it is all about' do
+      = f.inline_check_box :text, label: 'One'
+      = f.inline_check_box :text, label: 'Two'
+      = f.inline_check_box :text, label: 'Three'
+
+    = input_block 'Pick more' do
+      = f.inline_check_box :text, label: 'One'
+      = f.inline_check_box :text, label: 'Two'
+      = f.inline_check_box :text, label: 'Three'
+
     = f.check_box :text, label: 'Check box'
     %code f.check_box :text, label: 'Check box'
+
+    = input_block 'This is some radio actions', explanation: 'This is what it is all about' do
+      = f.inline_radio_button :text, label: 'Option 1'
+      = f.inline_radio_button :text, label: 'Option 2'
+      = f.inline_radio_button :text, label: 'Option 2'
+
+    = input_block 'Pick some more radios' do
+      = f.inline_radio_button :text, label: 'Option 1'
+      = f.inline_radio_button :text, label: 'Option 2'
+      = f.inline_radio_button :text, label: 'Option 2'
 
     %label.field-label Radio buttons
     = f.radio_button :text, label: 'Option 1'
