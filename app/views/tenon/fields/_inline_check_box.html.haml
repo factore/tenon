@@ -1,3 +1,4 @@
 = render layout: 'tenon/fields/base_inline', locals: { f: f, method_name: method_name, opts: opts } do
   = f.super_check_box method_name, opts.merge(class: 'input-block__check-box')
-  = i('check', class: 'input-block__check-box-icon')
+  .input-block__check-box-icon
+    = i('check')

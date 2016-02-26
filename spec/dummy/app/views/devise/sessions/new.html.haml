@@ -1,25 +1,26 @@
 %main
-  .inner9
-    .panel.block
+  .login.inner6
+    .panel.panel--block
       = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
         .row
-          .logo= image_tag('tenon/client-logo.png')
-          .title
-            = Tenon::MySettings.site_title
+          = image_tag('tenon/client-logo.png', class: 'login-logo')
+          %h3.login-title= Tenon::MySettings.site_title
+
         - unless flash[:alert].blank?
           .flash= flash[:alert]
-        = f.label :email, :label => "Email Address:"
-        = f.email_field :email, placeholder: 'user@example.com', autofocus: true
 
-        = f.label :password, :label => "Password:"
-        = f.password_field :password, placeholder: 'password', autocomplete: 'off'
+        = input_block 'Email Address' do
+          = f.email_field :email, placeholder: 'user@example.com', autofocus: true, class: 'input-block__text-field'
 
-        = f.check_box :remember_me, class: 'tn-checkbox-left'
-        = f.label :remember_me, "Remember Me?"
+        = input_block 'Password' do
+          = f.password_field :password, placeholder: 'password', autocomplete: 'off', class: 'input-block__text-field'
 
-        %br/
-        %br/
-        = f.submit "Login", :class => "btn"
-        %br/
-        %br/
-      = render "devise/shared/links"
+        .input-block
+          = f.submit 'Login', class: 'btn'
+
+        = input_block 'Remember me?' do
+          = f.check_box :remember_me, class: 'input-block__check-box'
+          .input-block__check-box-icon= i('check')
+
+        .row
+          = render 'devise/shared/links'

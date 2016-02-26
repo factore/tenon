@@ -93,9 +93,8 @@
   cursor: pointer;
 
   &:checked + .input-block__check-box-icon {
-    border-color: $primary-color;
-    background-color: $primary-color;
-    color: $white;
+    background-color: $grey;
+    color: $primary-color;
   }
 }
 
@@ -107,8 +106,8 @@
   left: 0;
   border: 2px solid $grey;
   border-radius: 2px;
-  width: 30px;
-  height: 30px;
+  width: 18px;
+  height: 18px;
   color: transparent;
   content: 0;
 }

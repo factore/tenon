@@ -1,0 +1,17 @@
+.login {
+  float: none;
+  margin: 0 auto;
+}
+
+.login-title {
+  margin-bottom: $default-spacing;
+  text-align: center;
+  color: $primary-color;
+}
+
+.login-logo {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: $default-spacing;
+  max-width: 80%;
+}
