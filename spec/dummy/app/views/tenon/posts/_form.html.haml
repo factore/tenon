@@ -22,10 +22,8 @@
                 = link_to @post, data: { method: :delete, confirm: 'Are you sure you want to delete this?' }, class: 'dropdown__action action-icon delete-link' do
                   = i('delete')
                   %span Delete
-                  
-    %main
-      = error_messages_for :post
 
+    %main
       = f.text_field :title, required: true, class: 'form-title-field'
 
       .form-label Content

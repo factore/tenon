@@ -45,7 +45,13 @@ module Tenon
 
       self.resource = resource.decorate
       respond_to do |format|
-        format.html { redirect_to after_update_path }
+        format.html do
+          if resource.valid?
+            redirect_to after_update_path
+          else
+            render action: :edit
+          end
+        end
         format.json do
           render :partial => singular_name, :locals => {
             singular_name.to_sym => @post
