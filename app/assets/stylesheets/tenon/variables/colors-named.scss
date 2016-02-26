@@ -32,7 +32,7 @@ $body-bg-color: lighten($grey, 25%);
 $panel-bg-color: $white;
 $contrast-bg-color: $grey;
 $light-border-color: lighten($grey, 10%);
-$hr-bg-color: $grey;
+$hr-bg-color: lighten($grey, 20%);
 
 // Dropdown
 $dropdown-fg-color: darken($grey, 20%);

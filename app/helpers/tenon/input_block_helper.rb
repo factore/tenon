@@ -3,7 +3,7 @@ module Tenon
     def input_block(label, opts = {}, &blk)
       content_tag :div, class: 'input-block' do
         block_label_tag(label) +
-        capture(&blk) +
+        content_tag(:div, capture(&blk), class: 'input-block__inline-group' ) +
         block_explanation(opts[:explanation])
       end
     end

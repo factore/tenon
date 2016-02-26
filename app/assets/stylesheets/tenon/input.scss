@@ -71,6 +71,10 @@
   display: inline-block;
   position: relative;
   margin-right: $default-spacing;
+
+  &:last-of-type {
+    margin: 0;
+  }
 }
 
 .input-block__label-inline {
