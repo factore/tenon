@@ -177,17 +177,19 @@ module Tenon
     end
 
     alias_method :super_radio_button, :radio_button
-    def radio_button(method_name, opts = {})
+    def radio_button(method_name, value, opts = {})
       @template.render 'tenon/fields/radio_button',
         f: self,
         method_name: method_name,
+        value: value,
         opts: opts
     end
 
-    def inline_radio_button(method_name, opts = {})
+    def inline_radio_button(method_name, value, opts = {})
       @template.render 'tenon/fields/inline_radio_button',
       f: self,
       method_name: method_name,
+      value: value,
       opts: opts
     end
 

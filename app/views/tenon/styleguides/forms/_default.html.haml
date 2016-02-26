@@ -43,19 +43,19 @@
     %code f.check_box :text, label: 'Check box'
 
     = input_block 'This is some radio actions', explanation: 'This is what it is all about' do
-      = f.inline_radio_button :text, label: 'Option 1'
-      = f.inline_radio_button :text, label: 'Option 2'
-      = f.inline_radio_button :text, label: 'Option 2'
+      = f.inline_radio_button :text, 'value1', label: 'Option 1'
+      = f.inline_radio_button :text, 'value2', label: 'Option 2'
+      = f.inline_radio_button :text, 'value3', label: 'Option 3'
 
-    = input_block 'Pick some more radios' do
-      = f.inline_radio_button :text, label: 'Option 1'
-      = f.inline_radio_button :text, label: 'Option 2'
-      = f.inline_radio_button :text, label: 'Option 2'
+    -# = input_block 'Pick some more radios' do
+    -#   = f.inline_radio_button :text, '1', label: 'Option 1'
+    -#   = f.inline_radio_button :text, '2', label: 'Option 2'
+    -#   = f.inline_radio_button :text, '3', label: 'Option 3'
 
     %label.field-label Radio buttons
-    = f.radio_button :text, label: 'Option 1'
-    = f.radio_button :text, label: 'Option 2'
-    = f.radio_button :text, label: 'Option 2'
+    = f.radio_button :text, 'value1', label: 'Option 1'
+    = f.radio_button :text, 'value2', label: 'Option 2'
+    = f.radio_button :text, 'value3', label: 'Option 3'
     %code
       %p= ".form-field"
       %p
