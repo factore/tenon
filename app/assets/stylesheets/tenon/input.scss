@@ -50,12 +50,27 @@
   @extend %text-field;
   @extend %font-h3;
   border-color: transparent;
-  padding: ($default-spacing / 3) 0;
+  padding: ($default-spacing / 3) $default-spacing ($default-spacing / 3) 0;
 
   &:focus {
     border-color: $primary-color;
+
+    + .input-block__title-text-field-icon {
+      display: none;
+    }
   }
 }
+
+.input-block__title-text-field-icon {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: $default-spacing / 3;
+  z-index: 10;
+  line-height: 30px;
+  color: $primary-color;
+}
+
 
 .input-block__multiline-text-field {
   @extend %text-field;

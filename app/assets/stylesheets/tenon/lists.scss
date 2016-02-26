@@ -1,5 +1,9 @@
-ul, ol {
-  margin: 0;
+ul,
+ol {
+  margin: 0 0 $default-spacing;
   padding: 0;
-  list-style: none;
+
+  li {
+    margin: 0 $default-spacing;
+  }
 }

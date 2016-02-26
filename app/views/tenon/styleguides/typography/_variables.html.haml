@@ -2,7 +2,7 @@
   %a.scroll-target{name: 'typography__variables'}
   %h3.color-black Typography variables & mixins
 
-  .panel--block
+  .panel.panel--block
     %h4 Fonts
     %p
       There is one font defined for Tenon. There is a second variable defined
@@ -11,10 +11,11 @@
     %code
       %p
         %span.color-primary Source:
-        app/assets/stylesheets/tenon/atoms/typography/font-variables.scss
+        app/assets/stylesheets/tenon/variables/font-family.scss
+
       %p
         %span.color-primary Put your changes here:
-        app/assets/stylesheets/client/typography-fonts.scss
+        app/assets/stylesheets/client/variables/font-family.scss
 
     %h4 Variables
     %p
@@ -23,17 +24,17 @@
     %code
       %p
         %span.color-primary Source:
-        app/assets/stylesheets/tenon/atoms/typography/size-variables.scss
+        app/assets/stylesheets/tenon/variables/font-size.scss
       %p
         %span.color-primary Put your changes here:
-        app/assets/stylesheets/client/typography-sizes.scss
+        app/assets/stylesheets/client/variables/font-size.scss
 
     %h4 Font size mixins
     %code.expandable
       = expandable_toggle
       %p
         %span.color-primary Source:
-        app/assets/stylesheets/tenon/atoms/typography/font-size-mixins.scss
+        app/assets/stylesheets/tenon/mixins/font-size.scss
       %br
       %p.color-primary Sample usage:
       %p @include font($body-size, $body-line-height);

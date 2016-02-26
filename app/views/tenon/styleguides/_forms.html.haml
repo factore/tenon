@@ -1,5 +1,4 @@
 = form_for @mock, url: styleguides_path, builder: Tenon::FormBuilder do |f|
   = render partial: 'tenon/styleguides/forms/default', locals: {f: f}
-  = render partial: 'tenon/styleguides/forms/outside', locals: {f: f}
   = render partial: 'tenon/styleguides/forms/html5', locals: {f: f}
   =# render partial: 'tenon/styleguides/forms/tenon_content', locals: {f: f}

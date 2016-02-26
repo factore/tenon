@@ -2,47 +2,57 @@
   %a.scroll-target{name: 'colors'}
   %h3.color-black Colors
 
-  .panel--block
+  .panel.panel--block
     %h4 Neutral colors
     .styleguide-colors
       .styleguide-color-block
         %span.styleguide-color.bg-color-black
-        %label Black
+        %label.input-block__label
+          Black
       .styleguide-color-block
         %span.styleguide-color.bg-color-white
-        %label White
+        %label.input-block__label
+          White
       .styleguide-color-block
         %span.styleguide-color.bg-color-grey
-        %label Grey
+        %label.input-block__label
+          Grey
       .spacer
 
     %h4 Base colors
     .styleguide-colors
       .styleguide-color-block
         .styleguide-color.bg-color-primary
-        %label Primary
+        %label.input-block__label
+          Primary
       .styleguide-color-block
         .styleguide-color.bg-color-secondary
-        %label Secondary
+        %label.input-block__label
+          Secondary
       .styleguide-color-block
         .styleguide-color.bg-color-accent
-        %label Accent
+        %label.input-block__label
+          Accent
       .spacer
 
     %h4 Notification colors
     .styleguide-colors
       .styleguide-color-block
         .styleguide-color.bg-color-required
-        %label Required
+        %label.input-block__label
+          Required
       .styleguide-color-block
         .styleguide-color.bg-color-error
-        %label Error
+        %label.input-block__label
+          Error
       .styleguide-color-block
         .styleguide-color.bg-color-success
-        %label Success
+        %label.input-block__label
+          Success
       .styleguide-color-block
         .styleguide-color.bg-color-warning
-        %label Warning
+        %label.input-block__label
+          Warning
       .spacer
 
 = render 'tenon/styleguides/colors/variables'

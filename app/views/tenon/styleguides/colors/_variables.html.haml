@@ -2,25 +2,30 @@
   %a.scroll-target{name: 'color__variables'}
   %h3.color-black Color variables
 
-  .panel--block
+  .panel.panel--block
     %h4 Names
     %p
       These are the 10 base colors that are used throughtout Tenon.
       You can over-ride any of these to change the look of Tenon.
+      
     %code
       %span.color-primary Source:
-      app/assets/stylesheets/tenon/atoms/colors/named.scss
+      app/assets/stylesheets/tenon/variables/base-colors.scss
+
     %code
       %span.color-primary Put your changes here:
-      app/assets/stylesheets/client/color-names.scss
+      app/assets/stylesheets/client/variables/base-colors.scss
 
     %h4 Variables
     %p
       As much as possible, each element has a custom color variable.
       This allows you to change one element without affecting others.
+
     %code
       %span.color-primary Source:
-      app/assets/stylesheets/tenon/atoms/colors/named.scss
+      app/assets/stylesheets/tenon/variables/colors-named.scss
+
+
     %code
       %span.color-primary Put your changes here:
-      app/assets/stylesheets/tenon/atoms/colors/variables.scss
+      app/assets/stylesheets/client/variables/colors-named.scss

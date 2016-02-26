@@ -3,7 +3,7 @@
   %h3.color-black Smaller sizes
   %p Includes a mixin, a variable and a class helper for each.
 
-  .panel--block
+  .panel.panel--block
     - ['small', 'smaller', 'smallest'].each do |s|
       %p{class: "font-#{s}"} The quick brown fox jumps over the lazy dog.
       %code.expandable
@@ -11,11 +11,8 @@
         %p= "<p class: 'font-#{s}'>The quick brown fox jumps over the lazy dog.</p>"
         %br/
         %p
-          %span.color-primary Mixin:
-          = "@include font-#{s};"
+          %span.color-primary Silent class:
+          = "@extend %font-#{s};"
         %p
           %span.color-primary Variables:
           = "$#{s}-size, $#{s}-line-height"
-        %p
-          %span.color-primary Class:
-          = ".font-#{s}"

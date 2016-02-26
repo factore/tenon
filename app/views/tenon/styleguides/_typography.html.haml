@@ -4,7 +4,7 @@
   %h3.color-black Headers
   %p Includes mixins, variables and a class helpers for each.
 
-  .panel--block
+  .panel.panel--block
     - (1..6).each do |h|
       %p{class: "font-h#{h}"} The quick brown fox jumps over the lazy dog.
       %code.expandable
@@ -12,14 +12,11 @@
         %p= "<h#{h}>The quick brown fox jumps over the lazy dog.</h#{h}>"
         %br/
         %p
-          %span.color-primary Mixin:
-          = "@include font-h#{h};"
+          %span.color-primary Silent class:
+          = "@extend %font-h#{h};"
         %p
           %span.color-primary Variables:
           = "$h#{h}-size, $h#{h}-line-height"
-        %p
-          %span.color-primary Class:
-          = ".font-h#{h}"
 
 = render 'tenon/styleguides/typography/paragraphs'
 = render 'tenon/styleguides/typography/small'

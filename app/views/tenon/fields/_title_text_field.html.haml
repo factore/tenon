@@ -1,2 +1,3 @@
 = render layout: 'tenon/fields/base', locals: { f: f, method_name: method_name, opts: opts } do
   = f.super_text_field method_name, opts.merge(class: 'input-block__title-text-field')
+  = i('edit', class: 'input-block__title-text-field-icon')

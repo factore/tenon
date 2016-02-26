@@ -16,6 +16,7 @@
 
   &:hover {
     @extend %z-depth-2;
+    text-decoration: none;
     color: $btn-primary-fg-color;
   }
 }
@@ -47,4 +48,5 @@
 // full width
 .btn--block {
   display: block;
+  width: 100%;
 }

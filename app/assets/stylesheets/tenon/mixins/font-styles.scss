@@ -4,9 +4,18 @@
       font-weight: #{$i*100};
       font-style: normal;
     }
+
+    .font-n#{$i} {
+      @extend %font-n#{$i};
+    }
+
     %font-i#{$i} {
       font-weight: #{$i*100};
       font-style: italic;
+    }
+
+    .font-i#{$i} {
+      @extend %font-i#{$i};
     }
   }
 }

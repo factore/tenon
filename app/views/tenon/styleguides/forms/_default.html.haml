@@ -8,8 +8,13 @@
     Tenon::FormBuilder
 
   .panel.panel--block
-    = f.text_field :text, label: 'Title text field'
-    %code f.text_field :text, label: 'Title text field'
+    = f.text_field :text, label: 'Text field'
+    %code f.text_field :text, label: 'Text field'
+
+    %hr.hr--dashed
+
+    = f.title_text_field :text, label: 'Title field', placeholder: 'A sample title field'
+    %code f.title_text_field :text, class: 'form-title-field', label: 'Title field', placeholder: 'A sample title field'
 
     %hr.hr--dashed
 
