@@ -18,9 +18,12 @@
         .input-block
           = f.submit 'Login', class: 'btn'
 
-        = input_block 'Remember me?' do
-          = f.check_box :remember_me, class: 'input-block__check-box'
-          .input-block__check-box-icon= i('check')
+        .input-block
+          .input-block__inline
+            = f.check_box :remember_me, class: 'input-block__check-box'
+            .input-block__check-box-icon= i('check')
+            = f.label 'Remember me?', class: 'input-block__label-inline'
+
 
         .row
           = render 'devise/shared/links'
