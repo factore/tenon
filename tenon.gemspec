@@ -29,13 +29,13 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'launchy'
 
   # Dummy app gems
-  s.add_development_dependency 'humanizer'
-  s.add_development_dependency 'awesome_nested_set'
-  s.add_development_dependency 'gravatar_image_tag'
-  s.add_development_dependency 'uglifier'
+  s.add_dependency 'humanizer'
+  s.add_dependency 'awesome_nested_set'
+  s.add_dependency 'gravatar_image_tag'
+  s.add_dependency 'uglifier'
 
   # The actual gem dependencies
-  s.add_dependency 'rails', '5.0.0.beta2'
+  s.add_dependency 'rails', '5.0.0.beta3'
 
   s.add_dependency 'browserify-rails'
   s.add_dependency 'cancan'
