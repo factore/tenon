@@ -6,95 +6,72 @@
 @import 'bourbon';
 @import './grid';
 
-// Universal mixins
-@import './mixins/colors';
-@import './mixins/spacer';
-@import './mixins/transforms';
-@import './mixins/transitions';
-@import './mixins/truncate';
-@import './mixins/vertical-align';
-@import './mixins/z-depth';
-
-// Universal variables
+// Variables and Mixins
 @import './variables/layout';
 @import 'client/variables/layout'; // client over-rides
 @import './variables/z-index';
-
-// Color variables & over-rides
+@import './variables/icons';
+@import 'client/variables/icons';
+@import './mixins/colors';
 @import './variables/base-colors';
 @import 'client/variables/base-colors'; // client over-rides
 @import './variables/colors-named';
 @import 'client/variables/colors-named'; // client over-rides
-
-// Typography
+@import './variables/btn';
+@import 'client/variables/btn'; // client over-rides
 @import './variables/font-family';
 @import 'client/variables/font-family'; // client over-rides
 @import './variables/font-size';
 @import 'client/variables/font-size'; // client over-rides
-@import './mixins/font-styles';
+@import './mixins/transitions';
+@import './mixins/drawer';
 @import './mixins/font-size';
+@import './mixins/font-styles';
+@import './mixins/material-icon';
+@import './mixins/spacer';
+@import './mixins/transforms';
+@import './mixins/truncate';
 @import './mixins/typography';
-@import './typography';
-@import './lists';
+@import './mixins/vertical-align';
+@import './mixins/z-depth';
 
-// Icons
-@import './material-icon';
 
-// Body
-@import './body';
-
-// Login
-@import './login';
-
-// Buttons
-@import './variables/btn';
-@import 'client/variables/btn'; // client over-rides
-@import './btn';
-@import './fab';
-
-// Actions
-@import './actions';
-
-// Forms
-@import './input';
-@import './form';
-
-// Util nav
-@import './main-nav-toggle';
-@import './util-nav';
-
-// Toolbar
-@import './toolbar';
-@import './search';
-
-// Drawers
-@import './drawer';
-@import './app-info';
-@import './main-nav';
-@import './filters';
-
-// Records
-@import './record';
-
-// Misc
-@import './dropdown';
-@import './panel';
-@import './breadcrumbs';
-@import './burger';
-@import './flash';
-@import './hr';
-@import './pre';
-
-// Main
-@import './main';
-
-// Tenon content
-@import './tn-content';  // bem: todo
-@import './tn-library';  // bem: todo
-@import './tn-embed-code';  // bem: todo
+// Global/Element Definition
+@import './global/reset';
+@import './global/typography';
 
 // Styleguide
-@import './styleguide/init'; // bem: todo
+@import './styleguide/init';
+
+// Modules
+@import './modules/action';
+@import './modules/action-icon';
+@import './modules/action-text';
+@import './modules/actions';
+@import './modules/app-info';
+@import './modules/breadcrumbs';
+@import './modules/btn';
+@import './modules/burger';
+@import './modules/drawer-pusher';
+@import './modules/dropdown';
+@import './modules/fab';
+@import './modules/filter-drawer';
+@import './modules/flash';
+@import './modules/hr';
+@import './modules/infinite-loader';
+@import './modules/input-block';
+@import './modules/login';
+@import './modules/main-nav-drawer';
+@import './modules/main-nav-toggle';
+@import './modules/material-icon';
+@import './modules/panel';
+@import './modules/record';
+@import './modules/search-content';
+@import './modules/tn-content';  // bem: todo
+@import './modules/tn-embed-code';  // bem: todo
+@import './modules/tn-library';  // bem: todo
+@import './modules/toolbar';
+@import './modules/util-nav';
 
 // Backwards Compatibility (should be temporary)
 @import './backwards_compatibility/variables';

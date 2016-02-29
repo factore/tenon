@@ -1,7 +1,7 @@
 .btn {
   @extend %z-depth-1;
-  @include default-transition;
   @extend %font-smaller;
+  @include default-transition;
   display: inline-block;
   position: relative;
   border: 0;

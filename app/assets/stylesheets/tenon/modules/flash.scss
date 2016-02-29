@@ -8,20 +8,6 @@
   padding: ($default-spacing / 3) $default-spacing;
   width: 100%;
   color: $warning-fg-color;
-
-  h2 {
-    display: none;
-  }
-
-  h4, p {
-    margin-bottom: 0;
-  }
-
-  ul {
-    @extend %font-small;
-    margin: 0 $default-spacing;
-    padding: ($default-spacing / 2) 0;
-  }
 }
 
 .flash--warning {
@@ -37,12 +23,6 @@
 .flash--notice {
   background: $success-bg-color;
   color: $success-fg-color;
-}
-
-.errorExplanation {
-  @extend .flash;
-  @extend .flash--warning;
-  margin-bottom: $default-spacing;
 }
 
 .flash__dismiss {

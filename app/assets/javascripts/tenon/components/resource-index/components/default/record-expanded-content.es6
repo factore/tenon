@@ -18,19 +18,24 @@ window.ResourceIndexComponents.DefaultRecordExpandedContent = (props) => {
         laboris nisi ut aliquip ex ea commodo consequat.
       </p>
       <div className="record__expanded-actions">
-        <a
-          className="record__expanded-action-text"
-          href={editPath}
-          title="Edit">
-          Edit
-        </a>
-        <a
-          className="record__expanded-action-text"
-          onClick={onDelete}
-          href="#!"
-          title="Delete">
-          Delete
-        </a>
+        <div className="record__expanded-action-text">
+          <a
+            className="action-text"
+            href={editPath}
+            title="Edit">
+            Edit
+          </a>
+        </div>
+
+        <div className="record__expanded-action-text">
+          <a
+            className="action-text"
+            onClick={onDelete}
+            href="#!"
+            title="Delete">
+            Delete
+          </a>
+        </div>
       </div>
     </div>
   );

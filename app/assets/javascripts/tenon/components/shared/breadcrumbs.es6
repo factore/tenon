@@ -1,11 +1,17 @@
+/* global React */
+
 class Breadcrumbs extends React.Component {
   render() {
     return (
       <ul className="breadcrumbs">
-        {this.props.breadcrumbs.map( (breadcrumb, i) =>
-          <li className="breadcrumbs__item action-icon" key={i}>
+        {this.props.breadcrumbs.map((breadcrumb, i) =>
+          <li className="breadcrumbs__item" key={i}>
             {this.renderLink(breadcrumb, i)}
-            <i className="material-icon">keyboard_arrow_right</i>
+            <span className="breadcrumbs__separator">
+              <i className="material-icon">
+                keyboard_arrow_right
+              </i>
+            </span>
           </li>
         )}
       </ul>
@@ -16,9 +22,15 @@ class Breadcrumbs extends React.Component {
     let jsx;
 
     if (i === this.props.breadcrumbs.length - 1) {
-      jsx = <span>{breadcrumb.title}</span>;
+      jsx = <span className="breadcrumbs__link">{breadcrumb.title}</span>;
     } else {
-      jsx = <a href={breadcrumb.path}>{breadcrumb.title}</a>;
+      jsx = (
+        <a
+          className="breadcrumbs__link"
+          href={breadcrumb.path}>
+          {breadcrumb.title}
+        </a>
+      );
     }
     return jsx;
   }

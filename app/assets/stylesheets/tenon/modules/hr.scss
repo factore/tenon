@@ -1,0 +1,12 @@
+// Horizontal Rule
+.hr {
+  // base style defined in global/reset.scss
+}
+
+.hr--dashed {
+  border-bottom-style: dashed;
+}
+
+.hr--dotted {
+  border-bottom-style: dotted;
+}

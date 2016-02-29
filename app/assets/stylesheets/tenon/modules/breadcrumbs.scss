@@ -3,7 +3,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  padding-left: $default-spacing*2.5;
+  padding-left: $default-spacing * 2.5;
   width: $main-nav-width;
   height: $util-nav-height;
   line-height: $util-nav-height;
@@ -15,18 +15,18 @@
   height: $util-nav-height;
   line-height: $util-nav-height;
   color: $toolbar-fg-color;
+}
 
-  &:last-of-type i {
-    display: none;
-  }
+.breadcrumbs__link,
+.breadcrumbs__separator {
+  height: $util-nav-height;
+  line-height: $util-nav-height;
+  color: $toolbar-fg-color;
+}
 
-  span, a, i {
-    height: $util-nav-height;
-    line-height: $util-nav-height;
-    color: $toolbar-fg-color;
-  }
-
-  i {
-    margin: 0 6px;
-  }
+.breadcrumbs__separator {
+  position: relative;
+  top: 6px;
+  margin: 0 6px;
+  &:last-of-type > & { display: none; }
 }

@@ -7,8 +7,8 @@
 }
 
 .util-nav__action-icon {
-  @include default-transition;
   @extend %z-depth-2;
+  @include default-transition;
   display: inline-block;
   float: left;
   margin-left: 10px;

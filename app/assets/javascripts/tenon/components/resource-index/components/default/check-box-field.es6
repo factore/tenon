@@ -12,17 +12,24 @@ class CheckBoxField extends React.Component {
     const { name, label, value } = this.props;
 
     return (
-      <div className="input-block input-block--with-check-box">
-        <label className="input-block__label">
-          {label}
-          {' '}
+      <div className="input-block">
+        <div className="input-block__inline">
           <input
             className="input-block__check-box"
             type="checkbox"
             name={name}
             checked={value}
             onChange={() => this._onChange()} />
-        </label>
+
+          <div
+            className="input-block__check-box-icon input-block__checked-icon">
+            <i className="material-icon">check</i>
+          </div>
+
+          <label className="input-block__label input-block__label--inline">
+            {label}
+          </label>
+        </div>
       </div>
     );
   }

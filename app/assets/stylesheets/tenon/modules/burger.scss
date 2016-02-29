@@ -1,0 +1,39 @@
+%burger--open {
+  top: 2px;
+  border-color: $burger-color;
+  height: $burger-height + 4px;
+
+  &::after {
+    top: (($burger-height - $burger-line-weight) / 2) - $burger-line-weight + 2px;
+    background-color: $burger-color;
+  }
+}
+
+.burger {
+  @include default-transition;
+  display: inline-block;
+  position: relative;
+  left: 0;
+  border-top: $burger-line-weight solid rgba($burger-color, .8);
+  border-bottom: $burger-line-weight solid rgba($burger-color, .8);
+  width: $burger-width;
+  height: $burger-height;
+  box-sizing: border-box;
+
+  &::after {
+    @include default-transition;
+    position: absolute;
+    top: ($burger-height - $burger-line-weight) / 2 - $burger-line-weight;
+    left: 0;
+    background-color: rgba($burger-color, .8);
+    width: $burger-width;
+    height: $burger-line-weight;
+    content: '';
+    box-sizing: border-box;
+  }
+
+  .main-nav-drawer-open & {
+    @extend %burger--open;
+  }
+}
+

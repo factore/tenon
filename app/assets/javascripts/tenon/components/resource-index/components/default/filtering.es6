@@ -17,7 +17,7 @@ class DefaultFiltering extends React.Component {
 
     return (
       <div>
-        <div id="filters" className="drawer">
+        <div className="filter-drawer">
           <FilterDrawer
             { ...this.props }
             onChange={(e) => this._changeFilter(e)} />

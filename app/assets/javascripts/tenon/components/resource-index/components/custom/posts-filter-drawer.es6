@@ -2,7 +2,7 @@ window.ResourceIndexComponents.PostsFilterDrawer = ({ data, onChange }) => {
   const query = data.query;
 
   return (
-    <div className="panel--block">
+    <div className="panel panel--block">
       <TextField
         label="Keywords"
         name="q"

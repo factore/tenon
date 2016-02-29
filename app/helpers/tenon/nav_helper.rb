@@ -9,9 +9,9 @@ module Tenon
     private
 
     def subnav(&blk)
-      icons = content_tag(:i, 'add', class: 'main-nav__open-icon material-icon')
-      icons += content_tag(:i, 'remove', class: 'main-nav__close-icon material-icon')
-      content = link_to(icons, '#', class: 'main-nav__link-toggle action-icon')
+      icons = content_tag(:i, 'add', class: 'main-nav__open-icon')
+      icons += content_tag(:i, 'remove', class: 'main-nav__close-icon')
+      content = link_to(icons, '#', class: 'main-nav__link-toggle')
       content += content_tag(:ul, capture(&blk), class: 'main-nav__sub-nav')
       content
     end
@@ -20,14 +20,19 @@ module Tenon
       content = content_tag(:i, icon, class: 'material-icon')
       content += content_tag(:span, text)
       opts[:class] ||= 'main-nav__link action-icon'
+      opts[:class] += ' main-nav__link--sub' if opts[:sub]
       opts[:title] ||= text
       link_to(content, path, opts)
     end
 
     def active_class(path, active)
       path = url_for(path).split('/')[0..2].join('/')[1..-1]
-      tenon_path = tenon.root_path.gsub(/^\//,'') + controller_name
-      'active open' if active || path == tenon_path
+      tenon_path = tenon.root_path.gsub(%r{^\/}, '') + controller_name
+      if active || path == tenon_path
+        'main-nav__item--active main-nav__item--open'
+      else
+        ''
+      end
     end
   end
 end

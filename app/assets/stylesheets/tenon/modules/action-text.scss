@@ -1,0 +1,13 @@
+.action-text {
+  @extend %font-smaller;
+  position: relative;
+  height: $default-spacing * 1.5;
+  text-transform: uppercase;
+  line-height: $default-spacing * 1.5;
+  color: $link-color;
+
+  &:hover {
+    text-decoration: none;
+    color: $link-hover-color;
+  }
+}

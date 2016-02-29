@@ -106,7 +106,7 @@ class App extends Component {
     }
 
     if (this.props.ui.filterDrawerOpen) {
-      classNames.push('filter-drawer--open');
+      classNames.push('filter-drawer-open');
     }
 
     return (

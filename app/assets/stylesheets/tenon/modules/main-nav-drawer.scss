@@ -1,14 +1,11 @@
 // main-nav drawer
-#main-nav {
+.main-nav-drawer {
   @extend %font-smaller;
-  z-index: $z-layout-main-nav;
+  @extend %drawer;
+  z-index: $z-layout-drawer;
   color: $main-nav-fg-color;
-}
 
-.main-nav-drawer--open {
-  @extend .drawer--open;
-
-  #main-nav.drawer {
+  .main-nav-drawer-open & {
     left: 0;
   }
 }
@@ -22,21 +19,15 @@
   position: relative;
   margin-bottom: 1px;
   border-radius: $default-border-radius;
+}
 
-  &.active {
-    margin: 6px 0;
-    background-color: $white;
+.main-nav__item--active {
+  margin: 6px 0;
+  background-color: $white;
 
-    > .main-nav__link i {
-      opacity: 1;
-      color: $main-nav-icon-color;
-    }
-  }
-
-  &.open {
-    > .main-nav__sub-nav {
-      display: block;
-    }
+  > .main-nav__link > i {
+    opacity: 1;
+    color: $main-nav-icon-color;
   }
 }
 
@@ -51,7 +42,7 @@
     text-decoration: none;
   }
 
-  i {
+  > i {
     @include font-size($main-nav-icon-size);
     opacity: .6;
     margin-right: 10px;
@@ -61,43 +52,46 @@
 // sub-nav
 .main-nav__sub-nav {
   display: none;
+  .main-nav__item--open & { display: block; }
+}
 
-  .main-nav__link {
-    display: block;
-    height: 36px;
-    line-height: 36px;
+.main-nav__link--sub {
+  display: block;
+  height: 36px;
+  line-height: 36px;
 
-    i,
-    span {
-      height: 30px;
-      line-height: 30px;
-    }
+  i,
+  span {
+    height: 30px;
+    line-height: 30px;
   }
 }
 
 // sub-nav toggle
 .main-nav__link-toggle {
   position: absolute;
-  top: 0;
-  right: $default-spacing/2;
+  top: $default-spacing / 4;
+  right: $default-spacing / 2;
 }
 
 .main-nav__open-icon {
-  display: inline-block !important;
+  @extend %material-icon;
+  display: inline-block;
   color: $main-nav-fg-color;
 }
 
 .main-nav__close-icon {
-  display: none !important;
+  @extend %material-icon;
+  display: none;
   color: $main-nav-fg-color;
 }
 
-.main-nav__item.open {
+.main-nav__item--open {
   .main-nav__open-icon {
-    display: none !important;
+    display: none;
   }
 
   .main-nav__close-icon {
-    display: inline-block !important;
+    display: inline-block;
   }
 }

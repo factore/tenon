@@ -1,0 +1,13 @@
+%drawer {
+  @include drawer-transition;
+  position: fixed;
+  top: $util-nav-height;
+  left: -$main-nav-width;
+  z-index: $z-layout-drawer;
+  border-right: 1px solid $light-border-color;
+  box-shadow: inset -2px 1px 10px -6px $inset-shadow-color;
+  background-color: $body-bg-color;
+  width: $main-nav-width;
+  height: 100%;
+  overflow: auto;
+}

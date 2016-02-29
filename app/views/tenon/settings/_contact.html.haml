@@ -10,4 +10,4 @@
     .inner4.omega
       = input_block 'Comment Email', explanation: 'Do you want to receive an email when someone posts a comment?' do
         = check_box_tag 'settings[comment_email]', Tenon::MySettings.comment_email, class: 'input-block__text-field'
-        %label.input-block__label-inline Yes, send me emails
+        %label.input-block__label--inline Yes, send me emails

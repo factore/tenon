@@ -1,0 +1,9 @@
+.filter-drawer {
+  @extend %drawer;
+  z-index: $z-layout-drawer;
+  padding: $default-spacing;
+
+  .filter-drawer-open & {
+    left: 0;
+  }
+}

@@ -1,0 +1,29 @@
+.app-info {
+  margin: 0;
+}
+
+.app-info__link {
+  @extend %truncate;
+  @extend %font-body;
+  @include default-transition;
+  display: block;
+  margin: 0;
+  background: $app-info-bg-color;
+  padding: 0 $default-spacing;
+  height: $toolbar-height;
+  line-height: $toolbar-height;
+  color: $app-info-fg-color;
+
+  &:hover {
+    background-color: $app-info-hover-color;
+    text-decoration: none;
+  }
+}
+
+.app-info__logo {
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  margin-right: $default-spacing / 2;
+  max-height: $main-nav-logo-height;
+}

@@ -1,0 +1,11 @@
+.material-icon {
+  @extend %material-icon;
+}
+
+.material-icon--flip-vertical {
+  @extend %flip-vertical;
+}
+
+.material-icon--flip-horizontal {
+  @extend %flip-horizontal;
+}

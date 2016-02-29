@@ -1,5 +1,6 @@
 require 'browserify-rails'
 require 'cancan'
+require 'client_side_validations'
 require 'cocoon'
 require 'coffee-rails'
 require 'date_time_attribute'

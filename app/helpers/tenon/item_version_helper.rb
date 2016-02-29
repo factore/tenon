@@ -5,7 +5,8 @@ module Tenon
 
       default_opts = {
         builder: Tenon::FormBuilder,
-        data: data
+        data: data,
+        validate: true
       }
 
       form_for(obj, default_opts.merge(opts), &blk)

@@ -1,4 +1,4 @@
-%ul
+%ul.main-nav__list
   - if can?(:index, Tenon::Asset)
     = nav_item 'Asset Library', assets_path, 'photo_library'
   - if can?(:index, MySettings)

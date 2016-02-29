@@ -6,4 +6,4 @@ class Tenon.features.NavItemToggle
   _toggle: (e) ->
     e.preventDefault()
     $(e.currentTarget).closest('.main-nav__item')
-      .toggleClass('open')
+      .toggleClass('main-nav__item--open')

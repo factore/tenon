@@ -35,6 +35,8 @@
 }
 
 .record__actions {
+  @include default-transition;
+
   @include bp-md {
     @include transform-style(preserve-3d);
     position: absolute;
@@ -44,10 +46,9 @@
     opacity: 0;
     z-index: $z-panel-open;
     background-color: $panel-bg-color;
-    padding-left: $default-spacing/2;
+    padding-left: ($default-spacing / 2);
     text-align: right;
   }
-  @include default-transition;
 }
 
 .record:hover .record__actions {
@@ -55,18 +56,18 @@
 }
 
 .record__action-icon {
-  @extend .action-icon;
+  margin-right: $default-spacing / 4;
+  width: $action-icon-dimension;
+  color: $primary-fg-color;
+
   @include bp-md {
     @include transform(translateY(-50%));
     position: relative;
     top: 50%;
   }
-  width: $action-icon-dimension;
-  color: $primary-fg-color;
 
-  &:hover {
-    color: $primary-color;
-  }
+  &:hover { color: $primary-color; }
+  &:last-child { margin-right: 0; }
 }
 
 .record__expanded-content {
@@ -88,7 +89,7 @@
 }
 
 .record__expanded-action-text {
-  @extend .action-text;
+  display: inline;
   margin-right: $default-spacing;
 }
 
@@ -110,17 +111,5 @@
 
   &:hover {
     opacity: .25;
-  }
-}
-
-
-.infinite-loader {
-  @extend %font-h3;
-  display: none;
-  text-align: center;
-  color: $infinite-loader-color;
-
-  &.visible {
-    display: block;
   }
 }

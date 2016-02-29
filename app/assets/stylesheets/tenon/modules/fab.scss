@@ -1,14 +1,15 @@
 .fab {
+  @extend %z-depth-2;
   @include default-transition;
   @include animation(btn-fab-intro .3s forwards .5s);
   @include transform(scale(0) rotate(-45deg));
-  @extend %z-depth-2;
   display: inline-block;
   position: relative;
   z-index: $z-fab;
-  border: none;
+  border: 0;
   border-radius: 50%;
   background-color: $btn-fab-bg-color;
+  cursor: pointer;
   padding: 0;
   width: $btn-fab-size;
   height: $btn-fab-size;
@@ -16,7 +17,6 @@
   vertical-align: middle;
   line-height: $btn-fab-size;
   color: $btn-fab-fg-color;
-  cursor: pointer;
 
   i {
     @include font-size($btn-fab-icon-size);
@@ -40,7 +40,8 @@
 .fab--white {
   background-color: $btn-fab-fg-color;
   color: $btn-fab-bg-color;
-  i {
+
+  > i {
     color: $btn-fab-bg-color;
   }
 }
@@ -57,6 +58,7 @@
   0% {
     @include transform(scale(0) rotate(-45deg));
   }
+
   100% {
     @include transform(scale(1) rotate(0deg));
   }

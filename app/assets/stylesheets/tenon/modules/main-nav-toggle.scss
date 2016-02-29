@@ -1,7 +1,7 @@
 .main-nav-toggle {
   @include default-transition;
   position: fixed;
-  top: $default-spacing/2;
+  top: $default-spacing / 2;
   left: $default-spacing;
   z-index: $z-layout-main-nav-toggle;
   width: $default-spacing;

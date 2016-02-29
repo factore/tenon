@@ -15,10 +15,6 @@
 .search-content__field {
   @include default-transition;
   @include font-size($h5-size);
-  @include placeholder {
-    @include default-transition;
-    color: $white;
-  }
   display: block;
   position: relative;
   z-index: $z-quick-search-input;
@@ -30,4 +26,9 @@
   height: 40px;
   line-height: 40px;
   color: $toolbar-quicksearch-fg-color;
+
+  @include placeholder {
+    @include default-transition;
+    color: $white;
+  }
 }

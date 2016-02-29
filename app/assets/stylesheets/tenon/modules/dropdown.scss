@@ -10,7 +10,6 @@
   min-width: 200px;
   max-height: 650px;
   overflow-y: auto;
-
   will-change: width, height;
 }
 
@@ -24,12 +23,12 @@
   @extend %font-smaller;
   display: block;
   clear: both;
+  cursor: pointer;
   min-height: $dropdown-item-height;
   text-align: left;
   text-transform: none;
   line-height: $dropdown-item-height;
   color: $dropdown-fg-color;
-  cursor: pointer;
 }
 
 .dropdown__item--label {
@@ -44,20 +43,22 @@
   text-align: left;
   line-height: $dropdown-item-height - 20px;
 
-  &, span, i {
+  &,
+  span,
+  i {
     display: block;
     height: auto;
     min-height: $dropdown-item-height;
   }
 
-  &, span {
+  &,
+  span {
     overflow: hidden;
     zoom: 1;
-
-    _overflow: visible;
   }
 
-  span, i {
+  span,
+  i {
     padding: 10px 0;
     line-height: $dropdown-item-height - 20px;
   }

@@ -92,7 +92,7 @@
   }
 }
 
-.input-block__label-inline {
+.input-block__label--inline {
   @extend %font-smaller;
   display: inline-block;
   padding-left: $default-spacing;
@@ -115,9 +115,9 @@
   opacity: 0;
   z-index: 10;
   border-radius: 0;
+  cursor: pointer;
   width: 100%;
   height: 100%;
-  cursor: pointer;
 
   &:hover + .input-block__checked-icon {
     border-color: $primary-color;
@@ -172,4 +172,18 @@
 .input-block__radio-button-icon {
   @extend %check-box-and-radio-button-icon;
   border-radius: 50%;
+}
+
+
+// Error messages
+.input-block__field-with-errors {
+  > .input-block__text-field,
+  > .input-block__multiline-text-field,
+  > .input-block__title-text-field {
+    border-color: $error-color;
+  }
+}
+
+.input-block__error-message {
+  @extend %font-smaller;
 }
