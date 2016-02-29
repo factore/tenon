@@ -1,0 +1,174 @@
+.input-block {
+  position: relative;
+  margin-bottom: $default-spacing;
+}
+
+.input-block__label {
+  @extend %font-smallest;
+  display: block;
+  line-height: $body-line-height;
+  color: $label-color;
+}
+
+.input-block__label--is-required {
+  &::after {
+    display: inline-block;
+    margin-left: 5px;
+    border-radius: 50%;
+    background: $required-color;
+    width: $required-dot-size;
+    height: $required-dot-size;
+    vertical-align: middle;
+    content: '';
+  }
+}
+
+%text-field {
+  @include default-transition;
+  @include appearance(none);
+  display: block;
+  border: 0;
+  border-bottom: 1px solid $light-border-color;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  width: 100%;
+  line-height: normal;
+
+  &:focus {
+    border-color: $primary-color;
+  }
+}
+
+.input-block__text-field {
+  @extend %text-field;
+  @extend %font-smaller;
+  height: 34px;
+}
+
+.input-block__title-text-field {
+  @extend %text-field;
+  @extend %font-h3;
+  border-color: transparent;
+  padding: ($default-spacing / 3) 0;
+
+  &:focus {
+    border-color: $primary-color;
+  }
+}
+
+.input-block__multiline-text-field {
+  @extend %text-field;
+  @extend %font-smaller;
+  border-left: 1px solid $light-border-color;
+  padding: $default-spacing / 3;
+  padding-left: $default-spacing / 2;
+  min-height: 34px;
+  line-height: 1.4em;
+}
+
+.input-block__inline {
+  display: inline-block;
+  position: relative;
+  margin-right: $default-spacing;
+
+  &:last-of-type {
+    margin: 0;
+  }
+}
+
+.input-block__label-inline {
+  @extend %font-smaller;
+  display: inline-block;
+  padding-left: $default-spacing;
+  line-height: $body-line-height;
+}
+
+.input-block__explanation {
+  @extend %font-smallest;
+  padding-top: $default-spacing / 4;
+  color: $explanation-color;
+}
+
+// check-box and radio-button
+%check-box-and-radio-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 10;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+
+  &:hover + .input-block__checked-icon {
+    border-color: $primary-color;
+  }
+
+  &:checked + .input-block__checked-icon {
+    border-color: $primary-color;
+    background-color: $primary-color;
+
+    i {
+      opacity: 1;
+    }
+  }
+}
+
+%check-box-and-radio-button-icon {
+  @include default-transition;
+  display: block;
+  position: absolute;
+  top: ($body-line-height - 20px) / 2;
+  left: 0;
+  border: 2px solid $grey;
+  width: 20px;
+  height: 20px;
+  color: transparent;
+  content: 0;
+
+  i {
+    display: block;
+    opacity: 0;
+    margin: -2px 0 0 -2px;
+    height: 20px;
+    line-height: 20px;
+    color: $white;
+    font-size: 20px;
+  }
+}
+
+.input-block__check-box {
+  @extend %check-box-and-radio-button;
+}
+
+.input-block__check-box-icon {
+  @extend %check-box-and-radio-button-icon;
+  border-radius: 2px;
+}
+
+.input-block__radio-button {
+  @extend %check-box-and-radio-button;
+}
+
+.input-block__radio-button-icon {
+  @extend %check-box-and-radio-button-icon;
+  border-radius: 50%;
+}
+
+
+// Error messages
+.input-block__field-with-errors {
+  > .input-block__text-field,
+  > .input-block__multiline-text-field,
+  > .input-block__title-text-field {
+    border-color: $error-color;
+  }
+}
+
+.input-block__error-message {
+  @extend %font-smaller;
+}

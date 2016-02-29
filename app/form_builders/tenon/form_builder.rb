@@ -53,6 +53,18 @@ module Tenon
         opts: opts
     end
 
+    def title_text_field(method_name, opts = {})
+      defaults = {
+        placeholder: '--'
+      }
+      opts = defaults.merge(opts)
+
+      @template.render 'tenon/fields/title_text_field',
+        f: self,
+        method_name: method_name,
+        opts: opts
+    end
+
     alias_method :super_email_field, :email_field
     def email_field(method_name, opts = {})
       defaults = {
@@ -157,12 +169,28 @@ module Tenon
         opts: opts
     end
 
-    alias_method :super_radio_button, :radio_button
-    def radio_button(method_name, opts = {})
-      @template.render 'tenon/fields/radio_button',
+    def inline_check_box(method_name, opts = {})
+      @template.render 'tenon/fields/inline_check_box',
         f: self,
         method_name: method_name,
         opts: opts
+    end
+
+    alias_method :super_radio_button, :radio_button
+    def radio_button(method_name, value, opts = {})
+      @template.render 'tenon/fields/radio_button',
+        f: self,
+        method_name: method_name,
+        value: value,
+        opts: opts
+    end
+
+    def inline_radio_button(method_name, value, opts = {})
+      @template.render 'tenon/fields/inline_radio_button',
+      f: self,
+      method_name: method_name,
+      value: value,
+      opts: opts
     end
 
     alias_method :super_collection_select, :collection_select
@@ -219,14 +247,16 @@ module Tenon
       end
     end
 
-    def label(method_name, label, required = false, language = nil, language_title = nil)
+    def label(method_name, label, required = false, inline = false, language = nil, language_title = nil)
       if label == false
         ''.html_safe
       else
         label ||= method_name.to_s.titleize
         label = language_title ? label + " (#{language_title.to_s.titleize})" : label
-        label_class = "input-block__label#{' input-block__label--is-required' if required}"
-        super(get_method(method_name, language), label.html_safe, class: label_class)
+        label_class = ['input-block__label']
+        label_class = ['input-block__label-inline'] if inline
+        label_class << ' input-block__label--is-required' if required
+        super(get_method(method_name, language), label.html_safe, class: label_class.join(' '))
       end
     end
 

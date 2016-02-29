@@ -1,0 +1,5 @@
+= render layout: 'tenon/fields/base_inline', locals: { f: f, method_name: method_name, value: value, opts: opts } do
+  = f.super_radio_button method_name, value, opts.merge(class: 'input-block__radio-button')
+
+  .input-block__radio-button-icon.input-block__checked-icon
+    = i('check')

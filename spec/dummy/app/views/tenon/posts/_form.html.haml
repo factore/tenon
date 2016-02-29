@@ -23,15 +23,16 @@
                   = i('delete')
                   %span Delete
 
-    %main
-      = f.text_field :title, required: true, class: 'form-title-field'
 
-      .form-label Content
+    %main
+      = f.title_text_field :title, required: true
+
+      .panel-label Content
       .panel.panel--block
         = f.rich_text :excerpt, label: ''
         = f.tenon_content :content
 
-      .form-label Publication Details
+      .panel-label Publication Details
       .panel.panel--block
         - unless @categories.blank?
           = f.select :post_category_ids, @categories.map { |c| [c.title, c.id] }, { label: 'Categories' }, { multiple: true }

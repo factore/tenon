@@ -1,12 +1,12 @@
-.tn-tc{class: field}
-  %label.tn-tc-label
+.input-block.tn-tc{class: field}
+  %label.input-block__explanation
     - if defined?(lang)
       = field.gsub("_#{lang}", '').to_s.titleize
       (#{lang_title})
     - else
       = field.to_s.titleize
 
-  .explanation
+  .input-block__explanation
     Select rows from the library to build this section.
     You can format your text by highlighting it and selecting options from the pop-up menu.
 
@@ -16,7 +16,7 @@
     /   %span Edit in Preview Mode
 
     = link_to '#', class: 'tn-tc-add-content btn initial-row', data: { modal_target: ".tenon-library", modal_closest: '.tn-tc', modal_clone: 'true', modal_title: 'Add Content', modal_handler: 'Tenon.features.tenonContent.Library' }, title: 'Add Content' do
-      = i('add')
+      Add Content
 
   .tn-tc-wrap
     .tn-tc-sizes
