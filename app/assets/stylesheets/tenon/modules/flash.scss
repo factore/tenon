@@ -10,6 +10,13 @@
   color: $warning-fg-color;
 }
 
+.flash--static {
+  position: static;
+  top: auto;
+  z-index: auto;
+  margin-bottom: $default-spacing;
+}
+
 .flash--warning {
   background: $warning-bg-color;
   color: $warning-fg-color;
