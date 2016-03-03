@@ -1,6 +1,3 @@
-// .record-list {
-// }
-
 .record {
   @extend %z-depth-2;
   @include default-transition;
@@ -49,11 +46,10 @@
     padding-left: ($default-spacing / 2);
     text-align: right;
   }
+
+  .record:hover & { opacity: .9; }
 }
 
-.record:hover .record__actions {
-  opacity: .9;
-}
 
 .record__action-icon {
   margin-right: $default-spacing / 4;

@@ -7,6 +7,7 @@
 @import './grid';
 
 // Variables and Mixins
+// Order is important here, do not change
 @import './variables/layout';
 @import 'client/variables/layout'; // client over-rides
 @import './variables/z-index';
@@ -43,7 +44,7 @@
 // Styleguide
 @import './styleguide/init';
 
-// Modules
+// Modules, ordered alphabetically
 @import './modules/action';
 @import './modules/action-icon';
 @import './modules/action-text';
