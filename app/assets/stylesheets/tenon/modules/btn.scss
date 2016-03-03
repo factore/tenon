@@ -50,3 +50,20 @@
   display: block;
   width: 100%;
 }
+
+// toolbar
+.btn--toolbar {
+  @extend %z-depth-0;
+  display: block;
+  margin-top: 2px;
+  background-color: rgba($white, .6);
+  height: 40px;
+  line-height: 40px;
+  color: $white;
+
+  &:hover {
+    @extend %z-depth-1;
+    background-color: rgba($white, 1);
+    color: $btn-primary-bg-color;
+  }
+}
