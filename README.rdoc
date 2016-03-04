@@ -378,6 +378,17 @@ Your users can now click on the star to toggle the post's featured state.
 
 Read on through the next section to understand how <tt>updateQuery()</tt> and the query object interacts with the server to filter and return records.
 
+== Using the StandaloneList component
+
+Occasionally you may want to render a list of records inside an existing view, for example if you wanted to embed a list of records inside/alongside a form.  You can accomplish this by rendering the +StandaloneList+ component.  It functions identically to the +ResourceIndexRoot+ component.
+
+This is especially useful for lists that have in-place editing (eg. the feature toggle we just added to posts).  You can replace any of the child components in the chain, just as with the +ResourceIndexRoot+ component.
+
+  = react_component 'StandaloneList',
+    recordsPath: posts_path(format: 'json')
+    childComponentNames: {  RecordTitle: 'PostsRecordTitle',
+                            RecordActions: 'PostsRecordActions' }
+
 == Searching and Filtering Records
 
 === Setting up your Rails Controllers and Filterers
