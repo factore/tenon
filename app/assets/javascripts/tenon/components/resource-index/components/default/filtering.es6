@@ -9,10 +9,9 @@ class DefaultFiltering extends React.Component {
 
   render() {
     const { FilterDrawer, FilterOverlay } = this.props.childComponents;
-    const { actions } = this.props;
 
     if (!FilterDrawer) {
-      return '<div></div>';
+      return <div></div>;
     }
 
     return (
