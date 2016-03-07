@@ -26,9 +26,9 @@ class Tenon.features.AssetAttachment
     @$container.closest('.modal').modal('hide')
 
   _setFields: ($li) =>
-    @$assetField.find('.asset-id-field').val($li.data('record-id'))
-    @$assetField.find('.thumbnail').html($li.find('.thumbnail').html())
-    @$assetField.find('.asset-info').html($li.find('.record-title a').html())
+    @$assetField.find('[data-asset-id-field]').val($li.data('record-id'))
+    @$assetField.find('[data-asset-thumbnail]').html($li.find('.thumbnail').html())
+    @$assetField.find('[data-asset-info]').html($li.find('.record-title a').html())
 
   _getAssetField: =>
     if @$browseButton.data('asset-field')

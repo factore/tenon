@@ -9,7 +9,7 @@ class Post < ApplicationRecord
 
   tenon_content :content, i18n: true
   has_history includes: [:content_tenon_content_rows]
-  can_have_comments
+  has_asset :cover_photo
 
   # Relationships
   has_and_belongs_to_many :post_categories, class_name: 'PostCategory'

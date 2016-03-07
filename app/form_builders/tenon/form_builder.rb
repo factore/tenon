@@ -13,15 +13,15 @@ module Tenon
     def asset(method_name, opts = {})
       defaults = {
         label: nil,
+        wrapper_class: 'panel',
         # Remove button triggers cocoon's remove child event?
         remove_association: false
       }
       opts = defaults.merge(opts)
-
       @template.render 'tenon/fields/asset',
         f: self,
         label_tag: label(method_name, opts[:label]),
-        field: method_name,
+        method_name: method_name,
         proxy_attachment: object.send(method_name),
         opts: opts
     end

@@ -1,8 +1,14 @@
 class Tenon.features.ModalWindows
   constructor: ->
-    tags = '[data-modal-target], [data-modal-remote], [data-model-content], [data-keyboard]'
-    $(document).on('click', tags, @launchFromLink)
-
+    tags = [
+      '[data-modal-target]',
+      '[data-modal-remote]',
+      '[data-model-content]',
+      '[data-keyboard]'
+    ]
+    $(document).on('click', tags.join(', '), @launchFromLink)
+    $(document).on('click', '.modal-overlay, [data-modal-close]', @closeModals)
+    $('body').on('keyup', (e) => @closeModals() if e.which == 27)
   # Opts:
   #   $link: if launched by data tags, the link that was clicked
   #   title: string -- Title for the modal window
@@ -35,13 +41,22 @@ class Tenon.features.ModalWindows
       keyboard: $link.data('keyboard')
     @_chooseStrategy()
 
+  closeModals: ->
+    $('.modal').removeClass('modal--is-active')
+    $('.modal-overlay').removeClass('modal-overlay--is-active')
+    $('body').css(overflow: '')
+
+    setTimeout( ->
+      $('.modal, .modal-overlay').remove()
+    , 250
+    )
+
   _chooseStrategy: =>
     @_launchWithUrl() if @opts.remote
     @_launchWithTarget() if @opts.target?.length
     @_launchWithContent() if @opts.content?.length
 
   _launchWithUrl: (e) =>
-    console.debug("called _launchWithUrl")
     @remote = true
     Tenon.$genericLoader.show()
     $.ajax
@@ -51,7 +66,6 @@ class Tenon.features.ModalWindows
       beforeSend: null
 
   _launchWithTarget: (e) =>
-    console.debug("called _launchWithTarget")
     if @opts.closest?.length && @opts.$link
       $parentNode = @opts.$link.closest(@opts.closest)
       $el = $parentNode.find(@opts.target)
@@ -65,41 +79,49 @@ class Tenon.features.ModalWindows
   _openInModal: (el) =>
     Tenon.$genericLoader.hide()
     @$el = $(el)
-    @$template = $(@_setupTemplate())
-    @_appendContent()
-    @$el.show()
-    @modal = @$template.modal(keyboard: @opts.keyboard)
-    @modal
-      .on('shown.bs.modal', @_runShownHandler)
-      .on('hidden.bs.modal', @_runHiddenHandler)
+    @$modalElement = @_getModalElement()
+    @_drawAndDisplayModal()
+    @_runShownHandler()
+
+  _getModalElement: =>
+    if !@_isBodyProvided
+      $(@_setupTemplate())
+    else
+      @$el
 
   _setupTemplate: =>
-    JST['tenon/templates/modal']
-      title: @opts.title,
-      bodyProvided: @_bodyProvided()
+    $template = JST['tenon/templates/modal']
+    $template.find('.modal__content').append(@$el)
 
-  _bodyProvided: =>
-    return @__bodyProvided if @__bodyProvided
-    @__bodyProvided = @$el.find('.modal-body').length > 0
+  _isBodyProvided: =>
+    return @__isBodyProvided if @__isBodyProvided
+    @__isBodyProvided = @$el.find('.modal__content').length > 0
 
-  _appendContent: =>
-    target = if @_bodyProvided() then '.modal-content' else '.modal-body'
-    @$template.find(target).append(@$el)
-
+  _drawAndDisplayModal: =>
+    @$el.appendTo('body') if @remote
+    $overlay = $('<div class="modal-overlay" />')
+    $overlay.appendTo('body') unless $('.modal-overlay').length
+    $('body').css(overflow: 'hidden')
+    setTimeout( =>
+      @$modalElement.addClass('modal--is-active')
+      $overlay.addClass('modal-overlay--is-active')
+    , 0)
 
   _runShownHandler: =>
     if @opts.handler?.length
       parts = @opts.handler.split('.')
       method = window
       $(parts).each (i, part) -> method = method[part]
-      new method(@opts.$link, @$el, @$template)
+      new method(@opts.$link, @$el, @$modalElement)
 
     # Default shown action
     @_focusFirstField()
 
-  _runHiddenHandler: =>
-    @$template.remove() if @remote
-
-  _focusFirstField: =>
-    el = $(".modal-content form input[type!='hidden'], .modal-content form select, .modal-content form textarea")[0]
+  _focusFirstField: ->
+    selectors = [
+      ".modal-content form input[type!='hidden']",
+      ".modal-content form select",
+      ".modal-content form textarea"
+    ]
+    el = $(selectors.join(', '))[0]
     $(el).focus()

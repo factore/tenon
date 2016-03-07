@@ -50,6 +50,7 @@
 @import './modules/action-text';
 @import './modules/actions';
 @import './modules/app-info';
+@import './modules/asset-field';
 @import './modules/breadcrumbs';
 @import './modules/btn';
 @import './modules/burger';
@@ -65,6 +66,8 @@
 @import './modules/main-nav-drawer';
 @import './modules/main-nav-toggle';
 @import './modules/material-icon';
+@import './modules/modal';
+@import './modules/modal-overlay';
 @import './modules/panel';
 @import './modules/record';
 @import './modules/search-content';
@@ -76,4 +79,3 @@
 
 // Backwards Compatibility (should be temporary)
 @import './backwards_compatibility/variables';
-@import './backwards_compatibility/modals';

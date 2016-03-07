@@ -1,28 +1,29 @@
 = render layout: 'tenon/fields/base', locals: { f: f, method_name: method_name, opts: opts } do
-  .tn-tc-asset-field
-    = f.hidden_field "#{field}_id", class: 'asset-id-field'
+  %div{ class: opts[:wrapper_class] }
+    .asset-field
+      = f.hidden_field "#{method_name}_id", data: { asset_id_field: true }
 
-    .thumbnail
-      - if proxy_attachment.try(:asset)
-        = asset_icon(proxy_attachment.asset)
-      - else
-        = image_tag default_asset_thumbnail(proxy_attachment)
-
-    .details
-      .asset-info
-        - if proxy_attachment
-          = proxy_attachment.display_name
+      .asset-field__thumbnail{ data: { asset_thumbnail: true } }
+        - if proxy_attachment.try(:asset)
+          = asset_icon(proxy_attachment.asset)
         - else
-          No asset selected.
+          = image_tag default_asset_thumbnail(proxy_attachment)
 
-      .browse-button-holder{ class: ('with-remove' if opts[:remove_association]) }
-        .browse-button
-          = link_to 'Browse', new_item_asset_path, class: 'btn btn-comp browse', data: { modal_remote: true, modal_title: "Select #{field.to_s.titleize}", modal_handler: 'Tenon.features.AssetAttachment' }
-          - if opts[:remove_association]
-            %small
-              or
-              = link_to_remove_association 'remove', f
+      .asset-field__details
+        .asset-field__title{ data: { asset_info: true } }
+          - if proxy_attachment
+            = proxy_attachment.display_name
           - else
-            %small
-              or
-              = link_to 'remove', '#', class: 'remove-asset', data: { confirm: 'Are you sure?' }
+            No asset selected.
+
+        .asset-field__actions{ class: ('with-remove' if opts[:remove_association]) }
+          .asset-field__action
+            = link_to 'Browse', new_item_asset_path, class: 'action-text', data: { modal_remote: true, modal_title: "Select #{method_name.to_s.titleize}", modal_handler: 'Tenon.features.AssetAttachment' }
+          - if opts[:remove_association]
+            .asset-field__action
+              = link_to_remove_association 'remove', f, class: 'action-text action-text--secondary'
+          - else
+            .asset-field__action
+              = link_to 'remove', '#', class: 'remove-asset action-text action-text--secondary', data: { confirm: 'Are you sure?' }
+
+      .spacer

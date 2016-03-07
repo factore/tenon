@@ -27,6 +27,8 @@
     %main
       = f.title_text_field :title, required: true
 
+      = f.asset :cover_photo
+
       .panel-label Content
       .panel.panel--block
         = f.rich_text :excerpt, label: ''
