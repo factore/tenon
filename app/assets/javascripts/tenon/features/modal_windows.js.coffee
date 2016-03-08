@@ -1,4 +1,14 @@
 class Tenon.features.ModalWindows
+  @closeModals: ->
+    $('.modal').removeClass('modal--is-active')
+    $('.modal-overlay').removeClass('modal-overlay--is-active')
+    $('body').css(overflow: '')
+
+    setTimeout( ->
+      $('.modal, .modal-overlay').remove()
+    , 250
+    )
+
   constructor: ->
     tags = [
       '[data-modal-target]',
@@ -42,14 +52,7 @@ class Tenon.features.ModalWindows
     @_chooseStrategy()
 
   closeModals: ->
-    $('.modal').removeClass('modal--is-active')
-    $('.modal-overlay').removeClass('modal-overlay--is-active')
-    $('body').css(overflow: '')
-
-    setTimeout( ->
-      $('.modal, .modal-overlay').remove()
-    , 250
-    )
+    Tenon.features.ModalWindows.closeModals()
 
   _chooseStrategy: =>
     @_launchWithUrl() if @opts.remote
@@ -84,21 +87,23 @@ class Tenon.features.ModalWindows
     @_runShownHandler()
 
   _getModalElement: =>
-    if !@_isBodyProvided
-      $(@_setupTemplate())
-    else
+    if @_isBodyProvided()
       @$el
+    else
+      $(@_setupTemplate())
 
   _setupTemplate: =>
-    $template = JST['tenon/templates/modal']
+    $template = $(JST['tenon/templates/modal']())
     $template.find('.modal__content').append(@$el)
+    console.log($template.html())
+    $template
+
 
   _isBodyProvided: =>
-    return @__isBodyProvided if @__isBodyProvided
-    @__isBodyProvided = @$el.find('.modal__content').length > 0
+    @$el.find('.modal__content').length > 0
 
   _drawAndDisplayModal: =>
-    @$el.appendTo('body') if @remote
+    @$modalElement.appendTo('body')
     $overlay = $('<div class="modal-overlay" />')
     $overlay.appendTo('body') unless $('.modal-overlay').length
     $('body').css(overflow: 'hidden')

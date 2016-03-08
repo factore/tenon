@@ -22,8 +22,13 @@ module Tenon
     end
 
     def row_link_content(title, row_type)
-      link = image_tag("tenon/tenon-content/#{row_type}.png", id: row_type, data: { :'row-type' => row_type })
-      link += content_tag(:p, "#{title}")
+      content = image_tag(
+        "tenon/tenon-content/#{row_type}.png",
+        class: 'tn-tc-library__image',
+        id: row_type,
+        data: { :'row-type' => row_type }
+      )
+      content + content_tag(:p, title, class: 'tn-tc-library__title')
     end
 
     def tenon_content_sizes

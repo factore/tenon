@@ -5,7 +5,6 @@
   opacity: .7;
   margin-bottom: 1px;
   background-color: $panel-bg-color;
-  padding: ($default-spacing / 2) $default-spacing;
   width: 100%;
   overflow: hidden;
 
@@ -15,8 +14,20 @@
   }
 }
 
+.record__thumbnail {
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  padding-bottom: 100%;
+  width: 100%;
+  height: 0;
+}
+
 .record__details {
   position: relative;
+  padding: ($default-spacing / 2) $default-spacing;
 }
 
 .record__title {
@@ -37,8 +48,8 @@
   @include bp-md {
     @include transform-style(preserve-3d);
     position: absolute;
-    top: 0;
-    right: 0;
+    top: $default-spacing / 2;
+    right: $default-spacing;
     bottom: 0;
     opacity: 0;
     z-index: $z-panel-open;
@@ -68,7 +79,7 @@
 
 .record__expanded-content {
   display: none;
-  padding-top: ($default-spacing / 3);
+  padding: ($default-spacing / 2) $default-spacing;
 }
 
 .record__expanded-title {
@@ -107,5 +118,21 @@
 
   &:hover {
     opacity: .25;
+  }
+}
+
+.record--card {
+  float: left;
+  opacity: 1;
+  margin: 0 ($default-spacing / 2) ($default-spacing / 2) 0;
+  width: calc((100% - (#{$default-spacing} * 1.5)) / 4);
+  &:nth-child(4n+4) { margin-right: 0; }
+
+  .record__actions {
+    position: static;
+  }
+
+  .record__details {
+    padding: $default-spacing / 2;
   }
 }

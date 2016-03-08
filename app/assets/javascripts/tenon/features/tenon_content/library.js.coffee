@@ -21,8 +21,8 @@ class Tenon.features.tenonContent.Library
 
   _setToInsertInitialRow: =>
     node = @$link.closest('.tn-tc').find('.tenon-content')
-    $('.tenon-library a').data('association-insertion-node', node)
-    $('.tenon-library a').data('association-insertion-method', 'prepend')
+    $('.tn-tc-library a').data('association-insertion-node', node)
+    $('.tn-tc-library a').data('association-insertion-method', 'prepend')
 
   _setToInsertByData: =>
     datas = [
@@ -31,9 +31,9 @@ class Tenon.features.tenonContent.Library
       'association-insertion-traversal'
     ]
     for data in datas
-      $('.tenon-library a').data(data, @$link.data(data))
+      $('.tn-tc-library a').data(data, @$link.data(data))
 
   _setToInsertRelative: =>
     method = if @$link.hasClass('below') then 'after' else 'before'
-    $('.tenon-library a').data('association-insertion-node', @$link.closest('.tn-tc-row'))
-    $('.tenon-library a').data('association-insertion-method', method)
+    $('.tn-tc-library a').data('association-insertion-node', @$link.closest('.tn-tc-row'))
+    $('.tn-tc-library a').data('association-insertion-method', method)

@@ -75,12 +75,12 @@ class Tenon.features.AssetUploader
   _updateProgess: (e, data) ->
     if data.context
       currentProgress = parseInt(data.loaded / data.total * 100, 10)
-      data.context.find('.progress-bar').css('width', currentProgress + '%')
+      data.context.find('.progress__bar').css('width', currentProgress + '%')
 
   _progressBarStatus: (context, status) ->
     # status accepts: warning(orange), success(green), danger(red)
-    $progressBar = context.find('.progress-bar')
-    $progressBar.addClass('progress-bar-' + status)
+    $progressBar = context.find('.progress__bar')
+    $progressBar.addClass('.progress__bar--' + status)
 
   _errorMessage: (e, data) =>
     @_progressBarStatus(data.context, 'danger')

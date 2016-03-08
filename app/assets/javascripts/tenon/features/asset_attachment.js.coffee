@@ -1,37 +1,31 @@
 class Tenon.features.AssetAttachment
   constructor: (@$browseButton, @$container) ->
     @$assetField = @_getAssetField()
-    @_setupAssetList()
     @_setupAssetUploading()
-
-  _setupAssetList: =>
-    @$list = @$container.find('ul.asset-list')
-    new Tenon.features.RecordList(@$list)
-    @$list.on('click', 'li.asset a', @_pickAsset)
+    @$container.on('assetPicked', @_setFields)
+    ReactRailsUJS.mountComponents('#pick-asset')
 
   _setupAssetUploading: =>
     @uploader = new Tenon.features.AssetUploader(@_uploadComplete)
     @uploader.initialize('#new_asset')
 
-  _pickAsset: (e) =>
-    e.preventDefault()
-    e.stopPropagation()
-    $li = $(e.currentTarget).closest('li.asset')
-    @_setFields($li)
-    @$container.closest('.modal').modal('hide')
-
   _uploadComplete: (e, data) =>
-    li = JST["tenon/templates/assets/asset_row"](asset : data.result)
-    @_setFields($(li))
-    @$container.closest('.modal').modal('hide')
+    @_setFields(e, {
+      id: data.result.id,
+      thumbnailPath: data.result.style_urls.thumbnail,
+      filename: data.result.display_name
+    })
+    Tenon.features.ModalWindows.closeModals()
 
-  _setFields: ($li) =>
-    @$assetField.find('[data-asset-id-field]').val($li.data('record-id'))
-    @$assetField.find('[data-asset-thumbnail]').html($li.find('.thumbnail').html())
-    @$assetField.find('[data-asset-info]').html($li.find('.record-title a').html())
+  _setFields: (e, data) =>
+    @$assetField.find('[data-asset-id-field]').val(data.id)
+    @$assetField.find('[data-asset-thumbnail]')
+      .html("<img src='#{data.thumbnailPath}' />")
+    @$assetField.find('[data-asset-info]').html(data.filename)
+    Tenon.features.ModalWindows.closeModals()
 
   _getAssetField: =>
     if @$browseButton.data('asset-field')
       $(@$browseButton.data('asset-field'))
     else
-      @$browseButton.closest('.tn-tc-asset-field')
+      @$browseButton.closest('.asset-field')

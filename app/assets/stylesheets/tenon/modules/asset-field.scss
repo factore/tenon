@@ -25,11 +25,14 @@
 }
 
 .asset-field__title {
+  @extend %truncate;
   float: left;
+  width: calc(100% - 190px);
 }
 
 .asset-field__actions {
   float: right;
+  width: 190px;
   text-align: right;
 }
 

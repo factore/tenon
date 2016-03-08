@@ -7,23 +7,17 @@
         #progress
         = form_for Tenon::Asset.new, format: 'json', builder: Tenon::FormBuilder do |f|
           = error_messages_for :asset
-          .fields.full
-            .form-group
-              .browse-button-holder.solo
-                .fileupload.btn.btn-secondary.browse
-                  %span#choose-files Browse
-                  %input{ type: 'file', class: 'upload', multiple: defined?(multiple) && multiple, style: 'width: 100%;', name: 'asset[attachment]' }
-          .spacer
+          .input-block
+            %label.btn{ for: 'file-upload' } Browse
+            %input#file-upload.upload{ type: 'file', multiple: defined?(multiple) && multiple, style: 'position: absolute; left: -9999px;', name: 'asset[attachment]' }
 
+    %h3 From The Asset Library
     #pick-asset
-      %h3 From the Asset Library
-
-      .filter= text_field_tag :q, '', id: 'quick-search', class: 'filter search', placeholder: 'Filter Assets', data: { 'record-list' => '.asset-list' }
-
-      .asset-list-scroller
-        %ul#modal-asset-list.asset-list.record-grid.infinite-scroll{ data: { records: { url: assets_path(format: 'json'), template: 'tenon/templates/assets/asset_row', name: 'asset' } } }
-
-        = link_to 'Load More Assets', '#', class: 'infinite-loader', 'data-record-list' => '#modal-asset-list'
+      = react_component 'StandaloneList',
+        title: 'Assets',
+        recordsPath: assets_path(format: 'json'),
+        newPath: new_asset_path,
+        childComponentNames: { List: 'AssetList', Record: 'AssetRecord' }
 
   .modal__footer
     %a.modal__action{ href: '#!', data: { modal_close: true } } Cancel
