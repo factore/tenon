@@ -1,14 +1,4 @@
 GIT
-  remote: git://github.com/DavyJonesLocker/client_side_validations.git
-  revision: d135087eddb73d3685a738dd15f4ef141782c0a1
-  branch: rails5
-  specs:
-    client_side_validations (5.0.0)
-      jquery-rails (~> 4.0, >= 4.0.1)
-      js_regex (~> 1.0, >= 1.0.9)
-      rails (>= 5.0.0.beta2, < 5.1.0)
-
-GIT
   remote: git://github.com/audionerd/draper.git
   revision: e816e0e5876b76c648c0928f1c3f2aa2c7a3d1f2
   branch: rails5
@@ -45,6 +35,16 @@ GIT
       activemodel
       activerecord
       activesupport
+
+GIT
+  remote: https://github.com/DavyJonesLocker/client_side_validations
+  revision: 28561bc23da13b8124a675e406236bdbae7b1a4c
+  branch: rails5
+  specs:
+    client_side_validations (5.0.0)
+      jquery-rails (~> 4.0, >= 4.0.1)
+      js_regex (~> 1.0, >= 1.0.9)
+      rails (>= 5.0.0.beta3, < 5.1.0)
 
 PATH
   remote: .
