@@ -2,7 +2,6 @@
   @extend %z-depth-2;
   @include default-transition;
   position: relative;
-  opacity: .7;
   margin-bottom: 1px;
   background-color: $panel-bg-color;
   width: 100%;
@@ -10,7 +9,6 @@
 
   &:hover {
     @extend %z-depth-2;
-    opacity: 1;
   }
 }
 
@@ -123,7 +121,6 @@
 
 .record--card {
   float: left;
-  opacity: 1;
   margin: 0 ($default-spacing / 2) ($default-spacing / 2) 0;
   width: calc((100% - (#{$default-spacing} * 1.5)) / 4);
   &:nth-child(4n+4) { margin-right: 0; }

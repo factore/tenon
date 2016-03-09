@@ -32,7 +32,7 @@ window.ResourceIndexComponents.DefaultList = (props) => {
     <div className="record-list">
       <ul className="">
         <ReactCSSTransitionGroup
-          transitionName="record"
+          transitionName="fade-"
           transitionEnterTimeout={250}
           transitionLeaveTimeout={250}>
           {output}

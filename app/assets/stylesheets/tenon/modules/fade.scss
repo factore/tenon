@@ -1,0 +1,26 @@
+// https://facebook.github.io/react/docs/animation.html
+
+.fade--enter,
+.fade--appear {
+  @include default-transition;
+  @include transform(translateY(-20px));
+  opacity: .01;
+
+
+  &.fade--enter-active,
+  &.fade--appear-active {
+    @include transform(translateY(0));
+    opacity: 1;
+  }
+}
+
+.fade--leave {
+  @include default-transition;
+  @include transform(translateY(0));
+  opacity: 1;
+
+  &.fade--leave-active {
+    @include transform(translateY(-20px));
+    opacity: .01;
+  }
+}

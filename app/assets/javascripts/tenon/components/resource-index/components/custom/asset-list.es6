@@ -1,7 +1,8 @@
 window.ResourceIndexComponents.AssetList = (props) => {
   const { Record, LoadMoreButton }  = props.childComponents;
   const { deleteRecord, updateRecord, toggleExpandedRecord } = props.handlers;
-  const { records, isFetching, pagination } = props.data;
+  const { records, isFetching, pagination, query } = props.data;
+  const { updateQuery } = props.actions;
   const { expandedRecordIds } = props.ui;
   let output;
 
@@ -19,7 +20,7 @@ window.ResourceIndexComponents.AssetList = (props) => {
         <Record
           { ...props }
           record={record}
-          key={i}
+          key={record.id}
           isExpanded={expandedRecordIds.indexOf(record.id) !== -1}
           onDelete={(e) => deleteRecord(e, record)}
           onUpdate={(e, payload) => updateRecord(e, record, payload)}
@@ -30,9 +31,18 @@ window.ResourceIndexComponents.AssetList = (props) => {
 
   return (
     <div className="record-list">
+      <p>
+        <input
+          type="text"
+          value={query.q}
+          onChange={(e) => updateQuery({ q: e.target.value, page: 1 })}
+          placeholder="Search Assets" />
+      </p>
+
       <ul>
         <ReactCSSTransitionGroup
-          transitionName="record"
+          transitionName="fade-"
+          transitionAppear={true}
           transitionEnterTimeout={250}
           transitionLeaveTimeout={250}>
           {output}

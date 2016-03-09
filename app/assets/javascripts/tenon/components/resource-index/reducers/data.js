@@ -10,7 +10,7 @@ import { toQueryString } from 'lodash';
 const initialState = {
   records: [],
   pagination: { currentPage: 1 },
-  isFetching: false,
+  isFetching: true,
   query: queryStringObject
 };
 

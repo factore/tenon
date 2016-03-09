@@ -10,7 +10,8 @@
   width: 80px;
   height: 80px;
 
-  > img {
+  > img,
+  > a > img {
     display: block;
     width: 100%;
     height: 100%;
