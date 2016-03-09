@@ -76,8 +76,11 @@
 }
 
 .record__expanded-content {
-  display: none;
-  padding: ($default-spacing / 2) $default-spacing;
+  @include transition(opacity 0.25s ease);
+  opacity: .01;
+  padding: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .record__expanded-title {
@@ -107,7 +110,9 @@
   width: 104%;
 
   > .record__expanded-content {
-    display: block;
+    opacity: 1;
+    padding: ($default-spacing / 2) $default-spacing;
+    height: auto;
   }
 }
 
