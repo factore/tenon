@@ -29,21 +29,6 @@
   margin-bottom: $default-spacing;
 }
 
-.flash--warning {
-  background: $warning-bg-color;
-  color: $warning-fg-color;
-}
-
-.flash--error {
-  background: $error-bg-color;
-  color: $error-fg-color;
-}
-
-.flash--notice {
-  background: $success-bg-color;
-  color: $success-fg-color;
-}
-
 .flash__action {
   @extend %vertical-align;
   position: absolute;
