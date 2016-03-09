@@ -49,7 +49,7 @@
 .input-block__title-text-field {
   @extend %text-field;
   @extend %font-h3;
-  border-color: transparent;
+  border-color: $dark-border-color;
   padding: ($default-spacing / 3) $default-spacing ($default-spacing / 3) 0;
 
   &:focus {
@@ -64,8 +64,8 @@
 .input-block__title-text-field-icon {
   display: block;
   position: absolute;
+  top: $default-spacing * 1.25;
   right: 0;
-  bottom: $default-spacing / 3;
   z-index: 10;
   line-height: 30px;
   color: $primary-color;
@@ -181,9 +181,11 @@
   > .input-block__multiline-text-field,
   > .input-block__title-text-field {
     border-color: $error-color;
+    border-width: 2px;
   }
 }
 
 .input-block__error-message {
   @extend %font-smaller;
+  color: $error-color;
 }

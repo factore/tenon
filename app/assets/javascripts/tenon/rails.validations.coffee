@@ -1,6 +1,5 @@
 window.ClientSideValidations.formBuilders['Tenon::FormBuilder'] = {
   add: (element, settings, message) ->
-    console.log(settings);
     form = $(element[0].form)
     if element.data('valid') != false and not form.find("label.input-block__error-message[for='#{element.attr('id')}']")[0]?
       inputErrorField = $(settings.input_tag)
@@ -11,13 +10,14 @@ window.ClientSideValidations.formBuilders['Tenon::FormBuilder'] = {
 
       element.before(inputErrorField)
       inputErrorField.find('span#input_tag').replaceWith(element)
-      console.log(inputErrorField)
       inputErrorField.find('label.input-block__error-message').attr('for', element.attr('id'))
       labelErrorField.find('label.input-block__error-message').attr('for', element.attr('id'))
       labelErrorField.insertAfter(label)
       labelErrorField.find('label#label_tag').replaceWith(label)
 
-    form.find("label.input-block__error-message[for='#{element.attr('id')}']").text(message)
+    form
+      .find("label.input-block__error-message[for='#{element.attr('id')}']")
+      .text("This field #{message}.")
 
   remove: (element, settings) ->
     form = $(element[0].form)
@@ -32,3 +32,13 @@ window.ClientSideValidations.formBuilders['Tenon::FormBuilder'] = {
       label.detach()
       labelErrorField.replaceWith(label)
 }
+
+window.ClientSideValidations.callbacks.form.fail = ($el, event) ->
+  msg = """
+    <strong>One or more fields</strong> need to be fixed before this can be
+    saved.
+  """
+  action = """
+    <a href='#!' class='flash__action' data-focus-error>Fix Them</a>
+  """
+  Tenon.features.Flash.draw(msg, $(action))

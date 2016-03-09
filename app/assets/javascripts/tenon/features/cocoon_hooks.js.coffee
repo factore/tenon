@@ -5,6 +5,7 @@ class Tenon.features.CocoonHooks
   afterInsert: (e, insertedItem) =>
     @$insertedItem = $(insertedItem)
     @_checkTenonContent()
+    Tenon.features.Editor.reinitInline()
 
   _checkTenonContent: ->
     if @$insertedItem.find('.tn-tc')

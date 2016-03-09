@@ -17,6 +17,7 @@
 
   %body{data: { controller: params[:controller], action: params[:action] } }
     = flash_messages
+
     = render 'tenon/shared/version_warning' if @item_version
 
     = render 'tenon/shared/burger'

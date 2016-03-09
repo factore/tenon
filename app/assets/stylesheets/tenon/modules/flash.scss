@@ -1,13 +1,25 @@
 // Flash messages
 .flash {
   @extend %z-depth-2;
-  position: absolute;
-  top: $util-nav-height;
+  @extend %font-small;
+  @include default-transition;
+  @include transform(translateX(calc(100% + #{$default-spacing})));
+  position: fixed;
+  top: $util-nav-height + ($default-spacing / 2);
+  right: $default-spacing;
+  opacity: 0;
   z-index: $z-flash-message;
-  background: $warning-bg-color;
-  padding: ($default-spacing / 3) $default-spacing;
-  width: 100%;
-  color: $warning-fg-color;
+  border-radius: 10px;
+  background: $flash-bg-color;
+  padding: $default-spacing;
+  min-width: 335px;
+  max-width: 435px;
+  color: $flash-fg-color;
+}
+
+.flash--is-active {
+  @include transform(translateX(0));
+  opacity: 1;
 }
 
 .flash--static {
@@ -32,19 +44,30 @@
   color: $success-fg-color;
 }
 
-.flash__dismiss {
+.flash__action {
+  @extend %vertical-align;
   position: absolute;
-  top: 0;
   right: $default-spacing;
-  padding: ($default-spacing / 3) 0;
+  width: 100px;
   text-align: right;
-  color: $flash-dismiss-fg-color;
-
-  i {
-    line-height: $default-spacing;
-  }
+  text-transform: uppercase;
+  color: $flash-emphasis-fg-color;
 
   &:hover {
-    color: $flash-dismiss-fg-color;
+    text-decoration: none;
+    color: $flash-emphasis-fg-color;
+  }
+
+  + .flash__message {
+    width: calc(100% - 100px);
+  }
+}
+
+.flash__message {
+  float: left;
+
+  > strong {
+    color: $flash-emphasis-fg-color;
+    font-weight: normal;
   }
 }

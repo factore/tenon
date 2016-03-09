@@ -32,9 +32,15 @@ $body-bg-color: lighten($grey, 25%);
 $panel-bg-color: $white;
 $contrast-bg-color: $grey;
 $light-border-color: lighten($grey, 10%);
+$dark-border-color: $grey;
 $hr-bg-color: lighten($grey, 20%);
 $modal-bg-color: $white;
 
+
+// Flash
+$flash-bg-color: rgba($cobalt, .95);
+$flash-fg-color: $grey;
+$flash-emphasis-fg-color: $white;
 
 // Dropdown
 $dropdown-fg-color: darken($grey, 20%);

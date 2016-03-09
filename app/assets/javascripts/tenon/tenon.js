@@ -22,12 +22,13 @@ var Tenon = {
 
     Tenon.features.fileSelectWidget.init();
     new Tenon.features.I18nFields();
-    new Tenon.features.Flash();
     new Tenon.features.AssetCropping();
     new Tenon.features.AssetDetachment();
     new Tenon.features.CocoonHooks();
     new Tenon.features.ItemVersionAutosave();
-    Tenon.modals = new Tenon.features.ModalWindows();
+    new Tenon.features.Flash();
+    new Tenon.features.FocusError();
+    new Tenon.features.ModalWindows();
     new Tenon.features.ModalForms();
     new Tenon.features.ProtectChanges();
     new Tenon.features.SortableNestedFields();
