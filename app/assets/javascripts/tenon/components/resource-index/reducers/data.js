@@ -1,6 +1,6 @@
 import {
   REQUEST_RECORDS, RECEIVE_RECORDS, DELETE_RECORD,
-  SET_BASE_URI, UPDATE_QUERY, START_UPDATE_RECORD,
+  UPDATE_CONFIG, UPDATE_QUERY, START_UPDATE_RECORD,
   COMPLETE_UPDATE_RECORD
 } from '../actions/data';
 
@@ -11,7 +11,10 @@ const initialState = {
   records: [],
   pagination: { currentPage: 1 },
   isFetching: true,
-  query: queryStringObject
+  query: queryStringObject,
+  config: {
+    manageQueryString: true
+  }
 };
 
 const slowPushState = _.debounce((a, b, c) => {
@@ -22,13 +25,15 @@ export default (state = initialState, action) => {
   let records, index, query, queryString;
 
   switch (action.type) {
-  case SET_BASE_URI:
-    return { ...state, baseUri: action.baseUri };
+  case UPDATE_CONFIG:
+    return { ...state, config: { ...state.config, ...action.updates } };
 
   case UPDATE_QUERY:
     query = { ...state.query, ...action.query };
-    queryString = toQueryString(query);
-    slowPushState({ query: query }, queryString, queryString);
+    if (state.config.manageQueryString) {
+      queryString = toQueryString(query);
+      slowPushState({ query: query }, queryString, queryString);
+    }
     return { ...state, query: query };
 
   case REQUEST_RECORDS:

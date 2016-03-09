@@ -6,17 +6,17 @@ export const FETCH_RECORDS = 'FETCH_RECORDS';
 export const RECEIVE_RECORDS = 'RECEIVE_RECORDS';
 export const UPDATE_QUERY = 'UPDATE_QUERY';
 export const QUICK_SEARCH_RECORDS = 'QUICK_SEARCH_RECORDS';
-export const SET_BASE_URI = 'SET_BASE_URI';
+export const UPDATE_CONFIG = 'UPDATE_CONFIG';
 export const LOAD_NEXT_PAGE = 'LOAD_NEXT_PAGE';
 
 export const DELETE_RECORD = 'DELETE_RECORD';
 export const START_UPDATE_RECORD = 'START_UPDATE_RECORD';
 export const COMPLETE_UPDATE_RECORD = 'COMPLETE_UPDATE_RECORD';
 
-export const setBaseUri = (baseUri) => {
+export const updateConfig = (updates) => {
   return {
-    type: SET_BASE_URI,
-    baseUri: baseUri
+    type: UPDATE_CONFIG,
+    updates: updates
   };
 };
 
@@ -41,7 +41,7 @@ export const fetchRecords = (append = false) => {
     const query = toQueryString(state.query);
 
     dispatch(requestRecords);
-    return fetch(state.baseUri + query, { credentials: 'same-origin' })
+    return fetch(state.config.baseUri + query, { credentials: 'same-origin' })
       .then((response) => response.json())
       .then((json) => dispatch(receiveRecords(json, append)));
   };

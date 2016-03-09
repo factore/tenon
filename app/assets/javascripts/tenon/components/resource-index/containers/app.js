@@ -1,6 +1,11 @@
 import { Component } from 'react';
 
 export default class App extends Component {
+  componentWillMount() {
+    this.props.actions.updateConfig({ baseUri: this.props.recordsPath });
+    this.props.actions.fetchRecords();
+  }
+
   render() {
     const {
       QuickSearchOverlay, QuickSearchToolbar, List, Filtering

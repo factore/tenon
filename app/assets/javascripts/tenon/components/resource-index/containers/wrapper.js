@@ -29,11 +29,6 @@ class Wrapper extends Component {
     this._setupChildComponents();
   }
 
-  componentWillMount() {
-    this.props.actions.setBaseUri(this.props.recordsPath);
-    this.props.actions.fetchRecords();
-  }
-
   _setupHandlers() {
     this.props.handlers.updateQuery = this._updateQuery.bind(this);
     this.props.handlers.deleteRecord = this._deleteRecord.bind(this);
