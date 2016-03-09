@@ -42,7 +42,6 @@ window.ResourceIndexComponents.AssetList = (props) => {
       <ul>
         <ReactCSSTransitionGroup
           transitionName="fade-"
-          transitionAppear={true}
           transitionEnterTimeout={250}
           transitionLeaveTimeout={250}>
           {output}
