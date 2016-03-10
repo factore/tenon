@@ -3,7 +3,7 @@
     .toolbar.bg-color-primary-dk10
       = render 'tenon/shared/breadcrumbs'
       .actions
-        - if can?(:publish, @post)
+        - if policy(@post).publish?
           %button.action__btn.btn-flat.submit{ data: { disable_with: 'Please wait...' } } Save
 
     %main

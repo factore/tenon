@@ -2,23 +2,6 @@ module Tenon
   class UsersController < Tenon::ResourcesController
     before_filter :get_roles, only: [:new, :edit, :update, :create]
 
-    def index
-      respond_to do |format|
-        format.html
-        format.json do
-          if current_user.is_super_admin?
-            @users = User.all
-          elsif current_user.is_admin?
-            @users = User.exclude_super_admins
-          end
-
-          @users = @users.where(search_args) unless params[:q].blank?
-          @users = @users.paginate(per_page: 20, page: params[:page])
-          @users = Tenon::PaginatingDecorator.new(@users)
-        end
-      end
-    end
-
     def update
       if params[:user][:password].blank?
         params[:user].delete('password')
@@ -38,7 +21,7 @@ module Tenon
     end
 
     def resource_params
-      if current_user.is_admin? || current_user.is_super_admin?
+      if current_user.admin? || current_user.super_admin?
         cleaned_role_ids(params.require(:user).permit!)
       else
         untrusted_params
@@ -47,7 +30,7 @@ module Tenon
 
     def cleaned_role_ids(rp)
       sa_role = Role.find_by_title('Super Admin')
-      if sa_role && rp[:role_ids] && !current_user.is_super_admin?
+      if sa_role && rp[:role_ids] && !current_user.super_admin?
         rp[:role_ids].delete(sa_role.id.to_s)
       end
       rp

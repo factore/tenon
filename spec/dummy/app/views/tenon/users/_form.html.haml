@@ -2,14 +2,14 @@
   .toolbar.bg-color-primary-dk10
     = render 'tenon/shared/breadcrumbs'
     .actions
-      - if can?(:publish, @user)
+      - if policy(@user).publish?
         %button.action-btn.btn.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
 
       %a.action-icon.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
         = i('more_vert')
 
       %ul.dropdown-content#form-dropdown
-        - if can?(:create, Tenon::ItemVersion)
+        - if policy(Tenon::ItemVersion).create?
           = render 'tenon/shared/draft_controls', obj: @user
 
         - if @user.persisted?
@@ -40,7 +40,7 @@
     .panel.block
       .explanation Roles define a user's abilities throughout the site.
       - @roles.each do |role|
-        - unless (role.title == "Super Admin" && !current_user.is_super_admin?) || (role.title == "Admin" && !current_user.is_admin?)
+        - unless (role.title == "Super Admin" && !current_user.super_admin?) || (role.title == "Admin" && !current_user.admin?)
           = check_box_tag('user[role_ids][]', role.id, @user.role_ids.include?(role.id), class: 'tn-checkbox-right', id: "role_id_#{role.id}")
           %label{ for: "role_id_#{role.id}" }= role.title
           .spacer

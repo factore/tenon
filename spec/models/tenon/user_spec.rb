@@ -32,13 +32,13 @@ describe User do
   end
 
   describe '#as_json' do
-    it 'should include the is_admin? method' do
-      expect(User.new.as_json.keys).to include('is_admin?')
+    it 'should include the admin? method' do
+      expect(User.new.as_json.keys).to include('admin?')
     end
   end
 
   describe '#staff?' do
-    %w(is_super_admin? is_admin? is_contributor?).each do |role|
+    %w(super_admin? admin? is_contributor?).each do |role|
       context "when user #{role}" do
         before do
           user.stub(role) { true }

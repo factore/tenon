@@ -4,7 +4,7 @@
       = render 'tenon/shared/breadcrumbs'
       .toolbar__content
         .toolbar__actions.toolbar__actions--right
-          - if can?(:publish, @asset)
+          - if policy(@asset).publish?
             %button.btn.toolbar__btn.submit{ data: { disable_with: "Please wait..." } } Save
 
           .toolbar__action

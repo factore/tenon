@@ -38,7 +38,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails', '5.0.0.beta3'
 
   s.add_dependency 'browserify-rails'
-  s.add_dependency 'cancan'
   s.add_dependency 'cocoon'
   s.add_dependency 'coffee-rails'
   s.add_dependency 'coffee-script-source'
@@ -60,6 +59,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'paperclip'
   s.add_dependency 'pg'
   s.add_dependency 'pickadate-rails'
+  s.add_dependency 'pundit'
   s.add_dependency 'rails-settings-cached'
   s.add_dependency 'react-rails'
   s.add_dependency 'sass-rails'

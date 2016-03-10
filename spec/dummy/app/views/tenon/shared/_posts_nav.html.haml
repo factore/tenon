@@ -1,8 +1,8 @@
 %h4 Posts
 %nav
   %ul
-    - if can?(:manage, Post)
+    - if policy(Post).manage?
       %li{class: ('active' if controller_name == 'posts')}= link_to "Posts", posts_path
 
-    - if can?(:manage, PostCategory)
+    - if policy(PostCategory).manage?
       %li{class: ('active' if controller_name == 'post_categories')}= link_to "Post Categories", post_categories_path

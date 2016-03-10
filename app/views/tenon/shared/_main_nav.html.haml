@@ -1,5 +1,5 @@
 %ul.main-nav__list
-  - if can?(:index, Tenon::Asset)
+  - if policy(Tenon::Asset).index?
     = nav_item 'Asset Library', assets_path, 'photo_library'
-  - if can?(:index, MySettings)
+  - if policy(MySettings).index?
     = nav_item 'Settings', settings_path, 'settings'

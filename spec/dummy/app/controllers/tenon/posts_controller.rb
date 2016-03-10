@@ -1,6 +1,6 @@
 module Tenon
   class PostsController < Tenon::ResourcesController
-    before_filter :get_collections
+    before_filter :load_collections
 
     def update
       params[:post][:post_category_ids] ||= []
@@ -14,10 +14,10 @@ module Tenon
     end
 
     def filterer
-      PostFilterer.new(Post.all, params, ['posts.title'])
+      PostFilterer.new(policy_scope(Post), params, ['posts.title'])
     end
 
-    def get_collections
+    def load_collections
       @categories = PostCategory.order(:title)
       @users = User.exclude_super_admins.approved
     end

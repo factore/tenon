@@ -34,7 +34,7 @@ module Tenon
 
     # default tenon edit link
     def edit_link(obj, options = {})
-      if can?(:edit, obj)
+      if policy(obj).edit?
         url = polymorphic_url([:edit] + Array(obj))
         action_link('Edit', url, 'pencil', options)
       end
@@ -42,7 +42,7 @@ module Tenon
 
     # default tenon delete link
     def delete_link(obj, options = {})
-      if can?(:destroy, obj)
+      if policy(obj).destroy?
         default_options = { data: {
           confirm: 'Are you sure? There is no undo for this!',
           tooltip: 'Delete',

@@ -1,2 +1,2 @@
-- if can?(:index, User)
+- if policy(User).index?
   = tenon_menu_item item, users_path, :active => is_active("users"), :submenu => false

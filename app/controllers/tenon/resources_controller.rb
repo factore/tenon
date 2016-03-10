@@ -1,14 +1,13 @@
 module Tenon
-  class ResourcesController < Tenon::BaseController
+  class ResourcesController < BaseController
     respond_to :html, :json, :js
-
-    def initialize(*args)
-      self.class.load_and_authorize_resource(send(:load_options))
-      super(*args)
-    end
+    after_action :verify_authorized
+    after_action :verify_policy_scoped,
+      only: :index,
+      if: -> { request.format.json? }
 
     def index
-      authorize!(:index, klass)
+      authorize(klass)
       params[:page] = 1 if params[:page].to_i == 0
       respond_to do |format|
         format.html
@@ -21,6 +20,9 @@ module Tenon
     end
 
     def new
+      self.resource = klass.new
+      authorize(resource)
+      before_new
       if params[:version] && resource.respond_to?(:revert)
         @item_version = Tenon::ItemVersion.find(params[:version])
         resource.revert(@item_version)
@@ -29,6 +31,9 @@ module Tenon
     end
 
     def edit
+      self.resource = policy_scope(klass).find(params[:id])
+      authorize(resource)
+      before_edit
       if params[:version] && resource.respond_to?(:revert)
         @item_version = Tenon::ItemVersion.find(params[:version])
         resource.revert(@item_version)
@@ -37,10 +42,12 @@ module Tenon
     end
 
     def update
-      authorize!(:publish, resource)
+      self.resource = policy_scope(klass).find(params[:id])
+      authorize(resource)
+      before_update
       if resource.update_attributes(resource_params)
         save_item_version if resource.respond_to?(:versions)
-        flash[:notice] = "#{human_name} saved successfully." unless request.xhr?
+        flash[:notice] = "#{human_name} saved successfully." unless xhr_or_js?
       end
 
       self.resource = resource.decorate
@@ -54,7 +61,7 @@ module Tenon
         end
         format.json do
           render :partial => singular_name, :locals => {
-            singular_name.to_sym => @post
+            singular_name.to_sym => resource
           }
         end
       end
@@ -62,15 +69,33 @@ module Tenon
 
     def create
       self.resource = klass.new(resource_params).decorate
-      authorize!(:publish, resource)
-      if resource.save && !request.xhr?
-        flash[:notice] = "#{human_name} saved successfully."
+      authorize(resource)
+      before_create
+      if resource.save
+        flash[:notice] = "#{human_name} saved successfully." unless xhr_or_js?
         save_item_version if resource.respond_to?(:versions)
       end
-      respond_with(resource.decorate, location: after_create_path, status: (201 if resource.valid?))
+
+      respond_to do |format|
+        format.html do
+          if resource.valid?
+            redirect_to after_create_path
+          else
+            render action: :new
+          end
+        end
+        format.json do
+          render :partial => singular_name, :locals => {
+            singular_name.to_sym => resource
+          }
+        end
+      end
     end
 
     def destroy
+      self.resource = policy_scope(klass).find(params[:id])
+      authorize(resource)
+      before_destroy
       if resource.destroy
         respond_with(resource, location: polymorphic_index_path)
       else
@@ -83,11 +108,18 @@ module Tenon
     end
 
     def reorder
+      authorize(klass)
       self.collection = klass.reorder!(params['item_list'])
       respond_with(collection, location: polymorphic_index_path)
     end
 
     private
+
+    # Override these to execute code after resources are loaded
+    # but before saved/acted upon
+    %w(new edit update create destroy reorder).each do |action|
+      define_method("before_#{action}") { }
+    end
 
     def save_item_version
       item_version = resource.versions.build
@@ -149,20 +181,20 @@ module Tenon
       polymorphic_path([klass])
     end
 
-    def load_options
-      { except: [:index, :create] }
-    end
-
     def quick_search_fields
       ["#{klass.table_name}.title"]
     end
 
     def filterer
-      Tenon::GenericFilterer.new(klass.all, params, quick_search_fields)
+      Tenon::GenericFilterer.new(
+        policy_scope(klass),
+        params,
+        quick_search_fields
+      )
     end
 
     def resource_params
-      fail 'Define strong paramaters in controller method resource_params'
+      raise 'Define strong paramaters in controller method resource_params'
     end
   end
 end

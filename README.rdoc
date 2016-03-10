@@ -77,6 +77,24 @@ TODO: Write this section
 
 TODO: Write this section
 
+== Access Control / ACL
+
+Tenon uses Pundit for ACL, see https://github.com/elabs/pundit for documentation.
+
+Have your policies inherit from <tt>Tenon::ApplicationPolicy</tt> to get default authorization.  Override <tt>app/policies/tenon/application_policy.rb</tt> if you want to override the default authorization scheme.  Write custom policies as per Pundit standards.
+
+Any controller that inherits from <tt>Tenon::ResourcesController</tt> will have ACL applied on all CRUD methods.  ACL is enforced on all actions so ensure that you +authorize+ any time you add a new action or override an existing one.  Policy scoping is enforced on the index action, so ensure that if you override the +filterer+ method that you are using Pundit's +policy_scope+ method.  For example:
+
+  module Tenon
+    class PostsController < ResourcesController
+      private
+
+      def filterer
+        PostFilterer.new(policy_scope(Post), params)
+      end
+    end
+  end
+
 == Internationalization
 
 Although Tenon is currently anglocentric it supports the inclusion of additional
@@ -468,6 +486,8 @@ by defining the <tt>#filterer</tt> method.
       PostFilterer.new(Post.all, params, quick_search_fields)
     end
   end
+
+(Note that in reality you would want to perform an ACL check on the scope you pass into the filterer, replacing <tt>Post.all</tt> with <tt>policy_scope(Post)</tt>.)
 
 Here is an example of what an imagined +PostFilterer+ that inherits from
 <tt>Tenon::GenericFilterer</tt> with some date-filtering logic might look like:

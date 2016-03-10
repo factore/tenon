@@ -18,8 +18,8 @@ describe Tenon::GalleriesController do
     let(:user) do
       double(
         staff?: true,
-        is_super_admin?: false,
-        is_admin?: true
+        super_admin?: false,
+        admin?: true
       )
     end
 

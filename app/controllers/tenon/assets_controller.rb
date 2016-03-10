@@ -1,6 +1,7 @@
 module Tenon
   class AssetsController < Tenon::ResourcesController
     def index
+      authorize(Asset)
       respond_to do |format|
         format.html
         format.json do

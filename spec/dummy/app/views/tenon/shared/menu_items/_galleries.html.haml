@@ -1,6 +1,6 @@
-- if can?(:index, Gallery)
-  = tenon_menu_item item, galleries_path, :active => is_active("galleries"), :submenu => can?(:create, Gallery)
-  - if can?(:create, Gallery)
+- if policy(Gallery).index?
+  = tenon_menu_item item, galleries_path, :active => is_active("galleries"), :submenu => policy(Gallery).create?
+  - if policy(Gallery).create?
     %ul.tenon_submenu{ :class => is_active(["galleries"]) ? "#{item} active" : item }
       = link_to "New Gallery", new_gallery_path, :class => ("active" if is_active(["galleries"]) && params[:action] == "new")
     .spacer

@@ -3,14 +3,14 @@
     .toolbar.bg-color-primary-dk10
       = render 'tenon/shared/breadcrumbs'
       .actions
-        - if can?(:publish, @page)
+        - if policy(@page).publish?
           %button.action-btn.btn.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
 
         %a.action-icon.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
           = i('more_vert')
 
         %ul.dropdown-content#form-dropdown
-          - if can?(:create, Tenon::ItemVersion)
+          - if policy(Tenon::ItemVersion).create?
             = render 'tenon/shared/draft_controls', obj: @page
 
           - if @page.persisted?

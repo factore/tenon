@@ -24,9 +24,9 @@
     %h4.box-label Actions
     .box
       .content
-        - if can?(:publish, @menu)
+        - if policy(@menu).publish?
           %button.btn.btn-block.btn-comp Save
-        - if can?(:create, Tenon::ItemVersion)
+        - if policy(Tenon::ItemVersion).create?
           = save_draft_button(@menu)
           .last-autosave
 

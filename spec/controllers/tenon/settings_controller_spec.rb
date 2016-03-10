@@ -13,8 +13,8 @@ describe Tenon::SettingsController do
     let(:user) do
       double(
         staff?: false,
-        is_super_admin?: false,
-        is_admin?: false
+        super_admin?: false,
+        admin?: false
       )
     end
 
@@ -37,8 +37,8 @@ describe Tenon::SettingsController do
     let(:user) do
       double(
         staff?: true,
-        is_super_admin?: false,
-        is_admin?: true
+        super_admin?: false,
+        admin?: true
       )
     end
 

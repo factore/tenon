@@ -27,18 +27,18 @@ class User < ApplicationRecord
   # Scope to only get approved users
   scope :approved, -> () { where(approved: true) }
 
-  # Mass create some is_whatev? convenience methods
+  # Mass create some .<role>? convenience methods
   ['Admin', 'Super Admin', 'Contributor', 'Member'].each do |role|
-    define_method("is_#{role.dehumanize}?".to_sym) { roles.include?(Role.find_by_title(role)) }
+    define_method("#{role.dehumanize}?".to_sym) { roles.include?(Role.find_by_title(role)) }
   end
-  alias_method :member?, :is_member?
+  alias_method :member?, :member?
 
   def as_json(opts = {})
-    super(opts.merge(methods: [:is_admin?]))
+    super(opts.merge(methods: [:admin?]))
   end
 
   def staff?
-    is_super_admin? || is_admin? || is_contributor?
+    super_admin? || admin? || contributor?
   end
 
   def active_for_authentication?

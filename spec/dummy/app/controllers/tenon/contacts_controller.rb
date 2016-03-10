@@ -1,38 +1,21 @@
 module Tenon
   class ContactsController < Tenon::ResourcesController
-    before_filter :get_contact, only: [:toggle_read, :toggle_replied, :destroy]
-
-    def index
-      respond_to do |format|
-        format.html do
-          @counts = {
-            all: Contact.count,
-            read: Contact.read.count,
-            unread: Contact.unread.count,
-            replied: Contact.replied.count,
-            unreplied: Contact.unreplied.count
-          }
-        end
-        format.json do
-          @contacts = Contact.all
-          @contacts = @contacts.where(search_args) if params[:q]
-          if %w(read unread replied unreplied).include?(params[:type])
-            @contacts = @contacts.send(params[:type])
-          end
-          @contacts = @contacts.paginate(per_page: 20, page: params[:page])
-          @contacts = Tenon::PaginatingDecorator.decorate(@contacts)
-        end
-      end
-    end
+    before_filter :load_contact, only: [:toggle_read, :toggle_replied, :destroy]
 
     def toggle_read
       respond_to do |format|
         if @contact.toggle_read!
           format.json { render json: @contact.to_json }
-          format.html { flash[:notice] = 'Comment flagged as read.' and redirect_to contacts_path }
+          format.html do
+            flash[:notice] = 'Comment flagged as read.'
+            redirect_to contacts_path
+          end
         else
           format.json { render status: 500, nothing: true }
-          format.html { flash[:warning] = 'Error flagging contact as read.' and redirect_to contacts_path }
+          format.html do
+            flash[:warning] = 'Error flagging contact as read.'
+            redirect_to contacts_path
+          end
         end
       end
     end
@@ -41,25 +24,29 @@ module Tenon
       respond_to do |format|
         if @contact.toggle_replied!
           format.json { render json: @contact.to_json }
-          format.html { flash[:notice] = 'Comment flagged as replied.' and redirect_to contacts_path }
+          format.html do
+            flash[:notice] = 'Comment flagged as replied.'
+            redirect_to contacts_path
+          end
         else
           format.json { render status: 500, nothing: true }
-          format.html { flash[:warning] = 'Error flagging contact as replied.' and redirect_to contacts_path }
+          format.html do
+            flash[:warning] = 'Error flagging contact as replied.'
+            redirect_to contacts_path
+          end
         end
       end
     end
 
     private
 
-    def get_contact
+    def load_contact
       @contact = Contact.find(params[:id])
+      authorize(@contact, :update)
     end
 
-    def search_args
-      [
-        'name ILIKE :q OR email ILIKE :q OR phone ILIKE :q OR content ILIKE :q OR user_ip ILIKE :q',
-        { q: "%#{params[:q]}%" }
-      ]
+    def quick_search_fields
+      %w(name email phone content user_ip).map { |field| "contacts.#{field}" }
     end
   end
 end

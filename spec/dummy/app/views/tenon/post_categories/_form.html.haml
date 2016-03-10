@@ -2,7 +2,7 @@
   .toolbar.bg-color-primary-dk10
     = render 'tenon/shared/breadcrumbs'
     .actions
-      - if can?(:publish, @post_category)
+      - if policy(@post_category).publish?
         %button.action-btn.btn.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
 
       %a.action-icon.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }

@@ -6,8 +6,8 @@ describe Tenon::UsersController do
   let(:user) do
     double(
       staff?: true,
-      is_super_admin?: false,
-      is_admin?: true
+      super_admin?: false,
+      admin?: true
     )
   end
   let(:user_dbl) { double.as_null_object }
@@ -35,9 +35,9 @@ describe Tenon::UsersController do
       end
     end
 
-    context 'when current_user is_super_admin?' do
+    context 'when current_user super_admin?' do
       before do
-        user.stub(:is_super_admin?) { true }
+        user.stub(:super_admin?) { true }
       end
 
       it 'should get all the users' do
@@ -46,7 +46,7 @@ describe Tenon::UsersController do
       end
     end
 
-    context 'when current_user is_admin?' do
+    context 'when current_user admin?' do
       # Proper settings from let statement at top
 
       it 'should get everyone but the super admins' do
@@ -79,7 +79,7 @@ describe Tenon::UsersController do
     end
 
     context 'when the user is a super_admin' do
-      before { user.stub(:is_super_admin?) { true } }
+      before { user.stub(:super_admin?) { true } }
       it 'should allow the user to assign a super_admin role' do
         super_admin_role = Role.create(title: 'Super Admin')
         post :create, user: { role_ids: [super_admin_role.id] }
@@ -101,7 +101,7 @@ describe Tenon::UsersController do
     end
 
     context 'when the user is a super_admin' do
-      before { user.stub(:is_super_admin?) { true } }
+      before { user.stub(:super_admin?) { true } }
       it 'should allow the user to assign a super_admin role' do
         super_admin_role = Role.create(title: 'Super Admin')
         put :update, id: 1, user: { role_ids: [super_admin_role.id] }

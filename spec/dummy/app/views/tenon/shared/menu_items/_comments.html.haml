@@ -1,2 +1,2 @@
-- if can?(:index, Comment)
+- if policy(Comment).index?
   = tenon_menu_item "Comments", comments_path, :active => is_active("comments"), :submenu => false

@@ -4,7 +4,7 @@
       = render 'tenon/shared/breadcrumbs'
       .toolbar__content
         .toolbar__actions.toolbar__actions--right
-          - if can?(:publish, @post)
+          - if policy(@post).publish?
             .toolbar__action
               %button.btn.btn--toolbar.submit{ data: { disable_with: "Please wait..." } } Save
 
@@ -13,7 +13,7 @@
               = i('more_vert')
 
             %ul.dropdown#form-dropdown
-              - if can?(:create, Tenon::ItemVersion)
+              - if policy(Tenon::ItemVersion).create?
                 = render 'tenon/shared/draft_controls', obj: @post
 
               - if @post.persisted?
