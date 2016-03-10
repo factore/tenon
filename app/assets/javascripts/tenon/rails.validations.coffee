@@ -29,16 +29,23 @@ window.ClientSideValidations.formBuilders['Tenon::FormBuilder'] = {
     if inputErrorField[0]
       inputErrorField.find("##{element.attr('id')}").detach()
       inputErrorField.replaceWith(element)
-      label.detach()
-      labelErrorField.replaceWith(label)
+      # label.detach()
+      # labelErrorField.replaceWith(label)
 }
 
 window.ClientSideValidations.callbacks.form.fail = ($el, event) ->
+  fieldsTotal = $('.input-block__field-with-errors').length
+  fieldText = if fieldsTotal > 1 then 'fields need' else 'field needs'
+  actionText = if fieldsTotal > 1 then 'Fix Them' else 'Fix It'
+  fieldsWords = numberToWords(fieldsTotal)
+  fieldsWords = fieldsWords.charAt(0).toUpperCase() + fieldsWords.slice(1)
   msg = """
-    <strong>One or more fields</strong> need to be fixed before this can be
-    saved.
+    <strong>#{fieldsWords} #{fieldText} to be fixed</strong>
+    before this can be saved.
   """
   action = """
-    <a href='#!' class='flash__action' data-focus-error>Fix Them</a>
+    <a href='#!' class='flash__action' data-focus-error>
+      #{actionText}
+    </a>
   """
-  Tenon.features.Flash.draw(msg, $(action))
+  Tenon.features.Flash.draw(msg, action)

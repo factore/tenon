@@ -3,6 +3,8 @@
   margin-bottom: $default-spacing;
 }
 
+
+// Label
 .input-block__label {
   @extend %font-smallest;
   display: block;
@@ -23,6 +25,31 @@
   }
 }
 
+.input-block__label--inline {
+  @extend %font-smaller;
+  display: inline-block;
+  padding-left: $default-spacing;
+  line-height: $body-line-height;
+}
+
+.input-block__inline {
+  display: inline-block;
+  position: relative;
+  margin-right: $default-spacing;
+
+  &:last-of-type {
+    margin: 0;
+  }
+}
+
+// Explanation
+.input-block__explanation {
+  @extend %font-smallest;
+  padding-top: $default-spacing / 4;
+  color: $explanation-color;
+}
+
+// Text fields
 %text-field {
   @include default-transition;
   @include appearance(none);
@@ -82,28 +109,6 @@
   line-height: 1.4em;
 }
 
-.input-block__inline {
-  display: inline-block;
-  position: relative;
-  margin-right: $default-spacing;
-
-  &:last-of-type {
-    margin: 0;
-  }
-}
-
-.input-block__label--inline {
-  @extend %font-smaller;
-  display: inline-block;
-  padding-left: $default-spacing;
-  line-height: $body-line-height;
-}
-
-.input-block__explanation {
-  @extend %font-smallest;
-  padding-top: $default-spacing / 4;
-  color: $explanation-color;
-}
 
 // check-box and radio-button
 %check-box-and-radio-button {
@@ -174,14 +179,37 @@
   border-radius: 50%;
 }
 
+// Select
+.input-block__select {
+  @extend %text-field;
+  @extend %font-smaller;
+  position: relative;
+  z-index: 1;
+  height: 34px;
+}
+
+.input-block__select-wrap {
+  position: relative;
+
+  &::after {
+    @extend %material-icon;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    z-index: 0;
+    content: 'arrow_drop_down';
+
+  }
+}
 
 // Error messages
 .input-block__field-with-errors {
   > .input-block__text-field,
   > .input-block__multiline-text-field,
-  > .input-block__title-text-field {
-    border-color: $error-color;
+  > .input-block__title-text-field,
+  > .input-block__select {
     border-width: 2px;
+    border-color: $error-color;
   }
 }
 

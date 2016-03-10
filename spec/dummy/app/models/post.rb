@@ -16,7 +16,7 @@ class Post < ApplicationRecord
   belongs_to :user
 
   # Validations
-  validates_presence_of :title
+  validates_presence_of :title, :user_id
 
   def to_param
     "#{id}-#{title.parameterize}"

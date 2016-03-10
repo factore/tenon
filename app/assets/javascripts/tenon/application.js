@@ -19,6 +19,7 @@
 //= require pickadate/picker.date
 //= require pickadate/picker.time
 //= require rails.validations
+//= require number-to-words
 //= require tenon/rails.validations
 //= require react_ujs
 //= require uri
@@ -41,6 +42,7 @@
 //= require_tree ./components/resource-index/components/default
 //= require_tree ./components/resource-index/components/custom
 
+/* global Tenon */
 $(function() {
   Tenon.init();
 });

@@ -24,10 +24,6 @@
 .toolbar__actions {
   padding: 8px 0;
   height: $util-nav-height;
-
-  .toolbar__action {
-    padding: 0 10px;
-  }
 }
 
 .toolbar__actions--right {
@@ -37,7 +33,9 @@
 }
 
 .toolbar__action {
-  display: inline-block;
+  display: block;
+  float: left;
+  padding: 0 10px;
   height: $action-icon-dimension;
   text-align: center;
 

@@ -4,10 +4,10 @@ class Tenon.features.Flash
     $(document).on('swiperight', '.flash', Tenon.features.Flash.dismiss)
     Tenon.features.Flash.show()
 
-  @draw: (message, $action) ->
+  @draw: (message, action) ->
     $message = $('<div />').addClass('flash__message').html(message)
     $flash = $('<div />').addClass('flash')
-    $flash.append($action) if $action
+    $flash.append($(action)) if action
     $flash.append($message).prependTo('body')
     @show()
 
