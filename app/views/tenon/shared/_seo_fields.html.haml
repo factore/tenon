@@ -1,10 +1,11 @@
 .panel-label SEO Tools
-.panel.panel--block
-  = f.text_field :seo_title, label: 'Title Tag', explanation: 'This is the title that will show on search engine results and in the title bar of a visitor\'s browser.  By default, this will use the item\'s title.', placeholder: ''
+.panel
+  .panel__content
+    = f.text_field :seo_title, label: 'Title Tag', explanation: 'This is the title that will show on search engine results and in the title bar of a visitor\'s browser.  By default, this will use the item\'s title.', placeholder: ''
 
-  .row
-    .inner6
-      = f.text_area :seo_keywords, label: 'META Keywords', explanation: 'These META keywords will be used by some search engines when crawling your site.  Separate keywords with a comma.  Note: Google does not factor in keywords when calculating your rank.  Other search engines may or may not.', dataplacement: 'bottom'
+    .row
+      .inner6
+        = f.text_area :seo_keywords, label: 'META Keywords', explanation: 'These META keywords will be used by some search engines when crawling your site.  Separate keywords with a comma.  Note: Google does not factor in keywords when calculating your rank.  Other search engines may or may not.', dataplacement: 'bottom'
 
-    .inner6.omega
-      = f.text_area :seo_description, label: 'META Description', explanation: 'This description will show up on search engines and in some cases will affect your rank.  It should be no longer than 150-160 characters (about the length of a tweet.)'
+      .inner6.omega
+        = f.text_area :seo_description, label: 'META Description', explanation: 'This description will show up on search engines and in some cases will affect your rank.  It should be no longer than 150-160 characters (about the length of a tweet.)'

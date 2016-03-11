@@ -3,7 +3,7 @@
   %h3.color-black Smaller sizes
   %p Includes a mixin, a variable and a class helper for each.
 
-  .panel.panel--block
+  .panel.panel--padded
     - ['small', 'smaller', 'smallest'].each do |s|
       %p{class: "font-#{s}"} The quick brown fox jumps over the lazy dog.
       %code.expandable

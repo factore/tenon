@@ -7,7 +7,7 @@
 
   %a.scroll-target{name: 'buttons__standard'}
   %h3.color-black Standard Button
-  .panel.panel--block
+  .panel--padded
     %h4 Primary
     %p
       %button{type: 'button', class: 'btn'}
@@ -46,7 +46,7 @@
   %a.scroll-target{name: 'buttons__flat'}
   %h3.color-black Flat Button
   %p Same as the standard button, but without depth.
-  .panel.panel--block
+  .panel--padded
     %h4 Primary
     %p
       %button{type: 'button', class: 'btn btn--flat'}
@@ -87,7 +87,7 @@
     Apply the .btn--block class to any button that should fit the width of
     the parent container.
 
-  .panel.panel--block
+  .panel--padded
     %p
       %button{type: 'button', class: 'btn btn--block'}
         Button
@@ -105,7 +105,7 @@
     A Material design pattern, the
     = link_to "floating action button", 'https://www.google.com/design/spec/components/buttons-floating-action-button.html#buttons-floating-action-button-large-screens', target: '_'
     triggers the primary action of the page it lives on.
-  .panel.panel--block
+  .panel--padded
     %p
       %a{href: '#', class: 'fab'}
         = i('add')

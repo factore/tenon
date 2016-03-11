@@ -7,9 +7,9 @@ class Tenon.features.tenonContent.Library
         $(this).find('img').attr 'src', '/assets/tenon/tenon-content/' + $(this).find('img').data('row-type') + '_hover.png'
       , ->
         $(this).find('img').attr 'src', '/assets/tenon/tenon-content/' + $(this).find('img').data('row-type') + '.png'
-    );
+    )
 
-  _closeModal: => @$template.modal('hide')
+  _closeModal: => Tenon.features.ModalWindows.closeModals()
 
   _setContext: =>
     if @$link.hasClass('initial-row')

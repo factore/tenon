@@ -1,15 +1,16 @@
 .panel-label General
-.panel.panel--block
-  .row
-    .inner6
-      = input_block 'Site Name' do
-        = text_field_tag 'settings[site_title]', Tenon::MySettings.site_title, class: 'input-block__text-field'
-    .inner6.omega
-      = input_block 'Site Domain' do
-        = text_field_tag 'settings[site_url]', Tenon::MySettings.site_url, class: 'input-block__text-field'
+.panel
+  .panel__content
+    .row
+      .inner6
+        = input_block 'Site Name' do
+          = text_field_tag 'settings[site_title]', Tenon::MySettings.site_title, class: 'input-block__text-field'
+      .inner6.omega
+        = input_block 'Site Domain' do
+          = text_field_tag 'settings[site_url]', Tenon::MySettings.site_url, class: 'input-block__text-field'
 
-  .input-block
-  = input_block 'Google Analytics Code' do
-    = text_area_tag 'settings[google_analytics]', Tenon::MySettings.google_analytics, class: 'input-block__multiline-text-field'
-    .input-block__explanation
-      = link_to('Create a New Profile Here', 'https://www.google.com/analytics/settings/add_profile?scid=16153080', target: '_')
+    .input-block
+    = input_block 'Google Analytics Code' do
+      = text_area_tag 'settings[google_analytics]', Tenon::MySettings.google_analytics, class: 'input-block__multiline-text-field'
+      .input-block__explanation
+        = link_to('Create a New Profile Here', 'https://www.google.com/analytics/settings/add_profile?scid=16153080', target: '_')

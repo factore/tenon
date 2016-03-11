@@ -36,7 +36,6 @@ $dark-border-color: $grey;
 $hr-bg-color: lighten($grey, 20%);
 $modal-bg-color: $white;
 
-
 // Flash
 $flash-bg-color: rgba($cobalt, .95);
 $flash-fg-color: $grey;
@@ -91,17 +90,7 @@ $toolbar-filter-fg-color: $white;
 // Records
 $infinite-loader-color: darken($grey, 20%);
 
-// Flash messages
-$flash-dismiss-fg-color: $white;
-$warning-bg-color: $warning-color;
-$warning-border-color: darken($warning-color, 10%);
-$warning-fg-color: $white;
-@include generate_base_color_helpers('warning', $warning-color);
-$error-bg-color: $error-color;
-$error-border-color: darken($error-color, 10%);
-$error-fg-color: $white;
-@include generate_base_color_helpers('error', $error-color);
-$success-bg-color: $success-color;
-$success-border-color: darken($success-color, 10%);
-$success-fg-color: $white;
-@include generate_base_color_helpers('success', $success-color);
+// Tabs
+$tabs-bg-color: $white;
+$tabs-fg-color: $link-color;
+$tabs-underline-color: $primary-color;

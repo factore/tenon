@@ -34,6 +34,7 @@ var Tenon = {
     new Tenon.features.SortableNestedFields();
     new Tenon.features.tenonContent.Base();
     new Tenon.features.GenericClassToggler();
+    new Tenon.features.Tabs();
     new Tenon.features.ToggleMainNav();
     new Tenon.features.NavItemToggle();
     new Tenon.features.Expandable();

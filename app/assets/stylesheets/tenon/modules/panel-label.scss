@@ -1,0 +1,6 @@
+.panel-label {
+  @extend %font-smallest;
+  display: block;
+  margin-bottom: $default-spacing / 3;
+  line-height: $body-line-height;
+}

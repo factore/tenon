@@ -1,13 +1,14 @@
 .panel-label Contact
-.panel.panel--block
-  .row
-    .inner4
-      = input_block 'Contact Email', explanation: 'Destination email address for alerts.  Separate multiple email addresses with commas.' do
-        = text_field_tag 'settings[contact_email]', Tenon::MySettings.contact_email, class: 'input-block__text-field'
-    .inner4
-      = input_block 'Sender Email', explanation: '"From" email address for alerts.' do
-        = text_field_tag 'settings[from_email]', Tenon::MySettings.from_email, class: 'input-block__text-field'
-    .inner4.omega
-      = input_block 'Comment Email', explanation: 'Do you want to receive an email when someone posts a comment?' do
-        = check_box_tag 'settings[comment_email]', Tenon::MySettings.comment_email, class: 'input-block__text-field'
-        %label.input-block__label--inline Yes, send me emails
+.panel
+  .panel__content
+    .row
+      .inner4
+        = input_block 'Contact Email', explanation: 'Destination email address for alerts.  Separate multiple email addresses with commas.' do
+          = text_field_tag 'settings[contact_email]', Tenon::MySettings.contact_email, class: 'input-block__text-field'
+      .inner4
+        = input_block 'Sender Email', explanation: '"From" email address for alerts.' do
+          = text_field_tag 'settings[from_email]', Tenon::MySettings.from_email, class: 'input-block__text-field'
+      .inner4.omega
+        = input_block 'Comment Email', explanation: 'Do you want to receive an email when someone posts a comment?' do
+          = check_box_tag 'settings[comment_email]', Tenon::MySettings.comment_email, class: 'input-block__text-field'
+          %label.input-block__label--inline Yes, send me emails

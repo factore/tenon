@@ -30,12 +30,21 @@
       = f.asset :cover_photo
 
       .panel-label Content
-      .panel.panel--block
-        = f.rich_text :excerpt, label: ''
-        = f.tenon_content :content
+      .panel
+        %ul.tabs
+          %li.tabs__tab= link_to 'Content', '#content'
+          %li.tabs__tab= link_to 'Categories', '#categories'
+
+        .panel__content
+          #content
+            = f.rich_text :excerpt, label: ''
+            = f.tenon_content :content
+
+          #categories
+            Categories
 
       .panel-label Publication Details
-      .panel.panel--block
+      .panel.panel--padded
         - unless @categories.blank?
           = f.select :post_category_ids, @categories.map { |c| [c.title, c.id] }, { label: 'Categories' }, { multiple: true }
         .row

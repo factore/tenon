@@ -23,10 +23,11 @@
 
       = f.text_field :title, class: 'form-title-field', explanation: "Enter a title for your asset.  You can leave this blank to just use the file name as the title. #{defined?(multiple) ? 'If you upload multiple assets a numerical series will be created.' : '' }"
 
-      .panel--block
-        .browse-button-holder
-          .fileupload.btn.btn-secondary.browse
-            %span#choose-files= defined?(multiple) ? 'Choose Files' : 'Choose File'
-            %input{ type: 'file', class: 'upload', multiple: defined?(multiple) && multiple, style: 'width: 100%;', name: 'asset[attachment]' }
+      .panel
+        .panel__content
+          .browse-button-holder
+            .fileupload.btn.btn-secondary.browse
+              %span#choose-files= defined?(multiple) ? 'Choose Files' : 'Choose File'
+              %input{ type: 'file', class: 'upload', multiple: defined?(multiple) && multiple, style: 'width: 100%;', name: 'asset[attachment]' }
 
       .spacer

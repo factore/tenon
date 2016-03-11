@@ -3,16 +3,17 @@
   position: relative;
   background-color: $panel-bg-color;
   overflow: hidden;
+  margin-bottom: $default-spacing;
 }
 
-.panel--block {
-  margin-bottom: $default-spacing;
+.panel--padded {
   padding: ($default-spacing / 2) $default-spacing;
 }
 
-.panel-label {
-  @extend %font-smallest;
-  display: block;
-  margin-bottom: $default-spacing / 3;
-  line-height: $body-line-height;
+.panel--no-margin {
+  margin: 0;
+}
+
+.panel__content {
+  padding: ($default-spacing / 2) $default-spacing;
 }
