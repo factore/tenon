@@ -76,8 +76,8 @@
 }
 
 .record__expanded-content {
-  @include transition(opacity 0.25s ease);
-  opacity: .01;
+  @include transition(opacity .25s ease);
+  opacity: .5;
   padding: 0;
   height: 0;
   overflow: hidden;

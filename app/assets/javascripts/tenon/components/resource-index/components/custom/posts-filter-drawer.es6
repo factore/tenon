@@ -27,8 +27,8 @@ window.ResourceIndexComponents.PostsFilterDrawer = ({ data, onChange }) => {
         value={query.published}
         onChange={onChange}>
         <option value="">All</option>
-        <option value="0">Published Only</option>
-        <option value="1">Unpublished Only</option>
+        <option value="published">Published Only</option>
+        <option value="unpublished">Unpublished Only</option>
       </SelectField>
 
       <CheckBoxField

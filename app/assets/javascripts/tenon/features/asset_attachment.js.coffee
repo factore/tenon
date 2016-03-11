@@ -10,10 +10,11 @@ class Tenon.features.AssetAttachment
     @uploader.initialize('#new_asset')
 
   _uploadComplete: (e, data) =>
+    asset = data.result.record
     @_setFields(e, {
-      id: data.result.id,
-      thumbnailPath: data.result.style_urls.thumbnail,
-      filename: data.result.display_name
+      id: asset.id,
+      thumbnailPath: asset.style_urls.thumbnail,
+      filename: asset.display_name
     })
     Tenon.features.ModalWindows.closeModals()
 

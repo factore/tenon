@@ -3,18 +3,15 @@
 class Breadcrumbs extends React.Component {
   render() {
     return (
-      <ul className="breadcrumbs">
-        {this.props.breadcrumbs.map((breadcrumb, i) =>
-          <li className="breadcrumbs__item" key={i}>
-            {this.renderLink(breadcrumb, i)}
-            <span className="breadcrumbs__separator">
-              <i className="material-icon">
-                keyboard_arrow_right
-              </i>
-            </span>
-          </li>
-        )}
-      </ul>
+      <div className="breadcrumbs">
+        <ul className="breadcrumbs__list">
+          {this.props.breadcrumbs.map((breadcrumb, i) =>
+            <li className="breadcrumbs__item" key={i}>
+              {this.renderLink(breadcrumb, i)}
+            </li>
+          )}
+        </ul>
+      </div>
     );
   }
 

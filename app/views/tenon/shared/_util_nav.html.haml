@@ -1,23 +1,4 @@
 .util-nav
-  = link_to '#!', class: 'util-nav__action-icon dropdown-button', data: { activates: 'notifications-dropdown'} do
-    .action-icon= i('notifications_none')
-
-  %ul.dropdown#notifications-dropdown
-    %li.dropdown__item.dropdown__item--label
-      Notifications
-    %li.dropdown__item
-      = active_link_to '', class: 'dropdown__action action-icon' do
-        = i('notifications_active')
-        %span Icon with an unnecessarily long name for overlap testing
-    %li.dropdown__item
-      = active_link_to posts_path, class: 'dropdown__action action-icon' do
-        = i('notifications')
-        %span Active Icon based on URL
-    %li.dropdown__item
-      = active_link_to '#', class: 'dropdown__action action-icon' do
-        = i('notifications_none')
-        %span Another Icon
-
   = link_to '#!', class: 'util-nav__action-icon dropdown-button', data: { activates: 'account-dropdown'} do
     .action-icon= i('face')
 

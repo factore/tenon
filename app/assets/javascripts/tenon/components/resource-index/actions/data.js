@@ -30,7 +30,7 @@ export const receiveRecords = (json, append) => {
   return {
     type: RECEIVE_RECORDS,
     records: json.records,
-    pagination: json.pagination,
+    pagination: json.meta.pagination,
     append: append
   };
 };
@@ -112,6 +112,6 @@ export const updateRecord = (record, payload) => {
       body: JSON.stringify({ [record.resource_type]: payload })
     })
     .then((response) => response.json())
-    .then((json) => dispatch(completeUpdateRecord(json)));
+    .then((json) => dispatch(completeUpdateRecord(json.record)));
   };
 };

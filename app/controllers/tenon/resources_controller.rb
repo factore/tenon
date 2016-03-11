@@ -15,6 +15,12 @@ module Tenon
           self.collection = filterer.filter
           self.collection = collection.paginate(per_page: 5, page: params[:page])
           self.collection = Tenon::PaginatingDecorator.decorate(collection)
+          respond_with(
+            collection,
+            serializer: Tenon::PaginatingSerializer,
+            each_serializer: ActiveModel::Serializer.serializer_for(klass.new),
+            root: 'records'
+          )
         end
       end
     end
@@ -27,7 +33,10 @@ module Tenon
         @item_version = Tenon::ItemVersion.find(params[:version])
         resource.revert(@item_version)
       end
-      respond_with(resource)
+
+      respond_to do |format|
+        format.html
+      end
     end
 
     def edit
@@ -38,7 +47,10 @@ module Tenon
         @item_version = Tenon::ItemVersion.find(params[:version])
         resource.revert(@item_version)
       end
-      respond_with(resource)
+
+      respond_to do |format|
+        format.html
+      end
     end
 
     def update
@@ -49,8 +61,8 @@ module Tenon
         save_item_version if resource.respond_to?(:versions)
         flash[:notice] = "#{human_name} saved successfully." unless xhr_or_js?
       end
-
       self.resource = resource.decorate
+
       respond_to do |format|
         format.html do
           if resource.valid?
@@ -60,9 +72,7 @@ module Tenon
           end
         end
         format.json do
-          render :partial => singular_name, :locals => {
-            singular_name.to_sym => resource
-          }
+          render(json: resource)
         end
       end
     end
@@ -84,11 +94,7 @@ module Tenon
             render action: :new
           end
         end
-        format.json do
-          render :partial => singular_name, :locals => {
-            singular_name.to_sym => resource
-          }
-        end
+        format.json { render json: resource }
       end
     end
 
@@ -114,6 +120,11 @@ module Tenon
     end
 
     private
+
+    # Serializer Setup Methods
+    def default_serializer_options
+      { root: 'record', scope: view_context }
+    end
 
     # Override these to execute code after resources are loaded
     # but before saved/acted upon

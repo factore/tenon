@@ -1,12 +1,6 @@
 %ul.main-nav__list
   = nav_item 'Asset Library', assets_path, 'photo_library'
-  = nav_item 'Pages', pages_path, 'description'
   = nav_item 'Posts', posts_path, 'description', active: ['post_categories'].include?(controller_name) do
     = nav_item 'Categories', post_categories_path, '', active: ['post_categories'].include?(controller_name), sub: true
-    = nav_item 'Comments', comments_path, '', active: ['comments'].include?(controller_name), sub: true
   = nav_item 'Users', users_path, 'supervisor_account'
-  = nav_item 'Events', events_path, 'event'
-  = nav_item 'Galleries', galleries_path, 'photo'
-  = nav_item 'Contacts', contacts_path, 'email'
-  = nav_item 'Redirects', redirects_path, 'swap_horiz'
   = nav_item 'Settings', settings_path, 'settings'

@@ -13,7 +13,6 @@ Tenon::Engine.routes.draw do
     get 'approve', on: :member
   end
 
-  resources :menus
 
   resources :comments, only: [:index, :destroy] do
     get 'toggle_approved', on: :member

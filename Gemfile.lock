@@ -50,6 +50,7 @@ PATH
   remote: .
   specs:
     tenon (2.0.0)
+      active_model_serializers
       awesome_nested_set
       browserify-rails
       cocoon
@@ -62,7 +63,6 @@ PATH
       haml
       humanizer
       ionicons-rails
-      jbuilder
       jquery-fileupload-rails
       jquery-rails
       jquery-ui-rails
@@ -112,6 +112,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_model_serializers (0.9.4)
+      activemodel (>= 3.2)
     activejob (5.0.0.beta3)
       activesupport (= 5.0.0.beta3)
       globalid (>= 0.3.6)
@@ -198,9 +200,6 @@ GEM
     humanizer (2.6.2)
     i18n (0.7.0)
     ionicons-rails (2.0.0)
-    jbuilder (2.4.1)
-      activesupport (>= 3.0.0, < 5.1)
-      multi_json (~> 1.2)
     jquery-fileupload-rails (0.4.6)
       actionpack (>= 3.1)
       railties (>= 3.1)
@@ -230,7 +229,6 @@ GEM
     mimemagic (0.3.0)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
-    multi_json (1.11.2)
     neat (1.7.4)
       bourbon (>= 4.0)
       sass (>= 3.3)

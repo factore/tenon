@@ -3,30 +3,45 @@
   position: absolute;
   top: 0;
   left: 0;
-  padding-left: $default-spacing * 2.5;
-  width: $main-nav-width;
+  margin-left: $default-spacing * 2.5;
+  width: $main-nav-width - ($default-spacing * 3.5);
   height: $util-nav-height;
   line-height: $util-nav-height;
 }
 
 .breadcrumbs__item {
   @extend %truncate;
+  display: block;
+  float: left;
   width: auto;
   height: $util-nav-height;
   line-height: $util-nav-height;
   color: $toolbar-fg-color;
+
+  &::after {
+    @extend %material-icon;
+    display: inline;
+    position: relative;
+    top: 6px;
+    margin: 0 6px;
+    height: $util-nav-height;
+    color: $toolbar-fg-color;
+    content: 'keyboard_arrow_right';
+    box-sizing: border-box;
+  }
+
+  &:last-child::after {
+    display: none;
+  }
 }
 
-.breadcrumbs__link,
-.breadcrumbs__separator {
+.breadcrumbs__link {
   height: $util-nav-height;
   line-height: $util-nav-height;
   color: $toolbar-fg-color;
-}
 
-.breadcrumbs__separator {
-  position: relative;
-  top: 6px;
-  margin: 0 6px;
-  &:last-of-type > & { display: none; }
+  &:hover {
+    text-decoration: none;
+    color: $toolbar-fg-color;
+  }
 }

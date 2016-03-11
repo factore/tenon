@@ -43,9 +43,9 @@ module Tenon
         redirect_to new_user_session_path
       end
     end
-  end
 
-  def xhr_or_js?
-    request.xhr? || request.format.js? || request.format.json?
+    def xhr_or_js?
+      request.xhr? || request.format.js? || request.format.json?
+    end
   end
 end

@@ -2,6 +2,10 @@ module Tenon
   class ApplicationDecorator < Draper::Decorator
     delegate_all
 
+    def serializer_class
+      "#{object.class}Serializer".safe_constantize
+    end
+
     def path
       h.url_for(object)
     end

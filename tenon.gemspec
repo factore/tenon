@@ -37,6 +37,7 @@ Gem::Specification.new do |s|
   # The actual gem dependencies
   s.add_dependency 'rails', '5.0.0.beta3'
 
+  s.add_dependency 'active_model_serializers'
   s.add_dependency 'browserify-rails'
   s.add_dependency 'cocoon'
   s.add_dependency 'coffee-rails'
@@ -46,7 +47,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'eco'
   s.add_dependency 'haml'
   s.add_dependency 'ionicons-rails'
-  s.add_dependency 'jbuilder'
   s.add_dependency 'jquery-fileupload-rails'
   s.add_dependency 'jquery-rails'
   s.add_dependency 'jquery-ui-rails'
