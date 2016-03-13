@@ -3,6 +3,7 @@
     constructor(opts = {}) {
       this.opts = { ...Tabs.defaultOptions, ...opts };
       $(`.${this.opts.tabClass} a`).on('click', this.onTabClicked.bind(this));
+      this._activateDefaultTabs();
     }
 
     onTabClicked(e) {
@@ -12,6 +13,17 @@
 
       this._activateTab($tab);
       this._activateTabSection($link.attr('href'));
+    }
+
+    _activateDefaultTabs() {
+      const { tabsListClass, tabClass } = this.opts;
+
+      $(`.${tabsListClass}`).each((i, list) => {
+        const $tab = $(list).find(`.${tabClass}:first`);
+
+        this._activateTab($tab);
+        this._activateTabSection($tab.find('a').attr('href'));
+      });
     }
 
     _activateTab($tab) {

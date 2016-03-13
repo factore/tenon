@@ -34,14 +34,18 @@
         %ul.tabs
           %li.tabs__tab= link_to 'Content', '#content'
           %li.tabs__tab= link_to 'Categories', '#categories'
+          %li.tabs__tab= link_to 'SEO', '#seo'
 
         .panel__content
-          #content
+          #content.tab-section
             = f.rich_text :excerpt, label: ''
             = f.tenon_content :content
 
-          #categories
+          #categories.tab-section
             Categories
+
+          #seo.tab-section
+            = render 'tenon/shared/seo_fields', f: f
 
       .panel-label Publication Details
       .panel.panel--padded
@@ -53,6 +57,6 @@
           .inner6.omega
             = f.date_time_picker :publish_at, label: 'Publish Date / Time'
 
-      = render 'tenon/shared/seo_fields', f: f
+
 
       .spacer
