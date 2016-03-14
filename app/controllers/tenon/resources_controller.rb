@@ -14,7 +14,7 @@ module Tenon
         format.html
         format.json do
           self.collection = filterer.filter
-          self.collection = collection.paginate(per_page: 5, page: params[:page])
+          self.collection = collection.paginate(per_page: 10, page: params[:page])
           self.collection = Tenon::PaginatingDecorator.decorate(collection)
           respond_with(
             collection,
@@ -72,8 +72,13 @@ module Tenon
             render action: :edit
           end
         end
+
         format.json do
-          render(json: resource)
+          if resource.valid?
+            render json: resource
+          else
+            render status: 422, json: { errors: resource.errors }
+          end
         end
       end
     end
@@ -95,7 +100,14 @@ module Tenon
             render action: :new
           end
         end
-        format.json { render json: resource }
+
+        format.json do
+          if resource.valid?
+            render json: resource
+          else
+            render status: 422, json: { errors: resource.errors }
+          end
+        end
       end
     end
 

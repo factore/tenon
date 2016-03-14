@@ -29,11 +29,7 @@ export default (records, action) => {
     break;
 
   case types.RECORD_UPDATE_FAIL:
-    index = getIndex(records, action.record.id);
-    break;
-
-  case types.RECORD_CREATED:
-    newRecords = [action.record, ...records];
+    newRecords = records;
     break;
 
   default:

@@ -1,6 +1,6 @@
 .modal {
   @extend %z-depth-4;
-  @include transition(opacity .25s ease, top .25s ease);
+  @include transition(opacity .25s ease, top .25s ease, left 0s ease .25s);
   position: fixed;
   top: 0;
   right: 0;
@@ -22,6 +22,7 @@
 }
 
 .modal--is-active {
+  @include transition(left 0s, opacity .25s ease, top .25s ease);
   top: 10%;
   left: 0;
   opacity: 1;

@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch';
 import * as types from '../constants/action-types';
+import { fetchRecords } from './list';
 
 const jsonDefaults = {
   credentials: 'same-origin',
@@ -18,7 +19,7 @@ export const deleteRecord = (record) => {
     method: 'DELETE'
   });
   return {
-    type: types.DELETE_RECORD,
+    type: types.RECORD_DELETE,
     record: record
   };
 };
@@ -59,9 +60,17 @@ const startCreateRecord = (record) => {
 };
 
 const completeCreateRecord = (record) => {
+  window.Tenon.features.Flash.draw('Saved successfully.');
   return {
     type: types.RECORD_CREATED,
     record: record
+  };
+};
+
+const invalidateCurrentRecord = (errors) => {
+  return {
+    type: types.INVALIDATE_CURRENT_RECORD,
+    errors: errors
   };
 };
 
@@ -74,6 +83,13 @@ export const createRecord = (record) => {
       body: JSON.stringify(record)
     })
     .then((response) => response.json())
-    .then((json) => dispatch(completeCreateRecord(json.record)));
+    .then((json) => {
+      if (json.errors) {
+        dispatch(invalidateCurrentRecord(json.errors));
+      } else {
+        dispatch(completeCreateRecord(json.record));
+        dispatch(fetchRecords());
+      }
+    });
   };
 };

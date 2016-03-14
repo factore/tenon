@@ -4,11 +4,17 @@ import { toQueryString } from 'lodash';
 import singleRecordReducer from './single-record';
 
 const initialState = {
+  // The record list
   records: [],
-  currentRecord: {},
   pagination: { currentPage: 1 },
   isFetching: true,
   query: queryStringObject,
+
+  // The record currently being edited
+  currentRecord: {},
+  currentRecordErrors: {},
+
+  // Configuration for this instance
   config: {
     manageQueryString: true
   }
@@ -25,10 +31,8 @@ export default (state = initialState, action) => {
   case types.RECORD_DELETE:
   case types.RECORD_UPDATE:
   case types.RECORD_UPDATED:
-  case types.RECORD_UPDATE_FAIL:
   case types.RECORD_CREATE:
   case types.RECORD_CREATED:
-  case types.RECORD_CREATE_FAIL:
     return { ...state, records: singleRecordReducer(state.records, action) };
 
   case types.UPDATE_CONFIG:
@@ -46,6 +50,12 @@ export default (state = initialState, action) => {
     return {
       ...state,
       currentRecord: { ...state.currentRecord, ...action.updates }
+    };
+
+  case types.INVALIDATE_CURRENT_RECORD:
+    return {
+      ...state,
+      currentRecordErrors: action.errors
     };
 
   case types.RECORDS_LOAD:

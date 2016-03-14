@@ -1,13 +1,16 @@
 .modal-overlay {
-  @include transition(background-color .25s ease);
+  @include transition(background-color .25s ease, left 0s ease 1s, right 0s ease 1s, bottom 0s ease 1s);
   position: fixed;
   top: 0;
+  right: 9999px;
+  bottom: 9999px;
   left: -9999px;
   z-index: $z-modal-overlay;
   background: rgba($black, 0);
 }
 
 .modal-overlay--is-active {
+  @include transition(left 0s, right 0s, bottom 0s, background-color .25s ease);
   right: 0;
   bottom: 0;
   left: 0;

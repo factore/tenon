@@ -54,6 +54,10 @@ export default (state = initialState, action) => {
     }
 
     return { ...state, expandedRecordIds: newExpandedRecordIds };
+
+  case types.RECORD_CREATED:
+    return { ...state, modalFormActive: false };
+
   default:
     return state;
   }
