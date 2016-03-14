@@ -1,24 +1,29 @@
-export const TOGGLE_QUICK_SEARCH = 'TOGGLE_QUICK_SEARCH';
-export const TOGGLE_FILTER_DRAWER = 'TOGGLE_FILTER_DRAWER';
-export const TOGGLE_EXPANDED_RECORD = 'TOGGLE_EXPANDED_RECORD';
+import * as types from '../constants/action-types';
 
 export const toggleQuickSearch = (to) => {
   return {
-    type: TOGGLE_QUICK_SEARCH,
+    type: types.TOGGLE_QUICK_SEARCH,
+    to: to
+  };
+};
+
+export const toggleModalForm = (to) => {
+  return {
+    type: types.TOGGLE_MODAL_FORM,
     to: to
   };
 };
 
 export const toggleFilterDrawer = (to = 'opposite') => {
   return {
-    type: TOGGLE_FILTER_DRAWER,
+    type: types.TOGGLE_FILTER_DRAWER,
     to: to
   };
 };
 
 export const toggleExpandedRecord = (record) => {
   return {
-    type: TOGGLE_EXPANDED_RECORD,
+    type: types.TOGGLE_EXPANDED_RECORD,
     record: record
   };
 };

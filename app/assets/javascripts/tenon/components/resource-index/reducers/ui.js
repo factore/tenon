@@ -1,6 +1,4 @@
-import {
-  TOGGLE_QUICK_SEARCH, TOGGLE_FILTER_DRAWER, TOGGLE_EXPANDED_RECORD
-} from '../actions/ui';
+import * as types from '../constants/action-types';
 import queryStringObject from '../query-string-object';
 import { omit } from 'lodash';
 
@@ -11,7 +9,8 @@ const filterKeys = Object.keys(
 const initialState = {
   expandedRecordIds: [],
   quickSearchOpen: (queryStringObject.q && queryStringObject.q.length),
-  filterDrawerOpen: filterKeys.length
+  filterDrawerOpen: filterKeys.length,
+  modalFormActive: false
 };
 
 const toggle = (to, obj) => {
@@ -28,15 +27,19 @@ export default (state = initialState, action) => {
   let result;
 
   switch (action.type) {
-  case TOGGLE_QUICK_SEARCH:
+  case types.TOGGLE_QUICK_SEARCH:
     result = toggle(action.to, state.quickSearchOpen);
     return { ...state, quickSearchOpen: result };
 
-  case TOGGLE_FILTER_DRAWER:
+  case types.TOGGLE_FILTER_DRAWER:
     result = toggle(action.to, state.filterDrawerOpen);
     return { ...state, filterDrawerOpen: result };
 
-  case TOGGLE_EXPANDED_RECORD:
+  case types.TOGGLE_MODAL_FORM:
+    result = toggle(action.to, state.modalFormActive);
+    return { ...state, modalFormActive: result };
+
+  case types.TOGGLE_EXPANDED_RECORD:
     const id = action.record.id;
     const index = state.expandedRecordIds.indexOf(action.record.id);
     let newExpandedRecordIds;

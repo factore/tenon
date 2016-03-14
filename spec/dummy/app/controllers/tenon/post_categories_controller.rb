@@ -1,5 +1,5 @@
 module Tenon
-  class PostCategoriesController < Tenon::SimpleResourcesController
+  class PostCategoriesController < Tenon::ResourcesController
     private
 
     def resource_params

@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as UiActionCreators from '../actions/ui';
-import * as DataActionCreators from '../actions/data';
+import actionCreators from '../actions/index';
 
 const DEFAULT_CHILD_COMPONENT_NAMES = {
+  AddButton: 'DefaultAddButton',
   ActionButtons: 'DefaultActionButtons',
   Filtering: 'DefaultFiltering',
   FilterOverlay: 'DefaultFilterOverlay',
   FilterDrawerToggle: 'DefaultFilterDrawerToggle',
+  List: 'DefaultList',
+  ModalAddButton: 'DefaultModalAddButton',
+  ModalForm: 'DefaultModalForm',
   QuickSearchToolbar: 'DefaultQuickSearchToolbar',
   QuickSearchInput: 'DefaultQuickSearchInput',
   QuickSearchOverlay: 'DefaultQuickSearchOverlay',
   SortOrder: 'DefaultSortOrder',
   SortOrderItem: 'DefaultSortOrderItem',
-  List: 'DefaultList',
   Record: 'DefaultRecord',
   RecordTitle: 'DefaultRecordTitle',
   RecordActions: 'DefaultRecordActions',
@@ -36,6 +38,7 @@ class Wrapper extends Component {
     this.props.handlers.updateRecord = this._updateRecord.bind(this);
     this.props.handlers.orderBy = this._orderBy.bind(this);
     this.props.handlers.toggleExpandedRecord = this._toggleExpandedRecord.bind(this);
+    this.props.handlers.toggleModalForm = this._toggleModalForm.bind(this);
   }
 
   _setupChildComponents() {
@@ -85,6 +88,11 @@ class Wrapper extends Component {
     this.props.actions.toggleExpandedRecord(record);
   }
 
+  _toggleModalForm(e, to) {
+    e.preventDefault();
+    this.props.actions.toggleModalForm(to);
+  }
+
   _loadNextPage(e) {
     e.preventDefault();
     this.props.actions.loadNextPage();
@@ -115,8 +123,6 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  const actionCreators = { ...DataActionCreators, ...UiActionCreators };
-
   return { actions: bindActionCreators(actionCreators, dispatch) };
 }
 

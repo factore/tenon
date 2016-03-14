@@ -2,4 +2,6 @@
     title: 'Categories',
     breadcrumbs: breadcrumb_links,
     recordsPath: post_categories_path(format: 'json'),
-    newPath: new_post_category_path
+    newPath: new_post_category_path,
+    addWithModal: true,
+    childComponentNames: { ModalFields: 'PostCategoryFields' }

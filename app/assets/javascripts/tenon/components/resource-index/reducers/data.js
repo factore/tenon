@@ -1,14 +1,11 @@
-import {
-  REQUEST_RECORDS, RECEIVE_RECORDS, DELETE_RECORD,
-  UPDATE_CONFIG, UPDATE_QUERY, START_UPDATE_RECORD,
-  COMPLETE_UPDATE_RECORD
-} from '../actions/data';
-
+import * as types from '../constants/action-types';
 import queryStringObject from '../query-string-object';
 import { toQueryString } from 'lodash';
+import singleRecordReducer from './single-record';
 
 const initialState = {
   records: [],
+  currentRecord: {},
   pagination: { currentPage: 1 },
   isFetching: true,
   query: queryStringObject,
@@ -22,13 +19,22 @@ const slowPushState = _.debounce((a, b, c) => {
 }, 500);
 
 export default (state = initialState, action) => {
-  let records, index, query, queryString;
+  let records, query, queryString;
 
   switch (action.type) {
-  case UPDATE_CONFIG:
+  case types.RECORD_DELETE:
+  case types.RECORD_UPDATE:
+  case types.RECORD_UPDATED:
+  case types.RECORD_UPDATE_FAIL:
+  case types.RECORD_CREATE:
+  case types.RECORD_CREATED:
+  case types.RECORD_CREATE_FAIL:
+    return { ...state, records: singleRecordReducer(state.records, action) };
+
+  case types.UPDATE_CONFIG:
     return { ...state, config: { ...state.config, ...action.updates } };
 
-  case UPDATE_QUERY:
+  case types.UPDATE_QUERY:
     query = { ...state.query, ...action.query };
     if (state.config.manageQueryString) {
       queryString = toQueryString(query);
@@ -36,10 +42,16 @@ export default (state = initialState, action) => {
     }
     return { ...state, query: query };
 
-  case REQUEST_RECORDS:
+  case types.UPDATE_CURRENT_RECORD:
+    return {
+      ...state,
+      currentRecord: { ...state.currentRecord, ...action.updates }
+    };
+
+  case types.RECORDS_LOAD:
     return { ...state, isFetching: true };
 
-  case RECEIVE_RECORDS:
+  case types.RECORDS_LOADED:
     if (action.append) {
       records = state.records.concat(action.records);
     } else {
@@ -52,29 +64,6 @@ export default (state = initialState, action) => {
       records: records,
       pagination: action.pagination
     };
-
-  case DELETE_RECORD:
-    records = state.records.filter((el) => el.id !== action.record.id);
-    return { ...state, records: records };
-
-  case START_UPDATE_RECORD:
-    index = state.records.map((r) => r.id).indexOf(action.record.id);
-    records = [
-      ...state.records.slice(0, index),
-      { ...state.records[index], ...action.payload, isUpdating: true },
-      ...state.records.slice(index + 1)
-    ];
-    return { ...state, records: records };
-
-  case COMPLETE_UPDATE_RECORD:
-    index = state.records.map((r) => r.id).indexOf(action.record.id);
-    records = [
-      ...state.records.slice(0, index),
-      { ...state.records[index], ...action.record, isUpdating: false },
-      ...state.records.slice(index + 1)
-    ];
-    return { ...state, records: records };
-
   default:
     return state;
   }

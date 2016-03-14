@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "babel-core": "^5.8.29",
+    "classnames": "^2.2.3",
     "es6-promise": "^3.0.2",
     "isomorphic-fetch": "^2.2.0",
     "lodash": "^3.10.1",

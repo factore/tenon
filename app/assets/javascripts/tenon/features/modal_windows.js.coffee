@@ -1,12 +1,19 @@
 class Tenon.features.ModalWindows
   @closeModals: ->
-    $('.modal').removeClass('modal--is-active')
-    $('.modal-overlay').removeClass('modal-overlay--is-active')
+    @clearBody()
+    $('.modal:not([data-reactid]').removeClass('modal--is-active')
+
+  @clearBody: ->
+    $('.modal-overlay:not([data-reactid]').removeClass('modal-overlay--is-active')
     $('body').css(overflow: '')
 
+  @prepBodyForModal: ->
+    $overlay = $('<div class="modal-overlay" />')
+    $overlay.appendTo('body') unless $('.modal-overlay').length
+    $('body').css(overflow: 'hidden')
     setTimeout( ->
-      $('.modal, .modal-overlay').remove()
-    , 250
+      $overlay.addClass('modal-overlay--is-active')
+    , 0
     )
 
   constructor: ->
@@ -104,12 +111,9 @@ class Tenon.features.ModalWindows
 
   _drawAndDisplayModal: =>
     @$modalElement.appendTo('body')
-    $overlay = $('<div class="modal-overlay" />')
-    $overlay.appendTo('body') unless $('.modal-overlay').length
-    $('body').css(overflow: 'hidden')
+    Tenon.features.ModalWindows.prepBodyForModal()
     setTimeout( =>
       @$modalElement.addClass('modal--is-active')
-      $overlay.addClass('modal-overlay--is-active')
     , 0)
 
   _runShownHandler: =>

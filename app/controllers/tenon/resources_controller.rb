@@ -1,5 +1,6 @@
 module Tenon
   class ResourcesController < BaseController
+    wrap_parameters format: [:json]
     respond_to :html, :json, :js
     after_action :verify_authorized
     after_action :verify_policy_scoped,
