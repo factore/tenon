@@ -3,15 +3,29 @@
 
 () => {
   class ModalForm extends React.Component {
+    componentDidMount() {
+      window.addEventListener('keydown', this._closeOnEsc.bind(this));
+    }
+
+    componentWillUnmount() {
+      window.removeEventListener('keydown', this._closeOnEsc.bind(this));
+    }
+
+    _closeOnEsc(e) {
+      if (e.which === 27) {
+        this.props.actions.toggleModalForm('off');
+      }
+    }
+
     _onSubmit(e) {
       const { currentRecord } = this.props.data;
-      const { updateRecord, createRecord } = this.props.actions;
+      const { updateRecordInModal, createRecordInModal } = this.props.actions;
 
       e.preventDefault();
-      if (currentRecord.updatePath) {
-        updateRecord(currentRecord, currentRecord);
+      if (currentRecord.update_path) {
+        updateRecordInModal(currentRecord);
       } else {
-        createRecord(currentRecord);
+        createRecordInModal(currentRecord);
       }
     }
 
@@ -25,6 +39,9 @@
       const { ModalFields } = this.props.childComponents;
       const { modalFormActive } = this.props.ui;
       const { toggleModalForm } = this.props.handlers;
+      const { currentRecordErrors } = this.props.data;
+      const baseErrors = currentRecordErrors.base || [];
+
       const modalClassNames = classNames({
         'modal': true,
         'modal--is-active': modalFormActive
@@ -38,6 +55,17 @@
         <div>
           <div className={modalClassNames}>
             <div className="modal__content">
+              <div
+                className={baseErrors.length && 'input-block' }>
+                {baseErrors.map((error) => {
+                  return (
+                    <label className="input-block__error-message">
+                      {error}
+                    </label>
+                  );
+                })}
+              </div>
+
               <form onSubmit={(e) => this._onSubmit(e)}>
                 <ModalFields
                   { ...this.props }

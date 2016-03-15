@@ -18,7 +18,7 @@ class Tenon.features.Flash
       setTimeout(->
         $flash.addClass('flash--is-active')
       , 0)
-      setTimeout(@dismiss, 5000)
+      setTimeout(@dismiss, 3000)
 
   @dismiss: =>
     $('.flash').removeClass('flash--is-active')

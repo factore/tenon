@@ -20,16 +20,13 @@ export default (records, action) => {
     break;
 
   case types.RECORD_UPDATED:
+  case types.RECORD_UPDATE_FAILED:
     index = getIndex(records, action.record.id);
     newRecords = [
       ...records.slice(0, index),
       { ...records[index], ...action.record, isUpdating: false },
       ...records.slice(index + 1)
     ];
-    break;
-
-  case types.RECORD_UPDATE_FAIL:
-    newRecords = records;
     break;
 
   default:

@@ -39,6 +39,7 @@ class Wrapper extends Component {
     this.props.handlers.orderBy = this._orderBy.bind(this);
     this.props.handlers.toggleExpandedRecord = this._toggleExpandedRecord.bind(this);
     this.props.handlers.toggleModalForm = this._toggleModalForm.bind(this);
+    this.props.handlers.editRecordInModal = this._editRecordInModal.bind(this);
   }
 
   _setupChildComponents() {
@@ -91,6 +92,11 @@ class Wrapper extends Component {
   _toggleModalForm(e, to) {
     e.preventDefault();
     this.props.actions.toggleModalForm(to);
+  }
+
+  _editRecordInModal(e, record) {
+    e.preventDefault();
+    this.props.actions.editRecordInModal(record);
   }
 
   _loadNextPage(e) {

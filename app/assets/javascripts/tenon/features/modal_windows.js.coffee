@@ -102,7 +102,6 @@ class Tenon.features.ModalWindows
   _setupTemplate: =>
     $template = $(JST['tenon/templates/modal']())
     $template.find('.modal__content').append(@$el)
-    console.log($template.html())
     $template
 
 

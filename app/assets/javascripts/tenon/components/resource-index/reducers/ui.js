@@ -55,8 +55,13 @@ export default (state = initialState, action) => {
 
     return { ...state, expandedRecordIds: newExpandedRecordIds };
 
-  case types.RECORD_CREATED:
+  case types.RECORD_IN_MODAL_UPDATED:
+  case types.RECORD_IN_MODAL_CREATED:
     return { ...state, modalFormActive: false };
+
+  case types.NEW_RECORD_IN_MODAL:
+  case types.EDIT_RECORD_IN_MODAL:
+    return { ...state, modalFormActive: true };
 
   default:
     return state;

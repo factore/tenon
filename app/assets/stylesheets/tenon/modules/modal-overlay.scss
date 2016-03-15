@@ -1,5 +1,5 @@
 .modal-overlay {
-  @include transition(background-color .25s ease, left 0s ease 1s, right 0s ease 1s, bottom 0s ease 1s);
+  @include transition(background-color .25s ease, left 0s ease .25s, right 0s ease .25s, bottom 0s ease .25s);
   position: fixed;
   top: 0;
   right: 9999px;

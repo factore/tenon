@@ -11,7 +11,7 @@ const initialState = {
   query: queryStringObject,
 
   // The record currently being edited
-  currentRecord: {},
+  currentRecord: { tnViewSrc: 'modal' },
   currentRecordErrors: {},
 
   // Configuration for this instance
@@ -20,21 +20,15 @@ const initialState = {
   }
 };
 
-const slowPushState = _.debounce((a, b, c) => {
+const debouncedPushState = _.debounce((a, b, c) => {
   history.pushState(a, b, c);
 }, 500);
 
 export default (state = initialState, action) => {
   let records, query, queryString;
 
+  state = { ...state, records: singleRecordReducer(state.records, action) };
   switch (action.type) {
-  case types.RECORD_DELETE:
-  case types.RECORD_UPDATE:
-  case types.RECORD_UPDATED:
-  case types.RECORD_CREATE:
-  case types.RECORD_CREATED:
-    return { ...state, records: singleRecordReducer(state.records, action) };
-
   case types.UPDATE_CONFIG:
     return { ...state, config: { ...state.config, ...action.updates } };
 
@@ -42,7 +36,7 @@ export default (state = initialState, action) => {
     query = { ...state.query, ...action.query };
     if (state.config.manageQueryString) {
       queryString = toQueryString(query);
-      slowPushState({ query: query }, queryString, queryString);
+      debouncedPushState({ query: query }, queryString, queryString);
     }
     return { ...state, query: query };
 
@@ -56,6 +50,29 @@ export default (state = initialState, action) => {
     return {
       ...state,
       currentRecordErrors: action.errors
+    };
+
+  case types.NEW_RECORD_IN_MODAL:
+    return {
+      ...state,
+      currentRecord: { tnViewSrc: 'modal' },
+      currentRecordErrors: {}
+    };
+
+  case types.EDIT_RECORD_IN_MODAL:
+    return {
+      ...state,
+      currentRecord: { ...action.record },
+      currentRecordErrors: {}
+    };
+
+  case types.NEW_RECORD_IN_MODAL:
+  case types.RECORD_IN_MODAL_UPDATED:
+  case types.RECORD_IN_MODAL_CREATED:
+    return {
+      ...state,
+      currentRecord: { tnViewSrc: 'modal' },
+      currentRecordErrors: {}
     };
 
   case types.RECORDS_LOAD:

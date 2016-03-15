@@ -1,10 +1,10 @@
 window.ResourceIndexComponents.DefaultModalAddButton = (props) => {
-  const { toggleModalForm } = props.handlers;
+  const { newRecordInModal } = props.actions;
 
   return (
     <a
       className="fab fab--bottom-right"
-      onClick={(e) => toggleModalForm(e, 'on')}
+      onClick={newRecordInModal}
     >
       <i className="material-icon">add</i>
     </a>
