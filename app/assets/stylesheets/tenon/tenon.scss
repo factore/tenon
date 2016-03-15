@@ -6,6 +6,9 @@
 @import 'bourbon';
 @import './grid';
 
+// VENDOR OVERRIDE
+@import './vendor/pickadate/default.date';
+
 // Variables and Mixins
 // Order is important here, do not change
 @import './variables/layout';

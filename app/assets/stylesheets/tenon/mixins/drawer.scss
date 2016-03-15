@@ -2,12 +2,17 @@
   @include drawer-transition;
   position: fixed;
   top: $util-nav-height;
-  left: -$main-nav-width;
+  left: -100%;
   z-index: $z-layout-drawer;
   border-right: 1px solid $light-border-color;
   box-shadow: inset -2px 1px 10px -6px $inset-shadow-color;
   background-color: $body-bg-color;
-  width: $main-nav-width;
+  width: calc(100% - #{$default-spacing * 1.5});
   height: 100%;
   overflow: auto;
+
+  @include bp-md {
+    left: -$main-nav-width;
+    width: $main-nav-width;
+  }
 }

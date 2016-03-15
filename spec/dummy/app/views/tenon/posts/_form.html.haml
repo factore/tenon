@@ -33,7 +33,8 @@
       .panel
         %ul.tabs
           %li.tabs__tab= link_to 'Content', '#content'
-          %li.tabs__tab= link_to 'Categories', '#categories'
+          - unless @categories.blank?
+            %li.tabs__tab= link_to 'Categories', '#categories'
           %li.tabs__tab= link_to 'SEO', '#seo'
 
         .panel__content
@@ -41,16 +42,15 @@
             = f.rich_text :excerpt, label: ''
             = f.tenon_content :content
 
-          #categories.tab-section
-            Categories
+          - unless @categories.blank?
+            #categories.tab-section
+              = f.select :post_category_ids, @categories.map { |c| [c.title, c.id] }, { label: 'Categories' }
 
           #seo.tab-section
             = render 'tenon/shared/seo_fields', f: f
 
       .panel-label Publication Details
       .panel.panel--padded
-        - unless @categories.blank?
-          = f.select :post_category_ids, @categories.map { |c| [c.title, c.id] }, { label: 'Categories' }, { multiple: true }
         .row
           .inner6
             = f.collection_select :user_id, @users, :id, :email, include_blank: "(No Author)", label: 'Author'

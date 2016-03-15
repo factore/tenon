@@ -8,8 +8,10 @@ class Tenon.features.ToggleMainNav
   _toggle: (e) =>
     e.preventDefault()
     target = $(e.currentTarget).data('target')
-
-    $('body').toggleClass("#{target}-drawer-open")
+    if $('body').is(".#{target}-drawer-open, .#{target}-drawer-pref-open")
+      $('body').removeClass("#{target}-drawer-open #{target}-drawer-pref-open")
+    else
+      $('body').addClass("#{target}-drawer-open #{target}-drawer-pref-open")
     @_storeChange(target) if @hasStorage
 
   _storeChange: (target) ->
@@ -20,4 +22,5 @@ class Tenon.features.ToggleMainNav
 
   _checkStorage: ->
     navIsOpen = localStorage.getItem('main-nav-drawer-open')
-    $('body').addClass('main-nav-drawer-open') if navIsOpen
+    if $(window).width() >= 768
+      $('body').addClass('main-nav-drawer-pref-open') if navIsOpen

@@ -11,7 +11,7 @@ const initialState = {
   query: queryStringObject,
 
   // The record currently being edited
-  currentRecord: { tnViewSrc: 'modal' },
+  currentRecord: {},
   currentRecordErrors: {},
 
   // Configuration for this instance
@@ -52,13 +52,6 @@ export default (state = initialState, action) => {
       currentRecordErrors: action.errors
     };
 
-  case types.NEW_RECORD_IN_MODAL:
-    return {
-      ...state,
-      currentRecord: { tnViewSrc: 'modal' },
-      currentRecordErrors: {}
-    };
-
   case types.EDIT_RECORD_IN_MODAL:
     return {
       ...state,
@@ -67,11 +60,11 @@ export default (state = initialState, action) => {
     };
 
   case types.NEW_RECORD_IN_MODAL:
-  case types.RECORD_IN_MODAL_UPDATED:
-  case types.RECORD_IN_MODAL_CREATED:
+  case types.RECORD_UPDATED:
+  case types.RECORD_CREATED:
     return {
       ...state,
-      currentRecord: { tnViewSrc: 'modal' },
+      currentRecord: {},
       currentRecordErrors: {}
     };
 

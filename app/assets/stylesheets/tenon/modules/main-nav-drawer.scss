@@ -8,6 +8,11 @@
   .main-nav-drawer-open & {
     left: 0;
   }
+
+  // Only remember user preference on bp-md or higher
+  .main-nav-drawer-pref-open & {
+    @include bp-md { left: 0; }
+  }
 }
 
 // main-nav list

@@ -8,8 +8,14 @@
   .drawer-open &,
   .filter-drawer-open &,
   .quick-search-open &,
-  .main-nav-drawer-open & {
-    left: $main-nav-width;
-    width: calc(100% - #{$main-nav-width});
+  .main-nav-drawer-open &,
+  .main-nav-drawer-pref-open & {
+    opacity: .25;
+
+    @include bp-md {
+      left: $main-nav-width;
+      opacity: 1;
+      width: calc(100% - #{$main-nav-width});
+    }
   }
 }

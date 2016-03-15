@@ -13,6 +13,7 @@
 .tabs__tab {
   @include flex(1);
   @include flex-grow(1);
+  @extend %font-smallest;
   display: block;
   position: relative;
   float: left;
@@ -27,6 +28,10 @@
   text-overflow: ellipsis;
   line-height: 48px;
   letter-spacing: .8px;
+
+  @include bp-md {
+    font-size: #{$body-size}px;
+  }
 
   &::after {
     @include transition(transform .25s ease, opacity .25s ease);
