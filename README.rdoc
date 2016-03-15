@@ -396,6 +396,52 @@ Your users can now click on the star to toggle the post's featured state.
 
 Read on through the next section to understand how <tt>updateQuery()</tt> and the query object interacts with the server to filter and return records.
 
+=== Adding and editing using a modal window
+
+Very basic resources, such as lists of categories, may be easier to manage if their add and edit actions are presented in a modal window rather than on a new page.  This can be easily accomplished with the addition of two options and one custom component.
+
+First, change the call to +ResourceIndexRoot+ to include the modal options, as well as the name of the custom form component you'll be providing.  In this case we'll use an imagined +PostCategory+ list as our example:
+
+  = react_component 'ResourceIndexRoot',
+    title: 'Categories',
+    breadcrumbs: breadcrumb_links,
+    recordsPath: post_categories_path(format: 'json'),
+    newPath: new_post_category_path,
+    addWithModal: true,
+    editWithModal: true,
+    childComponentNames: { ModalFields: 'PostCategoryFields' }
+
+Note the addition of +addWithModal+, +editWithModal+, and the name of the +ModalFields+ child component.
+
+Next we need to create the +PostCategoryFields+ child component.  This file can be created at <tt>app/assets/javascripts/tenon/components/post-category-fields.es6</tt> and should look something like this:
+
+    window.ResourceIndexComponents.PostCategoryFields = (props) => {
+      const { currentRecord, currentRecordErrors } = props.data;
+      const { onChange } = props;
+
+      return (
+        <div>
+          <TextField
+            name="title"
+            value={currentRecord.title}
+            onChange={onChange}
+            errors={currentRecordErrors.title}
+            label="Title" />
+          <button type="submit" className="btn">Save</button>
+        </div>
+      );
+    };
+
+The important things to note about this are as follows:
+
+* It uses the handy +TextField+ component to generate standard Tenon <tt>input-block</tt> HTML. Other available components include +SelectField+, +CheckBoxField+, and +DatepickerField+.  You can use standard HTML and supply the <tt>input-block</tt> tags yourself if you need something custom.
+* It pulls +currentRecord+, +currentRecordErrors+, and +onChange+ out of the supplied props.  These will always be available.
+* It passes +name+, +value+, +onChange+, +errors+, and +label+ along to the +TextField+ component.
+* +name+, +value+, and +errors+ are consistent with the field that's being presented (in this case they all reference +title+.)
+* The save button is added, but other modal markup is handled automatically further up the chain.
+
+By supplying these options and this custom component, our +PostCategory+ resource can now be managed completely from the index page without having to visit a secondary form page.
+
 == Using the StandaloneList component
 
 Occasionally you may want to render a list of records inside an existing view, for example if you wanted to embed a list of records inside/alongside a form.  You can accomplish this by rendering the +StandaloneList+ component.  It functions identically to the +ResourceIndexRoot+ component.
