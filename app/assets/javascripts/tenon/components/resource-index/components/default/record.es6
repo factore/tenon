@@ -23,9 +23,9 @@ class DefaultRecord extends React.Component {
             <RecordTitle { ...this.props } />
           </div>
 
-          <RecordActions { ...this.props } />
         </div>
 
+        <RecordActions { ...this.props } />
         <RecordExpandedContent { ...this.props} />
       </li>
     );

@@ -27,6 +27,7 @@
 @import 'client/variables/font-family'; // client over-rides
 @import './variables/font-size';
 @import 'client/variables/font-size'; // client over-rides
+@import './mixins/animations';
 @import './mixins/transitions';
 @import './mixins/drawer';
 @import './mixins/font-size';

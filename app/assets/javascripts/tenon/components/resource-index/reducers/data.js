@@ -20,12 +20,8 @@ const initialState = {
   }
 };
 
-const debouncedPushState = _.debounce((a, b, c) => {
-  history.pushState(a, b, c);
-}, 500);
-
 export default (state = initialState, action) => {
-  let records, query, queryString;
+  let records, query;
 
   state = { ...state, records: singleRecordReducer(state.records, action) };
   switch (action.type) {
@@ -34,11 +30,10 @@ export default (state = initialState, action) => {
 
   case types.UPDATE_QUERY:
     query = { ...state.query, ...action.query };
-    if (state.config.manageQueryString) {
-      queryString = toQueryString(query);
-      debouncedPushState({ query: query }, queryString, queryString);
-    }
     return { ...state, query: query };
+
+  case types.REPLACE_QUERY:
+    return { ...state, query: action.query };
 
   case types.UPDATE_CURRENT_RECORD:
     return {

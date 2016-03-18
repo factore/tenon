@@ -6,6 +6,7 @@ import actionCreators from '../actions/index';
 const DEFAULT_CHILD_COMPONENT_NAMES = {
   AddButton: 'DefaultAddButton',
   ActionButtons: 'DefaultActionButtons',
+  ClearFiltersLink: 'DefaultClearFiltersLink',
   Filtering: 'DefaultFiltering',
   FilterOverlay: 'DefaultFilterOverlay',
   FilterDrawerToggle: 'DefaultFilterDrawerToggle',
@@ -20,6 +21,7 @@ const DEFAULT_CHILD_COMPONENT_NAMES = {
   Record: 'DefaultRecord',
   RecordTitle: 'DefaultRecordTitle',
   RecordActions: 'DefaultRecordActions',
+  RecordsCount: 'DefaultRecordsCount',
   RecordExpandedContent: 'DefaultRecordExpandedContent',
   LoadMoreButton: 'DefaultLoadMoreButton'
 };
@@ -33,6 +35,7 @@ class Wrapper extends Component {
 
   _setupHandlers() {
     this.props.handlers.updateQuery = this._updateQuery.bind(this);
+    this.props.handlers.replaceQuery = this._replaceQuery.bind(this);
     this.props.handlers.deleteRecord = this._deleteRecord.bind(this);
     this.props.handlers.loadNextPage = this._loadNextPage.bind(this);
     this.props.handlers.updateRecord = this._updateRecord.bind(this);
@@ -70,6 +73,11 @@ class Wrapper extends Component {
   _updateQuery(e, changes, append = false) {
     e.preventDefault();
     this.props.actions.updateQuery(changes, append);
+  }
+
+  _replaceQuery(e, newQuery, append = false) {
+    e.preventDefault();
+    this.props.actions.replaceQuery(newQuery, append);
   }
 
   _orderBy(e, field, direction = 'asc') {

@@ -14,6 +14,7 @@ class Tenon.features.AssetAttachment
     @_setFields(e, {
       id: asset.id,
       thumbnailPath: asset.style_urls.thumbnail,
+      mediumPath: asset.style_urls.medium,
       filename: asset.display_name
     })
     Tenon.features.ModalWindows.closeModals()

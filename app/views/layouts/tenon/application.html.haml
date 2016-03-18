@@ -21,13 +21,15 @@
     = render 'tenon/shared/version_warning' if @item_version
 
     = render 'tenon/shared/burger'
-    = render 'tenon/shared/util_nav'
+    = render 'tenon/shared/util_nav', modifier: 'util-nav--in-toolbar'
 
     #main-nav.main-nav-drawer.drawer
       %p.app-info
         = link_to '/tenon', class: 'app-info__link' do
           = image_tag('tenon/tenon_icon.png', class: 'app-info__logo')
           = Tenon::MySettings.site_title
+      = render 'tenon/shared/util_nav', modifier: 'util-nav--in-drawer'
       = render 'tenon/shared/main_nav'
+
 
     = yield

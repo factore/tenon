@@ -11,6 +11,7 @@ class AssetRecord extends React.Component {
     $(e.currentTarget).trigger('assetPicked', {
       id: id,
       thumbnailPath: style_urls.thumbnail,
+      mediumPath: style_urls.medium,
       filename: display_name
     });
   }

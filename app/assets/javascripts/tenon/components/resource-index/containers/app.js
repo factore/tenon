@@ -3,8 +3,16 @@ import classNames from 'classnames';
 
 export default class App extends Component {
   componentWillMount() {
+    const currentPage = this.props.data.query.page;
+
     this.props.actions.updateConfig({ baseUri: this.props.recordsPath });
-    this.props.actions.fetchRecords();
+    if (currentPage > 1) {
+      for (let i = 1; i < currentPage; i++) {
+        this.props.actions.updateQuery({ page: i }, true);
+      }
+    } else {
+      this.props.actions.fetchRecords();
+    }
   }
 
   render() {

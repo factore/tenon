@@ -14,7 +14,7 @@ module Tenon
         format.html
         format.json do
           self.collection = filterer.filter
-          self.collection = collection.paginate(per_page: 10, page: params[:page])
+          self.collection = collection.paginate(per_page: 50, page: params[:page])
           self.collection = Tenon::PaginatingDecorator.decorate(collection)
           respond_with(
             collection,

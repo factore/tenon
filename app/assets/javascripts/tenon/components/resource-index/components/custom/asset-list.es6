@@ -1,7 +1,7 @@
 window.ResourceIndexComponents.AssetList = (props) => {
   const { Record, LoadMoreButton }  = props.childComponents;
   const { deleteRecord, updateRecord, toggleExpandedRecord } = props.handlers;
-  const { records, isFetching, pagination, query } = props.data;
+  const { records, isFetching, query } = props.data;
   const { updateQuery } = props.actions;
   const { expandedRecordIds } = props.ui;
   let output;
@@ -51,10 +51,7 @@ window.ResourceIndexComponents.AssetList = (props) => {
 
       <div className="spacer"></div>
 
-      <LoadMoreButton
-        title={props.title}
-        loadAction={(e) => props.handlers.loadNextPage(e)}
-        pagination={pagination} />
+      <LoadMoreButton { ...props } />
     </div>
   );
 };

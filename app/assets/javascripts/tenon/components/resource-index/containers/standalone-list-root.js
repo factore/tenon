@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import Wrapper from './wrapper';
 import StandaloneList from './standalone-list';
 import configureStore from '../store/configure-store';
-import { updateQuery } from '../actions/data';
 
 export default class Root extends Component {
   constructor(props, context) {

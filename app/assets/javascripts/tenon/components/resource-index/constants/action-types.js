@@ -2,6 +2,7 @@
 export const RECORDS_LOAD = 'RECORDS_LOAD';
 export const RECORDS_LOADED = 'RECORDS_LOADED';
 export const UPDATE_QUERY = 'UPDATE_QUERY';
+export const REPLACE_QUERY = 'REPLACE_QUERY';
 export const UPDATE_CONFIG = 'UPDATE_CONFIG';
 
 // Adding and editing record

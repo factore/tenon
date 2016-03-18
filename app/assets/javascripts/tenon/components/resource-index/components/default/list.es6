@@ -1,7 +1,7 @@
 window.ResourceIndexComponents.DefaultList = (props) => {
-  const { Record, LoadMoreButton }  = props.childComponents;
+  const { Record, LoadMoreButton, RecordsCount, ClearFiltersLink }  = props.childComponents;
   const { deleteRecord, updateRecord, toggleExpandedRecord } = props.handlers;
-  const { records, isFetching, pagination } = props.data;
+  const { records, isFetching } = props.data;
   const { expandedRecordIds } = props.ui;
   let output;
 
@@ -29,7 +29,9 @@ window.ResourceIndexComponents.DefaultList = (props) => {
   }
 
   return (
-    <div className="record-list">
+    <div>
+      <RecordsCount { ...props } />
+      <ClearFiltersLink { ...props } />
       <ul className="">
         <ReactCSSTransitionGroup
           transitionName="fade-"
@@ -40,10 +42,7 @@ window.ResourceIndexComponents.DefaultList = (props) => {
 
       </ul>
 
-      <LoadMoreButton
-        title={props.title}
-        loadAction={(e) => props.handlers.loadNextPage(e)}
-        pagination={pagination} />
+      <LoadMoreButton { ...props } />
     </div>
   );
 };

@@ -1,10 +1,28 @@
 .util-nav {
-  position: fixed;
-  top: 0;
-  right: $default-spacing;
-  z-index: $z-layout-util-nav;
   padding: 8px 0;
   width: $util-nav-width;
+}
+
+.util-nav--in-toolbar {
+  display: none;
+
+  @include bp-md {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: $default-spacing;
+    z-index: $z-layout-util-nav;
+  }
+}
+
+.util-nav--in-drawer {
+  position: fixed;
+  bottom: $default-spacing;
+  left: $default-spacing;
+
+  @include bp-md {
+    display: none;
+  }
 }
 
 .util-nav__action-icon {

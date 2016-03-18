@@ -22,7 +22,7 @@ export const fetchRecords = (append = false) => {
     const state = getState().data;
     const query = toQueryString(state.query);
 
-    dispatch(loadRecords);
+    dispatch(loadRecords());
     return fetch(state.config.baseUri + query, { credentials: 'same-origin' })
       .then((response) => response.json())
       .then((json) => dispatch(loadedRecords(json, append)));
@@ -33,21 +33,47 @@ const debouncedFetchRecords = debounce((dispatch, append = false) => {
   dispatch(fetchRecords(append));
 }, 500);
 
-export const updateQuery = (query, append = false) => {
-  return (dispatch) => {
-    dispatch({
-      type: types.UPDATE_QUERY,
-      query: query
-    });
+const debouncedPushState = _.debounce((a, b, c) => {
+  history.pushState(a, b, c);
+}, 500);
 
-    debouncedFetchRecords(dispatch, append);
+const updateQueryString = (query) => {
+  const queryString = toQueryString(query);
+
+  debouncedPushState({ query: query }, queryString, queryString);
+};
+
+const queryChange = (type, query, append, dispatch, getState) => {
+  dispatch({
+    type: type,
+    query: query
+  });
+
+  const { data } = getState();
+
+  if (data.config.manageQueryString) {
+    updateQueryString(data.query);
+  }
+
+  debouncedFetchRecords(dispatch, append);
+};
+
+export const updateQuery = (query, append = false) => {
+  return (dispatch, getState) => {
+    queryChange(types.UPDATE_QUERY, query, append, dispatch, getState);
+  };
+};
+
+export const replaceQuery = (query, append = false) => {
+  return (dispatch, getState) => {
+    queryChange(types.REPLACE_QUERY, query, append, dispatch, getState);
   };
 };
 
 export const loadNextPage = () => {
   return function(dispatch, getState) {
-    const nextPage = getState().data.pagination.currentPage + 1;
-
+    const nextPage = getState().data.pagination.current_page + 1;
+    dispatch(loadRecords());
     dispatch(updateQuery({ page: nextPage }, true));
   };
 };

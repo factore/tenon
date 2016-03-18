@@ -1,4 +1,4 @@
-.util-nav
+.util-nav{ class: (modifier if local_assigns[:modifier]) }
   = link_to '#!', class: 'util-nav__action-icon dropdown-button', data: { activates: 'account-dropdown'} do
     .action-icon= i('face')
 

@@ -1,9 +1,8 @@
 class Tenon.features.tenonContent.AssetAttachment extends Tenon.features.AssetAttachment
-  _setFields: ($li) =>
-    @$assetField.find('.asset-id-field').val($li.data('record-id'))
-    @$assetField.find('.asset-crop').attr('data-asset-id', $li.data('record-id'))
-    $img = $li.find('.thumbnail img').clone()
-    $img.attr('src', $li.data('style-urls')['medium'])
+  _setFields: (e, data) =>
+    @$assetField.find('.asset-id-field').val(data.id)
+    @$assetField.find('.asset-crop').attr('data-asset-id', data.id)
+    $img = $("<img />").attr('src', data.mediumPath)
     @$assetField.find('.image a.add-image, .image img').remove()
     @$assetField.find('.image').prepend($img)
 
@@ -13,3 +12,6 @@ class Tenon.features.tenonContent.AssetAttachment extends Tenon.features.AssetAt
     img = new Image()
     img.onload = => @$assetField.trigger('tenon.asset_attached')
     img.src = $img.attr('src')
+
+    Tenon.features.ModalWindows.closeModals()
+

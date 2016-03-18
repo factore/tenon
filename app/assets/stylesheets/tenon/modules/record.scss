@@ -42,6 +42,7 @@
 
 .record__actions {
   @include default-transition;
+  padding: 0 $default-spacing;
 
   @include bp-md {
     @include transform-style(preserve-3d);
@@ -51,7 +52,7 @@
     opacity: 0;
     z-index: $z-panel-open;
     background-color: $panel-bg-color;
-    padding-left: ($default-spacing / 2);
+    padding: 0;
     text-align: right;
   }
 

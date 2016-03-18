@@ -1,5 +1,5 @@
 .fab {
-  @extend %z-depth-2;
+  @extend %z-depth-1;
   @include default-transition;
   @include animation(btn-fab-intro .3s forwards .5s);
   @include transform(scale(0) rotate(-45deg));
@@ -28,7 +28,7 @@
   }
 
   &:hover {
-    @extend %z-depth-1;
+    @extend %z-depth-2;
   }
 }
 

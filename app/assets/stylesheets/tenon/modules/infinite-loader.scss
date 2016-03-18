@@ -1,10 +1,15 @@
 .infinite-loader {
   @extend %font-h3;
   display: none;
+  margin: $default-spacing auto;
   text-align: center;
   color: $infinite-loader-color;
+}
 
-  &.visible {
-    display: block;
-  }
+.infinite-loader--is-visibile {
+  display: block;
+}
+
+.infinite-loader--is-loading {
+  > .material-icon { @include animation(spin .5s linear infinite); }
 }
