@@ -13,6 +13,11 @@
   .main-nav-drawer-pref-open & {
     @include bp-md { left: 0; }
   }
+
+  // Only animate when toggling
+  .main-nav-drawer-toggling & {
+    @include drawer-transition;
+  }
 }
 
 // main-nav list

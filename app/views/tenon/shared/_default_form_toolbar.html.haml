@@ -1,0 +1,22 @@
+.toolbar
+  = render 'tenon/shared/breadcrumbs'
+  .toolbar__content
+    .toolbar__actions.toolbar__actions--right
+      - if policy(obj).publish?
+        .toolbar__action
+          %button.btn.btn--toolbar.submit{ data: { disable_with: "Please wait..." } } Save
+
+      .toolbar__action
+        %a.action-icon.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
+          = i('more_vert')
+
+        %ul.dropdown#form-dropdown
+          - if policy(Tenon::ItemVersion).create?
+            = render 'tenon/shared/draft_controls', obj: obj
+
+          - if obj.persisted? && policy(obj).destroy?
+            %li.dropdown__divider
+            %li.dropdown__item
+              = link_to obj, data: { method: :delete, confirm: 'Are you sure you want to delete this?' }, class: 'dropdown__action action-icon delete-link' do
+                = i('delete')
+                %span Delete

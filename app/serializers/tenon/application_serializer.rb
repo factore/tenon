@@ -1,6 +1,6 @@
 module Tenon
   # Some basic functionality that most resources will want
-  class BaseSerializer < ActiveModel::Serializer
+  class ApplicationSerializer < ActiveModel::Serializer
     def formatted_publish_at
       if object.publish_at.present?
         object.publish_at.strftime('%B %e, %Y at %-l:%m%p')

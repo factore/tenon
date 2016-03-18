@@ -7,33 +7,38 @@ module Tenon
       invoke :model
 
       def copy_files
-        style = options.small? ? 'small' : 'full'
-
         # Controller, helper, views, test and stylesheets directories.
         empty_directory(File.join('app/views/tenon', plural_table_name))
-        empty_directory(File.join('app/assets/javascripts/tenon/templates', plural_table_name))
 
         actions = %w(
           index.html.haml new.html.haml edit.html.haml _form.html.haml
-          index.json.jbuilder create.json.jbuilder update.json.jbuilder
         )
 
         actions.each do |action|
           src_path = File.join(self.class.source_root, "view_#{action}")
-          if File.exist?(src_path)
-            template("view_#{action}", File.join('app/views/tenon', plural_table_name, "#{action}"))
-          end
+          next unless File.exist?(src_path)
+          template(
+            "view_#{action}",
+            File.join('app/views/tenon', plural_table_name, action)
+          )
         end
 
-        template('view_item_row.jst.eco', File.join('app/assets/javascripts/tenon/templates', plural_table_name, "#{file_name}_row.jst.eco"))
-        template('view__item.json.jbuilder', File.join('app/views/tenon', plural_table_name, "_#{file_name}.json.jbuilder"))
+        %w( decorator policy serializer ).each do |file_type|
+          template(
+            "#{file_type}.rb",
+            File.join(
+              "app/#{file_type.pluralize}",
+              "#{file_name}_#{file_type}.rb"
+            )
+          )
+        end
 
         template(
-          'decorator.rb', File.join('app/decorators', "#{file_name}_decorator.rb")
-        )
-
-        template(
-          'controller.rb', File.join('app/controllers/tenon', "#{file_name.pluralize}_controller.rb")
+          'controller.rb',
+          File.join(
+            'app/controllers/tenon',
+            "#{file_name.pluralize}_controller.rb"
+          )
         )
       end
 
@@ -43,7 +48,7 @@ module Tenon
           # Prepare the routes
           filename = File.join(Rails.root, 'config', 'routes.rb')
           pattern = 'Tenon::Engine.routes.draw do'
-          reorder = attributes.select{ |a| a.name == 'list_order' }.empty? ? '' : "do \n    post    'reorder', :on => :collection \n    end"
+          reorder = attributes.select { |a| a.name == 'list_order' }.empty? ? '' : "do \n    post    'reorder', :on => :collection \n    end"
           contents = File.read(filename)
 
           # Write the initial Tenon routes block if it's not there already
@@ -91,57 +96,70 @@ module Tenon
         end
       end
 
+      def add_menu_item
+        case behavior
+        when :invoke
+          say 'Add the following line to app/views/tenon/shared/_main_nav.html.haml:'
+          say " = nav_item '#{class_name.pluralize.titleize}', #{plural_name}_path, 'star'"
+        when :revoke
+          say %(Don't forget to remove the nav_item entry from app/views/tenon/shared/_main_nav.html.haml)
+        end
+      end
+
       no_tasks do
         def collections
-          @collections ||= attributes.select do |a|
-            a.name.match(/_id$/)
-          end.map do |a|
-            a.name.gsub(/_id$/, '')
-          end.uniq
+          return @collections if @collections
+          collections = attributes.select { |a| a.name.match(/_id$/) }
+          collections = collections.map { |a| a.name.gsub(/_id$/, '') }
+          @collections = collections.uniq
         end
 
         def assets
-          @assets ||= attributes.select{ |a| a.type.to_s == 'asset' }
+          @assets ||= attributes.select { |a| a.type.to_s == 'asset' }
         end
 
         def text_fields
           return @text_fields if @text_fields
-          @text_fields = attributes.select{ |a| a.type.to_s == 'string' }
-          @text_fields = @text_fields - seo_fields
+          @text_fields = attributes.select { |a| a.type.to_s == 'string' }
+          @text_fields -= seo_fields
         end
 
         def text_areas
           return @text_areas if @text_areas
-          @text_areas = attributes.select{ |a| a.type.to_s == 'text' }
-          @text_areas = @text_areas - seo_fields
+          @text_areas = attributes.select { |a| a.type.to_s == 'text' }
+          @text_areas -= seo_fields
         end
 
         def timestamps
           @timestamps ||= attributes.select do |a|
             %w(datetime timestamp).include?(a.type.to_s) &&
-            a.name != 'publish_at'
+              a.name != 'publish_at'
           end
         end
 
+        def dates
+          @dates ||= attributes.select { |a| a.type.to_s == 'date' }
+        end
+
         def booleans
-          @booleans ||= attributes.select{ |a| a.type.to_s == 'boolean' }
+          @booleans ||= attributes.select { |a| a.type.to_s == 'boolean' }
         end
 
         def numbers
           @numbers ||= attributes.select do |a|
             %w(float integer decimal).include?(a.type.to_s) &&
-            !a.name.match(/.*_id$/)
+              !a.name.match(/.*_id$/)
           end
         end
 
         def seo_fields
           return @seo_fields if @seo_fields
           names = %w(seo_title seo_keywords seo_description)
-          @seo_fields = attributes.select{ |a| names.include?(a.name) }
+          @seo_fields = attributes.select { |a| names.include?(a.name) }
         end
 
-        def has_seo?
-          !seo_fields.empty?
+        def tenon_contents
+          @tenon_contents ||= attributes.select { |a| a.type.to_s == 'content' }
         end
       end
     end

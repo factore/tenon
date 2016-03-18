@@ -4,7 +4,7 @@ class <%= migration_class_name %> < ActiveRecord::Migration
 <% attributes.each do |attribute| -%>
 <% if attribute.password_digest? -%>
       t.string :password_digest<%= attribute.inject_options %>
-<% elsif attribute.type.to_s != 'asset' -%>
+<% elsif !%w(asset content).include?(attribute.type.to_s) -%>
       t.<%= attribute.type %> :<%= attribute.name %><%= attribute.inject_options %>
 <% end -%>
 <% end -%>

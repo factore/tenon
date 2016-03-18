@@ -1,74 +1,75 @@
-= autosaving_form_for @<%= singular_name %> do |f|
-  .toolbar.bg-color-primary-dk10
-    = render 'tenon/shared/breadcrumbs'
-    .actions
-      - if policy(@<%= singular_name %>).publish?
-        %button.action-btn.btn.btn-flat.submit{ data: { disable_with: "Please wait..." } } Save
+.drawer-pusher
+  = autosaving_form_for @<%= singular_name %> do |f|
+    = render 'tenon/shared/default_form_toolbar', obj: @<%= singular_name %>
 
-      %a.action-icon.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
-        = i('more_vert')
+    %main
+<% if attributes.map(&:name).include? 'title' -%>
+      = f.title_text_field :title
 
-      %ul.dropdown#form-dropdown
-        - if policy(Tenon::ItemVersion).create?
-          = render 'tenon/shared/draft_controls', obj: @<%= singular_name %>
-
-        - if @<%= singular_name %>.persisted?
-          %li.dropdown__divider
-          %li.dropdown__item
-            = link_to @<%= singular_name %>, data: { method: :delete, confirm: 'Are you sure you want to delete this?' }, class: 'dropdown__action action-icon delete-link' do
-              = i('delete')
-              %span Delete
-
-  %main
-    = error_messages_for :<%= singular_name %>
-
-    .form-label Text Fields
-    .panel.block
-<% text_fields.each do |field| -%>
-      = f.text_field :<%= field.name %>
 <% end -%>
-
-    .form-label Assets
-    .panel.block
+<% if text_fields.reject { |f| f.name == 'title' }.present? -%>
+      .panel-label Text Fields
+      .panel.panel--padded
+<% text_fields.reject { |f| f.name == 'title' }.each do |field| -%>
+        = f.text_field :<%= field.name %>
+<% end -%>
+<% end -%>
+<% if assets.present? -%>
+      .panel-label Assets
 <% assets.each do |field| -%>
       = f.asset :<%= field.name %>
 <% end -%>
 
-    .form-label Text Areas
-    .panel.block
+<% end -%>
+<% if text_areas.present? -%>
+      .panel-label Text Areas
+      .panel.panel--padded
 <% text_areas.each do |field| -%>
-      = f.text_area :<%= field.name %>
+        = f.text_area :<%= field.name %>
 <% end -%>
 
-<% if has_seo? -%>
-    = render "tenon/shared/seo_fields", :f => f
 <% end -%>
 
-<% unless [collections, booleans, timestamps].flatten.empty? -%>
-    .form-label Details
+<% if tenon_contents.present? -%>
+      .panel-label Tenon Content Fields
+      .panel.panel--padded
+<% tenon_contents.each do |field| -%>
+        = f.tenon_content :<%= field.name %>
+<% end -%>
+
+<% end -%>
+<% unless [collections, booleans, dates, numbers, timestamps].flatten.empty? -%>
+      .panel-label Details
 <% collections.each do |c| %>
-    .panel.block
-      = f.super_label :<%= c %>, '<%= c.titleize %>'
-      = f.collection_select :<%= c %>_id, @<%= c.pluralize %>, :id, :title, prompt: '--'
-<% end -%>
+      .panel.panel--padded
+        = f.collection_select :<%= c %>_id, @<%= c.pluralize %>, :id, :title, prompt: '--'
 
+<% end -%>
+<% dates.each do |field| -%>
+        = f.date_picker :<%= field.name %>
+<% end -%>
 <% timestamps.each do |field| -%>
-      = f.date_time_picker :<%= field.name %>
+        = f.date_time_picker :<%= field.name %>
 <% end -%>
-
 <% booleans.each do |field| %>
-      = f.check_box :<%= field.name %>
+        = f.check_box :<%= field.name %>
 <% end -%>
-
 <% numbers.each do |field| %>
-      = f.text_field :<%= field.name %>
+        = f.number_field :<%= field.name %>
 <% end -%>
 
 <% end -%>
 
 <% if attributes.map(&:name).include? 'publish_at' -%>
-    .panel.block
-      = f.date_time_picker :publish_at, label: 'Publish Date'
-<% end -%>
+      .panel-label Publishing
+      .panel.panel--padded
+        = f.date_time_picker :publish_at, label: 'Publish Date'
 
-  .spacer
+<% end -%>
+<% if seo_fields.present? -%>
+      .panel-label SEO
+      .panel.panel--padded
+        = render "tenon/shared/seo_fields", :f => f
+
+<% end -%>
+    .spacer

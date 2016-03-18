@@ -1,11 +1,13 @@
 <% collections = attributes.select{|a| a.name.match(/_id$/)}.map{|a| a.name.gsub(/_id$/, '')}.uniq -%>
-class Tenon::<%= class_name.pluralize %>Controller < Tenon::ResourcesController
+module Tenon
+  class <%= class_name.pluralize %>Controller < ResourcesController # :nodoc:
 <% unless collections.blank? -%>
-  before_filter :get_collections, :only => [:index, :edit, :update, :new, :create]
+    before_filter :get_collections, only: [:edit, :update, :new, :create]
 <% end -%>
 
 <% unless collections.blank? -%>
-  private
+    private
+
     def get_collections
 <% collections.each do |c| -%>
       @<%= c.pluralize %> = <%= c.camelize %>.all
@@ -16,4 +18,5 @@ class Tenon::<%= class_name.pluralize %>Controller < Tenon::ResourcesController
     def resource_params
       params.require(:<%= singular_name %>).permit!
     end
+  end
 end

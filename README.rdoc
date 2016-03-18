@@ -71,7 +71,46 @@ Currently options for serving CKEditor via the asset pipeline are limited.  For 
 
 == Scaffolding
 
-TODO: Write this section
+Tenon comes with a powerful scaffold generator that makes it easy for you to prototype new resources.  The scaffold generator sits on top of Rails' built in resource generators and creates everything you need for a working CRUD interface in Tenon.
+
+Let's create an imaginary +Post+ resource as an example:
+
+    $ rails generate tenon:scaffold Post title:string excerpt:text
+
+This task will create the following files:
+
+    app/controllers/tenon/posts_controller.rb
+    app/decorators/post_decorator.rb
+    app/policies/post_policy.rb
+    app/serializers/post_serializer.rb
+    app/models/post.rb
+    app/views/tenon/posts/index.html.haml
+    app/views/tenon/posts/new.html.haml
+    app/views/tenon/posts/edit.html.haml
+    app/views/tenon/posts/_form.html.haml
+    db/migrate/<timestamp>_create_posts.rb
+
+It will also add the necessary routes to <tt>config/routes.rb</tt>.  If you navigate to <tt>/tenon/posts</tt> within your app you will see that you have a fully functioning section with the ability to index, search, add, edit, and delete posts.
+
+On top of the typical Rails generator column types like +string+, +text+, or +integer+, Tenon adds a few new options.
+
++asset+:: Use this to create an asset field that integrates with Tenon's asset library.
++content+:: Use this to create a TenonContent field.
++date+:: Automatically links up a date picker widget in your form.
++datetime+:: Automatically links up a date and time picker widget in your form.
+
+There are also a handful of column names that you can define to trigger special behaviour in the generator:
+
++title+:: This field is required for your scaffolded resource to work out of the box.  You'll need to override part of the +ResourceIndex+ React component tree (more on this below) if you want to use a different field name.
++publish_at+:: Adds special publishing fields to your form and adds a scope called +published+ to your model.
++list_order+:: Includes <tt>Tenon::Reorderable</tt> in your model, adds a +reorder+ action to your controller, adds a default scope to your model to sort by +list_order+, and makes the items in your index view drag and drop sortable.
++seo_title+, +seo_keywords+, +seo_description+:: Adds a special SEO fields panel to your form with explanatory text.  Useful for public-facing websites.
+
+With these features in mind, let's regenerate our +Post+ resource with all of our special features.
+
+  $ rails generate tenon:scaffold Post title:string excerpt:text content:content banner_photo:asset written_on:date publish_at:datetime list_order:integer seo_title:string seo_keywords:string seo_description:text
+
+Out of the box this will give us a working +Post+ model with functional views.  Typically you'll want to reorganize the fields found in <tt>app/views/tenon/posts/_form.html.haml</tt>, but otherwise your work is done!
 
 == Item Revisions/History
 

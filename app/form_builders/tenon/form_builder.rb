@@ -205,6 +205,13 @@ module Tenon
         html_opts: html_opts
     end
 
+    def date_picker(method_name, opts = {})
+      @template.render 'tenon/fields/date_picker',
+        f: self,
+        method_name: method_name,
+        opts: opts
+    end
+
     def date_time_picker(method_name, opts = {})
       @template.render 'tenon/fields/date_time_picker',
         f: self,

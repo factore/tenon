@@ -12,6 +12,10 @@ class Tenon.features.ToggleMainNav
       $('body').removeClass("#{target}-drawer-open #{target}-drawer-pref-open")
     else
       $('body').addClass("#{target}-drawer-open #{target}-drawer-pref-open")
+    $('body').addClass("#{target}-drawer-toggling")
+    setTimeout( ->
+      $('body').removeClass("#{target}-drawer-toggling")
+    , 250)
     @_storeChange(target) if @hasStorage
 
   _storeChange: (target) ->

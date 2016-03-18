@@ -1,5 +1,4 @@
 %drawer {
-  @include drawer-transition;
   position: fixed;
   top: $util-nav-height;
   left: -100%;

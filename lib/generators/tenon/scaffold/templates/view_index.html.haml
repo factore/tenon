@@ -1,5 +1,5 @@
 = react_component 'ResourceIndexRoot',
-    title: '<%= singular_name.titleize %>',
+    title: '<%= plural_name.titleize %>',
     breadcrumbs: breadcrumb_links,
-    recordsPath: <%= singular_name %>_path(format: 'json'),
+    recordsPath: <%= plural_name %>_path(format: 'json'),
     newPath: new_<%= singular_name %>_path
