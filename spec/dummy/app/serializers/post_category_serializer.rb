@@ -1,3 +1,3 @@
-class PostCategorySerializer < Tenon::BaseSerializer #:nodoc:
+class PostCategorySerializer < Tenon::ApplicationSerializer #:nodoc:
   attributes :title
 end

@@ -2,4 +2,7 @@
     title: '<%= plural_name.titleize %>',
     breadcrumbs: breadcrumb_links,
     recordsPath: <%= plural_name %>_path(format: 'json'),
+<% if reorderable? -%>
+    reorderPath: reorder_<%= plural_name %>_path,
+<% end -%>
     newPath: new_<%= singular_name %>_path

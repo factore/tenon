@@ -25,6 +25,7 @@ module Tenon
     def default_attributes
       {
         id: object.id,
+        title: object.title,
         to_param: object.to_param,
         resource_type: resource_type,
         edit_path: scope.polymorphic_path([:edit, object]),

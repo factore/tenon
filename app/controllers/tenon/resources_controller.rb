@@ -128,7 +128,7 @@ module Tenon
 
     def reorder
       authorize(klass)
-      self.collection = klass.reorder!(params['item_list'])
+      self.collection = klass.reorder!(params[:ids])
       respond_with(collection, location: polymorphic_index_path)
     end
 

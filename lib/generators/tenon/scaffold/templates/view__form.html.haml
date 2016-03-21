@@ -40,8 +40,8 @@
 <% end -%>
 <% unless [collections, booleans, dates, numbers, timestamps].flatten.empty? -%>
       .panel-label Details
-<% collections.each do |c| %>
       .panel.panel--padded
+<% collections.each do |c| %>
         = f.collection_select :<%= c %>_id, @<%= c.pluralize %>, :id, :title, prompt: '--'
 
 <% end -%>

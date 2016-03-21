@@ -17,7 +17,9 @@ class DefaultRecord extends React.Component {
     }
 
     return (
-      <li className={classNames.join(' ')}>
+      <div
+        data-record-id={this.props.record.id} // For dragula :(
+        className={classNames.join(' ')}>
         <div className="record__details">
           <div className="record__expand-toggle" onClick={onToggleExpand}>
             <RecordTitle { ...this.props } />
@@ -27,7 +29,7 @@ class DefaultRecord extends React.Component {
 
         <RecordActions { ...this.props } />
         <RecordExpandedContent { ...this.props} />
-      </li>
+      </div>
     );
   }
 }

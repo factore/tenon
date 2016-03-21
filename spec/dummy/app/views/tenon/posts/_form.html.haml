@@ -1,28 +1,6 @@
 .drawer-pusher
   = autosaving_form_for @post do |f|
-    .toolbar
-      = render 'tenon/shared/breadcrumbs'
-      .toolbar__content
-        .toolbar__actions.toolbar__actions--right
-          - if policy(@post).publish?
-            .toolbar__action
-              %button.btn.btn--toolbar.submit{ data: { disable_with: "Please wait..." } } Save
-
-          .toolbar__action
-            %a.action-icon.dropdown-button{ href: '#!', data: { activates: 'form-dropdown'} }
-              = i('more_vert')
-
-            %ul.dropdown#form-dropdown
-              - if policy(Tenon::ItemVersion).create?
-                = render 'tenon/shared/draft_controls', obj: @post
-
-              - if @post.persisted?
-                %li.dropdown__divider
-                %li.dropdown__item
-                  = link_to @post, data: { method: :delete, confirm: 'Are you sure you want to delete this?' }, class: 'dropdown__action action-icon delete-link' do
-                    = i('delete')
-                    %span Delete
-
+    = render 'tenon/shared/default_form_toolbar', obj: @post
 
     %main
       = f.title_text_field :title, required: true

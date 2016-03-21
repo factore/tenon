@@ -29,6 +29,23 @@ export const fetchRecords = (append = false) => {
   };
 };
 
+export const reorderRecords = (ids) => {
+  return (dispatch, getState) => {
+    const state = getState().data;
+
+    fetch(`${state.config.reorderUri}.json`, {
+      credentials: 'same-origin',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify({ ids: ids })
+    })
+    .then(() => Tenon.features.Flash.draw('Saved successfully.'));
+  };
+};
+
 const debouncedFetchRecords = debounce((dispatch, append = false) => {
   dispatch(fetchRecords(append));
 }, 500);
@@ -77,3 +94,5 @@ export const loadNextPage = () => {
     dispatch(updateQuery({ page: nextPage }, true));
   };
 };
+
+

@@ -3,22 +3,19 @@ import classNames from 'classnames';
 
 export default class App extends Component {
   componentWillMount() {
-    const currentPage = this.props.data.query.page;
+    this.props.actions.updateConfig({
+      baseUri: this.props.recordsPath,
+      reorderUri: this.props.reorderPath
+    });
 
-    this.props.actions.updateConfig({ baseUri: this.props.recordsPath });
-    if (currentPage > 1) {
-      for (let i = 1; i < currentPage; i++) {
-        this.props.actions.updateQuery({ page: i }, true);
-      }
-    } else {
-      this.props.actions.fetchRecords();
-    }
+    this.props.actions.fetchRecords();
   }
 
   render() {
     const {
       QuickSearchOverlay, QuickSearchToolbar, List, Filtering,
-      AddButton, ModalAddButton, ModalForm, ModalFields
+      AddButton, ModalAddButton, ModalForm, ModalFields,
+      LoadMoreButton, RecordsCount, ClearFiltersLink
     } = this.props.childComponents;
     const { addWithModal } = this.props;
     const outerClassNames = classNames({
@@ -37,7 +34,10 @@ export default class App extends Component {
             {addWithModal && <ModalAddButton { ...this.props } />}
             {!addWithModal && <AddButton { ...this.props } />}
 
+            <RecordsCount { ...this.props } />
+            <ClearFiltersLink { ...this.props } />
             <List { ...this.props } />
+            <LoadMoreButton { ...this.props } />
           </main>
         </div>
         {ModalFields && <ModalForm { ...this.props } />}

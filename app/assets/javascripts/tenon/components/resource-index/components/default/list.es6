@@ -1,44 +1,58 @@
-window.ResourceIndexComponents.DefaultList = (props) => {
-  const {
-    Record, LoadMoreButton, RecordsCount, ClearFiltersLink
-  }  = props.childComponents;
-  const { deleteRecord, updateRecord, toggleExpandedRecord } = props.handlers;
-  const { records, isFetching } = props.data;
-  const { expandedRecordIds } = props.ui;
-  let output;
+/* global React */
+/* global ReactDOM */
+/* global reactDragula */
 
-  if (records.length === 0 && !isFetching) {
-    output = <li></li>;
-  } else {
-    output = records.map((record, i) => {
+() => {
+  class List extends React.Component {
+    componentDidMount() {
+      if (this.props.reorderPath) {
+        const node = ReactDOM.findDOMNode(this._transitionGroup);
+        const drake = reactDragula([node]);
+
+        drake.on('drop', this._onRecordDrop.bind(this));
+      }
+    }
+
+    _onRecordDrop(el, target) {
+      const children = [...target.childNodes];
+      const ids = children.map((n) => n.getAttribute('data-record-id'));
+
+      this.props.actions.reorderRecords(ids);
+    }
+
+    render() {
+      const { Record } = this.props.childComponents;
+      const {
+        deleteRecord, updateRecord, toggleExpandedRecord
+      } = this.props.handlers;
+      const { records } = this.props.data;
+      const { expandedRecordIds } = this.props.ui;
+
       return (
-        <Record
-          { ...props }
-          record={record}
-          key={i}
-          isExpanded={expandedRecordIds.indexOf(record.id) !== -1}
-          onDelete={(e) => deleteRecord(e, record)}
-          onUpdate={(e, payload) => updateRecord(e, record, payload)}
-          onToggleExpand={(e) => toggleExpandedRecord(e, record)} />
+        <div className="records-list">
+          <ReactCSSTransitionGroup
+            transitionName="fade-"
+            transitionEnterTimeout={250}
+            transitionLeaveTimeout={250}
+            ref={(group) => this._transitionGroup = group}>
+
+            {records.map((record, i) => {
+              return (
+                <Record
+                  { ...this.props }
+                  record={record}
+                  key={i}
+                  isExpanded={expandedRecordIds.indexOf(record.id) !== -1}
+                  onDelete={(e) => deleteRecord(e, record)}
+                  onUpdate={(e, payload) => updateRecord(e, record, payload)}
+                  onToggleExpand={(e) => toggleExpandedRecord(e, record)} />
+              );
+            })}
+          </ReactCSSTransitionGroup>
+        </div>
       );
-    });
+    }
   }
 
-  return (
-    <div>
-      <RecordsCount { ...props } />
-      <ClearFiltersLink { ...props } />
-      <ul className="">
-        <ReactCSSTransitionGroup
-          transitionName="fade-"
-          transitionEnterTimeout={250}
-          transitionLeaveTimeout={250}>
-          {output}
-        </ReactCSSTransitionGroup>
-
-      </ul>
-
-      <LoadMoreButton { ...props } />
-    </div>
-  );
-};
+  window.ResourceIndexComponents.DefaultList = List;
+}();

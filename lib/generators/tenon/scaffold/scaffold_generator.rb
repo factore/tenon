@@ -48,7 +48,7 @@ module Tenon
           # Prepare the routes
           filename = File.join(Rails.root, 'config', 'routes.rb')
           pattern = 'Tenon::Engine.routes.draw do'
-          reorder = attributes.select { |a| a.name == 'list_order' }.empty? ? '' : "do \n    post    'reorder', :on => :collection \n    end"
+          reorder = attributes.select { |a| a.name == 'list_order' }.empty? ? '' : "do \n    post    'reorder', on: :collection \n    end"
           contents = File.read(filename)
 
           # Write the initial Tenon routes block if it's not there already
@@ -148,7 +148,8 @@ module Tenon
         def numbers
           @numbers ||= attributes.select do |a|
             %w(float integer decimal).include?(a.type.to_s) &&
-              !a.name.match(/.*_id$/)
+              !a.name.match(/.*_id$/) &&
+              a.name != 'list_order'
           end
         end
 
@@ -160,6 +161,11 @@ module Tenon
 
         def tenon_contents
           @tenon_contents ||= attributes.select { |a| a.type.to_s == 'content' }
+        end
+
+        def reorderable?
+          return @reorderable if @reorderable
+          @reorderable = attributes.any? { |a| a.name.to_s == 'list_order' }
         end
       end
     end

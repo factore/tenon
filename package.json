@@ -32,6 +32,7 @@
     "react": "^0.14.6",
     "react-addons-css-transition-group": "^0.14.2",
     "react-dom": "^0.14.6",
+    "react-dragula": "^1.1.15",
     "react-redux": "^0.8.2",
     "redux": "^1.0.0",
     "redux-thunk": "^0.1.0"
