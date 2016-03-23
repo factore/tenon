@@ -1,13 +1,15 @@
 class Tenon.features.tenonContent.PostCropHandler
   constructor: (@$link, @asset) ->
-    $('.asset-cropping').remove()
     $image = @$link.closest('.image-controls').data('image')
     @$piece = $image.closest('.tn-tc-piece')
-    @_replaceImage();
-    @_updateFields();
+    @_replaceImage()
+    @_updateFields()
+    Tenon.features.ModalWindows.closeModals()
 
   _replaceImage: =>
-    $img = @$piece.find('img').attr('src', @asset.style_urls.medium)
+    $img = @$piece.find('img')
+    $img.attr('src', @asset.style_urls.medium)
+    $img.attr('srcset', '')
 
     # We have to make sure the image loads before we fire the trigger
     # For some reason the imagesLoaded function is not working so
@@ -18,5 +20,5 @@ class Tenon.features.tenonContent.PostCropHandler
     img.src = $img.attr('src')
 
   _updateFields: =>
-    @$piece.find('.asset-id-field').val(@asset.id)
+    @$piece.find('[data-asset-id-field]').val(@asset.id)
     @$link.data('asset-id', @asset.id)

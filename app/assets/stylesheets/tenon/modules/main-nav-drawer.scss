@@ -2,8 +2,17 @@
 .main-nav-drawer {
   @extend %font-smaller;
   @extend %drawer;
+  top: 0;
   z-index: $z-layout-drawer;
-  color: $main-nav-fg-color;
+  background-color: $white;
+  width: calc(100% - #{$default-spacing * 3});
+
+  @include bp-md {
+    top: $util-nav-height;
+    background-color: $body-bg-color;
+    width: $main-nav-width;
+  }
+
 
   .main-nav-drawer-open & {
     left: 0;
@@ -46,7 +55,11 @@
   display: block;
   padding: 0 $default-spacing / 2;
   line-height: $default-spacing;
-  color: $main-nav-fg-color;
+  color: $light-fg-color;
+
+  @include bp-md {
+    color: $main-nav-fg-color;
+  }
 
   &:hover {
     text-decoration: none;

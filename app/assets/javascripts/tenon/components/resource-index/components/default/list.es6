@@ -21,7 +21,9 @@
     }
 
     render() {
-      const { Record } = this.props.childComponents;
+      const {
+        Record, LoadMoreButton, RecordsCount, ClearFiltersLink, SortOrder
+      } = this.props.childComponents;
       const {
         deleteRecord, updateRecord, toggleExpandedRecord
       } = this.props.handlers;
@@ -30,6 +32,12 @@
 
       return (
         <div className="records-list">
+          <div className="records-list__tools">
+            <RecordsCount { ...this.props } />
+            <ClearFiltersLink { ...this.props } />
+            <SortOrder {...this.props} />
+          </div>
+
           <ReactCSSTransitionGroup
             transitionName="fade-"
             transitionEnterTimeout={250}
@@ -49,6 +57,8 @@
               );
             })}
           </ReactCSSTransitionGroup>
+
+          <LoadMoreButton { ...this.props } />
         </div>
       );
     }

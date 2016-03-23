@@ -6,6 +6,7 @@ module Tenon
 
     def update
       if resource_params[:duplicate] == '1'
+        @asset = Asset.find(params[:id])
         new_asset = Tenon::Asset.new(resource_params)
         authorize(new_asset)
         new_asset.attachment = @asset.attachment
@@ -35,6 +36,8 @@ module Tenon
     end
 
     def crop
+      @asset = Asset.find(params[:id])
+      authorize @asset, :update?
       render layout: false
     end
 

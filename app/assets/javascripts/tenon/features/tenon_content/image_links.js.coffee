@@ -37,9 +37,14 @@ class Tenon.features.tenonContent.ImageLinks
   _bindLinkForm: =>
     @$visibleForm.on('keyup', 'input', @_formFilled)
     @$visibleForm.on('click', '.medium-editor-cancel', @_cancel)
+    @$visibleForm.on('click', '.medium-editor-submit', @_saveClicked)
 
   _formFilled: (e) =>
     @saveForm() if e.keyCode == 13
+
+  _saveClicked: (e) =>
+    e.preventDefault()
+    @saveForm()
 
   _cancel: (e) =>
     e.preventDefault()

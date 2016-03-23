@@ -1,0 +1,11 @@
+.hide-on-min {
+  @include bp-min {
+    display: none !important;
+  }
+}
+
+.hide-at-md {
+  @include bp-md {
+    display: none !important;
+  }
+}

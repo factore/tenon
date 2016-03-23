@@ -11,11 +11,12 @@ const DEFAULT_CHILD_COMPONENT_NAMES = {
   FilterOverlay: 'DefaultFilterOverlay',
   FilterDrawerToggle: 'DefaultFilterDrawerToggle',
   List: 'DefaultList',
+  LoadMoreButton: 'DefaultLoadMoreButton',
   ModalAddButton: 'DefaultModalAddButton',
   ModalForm: 'DefaultModalForm',
-  QuickSearchToolbar: 'DefaultQuickSearchToolbar',
   QuickSearchInput: 'DefaultQuickSearchInput',
   QuickSearchOverlay: 'DefaultQuickSearchOverlay',
+  QuickSearchToggle: 'DefaultQuickSearchToggle',
   SortOrder: 'DefaultSortOrder',
   SortOrderItem: 'DefaultSortOrderItem',
   Record: 'DefaultRecord',
@@ -23,7 +24,7 @@ const DEFAULT_CHILD_COMPONENT_NAMES = {
   RecordActions: 'DefaultRecordActions',
   RecordsCount: 'DefaultRecordsCount',
   RecordExpandedContent: 'DefaultRecordExpandedContent',
-  LoadMoreButton: 'DefaultLoadMoreButton'
+  Toolbar: 'DefaultToolbar'
 };
 
 class Wrapper extends Component {

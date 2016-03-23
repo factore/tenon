@@ -57,7 +57,8 @@
   @extend %z-depth-0;
   display: block;
   margin-top: 2px;
-  background-color: rgba($white, .6);
+  background-color: transparent;
+  padding: 0;
   height: 40px;
   line-height: 40px;
   color: $white;
@@ -66,5 +67,10 @@
     @extend %z-depth-1;
     background-color: rgba($white, 1);
     color: $btn-primary-bg-color;
+  }
+
+  @include bp-md {
+    background-color: rgba($white, .6);
+    padding: 0 $default-spacing;
   }
 }

@@ -14,13 +14,13 @@ class Tenon.features.tenonContent.Library
   _setContext: =>
     if @$link.hasClass('initial-row')
       @_setToInsertInitialRow()
-    else if @$link.hasClass('above') || @$link.hasClass('below')
+    else if @$link.is('[data-tn-tc-insert]')
       @_setToInsertRelative()
     else
       @_setToInsertByData()
 
   _setToInsertInitialRow: =>
-    node = @$link.closest('.tn-tc').find('.tenon-content')
+    node = @$link.closest('.tn-tc').find('.tn-tc__rows')
     $('.tn-tc-library a').data('association-insertion-node', node)
     $('.tn-tc-library a').data('association-insertion-method', 'prepend')
 
@@ -34,6 +34,7 @@ class Tenon.features.tenonContent.Library
       $('.tn-tc-library a').data(data, @$link.data(data))
 
   _setToInsertRelative: =>
-    method = if @$link.hasClass('below') then 'after' else 'before'
+    method = @$link.data('tn-tc-insert')
+    console.log(method)
     $('.tn-tc-library a').data('association-insertion-node', @$link.closest('.tn-tc-row'))
     $('.tn-tc-library a').data('association-insertion-method', method)

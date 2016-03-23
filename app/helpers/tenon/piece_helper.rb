@@ -29,7 +29,7 @@ module Tenon
         sizes = breakpoints[:full]
 
         # calculate the image size at :full breakpoint based on the piece width
-        image_size = (piece.size / 12.0 * content_size(sizes, piece)).to_i
+        image_size = (piece.size.to_f / 12.0 * content_size(sizes, piece)).to_i
 
         # round up to nearest 200
         image_size = image_size.round(-2)
@@ -45,7 +45,7 @@ module Tenon
       # item_type-specific tenon_content width not defined.
       def generate_sizes(piece, breakpoints)
         breakpoints.map do |name, sizes|
-          "(min-width: #{sizes[:browser]}px) #{(piece.size / 12.0 * 100 * content_size(sizes, piece) / sizes[:browser]).to_i}vw"
+          "(min-width: #{sizes[:browser]}px) #{(piece.size.to_f / 12.0 * 100 * content_size(sizes, piece) / sizes[:browser]).to_i}vw"
         end.join(', ')
       end
 

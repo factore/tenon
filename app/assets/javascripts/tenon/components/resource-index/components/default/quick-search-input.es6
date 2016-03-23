@@ -12,7 +12,7 @@
       const q = this.props.data.query.q;
 
       return (
-        <section id="search" className="search-content">
+        <section className={'search-content ' + this.props.className}>
           <i className="search-content__icon material-icon">search</i>
           <input
             type="text"

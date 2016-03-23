@@ -13,9 +13,8 @@ export default class App extends Component {
 
   render() {
     const {
-      QuickSearchOverlay, QuickSearchToolbar, List, Filtering,
-      AddButton, ModalAddButton, ModalForm, ModalFields,
-      LoadMoreButton, RecordsCount, ClearFiltersLink
+      QuickSearchOverlay, Toolbar, List, Filtering,
+      AddButton, ModalAddButton, ModalForm, ModalFields
     } = this.props.childComponents;
     const { addWithModal } = this.props;
     const outerClassNames = classNames({
@@ -26,18 +25,14 @@ export default class App extends Component {
 
     return (
       <div className={outerClassNames}>
-        <QuickSearchToolbar { ...this.props } />
+        <Toolbar { ...this.props } />
         <QuickSearchOverlay { ...this.props } />
         <Filtering { ...this.props } />
         <div className="drawer-pusher">
           <main>
             {addWithModal && <ModalAddButton { ...this.props } />}
             {!addWithModal && <AddButton { ...this.props } />}
-
-            <RecordsCount { ...this.props } />
-            <ClearFiltersLink { ...this.props } />
             <List { ...this.props } />
-            <LoadMoreButton { ...this.props } />
           </main>
         </div>
         {ModalFields && <ModalForm { ...this.props } />}

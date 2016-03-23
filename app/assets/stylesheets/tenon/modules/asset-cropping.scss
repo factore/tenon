@@ -1,0 +1,16 @@
+.asset-cropping {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+  > .jcrop-holder {
+    @extend %vertical-align;
+    margin: 0 auto;
+  }
+}
+
+.asset-cropping__explanation {
+  @extend %font-smaller;
+  margin-top: $default-spacing / 2;
+  font-style: italic;
+}

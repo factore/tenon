@@ -1,20 +1,25 @@
 .tn-tc-row{ :style => ('display: none;' if f.object._destroy) }
   = f.hidden_field :item_method, value: field
-  .tn-tc-topbar
-    .actions
-      %i.material-icon.reorder reorder
+  .tn-tc-row__top-bar
+    .tn-tc-row__action.tn-tc-row__action--left
+      %i.material-icon.tn-tc-row__drag-anchor{ data: { drag_anchor: true } }
+        reorder
 
-      = link_to '#', class: 'tn-tc-open-library above', data: { modal_target: ".tn-tc-library", modal_closest: '.tn-tc', modal_title: "Insert Content", modal_handler: 'Tenon.features.tenonContent.Library', modal_clone: 'true', tooltip: '' }, title: 'Insert Content' do
-        %i.material-icon playlist_add
-
+    .tn-tc-row__action--right
       = link_to_remove_association f, { 'data-confirm' => 'Are you sure?', 'data-wrapper-class' => 'tn-tc-row' } do
         %i.material-icon.delete delete
 
+    .tn-tc-row__action--right
+      = link_to '#', class: 'above', data: { modal_target: ".tn-tc-library", modal_closest: '.tn-tc', modal_title: "Insert Content", modal_handler: 'Tenon.features.tenonContent.Library', modal_clone: 'true', tooltip: '', tn_tc_insert: 'before' }, title: 'Insert Content' do
+        %i.material-icon playlist_add
+
+
+
     .spacer
 
-  .tn-tc-fields= render row_partial, f: f
+  .tn-tc-row__fields= render row_partial, f: f
 
-  .tn-tc-bottombar
-    .actions
-      = link_to '#', class: 'tn-tc-open-library below', data: { modal_target: ".tn-tc-library", modal_closest: '.tn-tc', modal_title: "Insert Content", modal_handler: 'Tenon.features.tenonContent.Library', modal_clone: 'true', modal_closest: '.tn-tc', tooltip: ''}, title: 'Insert Content' do
+  .tn-tc-row__bottom-bar
+    .tn-tc-row__action
+      = link_to '#', data: { modal_target: ".tn-tc-library", modal_closest: '.tn-tc', modal_title: "Insert Content", modal_handler: 'Tenon.features.tenonContent.Library', modal_clone: 'true', modal_closest: '.tn-tc', tooltip: '', tn_tc_insert: 'after' }, title: 'Insert Content' do
         %i.material-icon playlist_add

@@ -1,17 +1,16 @@
-.asset-cropping
-  .modal-backdrop.fade.in
-  .preview
-    .modal-header
-      %button{ type: 'button', class: 'close', data: { dismiss: 'modal' }, :'aria-hidden' => 'true' } &times;
-      %h4#myModalLabel{ class: 'modal-title'}
-        Crop
-    .image-holder= image_tag(@asset.attachment.url, id: 'cropbox', data: { width: @asset.dimensions(:original)[0], height: @asset.dimensions(:original)[1] })
-    .spinner= fa_icon('spinner spin')
+.modal.modal--fixed-footer.modal--xlg
+  .modal__content
+    .asset-cropping
+      = image_tag(@asset.attachment.url, id: 'cropbox', data: { width: @asset.dimensions(:original)[0], height: @asset.dimensions(:original)[1] })
 
-    = form_for @asset, data: {remote: true} do |f|
+      .asset-cropping__explanation
+        Drag inside the image to crop
+
+  .modal__footer
+    = form_for @asset, data: { remote: true, crop_form: true } do |f|
       - [:crop_x, :crop_y, :crop_w, :crop_h].each do |field|
         = f.hidden_field field
-      .crop_buttons.right.full
-        = f.check_box :duplicate, checked: true, class: 'tn-checkbox-right'
-        = f.label :duplicate, 'Create New Asset From Crop?', class: 'left'
-        .right= f.submit 'Save', class: 'save btn btn-comp', data: { disable_with: 'Please wait...' }
+      = f.hidden_field :duplicate, value: true
+
+      .modal__action
+        = f.submit 'Save', class: 'save btn btn-comp', data: { disable_with: 'Please wait...' }

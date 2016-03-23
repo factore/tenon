@@ -4,6 +4,7 @@ class Tenon.features.ToggleMainNav
     @_checkStorage() if @hasStorage
 
     $('.toggle-drawer').on('click', @_toggle)
+    $('.main-nav-overlay').on('click', @_toggle)
 
   _toggle: (e) =>
     e.preventDefault()

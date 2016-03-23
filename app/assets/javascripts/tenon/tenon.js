@@ -21,6 +21,7 @@ var Tenon = {
     $('[data-behavior=timepicker]').pickatime();
 
     Tenon.features.fileSelectWidget.init();
+    Tenon.modals = new Tenon.features.ModalWindows();
     new Tenon.features.I18nFields();
     new Tenon.features.AssetCropping();
     new Tenon.features.AssetDetachment();
@@ -28,8 +29,6 @@ var Tenon = {
     new Tenon.features.ItemVersionAutosave();
     new Tenon.features.Flash();
     new Tenon.features.FocusError();
-    new Tenon.features.ModalWindows();
-    new Tenon.features.ModalForms();
     new Tenon.features.ProtectChanges();
     new Tenon.features.SortableNestedFields();
     new Tenon.features.tenonContent.Base();

@@ -35,3 +35,9 @@ $bp-min: "screen and (max-width: #{$sm-width - 1px})";
     @content;
   }
 }
+
+@mixin bp-min {
+  @include media($bp-min) {
+    @content;
+  }
+}

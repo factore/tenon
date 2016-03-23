@@ -1,0 +1,64 @@
+.tn-tc-fields__image-container {
+  position: relative;
+  overflow: hidden;
+
+  > img {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+.tn-tc-fields__image-container--stretch {
+  > img { width: 100%; }
+}
+
+.tn-tc-fields__add-image {
+  > span {
+    display: block;
+    border: 4px dashed $light-border-color;
+    background: $contrast-bg-color;
+    height: 200px;
+    text-align: center;
+    line-height: 200px;
+    color: $primary-fg-color;
+  }
+}
+
+.tn-tc-fields__caption {
+  @extend %font-smaller;
+  margin: 0;
+  background: $contrast-bg-color;
+  padding: $default-spacing / 4;
+  width: 100%;
+  color: $white;
+  resize: none;
+
+  @include placeholder {
+    color: $white;
+  }
+}
+
+.tn-tc-fields__wrapped-image {
+  @include bp-min { padding: 0; }
+}
+
+.tn-tc-fields__wrapped-image--left {
+  float: left;
+  padding: $default-spacing / 4 $default-spacing / 3 0 $default-spacing / 4;
+}
+
+.tn-tc-fields__wrapped-image--right {
+  float: right;
+  padding: $default-spacing / 4 $default-spacing / 4 0 $default-spacing / 3;
+}
+
+.medium-editor-placeholder {
+  position: static;
+}
+
+.medium-editor-placeholder::after {
+  display: none;
+  position: static;
+}

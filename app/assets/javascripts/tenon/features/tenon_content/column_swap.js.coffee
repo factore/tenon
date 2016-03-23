@@ -41,4 +41,4 @@ class Tenon.features.tenonContent.ColumnSwap
     $(e.currentTarget)
       .closest('.image-controls')
       .data('image')
-      .closest('.tn-tc-row')
+      .closest('.tn-tc__row')

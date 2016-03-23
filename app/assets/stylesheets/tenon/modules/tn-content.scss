@@ -8,24 +8,6 @@
   color: $panel-label-color;
 }
 
-.tn-tc-wrap {
-  .tn-tc-sizes {
-    display: none;
-  }
-
-  &.mobile-breakpoint {
-    .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve {
-      @extend .inner12;
-    }
-
-    .wrapped-image.left,
-    .wrapped-image.right {
-      float: none;
-      padding: 0;
-    }
-  }
-}
-
 .tn-tc-main-actions {
   a {
     @include default-transition;
@@ -49,167 +31,18 @@
   }
 }
 
-.tenon-content {
+.tn-tc__rows {
   margin-top: $default-spacing;
   // @import "variables";
   // @import "styleguides/styleguide";
   // @extend body;
-  .tn-tc-row {
-    @include default-transition;
-    position: relative;
-    overflow: hidden;
-    min-height: 50px;
-    margin-bottom: $default-spacing / 3;
-    padding: 0;
 
-    &.ui-sortable-helper {
-      @extend %z-depth-3;
-      overflow: hidden;
-      box-sizing: content-box;
-      max-height: 200px;
-      padding: $default-spacing / 4 $default-spacing / 3;
-      border: 1px solid $light-border-color;
-      background: $white;
-    }
-
-    &.sortable-placeholder {
-      min-height: 50px;
-      max-height: 200px;
-      border: 1px dashed $light-border-color;
-    }
-
-    i {
-      font-size: $default-spacing;
-    }
-
-    .tn-tc-bottombar {
-      display: none;
-    }
-  }
-
-  .reorder {
-    float: left;
-  }
-
-  .tn-tc-topbar,
-  .tn-tc-bottombar {
-    padding: 0;
-    .actions {
-      position: relative;
-      text-align: right;
-      color: $primary-fg-color;
-
-      i {
-        font-size: 20px;
-        line-height: 20px;
-      }
-
-      a {
-        display: inline-block;
-        padding: 0;
-        color: $primary-fg-color;
-        height: 20px;
-      }
-
-      .tn-tc-open-library {
-      }
-
-      a:hover {
-        text-decoration: none;
-      }
-
-      .reorder {
-        float: left;
-        cursor: move;
-      }
-    }
-  }
-  .tn-tc-fields {
-    min-height: $default-spacing;
-  }
-
-  > div {
-    min-height: 100%;
-  }
-
-  a.add-image {
-    span {
-      line-height: 200px;
-      display: block;
-      height: 200px;
-      text-align: center;
-      color: $primary-fg-color;
-      border: 4px dashed $light-border-color;
-      background: $contrast-bg-color;
-    }
-  }
-
-  .wrapped-image {
-    @include media($bp-sm) {
-      &.left, &.right {
-        float: none;
-        padding: 0;
-      }
-    }
-
-    &.left {
-      float: left;
-      padding: $default-spacing / 4 $default-spacing / 3 0 $default-spacing / 4;
-    }
-
-    &.right {
-      float: right;
-      padding: $default-spacing / 4 $default-spacing / 4 0 $default-spacing / 3;
-    }
-  }
-  .medium-editor-placeholder {
-    position: static;
-  }
-  .medium-editor-placeholder:after {
-    position: static;
-    display: none;
-  }
-  .tn-tc-asset-field img {
-    width: 100%;
-  }
-  .image {
-    position: relative;
-    overflow: hidden;
-    img {
-      display: block;
-      width: auto;
-      max-width: 100%;
-      margin: 0 auto;
-    }
-    &.stretch img {
-      width: 100%;
-    }
-  }
-  textarea.caption, div.tn-tc-caption {
-    @extend %font-smaller;
-    width: 100%;
-    margin: 0;
-    padding: $default-spacing / 4;
-    resize: none;
-    color: #ffffff;
-    background: $contrast-bg-color;
-  }
-  textarea.caption:-moz-placeholder {
-    color: #ffffff;
-  }
-  textarea.caption::-webkit-input-placeholder {
-    color: $white;
-  }
-  .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve {
-    @include default-transition;
-  }
-}
 
 .tn-tc-templates {
   display: none;
 }
 
-.tn-tc-wrapped-image-with-text {
+.tn-tc__wrapped-image-with-text {
   .editable-text {
     min-height: 200px;
   }

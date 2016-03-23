@@ -1,10 +1,7 @@
 class Tenon.features.AssetCropping
   constructor: ->
     $(document).on('click', '.asset-crop', @_loadCrop)
-    $(document).on('click', '.asset-cropping .close', @_cancelCrop)
-    $(document).on('ajax:success', '.asset-cropping form[data-remote]', @_saveCrop)
-    $(document).keyup (ev) =>
-      @_cancelCrop(ev) if ev.keyCode is 27
+    $(document).on('ajax:success', 'form[data-crop-form]', @_saveCrop)
     $(document).on('click', '.save', @_showSpinner)
 
   _showSpinner: (e) ->
@@ -13,14 +10,17 @@ class Tenon.features.AssetCropping
   _loadCrop: (e) =>
     e.preventDefault()
     @$link = $(e.currentTarget)
-    $.get(@$link.attr('href'), {format: 'html'}, @_startCrop, 'html')
+    href = @$link.attr('href')
+    unless href?.length
+      href = @$link.data('base-assets-path') + '/'
+      href += @$link.data('asset-id') + '/'
+      href += 'crop'
 
-  _cancelCrop: (e) ->
-    e.preventDefault()
-    $('.asset-cropping').remove()
+    $.get(href, { format: 'html' }, @_startCrop, 'html')
+
 
   _startCrop: (data) =>
-    $(data).appendTo('body')
+    Tenon.modals.launchWithOpts(content: data)
     $cropbox = $('#cropbox')
 
     $("#cropbox").Jcrop
@@ -31,7 +31,7 @@ class Tenon.features.AssetCropping
 
   _saveCrop: (e, data) =>
     if @$link.data('post-crop-handler')
-      @_sendToHandler(data)
+      @_sendToHandler(data.record)
     else
       $('.asset-cropping').remove()
 

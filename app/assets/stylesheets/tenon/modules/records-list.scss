@@ -1,0 +1,17 @@
+.records-list {
+  @extend %font-smaller;
+  color: $light-fg-color;
+}
+
+.records-list__count {
+  margin-right: 5px;
+  line-height: 45px;
+}
+
+.records-list__action {
+  float: right;
+}
+
+.records-list__action-icon {
+  @extend %action-icon;
+}

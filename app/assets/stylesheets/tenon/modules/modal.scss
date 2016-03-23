@@ -28,6 +28,15 @@
   opacity: 1;
 }
 
+.modal--xlg {
+  top: 5%;
+  max-height: 95%;
+
+  @include bp-md {
+    width: 90%;
+  }
+}
+
 .modal__content {
   padding: 24px;
 }

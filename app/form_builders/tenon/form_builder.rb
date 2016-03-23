@@ -5,7 +5,7 @@ module Tenon
     alias_method :super_label, :label
 
     def tenon_content(method_name)
-      @template.render 'tenon/tenon_content/builder',
+      @template.render 'tenon/tenon_content/tenon_content',
         f: self,
         field: method_name
     end
@@ -262,7 +262,9 @@ module Tenon
         label = language_title ? label + " (#{language_title.to_s.titleize})" : label
         label_class = ['input-block__label']
         label_class = ['input-block__label--inline'] if inline
-        label_class << ' input-block__label--is-required' if required
+        if required
+          label += content_tag(:span, 'Required', class: 'input-block__required-msg')
+        end
         super(get_method(method_name, language), label.html_safe, class: label_class.join(' '))
       end
     end

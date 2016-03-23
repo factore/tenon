@@ -16,8 +16,6 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*', 'vendor/assets/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
   s.test_files = Dir['spec/**/*'] - Dir['spec/dummy/**/*']
 
-  s.add_development_dependency 'better_errors'
-  s.add_development_dependency 'binding_of_caller'
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'capybara-webkit'
   s.add_development_dependency 'database_cleaner'

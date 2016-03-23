@@ -49,8 +49,13 @@
 // Position
 .fab--bottom-right {
   position: fixed;
-  right: $default-spacing;
-  bottom: $default-spacing;
+  right: $default-spacing / 3;
+  bottom: $default-spacing / 3;
+
+  @include bp-md {
+    right: $default-spacing;
+    bottom: $default-spacing;
+  }
 }
 
 // Animation

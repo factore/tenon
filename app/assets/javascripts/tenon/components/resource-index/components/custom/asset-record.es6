@@ -12,6 +12,7 @@ class AssetRecord extends React.Component {
       id: id,
       thumbnailPath: style_urls.thumbnail,
       mediumPath: style_urls.medium,
+      originalPath: style_urls.original,
       filename: display_name
     });
   }

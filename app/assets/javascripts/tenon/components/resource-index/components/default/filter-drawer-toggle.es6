@@ -4,9 +4,9 @@ window.ResourceIndexComponents.DefaultFilterDrawerToggle = (props) => {
   }
 
   return (
-    <div className="toolbar__action filter-toggle">
+    <div className={'toolbar__action ' + props.className || ''}>
       <a
-        className="action-icon"
+        className="toolbar__action-icon"
         onClick={props.actions.toggleFilterDrawer}
         href="#!"
         title="Filter">

@@ -30,7 +30,7 @@
   letter-spacing: .8px;
 
   @include bp-md {
-    font-size: #{$body-size}px;
+    font-size: #{$smaller-size}px;
   }
 
   &::after {

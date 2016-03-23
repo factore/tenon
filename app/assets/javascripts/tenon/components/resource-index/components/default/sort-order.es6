@@ -6,9 +6,9 @@ window.ResourceIndexComponents.DefaultSortOrder = (props) => {
   const { SortOrderItem } = props.childComponents;
 
   return (
-    <div className="toolbar__action">
+    <div className="records-list__action">
       <a
-        className="action-icon dropdown-button"
+        className="records-list__action-icon dropdown-button"
         href="#!"
         title="Sort Order">
         <i className="material-icons">sort</i>

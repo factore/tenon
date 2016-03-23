@@ -55,7 +55,7 @@
   * Loosen up nokogiri dependency
 
 1.0.73 2015-08-06
-  * Set fixed height for .tn-tc-bottombar so it displays again
+  * Set fixed height for .tn-tc__bottom-bar so it displays again
   * Make Tenon content action icons 20px rather than 1em
 
 1.0.72 2015-07-14

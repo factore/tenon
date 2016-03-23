@@ -1,0 +1,22 @@
+.main-nav-overlay {
+  @include transition(background-color .25s ease, left 0s ease .25s, right 0s ease .25s, bottom 0s ease .25s);
+  position: fixed;
+  top: 0;
+  right: 9999px;
+  bottom: 9999px;
+  left: -9999px;
+  z-index: $z-layout-main-nav-overlay;
+  background: rgba($black, 0);
+
+  @include bp-md {
+    display: none;
+  }
+
+  .main-nav-drawer-open & {
+    @include transition(left 0s, right 0s, bottom 0s, background-color .25s ease);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba($black, .8);
+  }
+}

@@ -12,10 +12,17 @@
   color: $label-color;
 }
 
-.input-block__label--is-required {
-  &::after {
+.input-block__required-msg {
+  @extend %font-smallest;
+  display: inline-block;
+  padding-left: $default-spacing;
+  font-style: italic;
+
+  &::before {
     display: inline-block;
-    margin-left: 5px;
+    position: relative;
+    top: -2px;
+    margin: 0 5px;
     border-radius: 50%;
     background: $required-color;
     width: $required-dot-size;
@@ -63,7 +70,7 @@
   line-height: normal;
 
   &:focus {
-    border-color: $primary-color;
+    border-color: $input-focus-color;
   }
 }
 
@@ -78,26 +85,7 @@
   @extend %font-h3;
   border-color: $dark-border-color;
   padding: ($default-spacing / 3) $default-spacing ($default-spacing / 3) 0;
-
-  &:focus {
-    border-color: $primary-color;
-
-    + .input-block__title-text-field-icon {
-      display: none;
-    }
-  }
 }
-
-.input-block__title-text-field-icon {
-  display: block;
-  position: absolute;
-  top: $default-spacing * 1.25;
-  right: 0;
-  z-index: 10;
-  line-height: 30px;
-  color: $primary-color;
-}
-
 
 .input-block__multiline-text-field {
   @extend %text-field;

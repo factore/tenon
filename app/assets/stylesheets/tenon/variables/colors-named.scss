@@ -35,6 +35,9 @@ $light-border-color: lighten($grey, 10%);
 $dark-border-color: $grey;
 $hr-bg-color: lighten($grey, 20%);
 $modal-bg-color: $white;
+$input-focus-color: $secondary-color;
+$medium-editor-toolbar-bg-color: $secondary-color;
+$medium-editor-toolbar-fg-color: $white;
 
 // Flash
 $flash-bg-color: rgba($cobalt, .95);
@@ -54,7 +57,7 @@ $btn-primary-bg-color: $primary-color;
 $btn-primary-fg-color: $white;
 $btn-secondary-bg-color: $secondary-color;
 $btn-secondary-fg-color: $white;
-$btn-fab-bg-color: $secondary-color;
+$btn-fab-bg-color: $orange;
 $btn-fab-fg-color: $white;
 $tool-toggle-bg-color: darken($primary-color, 10%);
 $tool-toggle-fg-color: $white;
@@ -63,7 +66,7 @@ $tool-toggle-fg-color: $white;
 $main-nav-bg-color: lighten($grey, 10%);
 $main-nav-fg-color: $black;
 $main-nav-hover-color: $grey;
-$main-nav-icon-color: rgba($primary-color, .9);
+$main-nav-icon-color: $secondary-color;
 $app-info-fg-color: $white;
 $app-info-hover-color: rgba($primary-color, .4);
 $app-info-bg-color: rgba(darken($main-nav-bg-color, 20%), .4);

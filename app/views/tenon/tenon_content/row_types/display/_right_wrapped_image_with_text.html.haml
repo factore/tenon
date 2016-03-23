@@ -1,8 +1,8 @@
-.tn-tc-row.right-wrapped-image-with-text.wrapped-image-with-text
+.tn-tc__row.right-wrapped-image-with-text.wrapped-image-with-text
   .twelve
     - row.pieces.each do |piece|
       - if piece.piece_type == 'Image'
-        .tn-tc-wrapped-image.right.omega{ class: piece.size }
+        .tn-tc__wrapped-image.right.omega{ class: piece.size }
           = render 'tenon/tenon_content/piece_types/display/image', piece: piece
       - if piece.piece_type == 'Text'
         = render 'tenon/tenon_content/piece_types/display/text', piece: piece

@@ -1,7 +1,7 @@
 class Tenon.features.tenonContent.ImageControls
   constructor: ($container) ->
     $(document).on('click', @hideControls)
-    $container.on('click', '.image img', @toggleControls)
+    $container.on('click', '[data-asset-thumbnail] > img', @toggleControls)
 
   toggleControls: (e) =>
     @hideControls()
@@ -31,7 +31,7 @@ class Tenon.features.tenonContent.ImageControls
     @_removeControls()
     Tenon.activeImageControls = this
     $img = $(e.currentTarget)
-    @$image = $img.closest('.image')
+    @$image = $img.closest('[data-asset-thumbnail]')
     @$controls = @$image.find('.image-controls').clone()
     @_tagControls()
     @showControls(e.pageX, e.pageY)
@@ -43,7 +43,7 @@ class Tenon.features.tenonContent.ImageControls
       .data('asset-field', @$image.closest('.tn-tc-asset-field'))
 
     # Add some classes for targeting and styling
-    if @$image.closest('.tn-tc-wrapped-image-with-text').length > 0
+    if @$image.closest('.tn-tc__wrapped-image-with-text').length > 0
       @$controls.addClass('wrapped-image', true)
     else if @$image.closest('.full-width-image').length > 0
       @$controls.addClass('full-width-image')

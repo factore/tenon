@@ -3,8 +3,6 @@
   top: $util-nav-height;
   left: -100%;
   z-index: $z-layout-drawer;
-  border-right: 1px solid $light-border-color;
-  box-shadow: inset -2px 1px 10px -6px $inset-shadow-color;
   background-color: $body-bg-color;
   width: 100%;
   height: 100%;
@@ -12,6 +10,8 @@
 
   @include bp-md {
     left: -$main-nav-width;
+    border-right: 1px solid $light-border-color;
+    box-shadow: inset -2px 1px 10px -6px $inset-shadow-color;
     width: $main-nav-width;
   }
 }

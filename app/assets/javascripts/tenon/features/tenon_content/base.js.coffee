@@ -1,6 +1,6 @@
 class Tenon.features.tenonContent.Base
   constructor: ->
-    $container = $('.tenon-content')
+    $container = $('.tn-tc__rows')
     new Tenon.features.tenonContent.Aesthetics($container)
     new Tenon.features.tenonContent.BottombarToggler($container)
     new Tenon.features.tenonContent.CaptionToggler($container)

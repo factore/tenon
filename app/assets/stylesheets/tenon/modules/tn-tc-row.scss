@@ -1,0 +1,45 @@
+.tn-tc-row {
+  @include default-transition;
+  position: relative;
+  margin-bottom: $default-spacing / 3;
+  padding: 0;
+  min-height: 50px;
+  overflow: hidden;
+}
+
+.tn-tc-row__top-bar,
+.tn-tc-row__bottom-bar {
+  @include default-transition;
+  position: relative;
+  opacity: 0;
+  padding: 5px 0;
+  text-align: right;
+  color: $primary-fg-color;
+
+  .tn-tc-row:hover & {
+    opacity: 1;
+  }
+}
+
+.tn-tc-row__bottom-bar {
+  display: none;
+  text-align: center;
+}
+
+.tn-tc-row__action {
+  display: inline;
+}
+
+.tn-tc-row__action--right {
+  display: block;
+  float: right;
+}
+
+.tn-tc-row__action--left {
+  display: block;
+  float: left;
+}
+
+.tn-tc-row__drag-anchor {
+  cursor: move;
+}

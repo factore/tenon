@@ -9,7 +9,7 @@ class Tenon.features.ModalWindows
 
   @prepBodyForModal: ->
     $overlay = $('<div class="modal-overlay" />')
-    $overlay.appendTo('body') unless $('.modal-overlay').length
+    $overlay.appendTo('body') unless $('.modal-overlay--is-active').length
     $('body').css(overflow: 'hidden')
     setTimeout( ->
       $overlay.addClass('modal-overlay--is-active')
@@ -74,6 +74,9 @@ class Tenon.features.ModalWindows
       dataType: 'html'
       success: @_openInModal
       beforeSend: null
+
+  _launchWithContent: =>
+    @_openInModal(@opts.content)
 
   _launchWithTarget: (e) =>
     if @opts.closest?.length && @opts.$link

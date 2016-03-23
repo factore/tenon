@@ -8,6 +8,7 @@ window.StandaloneList = require('./components/resource-index/containers/standalo
 window.classNames = require('classnames');
 window.pluralize = require('pluralize');
 window.reactDragula = require('react-dragula');
+window.dragula = window.reactDragula;
 require('./querystring.underscore');
 require('./inflection.underscore');
 window._ = require('lodash');

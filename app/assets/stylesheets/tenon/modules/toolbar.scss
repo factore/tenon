@@ -4,15 +4,21 @@
   left: 0;
   z-index: $z-layout-toolbar;
   background-color: $toolbar-bg-color;
-  padding: 0 ($default-spacing + $util-nav-width) 0 $main-nav-width;
   width: 100%;
   height: $util-nav-height;
   overflow: visible;
 }
 
 .toolbar__content {
-  position: relative;
-  padding: 10px ($action-icon-dimension * 3 + 10px) 10px $default-spacing;
+  margin: 0 0 0 $action-icon-dimension;
+  padding: 10px 0;
+  width: calc(100% - #{$action-icon-dimension * 2});
+
+
+  @include bp-md {
+    margin: 0 auto;
+    width: calc(100% - 500px);
+  }
 }
 
 .toolbar__text {
@@ -29,23 +35,32 @@
 .toolbar__actions--right {
   position: absolute;
   top: 0;
-  right: 0;
+  right: $default-spacing / 3;
+
+  @include bp-md {
+    right: $util-nav-width + $default-spacing;
+  }
+
+  > .toolbar__action { padding-left: 5px; }
+}
+
+.toolbar__actions--left {
+  position: absolute;
+  top: 0;
+  left: $default-spacing / 3;
+
+  @include bp-md {
+    left: $default-spacing;
+  }
+
+  > .toolbar__action { padding-right: 5px; }
 }
 
 .toolbar__action {
   display: block;
   float: left;
-  padding: 0 10px;
   height: $action-icon-dimension;
   text-align: center;
-
-  > a {
-    color: $toolbar-link-fg-color;
-
-    &:hover {
-      color: $toolbar-link-fg-color--hover;
-    }
-  }
 }
 
 .toolbar__action--back {
@@ -55,6 +70,15 @@
 
   i {
     margin-right: 20px;
+  }
+}
+
+.toolbar__action-icon {
+  @extend %action-icon;
+  color: $toolbar-link-fg-color;
+
+  &:hover {
+    color: $toolbar-link-fg-color--hover;
   }
 }
 
@@ -72,7 +96,7 @@
 @mixin toolbar-overlay-generator {
   %toolbar--overlay {
     @include default-transition;
-    opacity: 0;
+    @extend %z-depth-1;
     height: 0;
     overflow: hidden;
     line-height: $util-nav-height;
@@ -91,7 +115,6 @@
 
 // toolbar overlay is open:
 .toolbar--is-open {
-  opacity: 1;
   height: $util-nav-height;
 }
 

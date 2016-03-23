@@ -1,0 +1,22 @@
+%action-icon {
+  display: inline-block;
+  position: relative;
+  height: $action-icon-dimension;
+  line-height: $action-icon-dimension;
+  color: $primary-fg-color;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  > i,
+  > a,
+  > span {
+    @include default-transition;
+    display: inline-block;
+    position: relative;
+    height: $action-icon-dimension;
+    overflow: hidden;
+    line-height: $default-spacing * 1.5;
+  }
+}

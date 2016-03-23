@@ -1,16 +1,18 @@
 class Tenon.features.tenonContent.StretchToFill
+  stretchClass: 'tn-tc-fields__image-container--stretch'
+
   constructor: (@$container) ->
-    $(document).on('click', '.medium-editor-action.stretch-to-fill', @stretchImage)
+    $(document).on('click', '.medium-editor-toolbar__action.stretch-to-fill', @stretchImage)
 
   stretchImage: (e) =>
     e.preventDefault()
     @$button = $(e.currentTarget)
     @$piece = @_getPiece()
-    @$image = @_getImage()
+    @$imageContainer = @_getImageContainer()
     @_setState()
 
   _setState: () =>
-    if @$image.hasClass('stretch')
+    if @$imageContainer.hasClass(@stretchClass)
       @state = false
     else
       @state = true
@@ -26,19 +28,19 @@ class Tenon.features.tenonContent.StretchToFill
 
   _setImageState: () =>
     if @state == true
-      @$image.addClass('stretch')
+      @$imageContainer.addClass(@stretchClass)
     else
-      @$image.removeClass('stretch')
+      @$imageContainer.removeClass(@stretchClass)
 
   _setButtonActiveState: () =>
     if @state == true
       @$button.addClass('medium-editor-button-active')
-      @$image.find('.stretch-to-fill').addClass('medium-editor-button-active')
+      @$imageContainer.find('.stretch-to-fill').addClass('medium-editor-button-active')
     else
       @$button.removeClass('medium-editor-button-active')
-      @$image.find('.stretch-to-fill').removeClass('medium-editor-button-active')
+      @$imageContainer.find('.stretch-to-fill').removeClass('medium-editor-button-active')
 
-  _getImage: () =>
+  _getImageContainer: () =>
     @$button
       .closest('.image-controls')
       .data('image')
