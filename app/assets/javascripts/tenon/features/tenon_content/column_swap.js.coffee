@@ -1,7 +1,16 @@
 class Tenon.features.tenonContent.ColumnSwap
   constructor: (@$container) ->
-    $(document).on('click', '.column-image .swap-sides', @_swapColumns)
-    $(document).on('click', '.wrapped-image .swap-sides', @_swapWrapped)
+    $(document).off('click.column-swap')
+    $(document).on(
+      'click.column-swap',
+      '.column-image .swap-sides',
+      @_swapColumns
+    )
+    $(document).on(
+      'click.column-swap',
+      '.wrapped-image .swap-sides',
+      @_swapWrapped
+    )
 
   _swapColumns: (e) =>
     e.preventDefault()
@@ -41,4 +50,4 @@ class Tenon.features.tenonContent.ColumnSwap
     $(e.currentTarget)
       .closest('.image-controls')
       .data('image')
-      .closest('.tn-tc__row')
+      .closest('.tn-tc-row')

@@ -1,6 +1,13 @@
 class Tenon.features.tenonContent.ColumnSizing
   constructor: (@$container) ->
-    $(document).on('click', '.image-controls.column-image [data-column-resize-operation]', @_changeSize)
+    @totalColumns = 12
+    @maxColumnSize = 11
+    $(document).off('click.column-sizing')
+    $(document).on(
+      'click.column-sizing',
+      '.image-controls.column-image [data-column-resize-operation]',
+      @_changeSize
+    )
 
   _changeSize: (e) =>
     e.preventDefault()
@@ -9,45 +16,46 @@ class Tenon.features.tenonContent.ColumnSizing
     @$column = $(e.currentTarget)
       .closest('.image-controls')
       .data('image')
-      .closest(@_wordClasses())
+      .closest('.tn-tc-piece')
     @$sibling = @$column.siblings()
 
     # Resize the columns
-    $.each @_words, (i, word) =>
-      @["_#{operation}From"](word, i + 1) and false if @$column.hasClass(word)
+    classList = @$column.get(0).classList.toString()
+    regex = /.*inner(\d+).*/g
+    currentColumnSize = regex.exec(classList)[1] # Returns eg. "6" for "inner6"
+    @["_#{operation}From"](currentColumnSize)
 
     # Let the other classes know the size has changed
     @$column.on 'transitionend MSTransitionEnd webkitTransitionEnd oTransitionEnd', =>
       @$column.trigger('tenon.content.column_resized');
 
-  _increaseFrom: (word, num) =>
-    unless num >= @_words.length - 1
-      siblingClass = @_numberToWord(@_words.length - num)
-      newSiblingClass = @_numberToWord(@_words.length - num - 1)
-      newClass = @_numberToWord(num + 1)
-      @_setSizes(word, newClass, siblingClass, newSiblingClass)
+  _increaseFrom: (num) =>
+    num = parseInt(num)
+    unless num >= @maxColumnSize
+      oldSiblingSize = @totalColumns - num
+      newSiblingSize = @totalColumns - num - 1
+      oldSize = num
+      newSize = num + 1
+      @_setSizes(oldSize, newSize, oldSiblingSize, newSiblingSize)
 
-  _decreaseFrom: (word, num) =>
+  _decreaseFrom: (num) =>
+    num = parseInt(num)
     unless num <= 1
-      siblingClass = @_numberToWord(@_words.length - num)
-      newSiblingClass = @_numberToWord(@_words.length - num + 1)
-      newClass = @_numberToWord(num - 1)
-      @_setSizes(word, newClass, siblingClass, newSiblingClass)
+      oldSiblingSize = @totalColumns - num
+      newSiblingSize = @totalColumns - num + 1
+      oldSize = num
+      newSize = num - 1
+      @_setSizes(oldSize, newSize, oldSiblingSize, newSiblingSize)
 
-  _setSizes: (oldColumn, newColumn, oldSibling, newSibling) =>
+  _setSizes: (oldSize, newSize, oldSiblingSize, newSiblingSize) =>
     # Resize the columns
-    @$column.removeClass(oldColumn).addClass(newColumn)
-    @$sibling.removeClass(oldSibling).addClass(newSibling)
+    @$column
+      .removeClass("inner#{oldSize}")
+      .addClass("inner#{newSize}")
+    @$sibling
+      .removeClass("inner#{oldSiblingSize}")
+      .addClass("inner#{newSiblingSize}")
 
     # Save the values
-    @$column.find('input[name$="[size]"]').val(newColumn)
-    @$sibling.find('input[name$="[size]"]').val(newSibling)
-
-  _words: [
-    'one', 'two', 'three', 'four', 'five', 'six',
-    'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'
-  ]
-
-  _wordToNumber: (word)   => @_words.indexOf(word) + 1
-  _numberToWord: (number) => @_words[number - 1]
-  _wordClasses: => _.map(@_words, (word) -> ".#{word}").join(',')
+    @$column.find('input[name$="[size]"]').val(newSize)
+    @$sibling.find('input[name$="[size]"]').val(newSiblingSize)

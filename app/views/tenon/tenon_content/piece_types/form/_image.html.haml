@@ -10,7 +10,7 @@
     = link_to(new_item_asset_path, class: 'tn-tc-fields__add-image', data: { 'modal-remote' => true, 'modal-title' => "Select Image", 'modal-handler' => 'Tenon.features.tenonContent.AssetAttachment' }) do
       %span Add Image
 
-  = f.super_text_area :caption, class: 'tn-tc-fields__caption', placeholder: 'Enter caption here...', style: ("display: none;" unless f.object.show_caption)
+  = f.super_text_area :caption, class: 'tn-tc-fields__caption', placeholder: 'Enter caption here...', data: { image_caption: true }, style: ("display: none;" unless f.object.show_caption)
   = f.hidden_field :show_caption
 
   .medium-editor-toolbar-form-anchor.link-form{ style: 'position: absolute; z-index: 10;' }

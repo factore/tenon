@@ -1,6 +1,11 @@
 class Tenon.features.tenonContent.ImageLinks
   constructor: (@$container) ->
-    $(document).on('click', '.image-controls .add-link', @buildLinkForm)
+    $(document).off('click.add-image-link')
+    $(document).on(
+      'click.add-image-link',
+      '.image-controls .add-link',
+      @buildLinkForm
+    )
 
   buildLinkForm: (e) =>
     @$button = $(e.currentTarget)
