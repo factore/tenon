@@ -8,7 +8,7 @@
       if (this.props.ui.quickSearchOpen) {
         const node = ReactDOM.findDOMNode(this._input);
 
-        node.querySelectorAll(':scope > input[type=text]')[0].focus();
+        // node.querySelectorAll(':scope > input[type=text]')[0].focus();
       }
     }
 

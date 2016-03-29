@@ -18,8 +18,3 @@
     .spacer
 
   .tn-tc-row__fields= render row_partial, f: f
-
-  .tn-tc-row__bottom-bar
-    .tn-tc-row__action
-      = link_to '#', data: { modal_target: ".tn-tc-library", modal_closest: '.tn-tc', modal_title: "Insert Content", modal_handler: 'Tenon.features.tenonContent.Library', modal_clone: 'true', modal_closest: '.tn-tc', tooltip: '', tn_tc_insert: 'after' }, title: 'Insert Content' do
-        %i.material-icon playlist_add

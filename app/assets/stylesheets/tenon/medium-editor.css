@@ -91,17 +91,6 @@
     margin: 0;
     padding: 0;
     list-style: none; }
-    .medium-editor-toolbar li button, .medium-editor-anchor-preview li button {
-      display: block;
-      margin: 0;
-      padding: 15px;
-      cursor: pointer;
-      font-size: 14px;
-      line-height: 1.33;
-      text-decoration: none;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box; }
     .medium-editor-toolbar li .medium-editor-toolbar__action--underline, .medium-editor-anchor-preview li .medium-editor-toolbar__action--underline {
       text-decoration: underline; }
     .medium-editor-toolbar li .medium-editor-toolbar__action--pre, .medium-editor-anchor-preview li .medium-editor-toolbar__action--pre {

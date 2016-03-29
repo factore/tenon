@@ -1,2 +1,5 @@
-= link_to '#', class: 'main-nav-toggle toggle-drawer', data: { target: 'main-nav' } do
+- if content_for?(:back_button)
+  = yield :back_button
+
+= link_to '#', class: ['main-nav-toggle', 'toggle-drawer', ('hide-on-min' if content_for?(:back_button))], data: { target: 'main-nav' } do
   .burger

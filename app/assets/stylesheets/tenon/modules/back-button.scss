@@ -1,0 +1,19 @@
+.back-button {
+  position: fixed;
+  top: $default-spacing / 2;
+  left: $default-spacing / 2;
+  z-index: $z-layout-main-nav-toggle;
+  padding-top: 3px;
+  width: $default-spacing;
+  height: $util-nav-height;
+  color: $white;
+
+  @include bp-md {
+    display: none;
+  }
+
+  &:hover,
+  &:active {
+    color: $white;
+  }
+}

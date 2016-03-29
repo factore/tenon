@@ -40,6 +40,10 @@
   font-family: $font-family-body;
 }
 
+%font-normal {
+  @include font($body-size, $body-line-height);
+}
+
 %font-small {
   @include font($small-size, $small-line-height);
 }

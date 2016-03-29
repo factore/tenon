@@ -9,3 +9,11 @@
 .material-icon--flip-horizontal {
   @extend %flip-horizontal;
 }
+
+.material-icon--smaller-on-min {
+  @extend %font-normal;
+
+  @include bp-md {
+    @include font-size($standard-icon-size);
+  }
+}

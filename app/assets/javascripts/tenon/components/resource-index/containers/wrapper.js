@@ -23,7 +23,6 @@ const DEFAULT_CHILD_COMPONENT_NAMES = {
   RecordTitle: 'DefaultRecordTitle',
   RecordActions: 'DefaultRecordActions',
   RecordsCount: 'DefaultRecordsCount',
-  RecordExpandedContent: 'DefaultRecordExpandedContent',
   Toolbar: 'DefaultToolbar'
 };
 

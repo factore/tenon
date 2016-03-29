@@ -20,6 +20,7 @@
 }
 
 .medium-editor-toolbar__action {
+  padding: 15px ($default-spacing / 3);
   color: rgba($medium-editor-toolbar-fg-color, .8);
 
   &:hover {

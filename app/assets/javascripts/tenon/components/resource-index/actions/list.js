@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch';
 import { toQueryString, debounce } from 'lodash';
 import * as types from '../constants/action-types';
+import Cookies from 'cookies-js';
 
 export const loadRecords = () => {
   return {
@@ -60,6 +61,10 @@ const updateQueryString = (query) => {
   debouncedPushState({ query: query }, queryString, queryString);
 };
 
+const updateQueryCookie = (query, baseUri) => {
+  Cookies.set(`last-query-${baseUri}`, JSON.stringify(query));
+};
+
 const queryChange = (type, query, append, dispatch, getState) => {
   dispatch({
     type: type,
@@ -70,6 +75,7 @@ const queryChange = (type, query, append, dispatch, getState) => {
 
   if (data.config.manageQueryString) {
     updateQueryString(data.query);
+    updateQueryCookie(data.query, data.config.baseUri);
   }
 
   debouncedFetchRecords(dispatch, append);

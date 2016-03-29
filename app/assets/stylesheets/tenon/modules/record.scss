@@ -126,8 +126,16 @@
 .record--card {
   float: left;
   margin: 0 ($default-spacing / 2) ($default-spacing / 2) 0;
-  width: calc((100% - (#{$default-spacing} * 1.5)) / 4);
-  &:nth-child(4n+4) { margin-right: 0; }
+  width: calc((100% - (#{$default-spacing / 2})) / 2);
+
+  @include bp-md {
+    width: calc((100% - (#{$default-spacing} * 1.5)) / 4);
+    &:nth-child(4n+4) { margin-right: 0; }
+  }
+
+  @include bp-min {
+    &:nth-child(2n+2) { margin-right: 0; }
+  }
 
   .record__actions {
     position: static;

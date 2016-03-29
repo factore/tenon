@@ -3,22 +3,33 @@
   @extend %z-depth-2;
   @extend %font-small;
   @include default-transition;
-  @include transform(translateX(calc(100% + #{$default-spacing})));
+  @include transform(translateY(calc(100% + #{$default-spacing / 2})));
+
   position: fixed;
-  top: $util-nav-height + ($default-spacing / 2);
-  right: $default-spacing;
+  right: $default-spacing / 2;
+  bottom: $default-spacing / 2;
+  left: $default-spacing / 2;
   opacity: 0;
   z-index: $z-flash-message;
   border-radius: 10px;
   background: $flash-bg-color;
   padding: $default-spacing;
-  min-width: 335px;
-  max-width: 435px;
   color: $flash-fg-color;
+
+  @include bp-md {
+    @include transform(translateX(calc(100% + #{$default-spacing})));
+    top: $util-nav-height + ($default-spacing / 2);
+    right: $default-spacing;
+    bottom: auto;
+    left: auto;
+    width: auto;
+    min-width: 335px;
+    max-width: 435px;
+  }
 }
 
 .flash--is-active {
-  @include transform(translateX(0));
+  @include transform(translate(0, 0));
   opacity: 1;
 }
 

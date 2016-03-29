@@ -11,21 +11,26 @@
   border-radius: 2px;
   background-color: $modal-bg-color;
   padding: 0;
-  width: 80%;
-  max-height: 70%;
+  width: 95%;
+  max-height: 95%;
   overflow-y: auto;
   will-change: top, opacity;
 
   @include bp-md {
     width: 70%;
+    max-height: 70%;
   }
 }
 
 .modal--is-active {
   @include transition(left 0s, opacity .25s ease, top .25s ease);
-  top: 10%;
+  top: 5%;
   left: 0;
   opacity: 1;
+
+  @include bp-md {
+    top: 10%;
+  }
 }
 
 .modal--xlg {
@@ -68,15 +73,20 @@
 // Modal with fixed action footer
 .modal--fixed-footer {
   padding: 0;
-  height: 70%;
+  height: 90%;
   overflow-y: hidden;
+
+  @include bp-md {
+    height: 70%;
+  }
 
   > .modal__content {
     position: absolute;
     width: 100%;
     height: calc(100% - 57px);
     max-height: 100%;
-    overflow-y: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
   }
 
   > .modal__footer {

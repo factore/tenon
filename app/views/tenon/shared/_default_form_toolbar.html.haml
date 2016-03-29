@@ -1,5 +1,9 @@
+- content_for :back_button do
+  = link_to back_to_index_path(obj), class: 'back-button' do
+    %i.material-icon arrow_back
+
 .toolbar
-  = render 'tenon/shared/breadcrumbs'
+  .hide-on-min= render 'tenon/shared/breadcrumbs'
   .toolbar__content
     .toolbar__actions.toolbar__actions--right
       - if policy(obj).publish?
