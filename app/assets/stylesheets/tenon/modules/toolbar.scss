@@ -123,8 +123,15 @@
   background-color: $white;
 
   @include bp-md {
-    background-color: $toolbar-quicksearch-bg-color;
-    color: $toolbar-quicksearch-fg-color;
+    display: none;
+  }
+
+  .toolbar__action-icon {
+    color: $light-fg-color;
+
+    @include bp-md {
+      color: $toolbar-quicksearch-fg-color;
+    }
   }
 }
 

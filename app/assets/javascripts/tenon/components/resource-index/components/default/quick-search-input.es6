@@ -19,12 +19,6 @@
             name="q"
             value={q}
             onChange={(e) => updateQuery({ q: e.target.value, page: 1 })}
-            onFocus={() => toggleQuickSearch('on')}
-            onBlur={(e) => {
-              if (e.target.value === '') {
-                toggleQuickSearch('off');
-              }
-            }}
             className="search-content__field"
             placeholder="Search"
             title="Search" />

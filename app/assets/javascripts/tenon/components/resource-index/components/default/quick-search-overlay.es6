@@ -14,16 +14,16 @@
 
     render() {
       const {
-        ui: { quickSearchOpen },
+        ui: { quickSearchOpen, filterDrawerOpen },
         childComponents: { QuickSearchInput, FilterDrawerToggle },
-        actions: { toggleQuickSearch, updateQuery }
+        actions: { toggleQuickSearch, toggleFilterDrawer, replaceQuery }
       } = this.props;
 
       const className = classNames({
         'toolbar': true,
         'toolbar--quicksearch': true,
         'toolbar--overlay-z1': true,
-        'toolbar--is-open': quickSearchOpen
+        'toolbar--is-open': quickSearchOpen || filterDrawerOpen
       });
 
       return (
@@ -36,7 +36,8 @@
                 onClick={(e) => {
                   e.preventDefault();
                   toggleQuickSearch('off');
-                  updateQuery({ q: '', page: 1 });
+                  toggleFilterDrawer('off');
+                  replaceQuery({ q: '', page: 1 });
                 }}>
                 <i className="material-icon">arrow_back</i>
                 &nbsp;

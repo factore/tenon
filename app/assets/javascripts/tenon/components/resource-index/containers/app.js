@@ -17,10 +17,11 @@ export default class App extends Component {
       AddButton, ModalAddButton, ModalForm, ModalFields
     } = this.props.childComponents;
     const { addWithModal } = this.props;
+    const { quickSearchOpen, filterDrawerOpen, modalFormOpen } = this.props.ui;
     const outerClassNames = classNames({
-      'quick-search-open': this.props.ui.quickSearchOpen,
-      'filter-drawer-open': this.props.ui.filterDrawerOpen,
-      'modal-form-open': this.props.ui.modalFormOpen
+      'quick-search-open': quickSearchOpen || filterDrawerOpen,
+      'filter-drawer-open': filterDrawerOpen,
+      'modal-form-open': modalFormOpen
     });
 
     return (

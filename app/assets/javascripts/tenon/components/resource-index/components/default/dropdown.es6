@@ -56,7 +56,9 @@ class Dropdown extends React.Component {
   }
 
   _onOutsideClick(e) {
-    if (ReactDOM.findDOMNode(this).contains(e.target)) {
+    const { isDropdownOpened } = this.state;
+
+    if (!isDropdownOpened || ReactDOM.findDOMNode(this).contains(e.target)) {
       return;
     }
 

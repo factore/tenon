@@ -3,8 +3,33 @@
   @include drawer-transition;
   z-index: $z-layout-drawer;
   padding: $default-spacing;
+  padding-bottom: ($default-spacing * 2) + 75px;
+
+  @include bp-md {
+    padding-bottom: $default-spacing * 2;
+  }
 
   .filter-drawer-open & {
-    @include bp-md { left: 0; }
+    left: 0;
+  }
+}
+
+.filter-drawer__submit {
+  @include drawer-transition;
+  position: fixed;
+  bottom: 0;
+  left: -100%;
+  border-top: 1px solid $light-border-color;
+  padding: ($default-spacing / 2) $default-spacing;
+  background-color: $body-bg-color;
+  width: 100%;
+  height: 75px;
+
+  @include bp-md {
+    display: none;
+  }
+
+  .filter-drawer-open & {
+    left: 0;
   }
 }
