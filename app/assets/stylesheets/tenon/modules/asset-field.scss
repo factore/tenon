@@ -22,22 +22,39 @@
   float: left;
   padding: 0 ($default-spacing / 2);
   width: calc(100% - 80px - (#{$default-spacing / 2}));
-  line-height: 80px;
+
+  @include bp-md {
+    padding-right: $default-spacing;
+    line-height: 80px;
+  }
 }
 
 .asset-field__title {
   @extend %truncate;
-  float: left;
-  width: calc(100% - 190px);
+  margin-top: 8px;
+  height: $body-line-height;
+  line-height: $body-line-height;
+
+  @include bp-md {
+    float: left;
+    margin-top: 0;
+    width: calc(100% - 190px);
+    height: auto;
+    line-height: 80px;
+  }
 }
 
 .asset-field__actions {
-  float: right;
   width: 190px;
-  text-align: right;
+
+  @include bp-md {
+    float: right;
+    text-align: right;
+  }
 }
 
 .asset-field__action {
   display: inline-block;
   margin-right: $default-spacing;
+  &:last-child { margin-right: 0; }
 }
