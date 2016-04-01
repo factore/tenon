@@ -42,17 +42,17 @@
 
 .record__actions {
   @include default-transition;
-  padding: 0 $default-spacing;
+  @include transform-style(preserve-3d);
+  position: absolute;
+  top: $default-spacing / 2;
+  right: 0;
+  background-color: $panel-bg-color;
+  padding: 0;
+  text-align: right;
 
   @include bp-md {
-    @include transform-style(preserve-3d);
-    position: absolute;
-    top: $default-spacing / 2;
-    right: $default-spacing;
     opacity: 0;
-    background-color: $panel-bg-color;
-    padding: 0;
-    text-align: right;
+    right: $default-spacing;
   }
 
   .record:hover & { opacity: .9; }
@@ -60,12 +60,14 @@
 
 
 .record__action-icon {
+  display: none;
   margin-right: $default-spacing / 4;
   width: $action-icon-dimension;
   color: $primary-fg-color;
 
   @include bp-md {
     @include transform(translateY(-50%));
+    display: inline;
     position: relative;
     top: 50%;
   }
@@ -73,6 +75,14 @@
   &:hover { color: $primary-color; }
   &:last-child { margin-right: 0; }
 }
+
+.record__action-icon--kebab {
+  display: inline;
+
+  @include bp-md { display: none; }
+}
+
+
 
 .record__expanded-content {
   @include transition(opacity .25s ease);

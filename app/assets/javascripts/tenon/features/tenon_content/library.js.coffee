@@ -22,7 +22,7 @@ class Tenon.features.tenonContent.Library
   _setToInsertInitialRow: =>
     node = @$link.closest('.tn-tc').find('.tn-tc__rows')
     $('.tn-tc-library a').data('association-insertion-node', node)
-    $('.tn-tc-library a').data('association-insertion-method', 'prepend')
+    $('.tn-tc-library a').data('association-insertion-method', 'append')
 
   _setToInsertByData: =>
     datas = [

@@ -8,7 +8,7 @@
       if (this.props.ui.quickSearchOpen) {
         const node = ReactDOM.findDOMNode(this._input);
 
-        // node.querySelectorAll(':scope > input[type=text]')[0].focus();
+        node.querySelectorAll(':scope > input[type=text]')[0].focus();
       }
     }
 
@@ -39,6 +39,7 @@
                   updateQuery({ q: '', page: 1 });
                 }}>
                 <i className="material-icon">arrow_back</i>
+                &nbsp;
                 <span className="hide-on-min">Clear</span>
               </a>
             </div>

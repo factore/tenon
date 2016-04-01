@@ -120,8 +120,12 @@
 
 // toolbar overlay colors:
 .toolbar--quicksearch {
-  background-color: $toolbar-quicksearch-bg-color;
-  color: $toolbar-quicksearch-fg-color;
+  background-color: $white;
+
+  @include bp-md {
+    background-color: $toolbar-quicksearch-bg-color;
+    color: $toolbar-quicksearch-fg-color;
+  }
 }
 
 .toolbar--filter {

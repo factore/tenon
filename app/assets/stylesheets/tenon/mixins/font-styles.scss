@@ -2,7 +2,7 @@
   @for $i from 1 through 9 {
     %font-n#{$i} {
       font-weight: #{$i*100};
-      font-style: normal;
+      font-style: inherit;
     }
 
     .font-n#{$i} {

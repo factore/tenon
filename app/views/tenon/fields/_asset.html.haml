@@ -20,10 +20,12 @@
           .asset-field__action
             = link_to 'Browse', new_item_asset_path, class: 'action-text', data: { modal_remote: true, modal_title: "Select #{method_name.to_s.titleize}", modal_handler: 'Tenon.features.AssetAttachment' }
           - if opts[:remove_association]
-            .asset-field__action
+            .asset-field__action{ data: { asset_remove: true } }
               = link_to_remove_association 'remove', f, class: 'action-text action-text--secondary'
           - else
-            .asset-field__action
+            .asset-field__action{ data: { asset_remove: true }, style: ('display: none;' unless f.object.send("#{method_name}_id").present?) }
               = link_to 'remove', '#', class: 'remove-asset action-text action-text--secondary', data: { confirm: 'Are you sure?' }
+
+
 
       .spacer

@@ -26,6 +26,7 @@ var Tenon = {
     new Tenon.features.AssetCropping();
     new Tenon.features.AssetDetachment();
     new Tenon.features.CocoonHooks();
+    new Tenon.features.Dropdown();
     new Tenon.features.ItemVersionAutosave();
     new Tenon.features.Flash();
     new Tenon.features.FocusError();

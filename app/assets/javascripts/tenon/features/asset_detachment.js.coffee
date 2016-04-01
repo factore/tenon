@@ -10,3 +10,4 @@ class Tenon.features.AssetDetachment
     @$assetField.find('[data-asset-thumbnail] > img')
       .attr('src', '/assets/tenon/thumb-doc.png')
     @$assetField.find('[data-asset-info]').html('No asset selected.')
+    @$assetField.find('[data-asset-remove]').hide()

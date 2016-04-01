@@ -17,6 +17,7 @@ body {
 main {
   margin: 0 auto $default-spacing * 2;
   padding-top: $util-nav-height + ($default-spacing / 2);
+  padding-bottom: $default-spacing;
   width: calc(100% - #{$default-spacing});
   max-width: 1170px;
 

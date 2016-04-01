@@ -5,7 +5,8 @@
     = piece.hidden_field :piece_type
     - if piece.object.piece_type == 'Image'
       .tn-tc-fields__asset{ class: "inner#{piece.object.size}" }
-        = render 'tenon/tenon_content/piece_types/form/image', f: piece, style: 'half'
+        .tn-tc-asset-field
+          = render 'tenon/tenon_content/piece_types/form/image', f: piece, style: 'half'
     - elsif piece.object.piece_type == 'Text'
       .omega{ class: "inner#{piece.object.size}" }
         = render 'tenon/tenon_content/piece_types/form/text', f: piece

@@ -10,17 +10,9 @@
 .tn-tc-row__top-bar {
   @include default-transition;
   position: relative;
-  opacity: 0;
   padding: 5px 0;
   text-align: right;
   color: $primary-fg-color;
-
-  // Keep visible when hovering or dragging the row
-  .tn-tc-row:hover &,
-  .gu-transit &,
-  .gu-mirror & {
-    opacity: 1;
-  }
 }
 
 .tn-tc-row__action {

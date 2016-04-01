@@ -1,6 +1,6 @@
 class Tenon.features.AssetUploader
   constructor: (@doneFunction) ->
-    @$progress = $('#progress')
+    @$progress = $('.progress-container')
     @$list = $('#assets.record-grid')
     @titleCounter = 1
     @doneFunction ||= @_drawAsset
@@ -74,6 +74,7 @@ class Tenon.features.AssetUploader
 
   _updateProgess: (e, data) ->
     if data.context
+      data.context.removeClass('hidden')
       currentProgress = parseInt(data.loaded / data.total * 100, 10)
       data.context.find('.progress__bar').css('width', currentProgress + '%')
 

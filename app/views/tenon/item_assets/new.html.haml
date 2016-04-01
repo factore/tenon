@@ -2,9 +2,9 @@
   .modal__content
     %h2 Choose Asset
     - unless params[:hide_upload]
-      #upload-asset
+      .upload-asset
         %h3 From Your Computer
-        #progress
+        .progress-container
         = form_for Tenon::Asset.new, format: 'json', builder: Tenon::FormBuilder do |f|
           = error_messages_for :asset
           .input-block

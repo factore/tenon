@@ -1,16 +1,8 @@
 .util-nav{ class: (modifier if local_assigns[:modifier]) }
   = link_to '#!', class: 'util-nav__action-icon dropdown-button', data: { activates: 'account-dropdown'} do
-    .action-icon= i('face')
+    .action-icon= i('person')
 
   %ul.dropdown#account-dropdown
-    %li.dropdown__item
-      = active_link_to '#', class: 'dropdown__action action-icon' do
-        = i('person_outline')
-        %span Account
-    %li.dropdown__item
-      = active_link_to '#', class: 'dropdown__action action-icon' do
-        = i('accessible')
-        %span Accessibility
     %li.dropdown__divider
     %li.dropdown__item
       = active_link_to destroy_user_session_path, method: :delete, class: 'dropdown__action action-icon' do

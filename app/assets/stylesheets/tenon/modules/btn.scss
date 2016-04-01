@@ -63,14 +63,17 @@
   line-height: 40px;
   color: $white;
 
-  &:hover {
-    @extend %z-depth-1;
-    background-color: rgba($white, 1);
-    color: $btn-primary-bg-color;
-  }
 
   @include bp-md {
     background-color: rgba($white, .6);
     padding: 0 $default-spacing;
+  }
+
+  &:hover {
+    @include bp-md {
+      @include z-depth-1;
+      background-color: rgba($white, 1);
+      color: $btn-primary-bg-color;
+    }
   }
 }

@@ -25,11 +25,14 @@
   width: 100%;
   height: 40px;
   line-height: 40px;
-  color: $toolbar-quicksearch-fg-color;
+  color: $primary-fg-color;
 
   @include placeholder {
     @include default-transition;
-    color: $white;
+
+    @include bp-md {
+      color: $white;
+    }
   }
 
   @include bp-md {
@@ -38,5 +41,6 @@
     background-color: $quicksearch-input-bg-color;
     padding: 0 ($default-spacing / 3) 0 ($default-spacing * 1.5);
     width: 100%;
+    color: $toolbar-quicksearch-fg-color;
   }
 }

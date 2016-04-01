@@ -26,7 +26,7 @@
               }
             }}
             className="search-content__field"
-            placeholder="Search..."
+            placeholder="Search"
             title="Search" />
         </section>
       );

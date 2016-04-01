@@ -1,7 +1,7 @@
 .dropdown {
   @extend %z-depth-2;
-  display: none;
   position: absolute;
+  visibility: hidden;
   opacity: 0;
   z-index: $z-dropdown;
   margin: 0;
@@ -11,6 +11,11 @@
   max-height: 650px;
   overflow-y: auto;
   will-change: width, height;
+}
+
+.dropdown--is-active {
+  visibility: visible;
+  opacity: 1;
 }
 
 .dropdown__divider {
@@ -42,6 +47,7 @@
   padding: 0 ($default-spacing / 2);
   text-align: left;
   line-height: $dropdown-item-height - 20px;
+  color: $primary-fg-color;
 
   &,
   span,

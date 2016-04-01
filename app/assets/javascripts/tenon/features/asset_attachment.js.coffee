@@ -24,6 +24,7 @@ class Tenon.features.AssetAttachment
     @$assetField.find('[data-asset-thumbnail]')
       .html("<img src='#{data.thumbnailPath}' />")
     @$assetField.find('[data-asset-info]').html(data.filename)
+    @$assetField.find('[data-asset-remove]').show()
     Tenon.features.ModalWindows.closeModals()
 
   _getAssetField: =>

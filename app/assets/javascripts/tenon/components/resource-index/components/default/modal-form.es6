@@ -1,4 +1,5 @@
 /* global React */
+/* global ReactDOM */
 /* global classNames */
 
 () => {
@@ -9,6 +10,14 @@
 
     componentWillUnmount() {
       window.removeEventListener('keydown', this._closeOnEsc.bind(this));
+    }
+
+    componentDidUpdate() {
+      if (this.props.ui.modalFormActive) {
+        const node = ReactDOM.findDOMNode(this._form);
+
+        node.querySelectorAll(':scope input[type=text]')[0].focus();
+      }
     }
 
     _closeOnEsc(e) {
@@ -66,7 +75,9 @@
                 })}
               </div>
 
-              <form onSubmit={(e) => this._onSubmit(e)}>
+              <form
+                onSubmit={(e) => this._onSubmit(e)}
+                ref={(f) => this._form = f}>
                 <ModalFields
                   { ...this.props }
                   onChange={(e) => this._updateValue(e)} />

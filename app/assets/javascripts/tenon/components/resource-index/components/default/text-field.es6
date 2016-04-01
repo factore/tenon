@@ -1,6 +1,7 @@
 /* global classNames */
 
-window.TextField = ({ label, type, name, value, onChange, errors }) => {
+window.TextField = (props) => {
+  const { label, type, errors } = props;
   const errorClassNames = classNames({
     'input-block__field-with-errors': errors
   });
@@ -13,9 +14,7 @@ window.TextField = ({ label, type, name, value, onChange, errors }) => {
         <input
           className="input-block__text-field"
           type={type || 'text'}
-          name={name}
-          value={value}
-          onChange={onChange} />
+          { ...props } />
 
         <ErrorMessages errors={errors} />
       </div>

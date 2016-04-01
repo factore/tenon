@@ -7,10 +7,6 @@
       - else
         = field.to_s.titleize
 
-    %p
-      = link_to '#', class: 'action-text initial-row', data: { modal_target: '.tn-tc-library', modal_closest: '.tn-tc', modal_clone: 'true', modal_title: 'Add Content', modal_handler: 'Tenon.features.tenonContent.Library', tn_tc_add_content: true }, title: 'Add Content' do
-        Add Content
-
     .tn-tc__wrap
       .tn-tc__rows
         = f.fields_for "#{field}_tenon_content_rows" do |row|
@@ -23,3 +19,6 @@
             - Tenon::TenonContent::RowTypes::LIBRARY_ROW_TYPES.each do |title, row_type|
               %li.tn-tc-library__item= row_link(title, row_type, field, f)
           .spacer
+
+    %p
+      = link_to 'Add Content', '#', class: 'action-text initial-row', data: { modal_target: '.tn-tc-library', modal_closest: '.tn-tc', modal_clone: 'true', modal_title: 'Add Content', modal_handler: 'Tenon.features.tenonContent.Library', tn_tc_add_content: true }, title: 'Add Content'

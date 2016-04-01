@@ -19,6 +19,7 @@
     };
 
     this.each(function(){
+      console.log(this);
     var origin = $(this);
     var options = $.extend({}, defaults, option);
     var isFocused = false;
@@ -221,8 +222,4 @@
 
    });
   }; // End dropdown plugin
-
-  $(document).ready(function(){
-    $('.dropdown-button').dropdown();
-  });
 }( jQuery ));

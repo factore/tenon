@@ -6,11 +6,13 @@
   z-index: $z-layout-drawer;
   background-color: $white;
   width: calc(100% - #{$default-spacing * 3});
+  max-width: 370px;
 
   @include bp-md {
     top: $util-nav-height;
     background-color: $body-bg-color;
     width: $main-nav-width;
+    max-width: $main-nav-width;
   }
 
 
