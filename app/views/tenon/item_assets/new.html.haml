@@ -3,7 +3,7 @@
     %h2 Choose Asset
     - unless params[:hide_upload]
       .upload-asset
-        %h3 From Your Computer
+        %h3 From Your Device
         .progress-container
         = form_for Tenon::Asset.new, format: 'json', builder: Tenon::FormBuilder do |f|
           = error_messages_for :asset

@@ -50,26 +50,26 @@
   color: $primary-fg-color;
 
   &,
-  span,
-  i {
+  > span,
+  > i {
     display: block;
     height: auto;
     min-height: $dropdown-item-height;
   }
 
   &,
-  span {
+  > span {
     overflow: hidden;
     zoom: 1;
   }
 
-  span,
-  i {
+  > span,
+  > i {
     padding: 10px 0;
     line-height: $dropdown-item-height - 20px;
   }
 
-  i {
+  > i {
     @include font-size($dropdown-icon-size);
     float: left;
     margin-right: 10px;
@@ -85,4 +85,17 @@
     background-color: $dropdown-active-bg-color;
     color: $dropdown-active-fg-color;
   }
+}
+
+.dropdown__active-icon {
+  display: none;
+
+  .dropdown__action--is-active & {
+    display: inline-block;
+    margin-left: $default-spacing / 2;
+    position: relative;
+    top: 3px;
+  }
+
+  > i { @include font-size($dropdown-icon-size); }
 }

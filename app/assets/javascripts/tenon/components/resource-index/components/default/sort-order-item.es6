@@ -6,7 +6,7 @@ window.ResourceIndexComponents.DefaultSortOrderItem = (props) => {
   const [field, direction] = order.split(':');
 
   if (field === order_field && direction === order_direction) {
-    classNames.push('active');
+    classNames.push('dropdown__action--is-active');
   }
 
   return (
@@ -15,7 +15,12 @@ window.ResourceIndexComponents.DefaultSortOrderItem = (props) => {
         href="#!"
         className="dropdown__action action-icon"
         onClick={(e) => orderBy(e, field, direction)}>
-        <span>{title}</span>
+        <span>
+          {title}
+          <div className="dropdown__active-icon">
+            <i className="material-icon">check</i>
+          </div>
+        </span>
       </a>
     </li>
   );

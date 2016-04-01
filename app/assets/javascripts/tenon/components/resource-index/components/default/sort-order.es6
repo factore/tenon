@@ -7,26 +7,26 @@ window.ResourceIndexComponents.DefaultSortOrder = (props) => {
 
   return (
     <div className="records-list__action">
-      <a
-        className="records-list__action-icon dropdown-button"
-        data-dropdown-activate
-        href="#!"
-        title="Sort Order">
-        <i className="material-icons">sort</i>
-      </a>
+      <Dropdown>
+        <DropdownButton
+          className="records-list__action-icon"
+          title="Sort Order">
+          <i className="material-icons">sort</i>
+        </DropdownButton>
 
-      <ul className="dropdown">
-        <li className="dropdown__item dropdown__item--label">Order By</li>
-        {props.orderOptions.map((oo) => {
-          return (
-            <SortOrderItem
-              key={oo.order}
-              { ...props }
-              title={oo.title}
-              order={oo.order} />
-          );
-        })}
-      </ul>
+        <DropdownMenu>
+          <li className="dropdown__item dropdown__item--label">Order By</li>
+          {props.orderOptions.map((oo) => {
+            return (
+              <SortOrderItem
+                key={oo.order}
+                { ...props }
+                title={oo.title}
+                order={oo.order} />
+            );
+          })}
+        </DropdownMenu>
+      </Dropdown>
     </div>
   );
 };
