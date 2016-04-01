@@ -1,3 +1,5 @@
+/* global DropdownHelper */
+
 () => {
   class Dropdown {
     constructor(options) {
@@ -55,7 +57,7 @@
     }
 
     _hideDropdown($origin, options) {
-      const $activates = $origin.next('.dropdown');
+      const $activates = $origin.data('dropdown');
 
       $origin.data('dropdown-active', false);
       $activates.fadeOut(options.outDuration);
@@ -75,6 +77,7 @@
       const $activates = $origin.next('.dropdown');
 
       $origin.data('dropdown-active', true);
+      $origin.data('dropdown', $activates);
 
       // Add active classes
       $activates.addClass('dropdown--is-active');
@@ -88,28 +91,15 @@
       }
 
       // Position dropdown
-      $activates.css({
-        position: 'absolute',
-        top: this._topPosition($origin, $activates, options),
-        left: this._leftPosition($origin, $activates, options)
-      });
+      $activates
+        .appendTo('body')
+        .css({
+          top: this._topPosition($origin, $activates, options),
+          left: this._leftPosition($origin, $activates, options)
+        });
 
       // Show dropdown
-      $activates
-        .stop(true, true)
-        .css('opacity', 0)
-        .slideDown({
-          queue: false,
-          duration: options.inDuration,
-          easing: 'easeOutCubic',
-          complete: function() {
-            $(this).css('height', '');
-          }
-        })
-        .animate(
-          { opacity: 1 },
-          { queue: false, duration: options.inDuration, easing: 'easeOutSine' }
-        );
+      DropdownHelper.animateIn($activates, options.inDuration);
     }
 
     _optionsFromData($origin) {
@@ -126,58 +116,19 @@
     }
 
     _topPosition($origin, $activates, options) {
-      const startingPoint = $origin.position().top;
-      const originHeight = $origin.innerHeight();
-      const windowHeight = window.innerHeight;
-      const offsetTop = startingPoint - $(window).scrollTop();
-      let verticalOffset = 0;
-      let adjustedHeight;
-
-      if (options.belowOrigin === true) {
-        verticalOffset = $origin.innerHeight();
-      }
-
-      // Vertical bottom offscreen detection
-      if (offsetTop + $activates.innerHeight() > windowHeight) {
-        // If going upwards still goes offscreen, just crop height of dropdown.
-        if (offsetTop + originHeight - $activates.innerHeight() < 0) {
-          adjustedHeight = windowHeight - offsetTop - verticalOffset;
-          $activates.css('max-height', adjustedHeight);
-        } else {
-          // Flow upwards.
-          if (!verticalOffset) {
-            verticalOffset += originHeight;
-          }
-          verticalOffset -= $activates.innerHeight();
-        }
-      }
-
-      return startingPoint + verticalOffset;
+      return DropdownHelper.getTopPos($activates, {
+        ...options,
+        top: $origin.offset().top,
+        height: $origin.innerHeight()
+      });
     }
 
     _leftPosition($origin, $activates, options) {
-      const offsetLeft = $origin.position().left;
-      let currAlignment = options.alignment;
-      let gutterSpacing, offsetRight;
-
-      if (offsetLeft + $activates.innerWidth() > $(window).width()) {
-        // Dropdown goes past screen on right, force right alignment
-        currAlignment = 'right';
-      } else if (offsetLeft - $activates.innerWidth() + $origin.innerWidth() < 0) {
-        // Dropdown goes past screen on left, force left alignment
-        currAlignment = 'left';
-      }
-
-      // Handle edge alignment
-      if (currAlignment === 'left') {
-        gutterSpacing = options.gutter;
-        return $origin.position().left + gutterSpacing;
-      } else if (currAlignment === 'right') {
-        offsetRight = $origin.position().left + $origin.outerWidth();
-        offsetRight -= $activates.outerWidth();
-        gutterSpacing = -options.gutter;
-        return offsetRight + gutterSpacing;
-      }
+      return DropdownHelper.getLeftPos($activates, {
+        ...options,
+        left: $origin.offset().left,
+        width: $origin.outerWidth()
+      });
     }
   }
 

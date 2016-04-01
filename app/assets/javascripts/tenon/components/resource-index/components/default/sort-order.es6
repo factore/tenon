@@ -9,6 +9,7 @@ window.ResourceIndexComponents.DefaultSortOrder = (props) => {
     <div className="records-list__action">
       <a
         className="records-list__action-icon dropdown-button"
+        data-dropdown-activate
         href="#!"
         title="Sort Order">
         <i className="material-icons">sort</i>

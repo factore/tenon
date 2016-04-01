@@ -1,6 +1,7 @@
 /* global React */
-/* global ReactDOM */
 /* global ReactPortal */
+/* global DropdownHelper */
+/* global classNames */
 
 class DropdownMenu extends React.Component {
   constructor(props) {
@@ -11,53 +12,54 @@ class DropdownMenu extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this._setLeftPos(this.props);
+  _onOpen(node) {
+    const $menu = $(node).find('.dropdown');
+
+    this._setLeftPos($menu);
+    this._setTopPos($menu);
+    this._animateIn($menu);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this._setLeftPos(nextProps);
+  _beforeClose(node, removeFromDOM) {
+    $(node).find('.dropdown').fadeOut(250, () => {
+      removeFromDOM();
+    });
   }
 
-  _setLeftPos(props) {
-    const offsetLeft = props.left || 0;
-    const gutter = props.gutter || 0;
-    const dropdownWidth = 200;
-    let currAlignment = props.alignment || 'left';
-    let gutterSpacing, offsetRight;
+  _setTopPos($node) {
+    const topPos = DropdownHelper.getTopPos(
+      $node,
+      { ...this.props, belowOrigin: true }
+    );
 
-    if (offsetLeft + dropdownWidth > $(window).width()) {
-      // Dropdown goes past screen on right, force right alignment
-      currAlignment = 'right';
-    } else if (offsetLeft - dropdownWidth < 0) {
-      // Dropdown goes past screen on left, force left alignment
-      currAlignment = 'left';
-    }
+    this.setState({ topPos: topPos });
+  }
 
-    // Handle edge alignment
-    if (currAlignment === 'left') {
-      gutterSpacing = gutter;
-      this.setState({ leftPos: offsetLeft + gutterSpacing });
-    } else if (currAlignment === 'right') {
-      offsetRight = offsetLeft;
-      offsetRight -= dropdownWidth;
-      gutterSpacing = -gutter;
-      this.setState({ leftPos: offsetRight + gutterSpacing });
-    }
+  _setLeftPos($node) {
+    const leftPos = DropdownHelper.getLeftPos($node, this.props);
+
+    this.setState({ leftPos: leftPos });
+  }
+
+  _animateIn($node) {
+    DropdownHelper.animateIn($node, 250);
   }
 
   render() {
-    const { leftPos } = this.state;
+    const { leftPos, topPos } = this.state;
+    const classnames = classNames({
+      'dropdown': true,
+      'dropdown--is-active': this.props.isDropdownOpened
+    });
 
     return (
       <ReactPortal
-        closeOnOutsideClick
-        onClose={this.props.onClose}
+        beforeClose={this._beforeClose}
+        onOpen={this._onOpen.bind(this)}
         isOpened={this.props.isDropdownOpened}>
         <ul
-          ref={(ul) => this.ul = ul}
-          className="dropdown dropdown--is-active"
-          style={{ left: leftPos, top: this.props.top }}>
+          className={classnames}
+          style={{ left: leftPos, top: topPos }}>
           {this.props.children}
         </ul>
       </ReactPortal>

@@ -1,4 +1,5 @@
 /* global React */
+/* global ReactDOM */
 /* global DropdownButton */
 /* global DropdownMenu */
 
@@ -8,6 +9,14 @@ class Dropdown extends React.Component {
     this.state = {
       isDropdownOpened: false
     };
+  }
+
+  componentDidMount() {
+    document.addEventListener('click', this._onOutsideClick.bind(this));
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this._onOutsideClick.bind(this));
   }
 
   _renderChildren() {
@@ -23,8 +32,8 @@ class Dropdown extends React.Component {
           left: this.state.left,
           top: this.state.top,
           width: this.state.width,
+          height: this.state.height,
           isDropdownOpened: this.state.isDropdownOpened,
-          onClose: this._onClose.bind(this)
         });
 
       default:
@@ -41,11 +50,16 @@ class Dropdown extends React.Component {
       isDropdownOpened: !this.state.isDropdownOpened,
       top: targetRect.top - bodyRect.top,
       left:  targetRect.left - bodyRect.left,
-      width: targetRect.width
+      width: targetRect.width,
+      height: targetRect.height
     });
   }
 
-  _onClose() {
+  _onOutsideClick(e) {
+    if (ReactDOM.findDOMNode(this).contains(e.target)) {
+      return;
+    }
+
     this.setState({ isDropdownOpened: false });
   }
 
