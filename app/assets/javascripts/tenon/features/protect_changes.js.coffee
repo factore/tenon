@@ -5,7 +5,7 @@ class Tenon.features.ProtectChanges
     $(window).on('beforeunload', @confirmNavigation)
 
   bindChangeEvents: =>
-    @$form = $('.main-content form')
+    @$form = $('[data-protect-changes]')
     @$form.on('cocoon:after-insert cocoon:after-remove', @_markChanged)
     @$form.on('keyup change', 'input, select, textarea', @_markChanged)
     @$form.on('input', '.editable-text', @_markChanged)

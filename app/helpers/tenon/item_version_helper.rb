@@ -56,7 +56,8 @@ module Tenon
         'item-type' => class_for(obj),
         'item-id' => obj.id,
         'autosave' => !params[:version],
-        'version-create-path' => item_versions_path
+        'version-create-path' => item_versions_path,
+        'protect-changes' => true
       }
 
       if opts[:data]
