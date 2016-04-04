@@ -69,7 +69,7 @@ $main-nav-hover-color: $grey;
 $main-nav-icon-color: $secondary-color;
 $app-info-fg-color: $white;
 $app-info-hover-color: rgba($primary-color, .4);
-$app-info-bg-color: rgba(darken($main-nav-bg-color, 20%), .4);
+$app-info-bg-color: darken($grey, 25%);
 
 // Account Avatar
 $avatar-bg-color: $white;

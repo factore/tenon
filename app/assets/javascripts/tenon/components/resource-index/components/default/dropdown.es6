@@ -33,7 +33,7 @@ class Dropdown extends React.Component {
           top: this.state.top,
           width: this.state.width,
           height: this.state.height,
-          isDropdownOpened: this.state.isDropdownOpened,
+          isDropdownOpened: this.state.isDropdownOpened
         });
 
       default:

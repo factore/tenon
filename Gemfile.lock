@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: git://github.com/rack/rack.git
-  revision: ea2ed578c3687553e540b7c61e11c0855c316c1a
+  revision: deec4854c0ca8efcfc6fddfd11df1dfb93bb1b82
   specs:
     rack (2.0.0.alpha)
       json
@@ -274,7 +274,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (10.5.0)
+    rake (11.1.2)
     react-rails (1.6.2)
       babel-transpiler (>= 0.7.0)
       coffee-script-source (~> 1.8)

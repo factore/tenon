@@ -17,7 +17,9 @@ var Tenon = {
     Tenon.$genericLoader = $('.generic-loader');
 
     // init pickadate
-    $('[data-behavior=datepicker]').pickadate();
+    $('[data-behavior=datepicker]').pickadate({
+      onSet: function() { alert($('body').css('overflow')); }
+    });
     $('[data-behavior=timepicker]').pickatime();
 
     Tenon.features.fileSelectWidget.init();

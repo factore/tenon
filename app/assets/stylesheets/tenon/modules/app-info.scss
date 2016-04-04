@@ -1,5 +1,18 @@
 .app-info {
+  display: none;
   margin: 0;
+
+  @include bp-md {
+    display: block;
+  }
+}
+
+.app-info--account {
+  display: block;
+
+  @include bp-md {
+    display: none;
+  }
 }
 
 .app-info__link {
@@ -15,15 +28,44 @@
   color: $app-info-fg-color;
 
   &:hover {
-    background-color: $app-info-hover-color;
     text-decoration: none;
+    color: $app-info-fg-color;
   }
 }
 
-.app-info__logo {
+.app-info__link--dropdown-button {
+  @extend %font-smaller;
+  position: relative;
+
+  &::after {
+    @include font-size($standard-icon-size);
+    display: block;
+    position: absolute;
+    top: 0;
+    right: $default-spacing / 2;
+    color: $app-info-fg-color;
+    font-family: 'Material Icons';
+    content: 'keyboard_arrow_down';
+  }
+}
+
+.app-info__logo,
+.app-info__avatar {
   display: inline-block;
   position: relative;
   top: 10px;
   margin-right: $default-spacing / 2;
   max-height: $main-nav-logo-height;
+}
+
+.app-info__avatar {
+  top: 4px;
+  border-radius: 50%;
+  background: $app-info-fg-color;
+  width: $main-nav-avatar-size;
+  height: $main-nav-avatar-size;
+  max-height: $main-nav-avatar-size;
+  text-align: center;
+  line-height: $main-nav-avatar-size + 8px;
+  color: $app-info-bg-color;
 }

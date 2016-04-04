@@ -1,0 +1,6 @@
+%ul.dropdown
+  %li.dropdown__divider
+  %li.dropdown__item
+    = active_link_to destroy_user_session_path, method: :delete, class: 'dropdown__action action-icon' do
+      = i('exit_to_app')
+      %span Logout

@@ -28,6 +28,13 @@
         = link_to '/tenon', class: 'app-info__link' do
           = image_tag('tenon/tenon_icon.png', class: 'app-info__logo')
           = Tenon::MySettings.site_title
+
+      .app-info.app-info--account
+        = link_to '#', class: 'app-info__link app-info__link--dropdown-button', data: { dropdown_activate: true } do
+          .app-info__avatar= i('person')
+          = current_user.email
+        = render 'tenon/shared/account_dropdown'
+
       = render 'tenon/shared/main_nav'
 
 
