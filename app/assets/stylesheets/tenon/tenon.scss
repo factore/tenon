@@ -1,15 +1,9 @@
 // VENDOR
 //= require normalize-rails
-//= require pickadate/default
-//= require pickadate/default.date
-//= require pickadate/default.time
 @import 'bourbon';
 @import './grid';
 @import './dragula';
 @import './medium-editor'; // we're still using the toolbar in Tenon Content
-
-// VENDOR OVERRIDE
-@import './vendor/pickadate/default.date';
 
 // Variables and Mixins
 // Order is important here, do not change
@@ -43,6 +37,10 @@
 @import './mixins/vertical-align';
 @import './mixins/z-depth';
 
+// VENDOR OVERRIDE
+@import './date_picker/default';
+@import './date_picker/default.date';
+@import './date_picker/default.time';
 
 // Global/Element Definition
 @import './global/reset';

@@ -45,6 +45,14 @@ $flash-bg-color: rgba($cobalt, .95);
 $flash-fg-color: $grey;
 $flash-emphasis-fg-color: $white;
 
+// Datepicker
+$datepicker-weekday-bg: darken($secondary-color, 7%) !default;
+$datepicker-date-bg: $secondary-color !default;
+$datepicker-year: rgba(255, 255, 255, .4) !default;
+$datepicker-focus: rgba(0, 0, 0, .05) !default;
+$datepicker-selected: $secondary-color !default;
+$datepicker-selected-outfocus: desaturate(lighten($secondary-color, 35%), 15%) !default;
+
 // Dropdown
 $dropdown-fg-color: darken($grey, 20%);
 $dropdown-bg-color: $white;

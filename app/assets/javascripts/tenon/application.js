@@ -15,8 +15,8 @@
 //= require jquery.mousewheel
 //= require jquery.twoLevelSort
 //= require jquery.ui.sortable
-//= require pickadate/picker
-//= require pickadate/picker.date
+//= require date_picker/picker
+//= require date_picker/picker.date
 //= require pickadate/picker.time
 //= require rails.validations
 //= require number-to-words
