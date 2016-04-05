@@ -63,7 +63,7 @@
   display: none;
   margin-right: $default-spacing / 4;
   width: $action-icon-dimension;
-  color: $primary-fg-color;
+  color: $light-fg-color;
 
   @include bp-md {
     @include transform(translateY(-50%));

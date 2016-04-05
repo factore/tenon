@@ -17,7 +17,7 @@
 
 .app-info__link {
   @extend %truncate;
-  @extend %font-body;
+  @extend %font-smaller;
   @include default-transition;
   display: block;
   margin: 0;
@@ -34,7 +34,6 @@
 }
 
 .app-info__link--dropdown-button {
-  @extend %font-smaller;
   position: relative;
 
   &::after {

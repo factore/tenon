@@ -3,7 +3,7 @@ window.ResourceIndexComponents.PostsFilterDrawer = ({ data, onChange }) => {
 
   return (
     <div>
-      <div className="panel panel--padded">
+      <div className="panel panel--tight-padded">
         <TextField
           label="Keywords"
           name="q"

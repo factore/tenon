@@ -2,7 +2,7 @@
   @extend %drawer;
   @include drawer-transition;
   z-index: $z-layout-drawer;
-  padding: $default-spacing;
+  padding: $default-spacing ($default-spacing / 2);
   padding-bottom: ($default-spacing * 2) + 75px;
 
   @include bp-md {

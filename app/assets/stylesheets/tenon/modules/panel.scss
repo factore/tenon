@@ -10,6 +10,10 @@
   padding: ($default-spacing / 2) $default-spacing;
 }
 
+.panel--tight-padded {
+  padding: $default-spacing / 3;
+}
+
 .panel--no-margin {
   margin: 0;
 }

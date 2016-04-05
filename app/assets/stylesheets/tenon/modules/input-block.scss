@@ -1,6 +1,10 @@
 .input-block {
   position: relative;
   margin-bottom: $default-spacing;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 
@@ -15,7 +19,7 @@
 .input-block__required-msg {
   @extend %font-smallest;
   display: inline-block;
-  padding-left: $default-spacing;
+  padding-left: $default-spacing / 2;
   font-style: italic;
 
   &::before {
