@@ -21,7 +21,7 @@
 
       const className = classNames({
         'toolbar': true,
-        'toolbar--quicksearch': true,
+        'toolbar--quick-search': true,
         'toolbar--overlay-z1': true,
         'toolbar--is-open': quickSearchOpen || filterDrawerOpen
       });

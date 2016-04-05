@@ -1,5 +1,5 @@
 .util-nav{ class: (modifier if local_assigns[:modifier]) }
   = link_to '#!', class: 'util-nav__action-icon dropdown-button', data: { dropdown_activate: true } do
-    .action-icon= i('person')
+    = i('person')
 
   = render 'tenon/shared/account_dropdown'

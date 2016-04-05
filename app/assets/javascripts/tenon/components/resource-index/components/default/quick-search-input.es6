@@ -8,7 +8,8 @@
     }
 
     render() {
-      const { toggleQuickSearch, updateQuery } = this.props.actions;
+      const { updateQuery } = this.props.actions;
+      const { onFocus, onBlur } = this.props;
       const q = this.props.data.query.q;
 
       return (
@@ -19,6 +20,8 @@
             name="q"
             value={q}
             onChange={(e) => updateQuery({ q: e.target.value, page: 1 })}
+            onFocus={onFocus}
+            onBlur={onBlur}
             className="search-content__field"
             placeholder="Search"
             title="Search" />

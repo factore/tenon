@@ -1,4 +1,5 @@
 .toolbar {
+  @include transition(background .25s ease);
   position: fixed;
   top: 0;
   left: 0;
@@ -75,6 +76,7 @@
 
 .toolbar__action-icon {
   @extend %action-icon;
+  @include transition(color .25s ease);
   color: $toolbar-link-fg-color;
 
   &:hover {
@@ -118,8 +120,21 @@
   height: $util-nav-height;
 }
 
+// toolbar when the quick-search is typing
+.toolbar--is-quick-search-typing {
+  @include bp-md {
+    background: $toolbar-quick-search-bg-color;
+  }
+
+  .toolbar__action-icon {
+    @include bp-md {
+      color: $toolbar-quick-search-fg-color;
+    }
+  }
+}
+
 // toolbar overlay colors:
-.toolbar--quicksearch {
+.toolbar--quick-search {
   background-color: $white;
 
   @include bp-md {
@@ -130,7 +145,7 @@
     color: $light-fg-color;
 
     @include bp-md {
-      color: $toolbar-quicksearch-fg-color;
+      color: $toolbar-quick-search-fg-color;
     }
   }
 }

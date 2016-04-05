@@ -9,7 +9,7 @@
   left: 10px;
   z-index: $z-quick-search-actions;
   line-height: 40px;
-  color: $toolbar-quicksearch-fg-color;
+  color: $toolbar-quick-search-fg-color;
 
   @include bp-md { display: block; }
 }
@@ -38,9 +38,9 @@
   @include bp-md {
     margin-left: 0;
     border-radius: $default-border-radius;
-    background-color: $quicksearch-input-bg-color;
+    background-color: $quick-search-input-bg-color;
     padding: 0 ($default-spacing / 3) 0 ($default-spacing * 1.5);
     width: 100%;
-    color: $toolbar-quicksearch-fg-color;
+    color: $toolbar-quick-search-fg-color;
   }
 }

@@ -1,5 +1,5 @@
 .util-nav {
-  padding: 8px 0;
+  padding: 14px 0;
   width: $util-nav-width;
 }
 
@@ -33,17 +33,16 @@
   margin-left: 10px;
   border-radius: 50%;
   background-color: $avatar-bg-color;
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 32px;
   text-align: center;
-  line-height: 44px;
+  line-height: 32px;
   color: $avatar-fg-color;
 
   &:hover {
     @extend %z-depth-0;
-
-    .action-icon {
-      color: $avatar-fg-hover-color;
-    }
+    color: $avatar-fg-hover-color;
   }
+
+  > .material-icon { line-height: 32px; }
 }

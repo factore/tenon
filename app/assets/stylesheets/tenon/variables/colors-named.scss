@@ -85,9 +85,9 @@ $toolbar-link-fg-color: rgba($white, .6);
 $toolbar-link-fg-color--hover: rgba($white, .9);
 
 // Toolbar overlays
-$quicksearch-input-bg-color: rgba($white, .3);
-$toolbar-quicksearch-bg-color: darken($white, 20%);
-$toolbar-quicksearch-fg-color: $white;
+$quick-search-input-bg-color: rgba($white, .3);
+$toolbar-quick-search-bg-color: darken($white, 20%);
+$toolbar-quick-search-fg-color: $white;
 $toolbar-filter-bg-color: darken($white, 20%);
 $toolbar-filter-fg-color: $white;
 

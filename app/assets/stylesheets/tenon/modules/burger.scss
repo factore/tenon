@@ -1,14 +1,3 @@
-%burger--open {
-  top: 2px;
-  border-color: $burger-color;
-  height: $burger-height + 4px;
-
-  &::after {
-    top: (($burger-height - $burger-line-weight) / 2) - $burger-line-weight + 2px;
-    background-color: $burger-color;
-  }
-}
-
 .burger {
   @include default-transition;
   display: inline-block;
@@ -30,10 +19,6 @@
     height: $burger-line-weight;
     content: '';
     box-sizing: border-box;
-  }
-
-  .main-nav-drawer-open & {
-    @extend %burger--open;
   }
 }
 
