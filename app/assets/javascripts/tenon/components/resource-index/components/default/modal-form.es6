@@ -63,35 +63,41 @@
       return (
         <div>
           <div className={modalClassNames}>
-            <div className="modal__content">
-              <div
-                className={baseErrors.length && 'input-block' }>
-                {baseErrors.map((error) => {
-                  return (
-                    <label className="input-block__error-message">
-                      {error}
-                    </label>
-                  );
-                })}
-              </div>
-
-              <form
+            <form
                 onSubmit={(e) => this._onSubmit(e)}
                 ref={(f) => this._form = f}>
+              <div className="modal__content">
+                <div
+                  className={baseErrors.length && 'input-block' }>
+                  {baseErrors.map((error) => {
+                    return (
+                      <label className="input-block__error-message">
+                        {error}
+                      </label>
+                    );
+                  })}
+                </div>
+
                 <ModalFields
                   { ...this.props }
                   onChange={(e) => this._updateValue(e)} />
-              </form>
-            </div>
+              </div>
 
-            <div className="modal__footer">
-              <a
-                href="#!"
-                onClick={(e) => toggleModalForm(e, 'off')}
-                className="modal__action">
-                Cancel
-              </a>
-            </div>
+              <div className="modal__footer">
+                <button
+                  onClick={(e) => toggleModalForm(e, 'off')}
+                  className="modal__action">
+                  Cancel
+                </button>
+
+                <button
+                  type="submit"
+                  className="modal__action">
+                  Save
+                </button>
+              </div>
+            </form>
+
           </div>
           <div
             onClick={(e) => toggleModalForm(e, 'off')}

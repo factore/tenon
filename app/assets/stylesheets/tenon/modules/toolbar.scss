@@ -1,4 +1,5 @@
 .toolbar {
+  @extend %font-n2;
   @include transition(background .25s ease);
   position: fixed;
   top: 0;

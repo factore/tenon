@@ -26,7 +26,7 @@
 }
 
 .util-nav__action-icon {
-  @extend %z-depth-2;
+  @extend %z-depth-1;
   @include default-transition;
   display: inline-block;
   float: left;
@@ -40,8 +40,8 @@
   color: $avatar-fg-color;
 
   &:hover {
-    @extend %z-depth-0;
-    color: $avatar-fg-hover-color;
+    @extend %z-depth-2;
+    color: $avatar-fg-color;
   }
 
   > .material-icon { line-height: 32px; }

@@ -10,7 +10,6 @@ window.ResourceIndexComponents.PostCategoryFields = (props) => {
         onChange={onChange}
         errors={currentRecordErrors.title}
         label="Title" />
-      <button type="submit" className="btn">Save</button>
     </div>
   );
 };

@@ -9,8 +9,8 @@ module Tenon
     private
 
     def subnav(&blk)
-      icons = content_tag(:i, 'add', class: 'main-nav__open-icon')
-      icons += content_tag(:i, 'remove', class: 'main-nav__close-icon')
+      icons = content_tag(:i, 'keyboard_arrow_down', class: 'main-nav__open-icon')
+      icons += content_tag(:i, 'keyboard_arrow_up', class: 'main-nav__close-icon')
       content = link_to(icons, '#', class: 'main-nav__link-toggle')
       content += content_tag(:ul, capture(&blk), class: 'main-nav__sub-nav')
       content
