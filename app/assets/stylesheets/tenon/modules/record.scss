@@ -85,11 +85,8 @@
 
 
 .record__expanded-content {
-  @include transition(opacity .25s ease);
-  opacity: .5;
-  padding: 0;
-  height: 0;
-  overflow: hidden;
+  display: none;
+  padding: ($default-spacing / 2) $default-spacing;
 }
 
 .record__expanded-title {
@@ -117,12 +114,6 @@
 .record--is-expanded {
   margin: 1px -2%;
   width: 104%;
-
-  > .record__expanded-content {
-    opacity: 1;
-    padding: ($default-spacing / 2) $default-spacing;
-    height: auto;
-  }
 }
 
 .record--is-updating {

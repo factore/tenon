@@ -20,13 +20,21 @@
       this.props.actions.reorderRecords(ids);
     }
 
+    _onToggleExpand(e, record) {
+      e.preventDefault();
+      this.props.actions.toggleExpandedRecord(record);
+
+      $(e.target)
+        .closest('.record')
+        .find('.record__expanded-content')
+        .slideToggle(250);
+    }
+
     render() {
       const {
         Record, LoadMoreButton, RecordsCount, ClearFiltersLink, SortOrder
       } = this.props.childComponents;
-      const {
-        deleteRecord, updateRecord, toggleExpandedRecord
-      } = this.props.handlers;
+      const { deleteRecord, updateRecord } = this.props.handlers;
       const { records } = this.props.data;
       const { expandedRecordIds } = this.props.ui;
 
@@ -53,7 +61,7 @@
                   isExpanded={expandedRecordIds.indexOf(record.id) !== -1}
                   onDelete={(e) => deleteRecord(e, record)}
                   onUpdate={(e, payload) => updateRecord(e, record, payload)}
-                  onToggleExpand={(e) => toggleExpandedRecord(e, record)} />
+                  onToggleExpand={(e) => this._onToggleExpand(e, record)} />
               );
             })}
           </ReactCSSTransitionGroup>
