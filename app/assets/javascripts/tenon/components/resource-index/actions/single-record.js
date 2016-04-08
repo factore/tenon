@@ -105,7 +105,7 @@ export const updateRecord = (record, payload) => {
       const msg = 'There was an error saving this.  Make sure you filled out ' +
                   'all the fields.';
 
-      dispatch(invalidateCurrentRecord({ base: msg }));
+      dispatch(invalidateCurrentRecord({ base: [msg] }));
     });
   };
 };
