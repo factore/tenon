@@ -1,4 +1,4 @@
-window.ResourceIndexComponents.PostsRecordTitle = ({ record }) => {
+window.ResourceIndexComponents.posts.RecordTitle = ({ record }) => {
   let publishText;
 
   if (record.formatted_publish_at) {

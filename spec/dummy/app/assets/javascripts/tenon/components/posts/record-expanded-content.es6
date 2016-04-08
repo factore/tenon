@@ -1,4 +1,4 @@
-window.ResourceIndexComponents.PostsRecordExpandedContent = (props) => {
+window.ResourceIndexComponents.posts.RecordExpandedContent = (props) => {
   const editPath = props.record.edit_path;
   const onDelete = props.onDelete;
 

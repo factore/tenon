@@ -3,10 +3,10 @@
     breadcrumbs: breadcrumb_links,
     recordsPath: posts_path(format: 'json'),
     newPath: new_post_path,
-    childComponentNames: {  FilterDrawer: 'PostsFilterDrawer',
-                            RecordTitle: 'PostsRecordTitle',
-                            RecordActions: 'PostsRecordActions',
-                            RecordExpandedContent: 'PostsRecordExpandedContent' },
+    childComponentNames: {  FilterDrawer: 'posts.FilterDrawer',
+                            RecordTitle: 'posts.RecordTitle',
+                            RecordActions: 'posts.RecordActions',
+                            RecordExpandedContent: 'posts.RecordExpandedContent' },
     orderOptions: [ { title: 'Oldest to Newest', order: 'publish_at:asc' },
                     { title: 'Newest to Oldest', order: 'publish_at:desc'} ]
 

@@ -1,4 +1,4 @@
-window.ResourceIndexComponents.PostsRecordActions = (props) => {
+window.ResourceIndexComponents.posts.RecordActions = (props) => {
   const editPath = props.record.edit_path;
   const { onDelete, record } = props;
   const { updateRecord } = props.handlers;
