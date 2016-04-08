@@ -15,8 +15,11 @@
     componentDidUpdate() {
       if (this.props.ui.modalFormActive) {
         const node = ReactDOM.findDOMNode(this._form);
+        const firstInput = node.querySelectorAll(':scope input')[0];
 
-        node.querySelectorAll(':scope input[type=text]')[0].focus();
+        if (firstInput) {
+          firstInput.focus();
+        }
       }
     }
 
