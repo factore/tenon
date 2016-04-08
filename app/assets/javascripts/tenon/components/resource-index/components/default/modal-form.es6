@@ -62,7 +62,7 @@
 
       return (
         <div>
-          <div className={modalClassNames}>
+          <div className={modalClassNames} data-react-provided={true}>
             <form
                 onSubmit={(e) => this._onSubmit(e)}
                 ref={(f) => this._form = f}>
@@ -101,7 +101,8 @@
           </div>
           <div
             onClick={(e) => toggleModalForm(e, 'off')}
-            className={overlayClassNames}>
+            className={overlayClassNames}
+            data-react-provided={true}>
           </div>
         </div>
       );

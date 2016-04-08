@@ -1,10 +1,10 @@
 class Tenon.features.ModalWindows
   @closeModals: ->
     @clearBody()
-    $('.modal:not([data-reactid])').removeClass('modal--is-active')
+    $('.modal:not([data-react-provided])').removeClass('modal--is-active')
 
   @clearBody: ->
-    $('.modal-overlay:not([data-reactid])').removeClass('modal-overlay--is-active')
+    $('.modal-overlay:not([data-react-provided])').removeClass('modal-overlay--is-active')
     $('body').css(overflow: '')
 
   @prepBodyForModal: ->
