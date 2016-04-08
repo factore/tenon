@@ -3,6 +3,19 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import actionCreators from '../actions/index';
 
+const resolvePath = function(path, obj, safe) {
+  return path.split('.').reduce(function(prev, curr) {
+    let retVal;
+
+    if (!safe) {
+      retVal = prev[curr];
+    } else {
+      retVal = prev ? prev[curr] : undefined;
+    }
+    return retVal;
+  }, obj || self);
+};
+
 const DEFAULT_CHILD_COMPONENT_NAMES = {
   AddButton: 'DefaultAddButton',
   ActionButtons: 'DefaultActionButtons',
@@ -50,11 +63,11 @@ class Wrapper extends Component {
       ...DEFAULT_CHILD_COMPONENT_NAMES,
       ...this.props.childComponentNames
     };
-    let name;
+    let component;
 
     Object.keys(names).forEach((key) => {
-      name = names[key];
-      this.props.childComponents[key] = window.ResourceIndexComponents[name];
+      component = resolvePath(names[key], window.ResourceIndexComponents);
+      this.props.childComponents[key] = component;
     });
   }
 
