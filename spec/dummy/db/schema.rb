@@ -16,20 +16,6 @@ ActiveRecord::Schema.define(version: 20150928230951) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "menu_items", force: :cascade do |t|
-    t.integer  "menu_id"
-    t.string   "title"
-    t.integer  "list_order"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "menus", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "settings", force: :cascade do |t|
     t.string   "var",                   null: false
     t.text     "value"
