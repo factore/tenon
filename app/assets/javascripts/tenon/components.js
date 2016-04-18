@@ -1,6 +1,9 @@
 /* global require */
 window.React = require('react');
 window.ReactDOM = require('react-dom');
+window.Redux = require('redux');
+window.reduxThunk = require('redux-thunk');
+window.ReactRedux = require('react-redux');
 window.ReactPortal = require('react-portal');
 window.ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 window.ResourceIndexComponents = {};

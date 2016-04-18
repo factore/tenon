@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: tenon_oak_development
+
+test:
+  adapter: postgresql
+  database: tenon_oak_test
