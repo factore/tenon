@@ -11,9 +11,14 @@
       = Tenon::MySettings.site_title.present? ? Tenon::MySettings.site_title : 'Tenon'
 
     = stylesheet_link_tag '//fonts.googleapis.com/icon?family=Material+Icons'
-    = stylesheet_link_tag 'tenon/tenon'
     = javascript_include_tag '/ckeditor/ckeditor'
     = javascript_include_tag 'tenon/application'
+    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'
+    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.js'
+    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.date.js'
+    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.time.js'
+    - if Rails.env.development?
+      = javascript_include_tag 'http://localhost:9999/bundle.js'
 
   %body{data: { controller: params[:controller], action: params[:action] } }
     = flash_messages

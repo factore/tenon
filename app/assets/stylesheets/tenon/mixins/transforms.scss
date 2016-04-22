@@ -1,7 +1,0 @@
- %flip-horizontal {
-  @include transform(scaleX(-1));
-}
-
-%flip-vertical {
-  @include transform(scaleY(-1));
-}

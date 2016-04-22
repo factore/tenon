@@ -36,7 +36,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails', '5.0.0.beta3'
 
   s.add_dependency 'active_model_serializers'
-  s.add_dependency 'browserify-rails'
   s.add_dependency 'cocoon'
   s.add_dependency 'coffee-rails'
   s.add_dependency 'coffee-script-source'

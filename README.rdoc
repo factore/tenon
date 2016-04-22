@@ -282,7 +282,7 @@ This prop tells the top-level component to render +PostsRecordTitle+ instead of 
 
 The next step is to create our +PostsRecordTitle+ component.  Start by copying the code of the +DefaultRecordTitle+ component, found at <tt>app/assets/javascripts/tenon/components/resource-index/components/default/record-title.es6</tt>.  The code will look something like this.
 
-    window.ResourceIndexComponents.DefaultRecordTitle = ({ record }) => {
+    Tenon.RI.DefaultRecordTitle = ({ record }) => {
       return (
         <p className="record__title">{record.title}</p>
       );
@@ -290,7 +290,7 @@ The next step is to create our +PostsRecordTitle+ component.  Start by copying t
 
 Copy this code and create the new component at <tt>app/assets/javascripts/tenon/components/posts-record-title.es6</tt>.  In our case we simply want to change the name of the component, and add a second line with the record's +publish_at+ method.  Our finished component looks like this:
 
-  window.ResourceIndexComponents.PostsRecordTitle = ({ record }) => {
+  Tenon.RI.PostsRecordTitle = ({ record }) => {
     return (
       <div>
         <p className="record__title">
@@ -336,7 +336,7 @@ The first thing we need to do is update our call to the +ResourceIndex+ componen
 
 Next, we'll want to make a copy of the +DefaultRecordActions+ component found at <tt>app/assets/javascripts/components/resource-index/components/default/record-actions.es6</tt>.  The default component looks like this:
 
-  window.ResourceIndexComponents.DefaultRecordActions = (props) => {
+  Tenon.RI.DefaultRecordActions = (props) => {
     const editPath = props.record.edit_path;
     const onDelete = props.onDelete;
 
@@ -362,7 +362,7 @@ Next, we'll want to make a copy of the +DefaultRecordActions+ component found at
 
 We'll make our new component at <tt>app/assets/javascripts/tenon/components/posts-record-actions.es6</tt> and add a new icon.
 
-  window.ResourceIndexComponents.PostsRecordActions = (props) => {
+  Tenon.RI.PostsRecordActions = (props) => {
     const editPath = props.record.edit_path;
     const onDelete = props.onDelete;
 
@@ -395,7 +395,7 @@ Next we need to tap into the +onClick+ action of the link to toggle the featured
 
 This is a little bit lengthy, so let's extract some constants up above.
 
-  window.ResourceIndexComponents.PostsRecordActions = (props) => {
+  Tenon.RI.PostsRecordActions = (props) => {
     const editPath = props.record.edit_path;
     const { onDelete, record } = props;
     const { updateRecord } = props.handlers;
@@ -454,7 +454,7 @@ Note the addition of +addWithModal+, +editWithModal+, and the name of the +Modal
 
 Next we need to create the +PostCategoryFields+ child component.  This file can be created at <tt>app/assets/javascripts/tenon/components/post-category-fields.es6</tt> and should look something like this:
 
-    window.ResourceIndexComponents.PostCategoryFields = (props) => {
+    Tenon.RI.PostCategoryFields = (props) => {
       const { currentRecord, currentRecordErrors } = props.data;
       const { onChange } = props;
 
@@ -637,7 +637,7 @@ However, it's often necessary to build more advanced filtering features, as demo
 
 Here is an example of what an imagined +PostsFilterDrawer+ component, living at <tt>/app/assets/javascripts/tenon/components/posts-filter-drawer.es6</tt>, might look like.
 
-    window.ResourceIndexComponents.PostsFilterDrawer = (props) => {
+    Tenon.RI.PostsFilterDrawer = (props) => {
       const query = props.data.query;
       const onChange = props.onChange;
 
@@ -664,7 +664,7 @@ Here is an example of what an imagined +PostsFilterDrawer+ component, living at 
       );
     };
 
-This stateless React component (https://toddmotto.com/stateless-react-components/) is passed the entire state tree from the top-level +ResourceIndex+ component, but only uses the <tt>data.query</tt> object (responsible for which params are passed to the server when fetching records) and an +onChange+ function passed down from the parent component.  Also, notice that the component is set within the <tt>window.ResourceIndexComponents</tt> object.  All custom components intended to be passed into the ResourceIndex component tree must be set this way.
+This stateless React component (https://toddmotto.com/stateless-react-components/) is passed the entire state tree from the top-level +ResourceIndex+ component, but only uses the <tt>data.query</tt> object (responsible for which params are passed to the server when fetching records) and an +onChange+ function passed down from the parent component.  Also, notice that the component is set within the <tt>Tenon.RI</tt> object.  All custom components intended to be passed into the ResourceIndex component tree must be set this way.
 
 The component uses JSX needed to build three simple form controls: a text field for a general query, a datepicker for the start date, and a datepicker for the end date.  Each input is passed four props:
 
@@ -710,7 +710,7 @@ The first step is initializing the +ResourceIndex+ app with the name of our cust
 
 Next, copy the +DefaultActionButtons+ component, found at <tt>app/assets/javascripts/tenon/components/resource-index/components/default/action-buttons.es6</tt>.  The default component looks like this:
 
-  window.ResourceIndexComponents.DefaultActionButtons = (props) => {
+  Tenon.RI.DefaultActionButtons = (props) => {
     const { FilterDrawerToggle } = props.childComponents;
 
     return (
@@ -722,7 +722,7 @@ Next, copy the +DefaultActionButtons+ component, found at <tt>app/assets/javascr
 
 We'll create our new component at <tt>app/assets/javascripts/tenon/components/posts-action-buttons.es6</tt>.  We want to be able to order our posts from oldest to newest, and from newest to oldest, so let's paste the code from the +DefaultActionButtons+ component and add some markup that creates a dropdown menu with these options.
 
-  window.ResourceIndexComponents.PostsActionButtons = (props) => {
+  Tenon.RI.PostsActionButtons = (props) => {
     const { FilterDrawerToggle } = props.childComponents;
 
     return (
@@ -761,7 +761,7 @@ We'll create our new component at <tt>app/assets/javascripts/tenon/components/po
 
 Next we need to set up the links to update the query.  There is an +orderBy+ handler that takes +field+ and +direction+ as arguments available in our props.  This handler is just a convenient wrapper around the +updateQuery+ wrapper.  We'll extract it and then call it in the +onClick+ prop of our links.
 
-  window.ResourceIndexComponents.PostsActionButtons = (props) => {
+  Tenon.RI.PostsActionButtons = (props) => {
     const { FilterDrawerToggle } = props.childComponents;
     const { orderBy } = props.handlers;
 
@@ -803,7 +803,7 @@ Next we need to set up the links to update the query.  There is an +orderBy+ han
 
 Finally, let's give some feedback to the user so they can see which item is currently selected.  We'll pull the +order_direction+ out from the +query+ object and then use it to set the +active+ class on the correct <tt><li></tt>.
 
-  window.ResourceIndexComponents.PostsActionButtons = (props) => {
+  Tenon.RI.PostsActionButtons = (props) => {
     const { FilterDrawerToggle } = props.childComponents;
     const { orderBy } = props.handlers;
     const { order_direction } = props.data.query;

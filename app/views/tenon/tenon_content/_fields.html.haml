@@ -14,11 +14,12 @@
             = render "tenon/tenon_content/row", f: row, row_partial: row.object.decorate.form_partial, field: field, title: row.object.row_type.titleize
 
       %div{style: 'display: none'}
-        .tn-tc-library
-          %ul.tn-tc-library__list
-            - Tenon::TenonContent::RowTypes::LIBRARY_ROW_TYPES.each do |title, row_type|
-              %li.tn-tc-library__item= row_link(title, row_type, field, f)
-          .spacer
+        .modal{ data: { tn_tc_library: true } }
+          .modal__content
+            %ul.tn-tc-library__list
+              - Tenon::TenonContent::RowTypes::LIBRARY_ROW_TYPES.each do |title, row_type|
+                %li.tn-tc-library__item= row_link(title, row_type, field, f)
+
 
     %p
-      = link_to 'Add Content', '#', class: 'action-text initial-row', data: { modal_target: '.tn-tc-library', modal_closest: '.tn-tc', modal_clone: 'true', modal_title: 'Add Content', modal_handler: 'Tenon.features.tenonContent.Library', tn_tc_add_content: true }, title: 'Add Content'
+      = link_to 'Add Content', '#', class: 'action-text initial-row', data: { modal_target: '[data-tn-tc-library]', modal_closest: '.tn-tc', modal_clone: 'true', modal_title: 'Add Content', modal_handler: 'TenonContentLibrary', tn_tc_add_content: true }, title: 'Add Content'

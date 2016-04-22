@@ -23,3 +23,5 @@ gem 'rack', github: 'rack/rack'
 gem 'draper', github: 'audionerd/draper', branch: 'rails5'
 gem 'devise', github: 'plataformatec/devise'
 gem 'client_side_validations', git: 'https://github.com/DavyJonesLocker/client_side_validations', branch: 'rails5'
+
+gem 'webpack_rails', '~> 1.0.0.pre', github: 'SeanRoberts/webpack_rails', group: :development

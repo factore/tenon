@@ -1,8 +1,0 @@
-<div class="modal modal--fixed-footer">
-  <div class="modal__content"></div>
-  <div class="modal__footer">
-    <a href="#!" class="modal__action" data-modal-close>
-      Close
-    </a>
-  </div>
-</div>

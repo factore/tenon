@@ -1,5 +1,4 @@
 require 'active_model_serializers'
-require 'browserify-rails'
 require 'client_side_validations'
 require 'cocoon'
 require 'coffee-rails'
@@ -47,10 +46,7 @@ module Tenon
     end
 
     initializer :assets do |config|
-      Rails.application.config.assets.precompile += ['tenon/tenon_manifest.js', 'tenon/tenon.scss', 'tenon/*.png']
-      Rails.application.config.browserify_rails.commandline_options = '-t babelify'
-      Rails.application.config.browserify_rails.paths << lambda { |p| p.start_with?(Engine.root.join("app").to_s) }
-      Rails.application.config.browserify_rails.use_browserifyinc = true
+      Rails.application.config.assets.precompile += ['tenon/application.js', 'tenon/tenon_manifest.js', 'tenon/*.png']
     end
   end
 end

@@ -18,7 +18,7 @@
 
         .asset-field__actions{ class: ('with-remove' if opts[:remove_association]) }
           .asset-field__action
-            = link_to 'Browse', new_item_asset_path, class: 'action-text', data: { modal_remote: true, modal_title: "Select #{method_name.to_s.titleize}", modal_handler: 'Tenon.features.AssetAttachment' }
+            = link_to 'Browse', new_item_asset_path, class: 'action-text', data: { modal_remote: true, modal_title: "Select #{method_name.to_s.titleize}", modal_handler: 'AssetAttachment' }
           - if opts[:remove_association]
             .asset-field__action{ data: { asset_remove: true } }
               = link_to_remove_association 'remove', f, class: 'action-text action-text--secondary'

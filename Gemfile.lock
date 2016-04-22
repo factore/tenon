@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/SeanRoberts/webpack_rails.git
+  revision: b9b11d90d2e5eb058c2334b50e93c1a55f19bb9a
+  specs:
+    webpack_rails (1.0.0.pre)
+      rails (>= 4.2.0)
+
+GIT
   remote: git://github.com/audionerd/draper.git
   revision: e816e0e5876b76c648c0928f1c3f2aa2c7a3d1f2
   branch: rails5
@@ -52,7 +59,6 @@ PATH
     tenon (2.0.0)
       active_model_serializers
       awesome_nested_set
-      browserify-rails
       cocoon
       coffee-rails
       coffee-script-source
@@ -140,9 +146,6 @@ GEM
     bourbon (4.2.6)
       sass (~> 3.4)
       thor (~> 0.19)
-    browserify-rails (3.0.1)
-      railties (>= 4.0.0, < 5.0)
-      sprockets (>= 3.5.2)
     builder (3.2.2)
     capybara (2.5.0)
       mime-types (>= 1.16)
@@ -356,6 +359,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   tenon!
+  webpack_rails (~> 1.0.0.pre)!
 
 BUNDLED WITH
    1.11.2
