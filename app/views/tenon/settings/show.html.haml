@@ -1,31 +1,31 @@
 - content_for :sidebar do
   .sidebar
     .content
-      %h2 Settings
+      %h2= t('tenon.settings.settings')
 
-    %h4 Sections
+    %h4= t('tenon.settings.sections')
     %nav
       %ul
-        %li.active= link_to "General Settings", '#general', data: {toggle: 'tab'}
-        %li= link_to 'Contact Management', '#contact', data: {toggle: 'tab'}
-        %li= link_to 'Search Optimization', '#seo', data: {toggle: 'tab'}
+        %li.active= link_to t('tenon.settings.general_settings'), '#general', data: {toggle: 'tab'}
+        %li= link_to t('tenon.settings.contact_management'), '#contact', data: {toggle: 'tab'}
+        %li= link_to t('tenon.common.search_optimization'), '#seo', data: {toggle: 'tab'}
 
 %header
-  %h1 Site Settings
+  %h1= t('tenon.settings.site_settings')
 
   .tools
     = render "tenon/shared/section_header/sidebar_toggle"
 
 .main-content
-  = form_tag({:action => :update}, :method => "PUT") do
+  = form_tag({ :action => :update }, :method => "PUT") do
     .fields.large.tabs
       #general.tab-pane.active= render :partial => 'general'
       #contact.tab-pane= render :partial => 'contact'
       #seo.tab-pane= render :partial => 'seo'
 
     .fields.small
-      %h4.box-label Actions
+      %h4.box-label= t('tenon.common.actions')
       .box
         .content
-          %button.btn.btn-primary.btn-block.submit{ data: { disable_with: "Please wait..." } } Save
+          %button.btn.btn-primary.btn-block.submit{ data: { disable_with: t('tenon.common.please_wait') } }= t('tenon.common.save')
 

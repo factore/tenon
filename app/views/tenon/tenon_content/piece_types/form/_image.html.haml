@@ -2,47 +2,47 @@
 = f.hidden_field :position
 = f.hidden_field :size
 = f.hidden_field :stretch_to_fill
-.image{class: f.object.stretch_to_fill? ? 'stretch' : ''}
+.image{ class: f.object.stretch_to_fill? ? 'stretch' : '' }
   - if f.object.image
     = backend_piece_image_tag(f.object)
   - else
-    = link_to(new_item_asset_path, class: 'add-image', data: {'modal-remote' => true, 'modal-title' => "Select Image", 'modal-handler' => 'Tenon.features.tenonContent.AssetAttachment'}) do
-      %span Add Image
+    = link_to(new_item_asset_path, class: 'add-image', data: { 'modal-remote' => true, 'modal-title' => t('tenon.tenon_content.select_image'), 'modal-handler' => 'Tenon.features.tenonContent.AssetAttachment' }) do
+      %span= t('tenon.tenon_content.add_image')
 
-  = f.super_text_area :caption, class: 'caption', placeholder: 'Enter caption here...', style: ("display: none;" unless f.object.show_caption)
+  = f.super_text_area :caption, class: 'caption', placeholder: t('tenon.tenon_content.enter_caption_here'), style: ("display: none;" unless f.object.show_caption)
   = f.hidden_field :show_caption
 
-  .medium-editor-toolbar-form-anchor.link-form{style: 'position: absolute; z-index: 10;'}
-    = link_to new_item_asset_path(hide_upload: true), 'title' => 'Link to an Asset', 'data-modal-remote' => 'true', 'data-modal-handler' => 'Tenon.features.tenonContent.ImageAssetLink', 'data-modal-title' => 'Link to Asset', 'data-tooltip' => true do
+  .medium-editor-toolbar-form-anchor.link-form{ style: 'position: absolute; z-index: 10;' }
+    = link_to new_item_asset_path(hide_upload: true), 'title' => t('tenon.tenon_content.link_to_an_asset'), 'data-modal-remote' => 'true', 'data-modal-handler' => 'Tenon.features.tenonContent.ImageAssetLink', 'data-modal-title' => t('tenon.tenon_content.link_to_an_asset'), 'data-tooltip' => true do
       %i.fa.fa-file-pdf-o
-    = f.super_text_field :link_url, placeholder: 'Paste or type a link', style: 'display; inline; width: 316px;';
-    = link_to '', '#', class: 'medium-editor-cancel', title: 'Cancel', data: { tooltip: true }
+    = f.super_text_field :link_url, placeholder: t('tenon.tenon_content.paste_or_type_a_link'), style: 'display; inline; width: 316px;';
+    = link_to '', '#', class: 'medium-editor-cancel', title: t('tenon.tenon_content.cancel'), data: { tooltip: true }
 
-  .medium-editor-toolbar.medium-toolbar-arrow-under.medium-editor-toolbar-active.image-controls{style: "display: none; margin-top: -65px;"}
+  .medium-editor-toolbar.medium-toolbar-arrow-under.medium-editor-toolbar-active.image-controls{ style: "display: none; margin-top: -65px;" }
     %ul.medium-editor-toolbar-actions.clearfix
       %li
-        %button{title: 'Crop', class: 'asset-crop medium-editor-action medium-editor-button-first', data: {'tooltip' => true, 'post-crop-handler' => 'Tenon.features.tenonContent.PostCropHandler', 'asset-id' => f.object.image_id}}
+        %button{ title: t('tenon.assets.crop'), class: 'asset-crop medium-editor-action medium-editor-button-first', data: { 'tooltip' => true, 'post-crop-handler' => 'Tenon.features.tenonContent.PostCropHandler', 'asset-id' => f.object.image_id } }
           %i.fa.fa-crop
       %li
-        %button{title: 'Grow', class: 'grow-image medium-editor-action', data: {'column-resize-operation' => 'increase', 'tooltip' => true}}
+        %button{ title: t('tenon.tenon_content.grow'), class: 'grow-image medium-editor-action', data: { 'column-resize-operation' => 'increase', 'tooltip' => true } }
           %i.fa.fa-plus
       %li
-        %button{title: 'Shrink', class: 'shrink-image medium-editor-action', data: {'column-resize-operation' => 'decrease', 'tooltip' => true}}
+        %button{ title: t('tenon.tenon_content.shrink'), class: 'shrink-image medium-editor-action', data: { 'column-resize-operation' => 'decrease', 'tooltip' => true } }
           %i.fa.fa-minus
       %li
-        %button{title: 'Toggle Caption', class: 'medium-editor-action toggle-caption', data: {tooltip: true}}
+        %button{ title: t('tenon.tenon_content.toggle_caption'), class: 'medium-editor-action toggle-caption', data: { tooltip: true } }
           %i.fa.fa-comment
       %li
-        %button{title: 'Swap Sides', class: 'swap-sides medium-editor-action', data: {tooltip: true}}
+        %button{ title: t('tenon.tenon_content.swap_sides'), class: 'swap-sides medium-editor-action', data: { tooltip: true } }
           %i.fa.fa-exchange
       %li
-        %button{title: 'Stretch to Fill', class: "stretch-to-fill medium-editor-action #{f.object.stretch_to_fill? ? 'medium-editor-button-active' : ''}", data: {tooltip: true}}
+        %button{ title: t('tenon.tenon_content.stretch_to_fill'), class: "stretch-to-fill medium-editor-action #{f.object.stretch_to_fill? ? 'medium-editor-button-active' : ''}", data: { tooltip: true } }
           %i.fa.fa-arrows-alt
       %li
-        %button.add-link.medium-editor-action{title: 'Add Link', class: ('medium-editor-button-active' unless f.object.link_url.blank?), data: {tooltip: true}}
+        %button.add-link.medium-editor-action{title: t('tenon.tenon_content.add_link'), class: ('medium-editor-button-active' unless f.object.link_url.blank?), data: { tooltip: true } }
           %i.fa.fa-link
       %li
-        %button{href: new_item_asset_path, title: 'Replace Image', class: 'replace-image medium-editor-action  medium-editor-button-last', data: {'modal-remote' => 'true', 'modal-title' => "Select Image", 'modal-handler' => 'Tenon.features.tenonContent.AssetAttachment', 'tooltip' => true}}
+        %button{ href: new_item_asset_path, title: t('tenon.tenon_content.replace_image'), class: 'replace-image medium-editor-action medium-editor-button-last', data: { 'modal-remote' => 'true', 'modal-title' => t('tenon.tenon_content.select_image'), 'modal-handler' => 'Tenon.features.tenonContent.AssetAttachment', 'tooltip' => true } }
           %i.fa.fa-picture-o
 
     .medium-editor-toolbar-form-anchor

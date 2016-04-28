@@ -8,4 +8,4 @@ class Tenon.features.AssetDetachment
     @$assetField = $(e.currentTarget).closest('.tn-tc-asset-field')
     @$assetField.find('.asset-id-field').removeAttr('value')
     @$assetField.find('.thumbnail img').attr('src', '/assets/tenon/thumb-doc.png')
-    @$assetField.find('.asset-info').html('No asset selected.')
+    @$assetField.find('.asset-info').html(I18n.tenon.assets.no_asset_selected)

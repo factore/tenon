@@ -9,7 +9,7 @@ class Tenon.features.RecordListUpdater
     $el = $(e.currentTarget)
     @clearQuery = $el.attr('data-clear-record-list-params')
     if $el.prop("tagName").toLowerCase() == 'form'
-      @_updateWithQuery(@_processFormData($el), 'Search', $el)
+      @_updateWithQuery(@_processFormData($el), I18n.tenon.common.search, $el)
     else
       @_updateWithQuery(URI($el.attr('href')).query(true), $el.textContent)
 

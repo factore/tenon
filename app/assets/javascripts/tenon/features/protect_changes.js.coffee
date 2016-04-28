@@ -22,4 +22,4 @@ class Tenon.features.ProtectChanges
 
   confirmNavigation: =>
     if @changesMade
-      'You have unsaved changes, are you sure you want to leave this page?'
+      I18n.tenon.common.you_have_unsaved_changes

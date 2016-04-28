@@ -1,12 +1,12 @@
 - content_for :sidebar do
   .sidebar
     .content
-      %h2 Redirects
-      = link_to "New Redirect", new_redirect_path, class: 'btn btn-block btn-primary'
-      %p Drag and drop to set priority.
+      %h2= t('tenon.redirects.redirects')
+      = link_to t('tenon.redirects.new_redirect'), new_redirect_path, class: 'btn btn-block btn-primary'
+      %p= t('tenon.redirects.drag_and_drop_to_set_priority')
 
 %header
-  %h1 Redirects
+  %h1= t('tenon.redirects.redirects')
 
   .tools
     = render "tenon/shared/section_header/sidebar_toggle"
@@ -19,11 +19,11 @@
   = render "tenon/shared/section_header/quick_search", record_list: '#redirects'
 
 .main-content
-  .flash.flash-alert{style: 'padding-right: 40px;'}
+  .flash.flash-alert{ style: 'padding-right: 40px;' }
     %i.fa.fa-exclamation-triangle
-    Redirects will be run when a page cannot be found. It will not redirect an existing page.
+    = t('tenon.redirects.redirects_will_be_run')
 
   = error_messages_for :redirect
-  %ul#redirects.record-list.sortable{data: {records: {url: redirects_path(format: 'json'), template: 'tenon/templates/redirects/redirect_row', name: 'redirect'}, :'reorder-path' => reorder_redirects_path}}
+  %ul#redirects.record-list.sortable{ data: { records: { url: redirects_path(format: 'json'), template: 'tenon/templates/redirects/redirect_row', name: 'redirect' }, :'reorder-path' => reorder_redirects_path } }
 
-  = link_to "Load More Redirects", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#redirects'
+  = link_to t('tenon.redirects.load_more'), '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#redirects'

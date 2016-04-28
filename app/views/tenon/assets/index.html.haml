@@ -1,7 +1,7 @@
 = render "sidebar_index"
 
 %header
-  %h1 Asset Library
+  %h1= t('tenon.assets.asset_library')
 
   .tools
     = render "tenon/shared/section_header/sidebar_toggle"
@@ -16,4 +16,4 @@
 .main-content
   %ul#assets.record-grid{data: {role: 'records-list', records: {url: assets_path(format: 'json'), template: 'tenon/templates/assets/asset_row', name: 'asset'}}}
 
-  = link_to "Load More Assets", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#assets'
+  = link_to t('tenon.assets.load_more'), '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#assets'

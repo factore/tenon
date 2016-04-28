@@ -27,10 +27,10 @@ module Tenon
       respond_to do |format|
         if @comment.toggle_approved!
           format.json { render json: @comment.to_json }
-          format.html { flash[:notice] = 'Comment approved.' and redirect_to comments_path }
+          format.html { flash[:notice] = t('tenon.comments.comment_approved') and redirect_to comments_path }
         else
           format.json { render status: 500, nothing: true }
-          format.html { flash[:warning] = 'Error approving comment.' and redirect_to comments_path }
+          format.html { flash[:warning] = t('tenon.comments.error_approving_comment') and redirect_to comments_path }
         end
       end
     end

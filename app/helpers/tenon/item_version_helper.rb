@@ -17,24 +17,24 @@ module Tenon
       data = {
         'modal-remote' => true,
         'modal-handler' => 'Tenon.features.NewItemVersionHandler',
-        'modal-title' => 'Save Draft'
+        'modal-title' => t('tenon.item_versions.save_draft')
       }
-      link_to 'Save Draft', path, class: css_class, data: data
+      link_to t('tenon.item_versions.save_draft'), path, class: css_class, data: data
     end
 
     def clear_draft_link
       path = url_for(version: nil)
-      link_to 'Load Active Version', path, class: 'delete-link'
+      link_to t('tenon.item_versions.load_active_version'), path, class: 'delete-link'
     end
 
     def load_draft_link(obj)
       path = item_versions_path(item_type: obj.class.to_s, item_id: obj.id)
       data = {
         'modal-remote' => true,
-        'modal-title' => 'Load Draft',
+        'modal-title' => t('tenon.item_versions.load_draft'),
         'modal-handler' => 'Tenon.features.ItemVersionIndexHandler'
       }
-      link_to 'Load Draft', path, class: 'delete-link', data: data
+      link_to t('tenon.item_versions.load_draft'), path, class: 'delete-link', data: data
     end
 
     private

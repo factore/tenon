@@ -1,0 +1,313 @@
+en:
+  tenon:
+    common:
+      save: Save
+      please_wait: Please wait...
+      edit: Edit
+      are_you_sure: Are you sure? There is no undo for this!
+      delete: Delete
+      filter: Filter
+      all: All
+      approve: Approve
+      unapprove: Unapprove
+      unapproved: Unapproved
+      approved: Approved
+      publish: Publish
+      browse: Browse
+      publish_date: Publish Date
+      view_on_site: View on Site
+      edit_options: Edit Options
+      search_optimization: Search Optimization
+      details: Details
+      active: Actions
+      search: Search
+      languages: Languages
+      english: English
+      home: Home
+      for_an_optimal_tenon_experience: "For an optimal Tenon experience, please upgrade Internet Explorer to the %{latest_version} or switch to another %{modern_browser}."
+      mobile: Mobile
+      at: at
+      there_were_problems_with_the_following_fields: There were problems with the following fields
+      saved_successfully: saved successfully
+      you_are_not_authorized: You are not authorized to access that page.
+      youre_not_authorized_for_that: You're not authorized for that.
+      new: New
+      loading: Loading...
+      you_have_unsaved_changes: You have unsaved changes, are you sure you want to leave this page?
+      the_following_errors_occurred: The following errors occurred
+
+    assets:
+      enter_a_title_for_your_asset: Enter a title for your asset. You can leave this blank to just use the file name as the title.
+      multiple_assets: If you upload multiple assets a numerical series will be created.
+      choose_file: Choose File
+      choose_files: Choose Files
+      choose_another_file: Choose Another File
+      asset_library: Asset Library
+      upload_new: Upload New
+      upload_assets: Upload Assets
+      file_types: File Types
+      all_assets: All Assets
+      images: Images
+      documents: Documents
+      crop: Crop
+      create_new_asset_from_crop: Create New Asset From Crop?
+      load_more: Load More Assets
+      edit_asset: Edit Asset
+      size: Size
+      asset: Asset
+      successfully_uploaded: Asset was successfully uploaded.
+      download: Download
+      in_use: This asset has been attached to items in your site and can't be deleted.
+      from_your_computer: From Your Computer
+      from_the_asset_library: From the Asset Library
+      filter_assets: Filter Assets
+      asset_link: Asset Link
+      no_asset_selected: No asset selected.
+
+    comment_mailer:
+      a_new_comment_has_been_added: A new comment has been added to
+
+    comments:
+      comments: Comments
+      load_more: Load More Comments
+      read: Read
+      read_comment: Read Comment
+      new_comment: New Comment
+      comment_approved: Comment Approved
+      error_approving_comment: Error approving comment.
+
+    contact_mailer:
+      new_contact_request_received: A new contact request has been recieved.
+      reply_to_this_email: Reply to this email to get in touch with the person who sent it.
+      from: From
+      email: Email
+      new_contact_request: New Contact Request
+      sent_on: Sent on
+      name: Name
+      phone: Phone
+      ip: IP
+      agent: Agent
+      referrer: Referrer
+
+    contacts:
+      contacts: Contacts
+      unread: Unread
+      read: Read
+      awaiting_reply: Awaiting reply
+      replied: Replied
+      load_more: Load More Contacts
+      view_contact_details: View Contact Details
+      contact_details: Contact Details
+      mark_as_unread: Mark as Unread
+      mark_as_read: Mark as Read
+      mark_as_pending: Mark as Pending
+      mark_as_replied: Mark as Replied
+      contact_flagged_as_read: Cotact flagged as read.
+      error_flagging_contact_as_read: Error flagging contact as read.
+      contact_flagged_as_replied: Contact flagged as replied.
+      error_flagging_contact_as_replied: Error flagging contact as replied.
+
+    events:
+      events: Events
+      new_event: New Event
+      event_details: Event Details
+      publish_your_event: Publish Your Event
+      editing_event: Editing Event
+      load_more: Load More Events
+      create_a_new_event: Create a New Event
+      from: from
+      until: until
+      when: When
+      where: Where
+
+    fields:
+      remove: remove
+      select: Select
+
+    galleries:
+      galleries: Galleries
+      new_gallery: New Gallery
+      add_another_photo: Add another photo
+      add_several: Add several
+      load_more: Load More Galleries
+
+    index:
+      notifications: Notifications
+      some_items_need_your_attention: Some items need your attention!
+      welcome_to_tenon: Welcome to Tenon
+
+    item_versions:
+      no_title: (No Title)
+      view_draft: View Draft
+      choose_a_draft: Choose a draft to load from the list below. Loading a draft will open it but it will not overwrite the active version of your item until you press Save.
+      load_other_drafts: Load Older Drafts
+      load_active_version: Load Active Version
+      load_draft: Load Draft
+      save_draft: Save Draft
+      you_are_viewing_a_draft: You are viewing a draft version of this resource. Hitting save will replace the active version with this version.
+      auto_saving_is_disabled: Auto-saving is disabled when you are viewing a draft version.
+      draft: Draft
+      was_created_on: was created on
+      by: by
+      post_save: Post-Save
+      failed_to_save_draft: Failed to save draft.
+      created: Created
+      creator: Creator
+
+    pages:
+      pages: Pages
+      page_content: Page Content
+      this_is_the_title: This is the title that shows up at the top of your page.
+      parent_page: Parent Page
+      no_parent: (No Parent)
+      show_in_menu: Show in Menu?
+      show_contact_form: Show Contact Form?
+      publish_your_page: Publish Your Page
+      edit_a_page: Edit a Page
+      new_page: New Page
+      load_more: Load More Pages
+      unknown_user: Unknown User
+      create_a_sub_page: Create a Sub-Page
+      required_page: Required Page, Can't Delete
+      create_a_new_page: Create a New Page
+      must_exist_in_order_to_have: must exist in order to have a properly generated URL.
+      theres_already_something_happening: "There's already something happening at %{path}. Try giving the page a different name."
+      cannot_be_itself_or_one_of_its_subpages: cannot be itself or one of its subpages.
+      last_updated: Last Updated
+
+    post_categories:
+      post_categories: Post Categories
+      edit_post_category: Edit Post Category
+      new_post_category: New Post Category
+      load_more: Load More Post Categories
+
+    posts:
+      posts: Posts
+      post_content: Post Content
+      give_your_post_a_title: Give your post a title.
+      categories: Categories
+      publish_your_post: Publish Your Post
+      author: Author
+      no_author: (No Author)
+      allow_comments: Allow Comments?
+      edit_a_post: Edit a Post
+      new_post: New Post
+      load_more: Load More Posts
+      date_not_set: Date not set
+      create_a_new_post: Create a New Post
+      published: Published
+
+    redirects:
+      redirects: Redirects
+      new_redirect: New Redirect
+      redirects_will_be_run: Redirects will be run when a page cannot be found. It will not redirect an existing page.
+      route_to_match: Route to match
+      string_can_be_written: "String, can be written as a regular expression (without opening and closing /)"
+      destination: Destination
+      zero_indexed_captures: "Zero-indexed captures can be returned in {x}"
+      active: Active
+      not_active: Not Active
+      edit_redirect: Edit Redirect
+      drag_and_drop_to_set_priority: Drag and drop to set priority.
+      load_more: Load More Redirects
+
+    settings:
+      contact_details: Contact Details
+      contact_email: Contact Email
+      destination_email_address_for_alerts: Destination email address for alerts. Separate multiple email addresses with commas.
+      sender_email: Sender Email
+      from_email_address_for_alerts: \"From\" email address for alerts.
+      comment_notifications: Comment Notifications
+      comment_email: Comment Email
+      do_you_want_to_receive: Do you want to receive an email when someone posts a comment?
+      site_name: Site Name
+      site_domain: Site Domain
+      google_analytics_code: Google Analytics Code
+      create_a_new_profile_here: Create a New Profile Here
+      meta_keywords: META Keywords
+      these_meta_keywords_will: "These META keywords will be used by some search engines when crawling your site.  Separate keywords with a comma. Note: Google does not factor in keywords when calculating your rank. Other search engines may or may not."
+      meta_description: META Description
+      this_description_will_show_up: "This description will show up on search engines and in some cases will affect your rank. It should be no longer than 150-160 characters (about the length of a tweet.)"
+      settings: Settings
+      sections: Sections
+      general_settings: General Settings
+      contact_management: Contact Management
+      site_settings: Site Settings
+      title_tag: Title Tag
+      this_is_the_title_that_will_show: "This is the title that will show on search engine results and in the title bar of a visitor's browser. By default, this will use the item's title."
+
+    users:
+      users: Users
+      new_user: New User
+      edit_info: Edit Info
+      sign_out: Sign Out
+      new_password: New Password
+      confirm_new_password: Confirm New Password
+      confirm_password: Confirm Password
+      roles: Roles
+      roles_define_a_users_abilities: Roles define a user's abilities throughout the site.
+      approved: Approved?
+      edit_a_user: Edit a User
+      load_more: Load More Users
+      never: Never
+      are_you_sure_you_want_to_unapprove: Are you sure you want to unapprove this user?
+      are_you_sure_the_user_will_be_notified: Are you sure? The user will be notified by email.
+      last_login: Last Login
+
+    tenon_callouts:
+      tenon_callouts: Tenon Callouts
+      new_tenon_callout: New Tenon Callout
+      open_in_new_window: Open in New Window
+      edit_a_tenon_callout: Edit a Tenon Callout
+      load_more: Load More Callouts
+
+    tenon_content:
+      select_image: Select Image
+      add_image: Add Image
+      replace_image: Replace Image
+      edit_embed_code: Edit Embed Code
+      enter_caption_here: Enter caption here...
+      link_to_an_asset: Link to an Asset
+      paste_or_type_a_link: Paste or type a link
+      cancel: Cancel
+      grow: Grow
+      shrink: Shrink
+      toggle_caption: Toggle Caption
+      swap_sides: Swap Sides
+      stretch_to_fill: Stretch to Fill
+      add_link: Add Link
+      paste_your_embed_code_here: Paste your embed code here
+      note_in_order_to_get_your_embed_to_work: "Note: In order to get your embed to work with various screen sizes, you may want to get a code from"
+      update: Update
+      select_rows_from_the_library: Select rows from the library to build this section.
+      you_can_format_your_text: You can format your text by highlighting it and selecting options from the pop-up menu.
+      edit_in_preview_mode: Edit in Preview Mode
+      add_content: Add Content
+      preview_mode: Preview Mode
+      use_preview_mode_to_see: "Use preview mode to see how your content will look on different devices. You can still make edits when you're in preview mode, but the toolbars are hidden to give you a better picture of how your content will be laid out."
+      done: Done
+      insert_content: Insert Content
+
+    row_types:
+      one_column_of_text: One Column of Text
+      one_column_image: One Column Image
+      two_columns_of_text: Two Columns of Text
+      two_images: Two Images
+      three_columns_of_text: Three Columns of Text
+      three_images: Three Images
+      four_columns_of_text: Four Columns of Text
+      four_images: Four Images
+      wrapped_image_with_text: Wrapped Image with Text
+      six_images: Six Images
+      embedded_content: Embedded Content
+      image_and_text_no_wrap: Image and Text (No Wrap)
+      two_column_image_and_text: Two Column Image and Text
+      three_column_image_and_text: Three Column Image and Text
+      four_column_image_and_text: Four Column Image and Text
+      six_column_image_and_text: Six Column Image and Text
+      two_columns_with_background_image: Two Columns with Background Image
+
+    record_list:
+      no_entries_found: No entries found.
+      there_was_an_error_contacting_the_server: There was an error contacting the server.
+

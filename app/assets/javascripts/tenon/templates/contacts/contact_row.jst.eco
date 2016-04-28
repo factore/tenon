@@ -8,13 +8,13 @@
     </div>
 
     <div class="record-title">
-      From:
+      <%= I18n.tenon.contact_mailer.from %>:
       <strong>
         <a href="mailto:<%= @contact.email %>"><%= @contact.name %> (<%= @contact.email %>)</a>
       </strong>
       <br />
       <small>
-        Sent on:
+        <%= I18n.tenon.contact_mailer.sent_on %>:
         <strong>
           <%- @contact.sent_date %>
         </strong>
@@ -25,28 +25,28 @@
         <p><%= @contact.content %></p>
         <hr />
         <p>
-          <strong>Name: </strong>
+          <strong><%= I18n.tenon.contact_mailer.name %>: </strong>
           <%= @contact.name %>
         </p>
         <p>
-          <strong>Email: </strong>
+          <strong><%= I18n.tenon.contact_mailer.email %>: </strong>
           <a href="mailto: <%= @contact.email %>"><%= @contact.email %></a>
         </p>
         <p>
         <p>
-          <strong>Phone: </strong>
-          <%= @contact.ophone %>
+          <strong><%= I18n.tenon.contact_mailer.phone %>: </strong>
+          <%= @contact.phone %>
         </p>
         <p>
-          <strong>IP:</strong>
+          <strong><%= I18n.tenon.contact_mailer.ip %>:</strong>
           <%= @contact.user_ip %>
         </p>
         <p>
-          <strong>Agent:</strong>
+          <strong><%= I18n.tenon.contact_mailer.agent %>:</strong>
           <%= @contact.user_agent %>
         </p>
         <p>
-          <strong>Referrer:</strong>
+          <strong><%= I18n.tenon.contact_mailer.referrer %>:</strong>
           <%= @contact.referrer %>
         </p>
       </div>

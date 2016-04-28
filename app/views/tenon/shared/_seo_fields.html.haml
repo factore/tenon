@@ -1,6 +1,6 @@
 .form-group
-  = f.text_field :seo_title, :class => "title", :style => "width: 100%;", :label => "Title Tag", :'data-popover' => true, :explanation => "This is the title that will show on search engine results and in the title bar of a visitor's browser.  By default, this will use the item's title.", :'data-placement' => 'bottom'
+  = f.text_field :seo_title, :class => "title", :style => "width: 100%;", :label => t('tenon.settings.title_tag'), :'data-popover' => true, :explanation => t('tenon.settings.this_is_the_title_that_will_show'), :'data-placement' => 'bottom'
 .form-group
-  = f.text_area :seo_keywords, :style => "width: 100%;", :rows => 5, :label => "META Keywords", :'data-popover' => true, :explanation => "These META keywords will be used by some search engines when crawling your site.  Separate keywords with a comma.  Note: Google does not factor in keywords when calculating your rank.  Other search engines may or may not.", :'data-placement' => 'bottom'
+  = f.text_area :seo_keywords, :style => "width: 100%;", :rows => 5, :label => t('tenon.settings.meta_keywords'), :'data-popover' => true, :explanation => t('tenon.settings.these_meta_keywords_will'), :'data-placement' => 'bottom'
 .form-group
-  = f.text_area :seo_description, :style => "width: 100%;", :rows => 5, :label => "META Description", :'data-popover' => true, :explanation => "This description will show up on search engines and in some cases will affect your rank.  It should be no longer than 150-160 characters (about the length of a tweet.)", :'data-placement' => 'bottom'
+  = f.text_area :seo_description, :style => "width: 100%;", :rows => 5, :label => t('tenon.settings.meta_description'), :'data-popover' => true, :explanation => t('tenon.settings.this_description_will_show_up'), :'data-placement' => 'bottom'

@@ -36,7 +36,7 @@ module Tenon
     def edit_link(obj, options = {})
       if can?(:edit, obj)
         url = polymorphic_url([:edit] + Array(obj))
-        action_link('Edit', url, 'pencil', options)
+        action_link(t('tenon.common.edit'), url, 'pencil', options)
       end
     end
 
@@ -44,21 +44,21 @@ module Tenon
     def delete_link(obj, options = {})
       if can?(:destroy, obj)
         default_options = { data: {
-          confirm: 'Are you sure? There is no undo for this!',
-          tooltip: 'Delete',
+          confirm: t('tenon.common.are_you_sure'),
+          tooltip: t('tenon.common.delete'),
           method: 'Delete',
           remote: 'true'
         } }
         url = polymorphic_url(obj)
-        action_link('Delete', url, 'trash-o', default_options.deep_merge(options))
+        action_link(t('tenon.common.delete'), url, 'trash-o', default_options.deep_merge(options))
       end
     end
 
     # browser detection and warning message
     def browser_detection(http)
-      if http.match(/MSIE 6|MSIE 7|MSIE 8.0/)
-        content_tag(:div, "For an optimal Tenon experience, please upgrade Internet Explorer to the #{link_to 'latest version', 'http://browsehappy.com/', target: '_blank'} or switch to another #{link_to 'modern browser', 'http://browsehappy.com/', target: '_blank'}.".html_safe, id: 'flash-warning', class: 'flash-msg')
-      end
+      # if http.match(/MSIE 6|MSIE 7|MSIE 8.0/)
+        content_tag(:div, t('tenon.common.for_an_optimal_tenon_experience', latest_version: link_to('latest version', 'http://browsehappy.com/', target: '_blank'), modern_browser: link_to('modern browser', 'http://browsehappy.com/', target: '_blank')).html_safe, id: 'flash-warning', class: 'flash-msg')
+      # end
     end
 
     def i18n_language_nav(table)

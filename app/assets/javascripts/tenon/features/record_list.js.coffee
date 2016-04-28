@@ -41,9 +41,9 @@ class Tenon.features.RecordList
 
   _dataLoaded: (data) =>
     if data.records.length == 0
-      @_showInfoLi('No entries found.')
+      @_showInfoLi(I18n.tenon.record_list.no_entries_found)
     else if @$list.data('records-nested')
-      @_showInfoLi('No entries found.') if data.records.length == 0
+      @_showInfoLi(I18n.tenon.record_list.no_entries_found) if data.records.length == 0
       new Tenon.features.NestedSetWriter(data.records, @$list, @_templatePath, @_recordName)
     else
       @_drawRecords(data.records)
@@ -52,7 +52,7 @@ class Tenon.features.RecordList
     @$list.trigger('tenon.records-refreshed')
 
   _failedLoad: =>
-    @_showInfoLi('There was an error contacting the server.')
+    @_showInfoLi(I18n.tenon.record_list.there_was_an_error_contacting_the_server)
 
   _drawRecords: (records) =>
     for record in records

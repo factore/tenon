@@ -1,7 +1,7 @@
 = render "sidebar_index"
 
 %header
-  %h1 Contacts
+  %h1= t('tenon.contacts.contacts')
 
   .tools
     = render "tenon/shared/section_header/sidebar_toggle"
@@ -16,4 +16,4 @@
 .main-content
   %ul#contacts.record-list{data: {records: {url: contacts_path(format: 'json'), template: 'tenon/templates/contacts/contact_row', name: 'contact'}}}
 
-  = link_to "Load More Contacts", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#contacts'
+  = link_to t('tenon.contacts.load_more'), '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#contacts'

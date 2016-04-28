@@ -19,7 +19,7 @@ module Tenon
 
     def create
       asset = Tenon::Asset.new(resource_params)
-      flash[:notice] = 'Asset was successfully uploaded.' if asset.save && !request.xhr?
+      flash[:notice] = t('tenon.assets.successfully_uploaded') if asset.save && !request.xhr?
       @asset = asset.decorate
       respond_with(@asset, location: assets_path)
     end

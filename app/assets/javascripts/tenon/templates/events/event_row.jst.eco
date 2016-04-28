@@ -12,10 +12,10 @@
 
     <div class="record-fields">
       <div class="record-field">
-        When - <%= @event.display_date %>
+        <%= I18n.tenon.events.when %> - <%= @event.display_date %>
       </div>
       <div class="record-field">
-        Where - <%= @event.location %>
+        <%= I18n.tenon.events.where %> - <%= @event.location %>
       </div>
     </div>
   </div>

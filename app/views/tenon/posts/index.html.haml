@@ -1,15 +1,15 @@
 - content_for :sidebar do
   .sidebar
     .content
-      %h2 Posts
-      = link_to "New Post", new_post_path, class: 'btn btn-block btn-primary'
-      #new-post-category{:style => "display: none;"}
+      %h2= t('tenon.posts.posts')
+      = link_to t('tenon.posts.new_post'), new_post_path, class: 'btn btn-block btn-primary'
+      #new-post-category{ :style => "display: none;" }
         =# render "form", category: PostCategory.new
 
     = render "tenon/shared/posts_nav"
 
 %header
-  %h1 Posts
+  %h1= t('tenon.posts.posts')
 
   .tools
     = render "tenon/shared/section_header/sidebar_toggle"
@@ -22,6 +22,6 @@
   = render "tenon/shared/section_header/quick_search", record_list: '#posts'
 
 .main-content
-  %ul#posts.record-list{data: {records: {url: posts_path(format: 'json'), template: 'tenon/templates/posts/post_row', name: 'post'}}}
+  %ul#posts.record-list{ data: { records: { url: posts_path(format: 'json'), template: 'tenon/templates/posts/post_row', name: 'post' } } }
 
-  = link_to "Load More Posts", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#posts'
+  = link_to t('tenon.posts.load_more'), '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#posts'

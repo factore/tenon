@@ -14,15 +14,15 @@
     <div class="record-fields">
       <% if @post.author: %>
         <div class="record-field">
-          Author - <%= @post.author %>
+          <%= I18n.tenon.posts.author %> - <%= @post.author %>
         </div>
       <% end %>
       <div class="record-field">
-        Published - <%= @post.publish_at %>
+        <%= I18n.tenon.posts.published %> - <%= @post.publish_at %>
       </div>
       <% if @post.categories: %>
         <div class="record-field">
-          Categories - <%= @post.categories %>
+          <%= I18n.tenon.posts.categories %> - <%= @post.categories %>
         </div>
       <% end %>
     </div>

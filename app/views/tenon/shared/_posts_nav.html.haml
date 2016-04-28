@@ -1,8 +1,8 @@
-%h4 Posts
+%h4= t('tenon.posts.posts')
 %nav
   %ul
     - if can?(:manage, Tenon::Post)
-      %li{class: ('active' if controller_name == 'posts')}= link_to "Posts", posts_path
+      %li{ class: ('active' if controller_name == 'posts') }= link_to t('tenon.posts.posts'), posts_path
 
     - if can?(:manage, Tenon::PostCategory)
-      %li{class: ('active' if controller_name == 'post_categories')}= link_to "Post Categories", post_categories_path
+      %li{ class: ('active' if controller_name == 'post_categories') }= link_to t('tenon.post_categories.post_categories'), post_categories_path

@@ -28,5 +28,5 @@ class Tenon.features.NewItemVersionHandler
     $.extend(itemFormData, versionFormData)
 
   _failure: =>
-    msg = "Failed to save draft."
+    msg = I18n.tenon.item_versions.failed_to_save_draft
     @$versionForm.prepend(msg)

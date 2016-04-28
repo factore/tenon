@@ -11,10 +11,10 @@
 
     <div class="record-fields">
       <div class="record-field">
-        Roles - <%= @user.roles %>
+        <%= I18n.tenon.users.roles %> - <%= @user.roles %>
       </div>
       <div class="record-field">
-        Last Login - <%= @user.last_login %>
+        <%= I18n.tenon.users.last_login %> - <%= @user.last_login %>
       </div>
     </div>
   </div>

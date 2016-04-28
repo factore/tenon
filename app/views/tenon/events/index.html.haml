@@ -1,11 +1,11 @@
 - content_for :sidebar do
   .sidebar
     .content
-      %h2 Events
-      = link_to "New Event", new_event_path, class: 'btn btn-block btn-primary'
+      %h2= t('tenon.events.events')
+      = link_to t('tenon.events.new_event'), new_event_path, class: 'btn btn-block btn-primary'
 
 %header
-  %h1 Events
+  %h1= t('tenon.events.events')
 
   .tools
     = render "tenon/shared/section_header/sidebar_toggle"
@@ -20,4 +20,4 @@
 .main-content
   %ul#events.record-list{data: {role: 'records-list', records: {url: events_path(format: 'json'), template: 'tenon/templates/events/event_row', name: 'event'}}}
 
-  = link_to "Load More Events", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#events'
+  = link_to t('tenon.events.load_more'), '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#events'

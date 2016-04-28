@@ -4,14 +4,14 @@
 
   .sidebar
     .content
-      %h2 Post Categories
-      = link_to "New Post Category", '#', class: 'btn btn-block btn-primary', data: { 'modal-target' => '#new-post_category', 'modal-title' => 'New Post Category' }
+      %h2= t('tenon.post_categories.post_categories')
+      = link_to t('tenon.post_categories.new_post_category'), '#', class: 'btn btn-block btn-primary', data: { 'modal-target' => '#new-post_category', 'modal-title' => t('tenon.post_categories.new_post_category') }
 
     = render "tenon/shared/posts_nav"
 
 
 %header
-  %h1 Post Categories
+  %h1= t('tenon.post_categories.post_categories')
 
   .tools
     = render "tenon/shared/section_header/sidebar_toggle"
@@ -25,6 +25,6 @@
 
 .main-content
   = error_messages_for :post_category
-  %ul#post_categories.record-list{data: {records: {url: post_categories_path(format: 'json'), template: 'tenon/templates/post_categories/post_category_row', name: 'post_category'}}}
+  %ul#post_categories.record-list{ data: { records: { url: post_categories_path(format: 'json'), template: 'tenon/templates/post_categories/post_category_row', name: 'post_category' } } }
 
-  = link_to "Load More Post Categories", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#post_categories'
+  = link_to t('tenon.post_categories.load_more'), '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#post_categories'

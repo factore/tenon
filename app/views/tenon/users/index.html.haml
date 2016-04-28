@@ -1,11 +1,11 @@
 - content_for :sidebar do
   .sidebar
     .content
-      %h2 Users
-      = link_to "New User", new_user_path, class: 'btn btn-block btn-primary'
+      %h2= t('tenon.users.users')
+      = link_to t('tenon.users.new_user'), new_user_path, class: 'btn btn-block btn-primary'
 
 %header
-  %h1 Users
+  %h1= t('tenon.users.users')
 
   .tools
     = render "tenon/shared/section_header/sidebar_toggle"
@@ -18,6 +18,6 @@
   = render "tenon/shared/section_header/quick_search", record_list: '#users'
 
 .main-content
-  %ul#users.record-list{data: {records: {url: users_path(format: 'json'), template: 'tenon/templates/users/user_row', name: 'user'}}}
+  %ul#users.record-list{ data: { records: { url: users_path(format: 'json'), template: 'tenon/templates/users/user_row', name: 'user' } } }
 
-  = link_to "Load More Users", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#users'
+  = link_to t('tenon.users.load_more'), '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#users'

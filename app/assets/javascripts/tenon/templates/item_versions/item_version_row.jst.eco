@@ -10,11 +10,11 @@
 
     <div class="record-fields">
       <div class="record-field">
-        Created - <%= @item_version.created_at %>
+        <%= I18n.tenon.item_versions.created %> - <%= @item_version.created_at %>
       </div>
 
       <div class="record-field">
-        Creator - <%= @item_version.user_email %>
+        <%= I18n.tenon.item_versions.creator %> - <%= @item_version.user_email %>
       </div>
     </div>
 

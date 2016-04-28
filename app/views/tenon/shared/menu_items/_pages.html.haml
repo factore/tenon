@@ -2,5 +2,5 @@
   = tenon_menu_item item, pages_path, :active => is_active("pages"), :submenu => can?(:create, Page)
   - if can?(:create, Page)
     %ul.tenon_submenu{ :class => is_active(["pages"]) ? "#{item} active" : item }
-      = link_to "New Page", new_page_path, :class => ("active" if is_active(["pages"]) && params[:action] == "new")
+      = link_to t('tenon.pages.new_page'), new_page_path, :class => ("active" if is_active(["pages"]) && params[:action] == "new")
     .spacer

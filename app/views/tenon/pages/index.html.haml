@@ -1,11 +1,11 @@
 - content_for :sidebar do
   .sidebar
     .content
-      %h2 Pages
-      = link_to "New Page", new_page_path, class: 'btn btn-block btn-primary'
+      %h2= t('tenon.pages.pages')
+      = link_to t('tenon.pages.new_page'), new_page_path, class: 'btn btn-block btn-primary'
 
 %header
-  %h1 Pages
+  %h1= t('tenon.pages.pages')
 
   .tools
     = render "tenon/shared/section_header/sidebar_toggle"
@@ -18,6 +18,6 @@
   = render "tenon/shared/section_header/quick_search", record_list: '#pages'
 
 .main-content
-  %ul#pages.record-list.sortable.nested{data: {records: {url: pages_path(format: 'json'), template: 'tenon/templates/pages/page_row', name: 'page', nested: 'true'}, :'reorder-path' => reorder_pages_path}}
+  %ul#pages.record-list.sortable.nested{ data: { records: { url: pages_path(format: 'json'), template: 'tenon/templates/pages/page_row', name: 'page', nested: 'true' }, :'reorder-path' => reorder_pages_path } }
 
-  = link_to "Load More Pages", '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#pages'
+  = link_to t('tenon.pages.load_more'), '#', :class => 'btn btn-comp infinite-loader', 'data-record-list' => '#pages'

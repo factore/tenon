@@ -2,17 +2,17 @@
   #new-asset{:style => "display: none;"}= render "form", multiple: true
   .sidebar
     .content
-      %h2 Asset Library
-      = link_to "Upload New", '#', class: 'btn btn-primary btn-block', data: {'modal-target' => '#new-asset', 'modal-title' => 'Upload Assets', 'keyboard' => 'false' }
+      %h2= t('tenon.assets.asset_library')
+      = link_to t('tenon.assets.upload_new'), '#', class: 'btn btn-primary btn-block', data: {'modal-target' => '#new-asset', 'modal-title' => t('tenon.assets.upload_assets'), 'keyboard' => 'false' }
 
-    %h4 File Types
+    %h4= t('tenon.assets.file_types')
     %nav.list-toggles
       %ul
         %li
-          = link_to 'All Assets', assets_path, :class => 'record-list-updater', 'data-clear-record-list-params' => true
+          = link_to t('tenon.assets.all_assets'), assets_path, :class => 'record-list-updater', 'data-clear-record-list-params' => true
 
         %li
-          = link_to 'Images', '?type=images', class: 'record-list-updater'
+          = link_to t('tenon.assets.images'), '?type=images', class: 'record-list-updater'
 
         %li
-          = link_to 'Documents', '?type=documents', class: 'record-list-updater'
+          = link_to t('tenon.assets.documents'), '?type=documents', class: 'record-list-updater'
