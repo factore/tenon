@@ -1,3 +1,6 @@
+1.1.5 2016-04-28
+  * Internationalized all the Tenon strings
+
 1.1.4 2015-11-12
   * Remove CKEditor from asset pipeline
   * Copy CKEditor files to public/ckeditor on rails generate tenon:install
