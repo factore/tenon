@@ -4,7 +4,7 @@
 %li.dropdown__item
   = link_to new_item_version_path(item_type: class_for(obj), item_id: obj.id), data: { modal_remote: true, modal_handler: 'NewItemVersionHandler', modal_title: 'Save Draft', dropdown_dismiss: true }, class: 'dropdown__action action-icon' do
     = i('cloud_upload')
-    %span Safe Draft
+    %span Save Draft
 
 %li.dropdown__item
   = link_to item_versions_path(item_type: obj.class.to_s, item_id: obj.id), data: { modal_remote: true, modal_handler: 'ItemVersionIndexHandler', modal_title: 'Load Draft', dropdown_dismiss: true }, class: 'dropdown__action action-icon' do
