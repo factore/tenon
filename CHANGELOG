@@ -9,7 +9,9 @@
     - Tenon::Post
     - Tenon::PostCategory
     - Tenon::Redirect
-
+  * The standard resources may or may not work out of the box in the dummy app, only posts is working, and it exists more as an example than as a resource you would expect to use.
+  * This is a major breaking release, don't update an existing app unless you've got a free weekend.
+  * So many other changes!  Check the README for documentation
 
 1.1.4 2015-11-12
   * Remove CKEditor from asset pipeline
