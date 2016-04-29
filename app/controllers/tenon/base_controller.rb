@@ -7,8 +7,8 @@ module Tenon
 
     layout :layout_for_resource
 
-    before_filter :set_page_title, :set_default_context_title
-    before_filter :require_admin, unless: :devise_controller?
+    before_action :set_page_title, :set_default_context_title
+    before_action :require_admin, unless: :devise_controller?
 
     rescue_from Pundit::NotAuthorizedError do |exception|
       flash[:warning] = 'You are not authorized to access that page.'

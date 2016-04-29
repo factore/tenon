@@ -6,7 +6,6 @@
         %h3 From Your Device
         .progress-container
         = form_for Tenon::Asset.new, format: 'json', builder: Tenon::FormBuilder do |f|
-          = error_messages_for :asset
           .input-block
             %label.btn{ for: 'file-upload' } Browse
             %input#file-upload.upload{ type: 'file', multiple: defined?(multiple) && multiple, style: 'position: absolute; left: -9999px;', name: 'asset[attachment]' }

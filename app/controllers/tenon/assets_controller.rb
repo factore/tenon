@@ -1,13 +1,14 @@
 module Tenon
   class AssetsController < Tenon::ResourcesController
     def edit
+      super
       render layout: false
     end
 
     def update
       if resource_params[:duplicate] == '1'
         @asset = Asset.find(params[:id])
-        new_asset = Tenon::Asset.new(resource_params)
+        new_asset = Asset.new(resource_params)
         authorize(new_asset)
         new_asset.attachment = @asset.attachment
         new_asset.save
@@ -20,6 +21,7 @@ module Tenon
       end
       working_asset.attachment.reprocess! if working_asset.cropping?
       @asset = working_asset.decorate
+      self.resource = @asset
 
       respond_to do |format|
         format.html do

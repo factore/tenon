@@ -41,6 +41,14 @@ module Tenon
       link_to 'Load Draft', path, class: 'delete-link', data: data
     end
 
+    def item_version_active_path(obj)
+      if obj.persisted?
+        polymorphic_path [:edit, obj]
+      else
+        new_polymorphic_path obj.class
+      end
+    end
+
     private
 
     def class_for(obj)

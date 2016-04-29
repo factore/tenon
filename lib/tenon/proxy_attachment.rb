@@ -38,8 +38,8 @@ module Tenon
     end
 
     def named_url(style, *args)
-      if style.match(/^_.*/)
-        @attachment.url(style.to_s.gsub(/^_(.*)/, '\1'), *args)
+      if style.to_s.match(/^\_.*/)
+        @attachment.url(style.to_s.gsub(/^\_(.*)/, '\1'), *args)
       else
         @attachment.url("#{@style_prefix}_#{style}", *args)
       end

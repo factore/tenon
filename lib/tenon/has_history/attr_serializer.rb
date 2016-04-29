@@ -6,7 +6,7 @@ module Tenon
       end
 
       def initialize(attrs, item_version)
-        @attrs = attrs
+        @attrs = attrs || {}
         @item_version = item_version
         @item_class = item_version.item_type.constantize
         @item = @item_version.item
@@ -28,15 +28,15 @@ module Tenon
       end
 
       def require_only_attrs!
-        @attrs = @attrs.select{ |k, v| only.include?(k) }
+        @attrs = @attrs.select { |k, _| only.include?(k) }
       end
 
       def remove_except_attrs!
-        @attrs = @attrs.reject{ |k, v| except.include?(k.to_sym) }
+        @attrs = @attrs.reject { |k, _| except.include?(k.to_sym) }
       end
 
       def remove_children!
-        @attrs = @attrs.reject do |k, v|
+        @attrs = @attrs.reject do |k, _|
           key = k.to_s
           relation = key.gsub(/_attributes$/, '')
           key.match(/_attributes$/) && !includes.include?(relation)

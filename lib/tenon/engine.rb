@@ -1,29 +1,18 @@
 require 'active_model_serializers'
 require 'client_side_validations'
 require 'cocoon'
-require 'coffee-rails'
 require 'date_time_attribute'
 require 'draper'
-require 'dynamic_form'
-require 'eco'
 require 'haml'
 require 'jquery-fileupload-rails'
 require 'jquery-rails'
-require 'jquery-ui-rails'
-require 'lodash-rails'
-require 'mediaelement_rails'
 require 'mime-types'
-require 'neat'
 require 'non-stupid-digest-assets'
-require 'normalize-rails'
 require 'paperclip'
 require 'paperclip_processors/cropper'
-require 'pickadate-rails'
 require 'pundit'
 require 'rails-settings-cached'
 require 'react-rails'
-require 'sass-rails'
-require 'sprockets/es6'
 require 'uuidtools'
 require 'will_paginate'
 
@@ -41,12 +30,20 @@ module Tenon
     end
 
     config.to_prepare do
-     ApplicationController.helper(Tenon::TenonHelper)
-     ApplicationController.helper(Tenon::BreadcrumbsHelper)
+      ApplicationController.helper(Tenon::TenonHelper)
+      ApplicationController.helper(Tenon::BreadcrumbsHelper)
+    end
+
+    if Rails.env.test?
+      config.paths['app/views'] << "test/fixtures/views"
     end
 
     initializer :assets do |config|
-      Rails.application.config.assets.precompile += ['tenon/application.js', 'tenon/tenon_manifest.js', 'tenon/*.png']
+      Rails.application.config.assets.precompile += [
+        'tenon/application.js',
+        'tenon/tenon_manifest.js',
+        'tenon/*.png'
+      ]
     end
   end
 end

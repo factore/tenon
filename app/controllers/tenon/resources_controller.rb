@@ -120,7 +120,7 @@ module Tenon
       else
         respond_to do |format|
           format.json do
-            render json: { errors: resource.errors }
+            render status: 422, json: { errors: resource.errors }
           end
         end
       end

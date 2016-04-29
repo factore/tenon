@@ -1,12 +1,10 @@
-= form_for @item_version, builder: Tenon::FormBuilder do |f|
-  .modal-body
-    .fields.full
-      .form-group
-        = f.text_field :title
-        = f.hidden_field :item_type
-        = f.hidden_field :item_id
+= form_for @item_version, builder: Tenon::FormBuilder, html: { class: 'modal modal--thin' } do |f|
+  .modal__content
+    = f.text_field :title
+    = f.hidden_field :item_type
+    = f.hidden_field :item_id
 
-      .spacer
 
-  .modal-footer
-    %button.btn.btn-secondary.submit Save Draft
+  .modal__footer
+    %button.modal__action{ type: 'submit' } Save Draft
+    %button.modal__action{ type: 'button', data: { modal_close: true } } Cancel

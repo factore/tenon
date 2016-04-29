@@ -1,14 +1,13 @@
-.flash.flash-notice
-  %p
-    You are viewing a draft version of this resource.  Hitting save will replace the active version with this version.
+.note
+  .note__icon announcement
 
-  %p Auto-saving is disabled when you are viewing a draft version.
+  .note__text
+    You are viewing a draft version of this resource.  Hitting save will replace the active version with this version. Auto-saving is disabled when you are viewing a draft version.
 
-  %p
-    %small
-      Draft
-      - unless @item_version.title.blank?
-        %strong "#{@item_version.title}"
+    .note__secondary
+      - if @item_version.title.present?
+        %strong #{@item_version.title}
+      - else
+        Draft
       was created on #{@item_version.created_at.strftime('%m/%d/%Y at %l:%M %p')}
       by #{@item_version.user.try(:email)}
-  = link_to content_tag(:i, 'close', class: 'material-icon'), '#', id: 'flash-dismiss'

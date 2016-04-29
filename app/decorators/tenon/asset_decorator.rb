@@ -17,31 +17,6 @@ module Tenon
       h.truncate(name, length: 50)
     end
 
-    def crop_link
-      h.action_link(
-        'Crop',
-        [:crop, object],
-        'crop',
-        class: 'asset-crop',
-        data: {
-          'asset-id' => object.id,
-          'post-crop-handler' => 'Tenon.features.AssetListPostCropHandler'
-        }
-      ) if object.attachment_content_type.include?('image') || object.attachment_content_type.include?('video')
-    end
-
-    def edit_link(opts = {})
-      defaults = {
-        'data-modal-remote' => true,
-        'data-modal-title' => 'Edit Asset'
-      }
-      super(opts.merge(defaults))
-    end
-
-    def download_link
-      h.action_link('Download', object.attachment.url, 'download', target: '_')
-    end
-
     def style_urls
       styles = object.attachment.styles.map do |key, style|
         [key, object.attachment.url(key)]

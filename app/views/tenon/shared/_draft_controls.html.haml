@@ -2,17 +2,17 @@
   Draft Versions
 
 %li.dropdown__item
-  = link_to new_item_version_path(item_type: class_for(obj), item_id: obj.id), data: { modal_remote: true, modal_handler: 'Tenon.features.NewItemVersionHandler', modal_title: 'Save Draft' }, class: 'dropdown__action action-icon' do
+  = link_to new_item_version_path(item_type: class_for(obj), item_id: obj.id), data: { modal_remote: true, modal_handler: 'NewItemVersionHandler', modal_title: 'Save Draft', dropdown_dismiss: true }, class: 'dropdown__action action-icon' do
     = i('cloud_upload')
     %span Safe Draft
 
 %li.dropdown__item
-  = link_to item_versions_path(item_type: obj.class.to_s, item_id: obj.id), data: { modal_remote: true, modal_handler: 'Tenon.features.ItemVersionIndexHandler', modal_title: 'Load Draft' }, class: 'dropdown__action action-icon' do
+  = link_to item_versions_path(item_type: obj.class.to_s, item_id: obj.id), data: { modal_remote: true, modal_handler: 'ItemVersionIndexHandler', modal_title: 'Load Draft', dropdown_dismiss: true }, class: 'dropdown__action action-icon' do
     = i('cloud_download')
     %span Load Draft
 
 - if params[:version]
   %li.dropdown__item
-    = link_to url_for(version: nil), class: 'dropdown__action action-icon' do
+    = link_to item_version_active_path(obj), class: 'dropdown__action action-icon' do
       = i('star')
       %span Load Active Version

@@ -14,14 +14,6 @@ module Tenon
       h.url_for([:edit, object])
     end
 
-    def edit_link(opts = {})
-      h.edit_link(object, opts)
-    end
-
-    def delete_link(opts = {})
-      h.delete_link(object, opts)
-    end
-
     def published?
       if object.try(:publish_at)
         object.publish_at <= Time.now

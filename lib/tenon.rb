@@ -3,7 +3,6 @@ require 'tenon/config/breakpoints.rb'
 require 'tenon/config/routing.rb'
 require 'tenon/config/grid.rb'
 require 'tenon/can_be_foreign.rb'
-require 'tenon/can_have_comments.rb'
 require 'tenon/filterers/base_filterer.rb'
 require 'tenon/has_asset.rb'
 require 'tenon/has_history.rb'
@@ -12,7 +11,6 @@ require 'tenon/proxy_attachment.rb'
 require 'tenon/asset_style_generator.rb'
 require 'tenon/reorderable.rb'
 require 'tenon/tenon_content.rb'
-require 'tenon/warning_generator.rb'
 
 module Tenon
   class << self

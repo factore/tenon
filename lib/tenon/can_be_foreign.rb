@@ -6,7 +6,7 @@ module Tenon
 
     module ClassMethods
       def foreign_fields
-        Tenon::I18nFields[to_s.downcase.to_sym]
+        Tenon::I18nLookup.fields[to_s.downcase.to_sym]
       end
     end
   end

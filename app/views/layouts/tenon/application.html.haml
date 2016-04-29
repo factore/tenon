@@ -23,16 +23,12 @@
   %body{data: { controller: params[:controller], action: params[:action] } }
     = flash_messages
 
-    = render 'tenon/shared/version_warning' if @item_version
     = render 'tenon/shared/burger'
     = render 'tenon/shared/util_nav', modifier: 'util-nav--in-toolbar'
 
     .main-nav-overlay{ data: { target: 'main-nav' } }
     #main-nav.main-nav-drawer.drawer
-      %p.app-info
-        = link_to '/tenon', class: 'app-info__link' do
-          = image_tag('tenon/tenon_icon.png', class: 'app-info__logo')
-          = Tenon::MySettings.site_title
+      = render 'tenon/shared/app_info'
 
       .app-info.app-info--account
         = link_to '#', class: 'app-info__link app-info__link--dropdown-button', data: { dropdown_activate: true } do
