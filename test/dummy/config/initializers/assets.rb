@@ -2,19 +2,15 @@
 Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += [
-  'tenon-wp-bundle.js',
-  'app-wp-bundle.js',
   'app.js',
-  'tenon/tenon.js',
-  'tenon-wp-bundle.css',
-  'app-wp-bundle.css',
+  'tenon.js',
   'app.css',
-  'tenon/tenon.css'
+  'tenon.css'
 ]
 
 if Rails.env.production?
   APP_FRONTEND_ASSET_PATH = 'app'
-  TENON_FRONTEND_ASSET_PATH = 'tenon/tenon'
+  TENON_FRONTEND_ASSET_PATH = 'tenon'
 
 else
   APP_FRONTEND_ASSET_PATH = '/app-wp-bundle'

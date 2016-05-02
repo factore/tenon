@@ -7,7 +7,7 @@ const babelSettings = {
 
 module.exports = {
   entry: {
-    application: './client/application',
+    app: './client/app',
     tenon: './client/tenon'
   },
   resolve: {
