@@ -13,6 +13,7 @@ test/dummy/public/ckeditor
 test/dummy/public/system
 test/dummy/tmp/
 test/dummy/node_modules
+test/dummy/client/build
 node_modules
 tags
 vendor/ruby

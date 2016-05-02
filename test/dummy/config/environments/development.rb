@@ -47,6 +47,13 @@ Dummy::Application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  config.action_controller.asset_host = proc { |source|
+    if source =~ /wp-bundle/i
+      src = Tenon.config.dev_assets
+      "#{src[:protocol]}://#{src[:host]}:#{src[:port]}#{src[:dir]}"
+    end
+  }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
