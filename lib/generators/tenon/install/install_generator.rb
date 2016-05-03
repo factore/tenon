@@ -6,9 +6,6 @@ module Tenon
       def copy_files
         copy_file('config/initializers/tenon.rb', File.join(Rails.root, 'config', 'initializers', 'tenon.rb'))
         copy_file('app/views/tenon/shared/_main_nav.html.haml', File.join(Rails.root, 'app', 'views', 'tenon', 'shared', '_main_nav.html.haml'))
-        copy_file('app/assets/stylesheets/tenon/colors-custom.scss', File.join(Rails.root, 'app', 'assets', 'stylesheets', 'tenon', 'colors-custom.scss'))
-        copy_file('lib/generators/tenon/install/tenon_addons.js', File.join(Rails.root, 'app', 'assets', 'javascripts', 'tenon_addons.js'))
-        FileUtils.mkdir_p(File.join(Rails.root, 'app', 'assets', 'javascripts', 'tenon'))
         directory('lib/ckeditor', Rails.root.join('public', 'ckeditor'))
 
         puts ''
