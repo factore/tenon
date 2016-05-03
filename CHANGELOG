@@ -1,3 +1,6 @@
+2.0.3 2016-05-03
+  * Fix dependency issues
+
 2.0.2 2016-05-03
   * Fix issues with ClientSideValidations gem
   * Bump to Rails 5.0.0beta4
