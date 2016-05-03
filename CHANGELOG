@@ -1,3 +1,6 @@
+2.0.5 2016-05-03
+  * Add dev_assets config to Tenon initializer
+
 2.0.4 2016-05-03
   * Remove asset installation tasks from tenon:install
 
