@@ -1,16 +1,14 @@
 const path = require('path');
+
 require('coffee-script').register();
 const babelSettings = {
   extends: path.join(__dirname, '/.babelrc')
 }
 
 module.exports = {
-  entry: './client/application.js',
-  output: {
-    path: __dirname + '/dist',
-    filename: 'bundle.js',
-    publicPath: 'http://localhost:9999/',
-    sourceMapFilename: '[file].map'
+  entry: {
+    app: './client/app',
+    tenon: './client/tenon'
   },
   resolve: {
     extensions: ["", ".webpack.js", ".web.js", ".js", ".coffee"]
@@ -27,11 +25,6 @@ module.exports = {
           path.join(__dirname, 'node_modules/tenon')
         ]
       },
-      { test: /\.css$/, loader: 'style!css' },
-      {
-        test: /\.scss$/,
-        loaders: ['style', 'css', 'sass']
-      }
     ]
   },
   sassLoader: {
@@ -40,6 +33,7 @@ module.exports = {
       ...require('bourbon').includePaths
     ]
   },
+  plugins: [],
   node: {
     fs: 'empty'
   }

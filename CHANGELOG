@@ -1,3 +1,10 @@
+2.0.2 2016-05-03
+  * Fix issues with ClientSideValidations gem
+  * Bump to Rails 5.0.0beta4
+
+2.0.1 2016-05-02
+  * Improve systems for building, serving, and deploying webpack assets w/ Rails in the test/dummy app.  These systems can (and will) be used as a sample for creating new Tenon-based projects.
+
 2.0.0 2016-04-01
   * Removed standard resources from base Tenon.  They have been placed in the dummy amp:
     - Tenon::Comment
