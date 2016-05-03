@@ -32,6 +32,13 @@ Rails.application.configure do
 
   config.assets.paths << "#{Rails.root}/client/build/assets"
 
+  config.assets.precompile += [
+    'app.js',
+    'tenon.js',
+    'app.css',
+    'tenon.css'
+  ]
+
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
