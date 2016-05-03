@@ -2,6 +2,15 @@
 # by the site developer.  There is a Settings module built into Tenon
 # where you can expose other settings to your client.
 Tenon.configure do |config|
+  # Define the details of the server that will be serving JS and CSS
+  # assets in development
+  config.dev_assets = {
+    protocol: 'http',
+    host: 'localhost',
+    port: '9999',
+    dir: '/assets'
+  }
+
   # Define all your breakpoints and associated tenon_content widths.
   # This is necessary because you may have multiple models with tenon_content
   # with different maximum widths and therefore different widths at various
