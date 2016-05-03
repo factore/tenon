@@ -10,7 +10,8 @@
       = Tenon::MySettings.site_title.present? ? Tenon::MySettings.site_title : 'Tenon'
 
     = stylesheet_link_tag '//fonts.googleapis.com/icon?family=Material+Icons'
-    = render 'tenon/shared/assets'
+    = stylesheet_link_tag 'tenon/tenon'
+    = javascript_include_tag 'tenon/tenon_manifest'
     = yield :scripts
 
   %body{ data: {controller: controller_name, action: action_name} }
