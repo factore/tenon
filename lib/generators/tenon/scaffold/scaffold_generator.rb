@@ -99,7 +99,7 @@ module Tenon
       def add_menu_item
         case behavior
         when :invoke
-          say 'Add the following line to app/views/tenon/shared/_main_nav.html.haml:'
+          say 'You can add the following line to app/views/tenon/shared/_main_nav.html.haml:'
           say " = nav_item '#{class_name.pluralize.titleize}', #{plural_name}_path, 'star'"
         when :revoke
           say %(Don't forget to remove the nav_item entry from app/views/tenon/shared/_main_nav.html.haml)
