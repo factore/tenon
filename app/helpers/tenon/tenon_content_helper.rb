@@ -2,8 +2,11 @@ module Tenon
   module TenonContentHelper
     def row_link(title, row_type, field, f)
       opts = {
-        'data-association-insertion-node' => "##{field}-tenon-content",
-        'data-association-insertion-method' => 'append',
+        data: {
+          association_insertion_node: '.tn-tc__rows',
+          association_insertion_method: 'append',
+          searchable_title: title.downcase
+        },
         'data-searchable-title' => title.downcase,
         partial: 'tenon/tenon_content/row',
         render_options: {

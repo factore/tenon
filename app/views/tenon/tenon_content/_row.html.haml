@@ -10,7 +10,7 @@
         %i.material-icon.delete delete
 
     .tn-tc-row__action--right
-      = link_to '#', class: 'above', data: { modal_target: ".tn-tc-library", modal_closest: '.tn-tc', modal_title: "Insert Content", modal_handler: 'TenonContentLibrary', modal_clone: 'true', tooltip: '', tn_tc_insert: 'before' }, title: 'Insert Content' do
+      = link_to '#', class: 'above', data: { modal_target: "[data-tn-tc-library]", modal_closest: '.tn-tc', modal_handler: 'TenonContentLibrary', modal_clone: 'true', tn_tc_insert: 'before' }, title: 'Insert Content' do
         %i.material-icon playlist_add
 
 

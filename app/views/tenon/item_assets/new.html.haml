@@ -1,16 +1,18 @@
 .modal.modal--fixed-footer
   .modal__content
-    %h2 Choose Asset
     - unless params[:hide_upload]
       .upload-asset
-        %h3 From Your Device
+        %h4 Upload an Asset from your Device
         .progress-container
         = form_for Tenon::Asset.new, format: 'json', builder: Tenon::FormBuilder do |f|
           .input-block
             %label.btn{ for: 'file-upload' } Browse
             %input#file-upload.upload{ type: 'file', multiple: defined?(multiple) && multiple, style: 'position: absolute; left: -9999px;', name: 'asset[attachment]' }
 
-    %h3 From The Asset Library
+      .word-line
+        .word-line__word or
+
+    %h4 Choose an Asset from the Asset Library
     #pick-asset
       = react_component 'Tenon.RI.StandaloneList',
         title: 'Assets',

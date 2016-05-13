@@ -7,6 +7,9 @@ class <%= class_name %> < ApplicationRecord # :nodoc:
 <% attributes.select { |a| a.type.to_s == 'asset' }.each do |f| -%>
   has_asset :<%= f.name %>
 <% end -%>
+<% attributes.select { |a| a.type.to_s.in? %w( timestamp datetime ) }.each do |f| -%>
+  date_time_attribute :<%= f.name %>
+<% end -%>
 <% if attributes.any? { |a| a.name.to_s == 'publish_at' } -%>
   scope :published, -> { where('<%= table_name %>.publish_at < ?', Time.now) }
 <% end -%>

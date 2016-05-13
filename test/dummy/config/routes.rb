@@ -7,6 +7,15 @@ end
 
 # Back End, i.e. the Tenon UI
 Tenon::Engine.routes.draw do
+  resources :articles do 
+    post    'reorder', on: :collection 
+    end
+  resources :articles do 
+    post    'reorder', on: :collection 
+    end
+  resources :articles do 
+    post    'reorder', on: :collection 
+    end
   devise_for :users, controllers: { sessions: 'devise/sessions', passwords: 'devise/passwords' }
   resources :users, except: [:show] do
     get 'approve', on: :member
