@@ -49,7 +49,7 @@ GIT
 PATH
   remote: .
   specs:
-    tenon (2.0.7)
+    tenon (2.0.8)
       active_model_serializers
       awesome_nested_set
       cocoon

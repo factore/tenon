@@ -1,3 +1,11 @@
+2.0.8 2016-05-13
+  * Fix issues with Tenon Content
+  * Fix issue where f.date_picker uses the wrong field name
+  * Fix issue where generated models don't have date_time_attribute applied
+    to relevant fields
+  * Re-style asset modal
+
+
 2.0.7 2016-05-12
   * Fix issue where scaffold-generated index views referenced
     wrong component name
