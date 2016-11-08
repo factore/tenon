@@ -46,10 +46,9 @@ Tenon::Engine.routes.draw do
     get 'toggle_active', :on => :member
   end
 
-  resources :users, :except => [:show] do
+  resources :users, path: :user_management, :except => [:show] do
     get 'approve', :on => :member
   end
 
   root :to => Tenon.config.routing.root
 end
-
