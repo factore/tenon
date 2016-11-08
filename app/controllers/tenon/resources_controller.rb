@@ -1,5 +1,7 @@
 module Tenon
   class ResourcesController < BaseController
+    serialization_scope :view_context
+
     wrap_parameters format: [:json]
     respond_to :html, :json, :js
     after_action :verify_authorized
@@ -16,12 +18,19 @@ module Tenon
           self.collection = filterer.filter
           self.collection = collection.paginate(per_page: 50, page: params[:page])
           self.collection = Tenon::PaginatingDecorator.decorate(collection)
-          respond_with(
-            collection,
-            serializer: Tenon::PaginatingSerializer,
-            each_serializer: ActiveModel::Serializer.serializer_for(klass.new),
-            root: 'records'
-          )
+          render json: collection,
+                 each_serializer: serializer,
+                 root: 'records',
+                 adapter: :json,
+                 meta: {
+                  pagination: {
+                    current_page: collection.current_page,
+                    per_page: collection.per_page,
+                    offset: collection.offset,
+                    total_pages: collection.total_pages,
+                    total_entries: collection.total_entries
+                  }
+                }
         end
       end
     end
@@ -75,7 +84,7 @@ module Tenon
 
         format.json do
           if resource.valid?
-            render json: resource
+            render json: resource, root: 'record', adapter: :json
           else
             render status: 422, json: { errors: resource.errors }
           end
@@ -103,7 +112,7 @@ module Tenon
 
         format.json do
           if resource.valid?
-            render json: resource
+            render json: resource, root: 'record', adapter: :json
           else
             render status: 422, json: { errors: resource.errors }
           end
@@ -134,9 +143,8 @@ module Tenon
 
     private
 
-    # Serializer Setup Methods
-    def default_serializer_options
-      { root: 'record', scope: view_context }
+    def serializer
+      ActiveModel::Serializer.serializer_for(klass.new)
     end
 
     # Override these to execute code after resources are loaded

@@ -15,21 +15,17 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.coffee$/, loader: 'coffee-loader' },
       {
         test: /\.js$/,
-        // exclude: /node_modules/,
+        exclude: /node_modules/,
         loaders: ['react-hot', 'babel?' + JSON.stringify(babelSettings)],
-        include: [
-          path.join(__dirname, 'client'),
-          path.join(__dirname, 'node_modules/tenon')
-        ]
-      },
+        include: [path.join(__dirname, 'client')]
+      }
     ]
   },
   sassLoader: {
     includePaths: [
-      ...require('tenon/stylesheets').includePaths,
+      ...require('tenon-scss').includePaths,
       ...require('bourbon').includePaths
     ]
   },

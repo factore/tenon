@@ -1,5 +1,6 @@
-= react_component 'ResourceIndexRoot',
+= react_component 'Tenon.RI.Root',
     title: 'Assets',
     breadcrumbs: breadcrumb_links,
     recordsPath: assets_path(format: 'json'),
-    newPath: new_asset_path
+    newPath: new_asset_path,
+    childComponentNames: { List: 'AssetList', Record: 'AssetRecord' }

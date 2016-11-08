@@ -1,3 +1,8 @@
+2.1.0 2016-11-08
+  * Upgrade active_model_serializers
+  * Upgrade compatibility with new distributed Tenon Javascript
+  * Add yarn for JS dependency management
+
 2.0.8 2016-05-13
   * Fix issues with Tenon Content
   * Fix issue where f.date_picker uses the wrong field name

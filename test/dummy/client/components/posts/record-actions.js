@@ -1,7 +1,5 @@
 import React from 'react';
-import Dropdown from 'tenon/components/shared/dropdown';
-import DropdownMenu from 'tenon/components/shared/dropdown-menu';
-import DropdownButton from 'tenon/components/shared/dropdown-button';
+import { Dropdown, DropdownMenu, DropdownButton } from 'tenon-components';
 
 module.exports = (props) => {
   const editPath = props.record.edit_path;

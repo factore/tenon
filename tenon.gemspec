@@ -17,7 +17,6 @@ Gem::Specification.new do |s|
   s.test_files = Dir['spec/**/*'] - Dir['spec/dummy/**/*']
 
   s.add_development_dependency 'capybara'
-  s.add_development_dependency 'capybara-webkit'
   s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'factory_girl_rails'
   s.add_development_dependency 'quiet_assets'
@@ -33,9 +32,9 @@ Gem::Specification.new do |s|
   s.add_dependency 'uglifier'
 
   # The actual gem dependencies
-  s.add_dependency 'rails', '>= 5.0.0.rc1', '< 5.1.0'
+  s.add_dependency 'rails', '>= 5.0.0', '< 5.1.0'
 
-  s.add_dependency 'active_model_serializers'
+  s.add_dependency 'active_model_serializers', '>= 0.10.0'
   s.add_dependency 'cocoon'
   s.add_dependency 'date_time_attribute'
   s.add_dependency 'haml'

@@ -1,7 +1,7 @@
 # Helpful serializer for including pagination meta
 # Source: http://stackoverflow.com/a/23002614/131208
 module Tenon
-  class PaginatingSerializer < ActiveModel::ArraySerializer
+  class PaginatingSerializer < ActiveModel::Serializer::CollectionSerializer
     def initialize(object, options = {})
       meta_key = options[:meta_key] || :meta
       options[meta_key] ||= {}

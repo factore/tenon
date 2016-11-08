@@ -16,7 +16,7 @@ module Tenon
       klass.to_s.underscore
     end
 
-    def attributes
+    def attributes(*args)
       super.merge(default_attributes)
     end
 
@@ -28,9 +28,9 @@ module Tenon
         title: object.title,
         to_param: object.to_param,
         resource_type: resource_type,
-        edit_path: scope.polymorphic_path([:edit, object]),
-        update_path: scope.polymorphic_path(object),
-        destroy_path: scope.polymorphic_path(object)
+        edit_path: view_context.polymorphic_path([:edit, object]),
+        update_path: view_context.polymorphic_path(object),
+        destroy_path: view_context.polymorphic_path(object)
       }
     end
   end

@@ -1,0 +1,15 @@
+.drawer-pusher
+  .toolbar
+
+  %main
+    = react_component 'Tenon.RI.StandaloneList',
+      recordsPath: posts_path(format: 'json'),
+      title: 'Posts',
+      childComponentNames: { RecordTitle: 'posts.RecordTitle',
+                             RecordActions: 'posts.RecordActions',
+                             RecordExpandedContent: 'posts.RecordExpandedContent' }
+
+    = react_component 'Tenon.RI.StandaloneList',
+      recordsPath: post_categories_path(format: 'json'),
+      title: 'Post Categories',
+      childComponentNames: { Record: 'DefaultRecord', RecordTitle: 'DefaultRecordTitle' }

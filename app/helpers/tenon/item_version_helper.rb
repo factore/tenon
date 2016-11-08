@@ -17,7 +17,7 @@ module Tenon
       css_class = 'draft'
       data = {
         'modal-remote' => true,
-        'modal-handler' => 'Tenon.features.NewItemVersionHandler',
+        'modal-handler' => 'NewItemVersionHandler',
         'modal-title' => 'Save Draft'
       }
       link_to path, class: css_class, data: data do
@@ -36,7 +36,7 @@ module Tenon
       data = {
         'modal-remote' => true,
         'modal-title' => 'Load Draft',
-        'modal-handler' => 'Tenon.features.ItemVersionIndexHandler'
+        'modal-handler' => 'ItemVersionIndexHandler'
       }
       link_to 'Load Draft', path, class: 'delete-link', data: data
     end

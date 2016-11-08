@@ -7,7 +7,7 @@
   - if f.object.image
     = backend_piece_image_tag(f.object)
   - else
-    = link_to(new_item_asset_path, class: 'tn-tc-fields__add-image', data: { 'modal-remote' => true, 'modal-title' => "Select Image", 'modal-handler' => 'Tenon.features.tenonContent.AssetAttachment' }) do
+    = link_to(new_item_asset_path, class: 'tn-tc-fields__add-image', data: { 'modal-remote' => true, 'modal-title' => "Select Image", 'modal-handler' => 'TenonContentAssetAttachment' }) do
       %span Add Image
 
   = f.super_text_area :caption, class: 'tn-tc-fields__caption', placeholder: 'Enter caption here...', data: { image_caption: true }, style: ("display: none;" unless f.object.show_caption)
@@ -50,7 +50,7 @@
         %button.add-link.medium-editor-toolbar__action{ title: 'Add Link', class: ('medium-editor-button-active' unless f.object.link_url.blank?), data: { tooltip: true } }
           %i.material-icon.material-icon--smaller-on-min link
       %li
-        %button{ href: new_item_asset_path, title: 'Replace Image', class: 'replace-image medium-editor-toolbar__action  medium-editor-button-last', data: { 'modal-remote' => 'true', 'modal-title' => "Select Image", 'modal-handler' => 'Tenon.features.tenonContent.AssetAttachment', 'tooltip' => true } }
+        %button{ href: new_item_asset_path, title: 'Replace Image', class: 'replace-image medium-editor-toolbar__action  medium-editor-button-last', data: { 'modal-remote' => 'true', 'modal-title' => "Select Image", 'modal-handler' => 'TenonContentAssetAttachment', 'tooltip' => true } }
           %i.material-icon.material-icon--smaller-on-min photo_library
 
     .medium-editor-toolbar-form-anchor

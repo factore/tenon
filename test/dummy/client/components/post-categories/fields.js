@@ -1,5 +1,5 @@
 import React from 'react';
-import TextField from 'tenon/components/shared/text-field';
+import { TextField } from 'tenon-components';
 
 module.exports = (props) => {
   const { currentRecord, currentRecordErrors } = props.data;

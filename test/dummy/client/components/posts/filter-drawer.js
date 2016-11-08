@@ -1,8 +1,7 @@
 import React from 'react';
-import TextField from 'tenon/components/shared/text-field';
-import DatepickerField from 'tenon/components/shared/datepicker-field';
-import SelectField from 'tenon/components/shared/select-field';
-import CheckBoxField from 'tenon/components/shared/check-box-field';
+import {
+  TextField, DatepickerField, SelectField, CheckBoxField
+} from 'tenon-components';
 
 module.exports = ({ data, onChange }) => {
   const query = data.query;
