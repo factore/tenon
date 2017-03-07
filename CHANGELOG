@@ -1,3 +1,6 @@
+1.1.8 2017-03-07
+  * Fix error when trying to load draft
+
 1.1.7 2016-12-14
   * Updating select2 assets (css/js) from 3.4.8 to 4.0.3
 
